@@ -338,3 +338,7 @@ Notes:
   - The v1 baseline (§2.6 + FB_GridGuard + loggers) finishes S1/S2 with no trip and 100 % EV. Team_Results matches SimScore to 0.00000 %. Costs: S1 241,770.34 €, S2 223,428.54 €. Archive: `deliver/ME_v1_baseline.projectarchive`.
   - Sim_Core quirk: an EV departing at step k reports P_charge_act = 0 for interval k−1, but SimScore still counts that energy. The logger substitutes our clamped command for that interval.
   - Python twin `tools/twin.py` reproduces ME exactly. Strategy prototypes are in `tools/strategies.py`, and `tools/tune.py` runs them in parallel.
+  - 23:45: archived `deliver/ME_v2_dp_planner` and `deliver/ME_v3_coldstart`. v3 costs: S1 205,877 €, S2 171,603 €. No trip, EV 100 %, logging exact.
+    - The rolling DP planner has to stay under about 30k inner operations per step. At about 150k operations a step takes about 20 ms, and the online connection to the simulator drops.
+    - The strategy summary is in `work/PROGRESS.md`.
+  - 23:30: the user set the priority. Keep optimising ME cost toward the DP-oracle bound (twin S1 201,921 € / S2 167,859 €). Track the gap to the oracle and robustness on 4 synthetic datasets. Parallel twin batches (≤ 8 processes while ME runs). Stop at a plateau (< 0.5 % per round). Teammates are working on TIA.

@@ -1,6 +1,6 @@
 # ME Energy Manager: progress (implementation agent)
 
-STATUS: ME_v2_dp_planner archived: S1 206 341 € (−35.4k vs baseline), S2 171 579 € (−51.9k), no trip, EV 100 %, logging 0.00000 %. Working on v5 tuning (Fri 23:20)
+STATUS: ME_v3_coldstart archived: S1 205 877 € (−35.9k vs baseline), S2 171 603 € (−51.8k), no trip, EV 100 %, logging 0.00000 %, step ≈ 5.7 ms. Fine tuning S2 in twin (Fri 23:45)
 
 ## Results
 | Version | Scen | finished | tripped | cost_total € | E_ev kWh | E_ev_unmet kWh | EV % | max log dev |
@@ -12,6 +12,8 @@ STATUS: ME_v2_dp_planner archived: S1 206 341 € (−35.4k vs baseline), S2 171
 | v3 (ME) | S2 | – | – | aborted: online connection lost (step > 10 ms, see log) | | | | |
 | **v4 = ME_v2_dp_planner**: v3 + DP 40 kWh levels, horizon ≤ 96 (ME) | S1 | yes | no | **206 341.27** | 10 363.06 | 0.00 | 100.000 | 0.00000 % |
 | **v4 = ME_v2_dp_planner** (ME) | S2 | yes | no | **171 578.56** | 10 363.06 | 0.00 | 100.000 | 0.00000 % |
+| **v5 = ME_v3_coldstart** (ME, 5 ms cycle) | S1 | yes | no | **205 877.07** | 10 363.06 | 0.00 | 100.000 | 0.00000 % |
+| **v5 = ME_v3_coldstart** (ME, 5 ms cycle) | S2 | yes | no | **171 602.67** | 10 363.06 | 0.00 | 100.000 | 0.00000 % |
 | twin: DP oracle (perfect forecast, reference only) | S1 | | | 201 921 | | 0 | 100 | |
 | twin: DP oracle | S2 | | | 167 859 | | 0 | 100 | |
 | twin: DP + EMA forecast (default) | S1 | | | 210 332 | | 0 | 100 | |
@@ -36,6 +38,34 @@ Archive: deliver/ME_v1_baseline.projectarchive (39.5 MB).
 - 21:23 M2/M3 verified in ME (results table). M4: archive saved. HMI variable list written: work/HMI_VARIABLES.md.
 - 21:30 M5: Python twin (tools/twin.py, strategies.py, tune.py, analyze.py) + rolling-horizon DP planner (battery energy 0..1200 kWh in 20 kWh levels, 96-step horizon, monthly peak cap by bisection). ST port: FB_Forecast, FB_Planner, F_StageCost, F_DayType, FB_Strategy mode 1 (not yet built/run in ME).
 
+## Strategy summary (for slides / code review)
+- **Structure (folder `Team`):** Team_Main sequences the work. On each new step it runs: 1) detect new step / reset, 2) FB_EnergyLogger + FB_CostLogger for interval k−1, 3) FB_Strategy (FB_Forecast → FB_Planner) → FB_GridGuard → simCmd, 4) remember k values, 5) FB_HmiUpdate. Everything is keyed on simOut.t_sim.k and stamp, with no timers and no PLC clock, so the result is independent of the cycle time (5 ms and 10 ms give the same cost).
+- **Grid protection (FB_GridGuard, always last):** it predicts P_grid = FEC − PV + ΣEV − P_bess using the simulator's own clamps (SoC limits, EV remaining energy, available PV), with a 1 kW margin.
+  - Import over the limit: release voluntary curtailment, then discharge more, then shed EV power (largest slack first).
+  - Export over the limit: charge more, then curtail PV.
+  - The two BESS enables come from one signed setpoint, so they are never both TRUE.
+  - Measured max prediction error is 0.001 kW.
+- **Forecast (FB_Forecast), past data only:**
+  - FEC: EMA per day type (Mon–Fri / Sat / Sun) × quarter-hour (α 0.5), plus the mean absolute deviation σ.
+  - PV: EMA per quarter-hour (α 0.3).
+  - Intraday correction: actual/profile ratio over the last 4 intervals, fading with τ = 16 steps.
+  - Cold start: unlearned quarter-hours assume the highest load seen so far.
+  - EVs: remaining energy, charged as soon as possible.
+- **Planner (FB_Planner), rolling-horizon MPC re-solved every step:**
+  1. Monthly peak cap: the peak already reached this month is sunk, so import up to it is free. A bisection finds the lowest cap the battery can hold over the pessimistic forecast (PV × 0.6, FEC + 1σ in two-tariff mode).
+  2. Dynamic programming over stored energy (31 levels × 9 actions × 96 steps ≈ 27k operations per step). The cost is import·(price + grid fee) − export·0.9·price (export at a negative price is worth 0, so PV is curtailed instead), plus a penalty above the cap. The terminal value is 0.9 × the mean import price.
+  3. The first step is chosen from 21+ continuous candidates using the exact current values.
+- **Prices:** Team_Prices holds the price lists. The two-tariff energy price is a 2×4 table (quarter × VT/NT). Day-ahead prices are 35040 REALs. With day-ahead prices the horizon only reaches as far as prices are published: tomorrow becomes visible after 13:00, and the horizon is capped at 96 steps.
+- **EVs:** always charged at maximum feasible power, so EV energy is 100 %. Deadline-aware scheduling was tested in the twin and gave only −10 € (S1) / −180 € (S2), so it was not adopted.
+- **Logging check:** every value in Team_Results equals SimScore.total to within 0.00001 % in both scenarios.
+  - Interval k−1 is logged at step k, using the FEC, day, month and tariff remembered from the previous step.
+  - At k = 0 everything resets, and the final call (k = 35040) logs the last interval.
+  - An EV that departs at step k is reported with P_charge_act = 0 for interval k−1, so we log our own feasibility-clamped command for that interval instead.
+- **Tuning method:** a Python twin of Sim_Core (tools/twin.py) reproduces ME exactly for the baseline and within 0.1 % for the planner. Parameters were chosen on the mean over 4 synthetic datasets with the same statistics (FEC shifted by whole weeks, PV and EV shifted), to avoid overfitting the practice data.
+  - Perfect-forecast reference: S1 201.9k, S2 167.9k.
+  - Ours: S1 205.9k, S2 171.6k.
+  - Baseline: S1 241.8k, S2 223.4k.
+
 ## Findings (simulator behaviour, from Sim_Core)
 - Trip if import > 1000+1e-6 or export > 499+1e-6 (strict >, LREAL). Clamps: charge ≤ (90−SoC)/100·1500/(0.25·0.95), discharge ≤ (SoC−10)/100·1500·0.95/0.25, EV ≤ min(22, E_req/(0.25·0.9)).
 - **EV departure quirk:** when an EV departs at step k, Sim_Core sets evPact[j]=0 *before* publishing, so EV[j].P_charge_act = 0 for the interval k−1 even though SimScore counted that energy. Logger uses our own (already feasibility-clamped) command for the departing interval.
@@ -50,7 +80,8 @@ Archive: deliver/ME_v1_baseline.projectarchive (39.5 MB).
 
 - 22:55 Root cause of the S2 hangs: DP too heavy (DA horizon up to 140 steps × 61 levels × 18 actions ≈ 154k ops/step → ~20 ms/step > 10 ms cycle → online connection starves). Fixed: 40 kWh levels (31 × 9) and horizon ≤ 96 → ≈ 27k ops/step; both scenarios now run at ~94 steps/s like the baseline. Twin: no loss in S1, +0.8k in S2.
 - 23:15 v4 verified in ME (table) and archived: deliver/ME_v2_dp_planner.projectarchive (+ source snapshot deliver/ME_v2_src/). Twin = ME within 200 € (S1) / 7 € (S2).
-- 23:15 Next (v5): cold-start fallback (unlearned quarter-hours use the highest FEC seen so far): twin −330 € S1, ±0 S2.
+- 23:40 v5 verified in ME at 5 ms cycle (≈176 steps/s → full step incl. simulator ≈ 5.7 ms, ~45 % headroom vs 10 ms) and archived: deliver/ME_v3_coldstart.projectarchive (+ deliver/ME_v3_src/).
+- 23:15 v5: cold-start fallback (unlearned quarter-hours use the highest FEC seen so far): twin −330 € S1, ±0 S2.
 
 ## BLOCKERS / pending confirmation
 - Price tables in our own GVL `Team_Prices` (allowed as "cjenici" per spec §4.1/§5; spec §3.7 says prices come as separate CSVs): **pending organizer confirmation** that the evaluation dataset uses the same 2025 prices.
