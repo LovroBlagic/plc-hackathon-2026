@@ -1,6 +1,6 @@
 # ME Energy Manager: progress (implementation agent)
 
-STATUS: ME_v3_coldstart archived: S1 205 877 € (−35.9k vs baseline), S2 171 603 € (−51.8k), no trip, EV 100 %, logging 0.00000 %, step ≈ 5.7 ms. Fine tuning S2 in twin (Fri 23:45)
+STATUS: best archived ME_v4_pvf_da (S1 205 877 / S2 170 232 €; practice-data gap to oracle 1.96 % / 1.41 %). Next round: soft peak penalty, forecast tweaks (Sat 00:55)
 
 ## Results
 | Version | Scen | finished | tripped | cost_total € | E_ev kWh | E_ev_unmet kWh | EV % | max log dev |
@@ -14,10 +14,24 @@ STATUS: ME_v3_coldstart archived: S1 205 877 € (−35.9k vs baseline), S2 171 
 | **v4 = ME_v2_dp_planner** (ME) | S2 | yes | no | **171 578.56** | 10 363.06 | 0.00 | 100.000 | 0.00000 % |
 | **v5 = ME_v3_coldstart** (ME, 5 ms cycle) | S1 | yes | no | **205 877.07** | 10 363.06 | 0.00 | 100.000 | 0.00000 % |
 | **v5 = ME_v3_coldstart** (ME, 5 ms cycle) | S2 | yes | no | **171 602.67** | 10 363.06 | 0.00 | 100.000 | 0.00000 % |
+| **v6 = ME_v4_pvf_da** (S1 code identical to v5) | S1 | yes | no | 205 877.07 (v5 run) | 10 363.06 | 0.00 | 100.000 | 0.00000 % |
+| **v6 = ME_v4_pvf_da**: S2 PV derate 0.2 (ME) | S2 | yes | no | **170 231.63** | 10 363.06 | 0.00 | 100.000 | 0.00000 % |
 | twin: DP oracle (perfect forecast, reference only) | S1 | | | 201 921 | | 0 | 100 | |
 | twin: DP oracle | S2 | | | 167 859 | | 0 | 100 | |
 | twin: DP + EMA forecast (default) | S1 | | | 210 332 | | 0 | 100 | |
 | twin: DP + EMA forecast (default) | S2 | | | 174 204 | | 0 | 100 | |
+
+### Gap to oracle (target = DP with perfect forecast, no reserve; twin)
+Mean over 4 datasets (v0 = practice data, v1–v3 = synthetic with the same statistics):
+| Version | S1 mean € | S1 gap | S2 mean € | S2 gap |
+|---|---|---|---|---|
+| oracle bound | 200 927 | – | 166 079 | – |
+| baseline §2.6 | 241 641 | +40 714 (20.3 %) | 222 726 | +56 647 (34.1 %) |
+| v4 = ME_v2_dp_planner | 205 358 | +4 431 (2.2 %) | 170 919 | +4 840 (2.9 %) |
+| v5 = ME_v3_coldstart | 205 027 | +4 100 (2.0 %) | 170 944 | +4 865 (2.9 %) |
+| v6 = ME_v4_pvf_da (S2 PV derate 0.2) | 205 027 | +4 100 (2.0 %) | 169 214 | +3 135 (1.9 %) |
+
+Practice data only (ME vs oracle v0 S1 201 921 / S2 167 859): ME_v3 S1 205 877 (+3 956, 1.96 %), S2 171 603 (+3 744, 2.23 %); ME_v4 S2 170 232 (+2 373, 1.41 %).
 
 Robust twin evaluation (mean over 4 synthetic datasets with the same statistics: FEC shifted by whole weeks, PV by days, EV by weeks; tools/grid.py):
 | Config | S1 mean € | S2 mean € |
@@ -82,6 +96,8 @@ Archive: deliver/ME_v1_baseline.projectarchive (39.5 MB).
 - 23:15 v4 verified in ME (table) and archived: deliver/ME_v2_dp_planner.projectarchive (+ source snapshot deliver/ME_v2_src/). Twin = ME within 200 € (S1) / 7 € (S2).
 - 23:40 v5 verified in ME at 5 ms cycle (≈176 steps/s → full step incl. simulator ≈ 5.7 ms, ~45 % headroom vs 10 ms) and archived: deliver/ME_v3_coldstart.projectarchive (+ deliver/ME_v3_src/).
 - 23:15 v5: cold-start fallback (unlearned quarter-hours use the highest FEC seen so far): twin −330 € S1, ±0 S2.
+
+- 00:35 (Sat) Orchestrator: keep optimising toward the oracle bound. Oracle recomputed properly (no reserve in DP; earlier run with hi_in_dp default was not a valid bound). Tested: explicit monthly cap selection by DP cost × remaining days (+6k worse; with weight 0.05 only −255 €, not worth ST complexity); S2 PV derate 0.2 in the cap (−1.7k, robust on all 4 datasets) → ported to ST (PLAN_PVF_TT/DA), confirmed in ME (S2 170 231.63, −1 371) and archived as deliver/ME_v4_pvf_da.projectarchive (+ ME_v4_src). Median-of-N forecasts: no gain. S1 sweep: σ factor 0.75 −400 €, a_fec 0.3 −140 € (small).
 
 ## BLOCKERS / pending confirmation
 - Price tables in our own GVL `Team_Prices` (allowed as "cjenici" per spec §4.1/§5; spec §3.7 says prices come as separate CSVs): **pending organizer confirmation** that the evaluation dataset uses the same 2025 prices.

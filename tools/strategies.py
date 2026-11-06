@@ -136,7 +136,7 @@ def dp_strategy(H=96, dE=20.0, pen=20.0, tvf=0.9, pvf=0.6, cap_margin=1.02, real
                 a_fec=0.5, a_pv=0.3, oracle=False, nacts=21, neg_curt=True, peak_mode=True, dbg=None,
                 ksig=0.0, a_sig=0.3, hi_in_dp=True, qf=0.0, cw=0, ctau=16.0, cpv=True, cfec=True,
                 ev_mode=0, ev_margin=2, tsplit=False, hmax=192, coldmax=False,
-                capsel=None, capsel_w=1.0, med=0):
+                capsel=None, capsel_w=1.0, med=0, psoft=0.0, tvhist=False):
     fc = Forecaster(a_fec, a_pv, a_sig, cw, ctau, cpv, cfec)
     fc.med = med
     fc.coldmax = coldmax
@@ -158,6 +158,8 @@ def dp_strategy(H=96, dE=20.0, pen=20.0, tvf=0.9, pvf=0.6, cap_margin=1.02, real
         g = n - b
         imp = np.maximum(g, 0.0); ex = np.minimum(np.maximum(-g, 0.0), LIM_EXP)
         c = imp * TS * ci - ex * TS * ce + qf * imp * imp * TS / 1000.0
+        if psoft > 0.0:
+            c = c + psoft * np.maximum(g - st["T"], 0.0)
         if peak_mode:
             if Th is None:
                 c = c + pen * np.maximum(nh - b - T, 0.0)
@@ -257,7 +259,13 @@ def dp_strategy(H=96, dE=20.0, pen=20.0, tvf=0.9, pvf=0.6, cap_margin=1.02, real
         else:
             Te = T
             Th = T
-        tv = float(np.mean(ci)) * tvf
+        hist = st.setdefault("cihist", [])
+        hist.append(ci[0]); 
+        if len(hist) > 96: hist.pop(0)
+        if tvhist:   # terminal value from the price of the last 24 h (+ horizon), not only the horizon
+            tv = 0.5 * (float(np.mean(hist)) + float(np.mean(ci))) * tvf
+        else:
+            tv = float(np.mean(ci)) * tvf
 
         def backward(Te_, Th_):
             V = -(np.arange(NS + 1) * dE) * tv
