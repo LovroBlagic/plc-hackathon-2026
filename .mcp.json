@@ -8,7 +8,7 @@
     "windows-mcp": {
       "type": "stdio",
       "command": "uvx",
-      "args": ["windows-mcp", "serve"]
+      "args": ["windows-mcp@0.8.8", "serve"]
     }
   }
 }

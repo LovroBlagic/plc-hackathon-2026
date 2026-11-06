@@ -117,6 +117,8 @@ Then improve: peak shaving, tariff and price arbitrage, EV deadline scheduling.
 - The HEP web pages show their tables as images and currently list **2026** prices, so the simulator's own data is the authoritative source for 2025.
 - `me.ps1` gotcha: PowerShell treats `--out` as its own `-OutVariable`. Call LogicBuilderShell.exe directly for scripts with `--out`.
 
+> **Stack and setup:** STACK.md lists all tools, versions, MCPs, skills and the plugin. SETUP.md covers teammate installation. Shared MCP config is in `.mcp.json`; plugin config is in `.claude/settings.json`.
+
 ## ORGANIZER CLARIFICATIONS (official, always apply)
 - **6 Nov ~22:10, TIA crane task** (the organizers call it "zadatak 1"): "U tekstu zadatka je greškom ostalo zapisano da postoji bay i s lijeve i s desne strane broda. Samo je jedan bay." There is only **one yard bay, Bay 1**, next to the ship. **Bay 2 does not exist.**
   - Ignore every Bay 2 formula and the FB1 description "2 – field right of ship".

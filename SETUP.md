@@ -1,4 +1,5 @@
 # Teammate setup: Claude Code + PLC tooling
+> The full list of tools, versions and MCPs is in **STACK.md**.
 
 Clone the repo and run `claude` **inside the repo folder**. Claude Code then loads automatically:
 - **CLAUDE.md → AGENTS.md**: all project notes. Read it first.
