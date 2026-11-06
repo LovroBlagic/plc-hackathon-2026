@@ -12,7 +12,7 @@ Shared memory for AI-agent sessions (Claude Code and others). **Read this first,
 ## THE TASK (received 6 Nov ~20:15): "Energetski menadžer"
 Files in `task/`:
 - `EESTEC_Hackathon_Energetski_menadzer.pdf`: the 19-page spec, in Croatian.
-- `EESTEC_hackaton_students.projectarchive.zip`: the **Machine Expert V2.3** project archive with a TM241CEC24R controller and an HMIG2U HMI. **The task is Machine Expert only; TIA is not needed.**
+- `EESTEC_hackaton_students.projectarchive.zip`: the **Machine Expert V2.3** project archive with a TM241CEC24R controller and an HMIG2U HMI. This task is Machine Expert. The TIA crane task (TASK 2 below) must **also** be delivered.
 
 **What we write:**
 - Our logic goes **only** in FB `Team_Main`. Its interface is fixed: input `simOut : typeSimOut`, output `simCmd : typeSimCmd`.
@@ -320,3 +320,13 @@ Notes:
   - ME prototype: a headless project with TM241CE24T/U, `FB_MotorStartStop` (seal-in, NC stop, fault, 2 s start-horn TON) called from `SR_Main`. The build gives **0 errors**. An injected error was reported precisely, then fixed. Opened in the GUI.
   - Installed Node and the .NET 10 SDK.
   - TIA is pending install.
+- **2026-11-06 evening (orchestrator + workers):**
+  - TIA V21 installed; Openness group OK; TiaMcpServer read-write; TiaRun.exe Openness CLI (attach/create/CPU/import/compile).
+  - Both tasks received. Plans are in `plans/`. ME project extracted to `work/`, with the sim source dump and price CSVs.
+  - The ME worker agent (Opus/high) is running, with progress in `work/PROGRESS.md`. By 21:17 (laptop clock):
+    - **M1 tooling done:** `me_run.py --folder/--year/--extra/--save-archive`; a full year takes ≈ 6.2 min at about 95 steps/s.
+    - **M2/M3 code built with 0 errors:** Team folder, loggers, GridGuard, baseline strategy, HMI GVL.
+    - The baseline S1/S2 full-year runs are in progress.
+    - Findings: trip uses strict `>`; exact clamps; the **EV departure quirk** (P_charge_act = 0 in the departure interval); the DA price is hourly until 30 Sep and 15-min after that.
+  - Team git repo set up; sync.ps1; push works as AnalenaS (write access granted).
+  - Organizer clarification: the TIA crane task has only one yard bay (no Bay 2).
