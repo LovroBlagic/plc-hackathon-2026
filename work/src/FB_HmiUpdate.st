@@ -14,6 +14,7 @@ VAR_INPUT
 	rPrice : REAL;                      // energy price interval k
 	rPricePrev : REAL;                  // energy price interval k-1
 	aEvSteps : ARRAY[0..3] OF DINT;     // steps to departure
+	aEvLast : ARRAY[0..3] OF REAL;      // actual EV power of interval k-1 (corrected for departures)
 	rPeakMonth : REAL;                  // running monthly import peak
 	rPeakTarget : REAL;                 // controller import cap
 	xEvShed : BOOL;                     // guard flags of this step
@@ -121,9 +122,9 @@ Team_HMI.rEvReqSum := 0.0;
 Team_HMI.rEvActSum := 0.0;
 FOR j := 0 TO 3 DO
 	Team_HMI.aEvReq[j] := stCmd.EV[j].P_charge;
-	Team_HMI.aEvAct[j] := stOut.EV[j].P_charge_act;
+	Team_HMI.aEvAct[j] := aEvLast[j];
 	Team_HMI.rEvReqSum := Team_HMI.rEvReqSum + stCmd.EV[j].P_charge;
-	Team_HMI.rEvActSum := Team_HMI.rEvActSum + stOut.EV[j].P_charge_act;
+	Team_HMI.rEvActSum := Team_HMI.rEvActSum + aEvLast[j];
 	Team_HMI.aEvConnected[j] := stOut.EV[j].connected;
 	IF stOut.EV[j].connected THEN
 		Team_HMI.aEvDeparture[j] := F_DtString(stOut.EV[j].planned_departure);
@@ -205,7 +206,7 @@ IF xNewStep THEN
 		// EV departures with undelivered energy
 		FOR j := 0 TO 3 DO
 			IF aPrevConn[j] AND kNow >= aPrevDepK[j] THEN
-				rUnmet := aPrevRemain[j] - stOut.EV[j].P_charge_act * SimParam.TS_H * SimParam.EV_ETA;
+				rUnmet := aPrevRemain[j] - aEvLast[j] * SimParam.TS_H * SimParam.EV_ETA;
 				IF rUnmet > 0.01 THEN
 					Team_HMI.xAlmEvUnmet := TRUE;
 					Team_HMI.rEvUnmetSum := Team_HMI.rEvUnmetSum + rUnmet;

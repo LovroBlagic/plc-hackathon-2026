@@ -81,6 +81,17 @@ Device IDs (type 4096):
 - **Don't run scripts on a project the GUI has open.** Copy it, e.g. `X_sim.project`, or ask the user to close it.
 - Manual simulator path for the user: Online → Simulation, then Login (Alt+F8), then Start (F5). Write values with Ctrl+F7.
 
+## me_run.py extras (verified 6 Nov, EESTEC energy task)
+Call LogicBuilderShell.exe directly (me.ps1 mangles `--out`/`--o*` args):
+`"...\V2.3\LogicBuilderShell.exe" ...\scripts\me_run.py --project P --src DIR [--folder Team] [--year 0,1] [--extra "GVL.x,GVL.y"] [--save-archive X.projectarchive]`
+- `--folder NAME`: NEW objects are created inside application folder NAME (`app.create_folder(name)`, then find it among `app.get_children(False)` with `is_folder`; folder objects have the same `create_pou/create_gvl/create_dut`). Existing objects anywhere are updated in place.
+- `--year`: login to the simulator, per price mode: run=FALSE, set price_mode, cycle_time_ms, change_cycle edge, reset=TRUE, run=TRUE; poll SimCtrl.k/finished/tripped every 5 s; print SimScore.total.* vs Team_Results.* and a `YEAR_RESULT` line. Full year at 10 ms ≈ 6.2 min (≈95 steps/s on the PC simulator).
+- `--save-archive`: `proj.save_archive(path)` after success.
+- GVL expressions are `GVLName.var` / `GVLName.struct.member` (e.g. `SimScore.total.cost_total`). `read_value` returns typed literals like `DINT#0`; strip `TYPE#` before float().
+- Build log prints device memory usage; TM241 sim: "Data, Code and Nonsafe data" area 10.4 MB.
+- A GVL with a 35040-entry REAL array initialiser (IEC repeat syntax `4(0.135)` to compress) compiles fine; `4.32E-05` literals are accepted.
+- Graphical POUs (LD/CFC, e.g. SR_Main_Sim) have no textual implementation: the dump shows only their declaration.
+
 ## Limits
 - Graphical languages (LD/FBD/SFC) can't be authored via script. Write ST, or import PLCopenXML.
 - Trial licences for Code Analysis and the ETEST library are not activated (Help → Manage licenses).
