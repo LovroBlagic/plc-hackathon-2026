@@ -1,0 +1,5 @@
+# Vendor installers are kept local only (too large / redistribution restricted)
+*.exe
+siemens-tia-portal/Siemens_Automation_License_Manager_V6.2_SP5.exe
+schneider-machine-expert/ESEMACS10_INSTALLER.zip
+ESEMACS10_INSTALLER.zip
