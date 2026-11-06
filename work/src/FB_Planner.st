@@ -14,6 +14,7 @@ VAR_INPUT
 	rBcMax : REAL;                      // feasible charge [kW]
 	rBdMax : REAL;                      // feasible discharge [kW]
 	rPeakSoFar : REAL;                  // import peak of the current month so far [kW]
+	xHiInDp : BOOL;                     // TRUE: peak penalty uses the pessimistic net load
 END_VAR
 VAR_IN_OUT
 	aNet : ARRAY[0..191] OF REAL;       // forecast net load without battery [kW] (i = 0 is exact)
@@ -139,7 +140,7 @@ FOR a := AMIN TO AMAX DO
 END_FOR;
 FOR i := h - 1 TO 1 BY -1 DO
 	FOR a := AMIN TO AMAX DO
-		IF Team_Cfg.PLAN_HI_IN_DP THEN
+		IF xHiInDp THEN
 			rG := aNetHi[i] - aBus[a];
 		ELSE
 			rG := aNet[i] - aBus[a];

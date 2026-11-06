@@ -20,7 +20,7 @@ if __name__ == "__main__":
     modes = [int(x) for x in (sys.argv[3] if len(sys.argv) > 3 else "0,1").split(",")]
     jobs = [(l, kw, m, v) for l, kw in cfg.items() for m in modes for v in vids]
     res = {}
-    with Pool(min(len(jobs), 15)) as p:
+    with Pool(min(len(jobs), int(os.environ.get("NPROC", "15")))) as p:
         for (l, m, v, c, pk, ev, tr) in p.imap_unordered(run, jobs):
             print("  %-24s m%d v%d cost=%10.0f peak=%7.0f ev=%.3f trip=%s" % (l, m, v, c, pk, ev, tr), flush=True)
             res.setdefault((l, m), []).append(c if tr is None else 1e9)

@@ -9,7 +9,7 @@ FUNCTION_BLOCK FB_Forecast
 //   EV : connected vehicles charged as soon as possible with their remaining energy.
 // Interval i = 0 is the current interval k and uses the ACTUAL simOut values.
 // Outputs: aNet = expected net load, aNetHi = pessimistic net load (for the peak cap):
-//          + FC_KSIG * sigma(FEC) + (1 - PLAN_PVF) * PV forecast.
+//          + rKsig * sigma(FEC) + (1 - PLAN_PVF) * PV forecast.
 // Learned profiles live in this FB only (built online from simOut, nothing is embedded).
 VAR_INPUT
 	xReset : BOOL;                      // k = 0: forget all learned profiles
@@ -23,6 +23,7 @@ VAR_INPUT
 	aEvRem : ARRAY[0..3] OF REAL;       // EV remaining energy [kWh] (0 if not connected)
 	aEvSteps : ARRAY[0..3] OF DINT;     // EV steps to departure
 	iH : INT;                           // horizon length (1..192)
+	rKsig : REAL;                       // pessimistic load = expected + rKsig * sigma
 END_VAR
 VAR_IN_OUT
 	aNet : ARRAY[0..191] OF REAL;       // expected net load fec + ev - pv [kW]
@@ -175,6 +176,6 @@ FOR i := 0 TO LIMIT(1, iH, 192) - 1 DO
 	IF i = 0 THEN
 		aNetHi[i] := aNet[i];
 	ELSE
-		aNetHi[i] := aNet[i] + Team_Cfg.FC_KSIG * rS + (1.0 - Team_Cfg.PLAN_PVF) * rP;
+		aNetHi[i] := aNet[i] + rKsig * rS + (1.0 - Team_Cfg.PLAN_PVF) * rP;
 	END_IF;
 END_FOR;

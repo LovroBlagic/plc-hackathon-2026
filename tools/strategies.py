@@ -126,7 +126,8 @@ class Forecaster:
 
 def dp_strategy(H=96, dE=20.0, pen=20.0, tvf=0.9, pvf=0.6, cap_margin=1.02, realistic=False,
                 a_fec=0.5, a_pv=0.3, oracle=False, nacts=21, neg_curt=True, peak_mode=True, dbg=None,
-                ksig=0.0, a_sig=0.3, hi_in_dp=True, qf=0.0, cw=0, ctau=16.0, cpv=True, cfec=True):
+                ksig=0.0, a_sig=0.3, hi_in_dp=True, qf=0.0, cw=0, ctau=16.0, cpv=True, cfec=True,
+                ev_mode=0, ev_margin=2):
     fc = Forecaster(a_fec, a_pv, a_sig, cw, ctau, cpv, cfec)
     from twin import load
     D = globals().get("_DATA") or load()
@@ -183,6 +184,24 @@ def dp_strategy(H=96, dE=20.0, pen=20.0, tvf=0.9, pvf=0.6, cap_margin=1.02, real
                 p = (TT_VT if vt else TT_NT)[qq]
             ci[i] = p + (GRID_VT if vt else GRID_NT)
             ce[i] = max(0.0, EXPF * p)
+        evreq = list(evm)
+        if ev_mode == 1:
+            # marginal cost of 1 kW extra load in each future step: import price, or lost export value
+            mc = np.where(n > 0, ci, ce)
+            n0_noev = n[0] - sum(evm)
+            for j, e in enumerate(o["ev"]):
+                if not e["conn"] or evm[j] <= 0:
+                    continue
+                L = max(1, min(e["stepsLeft"], h))
+                need = int(math.ceil(e["rem"] / (P["EV_MAX"] * TS * P["EV_ETA"]) - 1e-9))
+                if e["stepsLeft"] - need <= ev_margin or e["stepsLeft"] > h:
+                    if e["stepsLeft"] - need <= ev_margin:
+                        continue          # must run: full power
+                win = np.sort(mc[:L])
+                thr = win[min(L - 1, need + ev_margin - 1)] if need + ev_margin - 1 >= 0 else win[0]
+                if mc[0] > thr + 1e-9:
+                    evreq[j] = 0.0
+            n[0] = n0_noev + sum(evreq)
         if t["month"] != st["month"]:
             st["month"] = t["month"]; st["T"] = 0.0
         st["T"] = max(st["T"], o["mpeak"])
@@ -239,9 +258,9 @@ def dp_strategy(H=96, dE=20.0, pen=20.0, tvf=0.9, pvf=0.6, cap_margin=1.02, real
             pb = min(bd, n[0] - T)
         curt = None
         p0 = o["price"][k]
-        if neg_curt and p0 < 0 and o["fec"] + sum(evm) - pb - o["fne"] < 0:
-            curt = max(0.0, o["fec"] + sum(evm) - pb)
+        if neg_curt and p0 < 0 and o["fec"] + sum(evreq) - pb - o["fne"] < 0:
+            curt = max(0.0, o["fec"] + sum(evreq) - pb)
         if dbg is not None:
             dbg.append((k, T, pb, o["soc"]))
-        return guard(o, pb, evm, curt)
+        return guard(o, pb, evreq, curt)
     return c

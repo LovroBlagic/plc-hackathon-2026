@@ -80,7 +80,8 @@ ELSE
 
 	fbForecast(xReset := xReset, xUpdate := TRUE, k := k, iQh := iQh, iWeekday := iWeekday,
 		rFec := rFec, rPv := rFneAvail, xVt := xVt, aEvRem := aEvRem, aEvSteps := aEvSteps,
-		iH := iHorizon, aNet := aNet, aNetHi := aNetHi, aVtF := aVtF);
+		iH := iHorizon, rKsig := SEL(iPriceMode = 1, Team_Cfg.FC_KSIG_TT, Team_Cfg.FC_KSIG_DA),
+		aNet := aNet, aNetHi := aNetHi, aVtF := aVtF);
 
 	// prices over the horizon (price lists from Team_Prices, grid fee from SimParam)
 	FOR i := 0 TO iHorizon - 1 DO
@@ -100,6 +101,7 @@ ELSE
 	END_FOR;
 
 	fbPlanner(iH := iHorizon, rSoc := rSoc, rBcMax := rBcMax, rBdMax := rBdMax, rPeakSoFar := rPeakSoFar,
+		xHiInDp := SEL(iPriceMode = 1, Team_Cfg.PLAN_HI_TT, Team_Cfg.PLAN_HI_DA),
 		aNet := aNet, aNetHi := aNetHi, aCi := aCi, aCe := aCe);
 	rPbReq := fbPlanner.rPb;
 	rPeakTarget := fbPlanner.rT;

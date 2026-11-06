@@ -1,6 +1,6 @@
 # ME Energy Manager: progress (implementation agent)
 
-STATUS: M1–M4 done (baseline no trip, EV 100 %, logging dev 0.00000 %, archived ME_v1_baseline). M5 in progress: DP planner tuned in Python twin, ST port written (Fri 21:30 local)
+STATUS: M1–M4 done (baseline archived). M5: DP planner v2 (per-mode reserve) running full-year in ME; twin says ≈ −35k€ (S1) / −51k€ (S2) vs baseline (Fri 22:00)
 
 ## Results
 | Version | Scen | finished | tripped | cost_total € | E_ev kWh | E_ev_unmet kWh | EV % | max log dev |
@@ -11,6 +11,14 @@ STATUS: M1–M4 done (baseline no trip, EV 100 %, logging dev 0.00000 %, archive
 | twin: DP oracle | S2 | | | 167 859 | | 0 | 100 | |
 | twin: DP + EMA forecast (default) | S1 | | | 210 332 | | 0 | 100 | |
 | twin: DP + EMA forecast (default) | S2 | | | 174 204 | | 0 | 100 | |
+
+Robust twin evaluation (mean over 4 synthetic datasets with the same statistics: FEC shifted by whole weeks, PV by days, EV by weeks; tools/grid.py):
+| Config | S1 mean € | S2 mean € |
+|---|---|---|
+| baseline §2.6 | 241 641 | 222 726 |
+| DP, expected forecast (nohi) | 210 493 | **171 773** |
+| DP + pessimistic load (EMA + 1.5σ) in cap and penalty | **206 902** | 177 806 |
+→ chosen per price mode: S1 = k1.5σ reserve, S2 = no reserve (Team_Cfg FC_KSIG_TT/DA, PLAN_HI_TT/DA).
 
 Twin (tools/twin.py) reproduces ME baseline exactly (241 770.34 / 223 428.54).
 Baseline diagnostics: Team_Main called once per step (nCalls = nSteps = 35041), grid prediction error max 0.0005 kW, BESS both-enables 0, guard curtailed PV 173 steps, 1 step predicted import 999.9 kW (> 999 kW guard limit, < 1000 trip limit; FEC alone = 999.9 with empty battery).
@@ -28,6 +36,9 @@ Archive: deliver/ME_v1_baseline.projectarchive (39.5 MB).
 - **EV departure quirk:** when an EV departs at step k, Sim_Core sets evPact[j]=0 *before* publishing, so EV[j].P_charge_act = 0 for the interval k−1 even though SimScore counted that energy. Logger uses our own (already feasibility-clamped) command for the departing interval.
 - TT price = 4 quarters × VT/NT (changes on 1 Apr, 1 Jul, 1 Oct). DA is hourly until 30 Sep, 15-min from 1 Oct. 1029 negative quarter-hours.
 - Memory: TM241 data/code area 10.4 MB, 4.19 MB used before our code → a 35040-REAL table (140 kB) fits.
+
+- 21:45 ME login failed once ("No connection to the gateway") while 15 CPU-bound twin processes were running; retry with ≤10 twin workers worked. DP planner in ST runs ~94 steps/s at 10 ms (same as baseline) → fits the cycle.
+- 21:55 ST: reserved word `s` and case-insensitive name clash (NCAND vs nCand) fixed. Per-mode reserve settings ported. ME S1/S2 run of v2 in progress; twin grid 2 (intraday forecast correction) and EV deadline scheduling test running.
 
 ## BLOCKERS / pending confirmation
 - Price tables in our own GVL `Team_Prices` (allowed as "cjenici" per spec §4.1/§5; spec §3.7 says prices come as separate CSVs): **pending organizer confirmation** that the evaluation dataset uses the same 2025 prices.
