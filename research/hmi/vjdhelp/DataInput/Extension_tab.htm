@@ -1,0 +1,157 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+<meta name="template" content="Vijeo_template.htt">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+ <meta name="generator" content="Adobe RoboHelp 10">
+<title>Input Mode Tab</title>
+<link rel="StyleSheet" href="TIS-STYL.CSS" type="text/css">
+</head>
+<body>
+<script type="text/javascript" src="ehlpdhtm.js" language="JavaScript1.2"></script>
+
+<div style="width: 100%; position: relative;" id="header">
+	<table style="background-attachment: scroll; margin-left: 0px; margin-right: 4px; 
+			 background-image: url(top_banner.bmp); background-repeat: Repeat-X; 
+			 line-height: 0pt; vertical-align: top;" cellspacing="0" width="100%" 
+			 background="top_banner.bmp">
+		<col style="width: 90%;">
+		<col style="width: 5%;">
+		<col style="width: 5%;">
+		<tr style="vertical-align: center; height: 39px;">
+			<td style="width: 90%; padding-right: 10px; padding-left: 10px; 
+				 border-right-color: #000000;">
+   <p><img src="logo.bmp" style="border: none;" alt="" width="37" height="37" border="0"></p></td>
+			<td style="width: 5%; padding-right: 0px; padding-left: 10px; 
+				 border-right-color: #000000;">
+   <p style="text-align: center;"><a 
+			 title="Glossary" href="Appendix.chm::/Glossary.htm"><img src="logo_glossary.bmp" style="border: none;" alt="" width="47" height="37" border="0"></a></p></td>
+			<td style="width: 5%; padding-right: 10px; padding-left: 5px; 
+				 border-right-color: #000000;">
+   <p style="text-align: center;"><a 
+			 href="About.chm::/What_is_Vijeo-Designer.htm" title="Home"><img src="logo_home.bmp" alt="Home" title="Home" style="border: none; 
+			 margin-left: 0px; margin-right: 0px; margin-bottom: 0px; margin-top: -2px;" width="47" height="37" border="0"></a></p></td>
+		</tr>
+	</table>
+</div>
+
+<h2>11.2.2 Input Mode Tab</h2>
+<p>Use the Input Mode tab to set up data input for the Numeric Display and String Display. You can set up a popup keypad. You can also define variables for barcode input and error status, and assign tab groups for consecutive input on multiple Data Displays.</p>
+<p class="Image"><img src="Diarog-numdisp-Extension.bmp" style="border: none;" alt="" width="478" height="542" border="0"></p>
+<p>&#160;</p>
+<p>The following table describes the Input Mode tab properties.</p>
+<table style="vertical-align: top; left: 0px; top: 428px; margin-left: 40px;" cellspacing="0" width="94.863%">
+<col style="width: 23.352%;">
+<col style="width: 76.648%;">
+<tr style="vertical-align: top; height: 25px;">
+<td style="border-top: Solid 3px #000000; border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 23.352%; padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#91AFD9">
+<p class="Tabletitle">Properties</p>
+</td>
+<td style="border-top: Solid 3px #000000; border-bottom: Solid 1px #000000; width: 76.648%; padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#91AFD9">
+<p class="Tabletitle">Description</p>
+</td>
+</tr>
+<tr style="vertical-align: top; height: 328px;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 23.352%; padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#CBD9ED">
+<p class="TableDefinitions">Enable Input Mode</p>
+</td>
+<td style="border-bottom: Solid 1px #000000; width: 76.648%; padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">Enables data input using a keypad. When the Enable Input Mode check box in the General tab is selected, this check box is automatically selected as well. Select this option to enable the subsequent options.</p>
+<p class="Tabletext">For more information, see Section 11.9, <a href="Create_keypads.htm">Inputting Data with Keypads</a>.</p>
+<p class="Tabletext">You can set up the data input range in the Variable properties dialog box.<br>
+For more information, see Section 6.2.3, <a href="InputAddress.chm::/var_property.htm">Variable Properties</a>.</p>
+<p class="NoteImage"><img src="Limit.bmp" style="border: none;" alt="" width="77" height="24" border="0"></p>
+<ul>
+<li class="p-NoteText">
+<p class="NoteText">For Date Display or Time Display, you cannot use keypad input.</p>
+</li>
+<li class="p-NoteText">
+<p class="NoteText">If you select an expression in the Variable property in the General tab, you cannot use the Enable Input Mode option.</p>
+</li>
+<li class="p-NoteText">
+<p class="NoteText">For String Display, if you use the Recipe Control variable RecipeLabel, the Enable Input Mode option is disabled.</p>
+</li>
+</ul>
+<p class="NoteImage"><img src="NOTE_MOJI.bmp" style="border: none;" alt="" width="51" height="25" border="0"></p>
+<ul>
+<li class="p-NoteText">
+<p class="NoteText">When a 32 bit unsigned integer variable is used in a Numeric display and input mode is enabled, the variable's min/max range is disabled and automatically set from 0 - 4,294,967,295.</p>
+</li>
+</ul>
+</td>
+</tr>
+<tr style="vertical-align: top; height: 47px;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 23.352%; padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#CBD9ED">
+<p class="TableDefinitions">Field ID</p>
+</td>
+<td style="border-bottom: Solid 1px #000000; width: 76.648%; padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">Set up a unique field ID for triggering the input mode from the _TouchField system variable. The field ID must be a value between 0 and 2,147,483,647. The default value is 0. If the Field ID's value is 0, the input mode cannot be triggered from the system variable. Each Field ID should be unique for your project. For more information on system variables, see Section 6.7, <a href="InputAddress.chm::/system_var.htm">System Variables</a>.</p>
+</td>
+</tr>
+<tr style="vertical-align: top; height: 218px;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 23.352%; padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#CBD9ED">
+<p class="TableDefinitions">Display Popup Keypad</p>
+</td>
+<td style="border-bottom: Solid 1px #000000; width: 76.648%; padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">This field is automatically selected when you select Enable Input Mode. For String Display, a list box displays beside the Display Popup Keypad checkbox so you can select a String Keypad or Decimal Keypad.</p>
+<p class="Tabletext">Displays a popup keypad when inputting data. Enable data input by touching the area on the Data Display.<br>
+For more information, see Section 11.9.3, <a href="Smart_parts.htm">Using a Popup Keypad</a>.</p>
+<p class="Image"><img src="Popupkeypad_Setting.bmp" style="border: none;" alt="" width="234" height="100" border="0"></p>
+<p class="Tabletext">The popup keypad is predefined.</p>
+<p class="Tabletext">If you want to use a customized keypad, see Section 11.9.5, <a href="make_original_keypad.htm">Using Custom Keypads</a>.</p>
+</td>
+</tr>
+<tr style="vertical-align: top; height: 62px;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 23.352%; padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#CBD9ED">
+<p class="TableDefinitions">Overwrite Variable's Input Range</p>
+</td>
+<td style="border-bottom: Solid 1px #000000; width: 76.648%; padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">This field is available for Numeric Display and is enabled when Enable Input Mode is selected. Select this checkbox to define numeric values or expressions to overwrite the variable's Min and Max values. To select the Min and Max values, enter the expression by typing it in the field or by using the Expression Editor Pad.</p>
+<p class="NoteImage"><img src="NOTE_MOJI.bmp" style="border: none;" alt="" width="51" height="25" border="0"></p>
+<ul>
+<li class="p-NoteText">
+<p class="NoteText">At runtime, some keypads typically show a Min and Max range. For targets with a panel size of 200x80, the keypad will not be able to show the Min and Max values. However the defined Min and Max values will be in effect. For example, if an invalid value is entered that exceeds the Min or Max range, the text color will change or the system will beep. You will need to correct the value before pressing ENT on the keypad.</p>
+</li>
+</ul>
+</td>
+</tr>
+<tr style="vertical-align: top; height: 62px;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 23.352%; padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#CBD9ED">
+<p class="TableDefinitions">Display Text as Asterisk</p>
+</td>
+<td style="border-bottom: Solid 1px #000000; width: 76.648%; padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">This field is available for Numeric Displays and String Displays. This field is available when the Enable Input Mode check box is selected.</p>
+<p class="Tabletext">Select this option to display input values as asterisks (*) in the display part's popup keypad and in the display part. Input values will show as three asterisks (***) in the display part.</p>
+</td>
+</tr>
+<tr style="vertical-align: top; height: 32px;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 23.352%; padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#CBD9ED">
+<p class="TableDefinitions">Buzzer on Touch</p>
+</td>
+<td style="border-bottom: Solid 1px #000000; width: 76.648%; padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">Sets the buzzer for sound. When enabled, touch the display and the popup keypad to cause the buzzer to beep.</p>
+</td>
+</tr>
+<tr style="vertical-align: top; height: 47px;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 23.352%; padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#CBD9ED">
+<p class="TableDefinitions">Barcode</p>
+</td>
+<td style="border-bottom: Solid 1px #000000; width: 76.648%; padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">When selected, enables data input from a bar code scanner.<br>
+For more information on bar code, bar code input address, and error status, see Section 24.1, <a href="HardwareOptions.chm::/BarcodeScannerOverview.htm">Bar Code Scanners</a>.</p>
+</td>
+</tr>
+<tr style="vertical-align: top; height: 69px;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 3px #000000; width: 23.352%; padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#CBD9ED">
+<p class="TableDefinitions">Tab Group</p>
+</td>
+<td style="border-bottom: Solid 3px #000000; width: 76.648%; padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">This field is read-only.<br>
+When tab group is set up on the Data Display for a Numeric Display or String Display, the Group No. and Order properties are shown here.</p>
+<p class="Tabletext">See Section 11.9.6, <a href="Continuation_input.htm">Continuous Input to Multiple Data Displays</a>.</p>
+</td>
+</tr>
+</table>
+</body>
+</html>

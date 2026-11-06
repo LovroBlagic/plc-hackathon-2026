@@ -1,0 +1,1255 @@
+<html>
+<!-- Sitemap 1.0 -->
+<object type="text/site properties">
+  <param name="WindowName" value="$global_NewWindow">
+  <param name="SiteType" value="index">
+</object>
+<ul>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Host Name">
+    <param name="See Also" value="Host Name">
+  </object>
+  <ul>
+    <li><object type="text/sitemap">
+      <param name="Name" value="Download, Host Name">
+      <param name="Name" value="Target Properties: General#HOSTNAME">
+      <param name="Local" value="targetProperties_general.htm#HOSTNAME">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="DHCP, Host Name">
+      <param name="Name" value="target">
+      <param name="Local" value="targetProperties_networkSettings.htm#DHCPHostName">
+    </object>
+    </ul>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Limited (Level Based) Security">
+    <param name="Name" value="Managing Security Users at Run Time">
+    <param name="Local" value="manage_security_runtime.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="All Security">
+    <param name="Name" value="Managing Security Users at Run Time">
+    <param name="Local" value="manage_security_runtime.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Video">
+    <param name="See Also" value="Video">
+  </object>
+  <ul>
+    <li><object type="text/sitemap">
+      <param name="Name" value="Changing Target Type">
+      <param name="Name" value="Changing a Target#Features_Limited_by_HW">
+      <param name="Local" value="changing_targets.htm#Features_Limited_by_HW">
+    </object>
+    </ul>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Function Keys">
+    <param name="See Also" value="Function Keys">
+  </object>
+  <ul>
+    <li><object type="text/sitemap">
+      <param name="Name" value="Changing Target Type">
+      <param name="Name" value="Changing a Target#Features_Limited_by_HW">
+      <param name="Local" value="changing_targets.htm#Features_Limited_by_HW">
+    </object>
+    </ul>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Time Zone">
+    <param name="See Also" value="Time Zone">
+  </object>
+  <ul>
+    <li><object type="text/sitemap">
+      <param name="Name" value="Changing Target Type">
+      <param name="Name" value="Changing a Target#Features_Limited_by_HW">
+      <param name="Local" value="changing_targets.htm#Features_Limited_by_HW">
+    </object>
+    </ul>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Target">
+    <param name="See Also" value="Target">
+  </object>
+  <ul>
+    <li><object type="text/sitemap">
+      <param name="Name" value="Changing">
+      <param name="Name" value="Changing a Target">
+      <param name="Local" value="changing_targets.htm">
+    </object>
+    </ul>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Environment">
+    <param name="Name" value="Adding Data Files and Configuring the Project Environment">
+    <param name="Local" value="Adding_Data_Files_and_Configuring_the_Project_Environment.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Data Files">
+    <param name="Name" value="Adding Data Files and Configuring the Project Environment">
+    <param name="Local" value="Adding_Data_Files_and_Configuring_the_Project_Environment.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Runtime Always on Top">
+    <param name="Name" value="Basic Setup of a Target">
+    <param name="Local" value="Setting_up_Targets-Creating_targets.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Hide Mouse Cursor">
+    <param name="Name" value="Target Properties: Hardware Settings">
+    <param name="Local" value="targetProperties_hardwareSettings.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Disable Key Control">
+    <param name="Name" value="Basic Setup of a Target">
+    <param name="Local" value="Setting_up_Targets-Creating_targets.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Windows Control">
+    <param name="Name" value="Basic Setup of a Target">
+    <param name="Local" value="Setting_up_Targets-Creating_targets.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Center, View">
+    <param name="Name" value="Re-centering the Drawing Area">
+    <param name="Local" value="Re-centering_the_Drawing_Area.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="View Top Left">
+    <param name="Name" value="Re-centering the Drawing Area">
+    <param name="Local" value="Re-centering_the_Drawing_Area.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="View Center">
+    <param name="Name" value="Re-centering the Drawing Area">
+    <param name="Local" value="Re-centering_the_Drawing_Area.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Rotate">
+    <param name="Name" value="Special Editor Toolbars">
+    <param name="Local" value="Editor_Toolbar.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Bring To Front">
+    <param name="Name" value="Special Editor Toolbars">
+    <param name="Local" value="Editor_Toolbar.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Send To Back">
+    <param name="Name" value="Special Editor Toolbars">
+    <param name="Local" value="Editor_Toolbar.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Flip">
+    <param name="Name" value="Special Editor Toolbars">
+    <param name="Local" value="Editor_Toolbar.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Align">
+    <param name="Name" value="Special Editor Toolbars">
+    <param name="Local" value="Editor_Toolbar.htm">
+    <param name="Name" value="Basic Setup of a Target">
+    <param name="Local" value="Setting_up_Targets-Creating_targets.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Duplicate">
+    <param name="Name" value="Basic Editor Toolbars">
+    <param name="Local" value="Basic_toolbar.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Redo">
+    <param name="Name" value="Basic Editor Toolbars">
+    <param name="Local" value="Basic_toolbar.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Undo">
+    <param name="Name" value="Basic Editor Toolbars">
+    <param name="Local" value="Basic_toolbar.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Feedback Zone">
+    <param name="Name" value="Editor Tools">
+    <param name="Local" value="Naming_convention.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Graphics List">
+    <param name="Name" value="Editor Tools">
+    <param name="Local" value="Naming_convention.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="InfoViewer">
+    <param name="Name" value="Editor Tools">
+    <param name="Local" value="Naming_convention.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Property Inspector">
+    <param name="Name" value="Editor Tools">
+    <param name="Local" value="Naming_convention.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Navigator">
+    <param name="Name" value="Special Editor Tools">
+    <param name="Local" value="Naming_convention.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Toolchest">
+    <param name="Name" value="Editor Tools">
+    <param name="Local" value="Naming_convention.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Project Development">
+    <param name="Name" value="How to Develop a Project">
+    <param name="Local" value="Development_Overview.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Developing Projects">
+    <param name="Name" value="How to Develop a Project">
+    <param name="Local" value="Development_Overview.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Tool Windows">
+    <param name="Name" value="Using Shortcuts">
+    <param name="Local" value="Layout_tool_window_for_easy_to_use.htm">
+    <param name="Name" value="Special Editor Tools">
+    <param name="Local" value="Naming_convention.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Tool Windows, Setting Views">
+    <param name="Name" value="Using Shortcuts">
+    <param name="Local" value="Layout_tool_window_for_easy_to_use.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Displaying Tool Windows">
+    <param name="Name" value="Using Shortcuts">
+    <param name="Local" value="Layout_tool_window_for_easy_to_use.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Docking View">
+    <param name="Name" value="Using Shortcuts">
+    <param name="Local" value="Layout_tool_window_for_easy_to_use.htm">
+    <param name="Name" value="Switching View Modes">
+    <param name="Local" value="Change_Window_display_and_Docking_display.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Tool Windows, Docking/Window View">
+    <param name="Name" value="Using Shortcuts">
+    <param name="Local" value="Layout_tool_window_for_easy_to_use.htm">
+    <param name="Name" value="Switching View Modes">
+    <param name="Local" value="Change_Window_display_and_Docking_display.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Floating Mode">
+    <param name="Name" value="Using Shortcuts">
+    <param name="Local" value="Layout_tool_window_for_easy_to_use.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Window View">
+    <param name="Name" value="Using Shortcuts">
+    <param name="Local" value="Layout_tool_window_for_easy_to_use.htm">
+    <param name="Name" value="Switching View Modes">
+    <param name="Local" value="Change_Window_display_and_Docking_display.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Showing/Hiding Tool Windows">
+    <param name="Name" value="Showing or Hiding Tool Windows">
+    <param name="Local" value="Display_ToolWindow.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Hiding Tool Windows">
+    <param name="Name" value="Showing or Hiding Tool Windows">
+    <param name="Local" value="Display_ToolWindow.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Tool Windows, Showing/Hiding">
+    <param name="Name" value="Showing or Hiding Tool Windows">
+    <param name="Local" value="Display_ToolWindow.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Moving Tool Windows">
+    <param name="Name" value="Moving a Tool Window">
+    <param name="Local" value="Using_Auto_Hide.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Tool Windows, Moving">
+    <param name="Name" value="Moving a Tool Window">
+    <param name="Local" value="Using_Auto_Hide.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Positioning Tool Windows">
+    <param name="Name" value="Moving a Tool Window">
+    <param name="Local" value="Using_Auto_Hide.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Toolbars">
+    <param name="Name" value="Using Toolbars">
+    <param name="Local" value="Layout_tool_bar_for_easy_to_use.htm">
+    <param name="Name" value="Basic Editor Toolbars">
+    <param name="Local" value="Basic_toolbar.htm">
+    <param name="Name" value="Special Editor Toolbars">
+    <param name="Local" value="Editor_Toolbar.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Changing Toolbar Size">
+    <param name="Name" value="Changing the Toolbar Size">
+    <param name="Local" value="Change_size_of_Toolbar.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Displaying Toolbars">
+    <param name="Name" value="Displaying Toolbars">
+    <param name="Local" value="Display_toolbar.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Toolbars, Displaying">
+    <param name="Name" value="Displaying Toolbars">
+    <param name="Local" value="Display_toolbar.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Floating Toolbars">
+    <param name="Name" value="Fixed Toolbars and Floating Toolbars">
+    <param name="Local" value="Fixed_tool_bar_and_Floating_tool_bar.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Fixed Toolbars">
+    <param name="Name" value="Fixed Toolbars and Floating Toolbars">
+    <param name="Local" value="Fixed_tool_bar_and_Floating_tool_bar.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Moving Toolbars">
+    <param name="Name" value="Moving a Toolbar">
+    <param name="Local" value="Move_toolbar.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Toolbars, Moving">
+    <param name="Name" value="Moving a Toolbar">
+    <param name="Local" value="Move_toolbar.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Resizing Toolbars">
+    <param name="Name" value="Changing the Toolbar Size">
+    <param name="Local" value="Change_size_of_Toolbar.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Toolbars, Resizing">
+    <param name="Name" value="Changing the Toolbar Size">
+    <param name="Local" value="Change_size_of_Toolbar.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Saving Projects">
+    <param name="Name" value="Saving, Closing, and Exiting Your Project">
+    <param name="Local" value="Save_project.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Project, Saving">
+    <param name="Name" value="Saving, Closing, and Exiting Your Project">
+    <param name="Local" value="Save_project.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Saving Project As">
+    <param name="Name" value="Saving a Project Under a Different Name">
+    <param name="Local" value="Save_project_as.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Project, Save As">
+    <param name="Name" value="Saving a Project Under a Different Name">
+    <param name="Local" value="Save_project_as.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Renaming Projects">
+    <param name="Name" value="Saving a Project Under a Different Name">
+    <param name="Local" value="Save_project_as.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Closing Project">
+    <param name="Name" value="Closing a Project">
+    <param name="Local" value="Close_project.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Project, Closing">
+    <param name="Name" value="Closing a Project">
+    <param name="Local" value="Close_project.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Exiting a Project">
+    <param name="Name" value="Exiting a Project">
+    <param name="Local" value="Exit_project.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Installing the Editor, Overview">
+    <param name="Name" value="Installing the Editor">
+    <param name="Local" value="Installing-introduction.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Installing the Editor">
+    <param name="Name" value="How to Install the Editor">
+    <param name="Local" value="Steps_for_Installation.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Software, Installing">
+    <param name="Name" value="How to Install the Editor">
+    <param name="Local" value="Steps_for_Installation.htm">
+    <param name="Name" value="Installing the Editor">
+    <param name="Local" value="Installing-introduction.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Uninstalling the Editor">
+    <param name="Name" value="How to Uninstall the Editor">
+    <param name="Local" value="Steps_for_Uninstalling.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Software, Uninstalling">
+    <param name="Name" value="How to Uninstall the Editor">
+    <param name="Local" value="Steps_for_Uninstalling.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Creating Projects">
+    <param name="Name" value="Creating Projects">
+    <param name="Local" value="About_project.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Project, Creating">
+    <param name="Name" value="Creating Projects">
+    <param name="Local" value="About_project.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Project Startup">
+    <param name="Name" value="Arranging Projects by Folder#vijeo_manager">
+    <param name="Local" value="Arrange_project_file_by_folders.htm#vijeo_manager">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Wizard at Startup">
+    <param name="Name" value="Arranging Projects by Folder#vijeo_manager">
+    <param name="Local" value="Arrange_project_file_by_folders.htm#vijeo_manager">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Startup, Project Behavior">
+    <param name="Name" value="Arranging Projects by Folder#vijeo_manager">
+    <param name="Local" value="Arrange_project_file_by_folders.htm#vijeo_manager">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Starting the Editor">
+    <param name="Name" value="Starting the Editor">
+    <param name="Local" value="Starting-Where_to_begin.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Tools">
+    <param name="Name" value="Editor Tools">
+    <param name="Local" value="Naming_convention.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="New Project">
+    <param name="Name" value="Creating a New Project">
+    <param name="Local" value="Creating_projects.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Targets, Setting Up">
+    <param name="Name" value="Basic Setup of a Target">
+    <param name="Local" value="Setting_up_Targets-Creating_targets.htm">
+    <param name="Name" value="Setting Up a Target">
+    <param name="Local" value="About_target.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Project, Working With">
+    <param name="Name" value="Working with Projects">
+    <param name="Local" value="Opening_an_existing_project.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Working With Projects">
+    <param name="Name" value="Working with Projects">
+    <param name="Local" value="Opening_an_existing_project.htm">
+    <param name="Name" value="Arranging Projects by Folder">
+    <param name="Local" value="Arrange_project_file_by_folders.htm">
+    <param name="Name" value="Opening an Existing Project on the Network">
+    <param name="Local" value="Open_exiting_project_on_the_network.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Opening Projects">
+    <param name="Name" value="Working with Projects">
+    <param name="Local" value="Opening_an_existing_project.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Organizing Projects">
+    <param name="Name" value="Arranging Projects by Folder">
+    <param name="Local" value="Arrange_project_file_by_folders.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Arranging Projects">
+    <param name="Name" value="Arranging Projects by Folder">
+    <param name="Local" value="Arrange_project_file_by_folders.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Project, Organizing">
+    <param name="Name" value="Arranging Projects by Folder">
+    <param name="Local" value="Arrange_project_file_by_folders.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Projects on the Network">
+    <param name="Name" value="Opening an Existing Project on the Network">
+    <param name="Local" value="Open_exiting_project_on_the_network.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Network Projects">
+    <param name="Name" value="Opening an Existing Project on the Network">
+    <param name="Local" value="Open_exiting_project_on_the_network.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Network Link">
+    <param name="Name" value="Creating a Network Link">
+    <param name="Local" value="Create_the_networkfolder.htm">
+    <param name="Name" value="Disconnecting a Network Link">
+    <param name="Local" value="Delete_the_networkfolder.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Opening Project on the Network">
+    <param name="Name" value="Opening an Existing Project on the Network">
+    <param name="Local" value="Open_exiting_project_on_the_network.htm">
+    <param name="Name" value="Creating a Network Link">
+    <param name="Local" value="Create_the_networkfolder.htm">
+    <param name="Name" value="Disconnecting a Network Link">
+    <param name="Local" value="Delete_the_networkfolder.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Opening Panels">
+    <param name="Name" value="Opening the Panel">
+    <param name="Local" value="Open_the_panel.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Panels, Working With">
+    <param name="Name" value="Opening the Panel">
+    <param name="Local" value="Open_the_panel.htm">
+    <param name="Name" value="Creating a New Panel">
+    <param name="Local" value="Base_Panels.htm">
+    <param name="Name" value="Copying a Panel">
+    <param name="Local" value="Copy_panel.htm">
+    <param name="Name" value="Copying a Panel from a Project of Another Management Folder">
+    <param name="Local" value="Copy_panel_from_othe_project.htm">
+    <param name="Name" value="Setting the Grid">
+    <param name="Local" value="Setting_Grid.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Working With Panels">
+    <param name="Name" value="Opening the Panel">
+    <param name="Local" value="Open_the_panel.htm">
+    <param name="Name" value="Creating a New Panel">
+    <param name="Local" value="Base_Panels.htm">
+    <param name="Name" value="Copying a Panel">
+    <param name="Local" value="Copy_panel.htm">
+    <param name="Name" value="Copying a Panel from a Project of Another Management Folder">
+    <param name="Local" value="Copy_panel_from_othe_project.htm">
+    <param name="Name" value="Setting the Grid">
+    <param name="Local" value="Setting_Grid.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Drawing Aids">
+    <param name="Name" value="Using Drawing Aids">
+    <param name="Local" value="Information_on_the_panel.htm">
+    <param name="Name" value="Using Zoom">
+    <param name="Local" value="Show_zoom.htm">
+    <param name="Name" value="Setting the Grid">
+    <param name="Local" value="Setting_Grid.htm">
+    <param name="Name" value="Placing Objects Outside the Panel">
+    <param name="Local" value="Put_the_out_of_panel.htm">
+    <param name="Name" value="Re-centering the Drawing Area">
+    <param name="Local" value="Re-centering_the_Drawing_Area.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Pasteboard, Using Area Outside the Panel">
+    <param name="Name" value="Placing Objects Outside the Panel">
+    <param name="Local" value="Put_the_out_of_panel.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Zoom">
+    <param name="Name" value="Using Zoom">
+    <param name="Local" value="Show_zoom.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Drawing, Using Area Outside the Panel as a Scratchpad">
+    <param name="Name" value="Placing Objects Outside the Panel">
+    <param name="Local" value="Put_the_out_of_panel.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Aligning Graphics, Grid">
+    <param name="Name" value="Setting the Grid">
+    <param name="Local" value="Setting_Grid.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Creating Folders">
+    <param name="Name" value="Arranging Projects by Folder">
+    <param name="Local" value="Arrange_project_file_by_folders.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Target Properties">
+    <param name="Name" value="Basic Setup of a Target">
+    <param name="Local" value="Setting_up_Targets-Creating_targets.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="File Toolbar">
+    <param name="Name" value="Basic Editor Toolbars">
+    <param name="Local" value="Basic_toolbar.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Edit Toolbar">
+    <param name="Name" value="Basic Editor Toolbars">
+    <param name="Local" value="Basic_toolbar.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Tools Toolbar">
+    <param name="Name" value="Basic Editor Toolbars">
+    <param name="Local" value="Basic_toolbar.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="InfoViewer Toolbar">
+    <param name="Name" value="Basic Editor Toolbars">
+    <param name="Local" value="Basic_toolbar.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Panels, Properties">
+    <param name="Name" value="Creating a New Panel">
+    <param name="Local" value="Base_Panels.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Project, Properties">
+    <param name="Name" value="Creating a New Project">
+    <param name="Local" value="Creating_projects.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Ruler">
+    <param name="Name" value="Using Drawing Aids">
+    <param name="Local" value="Information_on_the_panel.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Grid Points">
+    <param name="Name" value="Using Drawing Aids">
+    <param name="Local" value="Information_on_the_panel.htm">
+    <param name="Name" value="Setting the Grid">
+    <param name="Local" value="Setting_Grid.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Hairline Cursor">
+    <param name="Name" value="Using Drawing Aids">
+    <param name="Local" value="Information_on_the_panel.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Center Point">
+    <param name="Name" value="Using Drawing Aids">
+    <param name="Local" value="Information_on_the_panel.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Object Markers">
+    <param name="Name" value="Using Drawing Aids">
+    <param name="Local" value="Information_on_the_panel.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Project Manager, Properties">
+    <param name="Name" value="Arranging Projects by Folder#vijeo_manager">
+    <param name="Local" value="Arrange_project_file_by_folders.htm#vijeo_manager">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Graphical Objects Toolbar">
+    <param name="Name" value="Special Editor Toolbars">
+    <param name="Local" value="Editor_Toolbar.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Arrange Toolbar">
+    <param name="Name" value="Special Editor Toolbars">
+    <param name="Local" value="Editor_Toolbar.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Select Options Toolbar">
+    <param name="Name" value="Special Editor Toolbars">
+    <param name="Local" value="Editor_Toolbar.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Object Information Toolbar">
+    <param name="Name" value="Special Editor Toolbars">
+    <param name="Local" value="Editor_Toolbar.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="State Options Toolbar">
+    <param name="Name" value="Special Editor Toolbars">
+    <param name="Local" value="Editor_Toolbar.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Panel Configuration Toolbar">
+    <param name="Name" value="Special Editor Toolbars">
+    <param name="Local" value="Editor_Toolbar.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Targets, Working with">
+    <param name="Name" value="Adding a Target">
+    <param name="Local" value="Adding_targets.htm">
+    <param name="Name" value="Deleting a Target">
+    <param name="Local" value="deleting_targets.htm">
+    <param name="Name" value="Copying a Target">
+    <param name="Local" value="Coppying_targets.htm">
+    <param name="Name" value="Changing a Target">
+    <param name="Local" value="changing_targets.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Project Wizard">
+    <param name="Name" value="Arranging Projects by Folder#vijeo_manager">
+    <param name="Local" value="Arrange_project_file_by_folders.htm#vijeo_manager">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Don't show this message again">
+    <param name="Name" value="Arranging Projects by Folder#vijeo_manager">
+    <param name="Local" value="Arrange_project_file_by_folders.htm#vijeo_manager">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Don't show this message again, Show Project Wizard">
+    <param name="Name" value="Arranging Projects by Folder#vijeo_manager">
+    <param name="Local" value="Arrange_project_file_by_folders.htm#vijeo_manager">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Show Project Wizard">
+    <param name="Name" value="Arranging Projects by Folder#vijeo_manager">
+    <param name="Local" value="Arrange_project_file_by_folders.htm#vijeo_manager">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Hide Project Wizard">
+    <param name="Name" value="Arranging Projects by Folder#vijeo_manager">
+    <param name="Local" value="Arrange_project_file_by_folders.htm#vijeo_manager">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Welcome Dialog Box">
+    <param name="Name" value="Arranging Projects by Folder#vijeo_manager">
+    <param name="Local" value="Arrange_project_file_by_folders.htm#vijeo_manager">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Project Password">
+    <param name="Name" value="Adding Project Security">
+    <param name="Local" value="Adding_Project_Security.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Hint">
+    <param name="Name" value="Adding Project Security">
+    <param name="Local" value="Adding_Project_Security.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Revision History">
+    <param name="Name" value="Tracking Project Versions">
+    <param name="Local" value="version_control.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Revision Number">
+    <param name="Name" value="Tracking Project Versions">
+    <param name="Local" value="version_control.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Navigation Tools">
+    <param name="Name" value="Re-centering the Drawing Area">
+    <param name="Local" value="Re-centering_the_Drawing_Area.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Panel Navigation Tools">
+    <param name="Name" value="Re-centering the Drawing Area">
+    <param name="Local" value="Re-centering_the_Drawing_Area.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Top-Left, View">
+    <param name="Name" value="Re-centering the Drawing Area">
+    <param name="Local" value="Re-centering_the_Drawing_Area.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Preview Part States">
+    <param name="Name" value="Special Editor Toolbars">
+    <param name="Local" value="Editor_Toolbar.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Panel Editor, Previewing Part Stats">
+    <param name="Name" value="Special Editor Toolbars">
+    <param name="Local" value="Editor_Toolbar.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Drawing Board, Previewing Part States">
+    <param name="Name" value="Special Editor Toolbars">
+    <param name="Local" value="Editor_Toolbar.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Parts, Previewing States">
+    <param name="Name" value="Special Editor Toolbars">
+    <param name="Local" value="Editor_Toolbar.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Graphical Objects, Previewing States">
+    <param name="Name" value="Special Editor Toolbars">
+    <param name="Local" value="Editor_Toolbar.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Password, Recover">
+    <param name="Name" value="Adding Project Security#recovering">
+    <param name="Local" value="Adding_Project_Security.htm#recovering">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Forgot Password">
+    <param name="Name" value="Adding Project Security#recovering">
+    <param name="Local" value="Adding_Project_Security.htm#recovering">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Project Security">
+    <param name="Name" value="Adding Project Security">
+    <param name="Local" value="Adding_Project_Security.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Level Based Security">
+    <param name="Name" value="Defining Access Levels for Switches and Panels#Minimum_Security_Level">
+    <param name="Local" value="access_level_switch_panel.htm#Minimum_Security_Level">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Bitmask Based Security">
+    <param name="Name" value="Defining Access Levels for Switches and Panels#Bit_Mask_Security_Level">
+    <param name="Local" value="access_level_switch_panel.htm#Bit_Mask_Security_Level">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Inactivity Time-Out">
+    <param name="Name" value="Logging Out at Run-Time#inactivity_time_out">
+    <param name="Local" value="log_out_runtime.htm#inactivity_time_out">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="User Manager">
+    <param name="Name" value="Managing Security Users at Run Time">
+    <param name="Local" value="manage_security_runtime.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Password">
+    <param name="Name" value="Adding Security Users">
+    <param name="Local" value="Adding_Security_Users.htm">
+    <param name="Name" value="Security Settings">
+    <param name="Local" value="Security_Settings.htm">
+    <param name="Name" value="Setting Up Password Security">
+    <param name="Local" value="Setting_Up_Password_Security.htm">
+    <param name="Name" value="Managing Passwords at Run Time">
+    <param name="Local" value="Managing_Passwords_at_Run_Time.htm">
+  </object>
+  <ul>
+    <li><object type="text/sitemap">
+      <param name="Name" value="Change">
+      <param name="Name" value="Managing Passwords at Run Time#Changing_a_Password">
+      <param name="Local" value="Managing_Passwords_at_Run_Time.htm#Changing_a_Password">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="Expired">
+      <param name="Name" value="Managing Passwords at Run Time#Changing_an_Expired_Password">
+      <param name="Local" value="Managing_Passwords_at_Run_Time.htm#Changing_an_Expired_Password">
+    </object>
+    </ul>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Security">
+    <param name="See Also" value="Security">
+  </object>
+  <ul>
+    <li><object type="text/sitemap">
+      <param name="Name" value="Editor">
+      <param name="Name" value="Security Editor Overview">
+      <param name="Local" value="Security_Editor_Overview.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="Level">
+      <param name="Name" value="Defining Access Levels for Switches and Panels">
+      <param name="Local" value="access_level_switch_panel.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="Data Transfer">
+      <param name="Name" value="Protecting Targets from Unauthorized Data Transfer">
+      <param name="Local" value="protect_data_transfer.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="Log Out">
+      <param name="Name" value="Logging Out at Run-Time">
+      <param name="Local" value="log_out_runtime.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="Panel">
+      <param name="Name" value="Adding Security to Panels">
+      <param name="Local" value="Adding_Security_to_Panels.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="Switch">
+      <param name="Name" value="Adding Security to Switches">
+      <param name="Local" value="Adding_Security_to_Switches.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="Function Keys">
+      <param name="Name" value="Adding Security to Function Keys">
+      <param name="Local" value="Adding_Security_to_Function_Keys.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="Web Gate">
+      <param name="Name" value="Protecting Web Gate Access from Unauthorized Users">
+      <param name="Local" value="protect_webgate.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="Target">
+      <param name="Name" value="Protecting Targets from Unauthorized Project Downloads">
+      <param name="Local" value="Protect_targets.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="Group">
+      <param name="Name" value="Creating Security Groups">
+      <param name="Local" value="Creating_Security_Groups.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="User">
+      <param name="Name" value="Adding Security Users">
+      <param name="Local" value="Adding_Security_Users.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="Log In">
+      <param name="Name" value="Logging In at Run-Time">
+      <param name="Local" value="log_in_runtime.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="Overview">
+      <param name="Name" value="Setting up Security Protection for Targets and Projects">
+      <param name="Local" value="security_overview.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="Settings">
+      <param name="Name" value="Security Settings">
+      <param name="Local" value="Security_Settings.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="Bitmask Based">
+      <param name="Name" value="Defining Access Levels for Switches and Panels#Bit_Mask_Security_Level">
+      <param name="Local" value="access_level_switch_panel.htm#Bit_Mask_Security_Level">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="Level Based">
+      <param name="Name" value="Defining Access Levels for Switches and Panels#Minimum_Security_Level">
+      <param name="Local" value="access_level_switch_panel.htm#Minimum_Security_Level">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="Mode">
+      <param name="Name" value="Defining Access Levels for Switches and Panels">
+      <param name="Local" value="access_level_switch_panel.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="Anonymous">
+      <param name="Name" value="Security Settings">
+      <param name="Local" value="Security_Settings.htm">
+    </object>
+    </ul>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Secure Panel">
+    <param name="Name" value="Adding Security to Panels">
+    <param name="Local" value="Adding_Security_to_Panels.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Secure Popup Windows">
+    <param name="Name" value="Adding Security to Panels">
+    <param name="Local" value="Adding_Security_to_Panels.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Security Group">
+    <param name="Name" value="Creating Security Groups">
+    <param name="Local" value="Creating_Security_Groups.htm">
+  </object>
+  <ul>
+    <li><object type="text/sitemap">
+      <param name="Name" value="Authentication Methods">
+      <param name="Name" value="Authentication for Security Groups">
+      <param name="Local" value="Authentication_for_Security_Groups.htm">
+    </object>
+    </ul>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Security User">
+    <param name="Name" value="Adding Security Users">
+    <param name="Local" value="Adding_Security_Users.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Graphical Panels">
+    <param name="Name" value="Opening the Panel">
+    <param name="Local" value="Open_the_panel.htm">
+  </object>
+  <ul>
+    <li><object type="text/sitemap">
+      <param name="Name" value="Master Panel">
+      <param name="Name" value="4.7.1 Master Panels">
+      <param name="Local" value="Master_Panels.htm">
+      <param name="Name" value="Opening the Panel">
+      <param name="Local" value="Open_the_panel.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="Popup Window Panel">
+      <param name="Name" value="Opening the Panel">
+      <param name="Local" value="Open_the_panel.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="Panel">
+      <param name="Name" value="Opening the Panel">
+      <param name="Local" value="Open_the_panel.htm">
+      <param name="Name" value="Creating a New Panel">
+      <param name="Local" value="Base_Panels.htm">
+    </object>
+    </ul>
+  <li><object type="text/sitemap">
+    <param name="Name" value="DHCP">
+    <param name="Name" value="Basic Setup of a Target#DHCP">
+    <param name="Local" value="Setting_up_Targets-Creating_targets.htm#Basic">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="USB Storage">
+    <param name="See Also" value="USB Storage">
+  </object>
+  <ul>
+    <li><object type="text/sitemap">
+      <param name="Name" value="Install Options">
+      <param name="Name" value="Basic Setup of a Target">
+      <param name="Local" value="Setting_up_Targets-Creating_targets.htm">
+    </object>
+    </ul>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Changing a Target Type">
+    <param name="Name" value="Changing a Target">
+    <param name="Local" value="changing_targets.htm">
+  </object>
+  <ul>
+    <li><object type="text/sitemap">
+      <param name="Name" value="Features Limited by Hardware">
+      <param name="Name" value="Changing a Target#Features_Limited_by_HW">
+      <param name="Local" value="changing_targets.htm#Features_Limited_by_HW">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="Font Availability">
+      <param name="Name" value="Changing a Target#Font_Availability">
+      <param name="Local" value="changing_targets.htm#Font_Availability">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="Positioning of Panel Objects">
+      <param name="Name" value="Changing a Target#Positioning_of_Objects_in_the_Panel">
+      <param name="Local" value="changing_targets.htm#Positioning_of_Objects_in_the_Panel">
+    </object>
+    </ul>
+  <li><object type="text/sitemap">
+    <param name="Name" value="SoMachine">
+    <param name="Name" value="Working with SoMachine">
+    <param name="Local" value="Working_with_M_Solution_Designer.htm">
+  </object>
+  <ul>
+    <li><object type="text/sitemap">
+      <param name="Name" value="Controller Operations: Start/Stop/Lockout">
+      <param name="Name" value="Online Monitoring">
+      <param name="Local" value="Online_Monitoring.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="Creating SoMachine HMI Applications">
+      <param name="Name" value="Creating HMI Projects for SoMachine">
+      <param name="Local" value="Creating_HMI_Projects_for_M_Solution_Designer.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="Variables">
+      <param name="Name" value="Working with SoMachine Variables">
+      <param name="Local" value="Working_with_M_Solution_Designer_Variables.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="Downloading from SoMachine">
+      <param name="Name" value="Working with SoMachine">
+      <param name="Local" value="Working_with_M_Solution_Designer.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="Driver Communications">
+      <param name="Name" value="Dowloading the SoMachine HMI Application">
+      <param name="Local" value="Dowloading_the_M_Solution_Designer_HMI_Application.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="Unavailable Operations, Vijeo Designer opened within SoMachine">
+      <param name="Name" value="Saving, Closing, Opening Vijeo Designer project is SoMachine">
+      <param name="Local" value="Vijeo_Designer_project_is_M_Solution_Designer.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="Monitoring Controller">
+      <param name="Name" value="Monitoring Controller Status">
+      <param name="Local" value="Monitoring_Controller_Events.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="Reports: Variable, Panel, Actions">
+      <param name="Name" value="Creating SoMachine and Vijeo Designer Reports">
+      <param name="Local" value="Creating_SoMachine_and_Vijeo_Designer_Reports.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="Importing/Exporting HMI Applications">
+      <param name="Name" value="Exporting and Importing Vijeo Designer projects in SoMachine">
+      <param name="Local" value="Exporting_and_Importing_Vijeo_Designer_projects_in_M_Solution_Designer.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="MED Toolchest Parts">
+      <param name="Name" value="Using SoMachine MED Toolchest Parts">
+      <param name="Local" value="MED_SoMachine.htm">
+    </object>
+    </ul>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Consequences of Changing Target Type/Model/Color">
+    <param name="Name" value="Changing a Target#Features_Limited_by_HW">
+    <param name="Local" value="changing_targets.htm#Features_Limited_by_HW">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Variable SoMachine">
+    <param name="Name" value="Working with SoMachine Variables">
+    <param name="Local" value="Working_with_M_Solution_Designer_Variables.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Splash Screen">
+    <param name="Name" value="Basic Setup of a Target">
+    <param name="Local" value="Setting_up_Targets-Creating_targets.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Configuring Splash Screen">
+    <param name="Name" value="Basic Setup of a Target">
+    <param name="Local" value="Setting_up_Targets-Creating_targets.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Custom Splash Screen">
+    <param name="Name" value="Basic Setup of a Target">
+    <param name="Local" value="Setting_up_Targets-Creating_targets.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Startup Screen">
+    <param name="Name" value="Basic Setup of a Target">
+    <param name="Local" value="Setting_up_Targets-Creating_targets.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Data Manager Security Options">
+    <param name="Name" value="Security Settings">
+    <param name="Local" value="Security_Settings.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Anonymous security users">
+    <param name="Name" value="Security Settings">
+    <param name="Local" value="Security_Settings.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Data Manager Security">
+    <param name="Name" value="Protecting Targets from Unauthorized Data Transfer">
+    <param name="Local" value="protect_data_transfer.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Control Port">
+    <param name="Name" value="Basic Setup of a Target">
+    <param name="Local" value="Setting_up_Targets-Creating_targets.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Data Port">
+    <param name="Name" value="Basic Setup of a Target">
+    <param name="Local" value="Setting_up_Targets-Creating_targets.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="NAT">
+    <param name="Name" value="Basic Setup of a Target">
+    <param name="Local" value="Setting_up_Targets-Creating_targets.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Connect Through">
+    <param name="Name" value="Basic Setup of a Target">
+    <param name="Local" value="Setting_up_Targets-Creating_targets.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="E-mail">
+    <param name="Name" value="Working with Email">
+    <param name="Local" value="Working_with_Email.htm">
+  </object>
+  <ul>
+    <li><object type="text/sitemap">
+      <param name="Name" value="Server">
+      <param name="Name" value="Setting up Email">
+      <param name="Local" value="Setting_up_Email.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="Adding E-mail Contacts">
+      <param name="Name" value="Adding E-mail Contacts">
+      <param name="Local" value="Adding_Email_Contacts.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="Triggering E-mails">
+      <param name="Name" value="Triggering Emails">
+      <param name="Local" value="Triggering_Emails.htm">
+    </object>
+    </ul>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Triggering E-mails">
+    <param name="Name" value="Triggering Emails">
+    <param name="Local" value="Triggering_Emails.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Setting up E-mail">
+    <param name="Name" value="Working with Email">
+    <param name="Local" value="Working_with_Email.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Troubleshooting E-mail">
+    <param name="Name" value="Email Troubleshooting">
+    <param name="Local" value="Email_Troubleshooting.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Backlight Color">
+    <param name="Name" value="Creating a New Panel">
+    <param name="Local" value="Creating_a_New_Panel.htm">
+    <param name="Name" value="Setting Up a Target">
+    <param name="Local" value="About_target.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Authorization of User Actions">
+    <param name="Name" value="Setting Up Validation for User Actions">
+    <param name="Local" value="Setting_Up_Authorization_for_User_Actions.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Validation, User Actions">
+    <param name="Name" value="Setting Up Validation for User Actions">
+    <param name="Local" value="Setting_Up_Authorization_for_User_Actions.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="User Actions, Validation">
+    <param name="Name" value="Setting Up Validation for User Actions">
+    <param name="Local" value="Setting_Up_Authorization_for_User_Actions.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Touch Screen Input">
+    <param name="Name" value="Basic Setup of a Target">
+    <param name="Local" value="Setting_up_Targets-Creating_targets.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Time Management">
+    <param name="Name" value="Basic Setup of a Target">
+    <param name="Local" value="Setting_up_Targets-Creating_targets.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Password Strength Criteria">
+    <param name="Name" value="Security Settings">
+    <param name="Local" value="Security_Settings.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Lockout XBTGC">
+    <param name="Name" value="Online Monitoring">
+    <param name="Local" value="Online_Monitoring.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Remote Access">
+    <param name="Name" value="Target Properties: Remote Access">
+    <param name="Local" value="targetProperties_remoteAccess.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Remote Management">
+    <param name="Name" value="Target Properties: Remote Access#Remote Management">
+    <param name="Local" value="targetProperties_remoteAccess.htm#Remote Management">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Cybersecurity">
+    <param name="Name" value="Setting up Security Protection for Targets and Projects">
+    <param name="Local" value="security_overview.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Cyber attack">
+    <param name="Name" value="Setting up Security Protection for Targets and Projects">
+    <param name="Local" value="security_overview.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Time Zone">
+    <param name="Name" value="Configuring Time Zone and Daylight Saving Time">
+    <param name="Local" value="Configuring_Time_Zone_and_Daylight_Saving_Time.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Daylight Saving Time">
+    <param name="Name" value="Configuring Time Zone and Daylight Saving Time">
+    <param name="Local" value="Configuring_Time_Zone_and_Daylight_Saving_Time.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Time Adjustment (Daylight Saving Time)">
+    <param name="Name" value="Configuring Time Zone and Daylight Saving Time">
+    <param name="Local" value="Configuring_Time_Zone_and_Daylight_Saving_Time.htm">
+  </object>
+</ul>
+</html>

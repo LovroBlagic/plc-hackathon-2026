@@ -1,0 +1,117 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+<meta name="template" content="Vijeo_template.htt">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="topic-status" content="In Progress">
+<meta name="topic-priority" content="0">
+<meta name="topic-time-estimate" content="0">
+<meta name="topic-comment" content="">
+<meta name="topic-id" content="ScriptDriver_HyperTerminal">
+<meta name="window-type" content="$global_NewWindow">
+ <meta name="generator" content="Adobe RoboHelp 10">
+<title>Example: Reading Messages from a HyperTerminal</title>
+<link rel="StyleSheet" href="TIS-STYL.CSS" type="text/css">
+</head>
+<body>
+<script type="text/javascript" src="ehlpdhtm.js" language="JavaScript1.2"></script>
+
+<div style="width: 100%; position: relative;" id="header">
+	<table style="background-attachment: scroll; margin-left: 0px; margin-right: 4px; 
+			 background-image: url(top_banner.bmp); background-repeat: Repeat-X; 
+			 line-height: 0pt; vertical-align: top;" cellspacing="0" width="100%" 
+			 background="top_banner.bmp">
+		<col style="width: 90%;">
+		<col style="width: 5%;">
+		<col style="width: 5%;">
+		<tr style="vertical-align: center; height: 39px;">
+			<td style="width: 90%; padding-right: 10px; padding-left: 10px; 
+				 border-right-color: #000000;">
+   <p><img src="logo.bmp" style="border: none;" alt="" width="37" height="37" border="0"></p></td>
+			<td style="width: 5%; padding-right: 0px; padding-left: 10px; 
+				 border-right-color: #000000;">
+   <p style="text-align: center;"><a 
+			 title="Glossary" href="Appendix.chm::/Glossary.htm"><img src="logo_glossary.bmp" style="border: none;" alt="" width="47" height="37" border="0"></a></p></td>
+			<td style="width: 5%; padding-right: 10px; padding-left: 5px; 
+				 border-right-color: #000000;">
+   <p style="text-align: center;"><a 
+			 href="About.chm::/What_is_Vijeo-Designer.htm" title="Home"><img src="logo_home.bmp" alt="Home" title="Home" style="border: none; 
+			 margin-left: 0px; margin-right: 0px; margin-bottom: 0px; margin-top: -2px;" width="47" height="37" border="0"></a></p></td>
+		</tr>
+	</table>
+</div>
+
+<h2>18.8.6 Example: Reading Messages from a HyperTerminal</h2>
+<p>In the following example, the target machine receives and displays messages from a hyperterminal.</p>
+<p class="Image"><img src="ScriptDriver_Hyperterminal.bmp" style="border: none;" alt="" width="292" height="125" border="0"></p>
+<h4><img src="Square.bmp" style="border: none;" alt="" width="12" height="10" border="0">Before Writing the Script</h4>
+<ol style="list-style: decimal;">
+<li style="font-weight: bold;" class="p">
+<p style="font-weight: normal;">Add the script driver and rename it <span style="font-weight: bold;">HyperTerminal</span>.<br>
+See Section 18.8.3, <a href="ScriptDriver_Setting_Up_the_Driver.htm">Setting up the Script Driver</a>.</p>
+</li>
+<li style="font-weight: bold;" class="p">
+<p style="font-weight: normal;">Connect the hyperterminal to the defined COM port.<br>
+See Section 18.8.4, <a href="ScriptDriver_Cable_Connections.htm">Cable Connections</a>.</p>
+</li>
+</ol>
+<h4><img src="Square.bmp" style="border: none;" alt="" width="12" height="10" border="0">Writing the Script</h4>
+<ol style="list-style: decimal;">
+<li style="font-weight: bold;" class="p">
+<p style="font-weight: normal;">Create a String variable, rename it to <span style="font-weight: bold;">ReadText</span>, and in its NumOfBytes property define the number of characters it can store.<br>
+This variable will be used to store and display text from the hyperterminal.</p>
+</li>
+</ol>
+<ol start="2" style="list-style: decimal;">
+<li style="font-weight: bold;" class="p">
+<p style="font-weight: normal;">Create a String Display object, assign the newly created STRING variable, and define the Display Length to match the variable's NumOfBytes.</p>
+</li>
+</ol>
+<p class="Image" style="margin-left: 40px;"><img src="ScriptDriver_Draw_StringDisplay.bmp" style="border: none;" alt="" width="494" height="146" border="0"></p>
+<ol start="3" style="list-style: decimal;">
+<li style="font-weight: bold;" class="p">
+<p style="font-weight: normal;">Create the action script with the following properties:<br>
+Trigger Type: Periodic<br>
+Frequency: 2.5<br>
+Scheduling: Normal</p>
+</li>
+</ol>
+<ol start="4" style="list-style: decimal;">
+<li class="p">
+<p>Write the script.</p>
+</li>
+</ol>
+<p class="Code" style="margin-left: 40px; color: #008000;">// 1. Create script variables</p>
+<p class="Code" style="margin-left: 40px; color: #008000;">// For reading messages from hyperterminal</p>
+
+<p class="Code" style="margin-left: 40px;">int result;</p>
+
+<p class="Code" style="margin-left: 40px;">byte readArray[]= new byte[20];</p>
+
+<p class="Code" style="margin-left: 40px;">&#160;</p>
+<p class="Code" style="margin-left: 40px; color: #008000;">// 2. Read data from serial port</p>
+
+<p class="Code" style="margin-left: 40px;">result = HyperTerminal.read(0, 20, readArray);</p>
+
+<p class="Code" style="margin-left: 40px;">if (result &lt;= 0) &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<span style="color: #008000;">// Check for error</span></p>
+<p class="Code" style="margin-left: 80px;">ReadText.write("ERROR"); <span style="color: #008000;">// Write to variable</span></p>
+
+<p class="Code" style="margin-left: 40px;">else</p>
+
+<p class="Code" style="margin-left: 40px;">{</p>
+<p class="Code" style="margin-left: 80px; color: #008000;">// Convert byte array to String</p>
+
+<p class="Code" style="margin-left: 80px;">String temp = new String( readArray );</p>
+
+<p class="Code" style="margin-left: 80px;">ReadText.write(temp);</p>
+
+<p class="Code" style="margin-left: 40px;">}</p>
+<p class="Code" style="margin-left: 40px; color: #008000;">&#160;</p>
+<h5>1. Create script variables</h5>
+<p>Create local script variables for working with the message received from the hyperterminal.</p>
+<h5>2. Read data from serial port</h5>
+<p>Check the serial port for any data received from the hyperterminal. If the read result is less than 0, then an error has occurred and write "ERROR" to the string variable.</p>
+<p>If the read result is greater than 0, then data has been received. Convert the byte array into a String and write the result to the string variable.</p>
+</body>
+</html>

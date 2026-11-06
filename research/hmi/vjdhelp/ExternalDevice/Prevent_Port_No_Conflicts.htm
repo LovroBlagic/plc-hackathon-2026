@@ -1,0 +1,154 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+<meta name="template" content="Vijeo_template.htt">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+ <meta name="generator" content="Adobe RoboHelp 2015">
+<title>5.8.6 Preventing Port Number Conflicts</title>
+<link rel="StyleSheet" href="TIS-STYL.CSS" type="text/css">
+</head>
+<body>
+<script type="text/javascript" src="ehlpdhtm.js" language="JavaScript1.2"></script>
+
+<div style="width: 100%; position: relative;" id="header">
+	<table style="background-attachment: scroll; margin-left: 0px; margin-right: 4px; 
+			 background-image: url(top_banner.bmp); background-repeat: Repeat-X; 
+			 line-height: 0pt; vertical-align: top;" cellspacing="0" background="top_banner.bmp" 
+			 width="100%">
+		<col style="width: 90%;">
+		<col style="width: 5%;">
+		<col style="width: 5%;">
+		<tr style="vertical-align: center; height: 39px;">
+			<td style="width: 90%; padding-right: 10px; padding-left: 10px; 
+				 border-right-color: #000000;">
+   <p><img src="logo.bmp" alt="" style="border: none;" width="37" height="37" border="0"></p></td>
+			<td style="width: 5%; padding-right: 0px; padding-left: 10px; 
+				 border-right-color: #000000;">
+   <p style="text-align: center;"><a 
+			 title="Glossary" href="Appendix.chm::/Glossary.htm"><img src="logo_glossary.bmp" alt="" style="border: none;" width="47" height="37" border="0"></a></p></td>
+			<td style="width: 5%; padding-right: 10px; padding-left: 5px; 
+				 border-right-color: #000000;">
+   <p style="text-align: center;"><a 
+			 href="About.chm::/What_is_Vijeo-Designer.htm" title="Home"><img src="logo_home.bmp" alt="Home" title="Home" style="border: none; 
+			 margin-left: 0px; margin-right: 0px; margin-bottom: 0px; margin-top: -2px;" width="47" height="37" border="0"></a></p></td>
+		</tr>
+	</table>
+</div>
+
+
+<h2>5.8.6 Preventing Port Number Conflicts</h2>
+<p>Vijeo Designer features (such as download, data sharing, Web Gate, Vijeo Design'Air, Vijeo Design'Air Plus, and so on) use several port numbers. Some port numbers are configurable, allowing you can change them in Vijeo Designer Buildtime. However, some port numbers have a fixed value and cannot be changed.</p>
+<p style="font-size: 10pt;">A port number conflict occurs when you are modifying a configurable port number and select a value already used by a port number that cannot be changed. For example, changing the data sharing port number from 6000 (the default value) to 6002, which is the default port number used by Vijeo Design'Air, would result in a port number conflict. &#160;</p>
+<p><span style="font-size: 10pt;">The following table lists the port numbers used for Vijeo Designer features. These port nu</span>mbers have fixed values and cannot be changed.</p>
+<table style="vertical-align: top;" cellspacing="0" width="91.133%">
+<col style="width: 17.776%;">
+<col style="width: 25.823%;">
+<col style="width: 39.868%;">
+<col style="width: 16.533%;">
+<tr style="vertical-align: top;">
+<td style="border-top: Solid 1px #000000; border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#91AFD9">
+<p class="Tabletitle">Port Numbers</p>
+</td>
+<td style="border-top: Solid 1px #000000; border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#91AFD9">
+<p class="Tabletitle">Server Feature</p>
+</td>
+<td style="border-top: Solid 1px #000000; border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#91AFD9">
+<p class="Tabletitle">Vijeo Designer Feature</p>
+</td>
+<td style="border-top: Solid 1px #000000; border-bottom: Solid 1px #000000; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#91AFD9">
+<p class="Tabletitle">Configurable?</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">6001</p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">FTP Server</p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">Data Manager</p>
+</td>
+<td style="border-bottom: Solid 1px #000000; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">No</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">13777</p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">FTP Server</p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">Data Manager</p>
+</td>
+<td style="border-bottom: Solid 1px #000000; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">Yes</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">6000</p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">Data Sharing Server</p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">Data Sharing / Vijeo Design'Air Plus</p>
+</td>
+<td style="border-bottom: Solid 1px #000000; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">Yes</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">80</p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">Web Server</p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">Web Gate / Vijeo Design'Air and Air Plus</p>
+</td>
+<td style="border-bottom: Solid 1px #000000; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">Yes</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">5001</p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">Discovery Server</p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">Vijeo Design'Air and Air Plus</p>
+</td>
+<td style="border-bottom: Solid 1px #000000; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">No</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 3px #000000; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">6002</p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 3px #000000; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">Vijeo Design'Air Protocol</p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 3px #000000; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">Vijeo Design'Air</p>
+</td>
+<td style="border-bottom: Solid 3px #000000; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">Yes</p>
+</td>
+</tr>
+</table>
+<p>&#160;</p>
+<p>Also, you must not use a port number that may conflict with a port number used by a protocol. For example, the Allen-Bradley Ethernet/IP protocol uses port 44818. If you want to this protocol, you cannot assign this value to another port number.</p>
+<div style="width: 100%; position: relative;" id="footer">
+	<p>&#160;</p>
+</div>
+</body>
+</html>

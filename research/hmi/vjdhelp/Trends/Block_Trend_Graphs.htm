@@ -1,0 +1,146 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+<meta name="template" content="Vijeo_template.htt">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="topic-status" content="In Progress">
+<meta name="topic-priority" content="0">
+<meta name="topic-time-estimate" content="0">
+<meta name="topic-comment" content="">
+<meta name="topic-id" content="Block Trend Graphs">
+<meta name="window-type" content="$global_NewWindow">
+ <meta name="generator" content="Adobe RoboHelp 10">
+<title>Block Trend Graphs</title>
+<link rel="StyleSheet" href="TIS-STYL.CSS" type="text/css">
+</head>
+<body>
+<script type="text/javascript" src="ehlpdhtm.js" language="JavaScript1.2"></script>
+
+<div style="width: 100%; position: relative;" id="header">
+	<table style="background-attachment: scroll; margin-left: 0px; margin-right: 4px; 
+			 background-image: url(top_banner.bmp); background-repeat: Repeat-X; 
+			 line-height: 0pt; vertical-align: top;" cellspacing="0" width="100%" 
+			 background="top_banner.bmp">
+		<col style="width: 90%;">
+		<col style="width: 5%;">
+		<col style="width: 5%;">
+		<tr style="vertical-align: center; height: 39px;">
+			<td style="width: 90%; padding-right: 10px; padding-left: 10px; 
+				 border-right-color: #000000;">
+   <p><img src="logo.bmp" style="border: none;" alt="" width="37" height="37" border="0"></p></td>
+			<td style="width: 5%; padding-right: 0px; padding-left: 10px; 
+				 border-right-color: #000000;">
+   <p style="text-align: center;"><a 
+			 title="Glossary" href="Appendix.chm::/Glossary.htm"><img src="logo_glossary.bmp" style="border: none;" alt="" width="47" height="37" border="0"></a></p></td>
+			<td style="width: 5%; padding-right: 10px; padding-left: 5px; 
+				 border-right-color: #000000;">
+   <p style="text-align: center;"><a 
+			 href="About.chm::/What_is_Vijeo-Designer.htm" title="Home"><img src="logo_home.bmp" alt="Home" title="Home" style="border: none; 
+			 margin-left: 0px; margin-right: 0px; margin-bottom: 0px; margin-top: -2px;" width="47" height="37" border="0"></a></p></td>
+		</tr>
+	</table>
+</div>
+
+<h3>13.1.2.4 Block Trend Graphs</h3>
+<p>A block trend graph is typically used if you want to display high-speed data captured by the PLC and if you want to change the data you are viewing at run time. With a block trend graph, you can display data for multiple data samples at a point in time. A block trend graph can display up to 1024 data samples from each block variable. You can set up a maximum of eight block variables. Block trend graphs have two styles:</p>
+<ul>
+<li style="color: #000000; font-weight: normal;" class="p-Bullet">
+<p class="Bullet">Line</p>
+</li>
+</ul>
+<p class="Image" style="margin-left: 40px;"><img src="Line%20Graph.bmp" style="border: none;" alt="" width="291" height="230" border="0"></p>
+<ul>
+<li style="color: #000000; font-weight: normal;" class="p-Bullet">
+<p class="Bullet">Bar</p>
+</li>
+</ul>
+<p class="Image" style="margin-left: 40px;"><img src="Bar%20Graph.bmp" style="border: none;" alt="" width="295" height="230" border="0"></p>
+<h4><a name="Triggering" id="Triggering"></a><img src="Square.bmp" style="border: none;" alt="" width="12" height="10" border="0">Triggering Block Trend Graphs and Displaying Data</h4>
+<p>A block trend graph displays data samples only when a trigger is sent. When the trigger is sent, data is requested from the block variable, which obtains the latest values from the PLC and stores them in the block elements. The requested data then displays on the block trend graph.</p>
+<p>You can define the trigger and trigger type in the block trend graph properties. To set up the trigger for the block trend graph, we recommend you create a switch. For more information, see Section 13.6.2, <a href="Setting_Up_Block_Trend_Graphs.htm">Setting Up Block Trend Graphs</a>.</p>
+<p>At run time, when you press the trigger, the block trend graph resets to display current data.</p>
+<p><img src="Trigger_Runtime.bmp" style="border: none;" alt="" width="351" height="201" border="0"></p>
+<p>You would typically need to trigger the block trend graph when:</p>
+<ul>
+<li class="p-Bullet">
+<p class="Bullet">On opening the panel, the values are not displayed on the block trend graph.</p>
+</li>
+<li class="p-Bullet">
+<p class="Bullet">An error or an event occurs and you would need to redraw the values on the block trend graph.</p>
+</li>
+<li class="p-Bullet">
+<p class="Bullet">You have changed values (Number of Data, Value Min, Value Max, Start Index) and you want to update the block trend graph display.</p>
+</li>
+</ul>
+<p class="NoteImage"><img src="note_moji.bmp" style="border: none;" alt="" width="51" height="25" border="0"></p>
+<ul>
+<li class="p-NoteText">
+<p class="NoteText">When you display data on a block trend graph, change panels, and then return to the block trend graph panel, the block trend graph becomes blank. To display the data on the block trend graph again, you must activate the trigger.</p>
+</li>
+<li class="p-NoteText">
+<p class="NoteText">In a bar graph, when multiple channels are enabled, channels are displayed sequentially (i.e. Channel 1, Channel 2, Channel 3, and so on). For example, if the value of Channel 1 is greater than the value for each subsequent channel, the bars for the other channels will be hidden under the bar for Channel 1. As a result, you will only see Channel 1 displayed. &#160;</p>
+</li>
+</ul>
+<h4><a name="Changing" id="Changing"></a><img src="Square.bmp" style="border: none;" alt="" width="12" height="10" border="0">Changing the Data Display on the Block Trend Graph</h4>
+<p>You can change the elements you want displayed on the block trend graph by changing the Start Index value. In Vijeo-Designer, set the Start Index to a variable. Then create a numeric display, and set the variable to reference the variable defined for the Start Index. At run time, you can use the numeric display to change the Start Index value. The following example displays the block trend graph when the Start Index value is changed from 0 to 2.</p>
+<table style="vertical-align: top; left: 0px; top: 697px; height: 277px; margin-left: 14px;" cellspacing="0" width="387">
+<col style="width: 41.484%;">
+<col style="width: 17%;">
+<col style="width: 40.945%;">
+<tr style="vertical-align: top;">
+<td style="border: Solid 2px #808080;width: 41.484%; padding-right: 10px; padding-left: 10px;">
+<p style="font-size: 8pt; color: #0000ff;">Start Index = <span style="font-weight: bold;">0</span><br>
+Number of Data = 5<br>
+Block Elements = 10</p>
+<p style="font-size: 8pt; color: #0000ff;">BlockInteger01 Elements<span style="font-weight: bold;"><br>
+[0] = 20<br>
+[1] = 50<br>
+[2] = 39<br>
+[3] = 63<br>
+[4] = 22</span><br>
+[5] = 75<br>
+[6] = 45<br>
+[7] = 80<br>
+[8] = 15<br>
+[9] = 35</p>
+<p style="font-size: 8pt; color: #0000ff;">Block elements 0 to 4 are displayed on the block trend graph.</p>
+</td>
+<td style="border-right: Solid 2px #808080; width: 17%; padding-right: 10px; padding-left: 10px;">
+<p>&#160;</p>
+<p>&#160;</p>
+<p>&#160;</p>
+<p>&#160;</p>
+<p><img src="arrow2.bmp" style="border: none;" alt="" width="43" height="24" border="0"></p>
+</td>
+<td style="border-top: Solid 2px #808080; border-right: Solid 2px #808080; border-bottom: Solid 2px #808080; width: 40.945%; padding-right: 10px; padding-left: 10px;">
+<p style="font-size: 8pt; color: #0000ff;">Start Index = <span style="color: #ff0000; font-weight: bold;">2</span><br>
+Number of Data = 5<br>
+Block Elements = 10</p>
+<p style="font-size: 8pt; color: #0000ff;">BlockInteger01 Elements<br>
+[0] = 20<br>
+[1] = 50<span style="font-weight: bold; color: #ff0000;"><br>
+[2] = 39<br>
+[3] = 63<br>
+[4] = 22<br>
+[5] = 75<br>
+[6] = 45</span><span style="color: #ff0000;"><br>
+[7] = 80</span><span style="color: #ff0000;"><br>
+[8] = 15<br>
+[9] = 35</span></p>
+<p style="font-size: 8pt; color: #0000ff;">Block elements 2 to 6 are displayed on the block trend graph.</p>
+</td>
+</tr>
+</table>
+<p>&#160;</p>
+<p>At run time, set the Start Index to the element you want using the keypad.</p>
+<p><img src="StartIndex.bmp" style="border: none;" alt="" width="600" height="251" border="0"></p>
+<p>Then trigger the block trend graph. The number of data samples you specified starting at the changed block element will display on the block trend graph.</p>
+<p class="Image"><img src="StartIndex2.bmp" style="border: none;" alt="" width="425" height="241" border="0"></p>
+<p>&#160;</p>
+<p style="margin-bottom: 15pt;">For more information on the Start Index property and how to set up the numeric display, see Section 13.6.2, <a href="Setting_Up_Block_Trend_Graphs.htm">Setting Up Block Trend Graphs</a>.</p>
+<h4><a name="Zooming" id="Zooming"></a><img src="Square.bmp" style="border: none;" alt="" width="12" height="10" border="0">Zooming In/Out of Block Trend Graph Data</h4>
+<p>You can get a zoom in/out view of the sampled data horizontally (X-axis) and vertically (Y-axis), by defining valid values in the Number of Data, Value Min, Value Max properties for the Block Trend Graph. The Number of Data property indicates the number of data samples to display in the block trend graph view, and the Value Min/Value Max properties define the minimum and maximum values for each channel of the graph.</p>
+<p>At run time, when you zoom in, less data samples are displayed. When you zoom out, more data samples are displayed. You can change your zoom in/out view at run time. To do this, set up a numeric display each for Number of Data, Value Min, and Value Max. For more information, see Section 13.6.2, <a href="Setting_Up_Block_Trend_Graphs.htm">Setting Up Block Trend Graphs</a>.</p>
+</body>
+</html>

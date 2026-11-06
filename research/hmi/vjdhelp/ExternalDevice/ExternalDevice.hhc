@@ -1,0 +1,270 @@
+<html>
+<!-- Sitemap 1.0 -->
+<object type="text/site properties">
+  <param name="SiteType" value="toc">
+  <param name="Image Width" value="16">
+  <param name="Window Styles" value="0x800027">
+  <param name="ExWindow Styles" value="0x100">
+</object>
+<ul>
+  <li><object type="text/sitemap">
+    <param name="Name" value="5.1 Communications">
+    <param name="Local" value="outline.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="5.2 Setting Up Your Equipment">
+    <param name="Local" value="How_to_set_the_host_controller.htm">
+  </object>
+  <ul>
+    <li><object type="text/sitemap">
+      <param name="Name" value="5.2.1 Adding a Device Driver">
+      <param name="Local" value="the_detail_of_settgin_host_controller.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="5.2.2 Configuring Communication Settings">
+      <param name="Local" value="connection_setting.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="5.2.3 Deleting or Modifying Drivers">
+      <param name="Local" value="add_delete_edit.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="5.2.4 Setting Up Character Codes">
+      <param name="Local" value="character_code.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="5.2.5 Changing Communication Settings at Run Time">
+      <param name="Local" value="Change_COM_Properties_RunTime.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="5.2.6 Changing Equipment IP Address at Run Time">
+      <param name="Local" value="Changing_Equipment_IP_Address.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="5.2.7 Setting Up Redundant Ethernet Connections">
+      <param name="Local" value="Setting_Up_Redundant_Ethernet_Connections.htm">
+    </object>
+    </ul>
+  <li><object type="text/sitemap">
+    <param name="Name" value="5.3 Collecting Driver Statistics">
+    <param name="Local" value="Communication_Statistics.htm">
+  </object>
+  <ul>
+    <li><object type="text/sitemap">
+      <param name="Name" value="5.3.1 Creating Variables to Display Driver Statistics">
+      <param name="Local" value="Creating_Variables_to_Store_Statistics.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="5.3.2 Displaying Driver Statistics">
+      <param name="Local" value="Displaying_Driver_Statistics.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="5.3.3 Rolling Over Driver Statistics">
+      <param name="Local" value="Rolling_Over_Driver_Statistics.htm">
+    </object>
+    </ul>
+  <li><object type="text/sitemap">
+    <param name="Name" value="5.4 Working with Driver Properties">
+    <param name="Local" value="Working_with_Driver_Properties.htm">
+  </object>
+  <ul>
+    <li><object type="text/sitemap">
+      <param name="Name" value="5.4.1 Modbus Plus">
+      <param name="Local" value="Working_with_Modbus_Plus_Driver_Properties.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="5.4.2 Modbus RTU and TCP/IP">
+      <param name="Local" value="Modbus_TCP_IP.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="5.4.3 SoMachine - Network/Combo">
+      <param name="Local" value="Working_with_msolution_designer_driver_properties.htm">
+    </object>
+    </ul>
+  <li><object type="text/sitemap">
+    <param name="Name" value="5.5 Working with Alarms on the Equipment (Diagnostic Buffer)">
+    <param name="Local" value="DiagBuffer_WorkingWith.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="5.6 Working with the Dialog Table">
+    <param name="Local" value="Dialog_Table.htm">
+  </object>
+  <ul>
+    <li><object type="text/sitemap">
+      <param name="Name" value="5.6.1 Dialog Table Settings">
+      <param name="Local" value="Dialog_Table_Settings.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="5.6.2 Dialog Table Functions">
+      <param name="Local" value="Dialog_table_list.htm">
+    </object>
+    <ul>
+      <li><object type="text/sitemap">
+        <param name="Name" value="5.6.2.1 Communication Control">
+        <param name="Local" value="Communication_Control.htm">
+      </object>
+      <li><object type="text/sitemap">
+        <param name="Name" value="5.6.2.2 Set PLC Clock">
+        <param name="Local" value="Set_PLC_Clock.htm">
+      </object>
+      <li><object type="text/sitemap">
+        <param name="Name" value="5.6.2.3 Number of displayed page">
+        <param name="Local" value="Number_of_displayed_page.htm">
+      </object>
+      <li><object type="text/sitemap">
+        <param name="Name" value="5.6.2.4 Number of last field entered">
+        <param name="Local" value="Number_of_last_field_entered.htm">
+      </object>
+      <li><object type="text/sitemap">
+        <param name="Name" value="5.6.2.5 Report">
+        <param name="Local" value="Report.htm">
+      </object>
+      <li><object type="text/sitemap">
+        <param name="Name" value="5.6.2.6 Log Filling rate">
+        <param name="Local" value="Log_Filing_rate.htm">
+      </object>
+      <li><object type="text/sitemap">
+        <param name="Name" value="5.6.2.7 Application checksum">
+        <param name="Local" value="Application_checksum.htm">
+      </object>
+      <li><object type="text/sitemap">
+        <param name="Name" value="5.6.2.8 Terminal advanced state">
+        <param name="Local" value="Advanced_state_of_the_terminal.htm">
+      </object>
+      <li><object type="text/sitemap">
+        <param name="Name" value="5.6.2.9 Number of recipe transferred">
+        <param name="Local" value="Number_of_recipe_transferred.htm">
+      </object>
+      <li><object type="text/sitemap">
+        <param name="Name" value="5.6.2.10 Number of page to be processed">
+        <param name="Local" value="Number_of_page_to_be_processed.htm">
+      </object>
+      <li><object type="text/sitemap">
+        <param name="Name" value="5.6.2.11 Number of field to be entered">
+        <param name="Local" value="Number_of_field_to_be_entered.htm">
+      </object>
+      <li><object type="text/sitemap">
+        <param name="Name" value="5.6.2.12 Recipe to be transferred">
+        <param name="Local" value="Recipe_to_be_transferred.htm">
+      </object>
+      <li><object type="text/sitemap">
+        <param name="Name" value="5.6.2.13 Table write authorization">
+        <param name="Local" value="Table_write_authorization.htm">
+      </object>
+      <li><object type="text/sitemap">
+        <param name="Name" value="5.6.2.14 Recipe transfer not allowed">
+        <param name="Local" value="Recipe_transfer_not_allowed.htm">
+      </object>
+      <li><object type="text/sitemap">
+        <param name="Name" value="5.6.2.15 Advanced functions">
+        <param name="Local" value="Advanced_functions.htm">
+      </object>
+      <li><object type="text/sitemap">
+        <param name="Name" value="5.6.2.16 Language of terminal">
+        <param name="Local" value="Language_of_terminal.htm">
+      </object>
+      <li><object type="text/sitemap">
+        <param name="Name" value="5.6.2.17 Set terminal clock">
+        <param name="Local" value="Set_terminal_clock.htm">
+      </object>
+      <li><object type="text/sitemap">
+        <param name="Name" value="5.6.2.18 Image of static function keys">
+        <param name="Local" value="Image_of_static_function_keys.htm">
+      </object>
+      <li><object type="text/sitemap">
+        <param name="Name" value="5.6.2.19 Image of system keys">
+        <param name="Local" value="Image_of_system_keys.htm">
+      </object>
+      <li><object type="text/sitemap">
+        <param name="Name" value="5.6.2.20 Image of numeric keys">
+        <param name="Local" value="Image_of_numeric_keys.htm">
+      </object>
+      <li><object type="text/sitemap">
+        <param name="Name" value="5.6.2.21 Static function keys LEDs lighting">
+        <param name="Local" value="Static_function_keys_LEDs_lighting.htm">
+      </object>
+      <li><object type="text/sitemap">
+        <param name="Name" value="5.6.2.22 Static function keys LEDs flashing">
+        <param name="Local" value="Static_function_keys_LEDs_flashing.htm">
+      </object>
+      <li><object type="text/sitemap">
+        <param name="Name" value="5.6.2.23 Dynamic function keys LEDs lighting">
+        <param name="Local" value="Dynamic_function_keys_LEDs_lighting.htm">
+      </object>
+      <li><object type="text/sitemap">
+        <param name="Name" value="5.6.2.24 Dynamic function keys LEDs flashing">
+        <param name="Local" value="Dynamic_function_keys_LEDs_flashing.htm">
+      </object>
+      <li><object type="text/sitemap">
+        <param name="Name" value="5.6.2.25 Static function keys locking">
+        <param name="Local" value="Static_function_keys_locking.htm">
+      </object>
+      <li><object type="text/sitemap">
+        <param name="Name" value="5.6.2.26 System keys locking">
+        <param name="Local" value="System_keys_locking.htm">
+      </object>
+      <li><object type="text/sitemap">
+        <param name="Name" value="5.6.2.27 Numeric keys locking">
+        <param name="Local" value="Numeric_keys_locking.htm">
+      </object>
+      <li><object type="text/sitemap">
+        <param name="Name" value="5.6.2.28 Set Terminal Clock Offset">
+        <param name="Local" value="Set_Terminal_Clock_Offset.htm">
+      </object>
+      </ul>
+    <li><object type="text/sitemap">
+      <param name="Name" value="5.6.3 Adding Functions to the Dialog Table">
+      <param name="Local" value="Adding_Functions_to_the_Dialog_Table.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="5.6.4 Deleting Functions from the Dialog Table">
+      <param name="Local" value="delete_dialog.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="5.6.5 Setting the Dialog Table Start Address ">
+      <param name="Local" value="set_start_functions.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="5.6.6 Assigning a Dialog Table Function to a Variable">
+      <param name="Local" value="Assigning_a_Dialog_Table_Function_to_a_Variable.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="5.6.7 Working with the Zelio/Millenium Driver">
+      <param name="Local" value="Working_with_the_Zelio_Millenium_Driver.htm">
+    </object>
+    </ul>
+  <li><object type="text/sitemap">
+    <param name="Name" value="5.7 Working with the Reflex Table">
+    <param name="Local" value="Working_with_the_Reflex_Table.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="5.8 Equipment Driver Troubleshooting">
+  </object>
+  <ul>
+    <li><object type="text/sitemap">
+      <param name="Name" value="5.8.1 Driver Access Errors for Direct I/O, System Device, Constant Device">
+      <param name="Local" value="Device_Driver_Troubleshooting.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="5.8.2 Multiple PLC Connections">
+      <param name="Local" value="Multiple_PLC_Connections.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="5.8.3 Supported Protocols and Equipment for Unlocated Variables">
+      <param name="Local" value="Unlocated_Variable_Supported_Protocols_Equipment.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="5.8.4 FIPIO on XBTGT Series Fails to Connect to the Network ">
+      <param name="Local" value="FIPIO_Failing_to_Connect_to_the_Network_for_XBTGT_Series.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="5.8.5 Quantum PLC Does Not Notify Modbus of Remote I/O State">
+      <param name="Local" value="For_Remote_I_O.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="5.8.6 Preventing Port Number Conflicts">
+      <param name="Local" value="Prevent_Port_No_Conflicts.htm">
+    </object>
+    </ul>
+</ul>
+</html>

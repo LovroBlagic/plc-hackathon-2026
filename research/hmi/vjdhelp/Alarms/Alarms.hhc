@@ -1,0 +1,365 @@
+<html>
+<!-- Sitemap 1.0 -->
+<object type="text/site properties">
+  <param name="SiteType" value="toc">
+  <param name="Image Width" value="16">
+  <param name="Window Styles" value="0x800027">
+  <param name="ExWindow Styles" value="0x100">
+</object>
+<ul>
+  <li><object type="text/sitemap">
+    <param name="Name" value="16.1 Alarms and Events">
+    <param name="Local" value="Alarm_Panels.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="16.2 Setting Up the Alarm and Event Summary">
+    <param name="Local" value="Basic_Alarm_Summary_Settings.htm">
+  </object>
+  <ul>
+    <li><object type="text/sitemap">
+      <param name="Name" value="16.2.1 Alarm and Event Summary Features">
+      <param name="Local" value="Basic_Alarm_Summary_Settings.htm#16_2_1_Basic_Alarm_Summary_Features642b3b9347ca42c9b00b820c00c373fa=1">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="16.2.2 Alarm and Event Structure Overview">
+      <param name="Local" value="outilne.htm">
+    </object>
+    <ul>
+      <li><object type="text/sitemap">
+        <param name="Name" value="16.2.2.1 Setting Up Alarms and Events">
+        <param name="Local" value="outilne.htm#16.2.1.1 Structure and Process642b3b9347ca42c9b00b820c00c373fa=1">
+      </object>
+      <li><object type="text/sitemap">
+        <param name="Name" value="16.2.2.2 Event Logging">
+        <param name="Local" value="Event_Logging.htm">
+      </object>
+      <li><object type="text/sitemap">
+        <param name="Name" value="16.2.2.3 Creating Alarm Summary Steps">
+        <param name="Local" value="alarm_group_steps.htm">
+      </object>
+      <li><object type="text/sitemap">
+        <param name="Name" value="16.2.2.4 Creating Event Summary Steps">
+        <param name="Local" value="Creating_Event_Summary_Steps.htm">
+      </object>
+      </ul>
+    <li><object type="text/sitemap">
+      <param name="Name" value="16.2.3 Setting up the Alarms and Events Node">
+      <param name="Local" value="backup_setting.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="16.2.4 Group Settings">
+      <param name="Local" value="Create_Alarm_Group.htm">
+    </object>
+    <ul>
+      <li><object type="text/sitemap">
+        <param name="Name" value="16.2.4.1 Alarm Group Settings">
+        <param name="Local" value="Alarm_Group_Settings.htm">
+      </object>
+      <li><object type="text/sitemap">
+        <param name="Name" value="16.2.4.2 Event Group Settings">
+        <param name="Local" value="Event_Group_Settings.htm">
+      </object>
+      </ul>
+    <li><object type="text/sitemap">
+      <param name="Name" value="16.2.5 Setting Up BOOL Variables">
+      <param name="Local" value="Assign_Variable_To_Alarm_Group.htm">
+    </object>
+    <ul>
+      <li><object type="text/sitemap">
+        <param name="Name" value="16.2.5.1 Severity">
+        <param name="Local" value="Priority.htm">
+      </object>
+      </ul>
+    <li><object type="text/sitemap">
+      <param name="Name" value="16.2.6 Setting Up an Alarm and Event Summary">
+      <param name="Local" value="Setting_up_alarm_Summary.htm">
+    </object>
+    <ul>
+      <li><object type="text/sitemap">
+        <param name="Name" value="16.2.6.1 General Tab">
+        <param name="Local" value="General_Tab.htm">
+      </object>
+      <li><object type="text/sitemap">
+        <param name="Name" value="16.2.6.2 Messages Tab">
+        <param name="Local" value="Messages_Tab.htm">
+      </object>
+      <li><object type="text/sitemap">
+        <param name="Name" value="16.2.6.3 Columns Tab">
+        <param name="Local" value="Columns_Tab.htm">
+      </object>
+      <li><object type="text/sitemap">
+        <param name="Name" value="16.2.6.4 Buttons Tab">
+        <param name="Local" value="Buttons_Tab.htm">
+      </object>
+      </ul>
+    <li><object type="text/sitemap">
+      <param name="Name" value="16.2.7 Creating Alarm or Event Operations">
+      <param name="Local" value="alarm_operation_switch.htm">
+    </object>
+    </ul>
+  <li><object type="text/sitemap">
+    <param name="Name" value="16.3 Advanced Summary Features">
+    <param name="Local" value="Setting_up_alarm_summary_Additional.htm">
+  </object>
+  <ul>
+    <li><object type="text/sitemap">
+      <param name="Name" value="16.3.1 Alarm and Event Groups">
+      <param name="Local" value="Alarm_Goups_in_alarm_summary.htm">
+    </object>
+    <ul>
+      <li><object type="text/sitemap">
+        <param name="Name" value="16.3.1.1 Creating Alarm and Event Groups">
+        <param name="Local" value="Alarm_Goups_in_alarm_summary.htm#16.3.1.1_creating_alarm_groups642b3b9347ca42c9b00b820c00c373fa=1">
+      </object>
+      <li><object type="text/sitemap">
+        <param name="Name" value="16.3.1.2 Displaying Multiple Groups">
+        <param name="Local" value="multiple_alarm_group.htm">
+      </object>
+      <li><object type="text/sitemap">
+        <param name="Name" value="16.3.1.3 Filtering Messages by Groups">
+        <param name="Local" value="Filtering_Alarm_Messages_by_Alarm_Groups.htm">
+      </object>
+      <li><object type="text/sitemap">
+        <param name="Name" value="16.3.1.4 Remote Categories">
+        <param name="Local" value="Creating_Remote_Categories.htm">
+      </object>
+      <ul>
+        <li><object type="text/sitemap">
+          <param name="Name" value="Creating Remote Categories">
+          <param name="Local" value="Creating_Remote_Categories_Steps.htm">
+        </object>
+        <li><object type="text/sitemap">
+          <param name="Name" value="Remote Category Key Points">
+          <param name="Local" value="Remote_Category_Operation_Notes.htm">
+        </object>
+        </ul>
+      </ul>
+    <li><object type="text/sitemap">
+      <param name="Name" value="16.3.2 Diagnostic Alarm Groups">
+      <param name="Local" value="Diagnostic_Alarm_Groups.htm">
+    </object>
+    <ul>
+      <li><object type="text/sitemap">
+        <param name="Name" value="16.3.2.1 Displaying Diagnostic Alarms">
+        <param name="Local" value="Diagnostic_Alarm_Group_Adding.htm">
+      </object>
+      <li><object type="text/sitemap">
+        <param name="Name" value="16.3.2.2 Displaying Multiple Diagnostic Alarm Groups in an Alarm Summary">
+        <param name="Local" value="Diagnostic_Alarms_Display_Multiple.htm">
+      </object>
+      <li><object type="text/sitemap">
+        <param name="Name" value="16.3.2.3 Displaying Derived Function Block Status Messages">
+        <param name="Local" value="Diagnostic_Alarm_Group_StatusMsg.htm">
+      </object>
+      </ul>
+    <li><object type="text/sitemap">
+      <param name="Name" value="16.3.3 Word Alarms">
+      <param name="Local" value="Word_Device_Address.htm">
+    </object>
+    <ul>
+      <li><object type="text/sitemap">
+        <param name="Name" value="16.3.3.1 Setting Up Word Alarms">
+        <param name="Local" value="Word_Device_Address.htm#Set_Up_Word_Alarms642b3b9347ca42c9b00b820c00c373fa=1">
+      </object>
+      <li><object type="text/sitemap">
+        <param name="Name" value="16.3.3.2 Alarm Summary Columns">
+        <param name="Local" value="Word_Alarm_Summary_columns.htm">
+      </object>
+      </ul>
+    <li><object type="text/sitemap">
+      <param name="Name" value="16.3.4 Setting Up Alarm Actions">
+      <param name="Local" value="Setting_up_Alarm_Action.htm">
+    </object>
+    <ul>
+      <li><object type="text/sitemap">
+        <param name="Name" value="16.3.4.1 Trigger Actions">
+        <param name="Local" value="Action_at_Alarm_Trigger.htm">
+      </object>
+      <li><object type="text/sitemap">
+        <param name="Name" value="16.3.4.2 Touch Actions">
+        <param name="Local" value="Action_at_Touch_Alarm.htm">
+      </object>
+      <ul>
+        <li><object type="text/sitemap">
+          <param name="Name" value="Specifying Touch Action Settings">
+          <param name="Local" value="Variable_Settings.htm">
+        </object>
+        <li><object type="text/sitemap">
+          <param name="Name" value="Enabling Touch Actions in the Alarm Summary">
+          <param name="Local" value="Alarm_Summary_Settings.htm">
+        </object>
+        </ul>
+      </ul>
+    <li><object type="text/sitemap">
+      <param name="Name" value="16.3.5 Printing Alarm and Event Messages">
+      <param name="Local" value="Printing_Alarm_sammary.htm">
+    </object>
+    <ul>
+      <li><object type="text/sitemap">
+        <param name="Name" value="16.3.5.1 Steps for Printing Messages">
+        <param name="Local" value="Printing_alarm_messages.htm">
+      </object>
+      <li><object type="text/sitemap">
+        <param name="Name" value="16.3.5.2 Configuring Real-Time Printing">
+        <param name="Local" value="Real-time_printing.htm">
+      </object>
+      <ul>
+        <li><object type="text/sitemap">
+          <param name="Name" value="Groups Tab">
+          <param name="Local" value="Real-time_printing.htm#Groups_Tab642b3b9347ca42c9b00b820c00c373fa=1">
+        </object>
+        <li><object type="text/sitemap">
+          <param name="Name" value="Columns Tab">
+          <param name="Local" value="Real-time_printing.htm#Columns_Tab642b3b9347ca42c9b00b820c00c373fa=2">
+        </object>
+        <li><object type="text/sitemap">
+          <param name="Name" value="Format Tab">
+          <param name="Local" value="Real-time_printing.htm#Format_Tab642b3b9347ca42c9b00b820c00c373fa=3">
+        </object>
+        </ul>
+      <li><object type="text/sitemap">
+        <param name="Name" value="16.3.5.3 Configuring Batch Printing">
+        <param name="Local" value="Printouts_at_once.htm">
+      </object>
+      <ul>
+        <li><object type="text/sitemap">
+          <param name="Name" value="Controls Tab">
+          <param name="Local" value="Printouts_at_once.htm#Controls_Tab642b3b9347ca42c9b00b820c00c373fa=1">
+        </object>
+        <li><object type="text/sitemap">
+          <param name="Name" value="Format Tab">
+          <param name="Local" value="Printouts_at_once.htm#Set_Up_Format_Tab642b3b9347ca42c9b00b820c00c373fa=2">
+        </object>
+        <li><object type="text/sitemap">
+          <param name="Name" value="Language Tab">
+          <param name="Local" value="Printouts_at_once.htm#Set_Up_Language_Tab642b3b9347ca42c9b00b820c00c373fa=3">
+        </object>
+        </ul>
+      <li><object type="text/sitemap">
+        <param name="Name" value="16.3.5.4 Clear Option When Printing">
+        <param name="Local" value="clear_option_print.htm">
+      </object>
+      <li><object type="text/sitemap">
+        <param name="Name" value="16.3.5.5 Printing Limitations">
+        <param name="Local" value="Printing_limitaiton.htm">
+      </object>
+      </ul>
+    <li><object type="text/sitemap">
+      <param name="Name" value="16.3.6 Outputting Alarms and Events to a .CSV File">
+      <param name="Local" value="Alarms_in_CSV_file.htm">
+    </object>
+    <ul>
+      <li><object type="text/sitemap">
+        <param name="Name" value="16.3.6.1 Steps for Save to File Output">
+        <param name="Local" value="CSV_Output_Steps.htm">
+      </object>
+      <li><object type="text/sitemap">
+        <param name="Name" value="16.3.6.2 Selecting an Alarm Group, Event Group, or Alarm Category to Output to File">
+        <param name="Local" value="open_file_save_diarogbox.htm">
+      </object>
+      <li><object type="text/sitemap">
+        <param name="Name" value="16.3.6.3 Control Tab Settings">
+        <param name="Local" value="Alarm_CSV_file_Output_Setup.htm">
+      </object>
+      <li><object type="text/sitemap">
+        <param name="Name" value="16.3.6.4 Format Tab">
+        <param name="Local" value="Format_Tab.htm">
+      </object>
+      <li><object type="text/sitemap">
+        <param name="Name" value="16.3.6.5 Language Tab">
+        <param name="Local" value="Language_Settings_Tab.htm">
+      </object>
+      <li><object type="text/sitemap">
+        <param name="Name" value="16.3.6.6 Clear Option When Saving">
+        <param name="Local" value="clear_option_file_save.htm">
+      </object>
+      <li><object type="text/sitemap">
+        <param name="Name" value="16.3.6.7 File Output Limitations">
+        <param name="Local" value="Alarm_Container_in_CSV_file.htm">
+      </object>
+      </ul>
+    <li><object type="text/sitemap">
+      <param name="Name" value="16.3.7 E-mailing Alarm and Event Messages">
+      <param name="Local" value="E-mailing_Alarm_and_Event_Messages.htm">
+    </object>
+    <ul>
+      <li><object type="text/sitemap">
+        <param name="Name" value="Columns Tab">
+        <param name="Local" value="E-mailing_Alarm_and_Event_Messages.htm#Columns_Tab642b3b9347ca42c9b00b820c00c373fa=1">
+      </object>
+      <li><object type="text/sitemap">
+        <param name="Name" value="Format Tab">
+        <param name="Local" value="E-mailing_Alarm_and_Event_Messages.htm#Format_Tab642b3b9347ca42c9b00b820c00c373fa=2">
+      </object>
+      </ul>
+    <li><object type="text/sitemap">
+      <param name="Name" value="16.3.8 Setting Up Dynamic Messages in Alarms">
+      <param name="Local" value="Setting_Up_Dynamic_Messages_in_Alarms.htm">
+    </object>
+    </ul>
+  <li><object type="text/sitemap">
+    <param name="Name" value="16.4 Alarm Banner">
+    <param name="Local" value="Alarm_banner_outline.htm">
+  </object>
+  <ul>
+    <li><object type="text/sitemap">
+      <param name="Name" value="16.4.1 Alarm Banner Characteristics">
+      <param name="Local" value="Alarm_banner_outline.htm#16.6.1 Scrolling Characteristics642b3b9347ca42c9b00b820c00c373fa=1">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="16.4.2 Global Alarm Banner">
+      <param name="Local" value="Display_Alarm_Banner_on_all_screens.htm">
+    </object>
+    <ul>
+      <li><object type="text/sitemap">
+        <param name="Name" value="16.4.2.1 Steps to Set Up the Global Alarm Banner">
+        <param name="Local" value="Display_Alarm_Banner_on_all_screens.htm#16.6.2.1642b3b9347ca42c9b00b820c00c373fa=1">
+      </object>
+      <li><object type="text/sitemap">
+        <param name="Name" value="16.4.2.2 Creating a Global Alarm Banner">
+        <param name="Local" value="Display_Alarm_Banner_on_all_screens.htm#16.6.2.2642b3b9347ca42c9b00b820c00c373fa=2">
+      </object>
+      </ul>
+    <li><object type="text/sitemap">
+      <param name="Name" value="16.4.3 Local Alarm Banner">
+      <param name="Local" value="Alarm_banner_parts.htm">
+    </object>
+    <ul>
+      <li><object type="text/sitemap">
+        <param name="Name" value="16.4.3.1 Steps for Creating a Local Alarm Banner">
+        <param name="Local" value="Alarm_banner_parts.htm#16_4_3_1_Steps_for_Setting_up_the_Alarm_Banner642b3b9347ca42c9b00b820c00c373fa=1">
+      </object>
+      <li><object type="text/sitemap">
+        <param name="Name" value="16.4.3.2 Creating a Single Line Local Alarm Banner">
+        <param name="Local" value="alarm_banner_setting.htm">
+      </object>
+      <li><object type="text/sitemap">
+        <param name="Name" value="16.4.3.3 Creating a Double Line Local Alarm Banner">
+        <param name="Local" value="Creating_a_Double_Line_Local_Alarm_Banner.htm">
+      </object>
+      </ul>
+    <li><object type="text/sitemap">
+      <param name="Name" value="16.4.4 Ending Alarm Banner Messages">
+      <param name="Local" value="Alarm_Banner_When_message_ends.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="16.4.5 Changing User Languages in Alarm Banners">
+      <param name="Local" value="Changing_User_Languages_in_Alarm_Banners.htm">
+    </object>
+    </ul>
+  <li><object type="text/sitemap">
+    <param name="Name" value="16.5 Alarm Alerts - Notifying Users of an Alarm">
+    <param name="Local" value="Notifying_Users_of_an_Alarm.htm">
+  </object>
+  <ul>
+    <li><object type="text/sitemap">
+      <param name="Name" value="16.5.1 Setting Up Alarms to Play Sound Files">
+      <param name="Local" value="Sound.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="16.5.2 Changing the Backlight Color">
+      <param name="Local" value="Changing_the_Backlight_Color.htm">
+    </object>
+    </ul>
+</ul>
+</html>

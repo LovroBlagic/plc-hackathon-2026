@@ -1,0 +1,1370 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="topic-status" content="In Progress">
+<meta name="topic-priority" content="0">
+<meta name="topic-time-estimate" content="0">
+<meta name="topic-id" content="Device Driver Troubleshooting">
+<meta name="window-type" content="$global_NewWindow">
+ <meta name="generator" content="Adobe RoboHelp 2015">
+<title>Driver Access Errors for for Direct I/O, System Device, Constant Device</title>
+<link rel="StyleSheet" href="TIS-STYL.CSS" type="text/css">
+</head>
+<body>
+<script type="text/javascript" src="ehlpdhtm.js" language="JavaScript1.2"></script>
+
+<div style="width: 100%; position: relative;" id="header">
+ <table style="background-attachment: scroll; margin-left: 0px; margin-right: 4px; background-image: url(top_banner.bmp); background-repeat: Repeat-X; line-height: 0pt; vertical-align: top;" cellspacing="0" background="top_banner.bmp" width="100%">
+  <col style="width: 90%;">
+  <col style="width: 5%;">
+  <col style="width: 5%;">
+  <tr style="vertical-align: center; height: 39px;">
+  <td style="width: 90%; padding-right: 10px; padding-left: 10px; border-right-color: #000000;">
+  <p><img src="logo.bmp" alt="" style="border: none;" width="37" height="37" border="0"></p>
+</td>
+  <td style="width: 5%; padding-right: 0px; padding-left: 10px; border-right-color: #000000;">
+  <p style="text-align: center;"><a title="Glossary" href="Appendix.chm::/Glossary.htm"><img src="logo_glossary.bmp" alt="" style="border: none;" width="47" height="37" border="0"></a></p>
+</td>
+  <td style="width: 5%; padding-right: 10px; padding-left: 5px; border-right-color: #000000;">
+  <p style="text-align: center;"><a href="About.chm::/What_is_Vijeo-Designer.htm" title="Home"><img src="logo_home.bmp" alt="Home" title="Home" style="border: none; margin-left: 0px; margin-right: 0px; margin-bottom: 0px; margin-top: -2px;" width="47" height="37" border="0"></a></p>
+</td>
+</tr>
+ </table>
+</div>
+<h2>5.8.1 Driver Access Errors for Direct I/O, System Device, Constant Device</h2>
+<p>Some drivers may experience errors during run time because the equipment does not support access to these IEC types: Direct I/O (%I, %IW, %Q, %QW), System Devices (%S, %SW), and Constant Devices (%KW). The tables below list the equipment that does not support access to the IEC types.</p>
+<p><img src="Limit.bmp" alt="" style="border: none;" width="77" height="24" border="0"></p>
+<ul>
+<li class="p-NoteText">
+<p class="NoteText">Direct I/O (%I, %IW, %Q, %QW) is only available for integer type variables, and is not available for REAL or STRING variables.</p>
+</li>
+<li class="p-NoteText">
+<p class="NoteText">HMI target machines can only read the value of Constant Device (%KW) variables.</p>
+</li>
+</ul>
+<table cellspacing="0" width="200">
+<col style="width: 20%;">
+<col style="width: 80%;">
+<tr style="vertical-align: top;">
+<td style="width: 20%; padding-right: 10px; padding-left: 10px;">
+<p><img src="Check_small.bmp" alt="" style="border: none;" width="17" height="14" border="0"></p>
+</td>
+<td style="width: 80%; padding-right: 10px; padding-left: 10px;">
+<p>Supported</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="width: 20%; padding-right: 10px; padding-left: 10px;">
+<p><img src="X_small.bmp" alt="" style="border: none;" width="19" height="14" border="0"></p>
+</td>
+<td style="width: 80%; padding-right: 10px; padding-left: 10px;">
+<p>Not supported</p>
+</td>
+</tr>
+</table>
+<p>&#160;</p>
+<h5>Modbus TCP/IP</h5>
+<table cellspacing="0" width="100%">
+<col style="width: 11.023%;">
+<col style="width: 11.13%;">
+<col style="width: 11.13%;">
+<col style="width: 11.13%;">
+<col style="width: 8.95%;">
+<col style="width: 8.95%;">
+<col style="width: 8.95%;">
+<col style="width: 12.177%;">
+<col style="width: 12.177%;">
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; padding-right: 10px; padding-left: 10px;">
+<p>&#160;</p>
+</td>
+<td style="border-top: Solid 3px #000000; border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; padding-right: 10px; padding-left: 10px;" bgcolor="#91AFD9">
+<p class="Tabletitle" style="text-align: center;">Premium*1</p>
+</td>
+<td style="border-top: Solid 3px #000000; border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; padding-right: 10px; padding-left: 10px;" bgcolor="#91AFD9">
+<p class="Tabletitle" style="text-align: center;">Quantum*2</p>
+</td>
+<td style="border-top: Solid 3px #000000; border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; padding-right: 10px; padding-left: 10px;" bgcolor="#91AFD9">
+<p class="Tabletitle" style="text-align: center;">Momentum</p>
+</td>
+<td style="border-top: Solid 3px #000000; border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; padding-right: 10px; padding-left: 10px; border-right-width: 1px;" bgcolor="#91AFD9">
+<p class="Tabletitle" style="text-align: center;">M340</p>
+</td>
+<td style="border-top: Solid 3px #000000; border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; padding-right: 10px; padding-left: 10px;" bgcolor="#91AFD9">
+<p class="Tabletitle" style="text-align: center;">M580</p>
+</td>
+<td style="border-top: Solid 3px #000000; border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; padding-right: 10px; padding-left: 10px;" bgcolor="#91AFD9">
+<p class="Tabletitle" style="text-align: center;">Twido</p>
+</td>
+<td style="border-right: Solid 1px #000000; border-top: Solid 3px #000000; border-bottom: Solid 1px #000000; padding-right: 10px; padding-left: 10px;" bgcolor="#91AFD9">
+<p class="Tabletitle" style="text-align: center;">Micro PLC</p>
+</td>
+<td style="border-top: Solid 3px #000000; border-bottom: Solid 1px #000000; padding-right: 10px; padding-left: 10px;" bgcolor="#91AFD9">
+<p class="Tabletitle" style="text-align: center;">M221</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; padding-right: 10px; padding-left: 10px; vertical-align: middle;" bgcolor="#CBD9ED">
+<p class="TableDefinitions">System Devices (%S, %SW)</p>
+</td>
+<td style="vertical-align: center; border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; padding-right: 10px; padding-left: 10px;">
+<p style="text-align: center;"><img src="Check_small.bmp" alt="" style="border: none;" width="17" height="14" border="0"></p>
+</td>
+<td style="vertical-align: center; border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; padding-right: 10px; padding-left: 10px;">
+<p style="text-align: center;"><img src="Check_small.bmp" alt="" style="border: none;" width="17" height="14" border="0"></p>
+</td>
+<td style="vertical-align: center; border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; padding-right: 10px; padding-left: 10px;">
+<p style="text-align: center;"><img src="Check_small.bmp" alt="" style="border: none;" width="17" height="14" border="0"><span style="font-size: xx-small; vertical-align: Super;">*3</span></p>
+</td>
+<td style="vertical-align: center; border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; padding-right: 10px; padding-left: 10px; border-right-width: 1px;">
+<p style="text-align: center;"><img src="Check_small.bmp" alt="" style="border: none;" width="17" height="14" border="0"></p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; vertical-align: center; padding-right: 10px; padding-left: 10px;">
+<p style="text-align: center;"><img src="Check_small.bmp" alt="" style="border: none;" width="17" height="14" border="0"></p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; vertical-align: center; padding-right: 10px; padding-left: 10px;">
+<p style="text-align: center;"><img src="Check_small.bmp" alt="" style="border: none;" width="17" height="14" border="0"></p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; vertical-align: center; padding-right: 10px; padding-left: 10px;">
+<p style="text-align: center;"><img src="X_small.bmp" alt="" style="border: none;" width="19" height="14" border="0"></p>
+</td>
+<td style="border-bottom: Solid 1px #000000; vertical-align: center; padding-right: 10px; padding-left: 10px;">
+<p style="text-align: center;"><img src="Check_small.bmp" alt="" style="border: none;" width="17" height="14" border="0"></p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; padding-right: 10px; padding-left: 10px; vertical-align: middle;" bgcolor="#CBD9ED">
+<p class="TableDefinitions">Constant Devices (%KW)</p>
+</td>
+<td style="vertical-align: center; border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; padding-right: 10px; padding-left: 10px;">
+<p style="text-align: center;"><img src="Check_small.bmp" alt="" style="border: none;" width="17" height="14" border="0"></p>
+</td>
+<td style="vertical-align: center; border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; padding-right: 10px; padding-left: 10px;">
+<p style="text-align: center;"><img src="X_small.bmp" alt="" style="border: none;" width="19" height="14" border="0"></p>
+</td>
+<td style="vertical-align: center; border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; padding-right: 10px; padding-left: 10px;">
+<p style="text-align: center;"><img src="X_small.bmp" alt="" style="border: none;" width="19" height="14" border="0"></p>
+</td>
+<td style="vertical-align: center; border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; padding-right: 10px; padding-left: 10px; border-right-width: 1px;">
+<p style="text-align: center;"><img src="Check_small.bmp" alt="" style="border: none;" width="17" height="14" border="0"></p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; vertical-align: center; padding-right: 10px; padding-left: 10px;">
+<p style="text-align: center;"><img src="Check_small.bmp" alt="" style="border: none;" width="17" height="14" border="0"></p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; vertical-align: center; padding-right: 10px; padding-left: 10px;">
+<p style="text-align: center;"><img src="Check_small.bmp" alt="" style="border: none;" width="17" height="14" border="0"></p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; vertical-align: center; padding-right: 10px; padding-left: 10px;">
+<p style="text-align: center;"><img src="X_small.bmp" alt="" style="border: none;" width="19" height="14" border="0"></p>
+</td>
+<td style="border-bottom: Solid 1px #000000; vertical-align: center; padding-right: 10px; padding-left: 10px;">
+<p style="text-align: center;"><img src="Check_small.bmp" alt="" style="border: none;" width="17" height="14" border="0"></p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 3px #000000; padding-right: 10px; padding-left: 10px; vertical-align: middle;" bgcolor="#CBD9ED">
+<p class="TableDefinitions">Direct I/O (%I, %IW, %Q, %QW)</p>
+</td>
+<td style="vertical-align: center; border-right: Solid 1px #000000; border-bottom: Solid 3px #000000; padding-right: 10px; padding-left: 10px;">
+<p style="text-align: center;"><img src="Check_small.bmp" alt="" style="border: none;" width="17" height="14" border="0"></p>
+</td>
+<td style="vertical-align: center; border-right: Solid 1px #000000; border-bottom: Solid 3px #000000; padding-right: 10px; padding-left: 10px;">
+<p style="text-align: center;"><img src="Check_small.bmp" alt="" style="border: none;" width="17" height="14" border="0"></p>
+</td>
+<td style="vertical-align: center; border-right: Solid 1px #000000; border-bottom: Solid 3px #000000; padding-right: 10px; padding-left: 10px;">
+<p style="text-align: center;"><img src="X_small.bmp" alt="" style="border: none;" width="19" height="14" border="0"></p>
+</td>
+<td style="vertical-align: center; border-right: Solid 1px #000000; border-bottom: Solid 3px #000000; padding-right: 10px; padding-left: 10px; border-right-width: 1px;">
+<p style="text-align: center;"><img src="Check_small.bmp" alt="" style="border: none;" width="17" height="14" border="0"></p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 3px #000000; vertical-align: center; padding-right: 10px; padding-left: 10px;">
+<p style="text-align: center;"><img src="Check_small.bmp" alt="" style="border: none;" width="17" height="14" border="0"></p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 3px #000000; vertical-align: center; padding-right: 10px; padding-left: 10px;">
+<p style="text-align: center;"><img src="Check_small.bmp" alt="" style="border: none;" width="17" height="14" border="0"></p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 3px #000000; vertical-align: center; padding-right: 10px; padding-left: 10px;">
+<p style="text-align: center;"><img src="X_small.bmp" alt="" style="border: none;" width="19" height="14" border="0"></p>
+</td>
+<td style="border-bottom: Solid 3px #000000; vertical-align: center; padding-right: 10px; padding-left: 10px;">
+<p style="text-align: center;"><img src="Check_small.bmp" alt="" style="border: none;" width="17" height="14" border="0"></p>
+</td>
+</tr>
+</table>
+<p>&#160;</p>
+<p>*1 When using Premium, PL7 type is not supported for the system devices, constant devices, and direct I/O.</p>
+<p>*2 You can use Direct I/O addresses from Quantum Unity PLCs as unlocated addresses. For more information, see <a href="InputAddress.chm::/Linking_the_Equipments_s_PLC_Symbol_File.htm">Linking the Equipment's PLC Symbol File</a>.</p>
+<p>If an application uses an unsupported device, other devices (including supported ones) may fail to communicate.</p>
+<p>*3 Momentum with Unity operating system only.</p>
+<h5>Modbus RTU</h5>
+<table cellspacing="0" width="100%">
+<col style="width: 11.091%;">
+<col style="width: 10.576%;">
+<col style="width: 11.02%;">
+<col style="width: 11.02%;">
+<col style="width: 9.492%;">
+<col style="width: 9.492%;">
+<col style="width: 9.492%;">
+<col style="width: 12.323%;">
+<col style="width: 15.307%;">
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; padding-right: 10px; padding-left: 10px;">
+<p>&#160;</p>
+</td>
+<td style="border-top: Solid 3px #000000; border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; padding-right: 10px; padding-left: 10px;" bgcolor="#91AFD9">
+<p class="Tabletitle" style="text-align: center;">Premium</p>
+</td>
+<td style="border-top: Solid 3px #000000; border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; padding-right: 10px; padding-left: 10px;" bgcolor="#91AFD9">
+<p class="Tabletitle" style="text-align: center;">Quantum*1</p>
+</td>
+<td style="border-top: Solid 3px #000000; border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; padding-right: 10px; padding-left: 10px;" bgcolor="#91AFD9">
+<p class="Tabletitle" style="text-align: center;">Momentum</p>
+</td>
+<td style="border-top: Solid 3px #000000; border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; padding-right: 10px; padding-left: 10px; border-right-width: 1px;" bgcolor="#91AFD9">
+<p class="Tabletitle" style="text-align: center;">M340</p>
+</td>
+<td style="border-top: Solid 3px #000000; border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; padding-right: 10px; padding-left: 10px;" bgcolor="#91AFD9">
+<p class="Tabletitle" style="text-align: center;">M580</p>
+</td>
+<td style="border-top: Solid 3px #000000; border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; padding-right: 10px; padding-left: 10px;" bgcolor="#91AFD9">
+<p class="Tabletitle" style="text-align: center;">Twido</p>
+</td>
+<td style="border-top: Solid 3px #000000; border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; padding-right: 10px; padding-left: 10px;" bgcolor="#91AFD9">
+<p class="Tabletitle" style="text-align: center;">Micro PLC</p>
+</td>
+<td style="border-top: Solid 3px #000000; border-bottom: Solid 1px #000000; padding-right: 10px; padding-left: 10px;" bgcolor="#91AFD9">
+<p class="Tabletitle" style="text-align: center;">M221</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; padding-right: 10px; padding-left: 10px; vertical-align: middle;" bgcolor="#CBD9ED">
+<p class="TableDefinitions">System Devices (%S, %SW)</p>
+</td>
+<td style="vertical-align: center; border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; padding-right: 10px; padding-left: 10px;">
+<p style="text-align: center;"><img src="X_small.bmp" alt="" style="border: none;" width="19" height="14" border="0"></p>
+</td>
+<td style="vertical-align: center; border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; padding-right: 10px; padding-left: 10px;">
+<p style="text-align: center;"><img src="Check_small.bmp" alt="" style="border: none;" width="17" height="14" border="0"></p>
+</td>
+<td style="vertical-align: center; border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; padding-right: 10px; padding-left: 10px;">
+<p style="text-align: center;"><img src="X_small.bmp" alt="" style="border: none;" width="19" height="14" border="0"></p>
+</td>
+<td style="vertical-align: center; border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; padding-right: 10px; padding-left: 10px; border-right-width: 1px;">
+<p style="text-align: center;"><img src="Check_small.bmp" alt="" style="border: none;" width="17" height="14" border="0"></p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; vertical-align: center; padding-right: 10px; padding-left: 10px;">
+<p style="text-align: center;"><img src="X_small.bmp" alt="" style="border: none;" width="19" height="14" border="0"></p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; vertical-align: center; padding-right: 10px; padding-left: 10px;">
+<p style="text-align: center;"><img src="Check_small.bmp" alt="" style="border: none;" width="17" height="14" border="0"></p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; vertical-align: center; padding-right: 10px; padding-left: 10px;">
+<p style="text-align: center;"><img src="X_small.bmp" alt="" style="border: none;" width="19" height="14" border="0"></p>
+</td>
+<td style="border-bottom: Solid 1px #000000; vertical-align: center; padding-right: 10px; padding-left: 10px;">
+<p style="text-align: center;"><img src="Check_small.bmp" alt="" style="border: none;" width="17" height="14" border="0"></p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; padding-right: 10px; padding-left: 10px; vertical-align: middle;" bgcolor="#CBD9ED">
+<p class="TableDefinitions">Constant Devices (%KW)</p>
+</td>
+<td style="vertical-align: center; border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; padding-right: 10px; padding-left: 10px;">
+<p style="text-align: center;"><img src="X_small.bmp" alt="" style="border: none;" width="19" height="14" border="0"></p>
+</td>
+<td style="vertical-align: center; border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; padding-right: 10px; padding-left: 10px;">
+<p style="text-align: center;"><img src="X_small.bmp" alt="" style="border: none;" width="19" height="14" border="0"></p>
+</td>
+<td style="vertical-align: center; border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; padding-right: 10px; padding-left: 10px;">
+<p style="text-align: center;"><img src="X_small.bmp" alt="" style="border: none;" width="19" height="14" border="0"></p>
+</td>
+<td style="vertical-align: center; border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; padding-right: 10px; padding-left: 10px; border-right-width: 1px;">
+<p style="text-align: center;"><img src="Check_small.bmp" alt="" style="border: none;" width="17" height="14" border="0"></p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; vertical-align: center; padding-right: 10px; padding-left: 10px;">
+<p style="text-align: center;"><img src="X_small.bmp" alt="" style="border: none;" width="19" height="14" border="0"></p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; vertical-align: center; padding-right: 10px; padding-left: 10px;">
+<p style="text-align: center;"><img src="Check_small.bmp" alt="" style="border: none;" width="17" height="14" border="0"></p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; vertical-align: center; padding-right: 10px; padding-left: 10px;">
+<p style="text-align: center;"><img src="X_small.bmp" alt="" style="border: none;" width="19" height="14" border="0"></p>
+</td>
+<td style="border-bottom: Solid 1px #000000; vertical-align: center; padding-right: 10px; padding-left: 10px;">
+<p style="text-align: center;"><img src="Check_small.bmp" alt="" style="border: none;" width="17" height="14" border="0"></p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 3px #000000; padding-right: 10px; padding-left: 10px; vertical-align: middle;" bgcolor="#CBD9ED">
+<p class="TableDefinitions">Direct I/O (%I, %IW, %Q, %QW)</p>
+</td>
+<td style="vertical-align: center; border-right: Solid 1px #000000; border-bottom: Solid 3px #000000; padding-right: 10px; padding-left: 10px;">
+<p style="text-align: center;"><img src="X_small.bmp" alt="" style="border: none;" width="19" height="14" border="0"></p>
+</td>
+<td style="vertical-align: center; border-right: Solid 1px #000000; border-bottom: Solid 3px #000000; padding-right: 10px; padding-left: 10px;">
+<p style="text-align: center;"><img src="Check_small.bmp" alt="" style="border: none;" width="17" height="14" border="0"></p>
+</td>
+<td style="vertical-align: center; border-right: Solid 1px #000000; border-bottom: Solid 3px #000000; padding-right: 10px; padding-left: 10px;">
+<p style="text-align: center;"><img src="X_small.bmp" alt="" style="border: none;" width="19" height="14" border="0"></p>
+</td>
+<td style="vertical-align: center; border-right: Solid 1px #000000; border-bottom: Solid 3px #000000; padding-right: 10px; padding-left: 10px; border-right-width: 1px;">
+<p style="text-align: center;"><img src="Check_small.bmp" alt="" style="border: none;" width="17" height="14" border="0"></p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 3px #000000; vertical-align: center; padding-right: 10px; padding-left: 10px;">
+<p style="text-align: center;"><img src="X_small.bmp" alt="" style="border: none;" width="19" height="14" border="0"></p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 3px #000000; vertical-align: center; padding-right: 10px; padding-left: 10px;">
+<p style="text-align: center;"><img src="Check_small.bmp" alt="" style="border: none;" width="17" height="14" border="0"></p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 3px #000000; vertical-align: center; padding-right: 10px; padding-left: 10px;">
+<p style="text-align: center;"><img src="X_small.bmp" alt="" style="border: none;" width="19" height="14" border="0"></p>
+</td>
+<td style="border-bottom: Solid 3px #000000; vertical-align: center; padding-right: 10px; padding-left: 10px;">
+<p style="text-align: center;"><img src="Check_small.bmp" alt="" style="border: none;" width="17" height="14" border="0"></p>
+</td>
+</tr>
+</table>
+<p>&#160;</p>
+<p>*1 You can use Direct I/O addresses from Quantum Unity PLCs as unlocated addresses. For more information, see <a href="InputAddress.chm::/Linking_the_Equipments_s_PLC_Symbol_File.htm">Linking the Equipment's PLC Symbol File</a>.</p>
+<p>If an application uses an unsupported device, other devices (including supported ones) may fail to communicate.</p>
+<h5>Modbus Plus</h5>
+<table cellspacing="0" width="100%">
+<col style="width: 11.072%;">
+<col style="width: 11.089%;">
+<col style="width: 11.089%;">
+<col style="width: 11.089%;">
+<col style="width: 9.498%;">
+<col style="width: 9.498%;">
+<col style="width: 9.498%;">
+<col style="width: 12.318%;">
+<col style="width: 12.318%;">
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; padding-right: 10px; padding-left: 10px;">
+<p>&#160;</p>
+</td>
+<td style="border-top: Solid 3px #000000; border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; padding-right: 10px; padding-left: 10px;" bgcolor="#91AFD9">
+<p class="Tabletitle" style="text-align: center;">Premium*1</p>
+</td>
+<td style="border-top: Solid 3px #000000; border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; padding-right: 10px; padding-left: 10px;" bgcolor="#91AFD9">
+<p class="Tabletitle" style="text-align: center;">Quantum*2</p>
+</td>
+<td style="border-top: Solid 3px #000000; border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; padding-right: 10px; padding-left: 10px;" bgcolor="#91AFD9">
+<p class="Tabletitle" style="text-align: center;">Momentum</p>
+</td>
+<td style="border-top: Solid 3px #000000; border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; padding-right: 10px; padding-left: 10px; border-right-width: 1px;" bgcolor="#91AFD9">
+<p class="Tabletitle" style="text-align: center;">M340</p>
+</td>
+<td style="border-top: Solid 3px #000000; border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; padding-right: 10px; padding-left: 10px;" bgcolor="#91AFD9">
+<p class="Tabletitle" style="text-align: center;">M580</p>
+</td>
+<td style="border-top: Solid 3px #000000; border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; padding-right: 10px; padding-left: 10px;" bgcolor="#91AFD9">
+<p class="Tabletitle" style="text-align: center;">Twido</p>
+</td>
+<td style="border-right: Solid 1px #000000; border-top: Solid 3px #000000; border-bottom: Solid 1px #000000; padding-right: 10px; padding-left: 10px;" bgcolor="#91AFD9">
+<p class="Tabletitle" style="text-align: center;">Micro PLC</p>
+</td>
+<td style="border-top: Solid 3px #000000; border-bottom: Solid 1px #000000; padding-right: 10px; padding-left: 10px;" bgcolor="#91AFD9">
+<p class="Tabletitle" style="text-align: center;">M221</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; padding-right: 10px; padding-left: 10px; vertical-align: middle;" bgcolor="#CBD9ED">
+<p class="TableDefinitions">System Devices (%S, %SW)</p>
+</td>
+<td style="vertical-align: center; border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; padding-right: 10px; padding-left: 10px;">
+<p style="text-align: center;"><img src="Check_small.bmp" alt="" style="border: none;" width="17" height="14" border="0"></p>
+</td>
+<td style="vertical-align: center; border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; padding-right: 10px; padding-left: 10px;">
+<p style="text-align: center;"><img src="Check_small.bmp" alt="" style="border: none;" width="17" height="14" border="0"></p>
+</td>
+<td style="vertical-align: center; border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; padding-right: 10px; padding-left: 10px;">
+<p style="text-align: center;"><img src="X_small.bmp" alt="" style="border: none;" width="19" height="14" border="0"></p>
+</td>
+<td style="vertical-align: center; border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; padding-right: 10px; padding-left: 10px; border-right-width: 1px;">
+<p style="text-align: center;"><img src="X_small.bmp" alt="" style="border: none;" width="19" height="14" border="0"></p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; vertical-align: center; padding-right: 10px; padding-left: 10px;">
+<p style="text-align: center;"><img src="X_small.bmp" alt="" style="border: none;" width="19" height="14" border="0"></p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; vertical-align: center; padding-right: 10px; padding-left: 10px;">
+<p style="text-align: center;"><img src="X_small.bmp" alt="" style="border: none;" width="19" height="14" border="0"></p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; vertical-align: center; padding-right: 10px; padding-left: 10px;">
+<p style="text-align: center;"><img src="X_small.bmp" alt="" style="border: none;" width="19" height="14" border="0"></p>
+</td>
+<td style="border-bottom: Solid 1px #000000; vertical-align: center; padding-right: 10px; padding-left: 10px;">
+<p style="text-align: center;"><img src="X_small.bmp" alt="" style="border: none;" width="19" height="14" border="0"></p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; padding-right: 10px; padding-left: 10px; vertical-align: middle;" bgcolor="#CBD9ED">
+<p class="TableDefinitions">Constant Devices (%KW)</p>
+</td>
+<td style="vertical-align: center; border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; padding-right: 10px; padding-left: 10px;">
+<p style="text-align: center;"><img src="Check_small.bmp" alt="" style="border: none;" width="17" height="14" border="0"></p>
+</td>
+<td style="vertical-align: center; border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; padding-right: 10px; padding-left: 10px;">
+<p style="text-align: center;"><img src="X_small.bmp" alt="" style="border: none;" width="19" height="14" border="0"></p>
+</td>
+<td style="vertical-align: center; border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; padding-right: 10px; padding-left: 10px;">
+<p style="text-align: center;"><img src="X_small.bmp" alt="" style="border: none;" width="19" height="14" border="0"></p>
+</td>
+<td style="vertical-align: center; border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; padding-right: 10px; padding-left: 10px; border-right-width: 1px;">
+<p style="text-align: center;"><img src="X_small.bmp" alt="" style="border: none;" width="19" height="14" border="0"></p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; vertical-align: center; padding-right: 10px; padding-left: 10px;">
+<p style="text-align: center;"><img src="X_small.bmp" alt="" style="border: none;" width="19" height="14" border="0"></p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; vertical-align: center; padding-right: 10px; padding-left: 10px;">
+<p style="text-align: center;"><img src="X_small.bmp" alt="" style="border: none;" width="19" height="14" border="0"></p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; vertical-align: center; padding-right: 10px; padding-left: 10px;">
+<p style="text-align: center;"><img src="X_small.bmp" alt="" style="border: none;" width="19" height="14" border="0"></p>
+</td>
+<td style="border-bottom: Solid 1px #000000; vertical-align: center; padding-right: 10px; padding-left: 10px;">
+<p style="text-align: center;"><img src="X_small.bmp" alt="" style="border: none;" width="19" height="14" border="0"></p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 3px #000000; padding-right: 10px; padding-left: 10px; vertical-align: middle;" bgcolor="#CBD9ED">
+<p class="TableDefinitions">Direct I/O (%I, %IW, %Q, %QW)</p>
+</td>
+<td style="vertical-align: center; border-right: Solid 1px #000000; border-bottom: Solid 3px #000000; padding-right: 10px; padding-left: 10px;">
+<p style="text-align: center;"><img src="Check_small.bmp" alt="" style="border: none;" width="17" height="14" border="0"></p>
+</td>
+<td style="vertical-align: center; border-right: Solid 1px #000000; border-bottom: Solid 3px #000000; padding-right: 10px; padding-left: 10px;">
+<p style="text-align: center;"><img src="Check_small.bmp" alt="" style="border: none;" width="17" height="14" border="0"></p>
+</td>
+<td style="vertical-align: center; border-right: Solid 1px #000000; border-bottom: Solid 3px #000000; padding-right: 10px; padding-left: 10px;">
+<p style="text-align: center;"><img src="X_small.bmp" alt="" style="border: none;" width="19" height="14" border="0"></p>
+</td>
+<td style="vertical-align: center; border-right: Solid 1px #000000; border-bottom: Solid 3px #000000; padding-right: 10px; padding-left: 10px; border-right-width: 1px;">
+<p style="text-align: center;"><img src="X_small.bmp" alt="" style="border: none;" width="19" height="14" border="0"></p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 3px #000000; vertical-align: center; padding-right: 10px; padding-left: 10px;">
+<p style="text-align: center;"><img src="X_small.bmp" alt="" style="border: none;" width="19" height="14" border="0"></p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 3px #000000; vertical-align: center; padding-right: 10px; padding-left: 10px;">
+<p style="text-align: center;"><img src="X_small.bmp" alt="" style="border: none;" width="19" height="14" border="0"></p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 3px #000000; vertical-align: center; padding-right: 10px; padding-left: 10px;">
+<p style="text-align: center;"><img src="X_small.bmp" alt="" style="border: none;" width="19" height="14" border="0"></p>
+</td>
+<td style="border-bottom: Solid 3px #000000; vertical-align: center; padding-right: 10px; padding-left: 10px;">
+<p style="text-align: center;"><img src="X_small.bmp" alt="" style="border: none;" width="19" height="14" border="0"></p>
+</td>
+</tr>
+</table>
+<p>&#160;</p>
+<p>*1 When using Premium, PL7 type is not supported for the system devices, constant devices, and direct I/O.</p>
+<p>*2 You can use Direct I/O addresses from Quantum Unity PLCs as unlocated addresses. For more information, see <a href="InputAddress.chm::/Linking_the_Equipments_s_PLC_Symbol_File.htm">Linking the Equipment's PLC Symbol File</a>.</p>
+<p>If an application uses an unsupported device, other devices (including supported ones) may fail to communicate.</p>
+<h5>Modbus TCP/IP USB</h5>
+<table cellspacing="0" width="100%">
+<col style="width: 11.074%;">
+<col style="width: 11.074%;">
+<col style="width: 11.074%;">
+<col style="width: 11.074%;">
+<col style="width: 9.582%;">
+<col style="width: 9.582%;">
+<col style="width: 9.582%;">
+<col style="width: 12.433%;">
+<col style="width: 12.433%;">
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; padding-right: 10px; padding-left: 10px;">
+<p>&#160;</p>
+</td>
+<td style="border-top: Solid 3px #000000; border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; padding-right: 10px; padding-left: 10px;" bgcolor="#91AFD9">
+<p class="Tabletitle" style="text-align: center;">Premium</p>
+</td>
+<td style="border-top: Solid 3px #000000; border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; padding-right: 10px; padding-left: 10px;" bgcolor="#91AFD9">
+<p class="Tabletitle" style="text-align: center;">Quantum</p>
+</td>
+<td style="border-top: Solid 3px #000000; border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; padding-right: 10px; padding-left: 10px;" bgcolor="#91AFD9">
+<p class="Tabletitle" style="text-align: center;">Momentum</p>
+</td>
+<td style="border-top: Solid 3px #000000; border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; padding-right: 10px; padding-left: 10px; border-right-width: 1px;" bgcolor="#91AFD9">
+<p class="Tabletitle" style="text-align: center;">M340</p>
+</td>
+<td style="border-top: Solid 3px #000000; border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; padding-right: 10px; padding-left: 10px;" bgcolor="#91AFD9">
+<p class="Tabletitle" style="text-align: center;">M580</p>
+</td>
+<td style="border-top: Solid 3px #000000; border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; padding-right: 10px; padding-left: 10px;" bgcolor="#91AFD9">
+<p class="Tabletitle" style="text-align: center;">Twido</p>
+</td>
+<td style="border-right: Solid 1px #000000; border-top: Solid 3px #000000; border-bottom: Solid 1px #000000; padding-right: 10px; padding-left: 10px;" bgcolor="#91AFD9">
+<p class="Tabletitle" style="text-align: center;">Micro PLC</p>
+</td>
+<td style="border-top: Solid 3px #000000; border-bottom: Solid 1px #000000; padding-right: 10px; padding-left: 10px;" bgcolor="#91AFD9">
+<p class="Tabletitle" style="text-align: center;"><span style="font-family: Arial, sans-serif;">M221</span></p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; padding-right: 10px; padding-left: 10px; vertical-align: middle;" bgcolor="#CBD9ED">
+<p class="TableDefinitions">System Devices (%S, %SW)</p>
+</td>
+<td style="vertical-align: center; border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; padding-right: 10px; padding-left: 10px;">
+<p style="text-align: center;"><img src="X_small.bmp" alt="" style="border: none;" width="19" height="14" border="0"></p>
+</td>
+<td style="vertical-align: center; border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; padding-right: 10px; padding-left: 10px;">
+<p style="text-align: center;"><img src="X_small.bmp" alt="" style="border: none;" width="19" height="14" border="0"></p>
+</td>
+<td style="vertical-align: center; border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; padding-right: 10px; padding-left: 10px;">
+<p style="text-align: center;"><img src="X_small.bmp" alt="" style="border: none;" width="19" height="14" border="0"></p>
+</td>
+<td style="vertical-align: center; border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; padding-right: 10px; padding-left: 10px; border-right-width: 1px;">
+<p style="text-align: center;"><img src="Check_small.bmp" alt="" style="border: none;" width="17" height="14" border="0"></p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; vertical-align: center; padding-right: 10px; padding-left: 10px;">
+<p style="text-align: center;"><img src="Check_small.bmp" alt="" style="border: none;" width="17" height="14" border="0"></p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; vertical-align: center; padding-right: 10px; padding-left: 10px;">
+<p style="text-align: center;"><img src="X_small.bmp" alt="" style="border: none;" width="19" height="14" border="0"></p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; vertical-align: center; padding-right: 10px; padding-left: 10px;">
+<p style="text-align: center;"><img src="X_small.bmp" alt="" style="border: none;" width="19" height="14" border="0"></p>
+</td>
+<td style="border-bottom: Solid 1px #000000; vertical-align: center; padding-right: 10px; padding-left: 10px;">
+<p style="text-align: center;"><img src="X_small.bmp" alt="" style="border: none;" width="19" height="14" border="0"></p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; padding-right: 10px; padding-left: 10px; vertical-align: middle;" bgcolor="#CBD9ED">
+<p class="TableDefinitions">Constant Devices (%KW)</p>
+</td>
+<td style="vertical-align: center; border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; padding-right: 10px; padding-left: 10px;">
+<p style="text-align: center;"><img src="X_small.bmp" alt="" style="border: none;" width="19" height="14" border="0"></p>
+</td>
+<td style="vertical-align: center; border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; padding-right: 10px; padding-left: 10px;">
+<p style="text-align: center;"><img src="X_small.bmp" alt="" style="border: none;" width="19" height="14" border="0"></p>
+</td>
+<td style="vertical-align: center; border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; padding-right: 10px; padding-left: 10px;">
+<p style="text-align: center;"><img src="X_small.bmp" alt="" style="border: none;" width="19" height="14" border="0"></p>
+</td>
+<td style="vertical-align: center; border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; padding-right: 10px; padding-left: 10px; border-right-width: 1px;">
+<p style="text-align: center;"><img src="Check_small.bmp" alt="" style="border: none;" width="17" height="14" border="0"></p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; vertical-align: center; padding-right: 10px; padding-left: 10px;">
+<p style="text-align: center;"><img src="Check_small.bmp" alt="" style="border: none;" width="17" height="14" border="0"></p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; vertical-align: center; padding-right: 10px; padding-left: 10px;">
+<p style="text-align: center;"><img src="X_small.bmp" alt="" style="border: none;" width="19" height="14" border="0"></p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; vertical-align: center; padding-right: 10px; padding-left: 10px;">
+<p style="text-align: center;"><img src="X_small.bmp" alt="" style="border: none;" width="19" height="14" border="0"></p>
+</td>
+<td style="border-bottom: Solid 1px #000000; vertical-align: center; padding-right: 10px; padding-left: 10px;">
+<p style="text-align: center;"><img src="X_small.bmp" alt="" style="border: none;" width="19" height="14" border="0"></p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 3px #000000; padding-right: 10px; padding-left: 10px; vertical-align: middle;" bgcolor="#CBD9ED">
+<p class="TableDefinitions">Direct I/O (%I, %IW, %Q, %QW)</p>
+</td>
+<td style="vertical-align: center; border-right: Solid 1px #000000; border-bottom: Solid 3px #000000; padding-right: 10px; padding-left: 10px;">
+<p style="text-align: center;"><img src="X_small.bmp" alt="" style="border: none;" width="19" height="14" border="0"></p>
+</td>
+<td style="vertical-align: center; border-right: Solid 1px #000000; border-bottom: Solid 3px #000000; padding-right: 10px; padding-left: 10px;">
+<p style="text-align: center;"><img src="X_small.bmp" alt="" style="border: none;" width="19" height="14" border="0"></p>
+</td>
+<td style="vertical-align: center; border-right: Solid 1px #000000; border-bottom: Solid 3px #000000; padding-right: 10px; padding-left: 10px;">
+<p style="text-align: center;"><img src="X_small.bmp" alt="" style="border: none;" width="19" height="14" border="0"></p>
+</td>
+<td style="vertical-align: center; border-right: Solid 1px #000000; border-bottom: Solid 3px #000000; padding-right: 10px; padding-left: 10px; border-right-width: 1px;">
+<p style="text-align: center;"><img src="Check_small.bmp" alt="" style="border: none;" width="17" height="14" border="0"></p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 3px #000000; vertical-align: center; padding-right: 10px; padding-left: 10px;">
+<p style="text-align: center;"><img src="Check_small.bmp" alt="" style="border: none;" width="17" height="14" border="0"></p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 3px #000000; vertical-align: center; padding-right: 10px; padding-left: 10px;">
+<p style="text-align: center;"><img src="X_small.bmp" alt="" style="border: none;" width="19" height="14" border="0"></p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 3px #000000; vertical-align: center; padding-right: 10px; padding-left: 10px;">
+<p style="text-align: center;"><img src="X_small.bmp" alt="" style="border: none;" width="19" height="14" border="0"></p>
+</td>
+<td style="border-bottom: Solid 3px #000000; vertical-align: center; padding-right: 10px; padding-left: 10px;">
+<p style="text-align: center;"><img src="X_small.bmp" alt="" style="border: none;" width="19" height="14" border="0"></p>
+</td>
+</tr>
+</table>
+<p class="Bullet">&#160;</p>
+<h5>FIPIO</h5>
+<table cellspacing="0" width="100%">
+<col style="width: 11.074%;">
+<col style="width: 11.074%;">
+<col style="width: 11.074%;">
+<col style="width: 11.074%;">
+<col style="width: 9.582%;">
+<col style="width: 9.582%;">
+<col style="width: 9.582%;">
+<col style="width: 12.433%;">
+<col style="width: 12.433%;">
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; padding-right: 10px; padding-left: 10px;">
+<p>&#160;</p>
+</td>
+<td style="border-top: Solid 3px #000000; border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; padding-right: 10px; padding-left: 10px;" bgcolor="#91AFD9">
+<p class="Tabletitle" style="text-align: center;">Premium</p>
+</td>
+<td style="border-top: Solid 3px #000000; border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; padding-right: 10px; padding-left: 10px;" bgcolor="#91AFD9">
+<p class="Tabletitle" style="text-align: center;">Quantum</p>
+</td>
+<td style="border-top: Solid 3px #000000; border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; padding-right: 10px; padding-left: 10px;" bgcolor="#91AFD9">
+<p class="Tabletitle" style="text-align: center;">Momentum</p>
+</td>
+<td style="border-top: Solid 3px #000000; border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; padding-right: 10px; padding-left: 10px; border-right-width: 1px;" bgcolor="#91AFD9">
+<p class="Tabletitle" style="text-align: center;">M340</p>
+</td>
+<td style="border-top: Solid 3px #000000; border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; padding-right: 10px; padding-left: 10px;" bgcolor="#91AFD9">
+<p class="Tabletitle" style="text-align: center;">M580</p>
+</td>
+<td style="border-top: Solid 3px #000000; border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; padding-right: 10px; padding-left: 10px;" bgcolor="#91AFD9">
+<p class="Tabletitle" style="text-align: center;">Twido</p>
+</td>
+<td style="border-top: Solid 3px #000000; border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; padding-right: 10px; padding-left: 10px;" bgcolor="#91AFD9">
+<p class="Tabletitle" style="text-align: center;">Micro PLC</p>
+</td>
+<td style="border-top: Solid 3px #000000; border-bottom: Solid 1px #000000; padding-right: 10px; padding-left: 10px;" bgcolor="#91AFD9">
+<p class="Tabletitle" style="text-align: center;"><span style="font-family: Arial, sans-serif;">M221</span></p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; padding-right: 10px; padding-left: 10px; vertical-align: middle;" bgcolor="#CBD9ED">
+<p class="TableDefinitions">System Devices (%S, %SW)</p>
+</td>
+<td style="vertical-align: center; border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; padding-right: 10px; padding-left: 10px;">
+<p style="text-align: center;"><img src="Check_small.bmp" alt="" style="border: none;" width="17" height="14" border="0"></p>
+</td>
+<td style="vertical-align: center; border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; padding-right: 10px; padding-left: 10px;">
+<p style="text-align: center;"><img src="X_small.bmp" alt="" style="border: none;" width="19" height="14" border="0"></p>
+</td>
+<td style="vertical-align: center; border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; padding-right: 10px; padding-left: 10px;">
+<p style="text-align: center;"><img src="X_small.bmp" alt="" style="border: none;" width="19" height="14" border="0"></p>
+</td>
+<td style="vertical-align: center; border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; padding-right: 10px; padding-left: 10px; border-right-width: 1px;">
+<p style="text-align: center;"><img src="X_small.bmp" alt="" style="border: none;" width="19" height="14" border="0"></p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; vertical-align: center; padding-right: 10px; padding-left: 10px;">
+<p style="text-align: center;"><img src="X_small.bmp" alt="" style="border: none;" width="19" height="14" border="0"></p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; vertical-align: center; padding-right: 10px; padding-left: 10px;">
+<p style="text-align: center;"><img src="X_small.bmp" alt="" style="border: none;" width="19" height="14" border="0"></p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; vertical-align: center; padding-right: 10px; padding-left: 10px;">
+<p style="text-align: center;"><img src="X_small.bmp" alt="" style="border: none;" width="19" height="14" border="0"></p>
+</td>
+<td style="border-bottom: Solid 1px #000000; vertical-align: center; padding-right: 10px; padding-left: 10px;">
+<p style="text-align: center;"><img src="X_small.bmp" alt="" style="border: none;" width="19" height="14" border="0"></p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; padding-right: 10px; padding-left: 10px; vertical-align: middle;" bgcolor="#CBD9ED">
+<p class="TableDefinitions">Constant Devices (%KW)</p>
+</td>
+<td style="vertical-align: center; border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; padding-right: 10px; padding-left: 10px;">
+<p style="text-align: center;"><img src="Check_small.bmp" alt="" style="border: none;" width="17" height="14" border="0"></p>
+</td>
+<td style="vertical-align: center; border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; padding-right: 10px; padding-left: 10px;">
+<p style="text-align: center;"><img src="X_small.bmp" alt="" style="border: none;" width="19" height="14" border="0"></p>
+</td>
+<td style="vertical-align: center; border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; padding-right: 10px; padding-left: 10px;">
+<p style="text-align: center;"><img src="X_small.bmp" alt="" style="border: none;" width="19" height="14" border="0"></p>
+</td>
+<td style="vertical-align: center; border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; padding-right: 10px; padding-left: 10px; border-right-width: 1px;">
+<p style="text-align: center;"><img src="X_small.bmp" alt="" style="border: none;" width="19" height="14" border="0"></p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; vertical-align: center; padding-right: 10px; padding-left: 10px;">
+<p style="text-align: center;"><img src="X_small.bmp" alt="" style="border: none;" width="19" height="14" border="0"></p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; vertical-align: center; padding-right: 10px; padding-left: 10px;">
+<p style="text-align: center;"><img src="X_small.bmp" alt="" style="border: none;" width="19" height="14" border="0"></p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; vertical-align: center; padding-right: 10px; padding-left: 10px;">
+<p style="text-align: center;"><img src="X_small.bmp" alt="" style="border: none;" width="19" height="14" border="0"></p>
+</td>
+<td style="border-bottom: Solid 1px #000000; vertical-align: center; padding-right: 10px; padding-left: 10px;">
+<p style="text-align: center;"><img src="X_small.bmp" alt="" style="border: none;" width="19" height="14" border="0"></p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 3px #000000; padding-right: 10px; padding-left: 10px; vertical-align: middle;" bgcolor="#CBD9ED">
+<p class="TableDefinitions">Direct I/O (%I, %IW, %Q, %QW)</p>
+</td>
+<td style="vertical-align: center; border-right: Solid 1px #000000; border-bottom: Solid 3px #000000; padding-right: 10px; padding-left: 10px;">
+<p style="text-align: center;"><img src="X_small.bmp" alt="" style="border: none;" width="19" height="14" border="0"></p>
+</td>
+<td style="vertical-align: center; border-right: Solid 1px #000000; border-bottom: Solid 3px #000000; padding-right: 10px; padding-left: 10px;">
+<p style="text-align: center;"><img src="X_small.bmp" alt="" style="border: none;" width="19" height="14" border="0"></p>
+</td>
+<td style="vertical-align: center; border-right: Solid 1px #000000; border-bottom: Solid 3px #000000; padding-right: 10px; padding-left: 10px;">
+<p style="text-align: center;"><img src="X_small.bmp" alt="" style="border: none;" width="19" height="14" border="0"></p>
+</td>
+<td style="vertical-align: center; border-right: Solid 1px #000000; border-bottom: Solid 3px #000000; padding-right: 10px; padding-left: 10px; border-right-width: 1px;">
+<p style="text-align: center;"><img src="X_small.bmp" alt="" style="border: none;" width="19" height="14" border="0"></p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 3px #000000; vertical-align: center; padding-right: 10px; padding-left: 10px;">
+<p style="text-align: center;"><img src="X_small.bmp" alt="" style="border: none;" width="19" height="14" border="0"></p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 3px #000000; vertical-align: center; padding-right: 10px; padding-left: 10px;">
+<p style="text-align: center;"><img src="X_small.bmp" alt="" style="border: none;" width="19" height="14" border="0"></p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 3px #000000; vertical-align: center; padding-right: 10px; padding-left: 10px;">
+<p style="text-align: center;"><img src="X_small.bmp" alt="" style="border: none;" width="19" height="14" border="0"></p>
+</td>
+<td style="border-bottom: Solid 3px #000000; vertical-align: center; padding-right: 10px; padding-left: 10px;">
+<p style="text-align: center;"><img src="X_small.bmp" alt="" style="border: none;" width="19" height="14" border="0"></p>
+</td>
+</tr>
+</table>
+<p>&#160;</p>
+<h5>FIPWAY</h5>
+<table cellspacing="0" width="100%">
+<col style="width: 10.959%;">
+<col style="width: 11.087%;">
+<col style="width: 11.087%;">
+<col style="width: 11.087%;">
+<col style="width: 9.551%;">
+<col style="width: 9.551%;">
+<col style="width: 9.551%;">
+<col style="width: 12.259%;">
+<col style="width: 12.259%;">
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; padding-right: 10px; padding-left: 10px;">
+<p>&#160;</p>
+</td>
+<td style="border-top: Solid 3px #000000; border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; padding-right: 10px; padding-left: 10px;" bgcolor="#91AFD9">
+<p class="Tabletitle" style="text-align: center;">Premium</p>
+</td>
+<td style="border-top: Solid 3px #000000; border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; padding-right: 10px; padding-left: 10px;" bgcolor="#91AFD9">
+<p class="Tabletitle" style="text-align: center;">Quantum</p>
+</td>
+<td style="border-top: Solid 3px #000000; border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; padding-right: 10px; padding-left: 10px;" bgcolor="#91AFD9">
+<p class="Tabletitle" style="text-align: center;">Momentum</p>
+</td>
+<td style="border-top: Solid 3px #000000; border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; padding-right: 10px; padding-left: 10px; border-right-width: 1px;" bgcolor="#91AFD9">
+<p class="Tabletitle" style="text-align: center;">M340</p>
+</td>
+<td style="border-top: Solid 3px #000000; border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; padding-right: 10px; padding-left: 10px;" bgcolor="#91AFD9">
+<p class="Tabletitle" style="text-align: center;">M580</p>
+</td>
+<td style="border-top: Solid 3px #000000; border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; padding-right: 10px; padding-left: 10px;" bgcolor="#91AFD9">
+<p class="Tabletitle" style="text-align: center;">Twido</p>
+</td>
+<td style="border-top: Solid 3px #000000; border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; padding-right: 10px; padding-left: 10px;" bgcolor="#91AFD9">
+<p class="Tabletitle" style="text-align: center;">Micro PLC</p>
+</td>
+<td style="border-top: Solid 3px #000000; border-bottom: Solid 1px #000000; padding-right: 10px; padding-left: 10px;" bgcolor="#91AFD9">
+<p class="Tabletitle" style="text-align: center;"><span style="font-family: Arial, sans-serif;">M221</span></p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; padding-right: 10px; padding-left: 10px; vertical-align: middle;" bgcolor="#CBD9ED">
+<p class="TableDefinitions">System Devices (%S, %SW)</p>
+</td>
+<td style="vertical-align: center; border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; padding-right: 10px; padding-left: 10px;">
+<p style="text-align: center;"><img src="Check_small.bmp" alt="" style="border: none;" width="17" height="14" border="0"></p>
+</td>
+<td style="vertical-align: center; border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; padding-right: 10px; padding-left: 10px;">
+<p style="text-align: center;"><img src="X_small.bmp" alt="" style="border: none;" width="19" height="14" border="0"></p>
+</td>
+<td style="vertical-align: center; border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; padding-right: 10px; padding-left: 10px;">
+<p style="text-align: center;"><img src="X_small.bmp" alt="" style="border: none;" width="19" height="14" border="0"></p>
+</td>
+<td style="vertical-align: center; border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; padding-right: 10px; padding-left: 10px; border-right-width: 1px;">
+<p style="text-align: center;"><img src="X_small.bmp" alt="" style="border: none;" width="19" height="14" border="0"></p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; vertical-align: center; padding-right: 10px; padding-left: 10px;">
+<p style="text-align: center;"><img src="X_small.bmp" alt="" style="border: none;" width="19" height="14" border="0"></p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; vertical-align: center; padding-right: 10px; padding-left: 10px;">
+<p style="text-align: center;"><img src="X_small.bmp" alt="" style="border: none;" width="19" height="14" border="0"></p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; vertical-align: center; padding-right: 10px; padding-left: 10px;">
+<p style="text-align: center;"><img src="X_small.bmp" alt="" style="border: none;" width="19" height="14" border="0"></p>
+</td>
+<td style="border-bottom: Solid 1px #000000; vertical-align: center; padding-right: 10px; padding-left: 10px;">
+<p style="text-align: center;"><img src="X_small.bmp" alt="" style="border: none;" width="19" height="14" border="0"></p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; padding-right: 10px; padding-left: 10px; vertical-align: middle;" bgcolor="#CBD9ED">
+<p class="TableDefinitions">Constant Devices (%KW)</p>
+</td>
+<td style="vertical-align: center; border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; padding-right: 10px; padding-left: 10px;">
+<p style="text-align: center;"><img src="Check_small.bmp" alt="" style="border: none;" width="17" height="14" border="0"></p>
+</td>
+<td style="vertical-align: center; border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; padding-right: 10px; padding-left: 10px;">
+<p style="text-align: center;"><img src="X_small.bmp" alt="" style="border: none;" width="19" height="14" border="0"></p>
+</td>
+<td style="vertical-align: center; border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; padding-right: 10px; padding-left: 10px;">
+<p style="text-align: center;"><img src="X_small.bmp" alt="" style="border: none;" width="19" height="14" border="0"></p>
+</td>
+<td style="vertical-align: center; border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; padding-right: 10px; padding-left: 10px; border-right-width: 1px;">
+<p style="text-align: center;"><img src="X_small.bmp" alt="" style="border: none;" width="19" height="14" border="0"></p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; vertical-align: center; padding-right: 10px; padding-left: 10px;">
+<p style="text-align: center;"><img src="X_small.bmp" alt="" style="border: none;" width="19" height="14" border="0"></p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; vertical-align: center; padding-right: 10px; padding-left: 10px;">
+<p style="text-align: center;"><img src="X_small.bmp" alt="" style="border: none;" width="19" height="14" border="0"></p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; vertical-align: center; padding-right: 10px; padding-left: 10px;">
+<p style="text-align: center;"><img src="X_small.bmp" alt="" style="border: none;" width="19" height="14" border="0"></p>
+</td>
+<td style="border-bottom: Solid 1px #000000; vertical-align: center; padding-right: 10px; padding-left: 10px;">
+<p style="text-align: center;"><img src="X_small.bmp" alt="" style="border: none;" width="19" height="14" border="0"></p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 3px #000000; padding-right: 10px; padding-left: 10px; vertical-align: middle;" bgcolor="#CBD9ED">
+<p class="TableDefinitions">Direct I/O (%I, %IW, %Q, %QW)</p>
+</td>
+<td style="vertical-align: center; border-right: Solid 1px #000000; border-bottom: Solid 3px #000000; padding-right: 10px; padding-left: 10px;">
+<p style="text-align: center;"><img src="X_small.bmp" alt="" style="border: none;" width="19" height="14" border="0"></p>
+</td>
+<td style="vertical-align: center; border-right: Solid 1px #000000; border-bottom: Solid 3px #000000; padding-right: 10px; padding-left: 10px;">
+<p style="text-align: center;"><img src="X_small.bmp" alt="" style="border: none;" width="19" height="14" border="0"></p>
+</td>
+<td style="vertical-align: center; border-right: Solid 1px #000000; border-bottom: Solid 3px #000000; padding-right: 10px; padding-left: 10px;">
+<p style="text-align: center;"><img src="X_small.bmp" alt="" style="border: none;" width="19" height="14" border="0"></p>
+</td>
+<td style="vertical-align: center; border-right: Solid 1px #000000; border-bottom: Solid 3px #000000; padding-right: 10px; padding-left: 10px; border-right-width: 1px;">
+<p style="text-align: center;"><img src="X_small.bmp" alt="" style="border: none;" width="19" height="14" border="0"></p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 3px #000000; vertical-align: center; padding-right: 10px; padding-left: 10px;">
+<p style="text-align: center;"><img src="X_small.bmp" alt="" style="border: none;" width="19" height="14" border="0"></p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 3px #000000; vertical-align: center; padding-right: 10px; padding-left: 10px;">
+<p style="text-align: center;"><img src="X_small.bmp" alt="" style="border: none;" width="19" height="14" border="0"></p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 3px #000000; vertical-align: center; padding-right: 10px; padding-left: 10px;">
+<p style="text-align: center;"><img src="X_small.bmp" alt="" style="border: none;" width="19" height="14" border="0"></p>
+</td>
+<td style="border-bottom: Solid 3px #000000; vertical-align: center; padding-right: 10px; padding-left: 10px;">
+<p style="text-align: center;"><img src="X_small.bmp" alt="" style="border: none;" width="19" height="14" border="0"></p>
+</td>
+</tr>
+</table>
+<p>&#160;</p>
+<h5>Jbus</h5>
+<table cellspacing="0" width="100%">
+<col style="width: 11.082%;">
+<col style="width: 11.082%;">
+<col style="width: 11.082%;">
+<col style="width: 11.082%;">
+<col style="width: 9.606%;">
+<col style="width: 9.606%;">
+<col style="width: 9.606%;">
+<col style="width: 12.328%;">
+<col style="width: 12.328%;">
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; padding-right: 10px; padding-left: 10px;">
+<p>&#160;</p>
+</td>
+<td style="border-top: Solid 3px #000000; border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; padding-right: 10px; padding-left: 10px;" bgcolor="#91AFD9">
+<p class="Tabletitle" style="text-align: center;">Premium</p>
+</td>
+<td style="border-top: Solid 3px #000000; border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; padding-right: 10px; padding-left: 10px;" bgcolor="#91AFD9">
+<p class="Tabletitle" style="text-align: center;">Quantum</p>
+</td>
+<td style="border-top: Solid 3px #000000; border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; padding-right: 10px; padding-left: 10px;" bgcolor="#91AFD9">
+<p class="Tabletitle" style="text-align: center;">Momentum</p>
+</td>
+<td style="border-top: Solid 3px #000000; border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; padding-right: 10px; padding-left: 10px; border-right-width: 1px;" bgcolor="#91AFD9">
+<p class="Tabletitle" style="text-align: center;">M340</p>
+</td>
+<td style="border-top: Solid 3px #000000; border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; padding-right: 10px; padding-left: 10px;" bgcolor="#91AFD9">
+<p class="Tabletitle" style="text-align: center;">M580</p>
+</td>
+<td style="border-top: Solid 3px #000000; border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; padding-right: 10px; padding-left: 10px;" bgcolor="#91AFD9">
+<p class="Tabletitle" style="text-align: center;">Twido</p>
+</td>
+<td style="border-top: Solid 3px #000000; border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; padding-right: 10px; padding-left: 10px;" bgcolor="#91AFD9">
+<p class="Tabletitle" style="text-align: center;">Micro PLC</p>
+</td>
+<td style="border-top: Solid 3px #000000; border-bottom: Solid 1px #000000; padding-right: 10px; padding-left: 10px;" bgcolor="#91AFD9">
+<p class="Tabletitle" style="text-align: center;">M221</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; padding-right: 10px; padding-left: 10px; vertical-align: middle;" bgcolor="#CBD9ED">
+<p class="TableDefinitions">System Devices (%S, %SW)</p>
+</td>
+<td style="vertical-align: center; border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; padding-right: 10px; padding-left: 10px;">
+<p style="text-align: center;"><img src="X_small.bmp" alt="" style="border: none;" width="19" height="14" border="0"></p>
+</td>
+<td style="vertical-align: center; border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; padding-right: 10px; padding-left: 10px;">
+<p style="text-align: center;"><img src="X_small.bmp" alt="" style="border: none;" width="19" height="14" border="0"></p>
+</td>
+<td style="vertical-align: center; border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; padding-right: 10px; padding-left: 10px;">
+<p style="text-align: center;"><img src="X_small.bmp" alt="" style="border: none;" width="19" height="14" border="0"></p>
+</td>
+<td style="vertical-align: center; border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; padding-right: 10px; padding-left: 10px; border-right-width: 1px;">
+<p style="text-align: center;"><img src="X_small.bmp" alt="" style="border: none;" width="19" height="14" border="0"></p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; vertical-align: center; padding-right: 10px; padding-left: 10px;">
+<p style="text-align: center;"><img src="X_small.bmp" alt="" style="border: none;" width="19" height="14" border="0"></p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; vertical-align: center; padding-right: 10px; padding-left: 10px;">
+<p style="text-align: center;"><img src="X_small.bmp" alt="" style="border: none;" width="19" height="14" border="0"></p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; vertical-align: center; padding-right: 10px; padding-left: 10px;">
+<p style="text-align: center;"><img src="X_small.bmp" alt="" style="border: none;" width="19" height="14" border="0"></p>
+</td>
+<td style="border-bottom: Solid 1px #000000; vertical-align: center; padding-right: 10px; padding-left: 10px;">
+<p style="text-align: center;"><img src="X_small.bmp" alt="" style="border: none;" width="19" height="14" border="0"></p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; padding-right: 10px; padding-left: 10px; vertical-align: middle;" bgcolor="#CBD9ED">
+<p class="TableDefinitions">Constant Devices (%KW)</p>
+</td>
+<td style="vertical-align: center; border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; padding-right: 10px; padding-left: 10px;">
+<p style="text-align: center;"><img src="X_small.bmp" alt="" style="border: none;" width="19" height="14" border="0"></p>
+</td>
+<td style="vertical-align: center; border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; padding-right: 10px; padding-left: 10px;">
+<p style="text-align: center;"><img src="X_small.bmp" alt="" style="border: none;" width="19" height="14" border="0"></p>
+</td>
+<td style="vertical-align: center; border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; padding-right: 10px; padding-left: 10px;">
+<p style="text-align: center;"><img src="X_small.bmp" alt="" style="border: none;" width="19" height="14" border="0"></p>
+</td>
+<td style="vertical-align: center; border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; padding-right: 10px; padding-left: 10px; border-right-width: 1px;">
+<p style="text-align: center;"><img src="X_small.bmp" alt="" style="border: none;" width="19" height="14" border="0"></p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; vertical-align: center; padding-right: 10px; padding-left: 10px;">
+<p style="text-align: center;"><img src="X_small.bmp" alt="" style="border: none;" width="19" height="14" border="0"></p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; vertical-align: center; padding-right: 10px; padding-left: 10px;">
+<p style="text-align: center;"><img src="X_small.bmp" alt="" style="border: none;" width="19" height="14" border="0"></p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; vertical-align: center; padding-right: 10px; padding-left: 10px;">
+<p style="text-align: center;"><img src="X_small.bmp" alt="" style="border: none;" width="19" height="14" border="0"></p>
+</td>
+<td style="border-bottom: Solid 1px #000000; vertical-align: center; padding-right: 10px; padding-left: 10px;">
+<p style="text-align: center;"><img src="X_small.bmp" alt="" style="border: none;" width="19" height="14" border="0"></p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 3px #000000; padding-right: 10px; padding-left: 10px; vertical-align: middle;" bgcolor="#CBD9ED">
+<p class="TableDefinitions">Direct I/O (%I, %IW, %Q, %QW)</p>
+</td>
+<td style="vertical-align: center; border-right: Solid 1px #000000; border-bottom: Solid 3px #000000; padding-right: 10px; padding-left: 10px;">
+<p style="text-align: center;"><img src="X_small.bmp" alt="" style="border: none;" width="19" height="14" border="0"></p>
+</td>
+<td style="vertical-align: center; border-right: Solid 1px #000000; border-bottom: Solid 3px #000000; padding-right: 10px; padding-left: 10px;">
+<p style="text-align: center;"><img src="X_small.bmp" alt="" style="border: none;" width="19" height="14" border="0"></p>
+</td>
+<td style="vertical-align: center; border-right: Solid 1px #000000; border-bottom: Solid 3px #000000; padding-right: 10px; padding-left: 10px;">
+<p style="text-align: center;"><img src="X_small.bmp" alt="" style="border: none;" width="19" height="14" border="0"></p>
+</td>
+<td style="vertical-align: center; border-right: Solid 1px #000000; border-bottom: Solid 3px #000000; padding-right: 10px; padding-left: 10px; border-right-width: 1px;">
+<p style="text-align: center;"><img src="X_small.bmp" alt="" style="border: none;" width="19" height="14" border="0"></p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 3px #000000; vertical-align: center; padding-right: 10px; padding-left: 10px;">
+<p style="text-align: center;"><img src="X_small.bmp" alt="" style="border: none;" width="19" height="14" border="0"></p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 3px #000000; vertical-align: center; padding-right: 10px; padding-left: 10px;">
+<p style="text-align: center;"><img src="X_small.bmp" alt="" style="border: none;" width="19" height="14" border="0"></p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 3px #000000; vertical-align: center; padding-right: 10px; padding-left: 10px;">
+<p style="text-align: center;"><img src="X_small.bmp" alt="" style="border: none;" width="19" height="14" border="0"></p>
+</td>
+<td style="border-bottom: Solid 3px #000000; vertical-align: center; padding-right: 10px; padding-left: 10px;">
+<p style="text-align: center;"><img src="X_small.bmp" alt="" style="border: none;" width="19" height="14" border="0"></p>
+</td>
+</tr>
+</table>
+<p>&#160;</p>
+<h5>PacDrive - Ethernet</h5>
+<table cellspacing="0" width="100%">
+<col style="width: 11.074%;">
+<col style="width: 11.074%;">
+<col style="width: 11.074%;">
+<col style="width: 11.074%;">
+<col style="width: 9.582%;">
+<col style="width: 9.582%;">
+<col style="width: 9.582%;">
+<col style="width: 12.433%;">
+<col style="width: 12.433%;">
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; padding-right: 10px; padding-left: 10px;">
+<p>&#160;</p>
+</td>
+<td style="border-top: Solid 3px #000000; border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; padding-right: 10px; padding-left: 10px;" bgcolor="#91AFD9">
+<p class="Tabletitle" style="text-align: center;">Premium</p>
+</td>
+<td style="border-top: Solid 3px #000000; border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; padding-right: 10px; padding-left: 10px;" bgcolor="#91AFD9">
+<p class="Tabletitle" style="text-align: center;">Quantum</p>
+</td>
+<td style="border-top: Solid 3px #000000; border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; padding-right: 10px; padding-left: 10px;" bgcolor="#91AFD9">
+<p class="Tabletitle" style="text-align: center;">Momentum</p>
+</td>
+<td style="border-top: Solid 3px #000000; border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; padding-right: 10px; padding-left: 10px; border-right-width: 1px;" bgcolor="#91AFD9">
+<p class="Tabletitle" style="text-align: center;">M340</p>
+</td>
+<td style="border-top: Solid 3px #000000; border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; padding-right: 10px; padding-left: 10px;" bgcolor="#91AFD9">
+<p class="Tabletitle" style="text-align: center;">M580</p>
+</td>
+<td style="border-top: Solid 3px #000000; border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; padding-right: 10px; padding-left: 10px;" bgcolor="#91AFD9">
+<p class="Tabletitle" style="text-align: center;">Twido</p>
+</td>
+<td style="border-top: Solid 3px #000000; border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; padding-right: 10px; padding-left: 10px;" bgcolor="#91AFD9">
+<p class="Tabletitle" style="text-align: center;">Micro PLC</p>
+</td>
+<td style="border-top: Solid 3px #000000; border-bottom: Solid 1px #000000; padding-right: 10px; padding-left: 10px;" bgcolor="#91AFD9">
+<p class="Tabletitle" style="text-align: center;">M221</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; padding-right: 10px; padding-left: 10px; vertical-align: middle;" bgcolor="#CBD9ED">
+<p class="TableDefinitions">System Devices (%S, %SW)</p>
+</td>
+<td style="vertical-align: center; border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; padding-right: 10px; padding-left: 10px;">
+<p style="text-align: center;"><img src="X_small.bmp" alt="" style="border: none;" width="19" height="14" border="0"></p>
+</td>
+<td style="vertical-align: center; border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; padding-right: 10px; padding-left: 10px;">
+<p style="text-align: center;"><img src="X_small.bmp" alt="" style="border: none;" width="19" height="14" border="0"></p>
+</td>
+<td style="vertical-align: center; border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; padding-right: 10px; padding-left: 10px;">
+<p style="text-align: center;"><img src="X_small.bmp" alt="" style="border: none;" width="19" height="14" border="0"></p>
+</td>
+<td style="vertical-align: center; border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; padding-right: 10px; padding-left: 10px; border-right-width: 1px;">
+<p style="text-align: center;"><img src="X_small.bmp" alt="" style="border: none;" width="19" height="14" border="0"></p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; vertical-align: center; padding-right: 10px; padding-left: 10px;">
+<p style="text-align: center;"><img src="X_small.bmp" alt="" style="border: none;" width="19" height="14" border="0"></p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; vertical-align: center; padding-right: 10px; padding-left: 10px;">
+<p style="text-align: center;"><img src="X_small.bmp" alt="" style="border: none;" width="19" height="14" border="0"></p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; vertical-align: center; padding-right: 10px; padding-left: 10px;">
+<p style="text-align: center;"><img src="X_small.bmp" alt="" style="border: none;" width="19" height="14" border="0"></p>
+</td>
+<td style="border-bottom: Solid 1px #000000; vertical-align: center; padding-right: 10px; padding-left: 10px;">
+<p style="text-align: center;"><img src="X_small.bmp" alt="" style="border: none;" width="19" height="14" border="0"></p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; padding-right: 10px; padding-left: 10px; vertical-align: middle;" bgcolor="#CBD9ED">
+<p class="TableDefinitions">Constant Devices (%KW)</p>
+</td>
+<td style="vertical-align: center; border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; padding-right: 10px; padding-left: 10px;">
+<p style="text-align: center;"><img src="X_small.bmp" alt="" style="border: none;" width="19" height="14" border="0"></p>
+</td>
+<td style="vertical-align: center; border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; padding-right: 10px; padding-left: 10px;">
+<p style="text-align: center;"><img src="X_small.bmp" alt="" style="border: none;" width="19" height="14" border="0"></p>
+</td>
+<td style="vertical-align: center; border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; padding-right: 10px; padding-left: 10px;">
+<p style="text-align: center;"><img src="X_small.bmp" alt="" style="border: none;" width="19" height="14" border="0"></p>
+</td>
+<td style="vertical-align: center; border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; padding-right: 10px; padding-left: 10px; border-right-width: 1px;">
+<p style="text-align: center;"><img src="X_small.bmp" alt="" style="border: none;" width="19" height="14" border="0"></p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; vertical-align: center; padding-right: 10px; padding-left: 10px;">
+<p style="text-align: center;"><img src="X_small.bmp" alt="" style="border: none;" width="19" height="14" border="0"></p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; vertical-align: center; padding-right: 10px; padding-left: 10px;">
+<p style="text-align: center;"><img src="X_small.bmp" alt="" style="border: none;" width="19" height="14" border="0"></p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; vertical-align: center; padding-right: 10px; padding-left: 10px;">
+<p style="text-align: center;"><img src="X_small.bmp" alt="" style="border: none;" width="19" height="14" border="0"></p>
+</td>
+<td style="border-bottom: Solid 1px #000000; vertical-align: center; padding-right: 10px; padding-left: 10px;">
+<p style="text-align: center;"><img src="X_small.bmp" alt="" style="border: none;" width="19" height="14" border="0"></p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 3px #000000; padding-right: 10px; padding-left: 10px; vertical-align: middle;" bgcolor="#CBD9ED">
+<p class="TableDefinitions">Direct I/O (%I, %IW, %Q, %QW)</p>
+</td>
+<td style="vertical-align: center; border-right: Solid 1px #000000; border-bottom: Solid 3px #000000; padding-right: 10px; padding-left: 10px;">
+<p style="text-align: center;"><img src="X_small.bmp" alt="" style="border: none;" width="19" height="14" border="0"></p>
+</td>
+<td style="vertical-align: center; border-right: Solid 1px #000000; border-bottom: Solid 3px #000000; padding-right: 10px; padding-left: 10px;">
+<p style="text-align: center;"><img src="X_small.bmp" alt="" style="border: none;" width="19" height="14" border="0"></p>
+</td>
+<td style="vertical-align: center; border-right: Solid 1px #000000; border-bottom: Solid 3px #000000; padding-right: 10px; padding-left: 10px;">
+<p style="text-align: center;"><img src="X_small.bmp" alt="" style="border: none;" width="19" height="14" border="0"></p>
+</td>
+<td style="vertical-align: center; border-right: Solid 1px #000000; border-bottom: Solid 3px #000000; padding-right: 10px; padding-left: 10px; border-right-width: 1px;">
+<p style="text-align: center;"><img src="X_small.bmp" alt="" style="border: none;" width="19" height="14" border="0"></p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 3px #000000; vertical-align: center; padding-right: 10px; padding-left: 10px;">
+<p style="text-align: center;"><img src="X_small.bmp" alt="" style="border: none;" width="19" height="14" border="0"></p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 3px #000000; vertical-align: center; padding-right: 10px; padding-left: 10px;">
+<p style="text-align: center;"><img src="X_small.bmp" alt="" style="border: none;" width="19" height="14" border="0"></p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 3px #000000; vertical-align: center; padding-right: 10px; padding-left: 10px;">
+<p style="text-align: center;"><img src="X_small.bmp" alt="" style="border: none;" width="19" height="14" border="0"></p>
+</td>
+<td style="border-bottom: Solid 3px #000000; vertical-align: center; padding-right: 10px; padding-left: 10px;">
+<p style="text-align: center;"><img src="X_small.bmp" alt="" style="border: none;" width="19" height="14" border="0"></p>
+</td>
+</tr>
+</table>
+<p>&#160;</p>
+<h5>Uni-Telway</h5>
+<table cellspacing="0" width="100%">
+<col style="width: 10.737%;">
+<col style="width: 11.05%;">
+<col style="width: 11.05%;">
+<col style="width: 11.05%;">
+<col style="width: 9.506%;">
+<col style="width: 9.506%;">
+<col style="width: 9.506%;">
+<col style="width: 12.61%;">
+<col style="width: 12.61%;">
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; padding-right: 10px; padding-left: 10px;">
+<p>&#160;</p>
+</td>
+<td style="border-top: Solid 3px #000000; border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; padding-right: 10px; padding-left: 10px;" bgcolor="#91AFD9">
+<p class="Tabletitle" style="text-align: center;">Premium</p>
+</td>
+<td style="border-top: Solid 3px #000000; border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; padding-right: 10px; padding-left: 10px;" bgcolor="#91AFD9">
+<p class="Tabletitle" style="text-align: center;">Quantum</p>
+</td>
+<td style="border-top: Solid 3px #000000; border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; padding-right: 10px; padding-left: 10px;" bgcolor="#91AFD9">
+<p class="Tabletitle" style="text-align: center;">Momentum</p>
+</td>
+<td style="border-top: Solid 3px #000000; border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; padding-right: 10px; padding-left: 10px; border-right-width: 1px;" bgcolor="#91AFD9">
+<p class="Tabletitle" style="text-align: center;">M340</p>
+</td>
+<td style="border-top: Solid 3px #000000; border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; padding-right: 10px; padding-left: 10px;" bgcolor="#91AFD9">
+<p class="Tabletitle" style="text-align: center;">M580</p>
+</td>
+<td style="border-top: Solid 3px #000000; border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; padding-right: 10px; padding-left: 10px;" bgcolor="#91AFD9">
+<p class="Tabletitle" style="text-align: center;">Twido</p>
+</td>
+<td style="border-top: Solid 3px #000000; border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; padding-right: 10px; padding-left: 10px;" bgcolor="#91AFD9">
+<p class="Tabletitle" style="text-align: center;">Micro PLC</p>
+</td>
+<td style="border-top: Solid 3px #000000; border-bottom: Solid 1px #000000; padding-right: 10px; padding-left: 10px;" bgcolor="#91AFD9">
+<p class="Tabletitle" style="text-align: center;">M221</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; padding-right: 10px; padding-left: 10px; vertical-align: middle;" bgcolor="#CBD9ED">
+<p class="TableDefinitions">System Devices (%S, %SW)</p>
+</td>
+<td style="vertical-align: center; border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; padding-right: 10px; padding-left: 10px;">
+<p style="text-align: center;"><img src="Check_small.bmp" alt="" style="border: none;" width="17" height="14" border="0"></p>
+</td>
+<td style="vertical-align: center; border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; padding-right: 10px; padding-left: 10px;">
+<p style="text-align: center;"><img src="X_small.bmp" alt="" style="border: none;" width="19" height="14" border="0"></p>
+</td>
+<td style="vertical-align: center; border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; padding-right: 10px; padding-left: 10px;">
+<p style="text-align: center;"><img src="X_small.bmp" alt="" style="border: none;" width="19" height="14" border="0"></p>
+</td>
+<td style="vertical-align: center; border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; padding-right: 10px; padding-left: 10px; border-right-width: 1px;">
+<p style="text-align: center;"><img src="X_small.bmp" alt="" style="border: none;" width="19" height="14" border="0"></p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; vertical-align: center; padding-right: 10px; padding-left: 10px;">
+<p style="text-align: center;"><img src="X_small.bmp" alt="" style="border: none;" width="19" height="14" border="0"></p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; vertical-align: center; padding-right: 10px; padding-left: 10px;">
+<p style="text-align: center;"><img src="X_small.bmp" alt="" style="border: none;" width="19" height="14" border="0"></p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; vertical-align: center; padding-right: 10px; padding-left: 10px;">
+<p style="text-align: center;"><img src="Check_small.bmp" alt="" style="border: none;" width="17" height="14" border="0"></p>
+</td>
+<td style="border-bottom: Solid 1px #000000; vertical-align: center; padding-right: 10px; padding-left: 10px;">
+<p style="text-align: center;"><img src="X_small.bmp" alt="" style="border: none;" width="19" height="14" border="0"></p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; padding-right: 10px; padding-left: 10px; vertical-align: middle;" bgcolor="#CBD9ED">
+<p class="TableDefinitions">Constant Devices (%KW)</p>
+</td>
+<td style="vertical-align: center; border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; padding-right: 10px; padding-left: 10px;">
+<p style="text-align: center;"><img src="Check_small.bmp" alt="" style="border: none;" width="17" height="14" border="0"></p>
+</td>
+<td style="vertical-align: center; border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; padding-right: 10px; padding-left: 10px;">
+<p style="text-align: center;"><img src="X_small.bmp" alt="" style="border: none;" width="19" height="14" border="0"></p>
+</td>
+<td style="vertical-align: center; border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; padding-right: 10px; padding-left: 10px;">
+<p style="text-align: center;"><img src="X_small.bmp" alt="" style="border: none;" width="19" height="14" border="0"></p>
+</td>
+<td style="vertical-align: center; border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; padding-right: 10px; padding-left: 10px; border-right-width: 1px;">
+<p style="text-align: center;"><img src="X_small.bmp" alt="" style="border: none;" width="19" height="14" border="0"></p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; vertical-align: center; padding-right: 10px; padding-left: 10px;">
+<p style="text-align: center;"><img src="X_small.bmp" alt="" style="border: none;" width="19" height="14" border="0"></p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; vertical-align: center; padding-right: 10px; padding-left: 10px;">
+<p style="text-align: center;"><img src="X_small.bmp" alt="" style="border: none;" width="19" height="14" border="0"></p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; vertical-align: center; padding-right: 10px; padding-left: 10px;">
+<p style="text-align: center;"><img src="Check_small.bmp" alt="" style="border: none;" width="17" height="14" border="0"></p>
+</td>
+<td style="border-bottom: Solid 1px #000000; vertical-align: center; padding-right: 10px; padding-left: 10px;">
+<p style="text-align: center;"><img src="X_small.bmp" alt="" style="border: none;" width="19" height="14" border="0"></p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 3px #000000; padding-right: 10px; padding-left: 10px; vertical-align: middle;" bgcolor="#CBD9ED">
+<p class="TableDefinitions">Direct I/O (%I, %IW, %Q, %QW)</p>
+</td>
+<td style="vertical-align: center; border-right: Solid 1px #000000; border-bottom: Solid 3px #000000; padding-right: 10px; padding-left: 10px;">
+<p style="text-align: center;"><img src="X_small.bmp" alt="" style="border: none;" width="19" height="14" border="0"></p>
+</td>
+<td style="vertical-align: center; border-right: Solid 1px #000000; border-bottom: Solid 3px #000000; padding-right: 10px; padding-left: 10px;">
+<p style="text-align: center;"><img src="X_small.bmp" alt="" style="border: none;" width="19" height="14" border="0"></p>
+</td>
+<td style="vertical-align: center; border-right: Solid 1px #000000; border-bottom: Solid 3px #000000; padding-right: 10px; padding-left: 10px;">
+<p style="text-align: center;"><img src="X_small.bmp" alt="" style="border: none;" width="19" height="14" border="0"></p>
+</td>
+<td style="vertical-align: center; border-right: Solid 1px #000000; border-bottom: Solid 3px #000000; padding-right: 10px; padding-left: 10px; border-right-width: 1px;">
+<p style="text-align: center;"><img src="X_small.bmp" alt="" style="border: none;" width="19" height="14" border="0"></p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 3px #000000; vertical-align: center; padding-right: 10px; padding-left: 10px;">
+<p style="text-align: center;"><img src="X_small.bmp" alt="" style="border: none;" width="19" height="14" border="0"></p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 3px #000000; vertical-align: center; padding-right: 10px; padding-left: 10px;">
+<p style="text-align: center;"><img src="X_small.bmp" alt="" style="border: none;" width="19" height="14" border="0"></p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 3px #000000; vertical-align: center; padding-right: 10px; padding-left: 10px;">
+<p style="text-align: center;"><img src="X_small.bmp" alt="" style="border: none;" width="19" height="14" border="0"></p>
+</td>
+<td style="border-bottom: Solid 3px #000000; vertical-align: center; padding-right: 10px; padding-left: 10px;">
+<p style="text-align: center;"><img src="X_small.bmp" alt="" style="border: none;" width="19" height="14" border="0"></p>
+</td>
+</tr>
+</table>
+<p>&#160;</p>
+<h5>X-Way</h5>
+<table cellspacing="0" width="100%">
+<col style="width: 11.048%;">
+<col style="width: 11.048%;">
+<col style="width: 11.048%;">
+<col style="width: 11.048%;">
+<col style="width: 9.51%;">
+<col style="width: 9.51%;">
+<col style="width: 9.51%;">
+<col style="width: 12.745%;">
+<col style="width: 12.745%;">
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; padding-right: 10px; padding-left: 10px;">
+<p>&#160;</p>
+</td>
+<td style="border-top: Solid 3px #000000; border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; padding-right: 10px; padding-left: 10px;" bgcolor="#91AFD9">
+<p class="Tabletitle" style="text-align: center;">Premium</p>
+</td>
+<td style="border-top: Solid 3px #000000; border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; padding-right: 10px; padding-left: 10px;" bgcolor="#91AFD9">
+<p class="Tabletitle" style="text-align: center;">Quantum</p>
+</td>
+<td style="border-top: Solid 3px #000000; border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; padding-right: 10px; padding-left: 10px;" bgcolor="#91AFD9">
+<p class="Tabletitle" style="text-align: center;">Momentum</p>
+</td>
+<td style="border-top: Solid 3px #000000; border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; padding-right: 10px; padding-left: 10px; border-right-width: 1px;" bgcolor="#91AFD9">
+<p class="Tabletitle" style="text-align: center;">M340</p>
+</td>
+<td style="border-top: Solid 3px #000000; border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; padding-right: 10px; padding-left: 10px;" bgcolor="#91AFD9">
+<p class="Tabletitle" style="text-align: center;">M580</p>
+</td>
+<td style="border-top: Solid 3px #000000; border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; padding-right: 10px; padding-left: 10px;" bgcolor="#91AFD9">
+<p class="Tabletitle" style="text-align: center;">Twido</p>
+</td>
+<td style="border-top: Solid 3px #000000; border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; padding-right: 10px; padding-left: 10px;" bgcolor="#91AFD9">
+<p class="Tabletitle" style="text-align: center;">Micro PLC</p>
+</td>
+<td style="border-top: Solid 3px #000000; border-bottom: Solid 1px #000000; padding-right: 10px; padding-left: 10px;" bgcolor="#91AFD9">
+<p class="Tabletitle" style="text-align: center;">M221</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; padding-right: 10px; padding-left: 10px; vertical-align: middle;" bgcolor="#CBD9ED">
+<p class="TableDefinitions">System Devices (%S, %SW)</p>
+</td>
+<td style="vertical-align: center; border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; padding-right: 10px; padding-left: 10px;">
+<p style="text-align: center;"><img src="Check_small.bmp" alt="" style="border: none;" width="17" height="14" border="0"></p>
+</td>
+<td style="vertical-align: center; border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; padding-right: 10px; padding-left: 10px;">
+<p style="text-align: center;"><img src="X_small.bmp" alt="" style="border: none;" width="19" height="14" border="0"></p>
+</td>
+<td style="vertical-align: center; border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; padding-right: 10px; padding-left: 10px;">
+<p style="text-align: center;"><img src="X_small.bmp" alt="" style="border: none;" width="19" height="14" border="0"></p>
+</td>
+<td style="vertical-align: center; border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; padding-right: 10px; padding-left: 10px; border-right-width: 1px;">
+<p style="text-align: center;"><img src="X_small.bmp" alt="" style="border: none;" width="19" height="14" border="0"></p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; vertical-align: center; padding-right: 10px; padding-left: 10px;">
+<p style="text-align: center;"><img src="X_small.bmp" alt="" style="border: none;" width="19" height="14" border="0"></p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; vertical-align: center; padding-right: 10px; padding-left: 10px;">
+<p style="text-align: center;"><img src="X_small.bmp" alt="" style="border: none;" width="19" height="14" border="0"></p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; vertical-align: center; padding-right: 10px; padding-left: 10px;">
+<p style="text-align: center;"><img src="Check_small.bmp" alt="" style="border: none;" width="17" height="14" border="0"></p>
+</td>
+<td style="border-bottom: Solid 1px #000000; vertical-align: center; padding-right: 10px; padding-left: 10px;">
+<p style="text-align: center;"><img src="X_small.bmp" alt="" style="border: none;" width="19" height="14" border="0"></p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; padding-right: 10px; padding-left: 10px; vertical-align: middle;" bgcolor="#CBD9ED">
+<p class="TableDefinitions">Constant Devices (%KW)</p>
+</td>
+<td style="vertical-align: center; border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; padding-right: 10px; padding-left: 10px;">
+<p style="text-align: center;"><img src="Check_small.bmp" alt="" style="border: none;" width="17" height="14" border="0"></p>
+</td>
+<td style="vertical-align: center; border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; padding-right: 10px; padding-left: 10px;">
+<p style="text-align: center;"><img src="X_small.bmp" alt="" style="border: none;" width="19" height="14" border="0"></p>
+</td>
+<td style="vertical-align: center; border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; padding-right: 10px; padding-left: 10px;">
+<p style="text-align: center;"><img src="X_small.bmp" alt="" style="border: none;" width="19" height="14" border="0"></p>
+</td>
+<td style="vertical-align: center; border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; padding-right: 10px; padding-left: 10px; border-right-width: 1px;">
+<p style="text-align: center;"><img src="X_small.bmp" alt="" style="border: none;" width="19" height="14" border="0"></p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; vertical-align: center; padding-right: 10px; padding-left: 10px;">
+<p style="text-align: center;"><img src="X_small.bmp" alt="" style="border: none;" width="19" height="14" border="0"></p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; vertical-align: center; padding-right: 10px; padding-left: 10px;">
+<p style="text-align: center;"><img src="X_small.bmp" alt="" style="border: none;" width="19" height="14" border="0"></p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; vertical-align: center; padding-right: 10px; padding-left: 10px;">
+<p style="text-align: center;"><img src="Check_small.bmp" alt="" style="border: none;" width="17" height="14" border="0"></p>
+</td>
+<td style="border-bottom: Solid 1px #000000; vertical-align: center; padding-right: 10px; padding-left: 10px;">
+<p style="text-align: center;"><img src="X_small.bmp" alt="" style="border: none;" width="19" height="14" border="0"></p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 3px #000000; padding-right: 10px; padding-left: 10px; vertical-align: middle;" bgcolor="#CBD9ED">
+<p class="TableDefinitions">Direct I/O (%I, %IW, %Q, %QW)</p>
+</td>
+<td style="vertical-align: center; border-right: Solid 1px #000000; border-bottom: Solid 3px #000000; padding-right: 10px; padding-left: 10px;">
+<p style="text-align: center;"><img src="X_small.bmp" alt="" style="border: none;" width="19" height="14" border="0"></p>
+</td>
+<td style="vertical-align: center; border-right: Solid 1px #000000; border-bottom: Solid 3px #000000; padding-right: 10px; padding-left: 10px;">
+<p style="text-align: center;"><img src="X_small.bmp" alt="" style="border: none;" width="19" height="14" border="0"></p>
+</td>
+<td style="vertical-align: center; border-right: Solid 1px #000000; border-bottom: Solid 3px #000000; padding-right: 10px; padding-left: 10px;">
+<p style="text-align: center;"><img src="X_small.bmp" alt="" style="border: none;" width="19" height="14" border="0"></p>
+</td>
+<td style="vertical-align: center; border-right: Solid 1px #000000; border-bottom: Solid 3px #000000; padding-right: 10px; padding-left: 10px; border-right-width: 1px;">
+<p style="text-align: center;"><img src="X_small.bmp" alt="" style="border: none;" width="19" height="14" border="0"></p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 3px #000000; vertical-align: center; padding-right: 10px; padding-left: 10px;">
+<p style="text-align: center;"><img src="X_small.bmp" alt="" style="border: none;" width="19" height="14" border="0"></p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 3px #000000; vertical-align: center; padding-right: 10px; padding-left: 10px;">
+<p style="text-align: center;"><img src="X_small.bmp" alt="" style="border: none;" width="19" height="14" border="0"></p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 3px #000000; vertical-align: center; padding-right: 10px; padding-left: 10px;">
+<p style="text-align: center;"><img src="X_small.bmp" alt="" style="border: none;" width="19" height="14" border="0"></p>
+</td>
+<td style="border-bottom: Solid 3px #000000; vertical-align: center; padding-right: 10px; padding-left: 10px;">
+<p style="text-align: center;"><img src="X_small.bmp" alt="" style="border: none;" width="19" height="14" border="0"></p>
+</td>
+</tr>
+</table>
+<div style="width: 100%; position: relative;" id="footer">
+ <p>&#160;</p>
+</div>
+</body>
+</html>

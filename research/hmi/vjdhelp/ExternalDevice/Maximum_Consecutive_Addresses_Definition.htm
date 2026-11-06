@@ -1,0 +1,65 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+<meta name="template" content="Vijeo_template.htt">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="topic-status" content="In Progress">
+<meta name="topic-priority" content="0">
+<meta name="topic-time-estimate" content="0">
+<meta name="topic-id" content="Maximum Consecutive Addresses: Definition">
+<meta name="window-type" content="$global_NewWindow">
+ <meta name="generator" content="Adobe RoboHelp 2015">
+<title>Maximum Consecutive Addresses: Definition</title>
+<link rel="StyleSheet" href="TIS-STYL.CSS" type="text/css">
+</head>
+<body>
+<script type="text/javascript" src="ehlpdhtm.js" language="JavaScript1.2"></script>
+
+<div style="width: 100%; position: relative;" id="header">
+	<table style="background-attachment: scroll; margin-left: 0px; margin-right: 4px; 
+			 background-image: url(top_banner.bmp); background-repeat: Repeat-X; 
+			 line-height: 0pt; vertical-align: top;" cellspacing="0" background="top_banner.bmp" 
+			 width="100%">
+		<col style="width: 90%;">
+		<col style="width: 5%;">
+		<col style="width: 5%;">
+		<tr style="vertical-align: center; height: 39px;">
+			<td style="width: 90%; padding-right: 10px; padding-left: 10px; 
+				 border-right-color: #000000;">
+   <p><img src="logo.bmp" alt="" style="border: none;" width="37" height="37" border="0"></p></td>
+			<td style="width: 5%; padding-right: 0px; padding-left: 10px; 
+				 border-right-color: #000000;">
+   <p style="text-align: center;"><a 
+			 title="Glossary" href="Appendix.chm::/Glossary.htm"><img src="logo_glossary.bmp" alt="" style="border: none;" width="47" height="37" border="0"></a></p></td>
+			<td style="width: 5%; padding-right: 10px; padding-left: 5px; 
+				 border-right-color: #000000;">
+   <p style="text-align: center;"><a 
+			 href="About.chm::/What_is_Vijeo-Designer.htm" title="Home"><img src="logo_home.bmp" alt="Home" title="Home" style="border: none; 
+			 margin-left: 0px; margin-right: 0px; margin-bottom: 0px; margin-top: -2px;" width="47" height="37" border="0"></a></p></td>
+		</tr>
+	</table>
+</div>
+
+
+<h4>Maximum Consecutive Addresses</h4>
+<p>The maximum number of registers that can fit into a single request.</p>
+<p>Maximum Consecutive Addresses is a term used in the protocol manuals. Maximum consecutive addresses helps define how requests are separated into different packets to maximize the communication efficiency between the target machine (HMI) and equipment.</p>
+<p>Maximum Consecutive Addresses is used in combination with <a href="Gap_Span.htm">Gap Span</a>.</p>
+<h5>Example</h5>
+<p>Driver has a Gap Span of 3 and Maximum Consecutive Address of 7, and uses the following registers:</p>
+<p class="Image"><img src="GapSpan_Devices.bmp" alt="" style="border: none;" width="402" height="27" border="0"></p>
+<ul>
+<li class="p-Bullet">
+<p class="Bullet">If you are requesting %MW0 and %MW4, the result is a single request with a gap of 3 and 5 consecutive addresses.</p>
+</li>
+</ul>
+<p class="Image" style="margin-left: 40px;"><img src="GapSpan_Gap3_Span5.bmp" alt="" style="border: none;" width="222" height="31" border="0"></p>
+<ul>
+<li class="p-Bullet">
+<p class="Bullet">If you are requesting %MW0~%MW2, and %MW4~%MW9, the result is two requests because the total range of registers is greater than 7, the maximum number of consecutive addresses allowed.</p>
+</li>
+</ul>
+<p class="Image" style="margin-left: 40px;"><img src="GapSpan_Gap1_Span7.bmp" alt="" style="border: none;" width="301" height="59" border="0"></p>
+</body>
+</html>

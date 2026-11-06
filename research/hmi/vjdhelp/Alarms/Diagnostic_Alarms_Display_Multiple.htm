@@ -1,0 +1,77 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+<meta name="template" content="Vijeo_template.htt">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="topic-status" content="In Progress">
+<meta name="topic-priority" content="0">
+<meta name="topic-time-estimate" content="0">
+<meta name="topic-comment" content="">
+<meta name="topic-id" content="Diagnostic_Alarms_Display_Multiple.htm">
+ <meta name="generator" content="Adobe RoboHelp 10">
+<title>Displaying Multiple Sets of Diagnostic Alarms in an Alarm Summary</title>
+<link rel="StyleSheet" href="Tis-styl.css" type="text/css">
+</head>
+<body>
+<script type="text/javascript" src="ehlpdhtm.js" language="JavaScript1.2"></script>
+
+<div style="width: 100%; position: relative;" id="header">
+	<table style="background-attachment: scroll; margin-left: 0px; margin-right: 4px; 
+			 background-image: url(top_banner.bmp); background-repeat: Repeat-X; 
+			 line-height: 0pt; vertical-align: top;" cellspacing="0" width="100%" 
+			 background="top_banner.bmp">
+		<col style="width: 90%;">
+		<col style="width: 5%;">
+		<col style="width: 5%;">
+		<tr style="vertical-align: center; height: 39px;">
+			<td style="width: 90%; padding-right: 10px; padding-left: 10px; 
+				 border-right-color: #000000;">
+   <p><img src="logo.bmp" style="border: none;" alt="" width="37" height="37" border="0"></p></td>
+			<td style="width: 5%; padding-right: 0px; padding-left: 10px; 
+				 border-right-color: #000000;">
+   <p style="text-align: center;"><a 
+			 title="Glossary" href="Appendix.chm::/Glossary.htm"><img src="logo_glossary.bmp" style="border: none;" alt="" width="47" height="37" border="0"></a></p></td>
+			<td style="width: 5%; padding-right: 10px; padding-left: 5px; 
+				 border-right-color: #000000;">
+   <p style="text-align: center;"><a 
+			 href="About.chm::/What_is_Vijeo-Designer.htm" title="Home"><img src="logo_home.bmp" alt="Home" title="Home" style="border: none; 
+			 margin-left: 0px; margin-right: 0px; margin-bottom: 0px; margin-top: -2px;" width="47" height="37" border="0"></a></p></td>
+		</tr>
+	</table>
+</div>
+
+<h3>16.3.2.2 Displaying Multiple Diagnostic Alarm Groups in an Alarm Summary</h3>
+<p>By using an alarm category, you can display multiple alarm groups and multiple diagnostic alarm groups in the same alarm summary object.</p>
+<p>In the following example, variable alarms are allocated to alarm groups AG1 and AG2. DiagAG1 is associated with Modbus (RTU) equipment and DiagAG2 is associated with Uni-Telway equipment.</p>
+<p class="Code"><img src="DiagAlarm_MultipleDAG1.bmp" style="border: none;" alt="" width="273" height="372" border="0"></p>
+<h4><img src="Square.bmp" style="border: none;" alt="" width="12" height="10" border="0">Creating an Alarm and Event Category</h4>
+<ol style="list-style: decimal;">
+<li class="p">
+<p>Right-click the Alarms and Events node, and select New Alarm and Event Category to display the Alarm and Event Category Settings dialog box.</p>
+</li>
+<li class="p">
+<p>Select the groups and diagnostic alarm groups, and then click Add.</p>
+</li>
+<li class="p">
+<p>Define the other Alarm and Event Category settings (see Section 16.3.1.2, <a href="multiple_alarm_group.htm">Displaying Multiple Groups</a>).</p>
+</li>
+<li class="p">
+<p>After you complete the configuration, click OK. The Alarm and Event Category node is created with the selected groups.</p>
+</li>
+</ol>
+<h4><img src="Square.bmp" style="border: none;" alt="" width="12" height="10" border="0">Displaying the Alarms</h4>
+<ol start="1" style="list-style: decimal;">
+<li class="p">
+<p>Draw an alarm summary on the panel and double-click it to display the Alarm Summary Settings dialog box.</p>
+</li>
+<li class="p">
+<p>In the General tab, click the Alarm Group list, select the alarm category to link to the alarm summary, and click OK.</p>
+</li>
+</ol>
+<p>The alarm summary will now display alarm messages from the alarm category's alarm groups and diagnostic alarm groups, in sequential order. You can change the order using the Sort By setting.</p>
+<div style="width: 100%; position: relative;" id="footer">
+	<p>&#160;</p>
+</div>
+</body>
+</html>

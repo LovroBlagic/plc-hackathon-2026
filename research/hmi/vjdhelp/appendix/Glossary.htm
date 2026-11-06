@@ -1,0 +1,587 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="template" content="Vijeo_template.htt">
+ <meta name="generator" content="Adobe RoboHelp 2015">
+<title>Glossary</title>
+<link rel="StyleSheet" href="Tis-styl.css" type="text/css">
+<script type="text/javascript" language="JavaScript1.2">
+//<![CDATA[
+function sorting()
+        {
+                //this array holds all the div elements unsorted
+                arrayOfUnsortedData = new Array();
+                //this array holds all the letter divs
+                arrayOfLetters = new Array();
+                //holds an array of unsorted data
+                arrayOfUnsortedData = document.all["sort"];
+                //array holds the letter divisions
+                arrayOfLetters = document.all["letter"];
+                //holds the index links
+                indexLinks = document.getElementById("links");
+                //this holds all the index links that will be added to the doc
+                glossaryLinks = indexLinks.innerHTML;
+                //this array holds all the documents objects
+                objectArray = new Array();
+                
+                updateObjectArray(arrayOfUnsortedData);
+                createObjectsAddToArray();
+                objectArray.sort(ObjKeySort);
+                addSortedItemsToDoc();
+                cleanUp();
+        }
+
+        //function cleans up the document by removing the section letters that do not have any items underneath them
+        //like Z does not have index items so Z and its index link should be removed from the document
+        //loops through all the letter sections checking if they have children (i.e. index items)
+        //if they don't have children, then removes them from the document
+        //if they do have children, then adds the index link to this section
+        function cleanUp()
+        {
+                var i=0;
+                for (i=0; i<arrayOfLetters.length; i++)
+                {
+                        //removes the child from the document and removed the hyperlink
+                        if(arrayOfLetters[i].children.length <= 1)
+                        {       
+                                removeIndexLink(getFirstLetter(arrayOfLetters[i].innerText));
+                                arrayOfLetters[i].parentNode.removeChild(arrayOfLetters[i]);
+                                i--;
+                        }
+                }
+                setIndex();
+        }
+        
+        
+        //sets the index links to the defined string 
+        function setIndex()
+        {
+                document.getElementById("links").innerHTML = glossaryLinks;
+        }
+        
+        //this function creates the index links by building up a string for the index links. Only indexes that have items in them get added to this list
+        //Note: can't simply adjust: indexLinks.innerHTML and indexLinks.innerText to update index -> strange results occur when removing characters from these places
+        function addIndexLink(addLetter)
+        {
+                var letterToAdd = "<A href=\"#"+addLetter+"\">"+addLetter+"<\/A>"+"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;";
+                glossaryLinks = glossaryLinks+letterToAdd;
+        }
+        
+        //removes the hyperlink from the glossary index letters
+        function removeIndexLink(removeLetter)
+        {
+                var linkToKill = "<A href=\"#"+removeLetter+"\">"+removeLetter+"<\/A>";
+                glossaryLinks = glossaryLinks.replace(linkToKill, removeLetter);
+        }
+        
+        //returns the first letter of a string
+        function getFirstLetter(letter)
+        {
+                return letter.charAt(0);
+        }
+        
+        //loops through the sorted objectArray and appends the div elements underneath the correct letter heading
+        function addSortedItemsToDoc()
+        {
+                for (y in objectArray)
+                {
+                        //element[1].appendChild(objectArray[y].description);
+                        var firstLetter = getFirstLetter(objectArray[y].name);
+                        switch (firstLetter)
+                        {
+                                case "a":
+                                        arrayOfLetters[0].appendChild(objectArray[y].description);
+                                        break;
+                                case "b":
+                                        arrayOfLetters[1].appendChild(objectArray[y].description);
+                                        break;
+                                case "c":
+                                        arrayOfLetters[2].appendChild(objectArray[y].description);
+                                        break;
+                                case "d":
+                                        arrayOfLetters[3].appendChild(objectArray[y].description);
+                                        break;
+                                case "e":
+                                        arrayOfLetters[4].appendChild(objectArray[y].description);
+                                        break;
+                                case "f":
+                                        arrayOfLetters[5].appendChild(objectArray[y].description);
+                                        break;
+                                case "g":
+                                        arrayOfLetters[6].appendChild(objectArray[y].description);
+                                        break;
+                                case "h":
+                                        arrayOfLetters[7].appendChild(objectArray[y].description);
+                                        break;
+                                case "i":
+                                        arrayOfLetters[8].appendChild(objectArray[y].description);
+                                        break;
+                                case "j":
+                                        arrayOfLetters[9].appendChild(objectArray[y].description);
+                                        break;
+                                case "k":
+                                        arrayOfLetters[10].appendChild(objectArray[y].description);
+                                        break;
+                                case "l":
+                                        arrayOfLetters[11].appendChild(objectArray[y].description);
+                                        break;
+                                case "m":
+                                        arrayOfLetters[12].appendChild(objectArray[y].description);
+                                        break;
+                                case "n":
+                                        arrayOfLetters[13].appendChild(objectArray[y].description);
+                                        break;
+                                case "o":
+                                        arrayOfLetters[14].appendChild(objectArray[y].description);
+                                        break;
+                                case "p":
+                                        arrayOfLetters[15].appendChild(objectArray[y].description);
+                                        break;
+                                case "q":
+                                        arrayOfLetters[16].appendChild(objectArray[y].description);
+                                        break;
+                                case "r":
+                                        arrayOfLetters[17].appendChild(objectArray[y].description);
+                                        break;
+                                case "s":
+                                        arrayOfLetters[18].appendChild(objectArray[y].description);
+                                        break;
+                                case "t":
+                                        arrayOfLetters[19].appendChild(objectArray[y].description);
+                                        break;
+                                case "u":
+                                        arrayOfLetters[20].appendChild(objectArray[y].description);
+                                        break;
+                                case "v":
+                                        arrayOfLetters[21].appendChild(objectArray[y].description);
+                                        break;
+                                case "w":
+                                        arrayOfLetters[22].appendChild(objectArray[y].description);
+                                        break;
+                                case "x":
+                                        arrayOfLetters[23].appendChild(objectArray[y].description);
+                                        break;
+                                case "y":
+                                        arrayOfLetters[24].appendChild(objectArray[y].description);
+                                        break;
+                                case "z":
+                                        arrayOfLetters[25].appendChild(objectArray[y].description);
+                                        break;
+                                default:
+                                        arrayOfLetters[25].appendChild(objectArray[y].description);
+                        }
+                        
+                        
+                        
+                        
+                }
+        }       
+        
+        //this function loops through the object array updating the accents in the object.name property
+        function createObjectsAddToArray()
+        {
+                for(k in objectArray)
+                {
+                        updateAccents(objectArray[k]);
+                }
+        }
+        
+        //this function goes through the existing array and creates objects from the arrayOfUnsorted data and puts them into an object
+        //the object is then added to the objectArray
+          function updateObjectArray(theArray)
+          {
+                var i=0;
+                for (i=0; i<theArray.length; i++)
+                {
+                        objectArray[i]  = objCreate(theArray[i].firstChild.innerText, theArray[i]);
+                }
+          }
+
+  //this function goes through each letter and checks if it is a special character and then replaces it with its associated english character
+  function updateAccents(glossaryObj)
+  {
+                var nameArray = new Array();
+                nameArray = glossaryObj.name.toLowerCase().split("");
+                
+                for (idx in nameArray)
+                {
+                        var letter = returnCharDecimal(nameArray[idx]);
+                        if(letter>122)
+                        {
+                                nameArray[idx] = getAccentEquivelent(letter);
+                        }
+                }
+                        glossaryObj.name = nameArray.join("");                          
+  }
+  
+  //this function returns the special characters english character equivalent
+  function getAccentEquivelent(letter)
+        {
+                var returnLetter;
+                if((letter>=123)&&(letter<=129)||(letter>=150)&&(letter<=151)||(letter==154)||(letter==163)||(letter>=217)&&(letter<=220)||
+                (letter>=249)&&(letter<=252))
+                {
+                        returnLetter = "u";
+                }
+                else if((letter==130)||(letter>=135)&&(letter<=138)||(letter==144)||(letter>=200)&&(letter<=203)||
+                (letter>=232)&&(letter<=235))
+                {
+                        returnLetter = "e";
+                }
+                else if((letter>=131)&&(letter<=134)||(letter>=142)&&(letter<=143)||(letter>=145)&&(letter<=146)||(letter==160)||
+                (letter>=180)&&(letter<=199)||(letter>=224)&&(letter<=230))
+                {
+                        returnLetter = "a";
+                }
+                else if((letter>=139)&&(letter<=141)||(letter==161)||(letter>=204)&&(letter<=207)||(letter>=236)&&(letter<=239))
+                {
+                        returnLetter = "i";
+                }
+                else if((letter>=147)&&(letter<=149)||(letter==153)||(letter>=155)&&(letter<=156)||(letter==162)||
+                (letter>=210)&&(letter<=216)||(letter==240)||(letter>=242)&&(letter<=248))
+                {
+                        returnLetter = "o";
+                }
+                else if((letter==152)||(letter==159)||(letter>=221)&&(letter<=223)||(letter>=253)&&(letter<=255))
+                {
+                        returnLetter = "y";
+                }
+                else if((letter>=157)&&(letter<=158))
+                {
+                        returnLetter = "z";
+                }
+                else if((letter>=164)&&(letter<=165)||(letter>=208)&&(letter<=209)||(letter==241))
+                {
+                        returnLetter = "n";
+                }
+                else if(letter==231)
+                {
+                        returnLetter = "c";
+                }
+                else if (letter==8218)
+                {
+                        returnLetter = ",";
+                }
+                else if (letter==65533)
+                {
+                        returnLetter = "";
+                }
+                else
+                {
+                        returnLetter = "z";
+                }
+                
+                return returnLetter;
+        }       
+
+  //this function returns the decimal value of a character
+  function returnCharDecimal(letter)
+  {
+        return letter.charCodeAt(0);
+  }
+  
+  //this function is for sorting and allows the javascript sort(); to work on objects and sort by an object's property
+  function ObjKeySort(a, b)
+  { 
+        return (b.name<a.name)-(a.name<b.name);
+  }
+  //creates an object with an name and an id. Id is the element's id, name is the glossary term
+  function objCreate(name, description)
+  {
+        glossaryItem = new Object();
+        glossaryItem.name=name;
+        glossaryItem.description=description;
+        return glossaryItem;
+  }
+  window.onload = sorting;
+//]]>
+</script>
+</head>
+<body>
+<script type="text/javascript" src="ehlpdhtm.js" language="JavaScript1.2"></script>
+
+<div style="width: 100%; position: relative;" id="header">
+	<table style="background-attachment: scroll; margin-left: 0px; margin-right: 4px; 
+			 background-image: url(top_banner.bmp); background-repeat: Repeat-X; 
+			 line-height: 0pt; vertical-align: top;" cellspacing="0" background="top_banner.bmp" 
+			 width="100%">
+		<col style="width: 90%;">
+		<col style="width: 5%;">
+		<col style="width: 5%;">
+		<tr style="vertical-align: center; height: 39px;">
+			<td style="width: 90%; padding-right: 10px; padding-left: 10px; 
+				 border-right-color: #000000;">
+   <p><img src="logo.bmp" alt="" style="border: none;" width="37" height="37" border="0"></p></td>
+			<td style="width: 5%; padding-right: 0px; padding-left: 10px; 
+				 border-right-color: #000000;">
+   <p style="text-align: center;"><a 
+			 title="Glossary" href="Glossary.htm"><img src="logo_glossary.bmp" alt="" style="border: none;" width="47" height="37" border="0"></a></p></td>
+			<td style="width: 5%; padding-right: 10px; padding-left: 5px; 
+				 border-right-color: #000000;">
+   <p style="text-align: center;"><a 
+			 href="About.chm::/What_is_Vijeo-Designer.htm" title="Home"><img src="logo_home.bmp" alt="Home" title="Home" style="border: none; 
+			 margin-left: 0px; margin-right: 0px; margin-bottom: 0px; margin-top: -2px;" width="47" height="37" border="0"></a></p></td>
+		</tr>
+	</table>
+</div>
+
+
+<h1>10. Glossary</h1>
+<div id="links">
+<p><a href="#A">A</a> &#160;<a href="#B">B</a> &#160;<a href="#C">C</a> &#160;<a href="#D">D</a> &#160;<a href="#E">E</a> &#160;<a href="#F">F</a> &#160;<a href="#G">G</a> &#160;<a href="#H">H</a> &#160;<a href="#I">I</a> &#160;<a href="#J">J</a> &#160;<a href="#K">K</a> &#160;<a href="#L">L</a> &#160;<a href="#M">M</a> &#160;<a href="#N">N</a> &#160;<a href="#O">O</a> &#160;<a href="#P">P</a> &#160;<a href="#Q">Q</a> &#160;<a href="#R">R</a> &#160;<a href="#S">S</a> &#160;<a href="#T">T</a> &#160;<a href="#U">U</a> &#160;<a href="#V">V</a> &#160;<a href="#W">W</a> &#160;<a href="#X">X</a> &#160;<a href="#Y">Y</a> &#160;<a href="#Z">Z</a></p>
+</div>
+<div id="letter">
+<h2 style="margin-top: 27pt;"><a name="A" id="A"></a>A</h2>
+</div>
+<div id="sort">
+<h3>Actions</h3>
+<p>Actions are runtime operations that run when a trigger (such as Periodic, Scheduled, Conditional, or Event) is activated. There are two types of actions: Global Actions (at the target level) and Panel Actions (at the panel level). For more information, see Section 9.4, <a href="Switches.chm::/Application_Scripts.htm">Creating Actions</a>.</p>
+</div>
+<div>
+<h3>Alarms</h3>
+<p>An alarm is a runtime event (based on user-defined conditions) that requires attention and that alerts the panel operator by displaying on the target machine. An alarm display on a panel can be an alarm summary or alarm banner, where the panel operator can view detailed alarm information and diagnose faults. For more information, see Section 16.1, <a href="Alarms.chm::/Alarm_Panels.htm">Alarms and Events</a>.</p>
+<p>An alarm summary can display alarms that are in these four states: Active, Acknowledged (ACK), Not Acknowledged (UNACK), and Returned to Normal (RTN). For more information, see Section 16.2, <a href="Alarms.chm::/Basic_Alarm_Summary_Settings.htm">Setting Up the Alarm or Event Summary</a>. An alarm banner can display active and UNACK alarm messages. For more information, see Section 16.4, <a href="Alarms.chm::/Alarm_banner_outline.htm">Alarm Banner</a>.</p>
+</div>
+<div>
+<h3>Alias</h3>
+<p>An Alias is a user-defined name for a Video, Text, E-mail contact, or Sound file. The Video, Text, and Sound file aliases are used to call the file in an operation. For example, a sound file with an alias "MySoundFile", can be played by script operation: Sound.Play("MySoundFile");. E-mail contact aliases are used to specify the E-mail recipient in the E-mail operation. For more information on E-mail operation, see Section 9.5.20, <a href="Switches.chm::/Email.htm">E-mail Operations</a>. For information on Video file aliases, see Section 19.1.5.3, <a href="MultiMedia.chm::/adding_video_project.htm">Video Files Editor Operations</a>. For more information on Sound file aliases, see Section 24.2.1, <a href="HardwareOptions.chm::/TMsoundsSetup.htm">Working With the Sound File Editor</a>. For more information on Text file aliases, see Section 11.7.2.1, <a href="DataInput.chm::/Setting_Up_a_Text_Display.htm">Setting Up a Text Display</a>. For more information</p>
+</div>
+<div>
+<h3>Animation Blink</h3>
+<p>Animation blink occurs on objects (such as lamps, switches, and meters) when a particular condition has been met. All target machines support animation blink. This is not the same as hardware blink. For more information, see Section 7.3.4, <a href="Draw.chm::/Blink.htm">Blink Feature</a>.</p>
+</div>
+<div>
+<h2 style="margin-top: 27pt;"><a name="B" id="B"></a>B</h2>
+</div>
+<div>
+<h3>Blink</h3>
+<p>Blink is a feature that you can apply to an object and is used to indicate warnings or alarms. There are three types of blink: Hardware blink, animation blink, and function key LED blink. For more information, see Section 7.3.4, <a href="Draw.chm::/Blink.htm">Blink Feature</a> and Section 24.5.3, <a href="HardwareOptions.chm::/LED_Control.htm">LED Control</a>.</p>
+</div>
+<div>
+<h3>Block Trend Graph</h3>
+<p>A block trend graph allows you to display data for multiple data samples at one point in time. It is typically used if you want to display Block Variable data from the PLC. For more information, see Section 13.1.2.4, <a href="Trends.chm::/Block_Trend_Graphs.htm">Block Trend Graphs</a>.</p>
+</div>
+<div>
+<h2 style="margin-top: 27pt;"><a name="C" id="C"></a>C</h2>
+</div>
+<div>
+<h2 style="margin-top: 27pt;"><a name="D" id="D"></a>D</h2>
+</div>
+<div>
+<h3>Data Locations</h3>
+<p>Data locations are where data such as recipe, data logging, alarm, video, screen snapshot, and project backup files is stored on the main, secondary, or optional drive on the target machine. For more information, see Appendix 5.11, <a href="Appendix.chm::/manage_runtime_data.htm">Data Locations</a>.</p>
+</div>
+<div>
+<h3>Data Quality</h3>
+<p>Data quality indicates whether the values that are displayed on the panel are reliable. When a data quality icon displays at the top-right corner of the object, it means that there are communication errors and unreliable data, resulting in bad data quality. For more information, see Section 22.1.2, <a href="Advanced.chm::/Data_Quality.htm">Data Quality for Shared Variables</a>.</p>
+</div>
+<div>
+<h3>Data Sharing</h3>
+<p>Data sharing allows the targets on your network to read and write data to one another. With this feature, you can synchronize the data and processes between multiple targets. For more information, see Section 22.1 <a href="Advanced.chm::/DataSharing_Overview.htm">Sharing Data Between Tablets, Smartphones, and Target Machines</a>.</p>
+</div>
+<div>
+<h3>Dialog Table</h3>
+<p>The Dialog Table provides a simple way for executing common functions and communicating commonly used data between the target machine (HMI) and the PLC. These operations are made possible by the Dialog Table exchanging a block of data on the target machine with a block of data on the PLC. When the values change in one of the blocks, the Dialog Table automatically updates the other block to have the same values. The functions that correspond to the updated values are then executed by the Dialog Table. For more information, see Section 5.6, <a href="ExternalDevice.chm::/Dialog_Table.htm">Working with the Dialog Table</a>.</p>
+</div>
+<div>
+<h3>DHCP</h3>
+<p>DHCP (Dynamic Host Configuration Protocol) is a network protocol that enables your network server to automatically assign an IP address to your target machine. For more information, see Section 26.3.1.1, <a href="Runtime.chm::/network.htm#DHCP">DHCP Settings</a>.</p>
+</div>
+<div>
+<div>
+<h3>DIO Port</h3>
+<p>A DIO (Digital Input Output) port is a hardware interface on a target machine that is configurable for data input or output. The Alarm, Error, and Buzzer pins are supported by Vijeo Designer on the DIO port. For more information, see Section 24.6 <a href="HardwareOptions.chm::/aux_ports.htm">DIO Ports</a>.</p>
+</div>
+<h3>DNS</h3>
+<p>DNS (Domain Name System) allows you to assign domain names instead of IP addresses when connecting to Vijeo Designer Runtime's Web Browser. For more information, see Section 26.3.1.1, <a href="Runtime.chm::/network.htm#MAC_Address">MAC Address and DNS Settings</a>.</p>
+</div>
+<div>
+<h3>DRAM</h3>
+<p>DRAM (Dynamic Random Access Memory) is a storage option in the target machine that allows you to store the most current data samples. When the number of data samples you want stored in the RAM exceed the number specified in the Logging Group Settings, the oldest data samples are removed so the most current data samples can be stored. You should not use DRAM as a storage option if you intend on preserving your data for a long time. Stored data in DRAM is erased whenever your target machine shuts down and restarts. For more information, see Section 13.1.1.3, <a href="Trends.chm::/logged_data_details.htm">Storing Your Collected Data</a>.</p>
+</div>
+<div>
+<h2 style="margin-top: 27pt;"><a name="E" id="E"></a>E</h2>
+</div>
+<div>
+<h3>Equipment</h3>
+<p>Indicates equipment, such as programmable logic controllers (PLCs), sequencers, and inverters..</p>
+</div>
+<div>
+<h2 style="margin-top: 27pt;"><a name="F" id="F"></a>F</h2>
+</div>
+<div>
+<h3>Function Key LED Blink</h3>
+<p>The function key LED blink feature can indicate the state of a function key (such as enabled/locked). For example, when properly configured, if a function key is locked, the LED for this function key blinks red. For more information, see Section 24.5.3, <a href="HardwareOptions.chm::/LED_Control.htm">LED Control</a>.</p>
+</div>
+<div>
+<h3>Function Keys</h3>
+<p>Function keys are keys that the user can configure to execute operations. They can be physically on the target machine (depending on the target type) or on a USB keyboard connected to the target. There are two types of function keys: Panel Function Keys and Target Function Keys. For more information, see Section 24.5, <a href="HardwareOptions.chm::/FunctionKeysOverview.htm">Function Keys</a>.</p>
+</div>
+<div>
+<h2 style="margin-top: 27pt;"><a name="G" id="G"></a>G</h2>
+</div>
+<div>
+<h3>Global Actions</h3>
+<p>Global Actions are operations that execute when a trigger is activated, no matter which panel is displayed on the target. For more information, see Section 9.4, <a href="Switches.chm::/Application_Scripts.htm">Creating Actions</a>.</p>
+</div>
+<div>
+<h2 style="margin-top: 27pt;"><a name="H" id="H"></a>H</h2>
+</div>
+<div>
+<h3>Hardware (HW) Blink</h3>
+<p>Hardware blink is used for animations only on primitive objects (e.g., lines and rectangles). It is different from the software blink that also applies to native parts (e.g. switches and lamps) and to alarms. For more information, see Section 7.3.4, <a href="Draw.chm::/Blink.htm">Blink Feature</a>.</p>
+</div>
+<div>
+<h2 style="margin-top: 27pt;"><a name="I" id="I"></a>I</h2>
+</div>
+<div>
+<h3>Interlock</h3>
+<p>Interlock is a feature that can prevent touch inputs (such as pressing a switch, a selector, or function keys) and actions. If you enable the Interlock feature and specify a condition, the affected touch input or action is prevented when the defined condition is false. For more information, see Section 9.6, <a href="Switches.chm::/Use_Interlock_function.htm">Using Interlock to Prevent Accidental Touch Inputs</a>, and Section 24.5.5, <a href="HardwareOptions.chm::/Setting_Up_Interlock_for_Function_Keys.htm">Setting Up Interlock for Function Keys</a>.</p>
+</div>
+<div>
+<h2 style="margin-top: 27pt;"><a name="J" id="J"></a>J</h2>
+</div>
+<div>
+<h2 style="margin-top: 27pt;"><a name="K" id="K"></a>K</h2>
+</div>
+<div>
+<h2 style="margin-top: 27pt;"><a name="L" id="L"></a>L</h2>
+</div>
+<div>
+<h2 style="margin-top: 27pt;"><a name="M" id="M"></a>M</h2>
+</div>
+<div>
+<h3>Main Drive</h3>
+<p>The main drive handles long-term storage, primarily storing the application. It can be the internal memory (flash memory), the system CF Card, or the system hard disk drive, depending on the target type. For more information, see Appendix 1, <a href="Appendix.chm::/User_Manuals.htm">Hardware Manuals</a>.</p>
+</div>
+<div>
+<h3>Master Panels</h3>
+<p>Master panels are panel templates that can be applied to any base panel in a project. On a master panel, all objects that have been added become common objects that will be present in all base panels using this master panel. For more information, see Section 4.7.2, <a href="StandardOperation.chm::/Master_Panels.htm">Master Panels</a>.</p>
+</div>
+<div>
+<h2 style="margin-top: 27pt;"><a name="N" id="N"></a>N</h2>
+</div>
+<div>
+<h2 style="margin-top: 27pt;"><a name="O" id="O"></a>O</h2>
+</div>
+<div>
+<h3>Optional Drive</h3>
+<p>The optional drive, such as a USB drive, enables you to easily extract data from the main and secondary drives. It can also be used instead of the secondary drive to handle the same types of files.</p>
+</div>
+<div>
+<h2 style="margin-top: 27pt;"><a name="P" id="P"></a>P</h2>
+</div>
+<div>
+<h3>Panel Actions</h3>
+<p>Panel Actions are operations created for a specific panel and execute when a trigger is activated. The operations only execute when this panel is displayed on the target. For more information, see Section 9.4, <a href="Switches.chm::/Application_Scripts.htm">Creating Actions</a>.</p>
+</div>
+<div>
+<h3>Panel Function Keys</h3>
+<p>Panel Function Keys execute operations that are assigned to a specific panel. Operations execute when the panel is displayed on the target and the operator presses the Panel Function Key. For more information, see Section 24.5.2, <a href="HardwareOptions.chm::/Panel_Function_Keys.htm">Panel Function Key</a>.</p>
+</div>
+<div id="div2">
+<h3>Parison Graphs</h3>
+<p>A parison graph is the profile thickness of a parison. An example use case of parison graph is during blow molding, where you can plot and modify the thickness of the material at run time. For more information, see Section 12.4.8, <a href="Graphs.chm::/Parison_Graphs.htm">Parison Graphs</a>.</p>
+</div>
+<div>
+<h3>PLC</h3>
+<p>A PLC (Programmable Logic Controller) is a device used for controlling automated processes in, for example, plants. A target running Vijeo Designer Runtime can communicate with a PLC using various drivers. For more information, see Appendix 2, <a href="Appendix.chm::/DriverList.htm">Device Driver Manuals</a>.</p>
+</div>
+<div>
+<h3>PLC Symbol Import</h3>
+<p>The PLC symbol import feature allows you to link the names and device addresses of symbols (also called variables or tags) configured in the PLC configuration software to Vijeo Designer variables. After linking the equipment's PLC symbol file, you can add the symbols from the linked file to the Vijeo Designer variable list. For more information, see Section 6.3.4, <a href="InputAddress.chm::/Symbols_Variables_Config_SW.htm">Using Aliases, Symbols, and Variables from Equipment Configuration Software</a>.</p>
+</div>
+<div>
+<h2 style="margin-top: 27pt;"><a name="Q" id="Q"></a>Q</h2>
+</div>
+<div>
+<h2 style="margin-top: 27pt;"><a name="R" id="R"></a>R</h2>
+</div>
+<div>
+<h3>Recipes</h3>
+<p>A recipe is a pre-defined set of data and values, which can be used to manipulate data between the target and the equipment. For example, a Send operation will copy recipe values from the target to the equipment; a Snapshot operation will copy recipe values from the equipment to the target. For more information, see Section 17.1, <a href="Recipe.chm::/About_Recipe.htm">About Recipe</a>.</p>
+</div>
+<div>
+<h3>Retentive Variables</h3>
+<p>Retentive variables are internal variables that have their values stored in the SRAM (Static RAM) of the target, so that these values are restored after a power cycle. For more information, see Section 6.10, <a href="InputAddress.chm::/Retentive_Variables.htm">Retentive Variables</a>.</p>
+</div>
+<div>
+<h2 style="margin-top: 27pt;"><a name="S" id="S"></a>S</h2>
+</div>
+<div>
+<h3>Scan Group</h3>
+<p>A scan group is a group of external variables from a single equipment that are scanned at the same rate. There are four different scan rates offered: Fast, Medium, Slow, and User-Defined. For more information, see Section 6.3.2, <a href="InputAddress.chm::/Scan_group_setting.htm">Dividing Variables into Scan Groups</a>.</p>
+</div>
+<div>
+<h3>Script</h3>
+<p>A script allows users to customize their runtime operations using Java methods supported by Vijeo Designer. A script can be used in an action, a switch, alarm touch actions, and alarm trigger actions. For more information, see Section 18.1, <a href="Scripts.chm::/Scripts_Overview.htm">Programming with Scripts</a>.</p>
+</div>
+<div>
+<h3>Secondary Drive</h3>
+<p>The secondary drive, which can be removable (depending on the target type), handles files, such as recipe files, runtime-generated files, and project backup files. It can be a CF Card/SD Card of a drive letter assigned to a drive (internal or external).</p>
+</div>
+<div>
+<h3>SoMachine</h3>
+<p>SoMachine is an automation solution featuring multiple integrated platforms (HMI and Control). The XBTGC targets offer HMI and Control in a single unit. For more information, see Section 4.13, <a href="StandardOperation.chm::/Working_with_M_Solution_Designer.htm">Working with SoMachine</a>.</p>
+</div>
+<div>
+<h3>SRAM</h3>
+<p>SRAM (Static Random Access Memory) is a storage option in the target machine that allows you to store a specified number data samples as defined in the Logging Group Settings. When the number of data samples you want stored in the RAM exceed the number specified in the Logging Group Settings, the oldest data samples are removed so the most current data samples can be stored. Data stored in SRAM is saved even if your target machine shuts down and restarts. For more information, see Section 13.1.1.3, <a href="Trends.chm::/logged_data_details.htm">Storing Your Collected Data</a>.</p>
+<div>
+<h3>SMS Gateway Address</h3>
+<p>SMS Gateway Address is a phone’s Email address. The address contains the phone number and the carrier specific domain. For example, 0123456789@carrier.com.</p>
+</div>
+</div>
+<div>
+<h2 style="margin-top: 27pt;"><a name="T" id="T"></a>T</h2>
+</div>
+<div>
+<h3>Target Function Keys</h3>
+<p>Target Function Keys execute global operations that are always available, no matter which panel is displayed on the target. Operations execute when the operator presses the Target Function Key, regardless of which panel is displayed on the target. For more information, see Section 24.5.1, <a href="HardwareOptions.chm::/Target_Function_Key.htm">Target Function Key</a>.</p>
+</div>
+<div>
+<h3>Target Machine</h3>
+<p>A target machine is an HMI unit - the computer that runs Vijeo Designer Run Time - where the screen application is downloaded to and displayed. The target machine can be used for machine control, security access, alarm monitoring, data logging, and other tasks. Depending on the target type, it may support features, such as multimedia support, Web Gate functionality, and data sharing.</p>
+</div>
+<div>
+<h3>Toolchest Parts</h3>
+<p>Toolchest parts refer to parts available in the Toolchest window.</p>
+</div>
+<div>
+<h2 style="margin-top: 27pt;"><a name="U" id="U"></a>U</h2>
+</div>
+<div>
+<h3>User Application</h3>
+<p>The screen application created with the Vijeo Designer Editor on the PC.</p>
+</div>
+<div>
+<h2 style="margin-top: 27pt;"><a name="V" id="V"></a>V</h2>
+</div>
+<div>
+<h3>Variables</h3>
+<p>Variables are named spaces in memory that store data values. The data type of a variable depends on its purpose. There are three groups of variable types: basic variables, user data types, and block types. For more information, see Section 6.1, <a href="InputAddress.chm::/About_Variables_and_Device_Addresses.htm">About Variables and Device Addresses</a>, and Section 6.2.1, <a href="InputAddress.chm::/var_type.htm">Variable Types</a>.</p>
+</div>
+<div>
+<h2 style="margin-top: 27pt;"><a name="W" id="W"></a>W</h2>
+</div>
+<div>
+<h3>Web Gate</h3>
+<p>Web Gate uses Data Sharing. You can use Web Gate to connect from a remote computer to your target through an Internet browser. This connection allows you to control and monitor targets from anywhere. For more information, see Chapter 23, <a href="WebMonitoring.chm::/Remote_Monitoring.htm">Remote Monitoring with Web Gate</a>.</p>
+</div>
+<div>
+<h2 style="margin-top: 27pt;"><a name="X" id="X"></a>X</h2>
+</div>
+<div>
+<h3>XY Graph</h3>
+<p>An XY graph plots a set of data points with X and Y coordinates instantaneously. You can use this type of graph to plot data from a PLC's block or array type variable. For more information, see Section 12.4.9, <a href="Graphs.chm::/XY_Graphs.htm">XY Graphs</a>.</p>
+</div>
+<div>
+<h2 style="margin-top: 27pt;"><a name="Y" id="Y"></a>Y</h2>
+</div>
+<div>
+<h2 style="margin-top: 27pt;"><a name="Z" id="Z"></a>Z</h2>
+</div>
+</body>
+</html>

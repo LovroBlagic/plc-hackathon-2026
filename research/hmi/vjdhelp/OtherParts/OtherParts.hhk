@@ -1,0 +1,94 @@
+<html>
+<!-- Sitemap 1.0 -->
+<object type="text/site properties">
+  <param name="SiteType" value="index">
+</object>
+<ul>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Creating an Image Display">
+    <param name="Name" value="Example of Creating an Image Display">
+    <param name="Local" value="List_Creating_a_Picture_Display.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Creating a Message Display">
+    <param name="Name" value="Example of Creating a Message Display">
+    <param name="Local" value="List_Example_Creating_Message_Display.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Message Display">
+    <param name="Name" value="Message/Image Display: Overview">
+    <param name="Local" value="List_Tool_Overview.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Image Display">
+    <param name="Name" value="Message/Image Display: Overview">
+    <param name="Local" value="List_Tool_Overview.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Message Display, Creating">
+    <param name="Name" value="Example of Creating a Message Display">
+    <param name="Local" value="List_Example_Creating_Message_Display.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Color Resource">
+    <param name="Name" value="Example of Creating a Message Display">
+    <param name="Local" value="List_Example_Creating_Message_Display.htm">
+    <param name="Name" value="Example of a Combined Message/Image Display">
+    <param name="Local" value="Example_of_a_Combined_Message_Picture_Display.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Text Resource">
+    <param name="Name" value="Example of Creating a Message Display">
+    <param name="Local" value="List_Example_Creating_Message_Display.htm">
+    <param name="Name" value="Example of a Combined Message/Image Display">
+    <param name="Local" value="Example_of_a_Combined_Message_Picture_Display.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Image Display, Creating">
+    <param name="Name" value="Example of Creating an Image Display">
+    <param name="Local" value="List_Creating_a_Picture_Display.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Message Display, Combined with Image Display">
+    <param name="Name" value="Example of a Combined Message/Image Display">
+    <param name="Local" value="Example_of_a_Combined_Message_Picture_Display.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Image Display, Combined with Message Display">
+    <param name="Name" value="Example of a Combined Message/Image Display">
+    <param name="Local" value="Example_of_a_Combined_Message_Picture_Display.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Combining Message and Image Displays">
+    <param name="Name" value="Example of a Combined Message/Image Display">
+    <param name="Local" value="Example_of_a_Combined_Message_Picture_Display.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Image Resource">
+    <param name="Name" value="Example of Creating an Image Display">
+    <param name="Local" value="List_Creating_a_Picture_Display.htm">
+    <param name="Name" value="Example of a Combined Message/Image Display">
+    <param name="Local" value="Example_of_a_Combined_Message_Picture_Display.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Message Display, Changing States">
+    <param name="Name" value="Example of Changing to the Next/Previous State">
+    <param name="Local" value="List_Changing_Values.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Image Display, Changing States">
+    <param name="Name" value="Example of Changing to the Next/Previous State">
+    <param name="Local" value="List_Changing_Values.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Changing States, Message/Image Display">
+    <param name="Name" value="Example of Changing to the Next/Previous State">
+    <param name="Local" value="List_Changing_Values.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="States, Message/Image Display">
+    <param name="Name" value="Example of Changing to the Next/Previous State">
+    <param name="Local" value="List_Changing_Values.htm">
+  </object>
+</ul>
+</html>

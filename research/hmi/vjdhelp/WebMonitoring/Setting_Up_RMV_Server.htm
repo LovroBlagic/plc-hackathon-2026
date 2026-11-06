@@ -1,0 +1,234 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+<meta name="template" content="Vijeo_template.htt">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+ <meta name="generator" content="Adobe RoboHelp 10">
+<title>Setting Up Vijeo Design'Air Server</title>
+<link rel="StyleSheet" href="TIS-STYL.CSS" type="text/css">
+</head>
+
+<body>
+<script type="text/javascript" src="ehlpdhtm.js" language="JavaScript1.2"></script>
+
+<div style="width: 100%; position: relative;" id="header">
+	<table style="background-attachment: scroll; margin-left: 0px; margin-right: 4px; 
+			 background-image: url(top_banner.bmp); background-repeat: Repeat-X; 
+			 line-height: 0pt; vertical-align: top;" cellspacing="0" background="top_banner.bmp" 
+			 width="100%">
+		<col style="width: 90%;">
+		<col style="width: 5%;">
+		<col style="width: 5%;">
+		<tr style="vertical-align: center; height: 39px;">
+			<td style="width: 90%; padding-right: 10px; padding-left: 10px; 
+				 border-right-color: #000000;">
+   <p><img src="logo.bmp" alt="" style="border: none;" width="37" height="37" border="0"></p></td>
+			<td style="width: 5%; padding-right: 0px; padding-left: 10px; 
+				 border-right-color: #000000;">
+   <p style="text-align: center;"><a 
+			 title="Glossary" href="Appendix.chm::/Glossary.htm"><img src="logo_glossary.bmp" alt="" style="border: none;" width="47" height="37" border="0"></a></p></td>
+			<td style="width: 5%; padding-right: 10px; padding-left: 5px; 
+				 border-right-color: #000000;">
+   <p style="text-align: center;"><a 
+			 href="About.chm::/What_is_Vijeo-Designer.htm" title="Home"><img src="logo_home.bmp" alt="Home" title="Home" style="border: none; 
+			 margin-left: 0px; margin-right: 0px; margin-bottom: 0px; margin-top: -2px;" width="47" height="37" border="0"></a></p></td>
+		</tr>
+	</table>
+</div>
+
+<h3>23.1.2.1 Setting Up Vijeo Design'Air Server</h3>
+<p>To enable Vijeo Design'Air access:</p>
+<ol style="list-style: decimal;">
+	<li class="p"><p>In Navigator window's Project tab, click the Target 
+	 node.</p></li>
+	<li class="p"><p>In the Property Inspector, expand the Remote Management 
+	 node, and then Vijeo Design'Air node.</p></li>
+	<li class="p"><p>Define the Remote Management property settings as 
+	 described in the following table:</p>
+	<table style="vertical-align: top; left: 0px; top: 15px; height: 139px;" 
+			 cellspacing="0" width="90%">
+		<col style="width: 12%;">
+		<col style="width: 88.106%;">
+		<tr style="vertical-align: top; height: 56px;">
+			<td style="border-top: Solid 3px #000000; border-right: Solid 1px #000000; 
+				 border-bottom: Solid 1px #000000; padding-right: 10px; 
+				 padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" 
+				 bgcolor="#91AFD9"><p class="Tabletitle">Property</p></td>
+			<td style="border-top: Solid 3px #000000; border-bottom: Solid 1px #000000; 
+				 width: 88.106%; padding-right: 10px; padding-left: 10px; 
+				 padding-top: 10px; padding-bottom: 10px;" bgcolor="#91AFD9"><p 
+				 class="Tabletitle">Description</p></td>
+		</tr>
+		<tr style="vertical-align: top; height: 51px;">
+			<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; 
+				 padding-right: 10px; padding-left: 10px; padding-top: 10px; 
+				 padding-bottom: 10px;" bgcolor="#CBD9ED"><p class="TableDefinitions">Vijeo 
+			 Design'Air</p></td>
+			<td style="border-bottom: Solid 1px #000000; width: 88.106%; 
+				 padding-right: 10px; padding-left: 10px; padding-top: 10px; 
+				 padding-bottom: 10px;"><p>Select Enabled to allow the 
+			 Vijeo Design'Air client access to the target machine (the 
+			 server).</p>
+			<p class="NoteImage" style="margin-left: 0px;"><img src="NOTE_MOJI.BMP" alt="" style="border: none;" width="51" height="25" border="0"></p>
+			<ol start="4" style="list-style: decimal;">
+				<li class="p-NoteText2" style="margin-left: -20px;"><p 
+					 class="NoteText2">At run time, the target machine 
+				 only allows one instance of Vijeo Design'Air or Vijeo 
+				 Design'Air Plus to access its data at a given time. For 
+				 example, if Vijeo Design'Air Plus has an active data sharing 
+				 connection to the target machine, Vijeo Design'Air cannot 
+				 establish a remote connection. If Vijeo Design'Air has 
+				 a remote connection established, Vijeo Design'Air Plus 
+				 can still download and launch the project, but it cannot 
+				 share data with the target machine. To view or manage 
+				 remote connections at run time, see sections <a href="Creating_Tablet_Projects.htm#Air_Plus_System_Variables">Vijeo 
+				 Design'Air Plus System Variables</a> and <a href="Air_System_Variables.htm">Vijeo 
+				 Design'Air System Variables</a>.</p></li>
+			</ol></td>
+		</tr>
+		<tr style="vertical-align: top; height: 51px;">
+			<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; 
+				 padding-right: 10px; padding-left: 10px; padding-top: 10px; 
+				 padding-bottom: 10px;" bgcolor="#CBD9ED"><p class="TableDefinitions">Port</p></td>
+			<td style="border-bottom: Solid 1px #000000; width: 88.106%; 
+				 padding-right: 10px; padding-left: 10px; padding-top: 10px; 
+				 padding-bottom: 10px;"><p>Available when VijeoDesign'Air 
+			 is Enabled, enter the port number used by Vijeo Design'Air 
+			 Application. &#160;Default value for the port number is 6002. 
+			 You can set the port to any value within the standard port 
+			 range (1000 to 65535). </p></td>
+		</tr>
+		<tr style="vertical-align: top; height: 51px;">
+			<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; 
+				 padding-right: 10px; padding-left: 10px; padding-top: 10px; 
+				 padding-bottom: 10px;" bgcolor="#CBD9ED"><p class="TableDefinitions">Thumbnail 
+			 Icon</p></td>
+			<td style="border-bottom: Solid 1px #000000; width: 88.106%; 
+				 padding-right: 10px; padding-left: 10px; padding-top: 10px; 
+				 padding-bottom: 10px;"><p>Select to assign a thumbnail 
+			 icon to the Vijeo Design'Air server so you can differentiate 
+			 between projects on the network. For more information, see 
+			 <a href="#Vijeo Design'Air Server Thumbnail Icon">Vijeo Design'Air 
+			 Server Thumbnail Icon</a>.</p></td>
+		</tr>
+		<tr style="vertical-align: top; height: 42px;">
+			<td style="border-right: Solid 1px #000000; border-bottom: Solid 3px #000000; 
+				 padding-right: 10px; padding-left: 10px; padding-top: 10px; 
+				 padding-bottom: 10px;" bgcolor="#CBD9ED"><p class="TableDefinitions">Target 
+			 Discovery</p></td>
+			<td style="border-bottom: Solid 3px #000000; width: 88.106%; 
+				 padding-right: 10px; padding-left: 10px; padding-top: 10px; 
+				 padding-bottom: 10px;"><p>Select Enabled so the Vijeo 
+			 Design'Air client can detect the target machine (the server) 
+			 on the network.</p></td>
+		</tr>
+	</table></li>
+	<li class="p"><p style="margin-top: 4.5pt;">Define the security settings 
+	 for the Vijeo Design'Air server. For more information, see <a href="Air_Server_Security.htm">Vijeo 
+	 Design'Air Server Security</a>.</p></li>
+	<li class="p"><p style="margin-top: 4.5pt;">Save and validate the project.</p></li>
+	<li class="p"><p>Download the project to the target machine. The server, 
+	 downloaded to the target machine as part of Vijeo Designer Runtime 
+	 files, runs when the target machine starts up.<br>
+	<br>
+	Vijeo Designer Runtime opens on all target machines. With the exception 
+	 of iPC target machines, Vijeo Designer Runtime takes up the entire 
+	 panel display of the target machine. On iPCs, Vijeo Designer sends 
+	 an image of the entire primary display from the target machine to 
+	 the Vijeo Design'Air client, allowing you to interact with other application 
+	 windows rather than just Vijeo Designer Runtime.</p></li>
+</ol>
+<p><a name="Remote Management Settings"></a>The following describes the 
+ scenarios for the Remote Management settings:</p>
+<table style="vertical-align: top; left: 0px; top: 484px; height: 139px; 
+		 margin-left: 40px;" cellspacing="0" width="90%">
+	<col style="width: 12%;">
+	<col style="width: 12%;">
+	<col style="width: 76.56%;">
+	<tr style="vertical-align: top;">
+		<td style="border-top: Solid 3px #000000; border-right: Solid 1px #000000; 
+			 border-bottom: Solid 1px #000000; width: 12%; padding-right: 10px; 
+			 padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" 
+			 bgcolor="#91AFD9"><p class="Tabletitle">Vijeo Design'Air</p></td>
+		<td style="border-top: Solid 3px #000000; border-right: Solid 1px #000000; 
+			 border-bottom: Solid 1px #000000; width: 12%; padding-right: 10px; 
+			 padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" 
+			 bgcolor="#91AFD9"><p class="Tabletitle">Target Discovery</p></td>
+		<td style="border-top: Solid 3px #000000; border-bottom: Solid 1px #000000; 
+			 width: 76.56%; padding-right: 10px; padding-left: 10px; padding-top: 10px; 
+			 padding-bottom: 10px;" bgcolor="#91AFD9"><p class="Tabletitle">Description</p></td>
+	</tr>
+	<tr style="vertical-align: top;">
+		<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; 
+			 width: 12%; padding-right: 10px; padding-left: 10px; padding-top: 10px; 
+			 padding-bottom: 10px;" bgcolor="#CBD9ED"><p class="TableDefinitions">Disabled</p></td>
+		<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; 
+			 width: 12%; padding-right: 10px; padding-left: 10px; padding-top: 10px; 
+			 padding-bottom: 10px;" bgcolor="#CBD9ED"><p class="TableDefinitions">Disabled</p></td>
+		<td style="border-bottom: Solid 1px #000000; width: 76.56%; padding-right: 10px; 
+			 padding-left: 10px; padding-top: 10px; padding-bottom: 10px;"><p>The 
+		 user cannot access the target machine using the Vijeo Design'Air 
+		 client and the target machine (the server) cannot be detected 
+		 on the network.</p></td>
+	</tr>
+	<tr style="vertical-align: top;">
+		<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; 
+			 width: 12%; padding-right: 10px; padding-left: 10px; padding-top: 10px; 
+			 padding-bottom: 10px;" bgcolor="#CBD9ED"><p class="TableDefinitions">Enabled</p></td>
+		<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; 
+			 width: 12%; padding-right: 10px; padding-left: 10px; padding-top: 10px; 
+			 padding-bottom: 10px;" bgcolor="#CBD9ED"><p class="TableDefinitions">Disabled</p></td>
+		<td style="border-bottom: Solid 1px #000000; width: 76.56%; padding-right: 10px; 
+			 padding-left: 10px; padding-top: 10px; padding-bottom: 10px;"><p>The 
+		 user can access the target machine using the Vijeo Design'Air. 
+		 However, the Vijeo Design'Air client cannot detect the target 
+		 machine (the server) automatically. The user needs to manually 
+		 enter the target machine's IP address and port number in order 
+		 to connect to the target machine using the Vijeo Design'Air client.</p></td>
+	</tr>
+	<tr style="vertical-align: top;">
+		<td style="border-right: Solid 1px #000000; border-bottom: Solid 3px #000000; 
+			 width: 12%; padding-right: 10px; padding-left: 10px; padding-top: 10px; 
+			 padding-bottom: 10px;" bgcolor="#CBD9ED"><p class="TableDefinitions">Enabled</p></td>
+		<td style="border-right: Solid 1px #000000; border-bottom: Solid 3px #000000; 
+			 width: 12%; padding-right: 10px; padding-left: 10px; padding-top: 10px; 
+			 padding-bottom: 10px;" bgcolor="#CBD9ED"><p class="TableDefinitions">Enabled</p></td>
+		<td style="border-bottom: Solid 3px #000000; width: 76.56%; padding-right: 10px; 
+			 padding-left: 10px; padding-top: 10px; padding-bottom: 10px;"><p 
+			 class="Bullet">The Vijeo Design'Air client can automatically 
+		 detect the target machine and the user can access the target machine 
+		 using the Vijeo Design'Air client.</p></td>
+	</tr>
+</table>
+<p>&#160;</p>
+<h4><a name="Vijeo Design'Air Server Thumbnail Icon"></a><img src="Square.bmp" alt="" style="border: none;" width="12" height="10" border="0">Vijeo 
+ Design'Air Server Thumbnail Icon</h4>
+<p>You can select a base panel in your project as the thumbnail icon for 
+ the Vijeo Design'Air server. For example, you can use this feature to 
+ differentiate between various Vijeo Design'Air servers detected on a tablet 
+ or smartphone at run time. The thumbnail icon is the base panel's image 
+ scaled down to 100x100 pixels while preserving its aspect ratio.</p>
+<p>To select a thumbnail icon:</p>
+<ol style="list-style: inside decimal;">
+	<li class="p"><p>In Navigator window's Project tab, click the Target 
+	 node.</p></li>
+	<li class="p"><p>In the Property Inspector, expand the Remote Management 
+	 node, and then Vijeo Design'Air node.</p></li>
+	<li class="p"><p>Select Thumbnail Icon check box and click the ellipsis.</p></li>
+	<li class="p"><p>In the Panel List dialog box, select a Base panel 
+	 and click OK.</p></li>
+</ol>
+<p>At run time, Vijeo Design'Air client displays a thumbnail icon of the 
+ selected Base panel next to the target machine's information. If you do 
+ not select a thumbnail icon at build time, the Schneider Electric's logo 
+ will be displayed instead.</p>
+<p><img src="NOTE_MOJI.BMP" alt="" style="border: none;" width="51" height="25" border="0"></p>
+<ul>
+	<li class="p-NoteText"><p class="NoteText">You can only select base 
+	 panels for thumbnail icons.</p></li>
+	<li class="p-NoteText"><p class="NoteText">Each target machine can 
+	 only have one thumbnail icon.</p></li>
+</ul>
+</body>
+</html>

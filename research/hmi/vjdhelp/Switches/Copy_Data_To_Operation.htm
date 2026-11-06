@@ -1,0 +1,259 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+<meta name="template" content="Vijeo_template.htt">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+ <meta name="generator" content="Adobe RoboHelp 10">
+<title>Copy Data To Operation</title>
+<link rel="StyleSheet" href="Tis-styl.css" type="text/css">
+</head>
+
+<body>
+<script type="text/javascript" src="ehlpdhtm.js" language="JavaScript1.2"></script>
+
+<div style="width: 100%; position: relative;" id="header">
+	<table style="background-attachment: scroll; margin-left: 0px; margin-right: 4px; 
+			 background-image: url(top_banner.bmp); background-repeat: Repeat-X; 
+			 line-height: 0pt; vertical-align: top;" cellspacing="0" width="100%" 
+			 background="top_banner.bmp">
+		<col style="width: 90%;">
+		<col style="width: 5%;">
+		<col style="width: 5%;">
+		<tr style="vertical-align: center; height: 39px;">
+			<td style="width: 90%; padding-right: 10px; padding-left: 10px; 
+				 border-right-color: #000000;">
+   <p><img src="logo.bmp" style="border: none;" alt="" width="37" height="37" border="0"></p></td>
+			<td style="width: 5%; padding-right: 0px; padding-left: 10px; 
+				 border-right-color: #000000;">
+   <p style="text-align: center;"><a 
+			 title="Glossary" href="Appendix.chm::/Glossary.htm"><img src="logo_glossary.bmp" style="border: none;" alt="" width="47" height="37" border="0"></a></p></td>
+			<td style="width: 5%; padding-right: 10px; padding-left: 5px; 
+				 border-right-color: #000000;">
+   <p style="text-align: center;"><a 
+			 href="About.chm::/What_is_Vijeo-Designer.htm" title="Home"><img src="logo_home.bmp" alt="Home" title="Home" style="border: none; 
+			 margin-left: 0px; margin-right: 0px; margin-bottom: 0px; margin-top: -2px;" width="47" height="37" border="0"></a></p></td>
+		</tr>
+	</table>
+</div>
+
+<h3>9.5.15.1 Copy Data To Drive Operation</h3>
+<p>Use the dialog to set up Copy Data To Drive operations. This feature 
+ copies data generated during runtime from the main, secondary, or optional 
+ drive to a secondary or optional drive on a target machine.</p>
+<p>The Editor passes the data location information, which is set in the 
+ Target Properties, to the Runtime. For iPCs, you must assign a specific 
+ hard drive letter for Copy Data To Drive operations in the Data Location 
+ property of the Target node. Otherwise, the Copy Data To Drive operation 
+ will not find the USB memory stick. For information on setting the source 
+ data location, see Appendix 5.11.1, <a href="Appendix.chm::/manage_runtime_data.htm">Types 
+ of Data Locations</a>.</p>
+<p><img src="NOTE_MOJI.bmp" alt="" style="border: none;" width="51" height="25" border="0"></p>
+<ul>
+	<li class="p-NoteText"><p class="NoteText">The status of the copy operation 
+	 is monitored by the system variable: _FileTransferStatus. For more 
+	 information, see Section 6.7.1, <a href="InputAddress.chm::/FileTransferStatus.htm">System 
+	 Variables: _FileTransferStatus</a>.</p></li>
+</ul>
+<p class="NoteImage"><img src="Limit.bmp" alt="" style="border: none;" width="77" height="24" border="0"></p>
+<ul>
+	<li class="p-NoteText"><p class="NoteText">Copy Data To Drive operations 
+	 can only be used with switches and panel function keys.</p></li>
+	<li class="p-NoteText"><p class="NoteText">You can only set Copy Data 
+	 To Drive operations in the When Touch tab.</p></li>
+	<li class="p-NoteText"><p class="NoteText">For XBTGC, HMISTO, HMISTU 
+	 targets, only the Recipe and Delete Selected Data Files After Copying 
+	 options are available for selection. The other options are not available, 
+	 because those targets do not have a secondary drive.</p></li>
+</ul>
+<p class="Image"><img src="copy_data_operations.bmp" alt="" style="border: Solid 1px #808080; 
+						 margin-right: 0px; margin-top: 0px; margin-bottom: 0px; 
+						 margin-left: 40px;" width="330" height="373" border="1"></p>
+<p>&#160;</p>
+<table style="vertical-align: top; margin-left: 40px;" cellspacing="0" 
+		 width="94.072%">
+	<col style="width: 25.55%;">
+	<col style="width: 74.45%;">
+	<tr style="vertical-align: top;">
+		<td style="border-top: Solid 3px #000000; border-right: Solid 1px #000000; 
+			 border-bottom: Solid 1px #000000; width: 25.55%; vertical-align: top; 
+			 padding-right: 10px; padding-left: 10px; padding-top: 10px; 
+			 padding-bottom: 10px;" bgcolor="#91AFD9"><p class="Tabletitle" 
+														 style="font-size: 11pt;">Operation</p></td>
+		<td style="border-top: Solid 3px #000000; border-bottom: Solid 1px #000000; 
+			 width: 74.45%; vertical-align: top; padding-right: 10px; padding-left: 10px; 
+			 padding-top: 10px; padding-bottom: 10px;" bgcolor="#91AFD9"><p 
+			 class="Tabletitle" style="font-size: 11pt;">Description</p></td>
+	</tr>
+	<tr style="vertical-align: top;">
+		<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; 
+			 width: 25.55%; vertical-align: top; padding-right: 10px; padding-left: 10px; 
+			 padding-top: 10px; padding-bottom: 10px;" bgcolor="#CBD9ED"><p 
+			 class="TableDefinitions">Destination Drive</p></td>
+		<td style="border-bottom: Solid 1px #000000; width: 74.45%; vertical-align: top; 
+			 padding-right: 10px; padding-left: 10px; padding-top: 10px; 
+			 padding-bottom: 10px;"><p>Select the drive you want to copy 
+		 the data files to: Secondary Drive or Optional Drive.</p></td>
+	</tr>
+	<tr style="vertical-align: top;">
+		<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; 
+			 width: 25.55%; vertical-align: top; padding-right: 10px; padding-left: 10px; 
+			 padding-top: 10px; padding-bottom: 10px;" bgcolor="#CBD9ED"><p 
+			 class="TableDefinitions">Alarm and Event</p></td>
+		<td style="border-bottom: Solid 1px #000000; width: 74.45%; vertical-align: top; 
+			 padding-right: 10px; padding-left: 10px; padding-top: 10px; 
+			 padding-bottom: 10px;"><p>Enable to copy alarms, events, alarm 
+		 summary, and event summary log files. For more information on 
+		 alarm and event files, see Section 16.3.6, <a href="alarms.chm::/Alarms_in_CSV_file.htm">Outputting 
+		 Alarms and Events to a .CSV File</a>.</p></td>
+	</tr>
+	<tr style="vertical-align: top;">
+		<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; 
+			 width: 25.55%; vertical-align: top; padding-right: 10px; padding-left: 10px; 
+			 padding-top: 10px; padding-bottom: 10px;" bgcolor="#CBD9ED"><p 
+			 class="TableDefinitions">Data Logging</p></td>
+		<td style="border-bottom: Solid 1px #000000; width: 74.45%; vertical-align: top; 
+			 padding-right: 10px; padding-left: 10px; padding-top: 10px; 
+			 padding-bottom: 10px;"><p>Enable to copy data logging files. 
+		 For more information on Data Logging files, see Section 13.1, 
+		 <a href="trends.chm::/logging_data.htm">About Data Logging</a>.</p></td>
+	</tr>
+	<tr style="vertical-align: top;">
+		<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; 
+			 width: 25.55%; vertical-align: top; padding-right: 10px; padding-left: 10px; 
+			 padding-top: 10px; padding-bottom: 10px;" bgcolor="#CBD9ED"><p 
+			 class="TableDefinitions">Recipe</p></td>
+		<td style="border-bottom: Solid 1px #000000; width: 74.45%; vertical-align: top; 
+			 padding-right: 10px; padding-left: 10px; padding-top: 10px; 
+			 padding-bottom: 10px;"><p>Enable to copy recipes. Then select 
+		 the format you want to save the recipe files as: RCP or CSV (Unicode 
+		 Common Recipe). For more information on recipes, see Section, 
+		 17.1, <a href="recipe.chm::/About_Recipe.htm">About Recipe</a>.</p></td>
+	</tr>
+	<tr style="vertical-align: top;">
+		<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; 
+			 width: 25.55%; vertical-align: top; padding-right: 10px; padding-left: 10px; 
+			 padding-top: 10px; padding-bottom: 10px;" bgcolor="#CBD9ED"><p 
+			 class="TableDefinitions">Video</p></td>
+		<td style="border-bottom: Solid 1px #000000; width: 74.45%; vertical-align: top; 
+			 padding-right: 10px; padding-left: 10px; padding-top: 10px; 
+			 padding-bottom: 10px;"><p>Enable to copy video files. For 
+		 more information on video files, see Section 19.1.5.3, <a href="multimedia.chm::/adding_video_project.htm">Video 
+		 File Editor Operations</a>.</p></td>
+	</tr>
+	<tr style="vertical-align: top;">
+		<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; 
+			 width: 25.55%; vertical-align: top; padding-right: 10px; padding-left: 10px; 
+			 padding-top: 10px; padding-bottom: 10px;" bgcolor="#CBD9ED"><p 
+			 class="TableDefinitions">Snapshot</p></td>
+		<td style="border-bottom: Solid 1px #000000; width: 74.45%; vertical-align: top; 
+			 padding-right: 10px; padding-left: 10px; padding-top: 10px; 
+			 padding-bottom: 10px;"><p>Enable to copy snapshot files. For 
+		 more information on snapshot files, see Section 19.1.11, <a href="MultiMedia.chm::/Video_Screen_Capture_Control_Variables.htm">Video 
+		 Snapshot Control Variables</a>.</p></td>
+	</tr>
+	<tr style="vertical-align: top;">
+		<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; 
+			 width: 25.55%; vertical-align: top; padding-right: 10px; padding-left: 10px; 
+			 padding-top: 10px; padding-bottom: 10px;" bgcolor="#CBD9ED"><p 
+			 class="TableDefinitions">User Application Backup</p></td>
+		<td style="border-bottom: Solid 1px #000000; width: 74.45%; vertical-align: top; 
+			 padding-right: 10px; padding-left: 10px; padding-top: 10px; 
+			 padding-bottom: 10px;"><p>Enable to copy application backup 
+		 files.</p></td>
+	</tr>
+	<tr style="vertical-align: top;">
+		<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; 
+			 width: 25.55%; vertical-align: top; padding-right: 10px; padding-left: 10px; 
+			 padding-top: 10px; padding-bottom: 10px;" bgcolor="#CBD9ED"><p 
+			 class="TableDefinitions">Delete Selected Data Files After 
+		 Copying</p></td>
+		<td style="border-bottom: Solid 1px #000000; width: 74.45%; vertical-align: top; 
+			 padding-right: 10px; padding-left: 10px; padding-top: 10px; 
+			 padding-bottom: 10px;"><p>Enable to delete the selected data 
+		 files in the source location after copying. This is equivalent 
+		 to a cut and paste operation. When disabled, the source files 
+		 are copied over without being deleted.</p>
+		<p class="NoteImage"><img src="Limit.bmp" alt="" style="border: none;" width="77" height="24" border="0"></p>
+		<ul>
+			<li class="p-NoteText"><p class="NoteText">When the check box 
+			 is enabled, selected data files will be deleted after copying, 
+			 except for recipe files. Recipe (RCP) files, even if they 
+			 are selected for copying, will not be deleted after the Copy 
+			 Data To Drive operation.</p></li>
+		</ul></td>
+	</tr>
+	<tr style="vertical-align: top;">
+		<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; 
+			 width: 25.55%; vertical-align: top; padding-right: 10px; padding-left: 10px; 
+			 padding-top: 10px; padding-bottom: 10px;" bgcolor="#CBD9ED"><p 
+			 class="TableDefinitions">Custom Folder</p></td>
+		<td style="border-bottom: Solid 1px #000000; width: 74.45%; vertical-align: top; 
+			 padding-right: 10px; padding-left: 10px; padding-top: 10px; 
+			 padding-bottom: 10px;"><p>Enable the check box, and enter 
+		 a string variable with a string value that can be used as the 
+		 custom folder name. It must be 1–39 
+		 characters long.</p>
+		<p>For example, if you enter &quot;STRING01&quot;, the destination 
+		 path will be:<br>
+		Drive:\public\PROJECTS\&lt;STRING01&gt;\Target1\DATA</p>
+		<p><img src="NOTE_MOJI.bmp" alt="" style="border: none;" width="51" height="25" border="0"></p>
+		<ul>
+			<li class="p-NoteText"><p class="NoteText">The following characters 
+			 are not supported in custom folder names:<br>
+			&#160;&#160;space ( ) (Use the underscore character (_) to 
+			 separate words.)<br>
+			&#160;&#160;hyphen (-)<br>
+			&#160;&#160;asterisk (*)<br>
+			&#160;&#160;left bracket ([)<br>
+			&#160;&#160;right bracket (])<br>
+			&#160;&#160;colon (:)<br>
+			&#160;&#160;semicolon (;)<br>
+			&#160;&#160;quotation marks (&quot;)<br>
+			&#160;&#160;less than sign (&lt;)<br>
+			&#160;&#160;greater than sign (&gt;)<br>
+			&#160;&#160;comma (,)<br>
+			&#160;&#160;question mark (?)<br>
+			&#160;&#160;slash mark (/)<br>
+			&#160;&#160;backslash (\)<br>
+			&#160;&#160;plus sign (+)<br>
+			&#160;&#160;equal sign (=)<br>
+			&#160;&#160;any extended ASCII character<br>
+			&#160;&#160;any Unicode character</p></li>
+			<li class="p-NoteText"><p class="NoteText">The Copy Data From 
+			 Drive operation will not work correctly if a custom folder 
+			 name is specified for the Copy Data To Drive operation. Keep 
+			 the Custom Folder option disabled if you are using the Copy 
+			 Data From Drive feature.</p></li>
+		</ul></td>
+	</tr>
+	<tr style="vertical-align: top;">
+		<td style="border-right: Solid 1px #000000; border-bottom: Solid 3px #000000; 
+			 width: 25.55%; vertical-align: top; padding-right: 10px; padding-left: 10px; 
+			 padding-top: 10px; padding-bottom: 10px;" bgcolor="#CBD9ED"><p 
+			 class="TableDefinitions">Destination Path</p></td>
+		<td style="border-bottom: Solid 3px #000000; width: 74.45%; vertical-align: top; 
+			 padding-right: 10px; padding-left: 10px; padding-top: 10px; 
+			 padding-bottom: 10px;"><p>Displays the path where the data 
+		 files are copied to.</p></td>
+	</tr>
+</table>
+<p>&#160;</p>
+<p class="NoteImage"><img src="Limit.bmp" alt="" style="border: none;" width="77" height="24" border="0"></p>
+<ul>
+	<li class="p-NoteText"><p class="NoteText">The switch becomes unavailable 
+	 after a copy data to operation is initiated to show that the operation 
+	 is in progress. Do not remove the USB drive or CF Card until the copy 
+	 data to operation is completed. Removing the storage media during 
+	 a copy data to operation may result in data loss or damage to the 
+	 target or storage media. The switch returns to normal after the operation 
+	 is completed.</p></li>
+	<li class="p-NoteText"><p class="NoteText">When no USB drive or CF 
+	 Card is inserted and a copy data to operation is initiated, an error 
+	 message indicates that the storage cannot be found.</p></li>
+	<li class="p-NoteText"><p class="NoteText">When the USB drive or CF 
+	 Card is full and a copy data to operation is initiated, an error message 
+	 indicates that the storage is full.</p></li>
+</ul>
+</body>
+</html>

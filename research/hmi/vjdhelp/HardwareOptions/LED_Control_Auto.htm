@@ -1,0 +1,187 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+<meta name="template" content="Vijeo_template.htt">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="topic-status" content="In Progress">
+<meta name="topic-priority" content="0">
+<meta name="topic-time-estimate" content="0">
+<meta name="topic-id" content="LED Control Auto">
+<meta name="window-type" content="$global_NewWindow">
+ <meta name="generator" content="Adobe RoboHelp 2015">
+<title>LED Control Auto</title>
+<link rel="StyleSheet" href="TIS-STYL.css" type="text/css">
+</head>
+<body>
+<script type="text/javascript" src="ehlpdhtm.js" language="JavaScript1.2"></script>
+
+<div style="width: 100%; position: relative;" id="header">
+	<table style="background-attachment: scroll; margin-left: 0px; margin-right: 4px; 
+			 background-image: url(top_banner.bmp); background-repeat: Repeat-X; 
+			 line-height: 0pt; vertical-align: top;" cellspacing="0" background="top_banner.bmp" 
+			 width="100%">
+		<col style="width: 90%;">
+		<col style="width: 5%;">
+		<col style="width: 5%;">
+		<tr style="vertical-align: center; height: 39px;">
+			<td style="width: 90%; padding-right: 10px; padding-left: 10px; 
+				 border-right-color: #000000;">
+   <p><img src="logo.bmp" alt="" style="border: none;" width="37" height="37" border="0"></p></td>
+			<td style="width: 5%; padding-right: 0px; padding-left: 10px; 
+				 border-right-color: #000000;">
+   <p style="text-align: center;"><a 
+			 title="Glossary" href="Appendix.chm::/Glossary.htm"><img src="logo_glossary.bmp" alt="" style="border: none;" width="47" height="37" border="0"></a></p></td>
+			<td style="width: 5%; padding-right: 10px; padding-left: 5px; 
+				 border-right-color: #000000;">
+   <p style="text-align: center;"><a 
+			 href="About.chm::/What_is_Vijeo-Designer.htm" title="Home"><img src="logo_home.bmp" alt="Home" title="Home" style="border: none; 
+			 margin-left: 0px; margin-right: 0px; margin-bottom: 0px; margin-top: -2px;" width="47" height="37" border="0"></a></p></td>
+		</tr>
+	</table>
+</div>
+
+
+<h3>24.5.3.1 LED Control Auto</h3>
+<p>LED Control Auto enables you to define the LED colors and blinks speeds for Function Key states. Once the Function Key changes state, Vijeo-Designer Runtime automatically changes the LED to the defined color and blink speed. Be aware of the following Function Key states:</p>
+<ul>
+<li class="p-Bullet">
+<p class="Bullet"><span style="font-weight: bold;">Enabled State</span>: The Function Key is enabled and runs its operations when the operator presses the key.</p>
+</li>
+<li class="p-Bullet">
+<p class="Bullet"><span style="font-weight: bold;">Secured State</span>: The user logged into the target does not have a security level high enough to run Function Key operations. For more information on security, see Section 4.8, <a href="StandardOperation.chm::/security_overview.htm">Setting up Security Protection for Targets and Projects</a>.</p>
+</li>
+<li class="p-Bullet">
+<p class="Bullet"><span style="font-weight: bold;">Interlocked State</span>: The Function Key is in the interlocked state and is locked out. Operations will not run when the panel operator presses the key. For more information on interlock, see Section 24.5.5, <a href="Setting_Up_Interlock_for_Function_Keys.htm">Setting Up Interlock for Function Keys</a>.</p>
+</li>
+</ul>
+<p>Settings for LED Control Auto are defined in the Target node properties, see Section 4.5.1, <a href="StandardOperation.chm::/Setting_up_Targets-Creating_targets.htm">Target Properties</a>.</p>
+<p>The table below describes the settings for LED Control Auto.</p>
+<table style="vertical-align: top; padding-left: 10px; padding-right: 10px; margin-left: 40px;" cellspacing="0" width="80%">
+<col style="width: 5.566%;">
+<col style="width: 17.744%;">
+<col style="width: 29.443%;">
+<col style="width: 44.305%;">
+<tr style="vertical-align: top;">
+<td style="border-top: Solid 2px #000040; border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 5.566%; vertical-align: top; padding: 0in 5.4pt 0in 5.4pt; padding-left: 10.6pt; padding-right: 9.9pt; padding-top: 0.1in; padding-bottom: 0.1in;" bgcolor="#91AFD9">
+<p class="tabletitle" style="font-size: 11pt;">Property</p>
+</td>
+<td colspan="2" style="border-top: Solid 2px #000040; border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 47.187%; vertical-align: top; padding: 0in 5.4pt 0in 5.4pt; padding-left: 10.6pt; padding-right: 9.9pt; padding-top: 0.1in; padding-bottom: 0.1in;" bgcolor="#91AFD9">
+<p class="tabletitle" style="font-size: 11pt;">Description</p>
+</td>
+<td style="border-top: Solid 2px #000040; border-bottom: Solid 1px #000000; width: 44.305%; vertical-align: top; padding: 0in 5.4pt 0in 5.4pt; padding-left: 10.6pt; padding-right: 9.9pt; padding-top: 0.1in; padding-bottom: 0.1in;" bgcolor="#91AFD9">
+<p class="tabletitle" style="font-size: 11pt;">Range</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td rowspan="7" style="border-right: Solid 1px #000000; border-bottom: Solid 3px #000000; width: 5.566%; vertical-align: top; padding: 0in 5.4pt 0in 5.4pt; padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#CBDAED">
+<p class="TableDefinitions">LED Control</p>
+</td>
+<td colspan="2" style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 47.187%; vertical-align: top; padding: 0in 5.4pt 0in 5.4pt; padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p>Defines the LED Control methods.</p>
+</td>
+<td style="border-bottom: Solid 1px #000000; width: 44.305%; vertical-align: top; padding: 0in 5.4pt 0in 5.4pt; padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px;">
+<ul>
+<li class="p-Bullet">
+<p class="Bullet">Auto</p>
+</li>
+<li class="p-Bullet">
+<p class="Bullet">Manual</p>
+</li>
+</ul>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 17.744%; vertical-align: top; padding: 0in 5.4pt 0in 5.4pt; padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="TableDefinitions">Enable State Color</p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 29.443%; vertical-align: top; padding: 0in 5.4pt 0in 5.4pt; padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p>Select LED's color for the Function Key's enabled state.</p>
+</td>
+<td rowspan="2" style="border-bottom: Solid 1px #000000; width: 44.305%; vertical-align: top; padding: 0in 5.4pt 0in 5.4pt; padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px;">
+<ul>
+<li class="p-Bullet">
+<p class="Bullet">Red</p>
+</li>
+<li class="p-Bullet">
+<p class="Bullet">Green</p>
+</li>
+<li class="p-Bullet">
+<p class="Bullet">Orange</p>
+</li>
+</ul>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 17.744%; vertical-align: top; padding: 0in 5.4pt 0in 5.4pt; padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="TableDefinitions">Secured State Color</p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 29.443%; vertical-align: top; padding: 0in 5.4pt 0in 5.4pt; padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p>Select the LED's colors for the Function Key's secured state.</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 17.744%; vertical-align: top; padding: 0in 5.4pt 0in 5.4pt; padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="TableDefinitions">Interlocked State Color</p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 29.443%; vertical-align: top; padding: 0in 5.4pt 0in 5.4pt; padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p>Select the LED's colors for the Function Key's interlocked state.</p>
+</td>
+<td style="border-bottom: Solid 1px #000000; width: 44.305%; vertical-align: top; padding: 0in 5.4pt 0in 5.4pt; padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px;">
+<ul>
+<li class="p-Bullet">
+<p class="Bullet">Red</p>
+</li>
+<li class="p-Bullet">
+<p class="Bullet">Green</p>
+</li>
+<li class="p-Bullet">
+<p class="Bullet">Orange</p>
+</li>
+<li class="p-Bullet">
+<p class="Bullet">Off</p>
+</li>
+</ul>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 17.744%; vertical-align: top; padding: 0in 5.4pt 0in 5.4pt; padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="TableDefinitions">Enable State Blink</p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 29.443%; vertical-align: top; padding: 0in 5.4pt 0in 5.4pt; padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p>Select the LED's blink rate for the Function Key's enabled state.</p>
+</td>
+<td rowspan="3" style="border-bottom: Solid 3px #000000; width: 44.305%; vertical-align: top; padding: 0in 5.4pt 0in 5.4pt; padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px;">
+<ul>
+<li class="p-Bullet">
+<p class="Bullet">Fast</p>
+</li>
+<li class="p-Bullet">
+<p class="Bullet">Slow</p>
+</li>
+<li class="p-Bullet">
+<p class="Bullet">Off</p>
+</li>
+</ul>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 17.744%; vertical-align: top; padding: 0in 5.4pt 0in 5.4pt; padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="TableDefinitions">Secured State Blink</p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 29.443%; vertical-align: top; padding: 0in 5.4pt 0in 5.4pt; padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p>Select the LED's blink rate for the Function Key's secured state.</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 3px #000000; width: 17.744%; padding: 0in 5.4pt 0in 5.4pt; vertical-align: top; padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="TableDefinitions">Interlocked State Blink</p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 3px #000000; width: 29.443%; padding: 0in 5.4pt 0in 5.4pt; vertical-align: top; padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p>Select the LED's blink rate for the Function Key's interlocked state.</p>
+</td>
+</tr>
+</table>
+<p class="NoteText">&#160;</p>
+</body>
+</html>

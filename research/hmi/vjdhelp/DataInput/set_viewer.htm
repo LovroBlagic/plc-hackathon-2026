@@ -1,0 +1,113 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+<meta name="template" content="Vijeo_template.htt">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+ <meta name="generator" content="Adobe RoboHelp 10">
+<title>Setting up and Configuring the Viewer</title>
+<link rel="StyleSheet" href="TIS-STYL.CSS" type="text/css">
+</head>
+<body>
+<script type="text/javascript" src="ehlpdhtm.js" language="JavaScript1.2"></script>
+
+<div style="width: 100%; position: relative;" id="header">
+	<table style="background-attachment: scroll; margin-left: 0px; margin-right: 4px; 
+			 background-image: url(top_banner.bmp); background-repeat: Repeat-X; 
+			 line-height: 0pt; vertical-align: top;" cellspacing="0" width="100%" 
+			 background="top_banner.bmp">
+		<col style="width: 90%;">
+		<col style="width: 5%;">
+		<col style="width: 5%;">
+		<tr style="vertical-align: center; height: 39px;">
+			<td style="width: 90%; padding-right: 10px; padding-left: 10px; 
+				 border-right-color: #000000;">
+   <p><img src="logo.bmp" style="border: none;" alt="" width="37" height="37" border="0"></p></td>
+			<td style="width: 5%; padding-right: 0px; padding-left: 10px; 
+				 border-right-color: #000000;">
+   <p style="text-align: center;"><a 
+			 title="Glossary" href="Appendix.chm::/Glossary.htm"><img src="logo_glossary.bmp" style="border: none;" alt="" width="47" height="37" border="0"></a></p></td>
+			<td style="width: 5%; padding-right: 10px; padding-left: 5px; 
+				 border-right-color: #000000;">
+   <p style="text-align: center;"><a 
+			 href="About.chm::/What_is_Vijeo-Designer.htm" title="Home"><img src="logo_home.bmp" alt="Home" title="Home" style="border: none; 
+			 margin-left: 0px; margin-right: 0px; margin-bottom: 0px; margin-top: -2px;" width="47" height="37" border="0"></a></p></td>
+		</tr>
+	</table>
+</div>
+
+<h4>11.8.3 Adding the Browser Part to Your Project</h4>
+<ol style="list-style: decimal;">
+<li class="p">
+<p>In the Toolchest's Browser folder, select the Internet Explorer Browser or Multi-Platform Browser part. Then drag and drop it onto a panel in your project.</p>
+</li>
+<li class="p">
+<p>Configure the following Browser properties:</p>
+</li>
+</ol>
+<table style="vertical-align: top; margin-left: 40px;" cellspacing="0" width="90.985%">
+<col style="width: 23.247%;">
+<col style="width: 76.753%;">
+<tr style="vertical-align: top;">
+<td style="border-top: Solid 3px #000000; border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 23.247%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#91AFD9">
+<p class="Tabletitle">Property</p>
+</td>
+<td style="border-top: Solid 3px #000000; border-bottom: Solid 1px #000000; width: 76.753%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#91AFD9">
+<p class="Tabletitle">Description</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 23.247%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#CBD9ED">
+<p class="TableDefinitions">Browser Type</p>
+</td>
+<td style="border-bottom: Solid 1px #000000; width: 76.753%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">This property is available only for the Internet Explorer Browser part. Select Local or Remote from the drop-down list.</p>
+<ul>
+<li class="p-Bullet">
+<p class="Bullet">Local: The Browser will only display documents that you added to the target. Both the Internet Explorer Browser and Multi-Platform Browser support the Local type.</p>
+</li>
+<li class="p-Bullet">
+<p class="Bullet">Remote: The Browser behaves similarly to an Internet Browser in that it can follow links and navigate to other websites. Only the Internet Explorer Browser supports the Remote type. The Internet Explorer Browser uses the IE® Engine.</p>
+</li>
+</ul>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 23.247%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#CBD9ED">
+<p class="TableDefinitions">Local File Name</p>
+</td>
+<td style="border-bottom: Solid 1px #000000; width: 76.753%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">This property is available for both the Internet Explorer Browser and Multi-Platform Browser parts.</p>
+<p class="Tabletext">&#160;</p>
+<p class="Tabletext">If you selected the Internet Explorer Browser part, this property displays only when the Browser Type is set to Local. Define the string variable used to identify which file to display.</p>
+<p class="Tabletext">&#160;</p>
+<p class="Tabletext">It is recommended that you create a new string variable for the Browser. To set up and create the string variable, you need to define the following variable property:</p>
+<ul>
+<li class="p-Bullet">
+<p class="Bullet">Initial Value: For a local Browser, this is the name of the file to display, for example, Help.htm. For a remote Browser, this is the URL or IP address of the first website, for example, www.schneider-electric.com or 192.16.2 (depends on your <a href="Runtime.chm::/network.htm#DNS_Settings">DNS configuration</a>).</p>
+</li>
+</ul>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 23.247%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#CBD9ED">
+<p class="TableDefinitions">URL</p>
+</td>
+<td style="border-bottom: Solid 1px #000000; width: 76.753%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">This property is available if you selected the Internet Explorer Browser part and the Browser Type is set to Remote. Set it to the Browser's string variable.</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 3px #000000; width: 23.247%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#CBD9ED">
+<p class="TableDefinitions">System Keypad</p>
+</td>
+<td style="border-bottom: Solid 3px #000000; width: 76.753%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">This property is available only for the Multi-Platform Browser. Set to Enabled so the keypad displays at run time.</p>
+<p class="Tabletext">At run time, you can only use the system keypad to input data into a document or web site, not to type in a new URL address. The system keypad displays when you touch an area on the web site or document.</p>
+<p class="Tabletext">If you set this value to Disabled, you should place a Toolchest keypad for inputting data. Otherwise, you will not be able to type anything into a document or web site.</p>
+</td>
+</tr>
+</table>
+<p>&#160;</p>
+</body>
+</html>

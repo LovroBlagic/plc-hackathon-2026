@@ -1,0 +1,101 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+<meta name="template" content="Vijeo_template.htt">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+ <meta name="generator" content="Adobe RoboHelp 10">
+<title>Blink Feature</title>
+<link rel="StyleSheet" href="Tis-styl.css" type="text/css">
+</head>
+<body>
+<script type="text/javascript" src="ehlpdhtm.js" language="JavaScript1.2"></script>
+
+<div style="width: 100%; position: relative;" id="header">
+	<table style="background-attachment: scroll; margin-left: 0px; margin-right: 4px; 
+			 background-image: url(top_banner.bmp); background-repeat: Repeat-X; 
+			 line-height: 0pt; vertical-align: top;" cellspacing="0" width="100%" 
+			 background="top_banner.bmp">
+		<col style="width: 90%;">
+		<col style="width: 5%;">
+		<col style="width: 5%;">
+		<tr style="vertical-align: center; height: 39px;">
+			<td style="width: 90%; padding-right: 10px; padding-left: 10px; 
+				 border-right-color: #000000;">
+   <p><img src="logo.bmp" style="border: none;" alt="" width="37" height="37" border="0"></p></td>
+			<td style="width: 5%; padding-right: 0px; padding-left: 10px; 
+				 border-right-color: #000000;">
+   <p style="text-align: center;"><a 
+			 title="Glossary" href="Appendix.chm::/Glossary.htm"><img src="logo_glossary.bmp" style="border: none;" alt="" width="47" height="37" border="0"></a></p></td>
+			<td style="width: 5%; padding-right: 10px; padding-left: 5px; 
+				 border-right-color: #000000;">
+   <p style="text-align: center;"><a 
+			 href="About.chm::/What_is_Vijeo-Designer.htm" title="Home"><img src="logo_home.bmp" alt="Home" title="Home" style="border: none; 
+			 margin-left: 0px; margin-right: 0px; margin-bottom: 0px; margin-top: -2px;" width="47" height="37" border="0"></a></p></td>
+		</tr>
+	</table>
+</div>
+
+<h2>7.3.4 Blink Feature</h2>
+<p>There are two types of blink:</p>
+<ul>
+<li class="p-Bullet">
+<p class="Bullet">Hardware blink. This type of blink occurs when an object's color values have been set to blink using the TargetColor setting in the target properties. Hardware blink has four settings—fast, medium, slow, or none. For more information on the target machine colors that support blink, see Appendix 5.1.2, <a href="Appendix.chm::/Target_Color.htm">Target Color</a>. This section describes hardware blink.</p>
+</li>
+<li class="p-Bullet">
+<p class="Bullet">Animation blink. This type of blink occurs when the software determines a particular condition has been met. All target machines support animation blink. Animation blink has three settings—fast, slow, or none. You can set up animation blink in the Visibility tab for objects such as lamps, switches, meters, and message displays. For more information on how to set up animation blink, read the online help for the object's Visibility tab.</p>
+</li>
+</ul>
+<p>The hardware blink feature is often used to indicate warnings or alarms. For target machines that support the blink feature, you can set the following color properties for an object to blink:</p>
+<table style="vertical-align: top; margin-left: 40px;" cellspacing="0" width="50%">
+<col style="width: 50%;">
+<col style="width: 50%;">
+<tr style="vertical-align: top;">
+<td style="border-top: Solid 4px #000000; border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 50%; padding-right: 10px; padding-left: 10px;" bgcolor="#91AFD9">
+<p class="Tabletitle">Color Property</p>
+</td>
+<td style="border-top: Solid 4px #000000; border-bottom: Solid 1px #000000; width: 50%; padding-right: 10px; padding-left: 10px;" bgcolor="#91AFD9">
+<p class="Tabletitle">Associated Blink Property</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 50%; padding-right: 10px; padding-left: 10px;">
+<p class="TableDefinitions">Fore Color</p>
+</td>
+<td style="border-bottom: Solid 1px #000000; width: 50%; padding-right: 10px; padding-left: 10px;">
+<p class="TableDefinitions">HW Fore Blink</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 50%; padding-right: 10px; padding-left: 10px;">
+<p class="TableDefinitions">Back Color</p>
+</td>
+<td style="border-bottom: Solid 1px #000000; width: 50%; padding-right: 10px; padding-left: 10px;">
+<p class="TableDefinitions">HW Back Blink</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 4px #000000; width: 50%; padding-right: 10px; padding-left: 10px;">
+<p class="TableDefinitions">Line Color</p>
+</td>
+<td style="border-bottom: Solid 4px #000000; width: 50%; padding-right: 10px; padding-left: 10px;">
+<p class="TableDefinitions">HW Line Blink</p>
+</td>
+</tr>
+</table>
+<p>&#160;</p>
+<p class="NoteImage"><img src="limit.bmp" style="border: none;" alt="" width="77" height="24" border="0"></p>
+<ul>
+<li class="p-NoteText">
+<p class="NoteText">Some target machines support different blink speeds, see Appendix 5.1.2, <a href="Appendix.chm::/Target_Color.htm">Target Color</a>, for your target machine's supported blink speeds.</p>
+</li>
+<li class="p-NoteText">
+<p class="NoteText">You cannot set up the blink feature for images.</p>
+</li>
+<li class="p-NoteText">
+<p class="NoteText">For more details on how hardware blink and animation blink operate during simulation, see Section 25.3, <a href="Download.chm::/Simulate.htm">Simulating Runtime Operations</a>.</p>
+</li>
+</ul>
+<p style="margin-left: 0px; color: #000000;">&#160;</p>
+</body>
+</html>

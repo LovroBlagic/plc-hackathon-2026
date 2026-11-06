@@ -1,0 +1,573 @@
+<html>
+<!-- Sitemap 1.0 -->
+<object type="text/site properties">
+  <param name="SiteType" value="toc">
+  <param name="Image Width" value="16">
+  <param name="Window Styles" value="0x800027">
+  <param name="ExWindow Styles" value="0x100">
+</object>
+<ul>
+  <li><object type="text/sitemap">
+    <param name="Name" value="6.1 About Variables and Device Addresses">
+    <param name="Local" value="About_Variables_and_Device_Addresses.htm">
+  </object>
+  <ul>
+    <li><object type="text/sitemap">
+      <param name="Name" value="6.1.1 Variables">
+      <param name="Local" value="About_Variables_and_Device_Addresses.htm#variables642b3b9347ca42c9b00b820c00c373fa=1">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="6.1.2 Variables and Data Types">
+      <param name="Local" value="About_Variables_and_Device_Addresses.htm#data_types642b3b9347ca42c9b00b820c00c373fa=2">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="6.1.3 Variables and Device Addresses">
+      <param name="Local" value="About_Variables_and_Device_Addresses.htm#6-1-2var_and_device_address642b3b9347ca42c9b00b820c00c373fa=3">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="6.1.4 Source: Internal Versus External">
+      <param name="Local" value="About_Variables_and_Device_Addresses.htm#6_1_3IntVsExt642b3b9347ca42c9b00b820c00c373fa=4">
+    </object>
+    </ul>
+  <li><object type="text/sitemap">
+    <param name="Name" value="6.2 Setting Up Variables">
+    <param name="Local" value="var_type.htm">
+  </object>
+  <ul>
+    <li><object type="text/sitemap">
+      <param name="Name" value="6.2.1 Variable Types">
+      <param name="Local" value="var_type.htm#VAR_Types642b3b9347ca42c9b00b820c00c373fa=1">
+    </object>
+    <ul>
+      <li><object type="text/sitemap">
+        <param name="Name" value="6.2.1.1 Basic Variable Types">
+        <param name="Local" value="var_type.htm#Basic_Var_Types642b3b9347ca42c9b00b820c00c373fa=2">
+      </object>
+      <li><object type="text/sitemap">
+        <param name="Name" value="6.2.1.2 User Data Types and Folders">
+        <param name="Local" value="User_Data_Types.htm">
+      </object>
+      <li><object type="text/sitemap">
+        <param name="Name" value="6.2.1.3 Block Variable Types">
+        <param name="Local" value="Block_Variable_Types.htm">
+      </object>
+      </ul>
+    <li><object type="text/sitemap">
+      <param name="Name" value="6.2.2 Creating Variables">
+      <param name="Local" value="create_variables.htm">
+    </object>
+    <ul>
+      <li><object type="text/sitemap">
+        <param name="Name" value="6.2.2.1 Creating Variables in the New Variable Dialog Box">
+        <param name="Local" value="create_variables.htm#3-1642b3b9347ca42c9b00b820c00c373fa=1">
+      </object>
+      <li><object type="text/sitemap">
+        <param name="Name" value="6.2.2.2 Creating Variables in Variable or Expression Fields">
+        <param name="Local" value="create_variables.htm#6_2_2_3_Creating_Variables_in_Variable_or_Expression_Fields642b3b9347ca42c9b00b820c00c373fa=2">
+      </object>
+      <li><object type="text/sitemap">
+        <param name="Name" value="6.2.2.3 Validating Your Variables">
+        <param name="Local" value="create_variables.htm#6_2_2_4_Validiating_Your_Variables642b3b9347ca42c9b00b820c00c373fa=3">
+      </object>
+      </ul>
+    <li><object type="text/sitemap">
+      <param name="Name" value="6.2.3 Variable Properties">
+      <param name="Local" value="var_property.htm">
+    </object>
+    <ul>
+      <li><object type="text/sitemap">
+        <param name="Name" value="6.2.3.1 Basic Properties Tab">
+        <param name="Local" value="var_property.htm#Variable_Properties642b3b9347ca42c9b00b820c00c373fa=1">
+      </object>
+      <li><object type="text/sitemap">
+        <param name="Name" value="6.2.3.2 Data Details Tab">
+        <param name="Local" value="Data_Details_Tab.htm">
+      </object>
+      <li><object type="text/sitemap">
+        <param name="Name" value="6.2.3.3 Integer I/O Settings Tab">
+        <param name="Local" value="Integer_I_O_Settings.htm">
+      </object>
+      <li><object type="text/sitemap">
+        <param name="Name" value="6.2.3.4 Data Scaling Tab">
+        <param name="Local" value="Data_Scaling_Tab.htm">
+      </object>
+      <li><object type="text/sitemap">
+        <param name="Name" value="6.2.3.5 Alarm Tab">
+        <param name="Local" value="Alarm_Tab.htm">
+      </object>
+      </ul>
+    <li><object type="text/sitemap">
+      <param name="Name" value="6.2.4 Creating User Data Types">
+      <param name="Local" value="Creating_User_Data_Types.htm">
+    </object>
+    <ul>
+      <li><object type="text/sitemap">
+        <param name="Name" value="6.2.4.1 Opening the User Data Types Dialog Box">
+        <param name="Local" value="Creating_User_Data_Types.htm#open_UDT_dialog642b3b9347ca42c9b00b820c00c373fa=1">
+      </object>
+      <li><object type="text/sitemap">
+        <param name="Name" value="6.2.4.2 Creating Structure Data Types">
+        <param name="Local" value="Creating_Structure_Data_Types.htm">
+      </object>
+      <li><object type="text/sitemap">
+        <param name="Name" value="6.2.4.3 Creating Array Data Types">
+        <param name="Local" value="Creating_Array_Data_Types.htm">
+      </object>
+      <li><object type="text/sitemap">
+        <param name="Name" value="6.2.4.4 Deleting User Data Types">
+        <param name="Local" value="Deleting_User_Data_Types.htm">
+      </object>
+      <li><object type="text/sitemap">
+        <param name="Name" value="6.2.4.5 Importing and Exporting User Data Types">
+        <param name="Local" value="Importing_and_Exporting_User_Data_Types.htm">
+      </object>
+      </ul>
+    </ul>
+  <li><object type="text/sitemap">
+    <param name="Name" value="6.3 Connecting to Equipment">
+    <param name="Local" value="connect_to_external_device.htm">
+  </object>
+  <ul>
+    <li><object type="text/sitemap">
+      <param name="Name" value="6.3.1 Creating Device Addresses">
+      <param name="Local" value="connect_to_external_device.htm#CreatingDeviceAddresses642b3b9347ca42c9b00b820c00c373fa=1">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="6.3.2 Dividing Variables into Scan Groups">
+    </object>
+    <ul>
+      <li><object type="text/sitemap">
+        <param name="Name" value="6.3.2.1 What is a Scan Group?">
+        <param name="Local" value="Scan_group_setting.htm#6_3_2_1_What_is_a_Scan_Group_">
+      </object>
+      <li><object type="text/sitemap">
+        <param name="Name" value="6.3.2.2 Setting up Multiple Scan Groups">
+        <param name="Local" value="Scan_group_setting.htm#6_3_2_2_Setting_up_Multiple_Scan_Groups642b3b9347ca42c9b00b820c00c373fa=1">
+      </object>
+      <li><object type="text/sitemap">
+        <param name="Name" value="6.3.2.3 Adding Scan Groups">
+        <param name="Local" value="Scan_group_setting.htm#6_3_2_3_Adding_Scan_Groups642b3b9347ca42c9b00b820c00c373fa=2">
+      </object>
+      <li><object type="text/sitemap">
+        <param name="Name" value="6.3.2.4 Deleting Scan Groups">
+        <param name="Local" value="Scan_group_setting.htm#6_3_2_4_Deleting_Scan_Groups642b3b9347ca42c9b00b820c00c373fa=3">
+      </object>
+      </ul>
+    <li><object type="text/sitemap">
+      <param name="Name" value="6.3.3 Dynamically Referencing Device Addresses">
+      <param name="Local" value="Dynamically_Referencing_Device_Addresses.htm">
+    </object>
+    <ul>
+      <li><object type="text/sitemap">
+        <param name="Name" value="6.3.3.1 Setting Up an Indirect Address">
+        <param name="Local" value="Setting_Up_Indirect_Address.htm">
+      </object>
+      <li><object type="text/sitemap">
+        <param name="Name" value="6.3.3.2 Indirect Address Example">
+        <param name="Local" value="Indirect_Address_Example.htm">
+      </object>
+      </ul>
+    <li><object type="text/sitemap">
+      <param name="Name" value="6.3.4 Importing Aliases, Symbols, and Variables From Equipment Configuration Software">
+      <param name="Local" value="Symbols_Variables_Config_SW.htm">
+    </object>
+    <ul>
+      <li><object type="text/sitemap">
+        <param name="Name" value="6.3.4.1 Adding Symbols to the Variable List">
+        <param name="Local" value="adding_Symbols.htm">
+      </object>
+      <ul>
+        <li><object type="text/sitemap">
+          <param name="Name" value="Linking the Equipment's PLC Symbol File">
+          <param name="Local" value="Linking_the_Equipments_s_PLC_Symbol_File.htm">
+        </object>
+        <li><object type="text/sitemap">
+          <param name="Name" value="Adding Symbols to the Variable List">
+          <param name="Local" value="Adding_Symbols_to_the_Variable_List.htm">
+        </object>
+        </ul>
+      <li><object type="text/sitemap">
+        <param name="Name" value="6.3.4.2 Data Type Import Rules">
+        <param name="Local" value="Data_Type_Conversions.htm">
+      </object>
+      <ul>
+        <li><object type="text/sitemap">
+          <param name="Name" value="Concept">
+          <param name="Local" value="Concept.htm">
+        </object>
+        <li><object type="text/sitemap">
+          <param name="Name" value="EPAS-4 (ELAU)">
+          <param name="Local" value="EPAS.htm">
+        </object>
+        <li><object type="text/sitemap">
+          <param name="Name" value="ModSoft">
+          <param name="Local" value="ModSoft.htm">
+        </object>
+        <li><object type="text/sitemap">
+          <param name="Name" value="PL7">
+          <param name="Local" value="PL7.htm">
+        </object>
+        <li><object type="text/sitemap">
+          <param name="Name" value="ProWORX Plus">
+          <param name="Local" value="ProWORX_Plus.htm">
+        </object>
+        <li><object type="text/sitemap">
+          <param name="Name" value="RSLogix5000 (L5K)">
+          <param name="Local" value="Rockwell.htm">
+        </object>
+        <li><object type="text/sitemap">
+          <param name="Name" value="Siemens">
+          <param name="Local" value="Siemens.htm">
+        </object>
+        <li><object type="text/sitemap">
+          <param name="Name" value="Twido Soft">
+          <param name="Local" value="Twido_Soft.htm">
+        </object>
+        <li><object type="text/sitemap">
+          <param name="Name" value="Twido Suite">
+          <param name="Local" value="Twido_Suite.htm">
+        </object>
+        <li><object type="text/sitemap">
+          <param name="Name" value="Unity Pro">
+          <param name="Local" value="Unity_Pro.htm">
+        </object>
+        <li><object type="text/sitemap">
+          <param name="Name" value="SoMachine Basic">
+          <param name="Local" value="SoMachine_Basic.htm">
+        </object>
+        <li><object type="text/sitemap">
+          <param name="Name" value="SoMachine Motion">
+          <param name="Local" value="SoMachine_Motion.htm">
+        </object>
+        </ul>
+      <li><object type="text/sitemap">
+        <param name="Name" value="6.3.4.3 Updating Linked Variables">
+        <param name="Local" value="Symbols_Update_Variables_Config_SW.htm">
+      </object>
+      </ul>
+    </ul>
+  <li><object type="text/sitemap">
+    <param name="Name" value="6.4 Creating Internal Variables">
+    <param name="Local" value="use_internal_variable.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="6.5 Selecting, Copying, Deleting, and Editing Variables">
+    <param name="Local" value="var_copy.htm">
+  </object>
+  <ul>
+    <li><object type="text/sitemap">
+      <param name="Name" value="6.5.1 Selecting Variables">
+      <param name="Local" value="var_copy.htm#6_5_1_Selecting_Variables642b3b9347ca42c9b00b820c00c373fa=1">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="6.5.2 Copying Variables">
+      <param name="Local" value="var_copy.htm#6_5_2_Copying_Variables642b3b9347ca42c9b00b820c00c373fa=2">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="6.5.3 Making Multiple Copies of Variables">
+      <param name="Local" value="var_multiple_copy.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="6.5.4 Deleting Variables">
+      <param name="Local" value="var_multiple_copy.htm#6_5_4_Deleting_Variables642b3b9347ca42c9b00b820c00c373fa=1">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="6.5.5 Editing Variables">
+      <param name="Local" value="var_multiple_copy.htm#6_5_5_Editing_Variables642b3b9347ca42c9b00b820c00c373fa=2">
+    </object>
+    </ul>
+  <li><object type="text/sitemap">
+    <param name="Name" value="6.6 Copying Variables Between Projects">
+    <param name="Local" value="csv_files.htm">
+  </object>
+  <ul>
+    <li><object type="text/sitemap">
+      <param name="Name" value="6.6.1 Exporting Variables">
+      <param name="Local" value="csv_files.htm#2-7-1642b3b9347ca42c9b00b820c00c373fa=1">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="6.6.2 Importing Variables">
+      <param name="Local" value="csv_files.htm#2-7-2642b3b9347ca42c9b00b820c00c373fa=2">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="6.6.3 Editing .CSV and .TXT Files">
+      <param name="Local" value="edit_csv_files.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="6.6.4 Editing XML Variable Files">
+      <param name="Local" value="Editing_XML_Variable_Files.htm">
+    </object>
+    </ul>
+  <li><object type="text/sitemap">
+    <param name="Name" value="6.7 System Variables">
+    <param name="Local" value="system_var.htm">
+  </object>
+  <ul>
+    <li><object type="text/sitemap">
+      <param name="Name" value="6.7.1 System Variable List">
+    </object>
+    <ul>
+      <li><object type="text/sitemap">
+        <param name="Name" value="_AirPlus">
+        <param name="Local" value="_AirPlus.htm">
+      </object>
+      <ul>
+        <li><object type="text/sitemap">
+          <param name="Name" value="_AirPlus.Connections">
+          <param name="Local" value="_AirPlusConnections.htm">
+        </object>
+        <li><object type="text/sitemap">
+          <param name="Name" value="_AirPlus.DisableConnections">
+          <param name="Local" value="_AirPlusDisableConnections.htm">
+        </object>
+        </ul>
+      <li><object type="text/sitemap">
+        <param name="Name" value="_BackLight">
+        <param name="Local" value="systemVariable_backLight.htm">
+      </object>
+      <ul>
+        <li><object type="text/sitemap">
+          <param name="Name" value="_BackLight.Control">
+          <param name="Local" value="_BackLightControl.htm">
+        </object>
+        <li><object type="text/sitemap">
+          <param name="Name" value="_BackLight.Status">
+          <param name="Local" value="_BackLightStatus.htm">
+        </object>
+        </ul>
+      <li><object type="text/sitemap">
+        <param name="Name" value="_Brightness">
+        <param name="Local" value="Brightness.htm">
+      </object>
+      <li><object type="text/sitemap">
+        <param name="Name" value="_Contrast">
+        <param name="Local" value="Contrast.htm">
+      </object>
+      <li><object type="text/sitemap">
+        <param name="Name" value="_ControllerLockout">
+        <param name="Local" value="systemVariable_controllerLockout.htm">
+      </object>
+      <li><object type="text/sitemap">
+        <param name="Name" value="_ControllerStatus">
+        <param name="Local" value="ControllerStatus.htm">
+      </object>
+      <li><object type="text/sitemap">
+        <param name="Name" value="_CurPanelID">
+        <param name="Local" value="CurPanelID.htm">
+      </object>
+      <li><object type="text/sitemap">
+        <param name="Name" value="_Day">
+        <param name="Local" value="Day.htm">
+      </object>
+      <li><object type="text/sitemap">
+        <param name="Name" value="_DayoftheWeek">
+        <param name="Local" value="DayoftheWeek.htm">
+      </object>
+      <li><object type="text/sitemap">
+        <param name="Name" value="_DIOPort.DOut0">
+        <param name="Local" value="DIOPortDOut.htm">
+      </object>
+      <li><object type="text/sitemap">
+        <param name="Name" value="_FileTransferStatus">
+        <param name="Local" value="FileTransferStatus.htm">
+      </object>
+      <li><object type="text/sitemap">
+        <param name="Name" value="_Hour">
+        <param name="Local" value="Hour.htm">
+      </object>
+      <li><object type="text/sitemap">
+        <param name="Name" value="_InputStatus">
+        <param name="Local" value="InputStatus.htm">
+      </object>
+      <li><object type="text/sitemap">
+        <param name="Name" value="_LastErrorString">
+        <param name="Local" value="LastErrorString.htm">
+      </object>
+      <li><object type="text/sitemap">
+        <param name="Name" value="_Maintenance">
+        <param name="Local" value="Maintenance.htm">
+      </object>
+      <li><object type="text/sitemap">
+        <param name="Name" value="_Minutes">
+        <param name="Local" value="Minutes.htm">
+      </object>
+      <li><object type="text/sitemap">
+        <param name="Name" value="_Month">
+        <param name="Local" value="Month.htm">
+      </object>
+      <li><object type="text/sitemap">
+        <param name="Name" value="_RemoteViewer.Connections">
+        <param name="Local" value="RemoteViewerConnections.htm">
+      </object>
+      <li><object type="text/sitemap">
+        <param name="Name" value="_RemoteViewer.DisableConnections">
+        <param name="Local" value="RemoteViewerDisableConnections.htm">
+      </object>
+      <li><object type="text/sitemap">
+        <param name="Name" value="_Seconds">
+        <param name="Local" value="Seconds.htm">
+      </object>
+      <li><object type="text/sitemap">
+        <param name="Name" value="_SystemLanguage">
+        <param name="Local" value="SystemLanguage.htm">
+      </object>
+      <li><object type="text/sitemap">
+        <param name="Name" value="_TimeZoneOffset">
+        <param name="Local" value="TimeZoneOffset.htm">
+      </object>
+      <li><object type="text/sitemap">
+        <param name="Name" value="_TouchField">
+        <param name="Local" value="TouchField.htm">
+      </object>
+      <li><object type="text/sitemap">
+        <param name="Name" value="_UserApplicationLanguage">
+        <param name="Local" value="UserApplicationLanguage.htm">
+      </object>
+      <li><object type="text/sitemap">
+        <param name="Name" value="_UserLevel">
+        <param name="Local" value="UserLevel.htm">
+      </object>
+      <li><object type="text/sitemap">
+        <param name="Name" value="_UserName">
+        <param name="Local" value="UserName.htm">
+      </object>
+      <li><object type="text/sitemap">
+        <param name="Name" value="_Year2">
+        <param name="Local" value="Year2.htm">
+      </object>
+      <li><object type="text/sitemap">
+        <param name="Name" value="_Year4">
+        <param name="Local" value="Year4.htm">
+      </object>
+      <li><object type="text/sitemap">
+        <param name="Name" value="_IPAddressStatus and _IPAddress2Status">
+        <param name="Local" value="_IPAddressStatus.htm">
+      </object>
+      </ul>
+    <li><object type="text/sitemap">
+      <param name="Name" value="6.7.2 Using Date and Time System Variables">
+      <param name="Local" value="Using_Data_and_Time_System_Variables.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="6.7.3 Using System Variables on Connected Equipment">
+      <param name="Local" value="Using_System_Variables_on_Connected_Equipment.htm">
+    </object>
+    </ul>
+  <li><object type="text/sitemap">
+    <param name="Name" value="6.8 Array Variables">
+    <param name="Local" value="array_var.htm">
+  </object>
+  <ul>
+    <li><object type="text/sitemap">
+      <param name="Name" value="6.8.1 Creating Arrays">
+      <param name="Local" value="create_array_var.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="6.8.2 Setting Up Device Addresses in Arrays">
+      <param name="Local" value="set_up_array_var_device_address.htm">
+    </object>
+    </ul>
+  <li><object type="text/sitemap">
+    <param name="Name" value="6.9 Block Variables">
+    <param name="Local" value="Block_Variables.htm">
+  </object>
+  <ul>
+    <li><object type="text/sitemap">
+      <param name="Name" value="6.9.1 Creating Block Variables">
+      <param name="Local" value="Block_Variables_Creating.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="6.9.2 Changing Values in Block Variables">
+      <param name="Local" value="Block_Variables_Changing_Values.htm">
+    </object>
+    </ul>
+  <li><object type="text/sitemap">
+    <param name="Name" value="6.10 Retentive Variables">
+    <param name="Local" value="Retentive_Variables.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="6.11 Recipe Variables">
+    <param name="Local" value="Recipe_Variables.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="6.12 Structure Variables">
+    <param name="Local" value="Structure_Variables.htm">
+  </object>
+  <ul>
+    <li><object type="text/sitemap">
+      <param name="Name" value="6.12.1 Creating Structure Variables">
+      <param name="Local" value="Structure_Variables.htm#creating_structure_variables642b3b9347ca42c9b00b820c00c373fa=1">
+    </object>
+    </ul>
+  <li><object type="text/sitemap">
+    <param name="Name" value="6.13 Reference Variables">
+    <param name="Local" value="Reference_Variables.htm">
+  </object>
+  <ul>
+    <li><object type="text/sitemap">
+      <param name="Name" value="6.13.1 Examples of Reference Variable Use">
+      <param name="Local" value="Examples_Reference_Variables.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="6.13.2 Setting Up Reference Variables">
+      <param name="Local" value="Setting_Up_Reference_Variables.htm">
+    </object>
+    </ul>
+  <li><object type="text/sitemap">
+    <param name="Name" value="6.14 Assigning Variables Using Expressions">
+    <param name="Local" value="assigne_var_with_expression.htm">
+  </object>
+  <ul>
+    <li><object type="text/sitemap">
+      <param name="Name" value="6.14.1 What are Expressions?">
+      <param name="Local" value="assigne_var_with_expression.htm#6_9_1_What_are_Expressions_642b3b9347ca42c9b00b820c00c373fa=1">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="6.14.2 Entering Expressions">
+      <param name="Local" value="assigne_var_with_expression.htm#6_9_2_Entering_Expressions642b3b9347ca42c9b00b820c00c373fa=2">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="6.14.3 Rules for Expressions">
+      <param name="Local" value="assigne_var_with_expression.htm#6_9_3_Rules_for_Expressions642b3b9347ca42c9b00b820c00c373fa=3">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="6.14.4 Using Arrays in Expressions">
+      <param name="Local" value="assigne_var_with_expression.htm#6_9_4_Using_Arrays_in_Expressions642b3b9347ca42c9b00b820c00c373fa=4">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="6.14.5 Using Structure, Folder, and Recipe Variables in Expressions">
+      <param name="Local" value="assigne_var_with_expression.htm#6_10_5642b3b9347ca42c9b00b820c00c373fa=5">
+    </object>
+    </ul>
+  <li><object type="text/sitemap">
+    <param name="Name" value="6.15 Organizing the Variable Display">
+    <param name="Local" value="var_list.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="6.16 Filtering Variables">
+    <param name="Local" value="filter.htm">
+  </object>
+  <ul>
+    <li><object type="text/sitemap">
+      <param name="Name" value="6.16.1 Filtering Variables with Variable Editor Icons">
+      <param name="Local" value="filter.htm#icon642b3b9347ca42c9b00b820c00c373fa=1">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="6.16.2 Creating Filters">
+      <param name="Local" value="filter.htm#2-2642b3b9347ca42c9b00b820c00c373fa=2">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="6.16.3 Listing and Deleting Variables">
+      <param name="Local" value="filter.htm#2-3642b3b9347ca42c9b00b820c00c373fa=3">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="6.16.4 Editing Filters">
+      <param name="Local" value="filter.htm#2-4642b3b9347ca42c9b00b820c00c373fa=4">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="6.16.5 Conditional Expressions Used in Filters">
+      <param name="Local" value="filter_condition.htm">
+    </object>
+    </ul>
+</ul>
+</html>

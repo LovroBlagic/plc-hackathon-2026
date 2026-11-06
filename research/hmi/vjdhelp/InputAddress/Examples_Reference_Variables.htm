@@ -1,0 +1,485 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+<meta name="template" content="Vijeo_template.htt">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+ <meta name="generator" content="Adobe RoboHelp 2015">
+<title>Examples of Reference Variable Use</title>
+<link rel="StyleSheet" href="Tis-styl.css" type="text/css">
+</head>
+<body>
+<script type="text/javascript" src="ehlpdhtm.js" language="JavaScript1.2"></script>
+
+<div style="width: 100%; position: relative;" id="header">
+	<table style="background-attachment: scroll; margin-left: 0px; margin-right: 4px; 
+			 background-image: url(top_banner.bmp); background-repeat: Repeat-X; 
+			 line-height: 0pt; vertical-align: top;" cellspacing="0" background="top_banner.bmp" 
+			 width="100%">
+		<col style="width: 90%;">
+		<col style="width: 5%;">
+		<col style="width: 5%;">
+		<tr style="vertical-align: center; height: 39px;">
+			<td style="width: 90%; padding-right: 10px; padding-left: 10px; 
+				 border-right-color: #000000;">
+   <p><img src="logo.bmp" alt="" style="border: none;" width="37" height="37" border="0"></p></td>
+			<td style="width: 5%; padding-right: 0px; padding-left: 10px; 
+				 border-right-color: #000000;">
+   <p style="text-align: center;"><a 
+			 title="Glossary" href="Appendix.chm::/Glossary.htm"><img src="logo_glossary.bmp" alt="" style="border: none;" width="47" height="37" border="0"></a></p></td>
+			<td style="width: 5%; padding-right: 10px; padding-left: 5px; 
+				 border-right-color: #000000;">
+   <p style="text-align: center;"><a 
+			 href="About.chm::/What_is_Vijeo-Designer.htm" title="Home"><img src="logo_home.bmp" alt="Home" title="Home" style="border: none; 
+			 margin-left: 0px; margin-right: 0px; margin-bottom: 0px; margin-top: -2px;" width="47" height="37" border="0"></a></p></td>
+		</tr>
+	</table>
+</div>
+
+
+<h2>6.13.1 Examples of Reference Variable Use</h2>
+<p>This section describes how to set up reference variables with parameter variables, and describes how the parameter variable's value can be changed by the panel operator at runtime in order to change the variable the reference variable is pointing to. Using examples, this section describes how to use a reference variable:</p>
+<ul>
+<li class="p-Bullet">
+<p class="Bullet"><a href="#Reference_Variables_with_a_Single_Parameter_Variable">With one parameter variable</a></p>
+</li>
+<li class="p-Bullet">
+<p class="Bullet"><a href="#Reference_Variables_with_Multiple_Parameter_Variables">With multiple parameter variables</a></p>
+</li>
+<li class="p-Bullet">
+<p class="Bullet"><a href="#Reference_Variables_in_Master_Panel">In master panel objects</a>.</p>
+</li>
+</ul>
+<h4><a name="Reference_Variables_with_a_Single_Parameter_Variable" id="Reference_Variables_with_a_Single_Parameter_Variable"></a><img src="square.bmp" alt="" style="border: none;" width="12" height="10" border="0"> Reference Variables with a Single Parameter Variable</h4>
+<p>In this example, the panel operator needs to monitor and control the compressors located in five stations. Using the reference variable feature, only one panel needs to be set up to display the set of data for the compressor at each station. The following table below shows the variables that you want to reference depending on the station at the plant you choose. The reference variables for each attribute (RefCaseP and RefDiscP) point to the target variable. When the station number changes, the values for each variable assigned to each attribute dynamically change.</p>
+<table style="vertical-align: top;" cellspacing="0" width="71.938%">
+<col style="width: 25.254%;">
+<col style="width: 25.254%;">
+<col style="width: 24.746%;">
+<col style="width: 24.746%;">
+<tr style="vertical-align: top; height: 23px;">
+<td rowspan="2" style="border: Solid 1px #000000; width: 25.254%; vertical-align: center;">
+<p style="text-align: center; font-size: 8pt; font-weight: bold;">Reference Variable</p>
+</td>
+<td style="border-top: Solid 1px #000000; border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 25.254%;">
+<p style="font-weight: bold; font-size: 8pt; text-align: center;"><span style="font-weight: bold; font-size: 8pt;">Parameter Variable Values</span></p>
+</td>
+<td rowspan="2" style="border-top: Solid 1px #000000; border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 24.746%; padding-right: 10px; padding-left: 10px; vertical-align: center;">
+<p style="font-weight: bold; font-size: 8pt; text-align: center;">Variable Name</p>
+</td>
+<td rowspan="2" style="border-top: Solid 1px #000000; border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 24.746%; padding-right: 10px; padding-left: 10px; vertical-align: center;">
+<p style="font-weight: bold; font-size: 8pt; text-align: center;">Variable Values</p>
+</td>
+</tr>
+<tr style="vertical-align: top; height: 18px;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 25.254%; padding-right: 10px; padding-left: 10px;">
+<p style="font-weight: bold; font-size: 8pt; text-align: center;">Station No.</p>
+</td>
+</tr>
+<tr style="vertical-align: top; height: 18px;">
+<td rowspan="5" style="border-left: Solid 1px #000000; border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 25.254%; padding-right: 10px; padding-left: 10px;">
+<p style="font-size: 8pt; text-align: center;">RefCaseP</p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 25.254%; padding-right: 10px; padding-left: 10px;">
+<p style="font-size: 8pt; text-align: center;">1</p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 24.746%; padding-right: 10px; padding-left: 10px;">
+<p style="font-size: 8pt; text-align: center;">CaseP1</p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 24.746%; padding-right: 10px; padding-left: 10px;">
+<p style="font-size: 8pt; text-align: center;">100</p>
+</td>
+</tr>
+<tr style="vertical-align: top; height: 18px;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 25.254%; padding-right: 10px; padding-left: 10px;">
+<p style="font-size: 8pt; text-align: center;">2</p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 24.746%; padding-right: 10px; padding-left: 10px;">
+<p style="font-size: 8pt; text-align: center;">CaseP2</p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 24.746%; padding-right: 10px; padding-left: 10px;">
+<p style="font-size: 8pt; text-align: center;">200</p>
+</td>
+</tr>
+<tr style="vertical-align: top; height: 18px;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 25.254%; padding-right: 10px; padding-left: 10px;">
+<p style="font-size: 8pt; text-align: center;">3</p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 24.746%; padding-right: 10px; padding-left: 10px;">
+<p style="font-size: 8pt; text-align: center;">CaseP3</p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 24.746%; padding-right: 10px; padding-left: 10px;">
+<p style="font-size: 8pt; text-align: center;">300</p>
+</td>
+</tr>
+<tr style="vertical-align: top; height: 18px;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 25.254%; padding-right: 10px; padding-left: 10px;">
+<p style="font-size: 8pt; text-align: center;">4</p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 24.746%; padding-right: 10px; padding-left: 10px;">
+<p style="font-size: 8pt; text-align: center;">CaseP4</p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 24.746%; padding-right: 10px; padding-left: 10px;">
+<p style="text-align: center; font-size: 8pt;">400</p>
+</td>
+</tr>
+<tr style="vertical-align: top; height: 18px;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 25.254%; padding-right: 10px; padding-left: 10px;">
+<p style="font-size: 8pt; text-align: center;">5</p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 24.746%; padding-right: 10px; padding-left: 10px;">
+<p style="font-size: 8pt; text-align: center;">CaseP5</p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 24.746%; padding-right: 10px; padding-left: 10px;">
+<p style="font-size: 8pt; text-align: center;">500</p>
+</td>
+</tr>
+<tr style="vertical-align: top; height: 18px;">
+<td rowspan="5" style="border-left: Solid 1px #000000; border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 25.254%; padding-right: 10px; padding-left: 10px;">
+<p style="font-size: 8pt; text-align: center;">RefDiscP</p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 25.254%; padding-right: 10px; padding-left: 10px;">
+<p style="font-size: 8pt; text-align: center;">1</p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 24.746%; padding-right: 10px; padding-left: 10px;">
+<p style="font-size: 8pt; text-align: center;">DiscP1</p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 24.746%; padding-right: 10px; padding-left: 10px;">
+<p style="font-size: 8pt; text-align: center;">1</p>
+</td>
+</tr>
+<tr style="vertical-align: top; height: 18px;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 25.254%; padding-right: 10px; padding-left: 10px;">
+<p style="font-size: 8pt; text-align: center;">2</p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 24.746%; padding-right: 10px; padding-left: 10px;">
+<p style="font-size: 8pt; text-align: center;">DiscP2</p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 24.746%; padding-right: 10px; padding-left: 10px;">
+<p style="font-size: 8pt; text-align: center;">2</p>
+</td>
+</tr>
+<tr style="vertical-align: top; height: 18px;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 25.254%; padding-right: 10px; padding-left: 10px;">
+<p style="font-size: 8pt; text-align: center;">3</p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 24.746%; padding-right: 10px; padding-left: 10px;">
+<p style="font-size: 8pt; text-align: center;">DiscP3</p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 24.746%; padding-right: 10px; padding-left: 10px;">
+<p style="font-size: 8pt; text-align: center;">3</p>
+</td>
+</tr>
+<tr style="vertical-align: top; height: 18px;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 25.254%; padding-right: 10px; padding-left: 10px;">
+<p style="font-size: 8pt; text-align: center;">4</p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 24.746%; padding-right: 10px; padding-left: 10px;">
+<p style="font-size: 8pt; text-align: center;">DiscP4</p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 24.746%; padding-right: 10px; padding-left: 10px;">
+<p style="font-size: 8pt; text-align: center;">4</p>
+</td>
+</tr>
+<tr style="vertical-align: top; height: 18px;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 25.254%; padding-right: 10px; padding-left: 10px;">
+<p style="font-size: 8pt; text-align: center;">5</p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 24.746%; padding-right: 10px; padding-left: 10px;">
+<p style="font-size: 8pt; text-align: center;">DiscP5</p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 24.746%; padding-right: 10px; padding-left: 10px;">
+<p style="font-size: 8pt; text-align: center;">5</p>
+</td>
+</tr>
+</table>
+<p style="font-weight: bold; font-size: 8pt;">&#160;</p>
+<p class="Image">At runtime, the set of data for each compressor located at five stations in the plant can be displayed without having to change panels, as shown in the image below. If the panel operator wants to view the set of data for the compressor at Station No. 2, simply change the station number from 1 to 2. The reference variables, RefCaseP and RefDiscP, reference to the values for the CaseP and DiscP variables, and the display updates to show these values.</p>
+<p class="Image"><img src="CompressorExample.bmp" alt="" style="border: none;" width="787" height="212" border="0"></p>
+<p style="margin-left: 0px;">&#160;</p>
+<p style="margin-left: 0px;">For information on how to set up reference variables with a single parameter variable using the above example, see Section 6.13.2, <a href="Setting_Up_Reference_Variables.htm#Single">Setting Up Reference Variables</a>.</p>
+<h4><a name="Reference_Variables_with_Multiple_Parameter_Variables" id="Reference_Variables_with_Multiple_Parameter_Variables"></a><img src="square.bmp" alt="" style="border: none;" width="12" height="10" border="0"> Reference Variables with Multiple Parameter Variables</h4>
+<p>In another example, the panel operator needs to monitor the compressors located in four stations at two plants. Again, only one panel needs to be set up. The following table shows the variables that you want to reference depending on the plant and station. The reference variables for each attribute (Case P and Disc P) point to the variables. When the plant name and station number change, the values for each variable assigned to each attribute dynamically change.</p>
+<table style="vertical-align: top;" cellspacing="0" width="72.346%">
+<col style="width: 15.347%;">
+<col style="width: 15.347%;">
+<col style="width: 15.347%;">
+<col style="width: 27.411%;">
+<col style="width: 26.546%;">
+<tr style="vertical-align: top; height: 25px;">
+<td rowspan="2" style="border: Solid 1px #000000; width: 15.347%; vertical-align: center;">
+<p style="text-align: center; font-size: 8pt; font-weight: bold;">Reference Variable</p>
+</td>
+<td colspan="2" style="border-top: Solid 1px #000000; border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 30.694%;">
+<p style="font-weight: bold; font-size: 8pt; text-align: center;"><span style="font-weight: bold; font-size: 8pt;">Parameter Variable Values</span></p>
+</td>
+<td rowspan="2" style="border-top: Solid 1px #000000; border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 27.411%; padding-right: 10px; padding-left: 10px; vertical-align: center;">
+<p style="font-weight: bold; font-size: 8pt; text-align: center;">Variable Name</p>
+</td>
+<td rowspan="2" style="border-top: Solid 1px #000000; border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 26.546%; padding-right: 10px; padding-left: 10px; vertical-align: center;">
+<p style="font-weight: bold; font-size: 8pt; text-align: center;">Variable Values</p>
+</td>
+</tr>
+<tr style="vertical-align: top; height: 18px;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 15.347%; padding-right: 10px; padding-left: 10px;">
+<p style="font-weight: bold; font-size: 8pt; text-align: center;">Plant Name</p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 15.347%; padding-right: 10px; padding-left: 10px;">
+<p style="font-weight: bold; font-size: 8pt; text-align: center;">Station No.</p>
+</td>
+</tr>
+<tr style="vertical-align: top; height: 18px;">
+<td rowspan="8" style="border-left: Solid 1px #000000; border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 15.347%; padding-right: 10px; padding-left: 10px;">
+<p style="font-size: 8pt; text-align: center;">ref_CaseP</p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 15.347%; padding-right: 10px; padding-left: 10px;">
+<p style="font-size: 8pt; text-align: center;">A</p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 15.347%; padding-right: 10px; padding-left: 10px;">
+<p style="font-size: 8pt; text-align: center;">1</p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 27.411%; padding-right: 10px; padding-left: 10px;">
+<p style="font-size: 8pt;">PlantA.Station1.CaseP</p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 26.546%; padding-right: 10px; padding-left: 10px;">
+<p style="text-align: center; font-size: 8pt; font-weight: normal;">111</p>
+</td>
+</tr>
+<tr style="vertical-align: top; height: 18px;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 15.347%; padding-right: 10px; padding-left: 10px;">
+<p style="font-size: 8pt; text-align: center;">A</p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 15.347%; padding-right: 10px; padding-left: 10px;">
+<p style="font-size: 8pt; text-align: center;">2</p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 27.411%; padding-right: 10px; padding-left: 10px;">
+<p style="font-size: 8pt;">PlantA.Station2.CaseP</p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 26.546%; padding-right: 10px; padding-left: 10px;">
+<p style="text-align: center; font-size: 8pt; font-weight: normal;">222</p>
+</td>
+</tr>
+<tr style="vertical-align: top; height: 18px;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 15.347%; padding-right: 10px; padding-left: 10px;">
+<p style="font-size: 8pt; text-align: center;">A</p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 15.347%; padding-right: 10px; padding-left: 10px;">
+<p style="font-size: 8pt; text-align: center;">3</p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 27.411%; padding-right: 10px; padding-left: 10px;">
+<p style="font-size: 8pt;">PlantA.Station3.CaseP</p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 26.546%; padding-right: 10px; padding-left: 10px;">
+<p style="text-align: center; font-size: 8pt; font-weight: normal;">333</p>
+</td>
+</tr>
+<tr style="vertical-align: top; height: 18px;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 15.347%; padding-right: 10px; padding-left: 10px;">
+<p style="font-size: 8pt; text-align: center;">A</p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 15.347%; padding-right: 10px; padding-left: 10px;">
+<p style="font-size: 8pt; text-align: center;">4</p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 27.411%; padding-right: 10px; padding-left: 10px;">
+<p style="font-size: 8pt;">PlantA.Station4.CaseP</p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 26.546%; padding-right: 10px; padding-left: 10px;">
+<p style="text-align: center; font-size: 8pt; font-weight: normal;">444</p>
+</td>
+</tr>
+<tr style="vertical-align: top; height: 18px;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 15.347%; padding-right: 10px; padding-left: 10px;">
+<p style="font-size: 8pt; text-align: center;">B</p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 15.347%; padding-right: 10px; padding-left: 10px;">
+<p style="font-size: 8pt; text-align: center;">1</p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 27.411%; padding-right: 10px; padding-left: 10px;">
+<p style="font-size: 8pt;">PlantB.Station1.CaseP</p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 26.546%; padding-right: 10px; padding-left: 10px;">
+<p style="text-align: center; font-size: 8pt; font-weight: normal;">1111</p>
+</td>
+</tr>
+<tr style="vertical-align: top; height: 18px;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 15.347%; padding-right: 10px; padding-left: 10px;">
+<p style="font-size: 8pt; text-align: center;">B</p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 15.347%; padding-right: 10px; padding-left: 10px;">
+<p style="font-size: 8pt; text-align: center;">2</p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 27.411%; padding-right: 10px; padding-left: 10px;">
+<p style="font-size: 8pt;">PlantB.Station2.CaseP</p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 26.546%; padding-right: 10px; padding-left: 10px;">
+<p style="text-align: center; font-size: 8pt; font-weight: normal;">2222</p>
+</td>
+</tr>
+<tr style="vertical-align: top; height: 18px;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 15.347%; padding-right: 10px; padding-left: 10px;">
+<p style="font-size: 8pt; text-align: center;">B</p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 15.347%; padding-right: 10px; padding-left: 10px;">
+<p style="font-size: 8pt; text-align: center;">3</p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 27.411%; padding-right: 10px; padding-left: 10px;">
+<p style="font-size: 8pt;">PlantB.Station3.CaseP</p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 26.546%; padding-right: 10px; padding-left: 10px;">
+<p style="text-align: center; font-size: 8pt; font-weight: normal;">3333</p>
+</td>
+</tr>
+<tr style="vertical-align: top; height: 18px;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 15.347%; padding-right: 10px; padding-left: 10px;">
+<p style="font-size: 8pt; text-align: center;">B</p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 15.347%; padding-right: 10px; padding-left: 10px;">
+<p style="font-size: 8pt; text-align: center;">4</p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 27.411%; padding-right: 10px; padding-left: 10px;">
+<p style="font-size: 8pt;">PlantB.Station4.CaseP</p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 26.546%; padding-right: 10px; padding-left: 10px;">
+<p style="text-align: center; font-size: 8pt; font-weight: normal;">4444</p>
+</td>
+</tr>
+<tr style="vertical-align: top; height: 18px;">
+<td rowspan="8" style="border-left: Solid 1px #000000; border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 15.347%; padding-right: 10px; padding-left: 10px;">
+<p style="font-size: 8pt; text-align: center;">ref_DiscP</p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 15.347%; padding-right: 10px; padding-left: 10px;">
+<p style="font-size: 8pt; text-align: center;">A</p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 15.347%; padding-right: 10px; padding-left: 10px;">
+<p style="font-size: 8pt; text-align: center;">1</p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 27.411%; padding-right: 10px; padding-left: 10px;">
+<p style="font-size: 8pt;">PlantA.Station1.DiscP</p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 26.546%; padding-right: 10px; padding-left: 10px;">
+<p style="text-align: center; font-size: 8pt; font-weight: normal;">1</p>
+</td>
+</tr>
+<tr style="vertical-align: top; height: 18px;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 15.347%; padding-right: 10px; padding-left: 10px;">
+<p style="font-size: 8pt; text-align: center;">A</p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 15.347%; padding-right: 10px; padding-left: 10px;">
+<p style="font-size: 8pt; text-align: center;">2</p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 27.411%; padding-right: 10px; padding-left: 10px;">
+<p style="font-size: 8pt;">PlantA.Station2.DiscP</p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 26.546%; padding-right: 10px; padding-left: 10px;">
+<p style="text-align: center; font-size: 8pt; font-weight: normal;">2</p>
+</td>
+</tr>
+<tr style="vertical-align: top; height: 18px;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 15.347%; padding-right: 10px; padding-left: 10px;">
+<p style="font-size: 8pt; text-align: center;">A</p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 15.347%; padding-right: 10px; padding-left: 10px;">
+<p style="font-size: 8pt; text-align: center;">3</p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 27.411%; padding-right: 10px; padding-left: 10px;">
+<p style="font-size: 8pt;">PlantA.Station3.DiscP</p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 26.546%; padding-right: 10px; padding-left: 10px;">
+<p style="text-align: center; font-size: 8pt; font-weight: normal;">3</p>
+</td>
+</tr>
+<tr style="vertical-align: top; height: 18px;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 15.347%; padding-right: 10px; padding-left: 10px;">
+<p style="font-size: 8pt; text-align: center;">A</p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 15.347%; padding-right: 10px; padding-left: 10px;">
+<p style="font-size: 8pt; text-align: center;">4</p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 27.411%; padding-right: 10px; padding-left: 10px;">
+<p style="font-size: 8pt;">PlantA.Station4.DiscP</p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 26.546%; padding-right: 10px; padding-left: 10px;">
+<p style="text-align: center; font-size: 8pt; font-weight: normal;">4</p>
+</td>
+</tr>
+<tr style="vertical-align: top; height: 18px;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 15.347%; padding-right: 10px; padding-left: 10px;">
+<p style="font-size: 8pt; text-align: center;">B</p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 15.347%; padding-right: 10px; padding-left: 10px;">
+<p style="font-size: 8pt; text-align: center;">1</p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 27.411%; padding-right: 10px; padding-left: 10px;">
+<p style="font-size: 8pt;">PlantB.Station1.DiscP</p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 26.546%; padding-right: 10px; padding-left: 10px;">
+<p style="text-align: center; font-size: 8pt; font-weight: normal;">11</p>
+</td>
+</tr>
+<tr style="vertical-align: top; height: 18px;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 15.347%; padding-right: 10px; padding-left: 10px;">
+<p style="font-size: 8pt; text-align: center;">B</p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 15.347%; padding-right: 10px; padding-left: 10px;">
+<p style="font-size: 8pt; text-align: center;">2</p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 27.411%; padding-right: 10px; padding-left: 10px;">
+<p style="font-size: 8pt;">PlantB.Station2.DiscP</p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 26.546%; padding-right: 10px; padding-left: 10px;">
+<p style="text-align: center; font-size: 8pt; font-weight: normal;">22</p>
+</td>
+</tr>
+<tr style="vertical-align: top; height: 18px;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 15.347%; padding-right: 10px; padding-left: 10px;">
+<p style="font-size: 8pt; text-align: center;">B</p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 15.347%; padding-right: 10px; padding-left: 10px;">
+<p style="font-size: 8pt; text-align: center;">3</p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 27.411%; padding-right: 10px; padding-left: 10px;">
+<p style="font-size: 8pt;">PlantB.Station3.DiscP</p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 26.546%; padding-right: 10px; padding-left: 10px;">
+<p style="text-align: center; font-size: 8pt; font-weight: normal;">33</p>
+</td>
+</tr>
+<tr style="vertical-align: top; height: 18px;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 15.347%; padding-right: 10px; padding-left: 10px;">
+<p style="font-size: 8pt; text-align: center;">B</p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 15.347%; padding-right: 10px; padding-left: 10px;">
+<p style="font-size: 8pt; text-align: center;">4</p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 27.411%; padding-right: 10px; padding-left: 10px;">
+<p style="font-size: 8pt;">PlantB.Station4.DiscP</p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 26.546%; padding-right: 10px; padding-left: 10px;">
+<p style="text-align: center; font-size: 8pt; font-weight: normal;">44</p>
+</td>
+</tr>
+</table>
+<p>&#160;</p>
+<p class="Image">At runtime, the set of data for each compressor located in one of four stations in Plant A and Plant B can be displayed without having to change panels, as shown in the image below. If the panel operator is currently viewing the set of data for the compressor at Plant A, Station 2, but wants to view the set of data at Plant B, Station 4, simply click B to switch to Plant B and change the station number from 2 to 4.</p>
+<p class="Image"><img src="CompressorExample2.bmp" alt="" style="border: none;" width="801" height="235" border="0"></p>
+<p>&#160;</p>
+<p style="margin-left: 0px;">For information on how to set up reference variables with multiple parameter variables using the above example, see Section 6.13.2, <a href="Setting_Up_Reference_Variables.htm#Multiple">Setting Up Reference Variables</a>.</p>
+<h4><a name="Reference_Variables_in_Master_Panel" id="Reference_Variables_in_Master_Panel"></a><img src="square.bmp" alt="" style="border: none;" width="12" height="10" border="0"> Reference Variables in Master Panel Objects</h4>
+<p>You can set up a master panel of common objects that can be used for all base panels in a project. The following example shows how you can use a menu created in a master panel that is common to two different panels in a project. One panel displays the layout for Building 1 and the second panel displays the layout for Building 2. Using the menu, you can switch between viewing Building 1 and Building 2, select a zone in the building that you want to view or control, and view or change the temperature and lighting data.</p>
+<table style="vertical-align: top;" cellspacing="0" width="76.48%">
+<col style="width: 115.908%;">
+<tr style="vertical-align: top; height: 362px;">
+<td style="width: 115.908%; padding-right: 10px; padding-left: 10px;">
+<p><img src="MasterPanelEx1.bmp" alt="" style="border: none;" width="907" height="360" border="0"></p>
+</td>
+</tr>
+<tr style="vertical-align: top; height: 27px;">
+<td style="width: 115.908%; padding-right: 10px; padding-left: 10px;">
+<p style="color: #ff0000; font-size: 9pt; text-align: center;">Common Objects from the Master Panel</p>
+</td>
+</tr>
+</table>
+<p>&#160;</p>
+<p>For more information on master and base panels, see Section 4.7, <a href="StandardOperation.chm::/Open_the_panel.htm">Working with Graphical Panels</a>. For more information on how to set up objects that use reference variables, see Section 6.13.2, <a href="Setting_Up_Reference_Variables.htm">Setting Up Reference Variables</a>.</p>
+</body>
+</html>

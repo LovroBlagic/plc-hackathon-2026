@@ -1,0 +1,218 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+<meta name="template" content="Vijeo_template.htt">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="topic-status" content="In Progress">
+<meta name="topic-priority" content="0">
+<meta name="topic-time-estimate" content="0">
+<meta name="topic-comment" content="">
+<meta name="topic-id" content="Defining_Acces_Levels_for_Switches_and_Panels">
+<meta name="window-type" content="$global_NewWindow">
+ <meta name="generator" content="Adobe RoboHelp 10">
+<title>Defining Access Levels for Switches and Panels</title>
+<link rel="StyleSheet" href="Tis-styl.css" type="text/css">
+</head>
+<body>
+<script type="text/javascript" src="ehlpdhtm.js" language="JavaScript1.2"></script>
+
+<div style="width: 100%; position: relative;" id="header">
+	<table style="background-attachment: scroll; margin-left: 0px; margin-right: 4px; 
+			 background-image: url(top_banner.bmp); background-repeat: Repeat-X; 
+			 line-height: 0pt; vertical-align: top;" cellspacing="0" background="top_banner.bmp" 
+			 width="100%">
+		<col style="width: 90%;">
+		<col style="width: 5%;">
+		<col style="width: 5%;">
+		<tr style="vertical-align: center; height: 39px;">
+			<td style="width: 90%; padding-right: 10px; padding-left: 10px; 
+				 border-right-color: #000000;">
+   <p><img src="logo.bmp" alt="" style="border: none;" width="37" height="37" border="0"></p></td>
+			<td style="width: 5%; padding-right: 0px; padding-left: 10px; 
+				 border-right-color: #000000;">
+   <p style="text-align: center;"><a 
+			 title="Glossary" href="Appendix.chm::/Glossary.htm"><img src="logo_glossary.bmp" alt="" style="border: none;" width="47" height="37" border="0"></a></p></td>
+			<td style="width: 5%; padding-right: 10px; padding-left: 5px; 
+				 border-right-color: #000000;">
+   <p style="text-align: center;"><a 
+			 href="About.chm::/What_is_Vijeo-Designer.htm" title="Home"><img src="logo_home.bmp" alt="Home" style="border: none; margin-left: 0px; 
+			 margin-right: 0px; margin-bottom: 0px; margin-top: -2px;" width="47" height="37" border="0"></a></p></td>
+		</tr>
+	</table>
+</div>
+
+<h4>Defining Security Levels for Security Groups</h4>
+<p>Parts, panels, function keys, and popup windows can be assigned a security level value so only authorized security groups can access them. Vijeo-Designer provides two types of Security Modes: <a href="#Minimum_Security_Level">Level Based</a> and <a href="#Bit_Mask_Security_Level">Bitmask Based</a>.</p>
+<p>When a user logs onto a target, the user's security level value is stored in the system variable _UserLevel. For more information on system variables, see Section 6.7, <a href="InputAddress.chm::/system_var.htm">System Variables</a>.</p>
+<h4><img src="square.bmp" style="border: none;" alt="" width="12" height="10" border="0"> Defining Security Levels</h4>
+<p>Target Security must be enabled before you can define Security Levels for the security groups, see Section 4.8.7, <a href="Security_Settings.htm">Security Settings</a>.</p>
+<p>To define a security level value for a Security Group:</p>
+<ul>
+<li class="p-Bullet">
+<p class="Bullet">In the Security Editor, click the group's Security Level cell and type in a value.</p>
+</li>
+</ul>
+<p style="margin-left: 40px;"><img src="edit_security.bmp" style="border: none;" alt="" width="239" height="87" border="0"></p>
+<p style="margin-left: 40px;">&#160;</p>
+<h4><a name="Minimum_Security_Level" id="Minimum_Security_Level"></a><img src="square.bmp" style="border: none;" alt="" width="12" height="10" border="0"> Level Based Security</h4>
+<p>For Level Based Security, to access a secured Part, panel, function key, or popup window, the security group must have a security level value that is equal to or greater than the security level value assigned to the Part, panel, or popup window.</p>
+<p>The following scenario shows how Level Based security works. In this scenario, Security Mode is set to Level Based and a Switch is assigned with a security level of 10.</p>
+<p>The table below shows the security groups that can access the switch.</p>
+<table style="vertical-align: top; margin-left: 40px;" cellspacing="0" width="62.424%">
+<col style="width: 29.721%;">
+<col style="width: 28.984%;">
+<col style="width: 41.295%;">
+<tr style="vertical-align: top;">
+<td style="border-top: Solid 3px #000000; border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 29.721%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#91AFD9">
+<p class="Tabletitle" style="font-size: 11pt;">Security Group</p>
+</td>
+<td style="border-top: Solid 3px #000000; border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 28.984%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#91AFD9">
+<p class="Tabletitle" style="font-size: 11pt;">Security Level</p>
+</td>
+<td style="border-top: Solid 3px #000000; border-bottom: Solid 1px #000000; width: 41.295%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#91AFD9">
+<p class="Tabletitle" style="font-size: 11pt;">Access to Switch (Security Level = 10: Maintenance)</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 29.721%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p>Administrator</p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 28.984%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p>15</p>
+</td>
+<td style="border-bottom: Solid 1px #000000; width: 41.295%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p><img src="Check_small.bmp" style="border: none;" alt="" width="17" height="14" border="0"></p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 29.721%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p>Maintenance</p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 28.984%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p>10</p>
+</td>
+<td style="border-bottom: Solid 1px #000000; width: 41.295%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p><img src="Check_small.bmp" style="border: none;" alt="" width="17" height="14" border="0"></p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 3px #000000; width: 29.721%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p>Operator</p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 3px #000000; width: 28.984%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p>5</p>
+</td>
+<td style="border-bottom: Solid 3px #000000; width: 41.295%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p><img src="X_small.bmp" style="border: none;" alt="" width="19" height="14" border="0"></p>
+</td>
+</tr>
+</table>
+<p>&#160;</p>
+<h4><a name="Bit_Mask_Security_Level" id="Bit_Mask_Security_Level"></a><img src="square.bmp" style="border: none;" alt="" width="12" height="10" border="0"> Bitmask Based Security</h4>
+<p>For Bitmask Based Security, to determine if a security group has access to a secured Part, panel, function key, or popup window, Runtime performs a bitwise AND operation using the binary value of the security group's security level and the binary value of the secured object's security level. If the result of the bitwise AND operation is true, the security group has access to the secured object. If the result is false, the security group is denied access. For information about bitwise AND operations, see Section 18.3.5, <a href="scripts.chm::/Operators.htm#bitwise">Operators: Bit Operators</a>.</p>
+<p>The following scenario shows how Bitmask Based security works. The Security Mode is set to Bitmask Based and a Switch is assigned with a security level of <span style="font-weight: bold;">2</span> (binary value = <span style="font-weight: bold;">010</span>). The security groups have the following security levels and binary values:</p>
+<table style="vertical-align: top; margin-left: 40px;" cellspacing="0" width="62.424%">
+<col style="width: 29.721%;">
+<col style="width: 28.984%;">
+<col style="width: 41.295%;">
+<tr style="vertical-align: top;">
+<td style="border-top: Solid 3px #000000; border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 29.721%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#91AFD9">
+<p class="Tabletitle" style="font-size: 11pt;">Security Group</p>
+</td>
+<td style="border-top: Solid 3px #000000; border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 28.984%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#91AFD9">
+<p class="Tabletitle" style="font-size: 11pt;">Security Level</p>
+</td>
+<td style="border-top: Solid 3px #000000; border-bottom: Solid 1px #000000; width: 41.295%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#91AFD9">
+<p class="Tabletitle" style="font-size: 11pt;">Binary value</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 29.721%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p>Administrator</p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 28.984%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p>7</p>
+</td>
+<td style="border-bottom: Solid 1px #000000; width: 41.295%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p>111</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 29.721%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p>Maintenance</p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 28.984%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p>5</p>
+</td>
+<td style="border-bottom: Solid 1px #000000; width: 41.295%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p>101</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 3px #000000; width: 29.721%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p>Operator</p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 3px #000000; width: 28.984%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p>2</p>
+</td>
+<td style="border-bottom: Solid 3px #000000; width: 41.295%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p>010</p>
+</td>
+</tr>
+</table>
+<p>&#160;</p>
+<p>&#160;</p>
+<p>The results of the bitwise AND operations are:</p>
+<table style="vertical-align: top; margin-left: 40px;" cellspacing="0" width="62.424%">
+<col style="width: 29.721%;">
+<col style="width: 28.984%;">
+<col style="width: 41.295%;">
+<tr style="vertical-align: top;">
+<td style="border-top: Solid 3px #000000; border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 29.721%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#91AFD9">
+<p class="Tabletitle" style="font-size: 11pt;">Security Group</p>
+</td>
+<td style="border-top: Solid 3px #000000; border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 28.984%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#91AFD9">
+<p class="Tabletitle" style="font-size: 11pt;">Security Level</p>
+</td>
+<td style="border-top: Solid 3px #000000; border-bottom: Solid 1px #000000; width: 41.295%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#91AFD9">
+<p class="Tabletitle" style="font-size: 11pt;">Access to Switch (Security Level = 2:0perator)</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 29.721%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p>Administrator</p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 28.984%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p>111 &amp; 010 = 010</p>
+</td>
+<td style="border-bottom: Solid 1px #000000; width: 41.295%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p><img src="Check_small.bmp" style="border: none;" alt="" width="17" height="14" border="0"></p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 29.721%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p>Maintenance</p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 28.984%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p>101 &amp; 010 = 000</p>
+</td>
+<td style="border-bottom: Solid 1px #000000; width: 41.295%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p><img src="X_small.bmp" style="border: none;" alt="" width="19" height="14" border="0"></p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 3px #000000; width: 29.721%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p>Operator</p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 3px #000000; width: 28.984%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p>010 &amp; 010 = 010</p>
+</td>
+<td style="border-bottom: Solid 3px #000000; width: 41.295%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p><img src="Check_small.bmp" style="border: none;" alt="" width="17" height="14" border="0"></p>
+</td>
+</tr>
+</table>
+<p>&#160;</p>
+</body>
+</html>

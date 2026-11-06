@@ -1,0 +1,109 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+<meta name="template" content="Vijeo_template.htt">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="date" content="07 11, 2003 3:10:25 PM">
+<meta name="topic-status" content="In Progress">
+<meta name="topic-priority" content="0">
+<meta name="topic-time-estimate" content="0">
+<meta name="topic-id" content="array_var.htm">
+ <meta name="generator" content="Adobe RoboHelp 2015">
+<title>Array Variables</title>
+<link rel="StyleSheet" href="Tis-styl.css" type="text/css">
+</head>
+<body>
+<script type="text/javascript" src="ehlpdhtm.js" language="JavaScript1.2"></script>
+
+<div style="width: 100%; position: relative;" id="header">
+	<table style="background-attachment: scroll; margin-left: 0px; margin-right: 4px; 
+			 background-image: url(top_banner.bmp); background-repeat: Repeat-X; 
+			 line-height: 0pt; vertical-align: top;" cellspacing="0" background="top_banner.bmp" 
+			 width="100%">
+		<col style="width: 90%;">
+		<col style="width: 5%;">
+		<col style="width: 5%;">
+		<tr style="vertical-align: center; height: 39px;">
+			<td style="width: 90%; padding-right: 10px; padding-left: 10px; 
+				 border-right-color: #000000;">
+   <p><img src="logo.bmp" alt="" style="border: none;" width="37" height="37" border="0"></p></td>
+			<td style="width: 5%; padding-right: 0px; padding-left: 10px; 
+				 border-right-color: #000000;">
+   <p style="text-align: center;"><a 
+			 title="Glossary" href="Appendix.chm::/Glossary.htm"><img src="logo_glossary.bmp" alt="" style="border: none;" width="47" height="37" border="0"></a></p></td>
+			<td style="width: 5%; padding-right: 10px; padding-left: 5px; 
+				 border-right-color: #000000;">
+   <p style="text-align: center;"><a 
+			 href="About.chm::/What_is_Vijeo-Designer.htm" title="Home"><img src="logo_home.bmp" alt="Home" title="Home" style="border: none; 
+			 margin-left: 0px; margin-right: 0px; margin-bottom: 0px; margin-top: -2px;" width="47" height="37" border="0"></a></p></td>
+		</tr>
+	</table>
+</div>
+
+
+<h1>6.8 Array Variables</h1>
+<p>An array is a collection of variables with the same data type and the same data source. Each variable in an array is called an element. The total number of elements in an array cannot exceed 2048.</p>
+<p>To explain what an array variable is, think of a variable as being a box. In the diagram below, the variable called Number is a single box containing one value.</p>
+<p class="Image" style="margin-left: 40px;"><img src="array%20ex.bmp" alt="" style="border: none;" width="49" height="67" border="0"></p>
+<p>Think of an array as a row of boxes with a number associated with each box. In the diagram below, the array variable Number contains five elements 0-4. Variable values are stored in each of the five boxes.</p>
+<p class="Image" style="margin-left: 40px;"><img src="multi%20array%20ex.bmp" alt="" style="border: none;" width="131" height="99" border="0"></p>
+<p style="color: #000000;">The following is an example of a DINT array.</p>
+<p class="Image"><img src="array_example2.bmp" alt="" style="border: none;" width="120" height="98" border="0"></p>
+<p style="color: #000000;">Below is an example of an array used by a fictional manufacturer. The manufacturer has divided one day into 24 array elements, with each element representing an hour. At the end of each hour, the amount of product the manufacturer created in that hour is stored in the element. Using this array, the manufacturer can record how much product was created during each hour of the day over many days.</p>
+<p class="Image"><img src="array_example.bmp" alt="" style="border: none;" width="500" height="179" border="0"></p>
+<p>Arrays like this example are highly useful because instead of making 24 individual variables to represent the hours of the day, you only need one array with 24 elements in it to represent the hours of the day.</p>
+<h4><img src="square.bmp" alt="" style="border: none;" width="12" height="10" border="0">Multi-Dimensional Arrays</h4>
+<p>A multi-dimensional array is an array that contains other arrays. For example, an array that contains two DINT arrays is a two dimensional array. An array cannot exceed 10 dimensions.</p>
+<p><img src="NOTE_MOJI.BMP" alt="" style="border: none;" width="51" height="25" border="0"></p>
+<ul>
+<li class="p-NoteText">
+<p class="NoteText">One Target can have a maximum of 8000 or 12000 variables depending on the target type. For more information, see Appendix 4, <a href="Appendix.chm::/Performance_Specifications.htm">Run-Time Specifications</a>. Array holders, structure holders, and folders also count as variables. A block variable counts as 1 variable.</p>
+</li>
+<li class="p-NoteText">
+<p class="NoteText">If you want to access one of a number of consecutive device address values, instead of using arrays and setting up consecutive device addresses in each array element, use indirect addressing. See Section 6.3.3, <a href="Dynamically_Referencing_Device_Addresses.htm">Dynamically Referencing Device Addresses</a>.</p>
+</li>
+</ul>
+<p class="NoteImage"><img src="Limit.bmp" alt="" style="border: none;" width="77" height="24" border="0"></p>
+<ul>
+<li class="p-NoteText">
+<p class="NoteText">When you use array variables in a script, dynamically accessing array elements by using an index loads the entire variable array into memory. The reason the application operates this way is the editor cannot distinguish which array elements are used by the script at run time. As a result, the editor builds the application so it loads the entire array. If there are many elements in the array, it occupies a lot of memory and slows operations on the panel.</p>
+</li>
+</ul>
+<p class="NoteText2">In the following example, IntegerArray is a Vijeo Designer integer array variable with 500 elements. Although the script uses only the first 10 of those elements, at run time all 500 array elements are loaded into memory.</p>
+<p class="Code" style="margin-left: 40px;">int a[ ] = new &#160;int[10]; &#160;<span style="color: #008000;">// create local integer array</span></p>
+
+<p class="Code" style="margin-left: 40px;">for (int i=0; i&lt;10; i++)</p>
+
+<p class="Code" style="margin-left: 40px;">{</p>
+
+<p class="Code" style="margin-left: 80px;">a[i] = IntegerArray[i].getIntValue( ); <span style="color: #008000;">// loads all 500 elements</span></p>
+
+<p class="Code" style="margin-left: 40px;">}</p>
+
+<p class="NoteText2">Instead of loading all 500 elements of IntegerArray into memory, you can improve the performance by loading only elements 0 to 9 by changing the script as follows.</p>
+
+<p class="Code" style="margin-left: 40px;">int a[ ] = new &#160;int[10];</p>
+
+<p class="Code" style="margin-left: 40px;">a[0] = IntegerArray[0].getIntValue( );</p>
+
+<p class="Code" style="margin-left: 40px;">a[1] = IntegerArray[1].getIntValue( );</p>
+
+<p class="Code" style="margin-left: 40px;">a[2] = IntegerArray[2].getIntValue( );</p>
+
+<p class="Code" style="margin-left: 40px;">a[3] = IntegerArray[3].getIntValue( );</p>
+
+<p class="Code" style="margin-left: 40px;">a[4] = IntegerArray[4].getIntValue( );</p>
+
+<p class="Code" style="margin-left: 40px;">a[5] = IntegerArray[5].getIntValue( );</p>
+
+<p class="Code" style="margin-left: 40px;">a[6] = IntegerArray[6].getIntValue( );</p>
+
+<p class="Code" style="margin-left: 40px;">a[7] = IntegerArray[7].getIntValue( );</p>
+
+<p class="Code" style="margin-left: 40px;">a[8] = IntegerArray[8].getIntValue( );</p>
+
+<p class="Code" style="margin-left: 40px;">a[9] = IntegerArray[9].getIntValue( );</p>
+
+</body>
+</html>

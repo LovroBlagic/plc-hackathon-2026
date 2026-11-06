@@ -1,0 +1,137 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+<meta name="template" content="Vijeo_template.htt">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="date" content="08 9, 2003 3:16:15 PM">
+<meta name="topic-status" content="In Progress">
+<meta name="topic-priority" content="0">
+<meta name="topic-time-estimate" content="0">
+<meta name="topic-comment" content="">
+<meta name="topic-id" content="SystemSetDate.htm">
+ <meta name="generator" content="Adobe RoboHelp 10">
+<title>Sys.setDate</title>
+<link rel="StyleSheet" href="TIS-STYL.CSS" type="text/css">
+</head>
+<body>
+<script type="text/javascript" src="ehlpdhtm.js" language="JavaScript1.2"></script>
+
+<div style="width: 100%; position: relative;" id="header">
+	<table style="background-attachment: scroll; margin-left: 0px; margin-right: 4px; 
+			 background-image: url(top_banner.bmp); background-repeat: Repeat-X; 
+			 line-height: 0pt; vertical-align: top;" cellspacing="0" width="100%" 
+			 background="top_banner.bmp">
+		<col style="width: 90%;">
+		<col style="width: 5%;">
+		<col style="width: 5%;">
+		<tr style="vertical-align: center; height: 39px;">
+			<td style="width: 90%; padding-right: 10px; padding-left: 10px; 
+				 border-right-color: #000000;">
+   <p><img src="logo.bmp" style="border: none;" alt="" width="37" height="37" border="0"></p></td>
+			<td style="width: 5%; padding-right: 0px; padding-left: 10px; 
+				 border-right-color: #000000;">
+   <p style="text-align: center;"><a 
+			 title="Glossary" href="Appendix.chm::/Glossary.htm"><img src="logo_glossary.bmp" style="border: none;" alt="" width="47" height="37" border="0"></a></p></td>
+			<td style="width: 5%; padding-right: 10px; padding-left: 5px; 
+				 border-right-color: #000000;">
+   <p style="text-align: center;"><a 
+			 href="About.chm::/What_is_Vijeo-Designer.htm" title="Home"><img src="logo_home.bmp" alt="Home" title="Home" style="border: none; 
+			 margin-left: 0px; margin-right: 0px; margin-bottom: 0px; margin-top: -2px;" width="47" height="37" border="0"></a></p></td>
+		</tr>
+	</table>
+</div>
+
+<h4>Sys.setDate</h4>
+
+<p style="font-weight: bold;"><span style="font-weight: bold;">Function</span></p>
+<p>Changes the date on the target machine.</p>
+<p>You can also change the date from the Configuration menu, but using scripts makes it possible to change the date while still running Vijeo-Designer Runtime.</p>
+<p style="font-weight: bold;">Format</p>
+
+<p class="code" style="margin-left: 40px;">boolean Sys.setDate(int year4, int month, int day);</p>
+
+<p style="font-weight: bold; margin-top: 6pt;">Parameters</p>
+<table wrapperparagraphselector="P" style="margin-top: 14pt; margin-bottom: 14px; height: 82px; left: 0px; top: 213px; margin-left: 40px;" cellspacing="0" width="600">
+<col width="100">
+<col style="width: 83.278%;">
+<tr>
+<td style="border-top: Solid 3px #000000; border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; vertical-align: TOP; padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#91AFD9" width="148">
+<p class="Tabletitle"><span style="font-weight: bold;">Parameter</span></p>
+</td>
+<td style="border-top: Solid 3px #000000; border-bottom: Solid 1px #000000; width: 83.278%; vertical-align: TOP; padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#91AFD9">
+<p class="Tabletitle"><span style="font-weight: bold;">Description</span></p>
+</td>
+</tr>
+<tr>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; vertical-align: TOP; padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#CBD9ED" width="148">
+<p class="TableDefinitions">int year4</p>
+</td>
+<td style="border-bottom: Solid 1px #000000; width: 83.278%; vertical-align: TOP; padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">First parameter defines a four-digit year. Acceptable values are 1980 to 2037.</p>
+</td>
+</tr>
+<tr>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; vertical-align: TOP; padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#CBD9ED" width="148">
+<p class="TableDefinitions">int month</p>
+</td>
+<td style="border-bottom: Solid 1px #000000; width: 83.278%; vertical-align: TOP; padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">Second parameter defines the one- or two-digit month. Acceptable values are 1 to 12.</p>
+</td>
+</tr>
+<tr>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 3px #000000; vertical-align: TOP; padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#CBD9ED" width="148">
+<p class="TableDefinitions">int day</p>
+</td>
+<td style="border-bottom: Solid 3px #000000; width: 83.278%; vertical-align: TOP; padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">Third parameter defines the one- or two-digit day. Acceptable values are 1 to 31.</p>
+</td>
+</tr>
+</table>
+<p>Use &#160;<span style="font-weight: bold;">–1</span> as any of the parameters to ignore that parameter.</p>
+<p>Example:</p>
+
+<p class="Code" style="margin-left: 40px;">Sys.setDate(2003, 12, -1);</p>
+
+<p class="Code" style="margin-left: 40px; color: #008000;">// set the year to 2003, month to 12, and do not change the day</p>
+<p class="NoteImage"><img src="Limit.bmp" style="border: none;" alt="" width="77" height="24" border="0"></p>
+<ul>
+<li class="p-NoteText">
+<p class="NoteText">For the month and day parameters, use only single digits for the numbers 1 to 9. Using two digits, such as "08" or "09", may produce unexpected results.</p>
+</li>
+</ul>
+<p style="font-weight: bold; margin-top: 6pt;">Return Value</p>
+<table wrapperparagraphselector="P" style="margin-top: 14pt; margin-bottom: 14px; margin-left: 40px;" cellspacing="0" width="600">
+<col width="75">
+<col style="width: 90%;">
+<tr style="height: 24px;">
+<td style="border-top: Solid 3px #000000; border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; vertical-align: TOP; padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#91AFD9" width="75">
+<p class="Tabletitle"><span style="font-weight: bold;">Value</span></p>
+</td>
+<td style="border-top: Solid 3px #000000; border-bottom: Solid 1px #000000; width: 90%; vertical-align: TOP; padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#91AFD9">
+<p class="Tabletitle"><span style="font-weight: bold;">Description</span></p>
+</td>
+</tr>
+<tr style="height: 34px;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; vertical-align: TOP; padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#CBD9ED" width="75">
+<p class="TableDefinitions">false</p>
+</td>
+<td style="border-bottom: Solid 1px #000000; width: 90%; vertical-align: TOP; padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">Failed to set the date on the target machine. Usually indicates invalid parameters, but may also indicate a communication error.</p>
+</td>
+</tr>
+<tr style="height: 20px;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 3px #000000; vertical-align: TOP; padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#CBD9ED" width="75">
+<p class="TableDefinitions">true</p>
+</td>
+<td style="border-bottom: Solid 3px #000000; width: 90%; vertical-align: TOP; padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">Successfully set the date on the target machine.</p>
+</td>
+</tr>
+</table>
+<p style="font-weight: bold;">See Also</p>
+
+<p><a href="SystemSetTime.htm">Sys.setTime</a></p>
+
+</body>
+</html>

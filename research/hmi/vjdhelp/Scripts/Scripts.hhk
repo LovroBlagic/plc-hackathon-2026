@@ -1,0 +1,1884 @@
+<html>
+<!-- Sitemap 1.0 -->
+<object type="text/site properties">
+  <param name="WindowName" value="$global_NewWindow">
+  <param name="SiteType" value="index">
+</object>
+<ul>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Change IP address on equipment">
+    <param name="Name" value="Equipment Methods">
+    <param name="Local" value="Equipment_Methods.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Dynamic IP Address change on equipment">
+    <param name="Name" value="Equipment Methods">
+    <param name="Local" value="Equipment_Methods.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Sys.getInfoString">
+    <param name="Name" value="Sys.getInfoString">
+    <param name="Local" value="Sys.getInfoString.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Sys.getInfoInt">
+    <param name="Name" value="Sys.getInfoInt">
+    <param name="Local" value="Sys.getInfoInt.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Sys.getLastFieldUpdated">
+    <param name="Name" value="Sys.getLastFieldUpdated">
+    <param name="Local" value="Sys.getLastFieldUpdated.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Sys.getLastFieldRequested">
+    <param name="Name" value="Sys.getLastFieldRequested">
+    <param name="Local" value="Sys.getLastFieldRequested.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="getSize">
+    <param name="Name" value="getSize">
+    <param name="Local" value="Variable_BlockgetSize.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="getIntValues">
+    <param name="Name" value="getIntValues">
+    <param name="Local" value="Variable_BlockgetIntValues.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="getFloatValues">
+    <param name="Name" value="getFloatValues">
+    <param name="Local" value="Variable_BlockgetFloatValues.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="sendData">
+    <param name="Name" value="sendData">
+    <param name="Local" value="Variable_BlocksendData.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Effects of Using a Timeout">
+    <param name="Name" value="Important Points About the Script Driver">
+    <param name="Local" value="Script_Driver_Caution.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Blocking">
+    <param name="Name" value="Important Points About the Script Driver">
+    <param name="Local" value="Script_Driver_Caution.htm">
+    <param name="Name" value="write">
+    <param name="Local" value="Serial_write.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Timeout">
+    <param name="Name" value="Important Points About the Script Driver">
+    <param name="Local" value="Script_Driver_Caution.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Read Buffer Size">
+    <param name="Name" value="Important Points About the Script Driver">
+    <param name="Local" value="Script_Driver_Caution.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Individual Scripts Report">
+    <param name="Name" value="Useful Ways of Working with Scripts">
+    <param name="Local" value="Useful_Ways_of_Working_with_Scripts.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Application Scripts Report">
+    <param name="Name" value="Useful Ways of Working with Scripts">
+    <param name="Local" value="Useful_Ways_of_Working_with_Scripts.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="XW">
+    <param name="Name" value="XW">
+    <param name="Local" value="Variable_XW.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Bit write">
+    <param name="Name" value="XW">
+    <param name="Local" value="Variable_XW.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Moving Scripts">
+    <param name="Name" value="Useful Ways of Working with Scripts">
+    <param name="Local" value="Useful_Ways_of_Working_with_Scripts.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Java">
+    <param name="Name" value="Operators">
+    <param name="Local" value="Operators.htm">
+    <param name="Name" value="Programming with Scripts">
+    <param name="Local" value="Scripts_Overview.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Java Methods, Supported">
+    <param name="Name" value="Methods">
+    <param name="Local" value="Script%20Functions.htm">
+  </object>
+  <ul>
+    <li><object type="text/sitemap">
+      <param name="Name" value="Math Methods">
+      <param name="Name" value="Math Methods">
+      <param name="Local" value="Mathematical_methods.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="StringBuffer Methods">
+      <param name="Name" value="StringBuffer Methods">
+      <param name="Local" value="StringBuffer_methods.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="String Methods">
+      <param name="Name" value="String Methods">
+      <param name="Local" value="String_methods.htm">
+    </object>
+    </ul>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Methods">
+    <param name="Name" value="Methods">
+    <param name="Local" value="Script%20Functions.htm">
+  </object>
+  <ul>
+    <li><object type="text/sitemap">
+      <param name="Name" value="Alarm Summary Methods">
+      <param name="Name" value="Alarm Summary Methods">
+      <param name="Local" value="Alarm_Summary_methods.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="Alarm Group Methods">
+      <param name="Name" value="Alarm Group Methods">
+      <param name="Local" value="AlarmGroup_Methods.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="Math Methods">
+      <param name="Name" value="Math Methods">
+      <param name="Local" value="Mathematical_methods.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="Script Driver Methods">
+      <param name="Name" value="Script Driver Methods">
+      <param name="Local" value="Serial_Driver_Methods.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="Popup Window Methods">
+      <param name="Name" value="Popup Window Methods">
+      <param name="Local" value="PopupWindow_Methods.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="Sound Methods">
+      <param name="Name" value="Sound Methods">
+      <param name="Local" value="SoundMethod.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="String Methods">
+      <param name="Name" value="String Methods">
+      <param name="Local" value="String_methods.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="StringBuffer Methods">
+      <param name="Name" value="StringBuffer Methods">
+      <param name="Local" value="StringBuffer_methods.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="System Methods">
+      <param name="Name" value="System Methods">
+      <param name="Local" value="SystemMethods.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="Variable Methods">
+      <param name="Name" value="Variable Methods">
+      <param name="Local" value="Variable_Methods.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="Alarm Category Methods">
+      <param name="Name" value="Alarm Group/Category Methods">
+      <param name="Local" value="AlarmGroup_Methods.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="Diagnostic Buffer Methods">
+      <param name="Name" value="DiagBuffer Methods">
+      <param name="Local" value="DiagBuffer_Methods.htm">
+    </object>
+    </ul>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Script Methods">
+    <param name="Name" value="Methods">
+    <param name="Local" value="Script%20Functions.htm">
+  </object>
+  <ul>
+    <li><object type="text/sitemap">
+      <param name="Name" value="Alarm Summary Methods">
+      <param name="Name" value="Alarm Summary Methods">
+      <param name="Local" value="Alarm_Summary_methods.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="Alarm Group Methods">
+      <param name="Name" value="Alarm Group Methods">
+      <param name="Local" value="AlarmGroup_Methods.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="Math Methods">
+      <param name="Name" value="Math Methods">
+      <param name="Local" value="Mathematical_methods.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="Script Driver Methods">
+      <param name="Name" value="Script Driver Methods">
+      <param name="Local" value="Serial_Driver_Methods.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="Popup Window Methods">
+      <param name="Name" value="Popup Window Methods">
+      <param name="Local" value="PopupWindow_Methods.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="Sound Methods">
+      <param name="Name" value="Sound Methods">
+      <param name="Local" value="SoundMethod.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="String Methods">
+      <param name="Name" value="String Methods">
+      <param name="Local" value="String_methods.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="StringBuffer Methods">
+      <param name="Name" value="StringBuffer Methods">
+      <param name="Local" value="StringBuffer_methods.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="System Methods">
+      <param name="Name" value="System Methods">
+      <param name="Local" value="SystemMethods.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="Variable Methods">
+      <param name="Name" value="Variable Methods">
+      <param name="Local" value="Variable_Methods.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="Alarm Category Methods">
+      <param name="Name" value="Alarm Group/Category Methods">
+      <param name="Local" value="AlarmGroup_Methods.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="DiagBuffer Methods">
+      <param name="Name" value="DiagBuffer Methods">
+      <param name="Local" value="DiagBuffer_Methods.htm">
+    </object>
+    </ul>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Types of Scripts">
+    <param name="Name" value="Types of Scripts">
+    <param name="Local" value="Types_of_Scripts.htm">
+  </object>
+  <ul>
+    <li><object type="text/sitemap">
+      <param name="Name" value="Action Scripts">
+      <param name="Name" value="Action Scripts">
+      <param name="Local" value="ActionScript.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="Touch Scripts">
+      <param name="Name" value="Touch Scripts">
+      <param name="Local" value="TouchAnim_Scripts.htm">
+    </object>
+    </ul>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Defining Device Address at Runtime (Script)">
+    <param name="Name" value="Defining Device Address at Runtime">
+    <param name="Local" value="Free_variable_input.htm">
+  </object>
+  <ul>
+    <li><object type="text/sitemap">
+      <param name="Name" value="Setting up the Variables and Parts">
+      <param name="Name" value="Setting up the Variables and Parts">
+      <param name="Local" value="Free_Addessing_before_writing.htm">
+    </object>
+    </ul>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Comments (Script)">
+    <param name="Name" value="Adding Comments">
+    <param name="Local" value="Adding_Comments.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Change Device Address Displayed at Runtime (Script)">
+    <param name="Name" value="Defining Device Address at Runtime">
+    <param name="Local" value="Free_variable_input.htm">
+  </object>
+  <ul>
+    <li><object type="text/sitemap">
+      <param name="Name" value="Setting up the Variables and Parts">
+      <param name="Name" value="Setting up the Variables and Parts">
+      <param name="Local" value="Free_Addessing_before_writing.htm">
+    </object>
+    </ul>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Device Address, Define at Runtime (Script)">
+    <param name="Name" value="Defining Device Address at Runtime">
+    <param name="Local" value="Free_variable_input.htm">
+  </object>
+  <ul>
+    <li><object type="text/sitemap">
+      <param name="Name" value="Setting up the Variables and Parts">
+      <param name="Name" value="Setting up the Variables and Parts">
+      <param name="Local" value="Free_Addessing_before_writing.htm">
+    </object>
+    </ul>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Trigger Alarm Script">
+    <param name="Name" value="Action Scripts">
+    <param name="Local" value="ActionScript.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Touch Alarm Script">
+    <param name="Name" value="Action Scripts">
+    <param name="Local" value="ActionScript.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Action Scripts">
+    <param name="Name" value="Action Scripts">
+    <param name="Local" value="ActionScript.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Alarm Script">
+    <param name="Name" value="Action Scripts">
+    <param name="Local" value="ActionScript.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Adding Comments">
+    <param name="Name" value="Adding Comments">
+    <param name="Local" value="Adding_Comments.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Alarm Summary Methods">
+    <param name="Name" value="Alarm Summary Methods">
+    <param name="Local" value="Alarm_Summary_methods.htm">
+  </object>
+  <ul>
+    <li><object type="text/sitemap">
+      <param name="Name" value="ack">
+      <param name="Name" value="ack">
+      <param name="Local" value="AlarmSummaryAck.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="cursorUp">
+      <param name="Name" value="cursorUp">
+      <param name="Local" value="AlarmSummaryCursorUp.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="ackAll">
+      <param name="Name" value="ackAll">
+      <param name="Local" value="AlarmSummaryAckAll.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="clear">
+      <param name="Name" value="clear">
+      <param name="Local" value="AlarmSummaryClear.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="clearAll">
+      <param name="Name" value="clearAll">
+      <param name="Local" value="AlarmSummaryClearAll.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="cursorDown">
+      <param name="Name" value="cursorDown">
+      <param name="Local" value="AlarmSummaryCursorDown.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="cursorOff">
+      <param name="Name" value="cursorOff">
+      <param name="Local" value="AlarmSummaryCursorOff.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="cursorOn">
+      <param name="Name" value="cursorOn">
+      <param name="Local" value="AlarmSummaryCursorOn.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="moveTop">
+      <param name="Name" value="moveTop">
+      <param name="Local" value="AlarmSummaryFirstMsg.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="jumpTo">
+      <param name="Name" value="jumpTo">
+      <param name="Local" value="AlarmSummaryJumpTo.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="moveBottom">
+      <param name="Name" value="moveBottom">
+      <param name="Local" value="AlarmSummaryLastMsg.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="pageDown">
+      <param name="Name" value="pageDown">
+      <param name="Local" value="AlarmSummaryPgDn.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="pageUp">
+      <param name="Name" value="pageUp">
+      <param name="Local" value="AlarmSummaryPgUp.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="showSubDisplay">
+      <param name="Name" value="showSubDisplay">
+      <param name="Local" value="AlarmSummarySub.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="delete">
+      <param name="Name" value="delete">
+      <param name="Local" value="AlarmSummaryDelete.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="deleteAll">
+      <param name="Name" value="deleteAll">
+      <param name="Local" value="AlarmSummaryDeleteAll.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="Diagnostic Buffer Methods">
+      <param name="Name" value="DiagBuffer Methods">
+      <param name="Local" value="DiagBuffer_Methods.htm">
+    </object>
+    </ul>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Alarm Group Methods">
+    <param name="Name" value="Alarm Group/Category Methods">
+    <param name="Local" value="AlarmGroup_Methods.htm">
+  </object>
+  <ul>
+    <li><object type="text/sitemap">
+      <param name="Name" value="getCurrent">
+      <param name="Name" value="getCurrent">
+      <param name="Local" value="AlarmGroupGrpCountCur.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="getSum">
+      <param name="Name" value="getSum">
+      <param name="Local" value="AlarmGroupGrpCountSum.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="clearSum">
+      <param name="Name" value="clearSum">
+      <param name="Local" value="AlarmGroupGrpCountSumClear.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="ackAll">
+      <param name="Name" value="ackAll">
+      <param name="Local" value="AlarmGroupGrpAck.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="Diagnostic Buffer Methods">
+      <param name="Name" value="DiagBuffer Methods">
+      <param name="Local" value="DiagBuffer_Methods.htm">
+    </object>
+    </ul>
+  <li><object type="text/sitemap">
+    <param name="Name" value="getCurrent">
+    <param name="Name" value="getCurrent">
+    <param name="Local" value="AlarmGroupGrpCountCur.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="getSum">
+    <param name="Name" value="getSum">
+    <param name="Local" value="AlarmGroupGrpCountSum.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="clearSum">
+    <param name="Name" value="clearSum">
+    <param name="Local" value="AlarmGroupGrpCountSumClear.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Using Array Variables in Scripts">
+    <param name="Name" value="Using Array Variables in Scripts">
+    <param name="Local" value="array.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="getMin">
+    <param name="Name" value="Variable_getMin">
+    <param name="Local" value="Variable_getMin.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Array Variables in Scripts">
+    <param name="Name" value="Using Array Variables in Scripts">
+    <param name="Local" value="array.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Variables in Scripts (Arrays)">
+    <param name="Name" value="Using Array Variables in Scripts">
+    <param name="Local" value="array.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Displaying a Popup Window (Script)">
+    <param name="Name" value="Displaying a Popup Window">
+    <param name="Local" value="Displaying_a_popup_window.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Popup Window, Display (Script)">
+    <param name="Name" value="Displaying a Popup Window">
+    <param name="Local" value="Displaying_a_popup_window.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Editing Scripts">
+    <param name="Name" value="Editing Scripts">
+    <param name="Local" value="Editing_Scripts.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="break">
+    <param name="Name" value="break">
+    <param name="Local" value="KEYWORD_break.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="do-while">
+    <param name="Name" value="do-while">
+    <param name="Local" value="KEYWORD_dowhile.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="while">
+    <param name="Name" value="do-while">
+    <param name="Local" value="KEYWORD_dowhile.htm">
+    <param name="Name" value="while">
+    <param name="Local" value="KEYWORD_while.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="false">
+    <param name="Name" value="false">
+    <param name="Local" value="KEYWORD_false.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="for">
+    <param name="Name" value="for">
+    <param name="Local" value="KEYWORD_for.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="if-else">
+    <param name="Name" value="if-else">
+    <param name="Local" value="KEYWORD_if-else.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="else">
+    <param name="Name" value="if-else">
+    <param name="Local" value="KEYWORD_if-else.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="new">
+    <param name="Name" value="new">
+    <param name="Local" value="KEYWORD_new.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="null">
+    <param name="Name" value="null">
+    <param name="Local" value="KEYWORD_null.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="return">
+    <param name="Name" value="return">
+    <param name="Local" value="KEYWORD_return.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="switch-case-default">
+    <param name="Name" value="switch-case-default">
+    <param name="Local" value="KEYWORD_switch.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="case">
+    <param name="Name" value="switch-case-default">
+    <param name="Local" value="KEYWORD_switch.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="default">
+    <param name="Name" value="switch-case-default">
+    <param name="Local" value="KEYWORD_switch.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="true">
+    <param name="Name" value="true">
+    <param name="Local" value="KEYWORD_true.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Keywords">
+    <param name="Name" value="Keywords">
+    <param name="Local" value="Keywords.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Sound Methods">
+    <param name="Name" value="Sound Methods">
+    <param name="Local" value="SoundMethod.htm">
+  </object>
+  <ul>
+    <li><object type="text/sitemap">
+      <param name="Name" value="Sound.play">
+      <param name="Name" value="Sound.play">
+      <param name="Local" value="soundPlay.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="Sound.loop">
+      <param name="Name" value="Sound.loop">
+      <param name="Local" value="soundPlayLoop.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="Sound.stop">
+      <param name="Name" value="Sound.stop">
+      <param name="Local" value="soundStop.htm">
+    </object>
+    </ul>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Java Keywords">
+    <param name="Name" value="Keywords">
+    <param name="Local" value="Keywords.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Key Points, Scripts">
+    <param name="Name" value="Key Points">
+    <param name="Local" value="Limitations.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Scripting Language">
+    <param name="Name" value="Key Points">
+    <param name="Local" value="Limitations.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Limitations, Scripts">
+    <param name="Name" value="Key Points">
+    <param name="Local" value="Limitations.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Math Methods">
+    <param name="Name" value="Math Methods">
+    <param name="Local" value="Mathematical_methods.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Operators">
+    <param name="Name" value="Operators">
+    <param name="Local" value="Operators.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="changePanel">
+    <param name="Name" value="changePanel">
+    <param name="Local" value="PopupWindow_ChangePanel.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Popup Window Methods">
+    <param name="Name" value="Popup Window Methods">
+    <param name="Local" value="PopupWindow_Methods.htm">
+  </object>
+  <ul>
+    <li><object type="text/sitemap">
+      <param name="Name" value="changePanel">
+      <param name="Name" value="changePanel">
+      <param name="Local" value="PopupWindow_ChangePanel.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="close">
+      <param name="Name" value="close">
+      <param name="Local" value="PopupWindow_Close.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="getPanelID">
+      <param name="Name" value="getPanelID">
+      <param name="Local" value="PopupWindow_GetCurrentPanelID.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="getStatus">
+      <param name="Name" value="getStatus">
+      <param name="Local" value="PopupWindow_GetStatus.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="move">
+      <param name="Name" value="move">
+      <param name="Local" value="PopupWindow_Move.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="moveOffset">
+      <param name="Name" value="moveOffset">
+      <param name="Local" value="PopupWindow_MoveOffset.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="open">
+      <param name="Name" value="open">
+      <param name="Local" value="PopupWindow_Open.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="previousPanel">
+      <param name="Name" value="previousPanel">
+      <param name="Local" value="PopupWindow_PreviousPanel.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="show">
+      <param name="Name" value="show">
+      <param name="Local" value="PopupWindow_Show.htm">
+    </object>
+    </ul>
+  <li><object type="text/sitemap">
+    <param name="Name" value="close">
+    <param name="Name" value="close">
+    <param name="Local" value="PopupWindow_Close.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="getPanelID">
+    <param name="Name" value="getPanelID">
+    <param name="Local" value="PopupWindow_GetCurrentPanelID.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="getStatus">
+    <param name="Name" value="getStatus">
+    <param name="Local" value="PopupWindow_GetStatus.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="move">
+    <param name="Name" value="move">
+    <param name="Local" value="PopupWindow_Move.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="moveOffset">
+    <param name="Name" value="moveOffset">
+    <param name="Local" value="PopupWindow_MoveOffset.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="open">
+    <param name="Name" value="open">
+    <param name="Local" value="PopupWindow_Open.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="previousPanel">
+    <param name="Name" value="previousPanel">
+    <param name="Local" value="PopupWindow_PreviousPanel.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="show">
+    <param name="Name" value="show">
+    <param name="Local" value="PopupWindow_Show.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Script Variables (Relationship with Variables)">
+    <param name="Name" value="Script and Variables">
+    <param name="Local" value="script_variable_and_variable.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Difference Between Script and Variables">
+    <param name="Name" value="Script and Variables">
+    <param name="Local" value="script_variable_and_variable.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Programming Using Scripts">
+    <param name="Name" value="Programming with Scripts">
+    <param name="Local" value="Scripts_Overview.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Script Driver Methods">
+    <param name="Name" value="Script Driver Methods">
+    <param name="Local" value="Serial_Driver_Methods.htm">
+  </object>
+  <ul>
+    <li><object type="text/sitemap">
+      <param name="Name" value="read">
+      <param name="Name" value="read">
+      <param name="Local" value="Serial_read.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="write">
+      <param name="Name" value="write">
+      <param name="Local" value="Serial_write.htm">
+    </object>
+    </ul>
+  <li><object type="text/sitemap">
+    <param name="Name" value="read">
+    <param name="Name" value="read">
+    <param name="Local" value="Serial_read.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="write">
+    <param name="Name" value="write (Script Driver)">
+    <param name="Local" value="Serial_write.htm">
+    <param name="Name" value="write (Variable)">
+    <param name="Local" value="VariableWrite.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Common Scripting Errors">
+    <param name="Name" value="Checking for Errors">
+    <param name="Local" value="Validating_Scripts.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="play">
+    <param name="Name" value="Sound.play">
+    <param name="Local" value="soundPlay.htm">
+    <param name="Name" value="videoDisplay.play">
+    <param name="Local" value="videoDisplay_play.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="loop">
+    <param name="Name" value="Sound.loop">
+    <param name="Local" value="soundPlayLoop.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="stop">
+    <param name="Name" value="videoDisplay.stop">
+    <param name="Local" value="videoDisplay_stop.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="String Methods">
+    <param name="Name" value="String Methods">
+    <param name="Local" value="String_methods.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="StringBuffer Methods">
+    <param name="Name" value="StringBuffer Methods">
+    <param name="Local" value="StringBuffer_methods.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Using Structure Variables in Scripts">
+    <param name="Name" value="Using Structure Variables in Scripts">
+    <param name="Local" value="struct.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Structure Variables in Scripts">
+    <param name="Name" value="Using Structure Variables in Scripts">
+    <param name="Local" value="struct.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Variables (Structure) in Scripts">
+    <param name="Name" value="Using Structure Variables in Scripts">
+    <param name="Local" value="struct.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="System Methods">
+    <param name="Name" value="System Methods">
+    <param name="Local" value="SystemMethods.htm">
+  </object>
+  <ul>
+    <li><object type="text/sitemap">
+      <param name="Name" value="Sys.exitRuntime">
+      <param name="Name" value="Sys.exitRuntime">
+      <param name="Local" value="Sys.exitRuntime.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="Sys.isPlatform">
+      <param name="Name" value="Sys.isPlatform">
+      <param name="Local" value="System_isPlatform.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="Sys.createProcess">
+      <param name="Name" value="Sys.createProcess">
+      <param name="Local" value="SystemCreateProcess.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="Sys.removeProcess">
+      <param name="Name" value="Sys.removeProcess">
+      <param name="Local" value="SystemRemoveProcess.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="Sys.setDate">
+      <param name="Name" value="Sys.setDate">
+      <param name="Local" value="SystemSetDate.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="Sys.setTime">
+      <param name="Name" value="Sys.setTime">
+      <param name="Local" value="SystemSetTime.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="Sys.beep">
+      <param name="Name" value="Sys.beep">
+      <param name="Local" value="Sys.beep.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="Sys.flushAllDataLogging">
+      <param name="Name" value="Sys.dataLoggingFlushAll">
+      <param name="Local" value="SysdataLoggingFlushAll.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="Sys.getLastFieldRequested">
+      <param name="Name" value="Sys.getLastFieldRequested">
+      <param name="Local" value="Sys.getLastFieldRequested.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="Sys.getLastFieldUpdated">
+      <param name="Name" value="Sys.getLastFieldUpdated">
+      <param name="Local" value="Sys.getLastFieldUpdated.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="Sys.logout">
+      <param name="Name" value="Sys.logout">
+      <param name="Local" value="Sys.logout.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="Sys.getInfoInt">
+      <param name="Name" value="Sys.getInfoInt">
+      <param name="Local" value="Sys.getInfoInt.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="Sys.getInfoString">
+      <param name="Name" value="Sys.getInfoString">
+      <param name="Local" value="Sys.getInfoString.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="Sys.clearAllDataLoggingInMemory">
+      <param name="Name" value="Sys.clearAllDataLoggingInMemory">
+      <param name="Local" value="Sys.clearAllDataLoggingInMemory.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="Sys.Login">
+      <param name="Name" value="Sys.Login">
+      <param name="Local" value="Sys.Login.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="Sys.validateUser">
+      <param name="Name" value="Sys.validateUser">
+      <param name="Local" value="Sys.validateUser.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="Sys.setTargetIPAddress">
+      <param name="Name" value="setTargetIPAddress">
+      <param name="Local" value="Sys.setTargetIPAddress.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="Sys.clearBiometricSwitch">
+      <param name="Name" value="Sys.clearBiometricSwitch">
+      <param name="Local" value="Sys.clearBiometricSwitch.htm">
+    </object>
+    </ul>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Sys.setTime">
+    <param name="Name" value="Sys.setTime">
+    <param name="Local" value="SystemSetTime.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Sys.setDate">
+    <param name="Name" value="Sys.setDate">
+    <param name="Local" value="SystemSetDate.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Sys.removeProcess">
+    <param name="Name" value="Sys.removeProcess">
+    <param name="Local" value="SystemRemoveProcess.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Sys.createProcess">
+    <param name="Name" value="Sys.createProcess">
+    <param name="Local" value="SystemCreateProcess.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Sys.isPlatform">
+    <param name="Name" value="Sys.isPlatform">
+    <param name="Local" value="System_isPlatform.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Sys.exitRuntime">
+    <param name="Name" value="Sys.exitRuntime">
+    <param name="Local" value="Sys.exitRuntime.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Useful Ways of Working with Scripts">
+    <param name="Name" value="Useful Ways of Working with Scripts">
+    <param name="Local" value="Useful_Ways_of_Working_with_Scripts.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Working with Scripts">
+    <param name="Name" value="Useful Ways of Working with Scripts">
+    <param name="Local" value="Useful_Ways_of_Working_with_Scripts.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Variables in Scripts">
+    <param name="Name" value="Using Variables in Scripts">
+    <param name="Local" value="Using_variables_in_a_script.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Checking for Errors (Script)">
+    <param name="Name" value="Checking for Errors">
+    <param name="Local" value="Validating_Scripts.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Validating Scripts">
+    <param name="Name" value="Checking for Errors">
+    <param name="Local" value="Validating_Scripts.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Data Quality">
+    <param name="Name" value="isDataQualityGood">
+    <param name="Local" value="Variable_isGood.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Debugging Scripts">
+    <param name="Name" value="Checking for Errors">
+    <param name="Local" value="Validating_Scripts.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Variable Methods">
+    <param name="Name" value="Variable Methods">
+    <param name="Local" value="Variable_Methods.htm">
+  </object>
+  <ul>
+    <li><object type="text/sitemap">
+      <param name="Name" value="flushToStorage">
+      <param name="Name" value="flushToStorage">
+      <param name="Local" value="Variable_FlushToStorage.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="getFloatValue">
+      <param name="Name" value="getFloatValue">
+      <param name="Local" value="VariableGetFloatValue.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="getIntValue">
+      <param name="Name" value="getIntValue">
+      <param name="Local" value="VariableGetIntValue.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="getStringValue">
+      <param name="Name" value="getStringValue">
+      <param name="Local" value="VariablegetStringValue.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="toString">
+      <param name="Name" value="toString">
+      <param name="Local" value="VariabletoString.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="write">
+      <param name="Name" value="write">
+      <param name="Local" value="VariableWrite.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="X">
+      <param name="Name" value="X">
+      <param name="Local" value="Variable_X.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="XW">
+      <param name="Name" value="XW">
+      <param name="Local" value="Variable_XW.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="isDataQualityGood">
+      <param name="Name" value="isDataQualityGood">
+      <param name="Local" value="Variable_isGood.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="setMinMaxValues">
+      <param name="Name" value="setMinMaxValues">
+      <param name="Local" value="Variable_setMinMaxValues.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="enableScaling">
+      <param name="Name" value="enableScaling">
+      <param name="Local" value="Variable_enableScaling.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="getFloatValues">
+      <param name="Name" value="getFloatValues">
+      <param name="Local" value="Variable_BlockgetFloatValues.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="getIntValues">
+      <param name="Name" value="getIntValues">
+      <param name="Local" value="Variable_BlockgetIntValues.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="getSize">
+      <param name="Name" value="getSize">
+      <param name="Local" value="Variable_BlockgetSize.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="sendData">
+      <param name="Name" value="sendData">
+      <param name="Local" value="Variable_BlocksendData.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="add">
+      <param name="Name" value="add">
+      <param name="Local" value="Variable_add.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="getMin">
+      <param name="Name" value="getMin">
+      <param name="Local" value="Variable_getMin.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="getMax">
+      <param name="Name" value="getMax">
+      <param name="Local" value="Variable_getMax.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="ack">
+      <param name="Name" value="ack">
+      <param name="Local" value="Variable_ack.htm">
+    </object>
+    </ul>
+  <li><object type="text/sitemap">
+    <param name="Name" value="toString">
+    <param name="Name" value="toString">
+    <param name="Local" value="VariabletoString.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="getStringValue">
+    <param name="Name" value="getStringValue">
+    <param name="Local" value="VariablegetStringValue.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="getIntValue">
+    <param name="Name" value="getIntValue">
+    <param name="Local" value="VariableGetIntValue.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="getFloatValue">
+    <param name="Name" value="getFloatValue">
+    <param name="Local" value="VariableGetFloatValue.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="flushToStorage">
+    <param name="Name" value="flushToStorage">
+    <param name="Local" value="Variable_FlushToStorage.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Writing Scripts">
+    <param name="Name" value="Writing Scripts">
+    <param name="Local" value="Writing_scripts.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="showSubDisplay">
+    <param name="Name" value="showSubDisplay">
+    <param name="Local" value="AlarmSummarySub.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Script">
+    <param name="Name" value="Programming with Scripts">
+    <param name="Local" value="Scripts_Overview.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="pageDown">
+    <param name="Name" value="pageDown">
+    <param name="Local" value="AlarmSummaryPgDn.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Communicating with a PLC Using the Script Driver">
+    <param name="Name" value="Using the Script Driver">
+    <param name="Local" value="Communicating_with_Script_Driver.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="PLC Communications (Script Driver)">
+    <param name="Name" value="Using the Script Driver">
+    <param name="Local" value="Communicating_with_Script_Driver.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Unsupported PLC (Script Driver)">
+    <param name="Name" value="Using the Script Driver">
+    <param name="Local" value="Communicating_with_Script_Driver.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="ackAll">
+    <param name="Name" value="ackAll">
+    <param name="Local" value="AlarmGroupGrpAck.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Alarm Category Methods">
+    <param name="Name" value="Alarm Group/Category Methods">
+    <param name="Local" value="AlarmGroup_Methods.htm">
+  </object>
+  <ul>
+    <li><object type="text/sitemap">
+      <param name="Name" value="ackAll">
+      <param name="Name" value="ackAll">
+      <param name="Local" value="AlarmGroupGrpAck.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="clearSum">
+      <param name="Name" value="clearSum">
+      <param name="Local" value="AlarmGroupGrpCountSumClear.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="getCurrent">
+      <param name="Name" value="getCurrent">
+      <param name="Local" value="AlarmGroupGrpCountCur.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="getSum">
+      <param name="Name" value="getSum">
+      <param name="Local" value="AlarmGroupGrpCountSum.htm">
+    </object>
+    </ul>
+  <li><object type="text/sitemap">
+    <param name="Name" value="ack">
+    <param name="Name" value="ack">
+    <param name="Local" value="AlarmSummaryAck.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="getMax">
+    <param name="Name" value="Variable_getMax">
+    <param name="Local" value="Variable_getMax.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="add">
+    <param name="Name" value="Variable_add">
+    <param name="Local" value="Variable_add.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Scripts, Changing Fonts">
+    <param name="Name" value="Useful Ways of Working with Scripts">
+    <param name="Local" value="Useful_Ways_of_Working_with_Scripts.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Changing the Font, Scripts">
+    <param name="Name" value="Useful Ways of Working with Scripts">
+    <param name="Local" value="Useful_Ways_of_Working_with_Scripts.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Loading Scripts from File">
+    <param name="Name" value="Useful Ways of Working with Scripts">
+    <param name="Local" value="Useful_Ways_of_Working_with_Scripts.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Saving Scripts to File">
+    <param name="Name" value="Useful Ways of Working with Scripts">
+    <param name="Local" value="Useful_Ways_of_Working_with_Scripts.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Touch Scripts">
+    <param name="Name" value="Touch Scripts">
+    <param name="Local" value="TouchAnim_Scripts.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Switches, Scripts">
+    <param name="Name" value="Touch Scripts">
+    <param name="Local" value="TouchAnim_Scripts.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Touch Animation, Scripts">
+    <param name="Name" value="Touch Scripts">
+    <param name="Local" value="TouchAnim_Scripts.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Bit Read">
+    <param name="Name" value="X">
+    <param name="Local" value="Variable_X.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="X">
+    <param name="Name" value="X">
+    <param name="Local" value="Variable_X.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Writing Values to Variables (Script)">
+    <param name="Name" value="Writing Values to Variables">
+    <param name="Local" value="Move_from_script_variable.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Change Value of Variables (Script)">
+    <param name="Name" value="Writing Values to Variables">
+    <param name="Local" value="Move_from_script_variable.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Using Variables in Scripts">
+    <param name="Name" value="Using Variables in Scripts">
+    <param name="Local" value="Using_variables_in_a_script.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="isDataQualityGood">
+    <param name="Name" value="isDataQualityGood">
+    <param name="Local" value="Variable_isGood.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="deleteAll">
+    <param name="Name" value="deleteAll">
+    <param name="Local" value="AlarmSummaryDeleteAll.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="delete">
+    <param name="Name" value="delete">
+    <param name="Local" value="AlarmSummaryDelete.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="setMinMaxValues">
+    <param name="Name" value="setMinMaxValues">
+    <param name="Local" value="Variable_setMinMaxValues.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Communicating with Unsupported Serial Equipment (Script Driver)">
+    <param name="Name" value="Using the Script Driver">
+    <param name="Local" value="Communicating_with_Script_Driver.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Equipment Communications (Script Driver)">
+    <param name="Name" value="Using the Script Driver">
+    <param name="Local" value="Communicating_with_Script_Driver.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Serial Equipment, Cables">
+    <param name="Name" value="ScriptDriver_Cable Connections">
+    <param name="Local" value="ScriptDriver_Cable_Connections.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Cable Connections, Serial Equipment">
+    <param name="Name" value="ScriptDriver_Cable Connections">
+    <param name="Local" value="ScriptDriver_Cable_Connections.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Script Driver">
+    <param name="Name" value="Script Driver Caution">
+    <param name="Local" value="Script_Driver_Caution.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Sample Script">
+    <param name="See Also" value="Sample Script">
+  </object>
+  <ul>
+    <li><object type="text/sitemap">
+      <param name="Name" value="Change Device Address at Runtime">
+      <param name="Name" value="Defining Device Address at Runtime">
+      <param name="Local" value="Free_variable_input.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="Displaying a Popup Window">
+      <param name="Name" value="Displaying a Popup Window">
+      <param name="Local" value="Displaying_a_popup_window.htm">
+    </object>
+    </ul>
+  <li><object type="text/sitemap">
+    <param name="Name" value="enableScaling">
+    <param name="Name" value="enableScaling">
+    <param name="Local" value="Variable_enableScaling.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Script Driver, write blocks other operations">
+    <param name="Name" value="Important Points About the Script Driver">
+    <param name="Local" value="Script_Driver_Caution.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="write, Script Driver">
+    <param name="Name" value="Important Points About the Script Driver">
+    <param name="Local" value="Script_Driver_Caution.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="read, Script Driver">
+    <param name="Name" value="Important Points About the Script Driver">
+    <param name="Local" value="Script_Driver_Caution.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Script Driver, read with timeout blocks other operations">
+    <param name="Name" value="Important Points About the Script Driver">
+    <param name="Local" value="Script_Driver_Caution.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Script Driver Buffer">
+    <param name="Name" value="Important Points About the Script Driver">
+    <param name="Local" value="Script_Driver_Caution.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Serial Driver Buffer">
+    <param name="Name" value="Important Points About the Script Driver">
+    <param name="Local" value="Script_Driver_Caution.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Buffer, Script Driver">
+    <param name="Name" value="Important Points About the Script Driver">
+    <param name="Local" value="Script_Driver_Caution.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Buffer, Serial Driver">
+    <param name="Name" value="Important Points About the Script Driver">
+    <param name="Local" value="Script_Driver_Caution.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Blocking When Used With Timeout">
+    <param name="Name" value="read">
+    <param name="Local" value="Serial_read.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Script Driver, Setup">
+    <param name="Name" value="Setting Up the Script Driver">
+    <param name="Local" value="ScriptDriver_Setting_Up_the_Driver.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Script Driver, Configuration">
+    <param name="Name" value="Setting Up the Script Driver">
+    <param name="Local" value="ScriptDriver_Setting_Up_the_Driver.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Script Driver, RS-232C Connections">
+    <param name="Name" value="ScriptDriver_Cable Connections">
+    <param name="Local" value="ScriptDriver_Cable_Connections.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Script Driver, RS-422 Connections">
+    <param name="Name" value="ScriptDriver_Cable Connections">
+    <param name="Local" value="ScriptDriver_Cable_Connections.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Script Driver, Text Display Example">
+    <param name="Name" value="Example: Sending Messages to a Text Display">
+    <param name="Local" value="Setting_Up_Serial_Communications.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Text Display">
+    <param name="Name" value="Example: Sending Messages to a Text Display">
+    <param name="Local" value="Setting_Up_Serial_Communications.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Displaying Messages in a Text Display">
+    <param name="Name" value="Example: Sending Messages to a Text Display">
+    <param name="Local" value="Setting_Up_Serial_Communications.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="HyperTerminal">
+    <param name="Name" value="Example: Reading Messages from a HyperTerminal">
+    <param name="Local" value="ScriptDriver_HyperTerminal.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Reading Messages From a HyperTerminal">
+    <param name="Name" value="Example: Reading Messages from a HyperTerminal">
+    <param name="Local" value="ScriptDriver_HyperTerminal.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Sending Messages to a Text Display">
+    <param name="Name" value="Example: Sending Messages to a Text Display">
+    <param name="Local" value="Setting_Up_Serial_Communications.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Writing Messages to a Text Display">
+    <param name="Name" value="Example: Sending Messages to a Text Display">
+    <param name="Local" value="Setting_Up_Serial_Communications.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Messages in a Text Display">
+    <param name="Name" value="Example: Sending Messages to a Text Display">
+    <param name="Local" value="Setting_Up_Serial_Communications.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Script Driver, HyperTerminal Example">
+    <param name="Name" value="Example: Reading Messages from a HyperTerminal">
+    <param name="Local" value="ScriptDriver_HyperTerminal.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Script Driver, Read Example">
+    <param name="Name" value="Example: Reading Messages from a HyperTerminal">
+    <param name="Local" value="ScriptDriver_HyperTerminal.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Script Driver, Write Example">
+    <param name="Name" value="Example: Sending Messages to a Text Display">
+    <param name="Local" value="Setting_Up_Serial_Communications.htm">
+    <param name="Name" value="Example: Sending Messages to a Printer">
+    <param name="Local" value="ScriptDriver_Printer_Example.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Side-Effects of Using Timeout (read)">
+    <param name="Name" value="Important Points About the Script Driver">
+    <param name="Local" value="Script_Driver_Caution.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Communication Settings, Script Driver">
+    <param name="Name" value="Setting Up the Script Driver">
+    <param name="Local" value="ScriptDriver_Setting_Up_the_Driver.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Script Driver, Blocking">
+    <param name="Name" value="Important Points About the Script Driver">
+    <param name="Local" value="Script_Driver_Caution.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Script Driver, Buffer">
+    <param name="Name" value="Important Points About the Script Driver">
+    <param name="Local" value="Script_Driver_Caution.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Block Variables">
+    <param name="See Also" value="Block Variables">
+  </object>
+  <ul>
+    <li><object type="text/sitemap">
+      <param name="Name" value="getIntValues">
+      <param name="Name" value="getIntValues">
+      <param name="Local" value="Variable_BlockgetIntValues.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="getFloatValues">
+      <param name="Name" value="getFloatValues">
+      <param name="Local" value="Variable_BlockgetFloatValues.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="getSize">
+      <param name="Name" value="getSize">
+      <param name="Local" value="Variable_BlockgetSize.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="sendData">
+      <param name="Name" value="sendData">
+      <param name="Local" value="Variable_BlocksendData.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="getFloatValue">
+      <param name="Name" value="getFloatValue">
+      <param name="Local" value="VariableGetFloatValue.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="getIntValue">
+      <param name="Name" value="getIntValue">
+      <param name="Local" value="VariableGetIntValue.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="write">
+      <param name="Name" value="write">
+      <param name="Local" value="VariableWrite.htm">
+    </object>
+    </ul>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Printing Variable Values Using the Script Driver">
+    <param name="Name" value="Example: Sending Messages to a Printer">
+    <param name="Local" value="ScriptDriver_Printer_Example.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Script Driver, Printer Example">
+    <param name="Name" value="Example: Sending Messages to a Printer">
+    <param name="Local" value="ScriptDriver_Printer_Example.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Messages to a Printer">
+    <param name="Name" value="Example: Sending Messages to a Printer">
+    <param name="Local" value="ScriptDriver_Printer_Example.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Sending Messages to a Printer">
+    <param name="Name" value="Example: Sending Messages to a Printer">
+    <param name="Local" value="ScriptDriver_Printer_Example.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Writing Messages to a Printer">
+    <param name="Name" value="Example: Sending Messages to a Printer">
+    <param name="Local" value="ScriptDriver_Printer_Example.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Printer, Script Driver Example">
+    <param name="Name" value="Example: Sending Messages to a Printer">
+    <param name="Local" value="ScriptDriver_Printer_Example.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Serial Printer, Script Driver Example">
+    <param name="Name" value="Example: Sending Messages to a Printer">
+    <param name="Local" value="ScriptDriver_Printer_Example.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Variable Values, Sending to a Printer">
+    <param name="Name" value="Example: Sending Messages to a Printer">
+    <param name="Local" value="ScriptDriver_Printer_Example.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Driver, Script">
+    <param name="Name" value="Using the Script Driver">
+    <param name="Local" value="Communicating_with_Script_Driver.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="COM Port, Script Driver">
+    <param name="Name" value="Using the Script Driver">
+    <param name="Local" value="Communicating_with_Script_Driver.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Serial Port, Script Driver">
+    <param name="Name" value="Using the Script Driver">
+    <param name="Local" value="Communicating_with_Script_Driver.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Comma as Decimal Point">
+    <param name="Name" value="Key Points">
+    <param name="Local" value="Limitations.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Decimal Points in Scripts">
+    <param name="Name" value="Key Points">
+    <param name="Local" value="Limitations.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Arrays in Scripts">
+    <param name="Name" value="Key Points">
+    <param name="Local" value="Limitations.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Script Threads">
+    <param name="Name" value="Key Points">
+    <param name="Local" value="Limitations.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Threads, Scripts">
+    <param name="Name" value="Key Points">
+    <param name="Local" value="Limitations.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Sys.beep">
+    <param name="Name" value="Sys.beep">
+    <param name="Local" value="Sys.beep.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="DiagBuffer.decodeStatusWords">
+    <param name="Name" value="DiagBuffer.decodeStatusWords">
+    <param name="Local" value="DiagBuffer_decodeStatusWords.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="DiagBuffer.getDfbName">
+    <param name="Name" value="DiagBuffer.getDfbName">
+    <param name="Local" value="DiagBuffer_getDfbName.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="DiagBuffer.getStatusWords">
+    <param name="Name" value="DiagBuffer.getStatusWords">
+    <param name="Local" value="DiagBuffer_getStatusWords.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Diagnostic Buffer Methods">
+    <param name="Name" value="DiagBuffer Methods">
+    <param name="Local" value="DiagBuffer_Methods.htm">
+  </object>
+  <ul>
+    <li><object type="text/sitemap">
+      <param name="Name" value="DiagBuffer.decodeStatusWords">
+      <param name="Name" value="DiagBuffer.decodeStatusWords">
+      <param name="Local" value="DiagBuffer_decodeStatusWords.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="DiagBuffer.getStatusWords">
+      <param name="Name" value="DiagBuffer.getStatusWords">
+      <param name="Local" value="DiagBuffer_getStatusWords.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="DiagBuffer.getDfbName">
+      <param name="Name" value="DiagBuffer.getDfbName">
+      <param name="Local" value="DiagBuffer_getDfbName.htm">
+    </object>
+    </ul>
+  <li><object type="text/sitemap">
+    <param name="Name" value=".sto File">
+    <param name="Name" value="DiagBuffer.decodeStatusWords">
+    <param name="Local" value="DiagBuffer_decodeStatusWords.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="setLabel">
+    <param name="Name" value="setLabel">
+    <param name="Local" value="Variable_SetLabel.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Sys.clearAllDataLoggingInMemory">
+    <param name="Name" value="Sys.clearAllDataLoggingInMemory">
+    <param name="Local" value="Sys.clearAllDataLoggingInMemory.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="DiagBuffer.updateStatusWords">
+    <param name="Name" value="DiagBuffer.updateStatusWords">
+    <param name="Local" value="DiagBuffer.updateStatusWords.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Equipment Methods">
+    <param name="Name" value="Equipment Methods">
+    <param name="Local" value="Equipment_Methods.htm">
+  </object>
+  <ul>
+    <li><object type="text/sitemap">
+      <param name="Name" value="commitConfig">
+      <param name="Name" value="commitConfig">
+      <param name="Local" value="EquipmentFinalizeCommEquipmentChanges.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="getProperty">
+      <param name="Name" value="getProperty">
+      <param name="Local" value="Equipment_getcommequipmentproperty.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="openConfig">
+      <param name="Name" value="openConfig">
+      <param name="Local" value="Equipmentopencommequipment.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="setProperty">
+      <param name="Name" value="setProperty">
+      <param name="Local" value="Equipmentsetcommequipmentproperty.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="getStringProperty">
+      <param name="Name" value="getStingProperty">
+      <param name="Local" value="getStingProperty.htm">
+    </object>
+    </ul>
+  <li><object type="text/sitemap">
+    <param name="Name" value="commitConfig">
+    <param name="Name" value="commitConfig">
+    <param name="Local" value="EquipmentFinalizeCommEquipmentChanges.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="getProperty">
+    <param name="Name" value="getProperty">
+    <param name="Local" value="Equipment_getcommequipmentproperty.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="openConfig">
+    <param name="Name" value="openConfig">
+    <param name="Local" value="Equipmentopencommequipment.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="setProperty">
+    <param name="Name" value="setProperty">
+    <param name="Local" value="Equipmentsetcommequipmentproperty.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Delete Data Logging">
+    <param name="Name" value="Sys.clearAllDataLoggingInMemory">
+    <param name="Local" value="Sys.clearAllDataLoggingInMemory.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="NO_DATA record">
+    <param name="Name" value="Sys.clearAllDataLoggingInMemory">
+    <param name="Local" value="Sys.clearAllDataLoggingInMemory.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Sys.Login">
+    <param name="Name" value="Sys.Login">
+    <param name="Local" value="Sys.Login.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="NULL return values">
+    <param name="Name" value="Key Points">
+    <param name="Local" value="Limitations.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="clearAll">
+    <param name="Name" value="clearAll">
+    <param name="Local" value="AlarmSummaryClearAll.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="cursorUp">
+    <param name="Name" value="cursorUp">
+    <param name="Local" value="AlarmSummaryCursorUp.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="cursorOn">
+    <param name="Name" value="cursorOn">
+    <param name="Local" value="AlarmSummaryCursorOn.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="cursorOff">
+    <param name="Name" value="cursorOff">
+    <param name="Local" value="AlarmSummaryCursorOff.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="jumpTo">
+    <param name="Name" value="jumpTo">
+    <param name="Local" value="AlarmSummaryJumpTo.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="moveTop">
+    <param name="Name" value="moveTop">
+    <param name="Local" value="AlarmSummaryFirstMsg.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="moveBottom">
+    <param name="Name" value="moveBottom">
+    <param name="Local" value="AlarmSummaryLastMsg.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Sound.loop">
+    <param name="Name" value="Sound.loop">
+    <param name="Local" value="soundPlayLoop.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Sound.play">
+    <param name="Name" value="Sound.play">
+    <param name="Local" value="soundPlay.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Sound.stop">
+    <param name="Name" value="Sound.stop">
+    <param name="Local" value="soundStop.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Sys.flushAllDataLogging">
+    <param name="Name" value="Sys.dataLoggingFlushAll">
+    <param name="Local" value="SysdataLoggingFlushAll.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Sys.logout">
+    <param name="Name" value="Sys.logout">
+    <param name="Local" value="Sys.logout.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="setFrame">
+    <param name="Name" value="videoDisplay.setCurFramePercent">
+    <param name="Local" value="videoDisplay_setCurFramePercent.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="toggleVideoInput">
+    <param name="Name" value="videoDisplay.switchWindows">
+    <param name="Local" value="videoDisplay_switchWindows.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="pause">
+    <param name="Name" value="videoDisplay.pause">
+    <param name="Local" value="videoDisplay_pause.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="record">
+    <param name="Name" value="videoDisplay.record">
+    <param name="Local" value="videoDisplay_record.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="fastForward">
+    <param name="Name" value="videoDisplay.fastForward">
+    <param name="Local" value="videoDisplay_fastForward.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="rewind">
+    <param name="Name" value="videoDisplay.rewind">
+    <param name="Local" value="videoDisplay_rewind.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="snapshot">
+    <param name="Name" value="videoDisplay.capture">
+    <param name="Local" value="videoDisplay_capture.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="getStringProperty">
+    <param name="Name" value="getStingProperty">
+    <param name="Local" value="getStingProperty.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Sys.validateUser">
+    <param name="Name" value="Sys.validateUser">
+    <param name="Local" value="Sys.validateUser.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Sys.setTargetIPAddress">
+    <param name="Name" value="setTargetIPAddress">
+    <param name="Local" value="Sys.setTargetIPAddress.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="File Methods">
+    <param name="Name" value="File Method">
+    <param name="Local" value="File_Method.htm">
+  </object>
+  <ul>
+    <li><object type="text/sitemap">
+      <param name="Name" value="Open">
+      <param name="Name" value="Text File Open">
+      <param name="Local" value="Text_File_Open.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="Read">
+      <param name="Name" value="Text File Read Line">
+      <param name="Local" value="Text_File_Read_Line.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="Close">
+      <param name="Name" value="Text File Close">
+      <param name="Local" value="Text_File_Close.htm">
+    </object>
+    </ul>
+  <li><object type="text/sitemap">
+    <param name="Name" value="TextFile.open">
+    <param name="Name" value="Text File Open">
+    <param name="Local" value="Text_File_Open.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="TextFile.close">
+    <param name="Name" value="Text File Close">
+    <param name="Local" value="Text_File_Close.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="TextFile.readLn">
+    <param name="Name" value="Text File Read Line">
+    <param name="Local" value="Text_File_Read_Line.htm">
+  </object>
+</ul>
+</html>

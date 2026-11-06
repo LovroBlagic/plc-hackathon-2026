@@ -1,0 +1,89 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+<meta name="template" content="Vijeo_template.htt">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+ <meta name="generator" content="Adobe RoboHelp 10">
+<title>Event Logging</title>
+<link rel="StyleSheet" href="Tis-styl.css" type="text/css">
+</head>
+<body>
+<script type="text/javascript" src="ehlpdhtm.js" language="JavaScript1.2"></script>
+
+<div style="width: 100%; position: relative;" id="header">
+	<table style="background-attachment: scroll; margin-left: 0px; margin-right: 4px; 
+			 background-image: url(top_banner.bmp); background-repeat: Repeat-X; 
+			 line-height: 0pt; vertical-align: top;" cellspacing="0" width="100%" 
+			 background="top_banner.bmp">
+		<col style="width: 90%;">
+		<col style="width: 5%;">
+		<col style="width: 5%;">
+		<tr style="vertical-align: center; height: 39px;">
+			<td style="width: 90%; padding-right: 10px; padding-left: 10px; 
+				 border-right-color: #000000;">
+   <p><img src="logo.bmp" style="border: none;" alt="" width="37" height="37" border="0"></p></td>
+			<td style="width: 5%; padding-right: 0px; padding-left: 10px; 
+				 border-right-color: #000000;">
+   <p style="text-align: center;"><a 
+			 title="Glossary" href="Appendix.chm::/Glossary.htm"><img src="logo_glossary.bmp" style="border: none;" alt="" width="47" height="37" border="0"></a></p></td>
+			<td style="width: 5%; padding-right: 10px; padding-left: 5px; 
+				 border-right-color: #000000;">
+   <p style="text-align: center;"><a 
+			 href="About.chm::/What_is_Vijeo-Designer.htm" title="Home"><img src="logo_home.bmp" alt="Home" title="Home" style="border: none; 
+			 margin-left: 0px; margin-right: 0px; margin-bottom: 0px; margin-top: -2px;" width="47" height="37" border="0"></a></p></td>
+		</tr>
+	</table>
+</div>
+
+<h3>16.2.2.2 Event Logging</h3>
+<p>Event logging is automated in Vijeo Designer. When an operation or event occurs, it is logged. The events and their corresponding records are logged, organized into event groups and can be viewed in the Event Summary. There are three types of events:</p>
+<ul>
+<li class="p-Bullet">
+<p class="Bullet">User Events - User events are generated each time a user performs an operation, such as change panels, or change recipes. These events are recorded only when an Event Group is created and you have configured the events.</p>
+</li>
+<li class="p-Bullet">
+<p class="Bullet">System error events - System error events are generated when an error event occurs. To view the records in a summary, a System Error Group needs to be created. These events are always recorded. For a list of system error event messages, see Section 28.2.4.1, <a href="Errors.chm::/Runtime_Errors.htm">Run-time Event Messages</a>.</p>
+</li>
+<li class="p-Bullet">
+<p class="Bullet">System events - System events are generated when operators interact with the system to perform actions and operations. These events are recorded only when a System Event Group is created. For a list of system event messages, see Section 28.2.4.3, <a href="Errors.chm::/System_Event_Messages.htm">System Event Messages</a>.</p>
+</li>
+</ul>
+<p>By defining event groups, you can <a href="Setting_up_alarm_Summary.htm">set up a group of event records for display</a>, <a href="Alarms_in_CSV_file.htm">save a group of event records to a file output</a>, or <a href="Printouts_at_once.htm">configure a group of event records for batch printing</a>.</p>
+<p>This section describes these key features in Vijeo Designer's event logging:</p>
+<ul>
+<li class="p-Bullet">
+<p class="Bullet"><a href="#Custom_Event_Messages">Custom event messages</a></p>
+</li>
+<li class="p-Bullet">
+<p class="Bullet"><a href="#Variable_Tracking">Variable tracking</a></p>
+</li>
+<li class="p-Bullet">
+<p class="Bullet"><a href="#System_Language_Support">System language support</a>.</p>
+</li>
+</ul>
+<h4><a name="Custom_Event_Messages" id="Custom_Event_Messages"></a><img src="Square.bmp" style="border: none;" alt="" width="12" height="10" border="0">Custom Event Messages</h4>
+<p>You can create custom event messages for user events. For example, in a vegetable processing plant, you can trigger the wash cycle action, and then generate custom event messages to indicate that the wash cycle has started and the subsequent events that occur in the wash cycle. &#160;</p>
+<p>Custom event messages are created in a text resource. You can create a plain text message – see Section 21.1.4.4, <a href="EfficientOperations.chm::/Defining_Values_for_each_Property_in_each_State.htm">Defining Values for Each Property in Each State</a>. Or you can create a message with dynamic content – see Section 21.1.5.12, <a href="EfficientOperations.chm::/Setting_Up_Embedded_Content.htm">Setting Up Messages with Dynamic Content</a>.</p>
+<h5><a name="Viewing_Custom_Event_Messages" id="Viewing_Custom_Event_Messages"></a>Viewing Custom Event Messages</h5>
+<p>To enable an event message to display at runtime, you can configure an Event Message operation in a switch, action, selector, panel function key, or target function key. In the configuration, you must specify the Text Resource where you have predefined the event message and then define the event message you want to generate. For more information on this operation, see Section 9.5.22, <a href="Switches.chm::/Event_Message_Operations.htm">Event Message Operations</a>.</p>
+<p>You can <a href="Printing_Alarm_sammary.htm">print event messages</a> and <a href="Trends.chm::/Displaying_Multi_Variables_Single_CSV.htm">save them to a single CSV file</a>.</p>
+<h4><a name="Variable_Tracking" id="Variable_Tracking"></a><img src="Square.bmp" style="border: none;" alt="" width="12" height="10" border="0">Variable Tracking</h4>
+<p>You can use the variable tracking feature to monitor user-initiated value change events for:</p>
+<ul>
+<li class="p-Bullet">
+<p class="Bullet">Internal and external variables. Select the Log User Operations on Variable property in the Variable Properties dialog box. For more information, see Section 6.2.3.2, <a href="InputAddress.chm::/Data_Details_Tab.htm">Data Details Tab</a>.</p>
+</li>
+<li class="p-Bullet">
+<p class="Bullet">Some system variables. You can monitor system variables that support the Write To property. Set the Write To property to a variable that is being tracked. For a list of variables that support Write To property, see Section 6.7, <a href="InputAddress.chm::/system_var.htm">System Variables</a>.</p>
+</li>
+</ul>
+<p>The variable tracking feature is most useful for monitoring value changes to ingredients in a recipe. To do this, you must flag all recipe internal variables for monitoring with a change variable event message. To flag the variables, select the Log User Operations on Variable property in the Variable Properties dialog box. When an operator changes an ingredient, the event will be recorded in the log.</p>
+<h4><a name="System_Language_Support" id="System_Language_Support"></a><img src="Square.bmp" style="border: none;" alt="" width="12" height="10" border="0">System Language Support</h4>
+<p class="Bullet">For system error events, the messages are displayed in the currently selected language. If the language selection changes, the existing records and new records switch to the newly selected language.</p>
+<p class="Bullet">Events and system events are logged using the selected system language. For system events, the messages are displayed in the language selected at the time the event was recorded. If the language selection changes, the existing messages do not switch to the newly selected language. Only the new events are logged in the newly selected language.</p>
+<div style="width: 100%; position: relative;" id="footer">
+	<p>&#160;</p>
+</div>
+</body>
+</html>

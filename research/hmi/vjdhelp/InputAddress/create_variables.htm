@@ -1,0 +1,158 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+<meta name="template" content="Vijeo_template.htt">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="date" content="07 11, 2003 3:00:44 PM">
+<meta name="topic-status" content="In Progress">
+<meta name="topic-priority" content="0">
+<meta name="topic-time-estimate" content="0">
+<meta name="topic-id" content="">
+ <meta name="generator" content="Adobe RoboHelp 2015">
+<title>Creating Variables</title>
+<link rel="StyleSheet" href="Tis-styl.css" type="text/css">
+</head>
+<body>
+<script type="text/javascript" src="ehlpdhtm.js" language="JavaScript1.2"></script>
+
+<div style="width: 100%; position: relative;" id="header">
+	<table style="background-attachment: scroll; margin-left: 0px; margin-right: 4px; 
+			 background-image: url(top_banner.bmp); background-repeat: Repeat-X; 
+			 line-height: 0pt; vertical-align: top;" cellspacing="0" background="top_banner.bmp" 
+			 width="100%">
+		<col style="width: 90%;">
+		<col style="width: 5%;">
+		<col style="width: 5%;">
+		<tr style="vertical-align: center; height: 39px;">
+			<td style="width: 90%; padding-right: 10px; padding-left: 10px; 
+				 border-right-color: #000000;">
+   <p><img src="logo.bmp" alt="" style="border: none;" width="37" height="37" border="0"></p></td>
+			<td style="width: 5%; padding-right: 0px; padding-left: 10px; 
+				 border-right-color: #000000;">
+   <p style="text-align: center;"><a 
+			 title="Glossary" href="Appendix.chm::/Glossary.htm"><img src="logo_glossary.bmp" alt="" style="border: none;" width="47" height="37" border="0"></a></p></td>
+			<td style="width: 5%; padding-right: 10px; padding-left: 5px; 
+				 border-right-color: #000000;">
+   <p style="text-align: center;"><a 
+			 href="About.chm::/What_is_Vijeo-Designer.htm" title="Home"><img src="logo_home.bmp" alt="Home" title="Home" style="border: none; 
+			 margin-left: 0px; margin-right: 0px; margin-bottom: 0px; margin-top: -2px;" width="47" height="37" border="0"></a></p></td>
+		</tr>
+	</table>
+</div>
+
+
+<h2><a name="6.2.2 Creating Variables"></a>6.2.2 Creating Variables</h2>
+<p>You can create variables in:</p>
+<ul>
+<li class="p-Bullet">
+<p class="Bullet"><a href="#3-1">The New Variable dialog box</a></p>
+</li>
+<li class="p-Bullet">
+<p class="Bullet"><a href="#6_2_2_3_Creating_Variables_in_Variable_or_Expression_Fields">Variable or Expression field</a></p>
+</li>
+</ul>
+<p>After you create one or more variables, you can <a href="#6_2_2_4_Validiating_Your_Variables">validate your variables</a> to ensure that the variables you created have no errors. This operation only validates the variables and does not validate the target. For more information on how to validate your project, see Section 25.2, <a href="Download.chm::/Validate_Your_Project_for_Errors.htm">Checking for Errors Before Downloading</a>.</p>
+<p class="NoteImage"><img src="NOTE_MOJI.BMP" alt="" style="border: none;" width="51" height="25" border="0"></p>
+<ul>
+<li class="p-NoteText">
+<p class="NoteText">For one target machine, you can create a maximum of 8000 variables or 12000 variables depending on the target type. For more information, see Appendix 4 <a href="Appendix.chm::/Performance_Specifications.htm">Run-Time Specifications</a>. Included in the variable count are variables, system variables, variable array elements and the array placeholder, structure variable elements and the structure placeholder, and folder variable elements and the folder placeholder.<br>
+For example, the following is a variable array.</p>
+</li>
+</ul>
+<p class="Image" style="margin-left: 40px;">&#160;</p>
+<table style="vertical-align: top; margin-left: 40px;" cellspacing="0" width="50%">
+<col width="250">
+<col style="width: 55%;">
+<tr style="vertical-align: top; height: 42px;">
+<td rowspan="2" style="padding-right: 10px; padding-left: 10px;" width="250">
+<p><img src="Array_Count.bmp" alt="" style="border: none;" width="320" height="100" border="0"></p>
+</td>
+<td style="width: 55%; padding-right: 10px; padding-left: 10px;">
+<p>Array Placeholder = 1</p>
+</td>
+</tr>
+<tr style="vertical-align: top; height: 51px;">
+<td style="width: 55%; padding-right: 10px; padding-left: 10px; vertical-align: bottom;">
+<p>Array Elements = 3</p>
+</td>
+</tr>
+</table>
+<p class="Image" style="margin-left: 40px;">&#160;</p>
+<p class="NoteText" style="margin-left: 40px;">The total count for an array with three array elements is four: one for the array placeholder and one for each array element.</p>
+<ul>
+<li class="p-NoteText">
+<p class="NoteText">A block variable adds just 1 to the variable count, even though it's associated with multiple device addresses.</p>
+</li>
+<li class="p-NoteText">
+<p class="NoteText">System variables are not included as part of the variable count.</p>
+</li>
+<li class="p-NoteText">
+<p class="NoteText">The maximum number of variables you can use on a single panel is 800.</p>
+</li>
+</ul>
+<h3><a name="3-1642b3b9347ca42c9b00b820c00c373fa=1"></a><a name="3-1"></a>6.2.2.1 Creating Variables in the New Variable Dialog Box</h3>
+<ol style="list-style: decimal;">
+<li class="p">
+<p>Do one of the following:</p>
+</li>
+<li class="p-bullet2">
+<p class="bullet2">Right-click the Variable's node and select New Variable.</p>
+</li>
+</ol>
+<p style="margin-left: 80px;"><img src="Vijeo_new_variable.bmp" alt="" style="border: none;" width="461" height="322" border="0"></p>
+<ol start="2" style="list-style: decimal;">
+<li class="p-bullet2">
+<p class="bullet2">Click <img src="NewVariable-Icon.bmp" alt="" style="border: none;" width="23" height="23" border="0"> in the Variable's spreadsheet window.</p>
+</li>
+<li class="p-bullet2">
+<p class="bullet2">Right-click anywhere inside the Variable Editor and select New.</p>
+</li>
+</ol>
+<ol start="2" style="list-style: decimal;">
+<li class="p">
+<p>In the Basic Properties tab, set the Variable Name, Description, Data Type, Array Dimensions, and the Data Source properties. See Section 6.2.3, <a href="var_property.htm">Variable Properties</a> for more information.</p>
+</li>
+<li class="p">
+<p>Click OK to add the new variable to the variable list.</p>
+</li>
+</ol>
+<h3><a name="6_2_2_3_Creating_Variables_in_Variable_or_Expression_Fields642b3b9347ca42c9b00b820c00c373fa=2"></a><a name="6_2_2_3_Creating_Variables_in_Variable_or_Expression_Fields"></a>6.2.2.2 Creating Variables in Variable or Expression Fields</h3>
+<p>You can create variables in Variable or Expression fields, which are available in dialog boxes such as Animation Properties, Toolchest Properties, and the Property Inspector.</p>
+<ol style="list-style: decimal;">
+<li class="p">
+<p>In the Variable or Expression field in a dialog box or object properties, type the variable name.</p>
+</li>
+</ol>
+<p class="Image" style="margin-left: 40px;"><img src="variable_field.bmp" alt="" style="border: none;" width="529" height="144" border="0"></p>
+<p class="NoteImage" style="margin-left: 40px;"><img src="NOTE_MOJI.BMP" alt="" style="border: none;" width="51" height="25" border="0"></p>
+<ul>
+<li class="p-NoteText2">
+<p class="NoteText2">If the variable exists, the variable name displays in black. If the variable does not exist, the variable name displays in red.</p>
+</li>
+</ul>
+<p style="margin-left: 40px;">Or, to create a variable in the Expression Editor, click <img src="NewVariable-Icon.bmp" alt="" style="border: none;" width="23" height="23" border="0"> in the variable list to display the New Variable dialog box.</p>
+<p class="Image" style="margin-left: 40px;"><img src="expression_editor.bmp" alt="" style="border: none;" width="279" height="352" border="0"></p>
+<p style="margin-left: 40px;">Or, to create a variable in the Property Inspector, enter a name in the Variable property, and press Enter.</p>
+<p class="Image" style="margin-left: 40px;"><img src="variable_property_new.bmp" alt="" style="border: none;" width="273" height="293" border="0"></p>
+<ol start="2" style="list-style: decimal;">
+<li class="p">
+<p>In the New Variable dialog box that is displayed, set the properties.</p>
+</li>
+</ol>
+<p style="margin-left: 40px;">For more information on the properties, see Section 6.2.3, <a href="var_property.htm">Variable Properties</a>.</p>
+<ol start="3" style="list-style: decimal;">
+<li class="p">
+<p>Click OK to add this variable under the Target node.</p>
+</li>
+</ol>
+<h3><a name="6_2_2_4_Validiating_Your_Variables642b3b9347ca42c9b00b820c00c373fa=3"></a><a name="6_2_2_4_Validiating_Your_Variables"></a>6.2.2.3 Validating Your Variables</h3>
+<p>To validate your variables:</p>
+<ul style="list-style: decimal;">
+<li class="p-Bullet">
+<p class="Bullet">Right-click the Variables node and select Validate Variables.</p>
+</li>
+</ul>
+<p style="margin-left: 40px;">The Feedback Zone opens and displays messages about the variable validation process.</p>
+</body>
+</html>

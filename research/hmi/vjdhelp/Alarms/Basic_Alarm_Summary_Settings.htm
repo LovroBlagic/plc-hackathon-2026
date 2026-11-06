@@ -1,0 +1,219 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+<meta name="template" content="Vijeo_template.htt">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="topic-status" content="In Progress">
+<meta name="topic-priority" content="0">
+<meta name="topic-time-estimate" content="0">
+<meta name="topic-comment" content="">
+<meta name="topic-id" content="13.1 ????????????">
+<meta name="window-type" content="$global_NewWindow">
+ <meta name="generator" content="Adobe RoboHelp 10">
+<title>Basic Alarm Summary Features</title>
+<link rel="StyleSheet" href="Tis-styl.css" type="text/css">
+</head>
+<body>
+<script type="text/javascript" src="ehlpdhtm.js" language="JavaScript1.2"></script>
+
+<div style="width: 100%; position: relative;" id="header">
+	<table style="background-attachment: scroll; margin-left: 0px; margin-right: 4px; 
+			 background-image: url(top_banner.bmp); background-repeat: Repeat-X; 
+			 line-height: 0pt; vertical-align: top;" cellspacing="0" width="100%" 
+			 background="top_banner.bmp">
+		<col style="width: 90%;">
+		<col style="width: 5%;">
+		<col style="width: 5%;">
+		<tr style="vertical-align: center; height: 39px;">
+			<td style="width: 90%; padding-right: 10px; padding-left: 10px; 
+				 border-right-color: #000000;">
+   <p><img src="logo.bmp" style="border: none;" alt="" width="37" height="37" border="0"></p></td>
+			<td style="width: 5%; padding-right: 0px; padding-left: 10px; 
+				 border-right-color: #000000;">
+   <p style="text-align: center;"><a 
+			 title="Glossary" href="Appendix.chm::/Glossary.htm"><img src="logo_glossary.bmp" style="border: none;" alt="" width="47" height="37" border="0"></a></p></td>
+			<td style="width: 5%; padding-right: 10px; padding-left: 5px; 
+				 border-right-color: #000000;">
+   <p style="text-align: center;"><a 
+			 href="About.chm::/What_is_Vijeo-Designer.htm" title="Home"><img src="logo_home.bmp" alt="Home" title="Home" style="border: none; 
+			 margin-left: 0px; margin-right: 0px; margin-bottom: 0px; margin-top: -2px;" width="47" height="37" border="0"></a></p></td>
+		</tr>
+	</table>
+</div>
+
+<h1>16.2 Setting Up the Alarm and Event Summary</h1>
+<p>When an error or event occurs, you can display a list of alarms and events on the target machine by using the Alarm Summary and Event Summary. The Alarm Summary displays not only the alarm message, but various other information about the alarm, such as the date and time when the alarm was activated or restored. The Event Summary displays event messages, which include <a href="Event_Logging.htm">user actions</a>, <a href="Event_Logging.htm">system error events</a>, and <a href="Event_Logging.htm">system events</a>.</p>
+<p>For targets with a panel screen size of 200x80, each alarm or event message is displayed individually in the summary instead of in a list. The summary will also display the date and time of the alarm or event, the alarm state, the alarm or event number, and the number of alarms or events. Use the NEXT and PREV buttons to go to the next or previous alarm or event message, the ACK button to acknowledge the alarm, and the Exit button to exit the summary and return to the previous panel.</p>
+<h2><a name="16_2_1_Basic_Alarm_Summary_Features642b3b9347ca42c9b00b820c00c373fa=1"></a><a name="16_2_1_Basic_Alarm_Summary_Features"></a>16.2.1 Alarm and Event Summary Features</h2>
+<h4><a name="Basic_Summary_Features" id="Basic_Summary_Features"></a><img src="Square.bmp" style="border: none;" alt="" width="12" height="10" border="0">Basic Features</h4>
+<p>This section introduces the basic features for an <a href="#Basic_Alarm_Summary_Features">Alarm Summary</a> and <a href="#Basic_Event_Summary_Features">Event Summary</a>.</p>
+<h3><a name="Basic_Alarm_Summary_Features" id="Basic_Alarm_Summary_Features"></a>Alarm Summary</h3>
+<ul>
+<li class="p-Bullet">
+<p class="Bullet">You can set up an alarm to activate an alarm message to appear in the Alarm Summary when a BOOL variable is turned ON or OFF.</p>
+</li>
+</ul>
+<ul>
+<li class="p-Bullet">
+<p class="Bullet">You can set up a switch or operation button to acknowledge the alarm and do the following: change the alarm message color when the alarm is acknowledged; display the date and time when the alarm is acknowledge; both change the alarm message color and display the date and time when the alarm is acknowledged; or add a new row with the restored alarm.</p>
+</li>
+</ul>
+<ul>
+<li class="p-Bullet">
+<p class="Bullet">For Active and History Alarm Summary, you can set the alarm summary to change alarm message colors when the alarm changes from the Active, Acknowledge (ACK), and Returned to Normal (RTN) states. For Log Alarm Summary, you can set the alarm summary to add a new row for each change in the alarm's state.</p>
+</li>
+</ul>
+<ul>
+<li class="p-Bullet">
+<p class="Bullet">You can select from three types of Alarm Summary displays: Active, History and Log.</p>
+</li>
+</ul>
+<table style="vertical-align: top; margin-left: 40px;" cellspacing="0" width="95.365%">
+<col style="width: 19.136%;">
+<col style="width: 80.864%;">
+<tr style="vertical-align: top;">
+<td style="border-top: Solid 3px Black; border-right: Solid 1px Black; border-bottom: Solid 1px Black; width: 19.136%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#91AFD9">
+<p class="Tabletitle">Display</p>
+</td>
+<td style="border-top: Solid 3px Black; border-bottom: Solid 1px Black; width: 80.864%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#91AFD9">
+<p class="Tabletitle">Description</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px Black; border-bottom: Solid 1px Black; width: 19.136%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#CBD9ED">
+<p class="TableDefinitions">Active</p>
+</td>
+<td style="border-bottom: Solid 1px Black; width: 80.864%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">The Active Alarm Summary displays alarms that are in the Active, Acknowledge (ACK), and Not Acknowledged (UNACK) states. When the alarm is Returned to Normal (RTN), the alarm is cleared from the Active Alarm Summary.</p>
+<p class="Image"><img src="active_alarm.bmp" style="border: none;" alt="" width="306" height="62" border="0"></p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px Black; border-bottom: Solid 1px Black; width: 19.136%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#CBD9ED">
+<p class="TableDefinitions">History</p>
+</td>
+<td style="border-bottom: Solid 1px Black; width: 80.864%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">The History Alarm Summary displays a column for each alarm state change for an alarm message. When the alarm changes state, the alarm message continues to display on the same line. However, when an alarm changes state from RTN to active, the alarm message displays on a new row in the alarm summary. When the alarm changes state, the alarm message changes to the colors associated with that state.</p>
+<p class="Image"><img src="history_alarm.bmp" style="border: none;" alt="" width="361" height="61" border="0"></p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px Black; border-bottom: Solid 3px Black; width: 19.136%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#CBD9ED">
+<p class="TableDefinitions">Log</p>
+</td>
+<td style="border-bottom: Solid 3px Black; width: 80.864%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">The Log Alarm Summary displays a new alarm message for each change in the alarm's state.</p>
+<p class="Image"><img src="log_alarm.bmp" style="border: none;" alt="" width="361" height="102" border="0"></p>
+</td>
+</tr>
+</table>
+<ul>
+<li class="p-Bullet">
+<p class="Bullet">The Alarm Summary displays information, such as state, variable name, and alarm group.</p>
+</li>
+</ul>
+<h3><a name="Basic_Event_Summary_Features" id="Basic_Event_Summary_Features"></a>Event Summary</h3>
+<ul>
+<li class="p-Bullet">
+<p class="Bullet">You can set up an operation button to perform various functions on an Event Summary, such as cursor up or down, page up or down, and delete all to remove all event messages.</p>
+</li>
+<li class="p-Bullet">
+<p class="Bullet">You can create custom event messages using the text resource, scripts, or actions.</p>
+</li>
+</ul>
+<ul>
+<li class="p-Bullet">
+<p class="Bullet">For alarms on an Event Summary, you can change alarm message colors when the alarm changes from the Active, Acknowledge (ACK), and Return to Normal (RTN) states.</p>
+</li>
+</ul>
+<ul>
+<li class="p-Bullet">
+<p class="Bullet">You can select two types of Event Summary displays: History (displays historical records) and Log (displays log records). If Active is selected, no records will be shown for the event group in the Event Summary.</p>
+</li>
+</ul>
+<ul>
+<li class="p-Bullet">
+<p class="Bullet">The Event Summary displays information, such as user name and group.</p>
+</li>
+</ul>
+<h4><a name="Advanced_Summary_Features" id="Advanced_Summary_Features"></a><img src="Square.bmp" style="border: none;" alt="" width="12" height="10" border="0">Advanced Features</h4>
+<p>The following table describes the advanced features for an Alarm Summary and Event Summary.</p>
+<table style="vertical-align: top; margin-left: 40px;" cellspacing="0" width="94.68%">
+<col style="width: 18.945%;">
+<col style="width: 81.055%;">
+<tr style="vertical-align: top;">
+<td style="border-top: Solid 3px Black; border-right: Solid 1px Black; border-bottom: Solid 1px Black; width: 18.945%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#91AFD9">
+<p class="Tabletitle">Feature</p>
+</td>
+<td style="border-top: Solid 3px Black; border-bottom: Solid 1px Black; width: 81.055%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#91AFD9">
+<p class="Tabletitle">Details</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px Black; border-bottom: Solid 1px Black; width: 18.945%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#CBD9ED">
+<p class="TableDefinitions">Multiple Alarm Group/Event Group/Alarm Category Display</p>
+</td>
+<td style="border-bottom: Solid 1px Black; width: 81.055%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">You can group your alarms and events so that, for example, urgent alarms appear in one Alarm Summary, and ordinary alarms appear in another Alarm Summary, and events appear in an Event Summary. You can also set up summaries with filters that can display a specific group or alarm category. See Section 16.3.1.2, <a href="multiple_alarm_group.htm">Displaying Multiple Groups</a>.</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px Black; border-bottom: Solid 1px Black; width: 18.945%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#CBD9ED">
+<p class="TableDefinitions">Monitoring Word Addresses</p>
+</td>
+<td style="border-bottom: Solid 1px Black; width: 81.055%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">This feature is for alarms only. You can set up integer and REAL variables to trigger alarms when their values reach a specified threshold. See Section 16.3.3, <a href="Word_Device_Address.htm">Word Alarms</a>.</p>
+<p class="Image"><img src="new_intro.bmp" style="border: none;" alt="" width="394" height="60" border="0"></p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px Black; border-bottom: Solid 1px Black; width: 18.945%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#CBD9ED">
+<p class="TableDefinitions">Log User Operations on Variable</p>
+</td>
+<td style="border-bottom: Solid 1px Black; width: 81.055%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">This feature is for events only. You can set up a variable so that the variable can be monitored for user events listed in the event list. For example, you may want to monitor value change events for some variables. For more information on how to set up a variable for events, see Section 6.2.3.2, <a href="InputAddress.chm::/Data_Details_Tab.htm">Data Details Tab</a>.</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px Black; border-bottom: Solid 1px Black; width: 18.945%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#CBD9ED">
+<p class="TableDefinitions">Action</p>
+</td>
+<td style="border-bottom: Solid 1px Black; width: 81.055%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">This feature is for alarms only. You can set up actions for each alarm, such as changing panels or displaying pop-up windows. These actions can be set up to either run when an alarm is triggered or run when the alarm is selected in the alarm summary.<br>
+See Section 16.3.4, <a href="Setting_up_Alarm_Action.htm">Setting Up Alarm Actions</a>.</p>
+<p class="Image"><img src="action_occurs.bmp" style="border: none;" alt="" width="254" height="97" border="0"></p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px Black; border-bottom: Solid 1px Black; width: 18.945%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#CBD9ED">
+<p class="TableDefinitions">Print</p>
+</td>
+<td style="border-bottom: Solid 1px Black; width: 81.055%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">Users can print alarm and event messages on a printer connected to the target machine. There are two ways to print: Real Time and Batch. See Section 16.3.5, <a href="Printing_Alarm_sammary.htm">Printing Alarm and Event Messages</a>.</p>
+<p class="Image"><img src="print_introduce.bmp" style="border: none;" alt="" width="219" height="78" border="0"></p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px Black; border-bottom: Solid 1px #000000; width: 18.945%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#CBD9ED">
+<p class="TableDefinitions">Alarm Sharing</p>
+</td>
+<td style="border-bottom: Solid 1px #000000; width: 81.055%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">Users can share alarm groups and event groups. Alarm sharing allows you to interact with and view shared alarm and event groups from other targets on your network. For more information on alarm sharing, see Section 16.3.1.4, <a href="Creating_Remote_Categories.htm">Remote Categories</a>.</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px Black; border-bottom: Solid 3px Black; width: 18.945%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#CBD9ED">
+<p class="TableDefinitions">Save to File</p>
+</td>
+<td style="border-bottom: Solid 3px Black; width: 81.055%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">You can save alarm and event messages to a .csv file on a Secondary or Optional Drive. See Section 16.3.6, <a href="Alarms_in_CSV_file.htm">Outputting Alarms and Events to a .CSV File</a>.</p>
+<p class="Image"><img src="save_introduce.bmp" style="border: none;" alt="" width="241" height="77" border="0"></p>
+</td>
+</tr>
+</table>
+<div style="width: 100%; position: relative;" id="footer">
+	<p>&#160;</p>
+</div>
+</body>
+</html>

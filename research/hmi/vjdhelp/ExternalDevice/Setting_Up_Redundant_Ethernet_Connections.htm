@@ -1,0 +1,94 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+<meta name="template" content="Vijeo_template.htt">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+ <meta name="generator" content="Adobe RoboHelp 2015">
+<title>Setting Up Redundant Ethernet Connections</title>
+<link rel="StyleSheet" href="TIS-STYL.CSS" type="text/css">
+</head>
+<body>
+<script type="text/javascript" src="ehlpdhtm.js" language="JavaScript1.2"></script>
+
+<div style="width: 100%; position: relative;" id="header">
+	<table style="background-attachment: scroll; margin-left: 0px; margin-right: 4px; 
+			 background-image: url(top_banner.bmp); background-repeat: Repeat-X; 
+			 line-height: 0pt; vertical-align: top;" cellspacing="0" background="top_banner.bmp" 
+			 width="100%">
+		<col style="width: 90%;">
+		<col style="width: 5%;">
+		<col style="width: 5%;">
+		<tr style="vertical-align: center; height: 39px;">
+			<td style="width: 90%; padding-right: 10px; padding-left: 10px; 
+				 border-right-color: #000000;">
+   <p><img src="logo.bmp" alt="" style="border: none;" width="37" height="37" border="0"></p></td>
+			<td style="width: 5%; padding-right: 0px; padding-left: 10px; 
+				 border-right-color: #000000;">
+   <p style="text-align: center;"><a 
+			 title="Glossary" href="Appendix.chm::/Glossary.htm"><img src="logo_glossary.bmp" alt="" style="border: none;" width="47" height="37" border="0"></a></p></td>
+			<td style="width: 5%; padding-right: 10px; padding-left: 5px; 
+				 border-right-color: #000000;">
+   <p style="text-align: center;"><a 
+			 href="About.chm::/What_is_Vijeo-Designer.htm" title="Home"><img src="logo_home.bmp" alt="Home" title="Home" style="border: none; 
+			 margin-left: 0px; margin-right: 0px; margin-bottom: 0px; margin-top: -2px;" width="47" height="37" border="0"></a></p></td>
+		</tr>
+	</table>
+</div>
+
+
+<h2>5.2.7 Setting Up Redundant Ethernet Connections</h2>
+<p>To provide increased system availability and reliability, in Vijeo Designer you can set up a Modbus dual Ethernet connection between the target machine and one or more PLCs. Redundant connections provide the following benefits:</p>
+<ul>
+<li class="p-Bullet">
+<p class="Bullet">Alternate communication paths for the PLC</p>
+</li>
+<li class="p-Bullet">
+<p class="Bullet">Increased reliability in system design</p>
+</li>
+<li class="p-Bullet">
+<p class="Bullet">Continuous monitoring of the redundant Ethernet paths and notification in the event of a loss of communication on either path.</p>
+</li>
+</ul>
+<p>When a communication error occurs on the primary connection, the driver will detect the communication failure and will retry on the secondary IP address. The driver properties indicate the driver status, which will be altered to indicate the primary connection is down and the secondary connection is in use to resume communication. The driver will periodically check the primary connection, and if the connection does come back up, the status will be updated to indicate the primary connection is up. Communication remains on the secondary connection, until the operator requests a switch or a communication error occurs. To make the switch to another connection, use the driver properties.</p>
+<p>You can set up either a UDP/IP or TCP/IP network configuration. The UDP/IP network connection is used when connecting to a device that only supports UDP as the connection type.</p>
+<p>The following images show examples of the different types of network configurations that may be used with this feature.</p>
+<h5>Dual Ethernet Connection</h5>
+<p style="font-weight: bold; margin-bottom: 0pt;">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;Ethernet</p>
+<p class="Image" style="margin-top: 0pt; margin-bottom: 0pt;"><img src="DualEthernetConnection.bmp" alt="" style="border: none;" width="266" height="132" border="0"></p>
+<p style="margin-bottom: 0pt;">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<span style="font-weight: bold;">Ethernet</span></p>
+<p style="margin-bottom: 0pt;">&#160;</p>
+<h5>Single Ethernet / Dual PLC Connection</h5>
+<p style="font-weight: bold; margin-bottom: 0pt;"><span style="font-weight: bold;">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;Ethernet</span></p>
+<p><img src="SingleEthernet_DualPLCConnection.bmp" alt="" style="border: none;" width="358" height="115" border="0"></p>
+<h5>Dual Connection Through Router</h5>
+<p style="font-weight: bold; margin-bottom: 0pt;"><span style="font-weight: bold;">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;Ethernet</span></p>
+<p style="margin-bottom: 0pt;"><img src="DualConnectionRouter.bmp" alt="" style="border: none;" width="390" height="215" border="0"></p>
+<p style="font-weight: bold; margin-bottom: 0pt;"><span style="font-weight: bold;">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;Ethernet</span></p>
+<h4>&#160;</h4>
+<h4><img src="square.bmp" alt="" style="border: none;" width="12" height="10" border="0"> Setting Up the Modbus Dual Ethernet Connection</h4>
+<ol style="list-style: decimal;">
+<li class="p">
+<p>Set up the Modbus TCP/IP device driver. For more information, see Section 5.2.1, <a href="the_detail_of_settgin_host_controller.htm">Adding a Device Driver</a>.</p>
+</li>
+<li class="p">
+<p>Configure the communication settings for the driver in the Driver Configuration dialog box. For more information, see Section 5.2.2, <a href="connection_setting.htm">Configuring Communication Settings</a>.</p>
+</li>
+<li class="p">
+<p>Configure the communication settings for the equipment in the Equipment Configuration dialog box. For more information on the Modbus TCP/IP equipment properties, see Section 26.3.6, <a href="Runtime.chm::/Schneider_Electric_Industries_Communication_Settings.htm">Changing I/O Manager Communication Settings: Schneider Electric</a>. For the Modbus TCP/IP device driver, you must define the following settings to set up the Modbus dual Ethernet connection:</p>
+</li>
+</ol>
+<ul>
+<li class="p-bullet2">
+<p class="bullet2">IP Address – Enter the primary IP address.</p>
+</li>
+<li class="p-bullet2">
+<p class="bullet2">Secondary Connection – For a PLC with two Ethernet ports, enable this check box to allow a secondary IP address to be entered.</p>
+</li>
+<li class="p-bullet2">
+<p class="bullet2">Backup IP – Enter the secondary IP address.</p>
+</li>
+</ul>
+<p>&#160;</p>
+</body>
+</html>

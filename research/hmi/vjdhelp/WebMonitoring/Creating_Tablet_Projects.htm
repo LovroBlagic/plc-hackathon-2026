@@ -1,0 +1,186 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+<meta name="template" content="Vijeo_template.htt">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+ <meta name="generator" content="Adobe RoboHelp 10">
+<title>Setting Up a Tablet/Smartphone Project</title>
+<link rel="StyleSheet" href="TIS-STYL.CSS" type="text/css">
+</head>
+
+<body>
+<script type="text/javascript" src="ehlpdhtm.js" language="JavaScript1.2"></script>
+
+<div style="width: 100%; position: relative;" id="header">
+	<table style="background-attachment: scroll; margin-left: 0px; margin-right: 4px; 
+			 background-image: url(top_banner.bmp); background-repeat: Repeat-X; 
+			 line-height: 0pt; vertical-align: top;" cellspacing="0" background="top_banner.bmp" 
+			 width="100%">
+		<col style="width: 90%;">
+		<col style="width: 5%;">
+		<col style="width: 5%;">
+		<tr style="vertical-align: center; height: 39px;">
+			<td style="width: 90%; padding-right: 10px; padding-left: 10px; 
+				 border-right-color: #000000;">
+   <p><img src="logo.bmp" alt="" style="border: none;" width="37" height="37" border="0"></p></td>
+			<td style="width: 5%; padding-right: 0px; padding-left: 10px; 
+				 border-right-color: #000000;">
+   <p style="text-align: center;"><a 
+			 title="Glossary" href="Appendix.chm::/Glossary.htm"><img src="logo_glossary.bmp" alt="" style="border: none;" width="47" height="37" border="0"></a></p></td>
+			<td style="width: 5%; padding-right: 10px; padding-left: 5px; 
+				 border-right-color: #000000;">
+   <p style="text-align: center;"><a 
+			 href="About.chm::/What_is_Vijeo-Designer.htm" title="Home"><img src="logo_home.bmp" alt="Home" title="Home" style="border: none; 
+			 margin-left: 0px; margin-right: 0px; margin-bottom: 0px; margin-top: -2px;" width="47" height="37" border="0"></a></p></td>
+		</tr>
+	</table>
+</div>
+
+<h3>23.1.1.1 Setting Up a Tablet/Smartphone 
+ Project</h3>
+<p>This section describes how to set up a tablet/smartphone project in 
+ Vijeo Designer.</p>
+<ol style="list-style: decimal;">
+	<li class="p"><p>In Vijeo Designer, create a new project. For more 
+	 information, see Section 4.3.2, <a href="StandardOperation.chm::/Creating_projects.htm" 
+										 style="font-weight: normal;">Creating 
+	 a New Project</a>.</p></li>
+	<li class="p"><p>Set up the target machine. For more information, see 
+	 Section 4.5, <a href="StandardOperation.chm::/About_target.htm">Setting 
+	 Up a Target</a>. This is the target machine you want your tablet/smartphone 
+	 project to communicate with.</p></li>
+	<li class="p"><p>On the target machine, set up the variables and alarms 
+	 that the target machine can share with the tablet/smartphone.</p></li>
+	<li class="p-bullet2"><p class="bullet2">Data sharing on the target 
+	 machine – In 
+	 the Target properties, enable Data Sharing and set the Port.</p></li>
+	<li class="p-bullet2"><p class="bullet2">Data sharing with variables 
+	 – In the Variable 
+	 properties, set Sharing to Read Only or Read/Write.</p></li>
+	<li class="p-bullet2"><p class="bullet2">Data sharing with alarms – In the Alarm Group properties, 
+	 set Sharing to Read/Write.</p></li>
+</ol>
+<p style="margin-left: 40px;">For more information, see Section 22.1, <a 
+	 href="Advanced.chm::/DataSharing_Overview.htm">Sharing Data Between 
+ Tablets, Smartphones, and Target Machines</a>.</p>
+<ol start="4" style="list-style: decimal;">
+	<li class="p"><p>Add a tablet/smartphone target. For more information, 
+	 see Section 4.5.2.1, <a href="StandardOperation.chm::/Adding_targets.htm">Adding 
+	 a Target</a>. In the Create New Target dialog box, set the Target 
+	 Type to Tablets and Smartphones, set the Model to Android, and then 
+	 specify the resolution.</p></li>
+	<li class="p"><p>Associate the tablet/smartphone with the target machine. 
+	 In the Target properties for the target machine, expand Remote Management:</p></li>
+</ol>
+<ol start="7" style="list-style: decimal;">
+	<li class="p-bullet2"><p class="bullet2">In the Vijeo Design'Air Plus 
+	 property, select the tablet/smartphone project you want to download.</p></li>
+	<li class="p-bullet2"><p class="bullet2">Set Target Discovery to Enabled.</p></li>
+</ol>
+<p class="NoteImage" style="margin-left: 40px;"><img src="NOTE_MOJI.BMP" alt="" style="border: none;" width="51" height="25" border="0"></p>
+<ol style="list-style: decimal;">
+	<li style="list-style: none; display: inline;"><ol start="4" style="list-style: decimal;">
+		<li class="p-NoteText"><p class="NoteText">At run time, the target 
+		 machine only allows one instance of Vijeo Design'Air or Vijeo 
+		 Design'Air Plus to access its data at a given time. For example, 
+		 if Vijeo Design'Air Plus has an active data sharing connection 
+		 to the target machine, Vijeo Design'Air cannot establish a remote 
+		 connection. If Vijeo Design'Air has a remote connection established, 
+		 Vijeo Design'Air Plus can still download and launch the project, 
+		 but it cannot share data with the target machine. To view or manage 
+		 remote connections at run time, see sections <a href="#Air_Plus_System_Variables">Vijeo 
+		 Design'Air Plus System Variables</a> and <a href="Air_System_Variables.htm">Vijeo 
+		 Design'Air System Variables</a>.</p></li>
+	</ol></li>
+</ol>
+<ol start="6" style="list-style: decimal;">
+	<li class="p"><p>If you want to set up security so that at run time 
+	 only authorized users can transfer the application from the target 
+	 machine to the tablet/smartphone, see <a href="#Air Plus Safety and Security">Vijeo 
+	 Design'Air Plus Safety and Security</a>.</p></li>
+</ol>
+<ol start="7" style="list-style: decimal;">
+	<li class="p"><p>Design the panel for the tablet/smartphone. For more 
+	 information on the shapes, parts, and Toolchest parts you can create 
+	 on tablet/smartphone panels, see Section 23.1.1.2, <a href="Drawing_Graphics_Tablet_Smartphone_Panel.htm">Drawing 
+	 Graphics on a Tablet/Smartphone Panel</a>.</p></li>
+</ol>
+<p class="NoteImage" style="margin-left: 40px;"><img src="NOTE_MOJI.BMP" alt="" style="border: none;" width="51" height="25" border="0"></p>
+<ol start="4" style="list-style: decimal;">
+	<li class="p-NoteText2"><p class="NoteText2">When you design your panel, 
+	 keep in mind that the panel design will be slightly resized when it 
+	 displays at run time to accommodate the task bar that displays on 
+	 the tablet screen. However, no distortion of images should occur since 
+	 the panel preserves the aspect ratio during the resize. If you do 
+	 not want the panel to resize, specify a Custom resolution for the 
+	 tablet and subtract the size of the task bar.</p></li>
+</ol>
+<ol start="8" style="list-style: decimal;">
+	<li class="p"><p>Download the project to the target machine. For more 
+	 information, see Section 25.6, <a href="Download.chm::/DL_Overview.htm">Downloading 
+	 the Project</a>.</p></li>
+</ol>
+<p style="margin-left: 0px;">Once the download is completed, the tablet/smartphone 
+ can download the project from the target machine. For more information, 
+ see Section 23.1.1.3, <a href="Working_in_the_Discovery_Screen.htm">Working 
+ in Vijeo Design'Air Plus</a>.</p>
+<p style="margin-left: 0px;">&#160;</p>
+<p style="margin-left: 0px;"><img src="Limit.bmp" alt="" style="border: none;" border="0"></p>
+<ul>
+	<li class="p-NoteText"><p class="NoteText">Changing the display language 
+	 is not supported on the tablet/smartphone. The tablet/smartphone displays 
+	 the default language only. If you want to display a different language 
+	 on a tablet/smartphone application, from the Vijeo Designer editor, 
+	 select a different default language then download the project again. 
+	 The next time you view the application from your tablet/smartphone, 
+	 it will display the selected language.</p></li>
+</ul>
+<p style="margin-left: 0px;">&#160;</p>
+<h4><a name="Air Plus Safety and Security"></a><img src="Square.bmp" alt="" style="border: none;" width="12" height="10" border="0"> Vijeo 
+ Design'Air Plus Safety and Security</h4>
+<p>You can control access to target machines by requiring Vijeo Design'Air 
+ Plus users to provide authentication for transferring the project to tablet/smartphone 
+ or for launching the project. You can also secure the variables that run 
+ operations from unauthorized or unintended access by setting their properties 
+ to Read Only.</p>
+<p><img src="NOTE_MOJI.BMP" alt="" style="border: none;" width="51" height="25" border="0"></p>
+<ul>
+	<li class="p-NoteText"><p class="NoteText">When designing a project 
+	 for Vijeo Design'Air Plus, carefully consider the potential of accidental 
+	 touches on objects that run operations. Apply security to prevent 
+	 unauthorized access. You must inform and warn the operators of hazards 
+	 related to operating machinery remotely. For more information on how 
+	 to secure the target machines and variables, see Section 4.8, <a href="StandardOperation.chm::/security_overview.htm">Setting 
+	 up Security Protection for Targets and Projects</a> and Section 6.2.3, 
+	 <a href="InputAddress.chm::/var_property.htm">Variable Properties</a>.</p></li>
+</ul>
+<ol style="list-style: inside decimal;">
+	<li class="p"><p>Expand the Environment node and click Security.</p></li>
+	<li class="p"><p>In the Property Inspector, for <span style="background-color: #ffffff;">Vijeo 
+	 Design'Air Plus Security,</span> select Use Security. &#160;</p></li>
+	<li class="p"><p>In the Security editor, in the Vijeo Design'Air Plus 
+	 column for the specific user group, select Read/Write.</p></li>
+</ol>
+<p>At run time, the Vijeo Design'Air Plus operator must provide a valid 
+ user name and password to transfer the project from the target machine 
+ to the tablet/smartphone or to launch the project.</p>
+<p>&#160;</p>
+<h4><a name="Air_Plus_System_Variables"></a><img src="Square.bmp" alt="" style="border: none;" width="12" height="10" border="0"> Vijeo Design'Air 
+ Plus System Variables</h4>
+<p>There are two system variables for managing a connection between Vijeo 
+ Design'Air Plus application and a target machine:</p>
+<ul>
+	<li class="p-Bullet"><p class="Bullet"><a href="InputAddress.chm::/_AirPlusConnections.htm">_AirPlus.Connections</a>: 
+	 Indicates the number of Vijeo Design'Air Plus clients connected to 
+	 a target machine.</p></li>
+	<li class="p-Bullet"><p class="Bullet"><a href="InputAddress.chm::/_AirPlusDisableConnections.htm">_AirPlus.DisableConnections</a>: 
+	 Controls access between Vijeo Design'Air Plus client and the target 
+	 machine. When the value of this variable is set to TRUE (i.e., 1), 
+	 all active connections between Vijeo Design'Air Plus clients and the 
+	 target machine are dropped, and no new connections are allowed. To 
+	 control the data sharing connection at run time, you can use a method, 
+	 such as a switch or an action, to toggle the value of this variable.</p></li>
+</ul>
+</body>
+</html>

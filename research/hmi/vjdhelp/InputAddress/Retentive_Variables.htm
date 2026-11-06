@@ -1,0 +1,80 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+<meta name="template" content="Vijeo_template.htt">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="topic-status" content="In Progress">
+<meta name="topic-priority" content="0">
+<meta name="topic-time-estimate" content="0">
+<meta name="topic-id" content="Retentive Variables">
+<meta name="window-type" content="$global_NewWindow">
+ <meta name="generator" content="Adobe RoboHelp 2015">
+<title>Retentive Variables</title>
+<link rel="StyleSheet" href="Tis-styl.css" type="text/css">
+</head>
+<body>
+<script type="text/javascript" src="ehlpdhtm.js" language="JavaScript1.2"></script>
+
+<div style="width: 100%; position: relative;" id="header">
+	<table style="background-attachment: scroll; margin-left: 0px; margin-right: 4px; 
+			 background-image: url(top_banner.bmp); background-repeat: Repeat-X; 
+			 line-height: 0pt; vertical-align: top;" cellspacing="0" background="top_banner.bmp" 
+			 width="100%">
+		<col style="width: 90%;">
+		<col style="width: 5%;">
+		<col style="width: 5%;">
+		<tr style="vertical-align: center; height: 39px;">
+			<td style="width: 90%; padding-right: 10px; padding-left: 10px; 
+				 border-right-color: #000000;">
+   <p><img src="logo.bmp" alt="" style="border: none;" width="37" height="37" border="0"></p></td>
+			<td style="width: 5%; padding-right: 0px; padding-left: 10px; 
+				 border-right-color: #000000;">
+   <p style="text-align: center;"><a 
+			 title="Glossary" href="Appendix.chm::/Glossary.htm"><img src="logo_glossary.bmp" alt="" style="border: none;" width="47" height="37" border="0"></a></p></td>
+			<td style="width: 5%; padding-right: 10px; padding-left: 5px; 
+				 border-right-color: #000000;">
+   <p style="text-align: center;"><a 
+			 href="About.chm::/What_is_Vijeo-Designer.htm" title="Home"><img src="logo_home.bmp" alt="Home" title="Home" style="border: none; 
+			 margin-left: 0px; margin-right: 0px; margin-bottom: 0px; margin-top: -2px;" width="47" height="37" border="0"></a></p></td>
+		</tr>
+	</table>
+</div>
+
+
+<h1>6.10 Retentive Variables</h1>
+<p>You can set up variables so that their values are stored in SRAM and are restored when the target powers up or restarts. The number of retentive variable values that can be stored are restricted by the amount of available SRAM. In the Target properties, you can check how much SRAM is available or used in the Retentive Variable property under SRAM Usage.</p>
+<p class="NoteImage"><img src="Limit.bmp" alt="" style="border: none;" width="77" height="24" border="0"></p>
+<ul>
+<li class="p-NoteText">
+<p class="NoteText">Retentive variable values are cleared every time a project is downloaded, as SRAM is cleared every time a new project is downloaded.</p>
+</li>
+<li class="p-NoteText">
+<p class="NoteText">HMISTO and HMISTU targets do not have an internal battery and therefore cannot automatically store retentive variables. You can store retentive variables on the HMISTO and HMISTU targets by:</p>
+</li>
+<li class="p-NoteText2">
+<p class="NoteText2">Saving retentive variables periodically to the simulated SRAM – every 10 seconds for HMISTU and hourly &#160;for HMISTO.</p>
+</li>
+<li class="p-NoteText2">
+<p class="NoteText2">Performing an Exit Runtime operation before powering down the target.</p>
+</li>
+</ul>
+<p>The retentive variable option is available for all internal variables for these data types: INT, DINT, UINT, Integer, REAL, BOOL, STRING, Array elements, Structure elements, and folder elements. You cannot enable the retentive variable option for external variables, system variables, and recipe variables. Set up retentive variables using one of the following methods:</p>
+<ul>
+<li class="p-Bullet">
+<p class="Bullet">The Variable Property Inspector. Set the Retentive property to Enabled or Disabled. Set the Initial Value.</p>
+</li>
+</ul>
+<ul>
+<li class="p-Bullet">
+<p class="Bullet">The Variable Properties dialog box. In the Data Details tab, select the Retentive checkbox and then set the Initial Value.</p>
+</li>
+</ul>
+<p>After you download the project with the Retentive property Enabled for a variable, the Initial Value that you set up for the internal variable is displayed on the target. When then target shuts down, the last value that you had set will be the value when the target restarts.</p>
+<p><img src="Vijeo_RetentiveRuntime.bmp" alt="" style="border: none;" width="654" height="121" border="0"></p>
+<p>1. Initial value set up in the editor is used at project startup.</p>
+<p>2. You can change the value during run time.</p>
+<p>3. Target machine shuts down.</p>
+<p>4. When the target restarts, the last value that was set before the target shutdown is displayed.</p>
+</body>
+</html>

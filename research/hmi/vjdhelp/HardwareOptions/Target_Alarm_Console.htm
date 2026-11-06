@@ -1,0 +1,107 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+<meta name="template" content="Vijeo_template.htt">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+ <meta name="generator" content="Adobe RoboHelp 2015">
+<title>Illuminated Switch at Target Level</title>
+<link rel="StyleSheet" href="TIS-STYL.css" type="text/css">
+</head>
+<body>
+<script type="text/javascript" src="ehlpdhtm.js" language="JavaScript1.2"></script>
+
+<div style="width: 100%; position: relative;" id="header">
+	<table style="background-attachment: scroll; margin-left: 0px; margin-right: 4px; 
+			 background-image: url(top_banner.bmp); background-repeat: Repeat-X; 
+			 line-height: 0pt; vertical-align: top;" cellspacing="0" background="top_banner.bmp" 
+			 width="100%">
+		<col style="width: 90%;">
+		<col style="width: 5%;">
+		<col style="width: 5%;">
+		<tr style="vertical-align: center; height: 39px;">
+			<td style="width: 90%; padding-right: 10px; padding-left: 10px; 
+				 border-right-color: #000000;">
+   <p><img src="logo.bmp" alt="" style="border: none;" width="37" height="37" border="0"></p></td>
+			<td style="width: 5%; padding-right: 0px; padding-left: 10px; 
+				 border-right-color: #000000;">
+   <p style="text-align: center;"><a 
+			 title="Glossary" href="Appendix.chm::/Glossary.htm"><img src="logo_glossary.bmp" alt="" style="border: none;" width="47" height="37" border="0"></a></p></td>
+			<td style="width: 5%; padding-right: 10px; padding-left: 5px; 
+				 border-right-color: #000000;">
+   <p style="text-align: center;"><a 
+			 href="About.chm::/What_is_Vijeo-Designer.htm" title="Home"><img src="logo_home.bmp" alt="Home" title="Home" style="border: none; 
+			 margin-left: 0px; margin-right: 0px; margin-bottom: 0px; margin-top: -2px;" width="47" height="37" border="0"></a></p></td>
+		</tr>
+	</table>
+</div>
+
+
+<h3>24.8.2.2 Illuminated Switch at Target Node</h3>
+<p>At the Target node, you can configure the illuminated switch as lamps, in order to monitor or control alarms and variables, or just to illuminate the lamp with a color. You can also configure the illuminated switch as switches, in order to link to target function keys or to change panels.</p>
+<p>To set up, first you need to add the illuminated switch driver to your project. For more information, see Section 24.8.1, <a href="HardwareOptions.chm::/Adding_Alarm_Console.htm">Adding the Illuminated Switch</a>.</p>
+<ol style="list-style: decimal;">
+<li class="p">
+<p>In the Navigator window's Project tab, click the Target node to display its properties.</p>
+</li>
+<li class="p">
+<p>In the target properties, click on the ellipsis next to the Illuminated Switch to open the Illuminated Switch dialog box.</p>
+</li>
+<li class="p">
+<p>Configure the settings in the Switch 1 to Switch 5 tabs and click OK.</p>
+</li>
+</ol>
+<p><img src="Note_Moji.bmp" alt="" style="border: none;" width="51" height="25" border="0"></p>
+<ul>
+<li class="p-NoteText">
+<p class="NoteText">Enabling the illuminated switch lamps at the Target node disables lamps at the Panel node.</p>
+</li>
+</ul>
+<h4 class="NoteText"><img src="Square.bmp" alt="" style="border: none;" width="12" height="10" border="0"> Example</h4>
+<p>For example, you want to monitor and control an existing alarm group (AlarmGroup1) and its alarm summary (AlarmSummary01) on Panel 2. To do so:</p>
+<ol style="list-style: decimal;">
+<li class="p">
+<p>Add an illuminated switch to your project. For more information, see Section 24.8.1, <a href="HardwareOptions.chm::/Adding_Alarm_Console.htm">Adding the Illuminated Switch</a>.</p>
+</li>
+<li class="p">
+<p>Edit and print labels for your illuminated switch as needed. For more information, see Section 24.8.2.1, <a href="HardwareOptions.chm::/Device_Alarm_Console.htm">Illuminated Switch at IO Manager Node</a>.</p>
+</li>
+<li class="p">
+<p>Click the Target node. In the Property Inspector, click the Illuminated Switch ellipsis to open the Illuminated Switch dialog box.</p>
+</li>
+<li class="p">
+<p>In the Switch 1 tab, select both the Enable Lamp and Alarm Lamp check boxes; from the Alarm Group list, select AlarmGroup1.</p>
+</li>
+<li class="p">
+<p>In the Active list, select Enable and choose red for the color.</p>
+</li>
+<li class="p">
+<p>While still in the Switch 1 tab, select the Enable Switch and Change Panel check boxes. Set Change Panel to Panel 2.</p>
+</li>
+<li class="p">
+<p>In the Navigator window, click Panel 2; in the Property Inspector, click Illuminated Switch ellipsis to open the Illuminated Switch dialog box.</p>
+</li>
+<li class="p">
+<p>In Switch 1 tab, select the Enable Switch check box.</p>
+</li>
+<li class="p">
+<p>Select Alarm Summary Operation, and set it to ACK All and AlarmSummary01. Click OK.</p>
+</li>
+</ol>
+<p style="margin-left: 41px;"><img src="Alarm_Console_Example_Part1.bmp" alt="" style="border: none;" width="514" height="246" border="0"></p>
+<p style="margin-left: 41px;"><img src="Alarm_Console_Example_Part2.bmp" alt="" style="border: none;" width="514" height="246" border="0"></p>
+<h4 class="NoteText"><img src="Square.bmp" alt="" style="border: none;" width="12" height="10" border="0"> Run Time</h4>
+<p>At run time, when an alarm occurs in AlarmGroup1, Switch 1 lamp on the illuminated switch turns red. When you press Switch 1, the following events happen:</p>
+<ul>
+<li class="p-Bullet">
+<p class="Bullet">The target machine's touch panel changes to Panel 2 and you can view the AlarmSummary01.</p>
+</li>
+<li class="p-Bullet">
+<p class="Bullet">Press Switch 1 again, &#160;the state of all alarm messages in AlarmSummary01 changes to ACK.</p>
+</li>
+<li class="p-Bullet">
+<p class="Bullet">Switch 1 lamp turns off.</p>
+</li>
+</ul>
+</body>
+</html>

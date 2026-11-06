@@ -1,0 +1,94 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+<meta name="template" content="Vijeo_template.htt">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+ <meta name="generator" content="Adobe RoboHelp 10">
+<title>Using switches and selectors to toggle between files</title>
+<link rel="StyleSheet" href="TIS-STYL.CSS" type="text/css">
+</head>
+<body>
+<script type="text/javascript" src="ehlpdhtm.js" language="JavaScript1.2"></script>
+
+<div style="width: 100%; position: relative;" id="header">
+	<table style="background-attachment: scroll; margin-left: 0px; margin-right: 4px; 
+			 background-image: url(top_banner.bmp); background-repeat: Repeat-X; 
+			 line-height: 0pt; vertical-align: top;" cellspacing="0" width="100%" 
+			 background="top_banner.bmp">
+		<col style="width: 90%;">
+		<col style="width: 5%;">
+		<col style="width: 5%;">
+		<tr style="vertical-align: center; height: 39px;">
+			<td style="width: 90%; padding-right: 10px; padding-left: 10px; 
+				 border-right-color: #000000;">
+   <p><img src="logo.bmp" style="border: none;" alt="" width="37" height="37" border="0"></p></td>
+			<td style="width: 5%; padding-right: 0px; padding-left: 10px; 
+				 border-right-color: #000000;">
+   <p style="text-align: center;"><a 
+			 title="Glossary" href="Appendix.chm::/Glossary.htm"><img src="logo_glossary.bmp" style="border: none;" alt="" width="47" height="37" border="0"></a></p></td>
+			<td style="width: 5%; padding-right: 10px; padding-left: 5px; 
+				 border-right-color: #000000;">
+   <p style="text-align: center;"><a 
+			 href="About.chm::/What_is_Vijeo-Designer.htm" title="Home"><img src="logo_home.bmp" alt="Home" title="Home" style="border: none; 
+			 margin-left: 0px; margin-right: 0px; margin-bottom: 0px; margin-top: -2px;" width="47" height="37" border="0"></a></p></td>
+		</tr>
+	</table>
+</div>
+
+<h2>11.8.4 Opening Documents in the Browser</h2>
+<p>The Browser's string variable controls which document the Browser displays. By using a String Operation, you can write a document's name to the Browser's String variable and display that document in the Browser.</p>
+<p>String Operations can be created with Selectors or Switches, see Section 9.5.3, <a href="Switches.chm::/String_Operation.htm">String Operations</a>.</p>
+<p>The steps below use an example of a Switch to explain how to use a String operation to change the document displaying in the Browser.</p>
+<ol style="list-style: decimal;">
+<li class="p">
+<p>In the Switch's String Operation Source Field, type in the document's name following the string conventions below:</p>
+</li>
+</ol>
+<table style="vertical-align: top; margin-left: 40px;" cellspacing="0" width="80%">
+<col style="width: 30%;">
+<col style="width: 70%;">
+<tr style="vertical-align: top;">
+<td style="border-top: Solid 3px Black; border-right: Solid 1px Black; border-bottom: Solid 1px Black; width: 30%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#91AFD9">
+<p class="Tabletitle">To</p>
+</td>
+<td style="border-top: Solid 3px Black; border-bottom: Solid 1px Black; width: 70%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#91AFD9">
+<p class="Tabletitle">Do this</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px Black; border-bottom: Solid 1px Black; width: 30%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">Display local documents</p>
+</td>
+<td style="border-bottom: Solid 1px Black; width: 70%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">Type in the document's name.</p>
+<p class="Tabletext">For example, "help.doc"</p>
+<p class="Tabletext">&#160;</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px Black; border-bottom: Solid 1px Black; width: 30%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">Display a document on the Internet</p>
+</td>
+<td style="border-bottom: Solid 1px Black; width: 70%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">Type in the document's URL.</p>
+<p class="Tabletext">For example, "www.schneider-electric.com"</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px Black; border-bottom: Solid 3px Black; width: 30%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">Display a document on a network</p>
+</td>
+<td style="border-bottom: Solid 3px Black; width: 70%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">Type in the document's file path and name.</p>
+<p class="Tabletext">For example, "\\Editorbuild\Release\\English\Help.doc"</p>
+</td>
+</tr>
+</table>
+<ol start="2" style="list-style: decimal;">
+<li style="list-style: decimal;" class="p">
+<p>Define the Browser string in the Destination field and click Add to add the operation to the Switch.</p>
+</li>
+</ol>
+</body>
+</html>

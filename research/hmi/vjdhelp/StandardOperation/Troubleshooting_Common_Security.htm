@@ -1,0 +1,121 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+<meta name="template" content="Vijeo_template.htt">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+ <meta name="generator" content="Adobe RoboHelp 10">
+<title>Troubleshooting Common Security</title>
+<link rel="StyleSheet" href="Tis-styl.css" type="text/css">
+</head>
+<body>
+<script type="text/javascript" src="ehlpdhtm.js" language="JavaScript1.2"></script>
+
+<div style="width: 100%; position: relative;" id="header">
+	<table style="background-attachment: scroll; margin-left: 0px; margin-right: 4px; 
+			 background-image: url(top_banner.bmp); background-repeat: Repeat-X; 
+			 line-height: 0pt; vertical-align: top;" cellspacing="0" background="top_banner.bmp" 
+			 width="100%">
+		<col style="width: 90%;">
+		<col style="width: 5%;">
+		<col style="width: 5%;">
+		<tr style="vertical-align: center; height: 39px;">
+			<td style="width: 90%; padding-right: 10px; padding-left: 10px; 
+				 border-right-color: #000000;">
+   <p><img src="logo.bmp" alt="" style="border: none;" width="37" height="37" border="0"></p></td>
+			<td style="width: 5%; padding-right: 0px; padding-left: 10px; 
+				 border-right-color: #000000;">
+   <p style="text-align: center;"><a 
+			 title="Glossary" href="Appendix.chm::/Glossary.htm"><img src="logo_glossary.bmp" alt="" style="border: none;" width="47" height="37" border="0"></a></p></td>
+			<td style="width: 5%; padding-right: 10px; padding-left: 5px; 
+				 border-right-color: #000000;">
+   <p style="text-align: center;"><a 
+			 href="About.chm::/What_is_Vijeo-Designer.htm" title="Home"><img src="logo_home.bmp" alt="Home" style="border: none; margin-left: 0px; 
+			 margin-right: 0px; margin-bottom: 0px; margin-top: -2px;" width="47" height="37" border="0"></a></p></td>
+		</tr>
+	</table>
+</div>
+
+<h1>4.8.6.3 Troubleshooting Common Security</h1>
+<p>The following are some issues you may encounter at run time when working with Common Security.</p>
+<ul>
+<li class="p-Bullet">
+<p class="Bullet"><a href="#Cannot_run_secured_operations_because_Security_Server_is_unavailable">Cannot run secured operations because Security Server is unavailable</a></p>
+</li>
+<li class="p-Bullet">
+<p class="Bullet"><a href="#Deleted_users_are_still_running_secured_operations">Deleted users are still running secured operations</a></p>
+</li>
+</ul>
+<h4><a name="Cannot_run_secured_operations_because_Security_Server_is_unavailable" id="Cannot_run_secured_operations_because_Security_Server_is_unavailable"></a><img src="square.bmp" style="border: none;" alt="" width="12" height="10" border="0">Cannot run secured operations because Security Server is unavailable</h4>
+<p>There may be a number of reasons why the Security Server is unavailable. For example, the target machine may be offline due to maintenance requirements, the system administrator may be re-configuring the network, or the target machine may be damaged. Without the security server, operations on client target machines may not be possible.</p>
+<p>The following procedure describes how to update the user application running on the target machine so that it can work with a different security server. The following steps work only if in the Project properties you enabled Download User and defined a user name and password. For Project properties, see Section 4.3.2, <a href="Creating_projects.htm">Creating a New Project</a>.</p>
+<ol style="list-style: decimal;">
+<li class="p">
+<p>From the Navigator window's Project tab, select the Project node and view its properties.</p>
+</li>
+<li class="p">
+<p>Expand the Use Common Security node to view the Security Server property and select a target machine. This unit must be online for panel operators to run secured operations on the target machine.</p>
+</li>
+<li class="p">
+<p>Download the project to all targets in the project.</p>
+</li>
+</ol>
+<h4><a name="Deleted_users_are_still_running_secured_operations" id="Deleted_users_are_still_running_secured_operations"></a><img src="square.bmp" style="border: none;" alt="" width="12" height="10" border="0">Deleted users are still running secured operations</h4>
+<p>In the following scenarios, an unauthorized user may be logged in to a target machine.</p>
+<p style="font-weight: bold;">User remains logged in</p>
+<ol style="list-style: decimal;">
+<li class="p">
+<p>The panel operator logs in to a target machine that is set up with common security.</p>
+</li>
+<li class="p">
+<p>Delete the operator's security user name and password from the common security settings.</p>
+</li>
+<li class="p">
+<p>The panel operator continues to run secured operations.</p>
+</li>
+</ol>
+<p>Solution:</p>
+<ul>
+<li class="p-Bullet">
+<p class="Bullet">In the Security properties, you can set up the Inactivity Time-Out to automatically log out the user if the target machine is not in use.</p>
+</li>
+</ul>
+<p style="font-weight: bold;">Security Server is offline</p>
+<p style="font-weight: normal;">In the Project properties, Cache Users is set to Yes.</p>
+<ol style="list-style: decimal;">
+<li class="p">
+<p>The panel operator logs in to a target machine that is set up with common security.</p>
+</li>
+<li class="p">
+<p>The target machine confirms the login information with the security server.</p>
+</li>
+<li class="p">
+<p>The target machine caches the security information.</p>
+</li>
+<li class="p">
+<p>The panel operator logs off.</p>
+</li>
+<li class="p">
+<p>Remove the panel operator's user name and password from the common security settings.</p>
+</li>
+<li class="p">
+<p>The security server goes offline.</p>
+</li>
+<li class="p">
+<p>The panel operator logs in. Log in is successful.</p>
+</li>
+</ol>
+<p>Solution:</p>
+<ul>
+<li class="p-Bullet">
+<p class="Bullet">After changing the common security settings, erase the cache by restarting the target machines that is set up with common security.</p>
+</li>
+<li class="p-Bullet">
+<p class="Bullet">You can also prevent log in when the security server is offline. In the Project properties, set Cache Users to No.</p>
+</li>
+<li class="p-Bullet">
+<p class="Bullet">In the Security properties, you can expire passwords after a defined number of days.</p>
+</li>
+</ul>
+</body>
+</html>

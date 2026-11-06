@@ -1,0 +1,199 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+<meta name="template" content="Vijeo_template.htt">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="topic-status" content="In Progress">
+<meta name="topic-priority" content="0">
+<meta name="topic-time-estimate" content="0">
+<meta name="topic-comment" content="">
+<meta name="topic-id" content="Managing_Security_Users_at_Run_Time">
+<meta name="window-type" content="$global_NewWindow">
+ <meta name="generator" content="Adobe RoboHelp 10">
+<title>Managing Security Users at Run Time</title>
+<link rel="StyleSheet" href="Tis-styl.css" type="text/css">
+</head>
+
+<body>
+<script type="text/javascript" src="ehlpdhtm.js" language="JavaScript1.2"></script>
+
+<div style="width: 100%; position: relative;" id="header">
+	<table style="background-attachment: scroll; margin-left: 0px; margin-right: 4px; 
+			 background-image: url(top_banner.bmp); background-repeat: Repeat-X; 
+			 line-height: 0pt; vertical-align: top;" cellspacing="0" background="top_banner.bmp" 
+			 width="100%">
+		<col style="width: 90%;">
+		<col style="width: 5%;">
+		<col style="width: 5%;">
+		<tr style="vertical-align: center; height: 39px;">
+			<td style="width: 90%; padding-right: 10px; padding-left: 10px; 
+				 border-right-color: #000000;">
+   <p><img src="logo.bmp" alt="" style="border: none;" width="37" height="37" border="0"></p></td>
+			<td style="width: 5%; padding-right: 0px; padding-left: 10px; 
+				 border-right-color: #000000;">
+   <p style="text-align: center;"><a 
+			 title="Glossary" href="Appendix.chm::/Glossary.htm"><img src="logo_glossary.bmp" alt="" style="border: none;" width="47" height="37" border="0"></a></p></td>
+			<td style="width: 5%; padding-right: 10px; padding-left: 5px; 
+				 border-right-color: #000000;">
+   <p style="text-align: center;"><a 
+			 href="About.chm::/What_is_Vijeo-Designer.htm" title="Home"><img src="logo_home.bmp" alt="Home" style="border: none; margin-left: 0px; 
+			 margin-right: 0px; margin-bottom: 0px; margin-top: -2px;" width="47" height="37" border="0"></a></p></td>
+		</tr>
+	</table>
+</div>
+
+<h2>4.8.5 Managing Security Users at Run Time</h2>
+<p>The User Manager Toolchest part enables users to add, delete, and modify 
+ security users at run time. There are two User Manager Toolchest parts:</p>
+<ul>
+	<li class="p-Bullet"><p class="Bullet">User Manager - Standard size 
+	 for most targets</p></li>
+	<li class="p-Bullet"><p class="Bullet">User Manager Small - Designed 
+	 for targets with a 200x80 panel size</p></li>
+</ul>
+<p>The part has two different settings:</p>
+<ul>
+	<li class="p-Bullet"><p class="Bullet">All - Users accessing this part 
+	 can modify all users in all security groups.</p></li>
+	<li class="p-Bullet"><p class="Bullet">Limited (Level Based) - Users 
+	 accessing this part can only modify users in the security groups whose 
+	 Security Level is less than that of the user currently logged into 
+	 the target.</p></li>
+</ul>
+<p>The part's security setting is controlled by the ModificationRights 
+ property. The Limited (Level Based) setting is only compatible for targets 
+ with Security Mode set to Level Based. If the target's Security Mode is 
+ set to Bitmask Based, the part's ModificationRights defaults to All. For 
+ more information on Level Based Security, see <a href="access_level_switch_panel.htm">Defining 
+ Security Levels for Security Groups</a>.</p>
+<p><img src="NOTE_MOJI.bmp" alt="" style="border: none;" width="49" height="23" border="0"></p>
+<ul>
+	<li class="p-NoteText"><p class="NoteText">Make sure you put the User 
+	 Manager Toolchest part onto a secured panel. Otherwise, all users 
+	 will have access to this part.</p></li>
+</ul>
+<table style="vertical-align: top;" cellspacing="0" width="360">
+	<col width="71">
+	<col width="63">
+	<col width="52">
+	<col width="90">
+	<tr style="vertical-align: top; height: 10px;">
+		<td colspan="4" style="padding-right: 10px; padding-left: 10px;"><p><img src="security_manager.bmp" alt="" style="border: none;" width="320" height="240" border="0"></p></td>
+		
+	</tr>
+	<tr style="vertical-align: top; height: 10px;">
+		<td style="padding-right: 10px; padding-left: 10px;"><p>&#160;Add</p></td>
+		<td style="padding-right: 10px; padding-left: 10px;"><p>Edit</p></td>
+		<td style="padding-right: 10px; padding-left: 10px;"><p>Delete</p></td>
+		<td style="padding-right: 10px; padding-left: 10px;" width="90"><p>Exit</p></td>
+	</tr>
+</table>
+<ul>
+	<li class="p-Bullet"><p class="Bullet"><span style="font-weight: bold;">Add</span> 
+	 - Adds the new user to the security group.</p></li>
+	<li class="p-Bullet"><p class="Bullet"><span style="font-weight: bold;">Edit</span> 
+	 - Edits the user with the new password.</p></li>
+	<li class="p-Bullet"><p class="Bullet"><span style="font-weight: bold;">Delete</span> 
+	 - Deletes the selected user.</p></li>
+	<li class="p-Bullet"><p class="Bullet"><span style="font-weight: bold;">Exit</span> 
+	 - Returns the user to the previous panel.</p></li>
+</ul>
+<p class="NoteText"><img src="NOTE_MOJI.bmp" alt="" style="border: none;" width="49" height="23" border="0"></p>
+<ul>
+	<li class="p-NoteText"><p class="NoteText">If your security group is 
+	 set to use fingerprints for authentication, the User Manager Toolchest 
+	 will include the interface for fingerprint authentication at run time.</p></li>
+</ul>
+<table style="left: 0px; top: 906px; height: 247px;" width="345">
+	<tr>
+		<td colspan="1" style="padding-right: 10px; padding-left: 10px;" rowspan="1"><p><img src="security_manager_bio.bmp" style="border: none;" alt="" border="0"></p></td>
+	</tr>
+</table>
+<p class="NoteText">&#160;</p>
+<p class="NoteText">&#160;</p>
+<h4><img src="square.bmp" alt="" style="border: none;" width="12" height="10" border="0"> Adding a Toolchest UserManager</h4>
+<ol style="list-style: decimal;">
+	<li class="p"><p>Click the Toolchest icon <img src="toolchest_icon.bmp" alt="" style="border: none;" width="22" height="22" border="0"> in the 
+	 menu bar to open the Toolchest window, and click the Security folder.</p></li>
+	<li class="p"><p>Move the UserManager part onto a panel using the drag 
+	 and drop operation.</p></li>
+</ol>
+<h4>&#160;</h4>
+<h4><img src="square.bmp" alt="" style="border: none;" width="12" height="10" border="0"> User Manager Operations</h4>
+<p>User Manager operations behave differently depending on the security 
+ mode selected in the User Manager's ModificationRights property.</p>
+<ul>
+	<li class="p-Bullet"><p class="Bullet">ModificationRights &#160;= All 
+	 - Users accessing this part can modify all users in all security groups.</p></li>
+	<li class="p-Bullet"><p class="Bullet">ModificationRights &#160;= Limited 
+	 (Level Based) - Users accessing this part can only modify users in 
+	 the security groups whose Security Level is less than that of the 
+	 user currently logged into the target. For more information on Level 
+	 Based Security, see <a href="access_level_switch_panel.htm">Defining 
+	 Security Levels for Security Groups</a>.</p></li>
+</ul>
+<h5>Add New Users</h5>
+<p>The following instructions describe how to use the User Manager to add 
+ a new user to a security group during run time.</p>
+<ol style="list-style: decimal;">
+	<li class="p"><p>Select the security group to add a user to from the 
+	 Group drop-down list.</p></li>
+	<li class="p"><p>Enter the new user's name in the User field.</p></li>
+	<li class="p"><p>Enter in the new user's password into the password 
+	 and confirm password fields.</p></li>
+	<li class="p"><p>Touch the Add button.</p></li>
+</ol>
+<p style="margin-left: 40px;">If ModificationRights is set to All, the 
+ user is added to the security group. If ModificationRights is set to Limited 
+ (Level Based), the user is added to the security group only if the security 
+ group's Security Level is less than the logged in user's Security Level.</p>
+<h5>Delete Users</h5>
+<p>The following instructions describe how to use the User Manager to delete 
+ a security user from a security group during run time.</p>
+<ol style="list-style: decimal;">
+	<li class="p"><p>Use the Group drop-down list and select the security 
+	 group.</p></li>
+	<li class="p"><p>Select the user from the User drop-down list.</p></li>
+	<li class="p"><p>Touch the Delete Button.</p></li>
+</ol>
+<p style="margin-left: 40px;">If ModificationRights is set to All, the 
+ user is deleted. If ModificationRights is set to Limit (Level Based), 
+ the user is deleted only if the security group Security Level is less 
+ than the currently logged in user's Security Level.</p>
+<p style="margin-left: 40px;">When the user is deleted, all the previous 
+ password information will be removed from the user account.</p>
+<h5>Change Password</h5>
+<p>The following instructions describe how to use the User Manager to change 
+ a user's password during run time.</p>
+<ol style="list-style: decimal;">
+	<li class="p"><p>User the Group drop-down list and select the security 
+	 group.</p></li>
+	<li class="p"><p>Select the user from the User drop-down list.</p></li>
+	<li class="p"><p>Enter in the new password into the password and confirm 
+	 password fields.</p></li>
+	<li class="p"><p>Touch the Edit button.</p></li>
+</ol>
+<p style="margin-left: 40px;">If ModificationRights is set to All, the 
+ user's password is changed. If ModificationRights is set to Limit (Level 
+ Based), the user's password is changed only if the selected security group 
+ Security Level is less than the currently logged in user's Security Level.</p>
+<p><img src="limit.bmp" alt="" style="border: none;" width="77" height="24" border="0"></p>
+<ul>
+	<li class="p-NoteText"><p class="NoteText">When using local security, 
+	 you cannot delete a user that is currently logged in.</p></li>
+	<li class="p-NoteText"><p class="NoteText">When using common security, 
+	 &#160;you can delete the user that is currently logged in security 
+	 client target but you cannot delete a user that is currently logged 
+	 in security server target.</p></li>
+	<li class="p-NoteText"><p class="NoteText">You cannot edit a user name 
+	 or edit a security group name using the UserManager part.</p></li>
+</ul>
+
+<p><img src="NOTE_MOJI.bmp" alt="" style="border: none;" width="49" height="23" border="0"></p>
+<ul>
+	<li class="p-NoteText"><p class="NoteText">When characters (usually double-byte characters) do not display properly in the User Manager toolchest part, from the Property Inspector check its Group Text and PwdText properties. The language and font for those properties should match the language and font of the Initial User Language (from the Navigator window's Project tab, see the Environment node properties).</p></li>
+</ul>
+
+</body>
+</html>

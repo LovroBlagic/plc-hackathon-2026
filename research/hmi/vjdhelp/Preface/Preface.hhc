@@ -1,0 +1,36 @@
+<html>
+<!-- Sitemap 1.0 -->
+<object type="text/site properties">
+  <param name="WindowName" value="$global_NewWindow">
+  <param name="SiteType" value="toc">
+  <param name="Image Width" value="16">
+  <param name="Window Styles" value="0x800027">
+  <param name="ExWindow Styles" value="0x100">
+</object>
+<ul>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Introduction">
+    <param name="Local" value="Intro_Preface.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Documentation Conventions">
+    <param name="Local" value="About_the_manual_notation.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Safety Precautions">
+    <param name="Local" value="Essential_Safety_Precautions.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Trademarks">
+    <param name="Local" value="Trademark_Rights.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Available Manuals">
+    <param name="Local" value="Reading_of_manuals.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Using Online Help">
+    <param name="Local" value="Redirect_FindInformationOnline.htm">
+  </object>
+</ul>
+</html>

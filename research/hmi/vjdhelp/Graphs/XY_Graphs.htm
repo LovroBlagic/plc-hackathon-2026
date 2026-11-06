@@ -1,0 +1,564 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+<meta name="template" content="Vijeo_template.htt">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+ <meta name="generator" content="Adobe RoboHelp 10">
+<title>XY Graphs</title>
+<link rel="StyleSheet" href="TIS-STYL.CSS" type="text/css">
+</head>
+
+<body>
+<script type="text/javascript" src="ehlpdhtm.js" language="JavaScript1.2"></script>
+
+<div style="width: 100%; position: relative;" id="header">
+	<table style="background-attachment: scroll; margin-left: 0px; margin-right: 4px; 
+			 background-image: url(top_banner.bmp); background-repeat: Repeat-X; 
+			 line-height: 0pt; vertical-align: top;" cellspacing="0" width="100%" 
+			 background="top_banner.bmp">
+		<col style="width: 90%;">
+		<col style="width: 5%;">
+		<col style="width: 5%;">
+		<tr style="vertical-align: center; height: 39px;">
+			<td style="width: 90%; padding-right: 10px; padding-left: 10px; 
+				 border-right-color: #000000;">
+   <p><img src="logo.bmp" style="border: none;" alt="" width="37" height="37" border="0"></p></td>
+			<td style="width: 5%; padding-right: 0px; padding-left: 10px; 
+				 border-right-color: #000000;">
+   <p style="text-align: center;"><a 
+			 title="Glossary" href="Appendix.chm::/Glossary.htm"><img src="logo_glossary.bmp" style="border: none;" alt="" width="47" height="37" border="0"></a></p></td>
+			<td style="width: 5%; padding-right: 10px; padding-left: 5px; 
+				 border-right-color: #000000;">
+   <p style="text-align: center;"><a 
+			 href="About.chm::/What_is_Vijeo-Designer.htm" title="Home"><img src="logo_home.bmp" alt="Home" title="Home" style="border: none; 
+			 margin-left: 0px; margin-right: 0px; margin-bottom: 0px; margin-top: -2px;" width="47" height="37" border="0"></a></p></td>
+		</tr>
+	</table>
+</div>
+
+<h2>12.4.9 XY Graphs</h2>
+<p>An XY Graph can display up to 256 data samples with X and Y coordinates 
+ from a block or array variable. You can set up to eight block or array 
+ variables per XY Graph part.</p>
+<p>The XY Graphs have two styles: Line and Scattered.</p>
+<p>&#160;</p>
+<table style="vertical-align: top;" cellspacing="0" width="44.251%">
+	<col style="width: 50.494%;">
+	<col style="width: 49.506%;">
+	<tr style="vertical-align: top;">
+		<td style="width: 50.494%; padding-right: 10px; padding-left: 10px;"><p 
+			 style="font-weight: bold; text-align: center;"><img src="XYLine.bmp" alt="" style="border: none;" width="277" height="195" border="0"></p></td>
+		<td style="width: 49.506%; padding-right: 10px; padding-left: 10px;"><p 
+			 style="font-weight: bold; text-align: center;"><img src="XYScattered.bmp" alt="" style="border: none;" width="277" height="195" border="0"></p></td>
+	</tr>
+	<tr style="vertical-align: top;">
+		<td style="width: 50.494%; padding-right: 10px; padding-left: 10px;"><p 
+			 style="font-weight: bold; text-align: center;">Line</p></td>
+		<td style="width: 49.506%; padding-right: 10px; padding-left: 10px;"><p 
+			 style="font-weight: bold; text-align: center;">Scattered</p></td>
+	</tr>
+</table>
+<h4>&#160;</h4>
+<h4><a name="XY Graph Properties"></a><img src="Square.bmp" alt="" style="border: none;" width="12" height="10" border="0">XY 
+ Graph Properties</h4>
+<table style="vertical-align: top; margin-left: 40px; margin-bottom: 10px;" 
+		 cellspacing="0" width="90%">
+	<col style="width: 20%;">
+	<col style="width: 20%;">
+	<col style="width: 55%;">
+	<tr style="vertical-align: top; height: 58px;">
+		<td style="border-top: Solid 3px #000000; border-right: Solid 1px #000000; 
+			 border-bottom: Solid 1px #000000; width: 20%; padding-left: 10px; 
+			 padding-right: 10px; padding-top: 10px; padding-bottom: 10px;" 
+			 bgcolor="#91AFD9"><p class="Tabletitle">Property</p></td>
+		<td colspan="2" style="border-top: Solid 3px #000000; border-bottom: Solid 1px #000000; 
+			 width: 75%; padding-left: 10px; padding-right: 10px; padding-top: 10px; 
+			 padding-bottom: 10px;" bgcolor="#91AFD9"><p class="Tabletitle">Description</p></td>
+		
+	</tr>
+	<tr style="vertical-align: top; height: 111px;">
+		<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; 
+			 width: 20%; padding-left: 10px; padding-right: 10px; padding-top: 10px; 
+			 padding-bottom: 10px;" bgcolor="#CBD9ED"><p class="TableDefinitions">Name</p></td>
+		<td colspan="2" style="border-bottom: Solid 1px #000000; width: 75%; 
+			 padding-left: 10px; padding-right: 10px; padding-top: 10px; 
+			 padding-bottom: 10px;"><p class="tabletext">The XY Graph part's 
+		 name.</p>
+		<p class="tabletext">Whenever an object is created, a default name 
+		 is generated. When renaming an object, its name must be unique 
+		 within the target, must contain no more than 32 valid characters, 
+		 and must follow the naming conventions.</p>
+		<p class="tabletext">For details, see Appendix 9, <a href="Appendix.chm::/Change_name.htm">Naming 
+		 Conventions</a>.</p></td>
+		
+	</tr>
+	<tr style="vertical-align: top; height: 52px;">
+		<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; 
+			 width: 20%; padding-left: 10px; padding-right: 10px; padding-top: 10px; 
+			 padding-bottom: 10px;" bgcolor="#CBD9ED"><p class="TableDefinitions">Version</p></td>
+		<td colspan="2" style="border-bottom: Solid 1px #000000; width: 75%; 
+			 padding-left: 10px; padding-right: 10px; padding-top: 10px; 
+			 padding-bottom: 10px;"><p class="tabletext">This property 
+		 is read only and displays the editor version that created the 
+		 part.</p></td>
+		
+	</tr>
+	<tr style="vertical-align: top; height: 148px;">
+		<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; 
+			 width: 20%; padding-left: 10px; padding-right: 10px; padding-top: 10px; 
+			 padding-bottom: 10px;" bgcolor="#CBD9ED"><p class="TableDefinitions">Top</p></td>
+		<td colspan="2" rowspan="2" style="border-bottom: Solid 1px #000000; 
+			 width: 75%; padding-left: 10px; padding-right: 10px; padding-top: 10px; 
+			 padding-bottom: 10px;"><p class="Tabletext">The coordinates, 
+		 in pixels, of the top-left corner of the object.</p>
+		<ul style="list-style: disc;">
+			<li class="p-Bullet"><p class="Bullet">Top is measured from 
+			 the top of the object to the top of the panel. Enter a value 
+			 from –32768 to (32767 minus object height).</p></li>
+			<li class="p-Bullet"><p class="Bullet">Left is measured from 
+			 the left side of the object to the left side of the panel. 
+			 Enter a value from –32768 to (32767 minus object width).</p></li>
+		</ul>
+		<p class="Tabletext">By changing these properties, the graphical 
+		 object can be moved up, down, left, and right.</p>
+		<p class="tabletext">&#160;</p>
+		<p class="tabletext" style="margin-left: 0px;"><img src="POSITIONUPLEFT.bmp" alt="" style="border: none;" width="160" height="137" border="0"></p>
+		<p class="tabletext">&#160;</p></td>
+		
+	</tr>
+	<tr style="vertical-align: top; height: 167px;">
+		<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; 
+			 width: 20%; padding-left: 10px; padding-right: 10px; padding-top: 10px; 
+			 padding-bottom: 10px;" bgcolor="#CBD9ED"><p class="TableDefinitions">Left</p></td>
+		
+	</tr>
+	<tr style="vertical-align: top; height: 38px;">
+		<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; 
+			 width: 20%; padding-left: 10px; padding-right: 10px; padding-top: 10px; 
+			 padding-bottom: 10px;" bgcolor="#CBD9ED"><p class="TableDefinitions">Width</p></td>
+		<td colspan="2" rowspan="2" style="border-bottom: Solid 1px #000000; 
+			 width: 75%; padding-left: 10px; padding-right: 10px; padding-top: 10px; 
+			 padding-bottom: 10px;"><p class="tabletext">The width/height 
+		 of the XY Graph in pixels. The minimum size for each XY Graph 
+		 is 180W x 60H pixels.</p></td>
+		
+	</tr>
+	<tr style="vertical-align: top; height: 39px;">
+		<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; 
+			 width: 20%; padding-left: 10px; padding-right: 10px; padding-top: 10px; 
+			 padding-bottom: 10px;" bgcolor="#CBD9ED"><p class="TableDefinitions">Height</p></td>
+		
+	</tr>
+	<tr style="vertical-align: top; height: 139px;">
+		<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; 
+			 width: 20%; padding-left: 10px; padding-right: 10px; padding-top: 10px; 
+			 padding-bottom: 10px;" bgcolor="#CBD9ED"><p class="TableDefinitions">Trigger 
+		 Type</p></td>
+		<td colspan="2" style="border-bottom: Solid 1px #000000; width: 75%; 
+			 padding-left: 10px; padding-right: 10px; padding-top: 10px; 
+			 padding-bottom: 10px;"><p class="tabletext">The Trigger is 
+		 evaluated using the condition selected here. When the condition 
+		 is met, data collection takes place. Select When True, When False, 
+		 and On Data Change.</p>
+		<ul>
+			<li class="p-Bullet"><p class="Bullet"><span style="font-weight: bold;">When 
+			 True -</span> Whenever the Trigger Variable changes from 0 
+			 to any value, a snapshot of the data is taken.</p></li>
+			<li class="p-Bullet"><p class="Bullet"><span style="font-weight: bold;">When 
+			 False -</span> Whenever the Trigger Variable changes to 0 
+			 from any value, a snapshot of the data is taken.</p></li>
+			<li class="p-Bullet"><p class="Bullet"><span style="font-weight: bold;">On 
+			 Data Change -</span> Whenever the Trigger Variable changes 
+			 in value, a snapshot of the data is taken.</p></li>
+		</ul></td>
+		
+	</tr>
+	<tr style="vertical-align: top; height: 75px;">
+		<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; 
+			 width: 20%; padding-left: 10px; padding-right: 10px; padding-top: 10px; 
+			 padding-bottom: 10px;" bgcolor="#CBD9ED"><p class="TableDefinitions">Trigger</p></td>
+		<td colspan="2" style="border-bottom: Solid 1px #000000; width: 75%; 
+			 padding-left: 10px; padding-right: 10px; padding-top: 10px; 
+			 padding-bottom: 10px;"><p class="tabletext">Enter an integer 
+		 or BOOL variable to control when data 
+		 collection takes place. You can enter a string variable if the 
+		 Trigger Type is set to On Data Change. Use Trigger Type to define 
+		 how this variable triggers data collection.</p></td>
+		
+	</tr>
+	<tr style="vertical-align: top; height: 38px;">
+		<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; 
+			 width: 20%; padding-left: 10px; padding-right: 10px; padding-top: 10px; 
+			 padding-bottom: 10px;" bgcolor="#CBD9ED"><p class="TableDefinitions">X 
+		 and Y Value Min</p></td>
+		<td colspan="2" rowspan="2" style="border-bottom: Solid 1px #000000; 
+			 width: 75%; padding-left: 10px; padding-right: 10px; padding-top: 10px; 
+			 padding-bottom: 10px;"><p class="tabletext">Defines the minimum 
+		 and maximum values for the X and Y coordinates that the XY graph 
+		 will display.</p>
+		<p class="tabletext">You can use a constant value (-32768 to 32767) 
+		 or a variable. Use a variable if you want to change the minimum 
+		 and maximum values dynamically at runtime. Make sure the Min value 
+		 is less than the Max value.</p></td>
+		
+	</tr>
+	<tr style="vertical-align: top; height: 48px;">
+		<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; 
+			 width: 20%; padding-left: 10px; padding-right: 10px; padding-top: 10px; 
+			 padding-bottom: 10px;" bgcolor="#CBD9ED"><p class="TableDefinitions">X 
+		 and Y Value Max</p></td>
+		
+	</tr>
+	<tr style="vertical-align: top; height: 60px;">
+		<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; 
+			 width: 20%; padding-left: 10px; padding-right: 10px; padding-top: 10px; 
+			 padding-bottom: 10px;" bgcolor="#CBD9ED"><p class="TableDefinitions">Plate 
+		 Color</p></td>
+		<td colspan="2" style="border-bottom: Solid 1px #000000; width: 75%; 
+			 padding-left: 10px; padding-right: 10px; padding-top: 10px; 
+			 padding-bottom: 10px;"><p class="tabletext">Select a background 
+		 color for the XY graph.</p></td>
+		
+	</tr>
+	<tr style="vertical-align: top; height: 102px;">
+		<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; 
+			 width: 20%; padding-left: 10px; padding-right: 10px; padding-top: 10px; 
+			 padding-bottom: 10px;" bgcolor="#CBD9ED"><p class="TableDefinitions">Y 
+		 Axis Scale</p></td>
+		<td colspan="2" style="border-bottom: Solid 1px #000000; width: 75%; 
+			 padding-left: 10px; padding-right: 10px; padding-top: 10px; 
+			 padding-bottom: 10px;"><p class="tabletext">Select Enable 
+		 to display the scale along the vertical axis of the graph.</p>
+		<p class="Tabletext">&#160;</p>
+		<p class="Tabletext"><span style="font-weight: bold;">Color</span> 
+		 - Select the color of the vertical axis scale.</p>
+		<p class="Tabletext"><span style="font-weight: bold;">Divisions 
+		 -</span> Defines the number of divisions for the Y axis. Enter 
+		 a value between 1 and 100.</p>
+		<p class="Image">&#160;</p></td>
+		
+	</tr>
+	<tr style="vertical-align: top; height: 89px;">
+		<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; 
+			 width: 20%; padding-left: 10px; padding-right: 10px; padding-top: 10px; 
+			 padding-bottom: 10px;" bgcolor="#CBD9ED"><p class="TableDefinitions">Axis 
+		 Scale Labels</p></td>
+		<td colspan="2" style="border-bottom: Solid 1px #000000; width: 75%; 
+			 padding-left: 10px; padding-right: 10px; padding-top: 10px; 
+			 padding-bottom: 10px;"><p class="tabletext">Select Enable 
+		 to display the scale labels.</p>
+		<p class="Tabletext">&#160;</p>
+		<p class="Tabletext"><span style="font-weight: bold;">Label Font 
+		 -</span> Click <img src="Ellipsis.bmp" alt="" style="border: none;" width="26" height="19" border="0"> to open 
+		 the Font Editor. Select your font preferences for the label and 
+		 click OK.</p>
+		<p class="Tabletext"><span style="font-weight: bold;">Color</span> 
+		 - Select the text color for the axis label from the color palette.</p></td>
+		
+	</tr>
+	<tr style="vertical-align: top; height: 67px;">
+		<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; 
+			 width: 20%; padding-left: 10px; padding-right: 10px; padding-top: 10px; 
+			 padding-bottom: 10px;" bgcolor="#CBD9ED"><p class="TableDefinitions">X 
+		 (or Y) Axis Grid</p></td>
+		<td colspan="2" style="border-bottom: Solid 1px #000000; width: 75%; 
+			 padding-left: 10px; padding-right: 10px; padding-top: 10px; 
+			 padding-bottom: 10px;"><p class="tabletext">Select Enable 
+		 to display the grid lines on the XY graph.</p>
+		<p class="tabletext">&#160;</p>
+		<p class="Tabletext"><span style="font-weight: bold;">Color</span> 
+		 - Select the color of the X and Y grid lines.</p></td>
+		
+	</tr>
+	<tr style="vertical-align: top; height: 75px;">
+		<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; 
+			 width: 20%; padding-left: 10px; padding-right: 10px; padding-top: 10px; 
+			 padding-bottom: 10px;" bgcolor="#CBD9ED"><p class="TableDefinitions">X 
+		 Axis Scale</p></td>
+		<td colspan="2" style="border-bottom: Solid 1px #000000; width: 75%; 
+			 padding-left: 10px; padding-right: 10px; padding-top: 10px; 
+			 padding-bottom: 10px;"><p>Select Enable to display the scale 
+		 along the horizontal axis of the graph.</p>
+		<p class="Tabletext"><span style="font-weight: bold;">Color</span> 
+		 - Select the color of the horizontal axis scale.</p>
+		<p class="tabletext">&#160;</p></td>
+		
+	</tr>
+	<tr style="vertical-align: top; height: 64px;">
+		<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; 
+			 width: 20%; padding-left: 10px; padding-right: 10px; padding-top: 10px; 
+			 padding-bottom: 10px;" bgcolor="#CBD9ED"><p class="TableDefinitions">Number 
+		 of Data</p></td>
+		<td colspan="2" style="border-bottom: Solid 1px #000000; width: 75%; 
+			 padding-left: 10px; padding-right: 10px; padding-top: 10px; 
+			 padding-bottom: 10px;"><p>Enter a constant value or variable 
+		 to define the number of data samples you want to display on the 
+		 XY graph. The value must be an integer between 1 and 256. Use 
+		 the variable if you want to change the number of data to be displayed 
+		 at runtime.</p></td>
+		
+	</tr>
+	<tr style="vertical-align: top; height: 52px;">
+		<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; 
+			 width: 20%; padding-left: 10px; padding-right: 10px; padding-top: 10px; 
+			 padding-bottom: 10px;" bgcolor="#CBD9ED"><p class="TableDefinitions">Channels</p></td>
+		<td colspan="2" style="border-bottom: Solid 1px #000000; width: 75%; 
+			 padding-left: 10px; padding-right: 10px; padding-top: 10px; 
+			 padding-bottom: 10px;"><p>Specify the number of channels to 
+		 display on the graph. You can set up a maximum of eight channels.</p></td>
+		
+	</tr>
+	<tr style="vertical-align: top; height: 38px;">
+		<td rowspan="8" style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; 
+			 width: 20%; padding-left: 10px; padding-right: 10px; padding-top: 10px; 
+			 padding-bottom: 10px;" bgcolor="#CBD9ED"><p class="TableDefinitions">Channel#Variable</p></td>
+		<td colspan="2" style="border-bottom: Solid 1px #000000; width: 75%; 
+			 padding-left: 10px; padding-right: 10px; padding-top: 10px; 
+			 padding-bottom: 10px;"><p>Each data set plotted on the XY 
+		 graph is called a channel.</p></td>
+		
+	</tr>
+	<tr style="vertical-align: top; height: 95px;">
+		<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; 
+			 width: 20%; padding-left: 10px; padding-right: 10px; padding-top: 10px; 
+			 padding-bottom: 10px;"><p>Variable</p></td>
+		<td style="border-bottom: Solid 1px #000000; width: 55%;"><p style="margin-left: 13px; 
+			 margin-top: 8pt;">Specify the variable that stores the data 
+		 to be plotted. Select from the following data types: BlockINT, BlockUINT, 
+		 INT Array and UINT 
+		 Array.</p>
+		<p style="margin-left: 13px; margin-top: 8pt;">Array types and 
+		 block types must be 16-bit integer external variables. The size 
+		 of the variable must be an even number. For block integer variable 
+		 properties, specify the Start Address for the device addresses.</p></td>
+	</tr>
+	<tr style="vertical-align: top; height: 58px;">
+		<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; 
+			 width: 20%; padding-left: 10px; padding-right: 10px; padding-top: 10px; 
+			 padding-bottom: 10px;"><p>Start Index</p></td>
+		<td style="border-bottom: Solid 1px #000000; width: 55%;"><p style="margin-left: 13px; 
+			 margin-top: 6pt;">Enter a variable to define the first point 
+		 you want to display on the XY graph. The default Start Index value 
+		 is 0, as defined in the variable's Initial Value property. The 
+		 XY graph plots data starting from the Start Index.</p></td>
+	</tr>
+	<tr style="vertical-align: top; height: 47px;">
+		<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; 
+			 width: 20%; padding-left: 10px; padding-right: 10px; padding-top: 10px; 
+			 padding-bottom: 10px;"><p>Color</p></td>
+		<td style="border-bottom: Solid 1px #000000; width: 55%;"><p style="margin-left: 13px; 
+			 margin-top: 8pt;">Select the line color for each channel on 
+		 the XY graph.</p></td>
+	</tr>
+	<tr style="vertical-align: top; height: 43px;">
+		<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; 
+			 width: 20%; padding-left: 10px; padding-right: 10px; padding-top: 10px; 
+			 padding-bottom: 10px;"><p>Back Color</p></td>
+		<td style="border-bottom: Solid 1px #000000; width: 55%;"><p style="margin-left: 13px; 
+			 margin-top: 8pt;">Select the background color for each channel 
+		 on the XY graph.</p></td>
+	</tr>
+	<tr style="vertical-align: top; height: 43px;">
+		<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; 
+			 width: 20%; padding-left: 10px; padding-right: 10px; padding-top: 10px; 
+			 padding-bottom: 10px;"><p>Line Style</p></td>
+		<td style="border-bottom: Solid 1px #000000; width: 55%;"><p style="margin-left: 13px; 
+			 margin-top: 8pt;">Select the line style for each channel on 
+		 the XY graph.</p></td>
+	</tr>
+	<tr style="vertical-align: top; height: 43px;">
+		<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; 
+			 width: 20%; padding-left: 10px; padding-right: 10px; padding-top: 10px; 
+			 padding-bottom: 10px;"><p>Line Width</p></td>
+		<td style="border-bottom: Solid 1px #000000; width: 55%;"><p style="margin-left: 13px; 
+			 margin-top: 8pt;">Select the line width for each channel on 
+		 the XY graph.</p></td>
+	</tr>
+	<tr style="vertical-align: top; height: 55px;">
+		<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; 
+			 width: 20%; padding-left: 10px; padding-right: 10px; padding-top: 10px; 
+			 padding-bottom: 10px;"><p>Mark</p></td>
+		<td style="border-bottom: Solid 1px #000000; width: 55%;"><p style="margin-left: 13px; 
+			 margin-top: 8pt;">Select the style for the marks that will 
+		 display on the graph. You can select from many styles, such as 
+		 a dot, circle, cross, diamond, and rectangle.</p></td>
+	</tr>
+	<tr style="vertical-align: top; height: 354px;">
+		<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; 
+			 width: 20%;" bgcolor="#CBD9ED"><p class="TableDefinitions" 
+												 style="text-indent: 11px; 
+												 margin-top: 9pt;">Data 
+		 Storage Mode</p></td>
+		<td colspan="2" style="border-bottom: Solid 1px #000000; width: 20%; 
+			 padding-left: 10px; padding-right: 10px; padding-top: 10px; 
+			 padding-bottom: 10px;"><p>Specifies how the data is stored 
+		 in the PLC. Select either XYPairs 
+		 or Xblock-Yblock:</p>
+		<ul>
+			<li class="p-Bullet"><p class="Bullet" style="font-weight: bold;">XYPairs</p></li>
+		</ul>
+		<table style="vertical-align: top; left: 0px; top: 49px; margin-left: 80px;" 
+				 cellspacing="0" width="675">
+			<col style="width: 13.883%;">
+			<col style="width: 39%;">
+			<col style="width: 39%;">
+			<tr style="vertical-align: top;">
+				<td style="border: Solid 1px #000000; width: 13.883%; padding-right: 10px; 
+					 padding-left: 10px;" bgcolor="#CBD9ED"><p class="TableDefinitions">Data 
+				 Point</p></td>
+				<td style="border-top: Solid 1px #000000; border-right: Solid 1px #000000; 
+					 border-bottom: Solid 1px #000000; width: 39%; padding-right: 10px; 
+					 padding-left: 10px;" bgcolor="#CBD9ED"><p class="TableDefinitions">X 
+				 Coordinate</p></td>
+				<td style="border-top: Solid 1px #000000; border-right: Solid 1px #000000; 
+					 border-bottom: Solid 1px #000000; width: 39%; padding-right: 10px; 
+					 padding-left: 10px;" bgcolor="#CBD9ED"><p class="TableDefinitions">Y 
+				 Coordinate</p></td>
+			</tr>
+			<tr style="vertical-align: top;">
+				<td style="border-left: Solid 1px #000000; border-right: Solid 1px #000000; 
+					 border-bottom: Solid 1px #000000; width: 13.883%; 
+					 padding-right: 10px; padding-left: 10px;"><p class="Tabletext">1</p></td>
+				<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; 
+					 width: 39%; padding-right: 10px; padding-left: 10px;"><p 
+					 class="Tabletext">bytes 1 and 2 (first array element)</p></td>
+				<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; 
+					 width: 39%; padding-right: 10px; padding-left: 10px;"><p 
+					 class="Tabletext">bytes 3 and 4 (second array element)</p></td>
+			</tr>
+			<tr style="vertical-align: top;">
+				<td style="border-left: Solid 1px #000000; border-right: Solid 1px #000000; 
+					 border-bottom: Solid 1px #000000; width: 13.883%; 
+					 padding-right: 10px; padding-left: 10px;"><p class="Tabletext">2</p></td>
+				<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; 
+					 width: 39%; padding-right: 10px; padding-left: 10px;"><p 
+					 class="Tabletext">bytes 5 and 6 (third array element)</p></td>
+				<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; 
+					 width: 39%; padding-right: 10px; padding-left: 10px;"><p 
+					 class="Tabletext">bytes 7 and 8 (fourth array element)</p></td>
+			</tr>
+			<tr style="vertical-align: top;">
+				<td style="border-left: Solid 1px #000000; border-right: Solid 1px #000000; 
+					 border-bottom: Solid 1px #000000; width: 13.883%; 
+					 padding-right: 10px; padding-left: 10px;"><p class="Tabletext">...</p></td>
+				<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; 
+					 width: 39%; padding-right: 10px; padding-left: 10px;"><p 
+					 class="Tabletext">...</p></td>
+				<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; 
+					 width: 39%; padding-right: 10px; padding-left: 10px;"><p 
+					 class="Tabletext">...</p></td>
+			</tr>
+			<tr style="vertical-align: top;">
+				<td style="border-left: Solid 1px #000000; border-right: Solid 1px #000000; 
+					 border-bottom: Solid 1px #000000; width: 13.883%; 
+					 padding-right: 10px; padding-left: 10px;"><p class="Tabletext">64</p></td>
+				<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; 
+					 width: 39%; padding-right: 10px; padding-left: 10px;"><p 
+					 class="Tabletext">bytes 253 and 254 (127th array element)</p></td>
+				<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; 
+					 width: 39%; padding-right: 10px; padding-left: 10px;"><p 
+					 class="Tabletext">bytes 255 and 256 (128th array element)</p></td>
+			</tr>
+		</table>
+		<p class="Bullet" style="font-weight: bold;">&#160;</p>
+		<ul>
+			<li class="p-Bullet"><p class="Bullet"><span style="font-weight: bold;">Xblock-Yblock</span></p></li>
+		</ul>
+		<table style="vertical-align: top; left: 0px; top: 49px; margin-left: 80px;" 
+				 cellspacing="0" width="675">
+			<col style="width: 13.883%;">
+			<col style="width: 39%;">
+			<col style="width: 39%;">
+			<tr style="vertical-align: top;">
+				<td style="border: Solid 1px #000000; width: 13.883%; padding-right: 10px; 
+					 padding-left: 10px;" bgcolor="#CBD9ED"><p class="TableDefinitions">Data 
+				 Point</p></td>
+				<td style="border-top: Solid 1px #000000; border-right: Solid 1px #000000; 
+					 border-bottom: Solid 1px #000000; width: 39%; padding-right: 10px; 
+					 padding-left: 10px;" bgcolor="#CBD9ED"><p class="TableDefinitions">X 
+				 Coordinate</p></td>
+				<td style="border-top: Solid 1px #000000; border-right: Solid 1px #000000; 
+					 border-bottom: Solid 1px #000000; width: 39%; padding-right: 10px; 
+					 padding-left: 10px;" bgcolor="#CBD9ED"><p class="TableDefinitions">Y 
+				 Coordinate</p></td>
+			</tr>
+			<tr style="vertical-align: top;">
+				<td style="border-left: Solid 1px #000000; border-right: Solid 1px #000000; 
+					 border-bottom: Solid 1px #000000; width: 13.883%; 
+					 padding-right: 10px; padding-left: 10px;"><p class="Tabletext">1</p></td>
+				<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; 
+					 width: 39%; padding-right: 10px; padding-left: 10px;"><p 
+					 class="Tabletext">bytes 1 and 2 (first array element)</p></td>
+				<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; 
+					 width: 39%; padding-right: 10px; padding-left: 10px;"><p 
+					 class="Tabletext">bytes 129 and 130 (65th array element)</p></td>
+			</tr>
+			<tr style="vertical-align: top;">
+				<td style="border-left: Solid 1px #000000; border-right: Solid 1px #000000; 
+					 border-bottom: Solid 1px #000000; width: 13.883%; 
+					 padding-right: 10px; padding-left: 10px;"><p class="Tabletext">2</p></td>
+				<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; 
+					 width: 39%; padding-right: 10px; padding-left: 10px;"><p 
+					 class="Tabletext">bytes 3 and 4 (second array element)</p></td>
+				<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; 
+					 width: 39%; padding-right: 10px; padding-left: 10px;"><p 
+					 class="Tabletext">bytes 131 and 132 (66th array element)</p></td>
+			</tr>
+			<tr style="vertical-align: top;">
+				<td style="border-left: Solid 1px #000000; border-right: Solid 1px #000000; 
+					 border-bottom: Solid 1px #000000; width: 13.883%; 
+					 padding-right: 10px; padding-left: 10px;"><p class="Tabletext">...</p></td>
+				<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; 
+					 width: 39%; padding-right: 10px; padding-left: 10px;"><p 
+					 class="Tabletext">...</p></td>
+				<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; 
+					 width: 39%; padding-right: 10px; padding-left: 10px;"><p 
+					 class="Tabletext">...</p></td>
+			</tr>
+			<tr style="vertical-align: top;">
+				<td style="border-left: Solid 1px #000000; border-right: Solid 1px #000000; 
+					 border-bottom: Solid 1px #000000; width: 13.883%; 
+					 padding-right: 10px; padding-left: 10px;"><p class="Tabletext">64</p></td>
+				<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; 
+					 width: 39%; padding-right: 10px; padding-left: 10px;"><p 
+					 class="Tabletext">bytes 127 and 128 (64th array element)</p></td>
+				<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; 
+					 width: 39%; padding-right: 10px; padding-left: 10px;"><p 
+					 class="Tabletext">bytes 255 and 256 (128th array element)</p></td>
+			</tr>
+		</table>
+		<p>&#160;</p></td>
+		
+	</tr>
+	<tr style="vertical-align: top; height: 47px;">
+		<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; 
+			 width: 20%;" bgcolor="#CBD9ED"><p class="TableDefinitions" 
+												 style="text-indent: 11px; 
+												 margin-top: 9pt;">Restore 
+		 Defaults</p></td>
+		<td colspan="2" style="border-bottom: Solid 1px #000000; width: 20%; 
+			 padding-left: 10px; padding-right: 10px; padding-top: 10px; 
+			 padding-bottom: 10px;"><p>Click the Restore arrow button to 
+		 restore the original default property settings.</p></td>
+		
+	</tr>
+	<tr style="vertical-align: top; height: 69px;">
+		<td style="border-right: Solid 1px #000000; border-bottom: Solid 3px #000000; 
+			 width: 20%;" bgcolor="#CBD9ED"><p class="TableDefinitions" 
+												 style="text-indent: 11px; 
+												 margin-top: 9pt;">Placeholder</p></td>
+		<td colspan="2" style="border-bottom: Solid 3px #000000; width: 20%; 
+			 padding-left: 10px; padding-right: 10px; padding-top: 10px; 
+			 padding-bottom: 10px;"><p class="Tabletext">You can assign 
+		 a placeholder in any property that requires a variable definition. 
+		 Click the ellipsis to open the Placeholders dialog box and edit 
+		 the variable placeholder for the object. The dialog box only displays 
+		 if you had set up a placeholder for the object. For more information 
+		 on placeholders, see Section 21.2.4, <a href="EfficientOperations.chm::/Template_Objects.htm">Working 
+		 with Variable Placeholders</a>.</p></td>
+		
+	</tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,364 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+<meta name="template" content="Vijeo_template.htt">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+ <meta name="generator" content="Adobe RoboHelp 10">
+<title>Setting Up a Text Block Display</title>
+<link rel="StyleSheet" href="TIS-STYL.CSS" type="text/css">
+</head>
+<body>
+<script type="text/javascript" src="ehlpdhtm.js" language="JavaScript1.2"></script>
+
+<div style="width: 100%; position: relative;" id="header">
+	<table style="background-attachment: scroll; margin-left: 0px; margin-right: 4px; 
+			 background-image: url(top_banner.bmp); background-repeat: Repeat-X; 
+			 line-height: 0pt; vertical-align: top;" cellspacing="0" width="100%" 
+			 background="top_banner.bmp">
+		<col style="width: 90%;">
+		<col style="width: 5%;">
+		<col style="width: 5%;">
+		<tr style="vertical-align: center; height: 39px;">
+			<td style="width: 90%; padding-right: 10px; padding-left: 10px; 
+				 border-right-color: #000000;">
+   <p><img src="logo.bmp" style="border: none;" alt="" width="37" height="37" border="0"></p></td>
+			<td style="width: 5%; padding-right: 0px; padding-left: 10px; 
+				 border-right-color: #000000;">
+   <p style="text-align: center;"><a 
+			 title="Glossary" href="Appendix.chm::/Glossary.htm"><img src="logo_glossary.bmp" style="border: none;" alt="" width="47" height="37" border="0"></a></p></td>
+			<td style="width: 5%; padding-right: 10px; padding-left: 5px; 
+				 border-right-color: #000000;">
+   <p style="text-align: center;"><a 
+			 href="About.chm::/What_is_Vijeo-Designer.htm" title="Home"><img src="logo_home.bmp" alt="Home" title="Home" style="border: none; 
+			 margin-left: 0px; margin-right: 0px; margin-bottom: 0px; margin-top: -2px;" width="47" height="37" border="0"></a></p></td>
+		</tr>
+	</table>
+</div>
+
+<h3>11.7.3.1 Setting Up a Text Block Display</h3>
+<ol style="list-style: decimal;">
+<li class="p">
+<p>Using a text editor, such as Microsoft Notepad, create a text file in .txt format.</p>
+</li>
+</ol>
+<p style="margin-left: 40px;">Press the Enter key to start a new line. If a line is longer than the width of the Text Block Display, the text is clipped in the display. There is no horizontal scroll bar.</p>
+<p style="margin-left: 40px;"><a name="Blocks" id="Blocks"></a>For a Text Block Display, there are two different ways to format each block in the text file;</p>
+<ul>
+<li class="p-bullet2">
+<p class="bullet2">Sequential: Blocks are formatted sequentially, starting from block 0. Insert a carriage return between each block, including the end of the last block. The separator is not displayed, so it can be blank or include text.</p>
+</li>
+</ul>
+<p class="Image" style="margin-left: 80px;"><img src="text%20display_block%20sampleFIXED.bmp" style="border: none;" alt="" width="520" height="335" border="0"></p>
+<ul>
+<li class="p-bullet2">
+<p class="bullet2"><span>UserDefined: Blocks are formatted as defined by the user. At the start of the block, type the block number and a colon (:). There is no separator line.</span></p>
+</li>
+</ul>
+<p class="Image" style="margin-left: 80px;"><img src="text%20display_block%20sampleUSer.bmp" style="border: none;" alt="" width="526" height="311" border="0"></p>
+<ol start="2" style="list-style: decimal;">
+<li class="p">
+<p>Save the text file. Make sure you select Unicode encoding when saving the file.</p>
+</li>
+</ol>
+<p class="Image" style="margin-left: 40px;"><img src="text%20display_unicode.bmp" style="border: none;" alt="" width="404" height="79" border="0"></p>
+<ol start="3" style="list-style: decimal;">
+<li class="p">
+<p>In the Navigator window's Project tab, double-click Environment under the Target node, double-click Data Files, &#160;and select Text.</p>
+</li>
+</ol>
+<ol start="4" style="list-style: decimal;">
+<li class="p">
+<p>In the Text File Editor that opens, select the location and the name of the text file you created in step 1.</p>
+</li>
+</ol>
+<p class="Image" style="margin-left: 40px;"><img src="text%20display_input%20alias.bmp" style="border: none;" alt="" width="407" height="138" border="0"></p>
+<ol start="5" style="list-style: decimal;">
+<li class="p">
+<p style="margin-left: 0px;">Click the File Selection icon <img src="Ellipsis.bmp" style="border: none;" alt="" width="26" height="19" border="0"> to display the Open dialog box and select the file created in step 1, or type the path of the text file in the File Name field.</p>
+</li>
+</ol>
+<p style="margin-left: 40px;">When you select the text file, the file name (without the file extension) is displayed in the Alias column.&#160;Change the alias name as required.</p>
+<p class="Image" style="margin-left: 40px;"><img src="test%20display_alias.bmp" style="border: none;" alt="" width="400" height="38" border="0"></p>
+<p class="NoteImage" style="margin-left: 40px;"><img src="NOTE_MOJI.bmp" style="border: none;" alt="" width="51" height="25" border="0"></p>
+<ul>
+<li class="p-NoteText2">
+<p class="NoteText2">Alias is another name for the text file. For example, a path name (location of the file + file name) may be very long, such as "C:\CompressionMoldingLineProject\OperationManual\ExchangeSteps.txt."&#160;If you have several text files in the same location, it may become very difficult to distinguish these files. For this reason, the Text File Editor offers an Alias so you can manage many text files easily.</p>
+</li>
+<li class="p-NoteText2">
+<p class="NoteText2">You can register up to 200 text files.</p>
+</li>
+</ul>
+<ol start="6">
+<li class="p">
+<p>If you want to add more text files, click Add and register the text files one by one.</p>
+</li>
+</ol>
+<p class="Image" style="margin-left: 40px;"><img src="Vijeo_text_display_add_alias.bmp" style="border: none;" alt="" width="382" height="259" border="0"></p>
+<ol start="7" style="list-style: decimal;">
+<li class="p">
+<p>Specify the storage location on the target machine for the text files.</p>
+</li>
+</ol>
+<p class="Image" style="margin-left: 40px;"><img src="StorageOptions.bmp" style="border: none;" alt="" width="347" height="405" border="0"></p>
+<table style="vertical-align: top; margin-left: 40px;" cellspacing="0" width="94.68%">
+<col style="width: 20.496%;">
+<col style="width: 79.504%;">
+<tr style="vertical-align: top;">
+<td style="border-top: Solid 3px #000000; border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 20.496%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#CBD9ED">
+<p class="TableDefinitions">Main Drive</p>
+</td>
+<td style="border-top: Solid 3px #000000; border-bottom: Solid 1px #000000; width: 79.504%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">You can store the text file in internal memory (flash memory).</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 20.496%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#CBD9ED">
+<p class="TableDefinitions">Secondary Drive</p>
+</td>
+<td style="border-bottom: Solid 1px #000000; width: 79.504%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">You can store the text file on the Secondary Drive.</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 3px #000000; width: 20.496%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#CBD9ED">
+<p class="TableDefinitions">Optional Drive</p>
+</td>
+<td style="border-bottom: Solid 3px #000000; width: 79.504%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">You can store the text file on the Optional Drive.</p>
+</td>
+</tr>
+</table>
+<p class="Image" style="margin-left: 40px;">&#160;</p>
+<ol start="8" style="list-style: decimal;">
+<li class="p">
+<p>In the Navigator window's Project tab, select the panel where you want to place the Text Block Display.</p>
+</li>
+</ol>
+<ol start="9" style="list-style: decimal;">
+<li class="p">
+<p>Click the Toolchest icon <img src="toolchest_icon.bmp" style="border: none;" alt="" width="22" height="22" border="0"> &#160;in the menu bar to open the Toolchest window, and select the Text Display folder.</p>
+</li>
+</ol>
+<ol start="10" style="list-style: decimal;">
+<li class="p">
+<p>Move the Text Block Display onto the panel using the drag and drop operation.</p>
+</li>
+</ol>
+<ol start="11" style="list-style: decimal;">
+<li class="p">
+<p>In the Property Inspector, change the Text Block Display properties as necessary.</p>
+</li>
+</ol>
+<p style="margin-left: 40px;">The following table describes the Text Block Display properties. Some of these properties may not apply to the particular text display part you are using.</p>
+<table style="vertical-align: top; margin-left: 40px;" cellspacing="0" width="94.467%">
+<col style="width: 20%;">
+<col style="width: 78.571%;">
+<tr style="vertical-align: top;">
+<td style="border-top: Solid 3px #000000; border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 20%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#91AFD9">
+<p class="Tabletitle">Property</p>
+</td>
+<td style="border-top: Solid 3px #000000; border-bottom: Solid 1px #000000; width: 78.571%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#91AFD9">
+<p class="Tabletitle">Description</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 20%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#CBD9ED">
+<p class="TableDefinitions">Name</p>
+</td>
+<td style="border-bottom: Solid 1px #000000; width: 78.571%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="tabletext">The object's name.</p>
+<p class="tabletext">Whenever an object is created, a default name is generated. When renaming an object, its name must be unique within the target, must contain no more than 32 valid characters, and must follow the naming conventions.</p>
+<p class="tabletext">For more information, see Appendix 9, <a href="Appendix.chm::/Change_name.htm">Naming Conventions</a>.</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 20%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#CBD9ED">
+<p class="TableDefinitions">Description</p>
+</td>
+<td style="border-bottom: Solid 1px #000000; width: 78.571%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">Displays the part name. This property is read-only.</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 20%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#CBD9ED">
+<p class="TableDefinitions">Version</p>
+</td>
+<td style="border-bottom: Solid 1px #000000; width: 78.571%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="tabletext">Displays the version of Vijeo-Designer.</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 20%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#CBD9ED">
+<p class="TableDefinitions">Top</p>
+</td>
+<td rowspan="2" style="border-bottom: Solid 1px #000000; width: 78.571%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">The coordinates, in pixels, of the top-left corner of the object.</p>
+<ul>
+<li class="p-Bullet">
+<p class="Bullet">Top is measured from the top of the object to the top of the panel. Enter a value from –32768 to (32767 –object height).</p>
+</li>
+<li class="p-Bullet">
+<p class="Bullet">Left is measured from the left side of the object to the left side of the panel. Enter a value from –32768 to (32767 – object width).</p>
+</li>
+</ul>
+<p class="Tabletext">By changing these properties, the graphical object can be moved up, down, left, and</p>
+<p class="Tabletext">right.</p>
+<p class="Image"><img src="position-up&amp;left.bmp" style="border: none;" alt="" width="160" height="137" border="0"></p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 20%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#CBD9ED">
+<p class="TableDefinitions">Left</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 20%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#CBD9ED">
+<p class="TableDefinitions">Width</p>
+</td>
+<td rowspan="2" style="border-bottom: Solid 1px #000000; width: 78.571%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="tabletext">Defines the actual size (width and height) of the object in pixels.&#160;Enter values from 20 to 3000 for the Height, and from 10 to 3000 for the Width.&#160;By changing the values for these properties, you can change the object's width and height.</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 20%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#CBD9ED">
+<p class="TableDefinitions">Height</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 20%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#CBD9ED">
+<p class="TableDefinitions">FileName</p>
+</td>
+<td style="border-bottom: Solid 1px #000000; width: 78.571%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="tabletext">Enter the alias, which is the name of the text file displayed in this part.</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 20%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#CBD9ED">
+<p class="TableDefinitions">BlockNumberVariable</p>
+</td>
+<td style="border-bottom: Solid 1px #000000; width: 78.571%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">Specify the variable that stores the block number.&#160;</p>
+<p class="Image"><img src="text%20block%20display_minisize_block.bmp" style="border: none;" alt="" width="289" height="125" border="0"></p>
+<p class="Tabletext">You can configure blocks in the text file by adding block markers (X:). Or you can define the Lines Per Block property for the Text Block Display part &#160;and then configure fixed block sizes in the text file. See the <a href="#LinesInBlock">IndexType</a> property.</p>
+<p class="Tabletext">&#160;</p>
+<p class="Tabletext">You can set up a variable placeholder. Select the structure variable and the element from the Variable List. To edit the variable placeholder you have set up for your object, in the Property Inspector for the object, click the ellipsis to open the Placeholders dialog box. The dialog box only displays if you had set up a placeholder for the object. For more information on placeholders, see Section 21.2.4, <a href="EfficientOperations.chm::/Template_Objects.htm">Working with Variable Placeholders</a>.</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 20%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#CBD9ED">
+<p class="TableDefinitions"><a name="LinesInBlock" id="LinesInBlock"></a>IndexType</p>
+</td>
+<td rowspan="2" style="border-bottom: Solid 1px #000000; width: 78.571%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">IndexType and LinesPerBlock specify how to format the text file.</p>
+<p class="Tabletext">&#160;</p>
+<p class="Tabletext"><span style="font-weight: bold;">IndexType</span> defines how each block is numbered: Sequential or UserDefined.</p>
+<p class="Tabletext">&#160;</p>
+<p class="Tabletext">Sequential: Blocks are numbered sequentially, starting from block 0. Each block is a fixed size, defined by the LinesInBlock property. After each block, including the final block, is a row that does not appear in the text display.</p>
+<p class="Image"><img src="text%20display_block%20sampleFIXED.bmp" style="border: none;" alt="" width="520" height="335" border="0"></p>
+<p class="Tabletext">UserDefined: Blocks are numbered as defined by the user. At the start of the block, type the block number and a colon (:). There is no separator line.</p>
+<p class="Image"><img src="text%20display_block%20sampleUSer.bmp" style="border: none;" alt="" width="526" height="311" border="0"></p>
+<p class="Tabletext"><span style="font-weight: bold;">LinesPerBlock</span> defines the number of lines for each block. Format your text file so each block is a fixed number of lines. Each block can have up to 200 lines.</p>
+<p class="NoteImage"><img src="NOTE_MOJI.bmp" style="border: none;" alt="" width="51" height="25" border="0"></p>
+<ul>
+<li class="p-NoteText">
+<p class="NoteText">Each block actually occupies one line more than defined here. When IndexType is Sequential, an extra line is required after each block, including the last block. When IndexType is UserDefined, an extra line at the start of each block is used to identify the block number.</p>
+</li>
+</ul>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 20%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#CBD9ED">
+<p class="TableDefinitions">LinesPerBlock</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 20%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#CBD9ED">
+<p class="TableDefinitions">Font</p>
+</td>
+<td style="border-bottom: Solid 1px #000000; width: 78.571%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="tabletext">Specify in the Text Block Display the font, text size, and style for each language.</p>
+<p class="NoteImage"><img src="NOTE_MOJI.bmp" style="border: none;" alt="" width="51" height="25" border="0"></p>
+<ul>
+<li class="p-NoteText">
+<p class="NoteText">If you want to display a text file with 2-byte characters, make sure you select a font that supports those characters.&#160;For example, if you display a Japanese text file when an English/European font is selected, the text will not display properly.</p>
+</li>
+</ul>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 20%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#CBD9ED">
+<p class="TableDefinitions">PlateColor</p>
+</td>
+<td rowspan="2" style="border-bottom: Solid 1px #000000; width: 78.571%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="tabletext">Specify the background (area) and text colors for the entire Text Display.</p>
+<p class="Image"><img src="text%20display_area%20color.bmp" style="border: none;" alt="" width="164" height="129" border="0"></p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 20%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#CBD9ED">
+<p class="TableDefinitions">TextColor</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 20%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#CBD9ED">
+<p class="TableDefinitions">TextAlignment</p>
+</td>
+<td style="border-bottom: Solid 1px #000000; width: 78.571%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="tabletext">Select from Left, Center and Right.</p>
+</td>
+</tr>
+<tr style="vertical-align: top; height: 0px;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 20%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#CBD9ED">
+<p class="TableDefinitions">FrameColor</p>
+</td>
+<td style="border-bottom: Solid 1px #000000; width: 78.571%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="tabletext">Specify the border color and the outer frame color (line color) for the Text Display.</p>
+<p class="Image"><img src="text%20display_frame%20color.bmp" style="border: none;" alt="" width="204" height="122" border="0"></p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 20%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#CBD9ED">
+<p class="TableDefinitions">ScrollBar</p>
+</td>
+<td style="border-bottom: Solid 1px #000000; width: 78.571%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="tabletext">If you select Show, a scroll bar will be displayed at the right side of the Text Display as shown below.&#160;You can use the scroll bar to scroll the text.&#160;You cannot change the position of the scroll bar, or the number of lines displayed at a time.</p>
+<p class="Image"><img src="text%20display_scroll%20bar.bmp" style="border: none;" alt="" width="138" height="102" border="0"></p>
+<p class="Tabletext">A horizontal scroll bar is not available.</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 20%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#CBD9ED">
+<p class="TableDefinitions">RestoreDefaults</p>
+</td>
+<td style="border-bottom: Solid 1px #000000; width: 78.571%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">The arrow button restores the original default property settings. A message prompts you to either continue or cancel the action.</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 3px #000000; width: 20%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#CBD9ED">
+<p class="TableDefinitions">Placeholder</p>
+</td>
+<td style="border-bottom: Solid 3px #000000; width: 78.571%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">You can assign a placeholder in any property that requires a variable definition. Click the ellipsis to open the Placeholders dialog box and edit the variable placeholder for the object. The dialog box only displays if you had set up a placeholder for the object. For more information on placeholders, see Section 21.2.4, <a href="EfficientOperations.chm::/Template_Objects.htm">Working with Variable Placeholders</a>.</p>
+</td>
+</tr>
+</table>
+<p class="NoteImage"><img src="NOTE_MOJI.bmp" style="border: none;" alt="" width="51" height="25" border="0"></p>
+<ul>
+<li class="p-NoteText">
+<p class="NoteText">The number of characters per line in the Text Block Display is determined by the width of the Text Block Display and the font size.</p>
+</li>
+<li class="p-NoteText">
+<p class="NoteText">If text is clipped at the end of a line:</p>
+</li>
+<li class="p-NoteText2">
+<p class="NoteText2">Adjust the Text Block Display width and Text Block Display font size.</p>
+</li>
+<li class="p-NoteText2">
+<p class="NoteText2">Adjust the line breaks in the text file.</p>
+</li>
+</ul>
+<p class="Image" style="margin-left: 40px;"><img src="text%20display_widthLimit.bmp" style="border: none;" alt="" width="448" height="169" border="0"></p>
+</body>
+</html>

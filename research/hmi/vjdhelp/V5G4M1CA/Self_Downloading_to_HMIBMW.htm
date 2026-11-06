@@ -1,0 +1,188 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+<meta name="template" content="Vijeo_template.htt">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+ <meta name="generator" content="Adobe RoboHelp 10">
+<title>Self Downloading to HMIBMW</title>
+<link rel="StyleSheet" href="Tis-styl.css" type="text/css">
+</head>
+
+<body>
+<script type="text/javascript" src="ehlpdhtm.js" language="JavaScript1.2"></script>
+
+<div style="width: 100%; position: relative;" id="header">
+	<table style="background-attachment: scroll; margin-left: 0px; margin-right: 4px; 
+			 background-image: url(top_banner.bmp); background-repeat: Repeat-X; 
+			 line-height: 0pt; vertical-align: top;" cellspacing="0" width="100%" 
+			 background="top_banner.bmp">
+		<col style="width: 90%;">
+		<col style="width: 5%;">
+		<col style="width: 5%;">
+		<tr style="vertical-align: center; height: 39px;">
+			<td style="width: 90%; padding-right: 10px; padding-left: 10px; 
+				 border-right-color: #000000;">
+   <p><img src="logo.bmp" style="border: none;" alt="" width="37" height="37" border="0"></p></td>
+			<td style="width: 5%; padding-right: 0px; padding-left: 10px; 
+				 border-right-color: #000000;">
+   <p style="text-align: center;"><a 
+			 title="Glossary" href="Appendix.chm::/Glossary.htm"><img src="logo_glossary.bmp" style="border: none;" alt="" width="47" height="37" border="0"></a></p></td>
+			<td style="width: 5%; padding-right: 10px; padding-left: 5px; 
+				 border-right-color: #000000;">
+   <p style="text-align: center;"><a 
+			 href="About.chm::/What_is_Vijeo-Designer.htm" title="Home"><img src="logo_home.bmp" alt="Home" title="Home" style="border: none; 
+			 margin-left: 0px; margin-right: 0px; margin-bottom: 0px; margin-top: -2px;" width="47" height="37" border="0"></a></p></td>
+		</tr>
+	</table>
+</div>
+
+<h1>Self Downloading to HMIBMW</h1>
+<p>Use this option to enable your target machine to automatically update 
+ the user application and run time. The Self Download feature is helpful 
+ when you want to update the project on multiple target machines by triggering 
+ a condition.</p>
+<p>As illustrated in the following diagram, to set up this feature you 
+ need to:</p>
+<ol style="list-style: decimal;">
+	<li class="p"><p>Create and set up the Self Download project and download 
+	 it to the target machine. For more information, see <a href="#Set_Up_Self_Download">Set 
+	 Up Self Download in Target Machine</a>.</p></li>
+	<li class="p"><p>Create the Self Download update files and upload them 
+	 to the FTP server. For more information, see <a href="#Create_Self_Download_Update_Files">Create 
+	 Self Download Update Files</a> and <a href="#Upload_Projects_to_FTP_Server_via_Data_Manager">Upload 
+	 Projects to FTP Server via Data Manager</a>.</p></li>
+	<li class="p"><p>Trigger the Self Download operation on the target 
+	 machine in order to download and install the update files.</p></li>
+</ol>
+<p><img src="selfdownload.bmp" alt="" style="border: none;" width="573" height="350" border="0"></p>
+<p class="NoteText"><img src="NOTE_MOJI.bmp" alt="" style="border: none;" width="51" height="25" border="0"></p>
+<ul>
+	<li class="p-NoteText"><p class="NoteText">Make sure that your target 
+	 machine has enough space to store the user application and runtime 
+	 update files.</p></li>
+	<li class="p-NoteText"><p class="NoteText">You cannot trigger Self 
+	 Download from Web Gate.</p></li>
+	<li class="p-NoteText"><p class="NoteText">Web Gate terminates when 
+	 Self Download starts. You have to manually restart Web Gate once the 
+	 Self Download process is complete.</p></li>
+</ul>
+<h4><a name="Set_Up_Self_Download" id="Set_Up_Self_Download"></a><img src="Square.bmp" alt="" style="border: none;" width="12" height="10" border="0">Set 
+ Up Self Download in Target Machine</h4>
+<ol style="list-style: decimal;">
+	<li class="p"><p>In Vijeo Designer, from the Navigator window open 
+	 the Project tab, and click the Target node to open the Property Inspector.</p></li>
+	<li class="p"><p>In the Property Inspector, expand the Download node 
+	 and set Allow Self Download to Enabled.</p></li>
+	<li class="p"><p>From the &quot;Self Download to&quot; drop-down list, 
+	 select the destination drive for the update files.</p></li>
+	<li class="p"><p>In the project, create one of the following and in 
+	 the Settings dialog box, set the Operation to Self Download:</p>
+	<ul>
+		<li class="p-Bullet"><p class="Bullet">Target or Panel action,</p></li>
+		<li class="p-Bullet"><p class="Bullet">Target or Panel function 
+		 key (When Touch),</p></li>
+		<li class="p-Bullet"><p class="Bullet">Switch (When Touch), or</p></li>
+		<li class="p-Bullet"><p class="Bullet">Selector.</p></li>
+	</ul></li>
+	<li class="p"><p>In the Settings dialog box, select either Download 
+	 Target files, Install files, or both. If you select Install files, 
+	 your target machine restarts when download is complete.</p></li>
+	<li class="p"><p>Enter a value for the FTP Server IP Address, the user 
+	 name and password, and the folder in the FTP server where the files 
+	 are kept (for example, /SelfDL).</p></li>
+	<li class="p"><p>Add this action to the Action list.</p></li>
+	<li class="p"><p>Build and download the project to the target machine.</p></li>
+</ol>
+<h4><a name="Create_Self_Download_Update_Files" id="Create_Self_Download_Update_Files"></a><img src="Square.bmp" alt="" style="border: none;" width="12" height="10" border="0">Create Self Download Update Files</h4>
+<ol style="list-style: decimal;">
+	<li class="p"><p>In the Property Inspector, select Self Download from 
+	 the Download drop-down list.</p></li>
+	<li class="p"><p>Select Self Download Format and whether you want to 
+	 enable the Force Self Download.</p></li>
+</ol>
+<p style="margin-left: 40px;"><img src="NOTE_MOJI.bmp" alt="" style="border: none;" width="51" height="25" border="0"></p>
+<ol style="list-style: decimal;">
+	<li style="list-style: none; display: inline;"><ul>
+		<li class="p-NoteText"><p class="NoteText">Enable Force Self Download 
+		 when you want to download:</p></li>
+		<li style="list-style: none; display: inline;"><ul>
+			<li class="p-NoteText"><p class="NoteText">An older version 
+			 of the same project, or</p></li>
+			<li class="p-NoteText"><p class="NoteText">A project that is 
+			 different from the one currently installed on the target machine.</p></li>
+		</ul></li>
+		<li class="p-NoteText"><p class="NoteText">If you disable Force 
+		 Self Download, the Self Download aborts when:</p></li>
+		<li style="list-style: none; display: inline;"><ul>
+			<li class="p-NoteText"><p class="NoteText">The current project 
+			 ID does not match the update project ID.</p></li>
+			<li class="p-NoteText"><p class="NoteText">The current project 
+			 version is equal to or greater than the update project version.</p></li>
+		</ul></li>
+	</ul></li>
+</ol>
+<ol start="3" style="list-style: decimal;">
+	<li class="p"><p>In the Path field, enter the destination folder path 
+	 (for example, C:\Temp\SelfDownload).</p></li>
+	<li class="p"><p>Build the updated project.</p></li>
+	<li class="p"><p>Upload the project to the FTP server using the Data 
+	 Manager. For more information, see the following section, <a href="#Upload_Projects_to_FTP_Server_via_Data_Manager">Upload 
+	 Projects to FTP Server via Data Manager</a>.</p></li>
+</ol>
+<p class="NoteText">&#160;</p>
+<h4><a name="Upload_Projects_to_FTP_Server_via_Data_Manager" id="Upload_Projects_to_FTP_Server_via_Data_Manager"></a><img src="Square.bmp" alt="" style="border: none;" width="12" height="10" border="0">Upload Projects to FTP Server via Data Manager</h4>
+<table style="vertical-align: top;" cellspacing="0" width="100%">
+	<col style="width: 100%;">
+	<tr style="vertical-align: top;">
+		<td style="border: Solid 2px #000000; width: 100%; padding-right: 10px; 
+			 padding-left: 10px; vertical-align: center;"><p style="text-align: center;"><img src="Text_caution2.bmp" alt="" style="border: none; margin-left: 0px; 
+		 margin-right: 0px; margin-top: 3px; margin-bottom: 0px;" width="431" height="30" border="0"></p></td>
+	</tr>
+	<tr style="vertical-align: top;">
+		<td style="border-left: Solid 2px #000000; border-right: Solid 2px #000000; 
+			 border-bottom: Solid 2px #000000; width: 100%; padding-right: 10px; 
+			 padding-left: 10px;"><p style="font-weight: bold;">DATA SECURITY</p>
+		<ul>
+			<li class="p-Bullet"><p class="Bullet">The &#160;Data Manager 
+			 FTP protocol is not secured or encrypted. Use it in a secure 
+			 network environment.</p></li>
+		</ul>
+		<p style="font-weight: bold;">Failure to follow these instructions 
+		 can result in loss of data.</p></td>
+	</tr>
+	<tr style="vertical-align: top;">
+		<td style="border-left: Solid 2px #000000; border-right: Solid 2px #000000; 
+			 border-bottom: Solid 2px #000000; width: 100%; padding-right: 10px; 
+			 padding-left: 10px;"><p style="font-weight: bold;">&#160;</p></td>
+	</tr>
+</table>
+<p>&#160;</p>
+<ol start="1" style="list-style: decimal;">
+	<li class="p" style="list-style: decimal;"><p>Start the Data Manager. 
+	 In the Windows Start menu, point to Programs, Schneider Electric, 
+	 Vijeo Designer, Tools, and click Vijeo Designer Data Manager.</p></li>
+	<li class="p"><p>On the main page, use the Media drop-down list to 
+	 select New Target Connection. Click Create to open the Configure a 
+	 Target dialog box.</p></li>
+	<li class="p"><p>In the Configure a Target dialog box, select &quot;The 
+	 remote target is a FTP server&quot; check box. Enter the correct information 
+	 for Name, Target Address, User name, and Password required to connect 
+	 to the FTP server. Then, click Modify to open the Vijeo Designer Data 
+	 Manager dialog box.</p></li>
+	<li class="p"><p>Select the Send Self Download files check box and 
+	 click Next.</p></li>
+	<li class="p"><p>Enter the source and destination folder paths in their 
+	 respective fields. Click Send to transfer the project to the FTP server.</p></li>
+</ol>
+<p><img src="NOTE_MOJI.bmp" alt="" style="border: none;" width="51" height="25" border="0"></p>
+<ul style="list-style: decimal;">
+	<li class="p-NoteText"><p class="NoteText">The Data Manager command 
+	 line for transferring files to the FTP server is not available for 
+	 this feature.</p></li>
+	<li class="p-NoteText"><p class="NoteText">Before the transfer starts, 
+	 the Data Manager creates the destination folder in the FTP server. 
+	 &#160;If the folder already exists, the Data Manager deletes its content.</p></li>
+</ul>
+</body>
+</html>

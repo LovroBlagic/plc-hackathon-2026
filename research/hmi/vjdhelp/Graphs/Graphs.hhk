@@ -1,0 +1,630 @@
+<html>
+<!-- Sitemap 1.0 -->
+<object type="text/site properties">
+  <param name="WindowName" value="$global_NewWindow">
+  <param name="SiteType" value="index">
+</object>
+<ul>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Bar Graph, Overview">
+    <param name="Name" value="Bar Graph">
+    <param name="Local" value="bar_graph.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Meter, Overview">
+    <param name="Name" value="Meter">
+    <param name="Local" value="meter_graph.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Setting Up a Meter">
+    <param name="Name" value="Setting Up a Meter">
+    <param name="Local" value="create_meter_fraph.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Setting Up a Bar Graph">
+    <param name="Name" value="Setting Up a Bar Graph">
+    <param name="Local" value="creating_bar_graph.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Creating Your Own Graphs">
+    <param name="Name" value="Creating Your Own Graphs">
+    <param name="Local" value="Create_original_graph.htm">
+    <param name="Name" value="Working with Fill Animation">
+    <param name="Local" value="Set_up_fill_animation.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Creating Pie Graphs">
+    <param name="Name" value="Creating Pie Graphs">
+    <param name="Local" value="Create_statistic_graph.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Fill Animation">
+    <param name="Name" value="Working with Fill Animation">
+    <param name="Local" value="Set_up_fill_animation.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Volume Indicator, Animation">
+    <param name="Name" value="Working with Fill Animation">
+    <param name="Local" value="Set_up_fill_animation.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Bar Graphs">
+    <param name="Name" value="Types of Graphs">
+    <param name="Local" value="Create_graph.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Circle Graphs">
+    <param name="Name" value="Types of Graphs">
+    <param name="Local" value="Create_graph.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Tank Graphs">
+    <param name="Name" value="Types of Graphs">
+    <param name="Local" value="Create_graph.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Types of Graphs">
+    <param name="Name" value="Types of Graphs">
+    <param name="Local" value="Create_graph.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Graph Types">
+    <param name="Name" value="Types of Graphs">
+    <param name="Local" value="Create_graph.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Meter Graphs">
+    <param name="Name" value="Creating Meter Graphs">
+    <param name="Local" value="Create_meter_graph.htm">
+    <param name="Name" value="Types of Graphs">
+    <param name="Local" value="Create_graph.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Pie Graphs">
+    <param name="Name" value="Creating Pie Graphs">
+    <param name="Local" value="Create_statistic_graph.htm">
+    <param name="Name" value="Types of Graphs">
+    <param name="Local" value="Create_graph.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Data Graphs">
+    <param name="Name" value="Creating Data Graphs">
+    <param name="Local" value="Data_Graph.htm">
+    <param name="Name" value="Types of Graphs">
+    <param name="Local" value="Create_graph.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Creating Data Graphs">
+    <param name="Name" value="Creating Data Graphs">
+    <param name="Local" value="Data_Graph.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Parts">
+    <param name="Name" value="Types of Graphs">
+    <param name="Local" value="Create_graph.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Animation">
+    <param name="Name" value="Types of Graphs">
+    <param name="Local" value="Create_graph.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Indicator Blink">
+    <param name="Name" value="Color Tab">
+    <param name="Local" value="meter_color_tab.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Meter Settings">
+    <param name="Name" value="Meter Settings">
+    <param name="Local" value="meter_graph_settings.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Meter Settings Dialog Box">
+    <param name="Name" value="Meter Settings">
+    <param name="Local" value="meter_graph_settings.htm">
+  </object>
+  <ul>
+    <li><object type="text/sitemap">
+      <param name="Name" value="General Tab">
+      <param name="Name" value="General Tab">
+      <param name="Local" value="meter_general_tab.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="Color Tab">
+      <param name="Name" value="Color Tab">
+      <param name="Local" value="meter_color_tab.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="Label Tab">
+      <param name="Name" value="Label Tab">
+      <param name="Local" value="meter_label_tab.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="Input Mode Tab">
+      <param name="Name" value="Input Mode">
+      <param name="Local" value="meter_input_mode.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="Numeric Display Tab">
+      <param name="Name" value="Numeric Display">
+      <param name="Local" value="meter_numeric_display.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="Visibility Tab">
+      <param name="Name" value="Visibility Tab">
+      <param name="Local" value="meter_visibility_tab.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="Advanced Tab">
+      <param name="Name" value="Advanced Tab">
+      <param name="Local" value="meter_advanced_tab.htm">
+    </object>
+    </ul>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Bar Graph Settings Dialog Box">
+    <param name="Name" value="Bar Graph Settings">
+    <param name="Local" value="bar_graph_settings.htm">
+  </object>
+  <ul>
+    <li><object type="text/sitemap">
+      <param name="Name" value="General Tab">
+      <param name="Name" value="General Tab">
+      <param name="Local" value="bar_general_tab.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="Color Tab">
+      <param name="Name" value="Color Tab">
+      <param name="Local" value="bar_color_tab.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="Label Tab">
+      <param name="Name" value="Label Tab">
+      <param name="Local" value="bar_label_tab.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="Input Mode Tab">
+      <param name="Name" value="Input Mode">
+      <param name="Local" value="bar_input_mode.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="Visibility Tab">
+      <param name="Name" value="Visibility Tab">
+      <param name="Local" value="bar_visibility_tab.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="Advanced Tab">
+      <param name="Name" value="Advanced Tab">
+      <param name="Local" value="bar_advanced_tab.htm">
+    </object>
+    </ul>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Drawing Meter">
+    <param name="Name" value="Setting Up a Meter">
+    <param name="Local" value="create_meter_fraph.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Draw Bar Graph">
+    <param name="Name" value="Setting Up a Bar Graph">
+    <param name="Local" value="creating_bar_graph.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Meter preview">
+    <param name="Name" value="General Tab">
+    <param name="Local" value="meter_general_tab.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Bar Graph Preview">
+    <param name="Name" value="General Tab">
+    <param name="Local" value="bar_general_tab.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="What is a Meter?">
+    <param name="Name" value="Meter">
+    <param name="Local" value="meter_graph.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="What is a Bar Graph?">
+    <param name="Name" value="Bar Graph">
+    <param name="Local" value="bar_graph.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Horizontal Bar Graph">
+    <param name="Name" value="Bar Graph">
+    <param name="Local" value="bar_graph.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Vertical Bar Graph">
+    <param name="Name" value="Bar Graph">
+    <param name="Local" value="bar_graph.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Bar Graph Features">
+    <param name="Name" value="Bar Graph">
+    <param name="Local" value="bar_graph.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Meter Features">
+    <param name="Name" value="Meter">
+    <param name="Local" value="meter_graph.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Labels">
+    <param name="See Also" value="Labels">
+  </object>
+  <ul>
+    <li><object type="text/sitemap">
+      <param name="Name" value="Automatic Bar Graph Labels">
+      <param name="Name" value="Label Tab#Floating">
+      <param name="Local" value="bar_label_tab.htm#Floating">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="Automatic Meter Labels">
+      <param name="Name" value="Label Tab#Automatic">
+      <param name="Local" value="meter_label_tab.htm#Automatic">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="Floating Bar Graph Labels">
+      <param name="Name" value="Label Tab#float">
+      <param name="Local" value="bar_label_tab.htm#float">
+    </object>
+    </ul>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Floating Label">
+    <param name="Name" value="Label Tab#Floating">
+    <param name="Local" value="bar_label_tab.htm#Floating">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Automatic Label">
+    <param name="See Also" value="Automatic Label">
+  </object>
+  <ul>
+    <li><object type="text/sitemap">
+      <param name="Name" value="Bar Graph Automatic Label">
+      <param name="Name" value="Label Tab#Floating">
+      <param name="Local" value="bar_label_tab.htm#Floating">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="Meter Automatic Label">
+      <param name="Name" value="Label Tab#Automatic">
+      <param name="Local" value="meter_label_tab.htm#Automatic">
+    </object>
+    </ul>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Meter Numeric Display">
+    <param name="Name" value="Numeric Display">
+    <param name="Local" value="meter_numeric_display.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Numeric Display, Meter">
+    <param name="Name" value="Numeric Display">
+    <param name="Local" value="meter_numeric_display.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Indicator Style, Meter">
+    <param name="Name" value="General Tab">
+    <param name="Local" value="meter_general_tab.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Plate Style, Meter">
+    <param name="Name" value="General Tab">
+    <param name="Local" value="meter_general_tab.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Start Angle, Meter">
+    <param name="Name" value="General Tab">
+    <param name="Local" value="meter_general_tab.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="End Angle, Meter">
+    <param name="Name" value="General Tab">
+    <param name="Local" value="meter_general_tab.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Indicator Position">
+    <param name="See Also" value="Indicator Position">
+  </object>
+  <ul>
+    <li><object type="text/sitemap">
+      <param name="Name" value="Bar Graph">
+      <param name="Name" value="General Tab">
+      <param name="Local" value="bar_general_tab.htm">
+    </object>
+    </ul>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Indicator Size">
+    <param name="See Also" value="Indicator Size">
+  </object>
+  <ul>
+    <li><object type="text/sitemap">
+      <param name="Name" value="Bar Graph">
+      <param name="Name" value="General Tab">
+      <param name="Local" value="bar_general_tab.htm">
+    </object>
+    </ul>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Direction, Meter">
+    <param name="Name" value="General Tab">
+    <param name="Local" value="meter_general_tab.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Input Mode, Bar Graph">
+    <param name="Name" value="Input Mode">
+    <param name="Local" value="bar_input_mode.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Input Mode, Meter">
+    <param name="Name" value="Input Mode">
+    <param name="Local" value="meter_input_mode.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Start Point, Bar Graph">
+    <param name="Name" value="General Tab">
+    <param name="Local" value="bar_general_tab.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Scale">
+    <param name="See Also" value="Scale">
+  </object>
+  <ul>
+    <li><object type="text/sitemap">
+      <param name="Name" value="Width">
+      <param name="See Also" value="Width">
+    </object>
+    <ul>
+      <li><object type="text/sitemap">
+        <param name="Name" value="Bar Graph">
+        <param name="Name" value="General Tab">
+        <param name="Local" value="bar_general_tab.htm">
+      </object>
+      <li><object type="text/sitemap">
+        <param name="Name" value="Meter">
+        <param name="Name" value="General Tab">
+        <param name="Local" value="meter_general_tab.htm">
+      </object>
+      </ul>
+    <li><object type="text/sitemap">
+      <param name="Name" value="Length">
+      <param name="See Also" value="Length">
+    </object>
+    <ul>
+      <li><object type="text/sitemap">
+        <param name="Name" value="Bar Graph">
+        <param name="Name" value="General Tab">
+        <param name="Local" value="bar_general_tab.htm">
+      </object>
+      <li><object type="text/sitemap">
+        <param name="Name" value="Meter">
+        <param name="Name" value="General Tab">
+        <param name="Local" value="meter_general_tab.htm">
+      </object>
+      </ul>
+    <li><object type="text/sitemap">
+      <param name="Name" value="Major">
+      <param name="See Also" value="Major">
+    </object>
+    <ul>
+      <li><object type="text/sitemap">
+        <param name="Name" value="Bar Graph">
+        <param name="Name" value="General Tab">
+        <param name="Local" value="bar_general_tab.htm">
+      </object>
+      <li><object type="text/sitemap">
+        <param name="Name" value="Meter">
+        <param name="Name" value="General Tab">
+        <param name="Local" value="meter_general_tab.htm">
+      </object>
+      </ul>
+    <li><object type="text/sitemap">
+      <param name="Name" value="Minor">
+      <param name="See Also" value="Minor">
+    </object>
+    <ul>
+      <li><object type="text/sitemap">
+        <param name="Name" value="Bar Graph">
+        <param name="Name" value="General Tab">
+        <param name="Local" value="bar_general_tab.htm">
+      </object>
+      <li><object type="text/sitemap">
+        <param name="Name" value="Meter">
+        <param name="Name" value="General Tab">
+        <param name="Local" value="meter_general_tab.htm">
+      </object>
+      </ul>
+    <li><object type="text/sitemap">
+      <param name="Name" value="Threshold Range">
+      <param name="See Also" value="Threshold Range">
+    </object>
+    <ul>
+      <li><object type="text/sitemap">
+        <param name="Name" value="Meter">
+        <param name="Name" value="General Tab">
+        <param name="Local" value="meter_general_tab.htm">
+      </object>
+      </ul>
+    <li><object type="text/sitemap">
+      <param name="Name" value="Number of Divisions">
+      <param name="See Also" value="Number of Divisions">
+    </object>
+    <ul>
+      <li><object type="text/sitemap">
+        <param name="Name" value="Bar Graph">
+        <param name="Name" value="General Tab">
+        <param name="Local" value="bar_general_tab.htm">
+      </object>
+      <li><object type="text/sitemap">
+        <param name="Name" value="Meter">
+        <param name="Name" value="General Tab">
+        <param name="Local" value="meter_general_tab.htm">
+      </object>
+      </ul>
+    </ul>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Text Color">
+    <param name="See Also" value="Text Color">
+  </object>
+  <ul>
+    <li><object type="text/sitemap">
+      <param name="Name" value="Meter">
+      <param name="Name" value="Color Tab">
+      <param name="Local" value="meter_color_tab.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="Bar Graph">
+      <param name="Name" value="Color Tab">
+      <param name="Local" value="bar_color_tab.htm">
+    </object>
+    </ul>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Indicator Color">
+    <param name="See Also" value="Indicator Color">
+  </object>
+  <ul>
+    <li><object type="text/sitemap">
+      <param name="Name" value="Bar Graph">
+      <param name="Name" value="Color Tab">
+      <param name="Local" value="bar_color_tab.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="Meter">
+      <param name="Name" value="Color Tab">
+      <param name="Local" value="meter_color_tab.htm">
+    </object>
+    </ul>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Scale Color">
+    <param name="See Also" value="Scale Color">
+  </object>
+  <ul>
+    <li><object type="text/sitemap">
+      <param name="Name" value="Bar Graph">
+      <param name="Name" value="Color Tab">
+      <param name="Local" value="bar_color_tab.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="Meter">
+      <param name="Name" value="Color Tab">
+      <param name="Local" value="meter_color_tab.htm">
+    </object>
+    </ul>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Threshold">
+    <param name="See Also" value="Threshold">
+  </object>
+  <ul>
+    <li><object type="text/sitemap">
+      <param name="Name" value="Threshold Markers">
+      <param name="Name" value="General Tab">
+      <param name="Local" value="bar_general_tab.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="Meter Threshold Ranges">
+      <param name="Name" value="General Tab">
+      <param name="Local" value="meter_general_tab.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="Bar Graph Threshold Ranges">
+      <param name="Name" value="Color Tab">
+      <param name="Local" value="bar_color_tab.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="Threshold Colors">
+      <param name="See Also" value="Threshold Colors">
+    </object>
+    <ul>
+      <li><object type="text/sitemap">
+        <param name="Name" value="Meter">
+        <param name="Name" value="Color Tab">
+        <param name="Local" value="meter_color_tab.htm">
+      </object>
+      <li><object type="text/sitemap">
+        <param name="Name" value="Bar Graph">
+        <param name="Name" value="Color Tab">
+        <param name="Local" value="bar_color_tab.htm">
+      </object>
+      </ul>
+    </ul>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Frame Color">
+    <param name="See Also" value="Frame Color">
+  </object>
+  <ul>
+    <li><object type="text/sitemap">
+      <param name="Name" value="Bar Graph">
+      <param name="Name" value="Color Tab">
+      <param name="Local" value="bar_color_tab.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="Meter">
+      <param name="Name" value="Color Tab">
+      <param name="Local" value="meter_color_tab.htm">
+    </object>
+    </ul>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Plate Color">
+    <param name="See Also" value="Plate Color">
+  </object>
+  <ul>
+    <li><object type="text/sitemap">
+      <param name="Name" value="Meter">
+      <param name="Name" value="Color Tab">
+      <param name="Local" value="meter_color_tab.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="Bar Graph">
+      <param name="Name" value="Color Tab">
+      <param name="Local" value="bar_color_tab.htm">
+    </object>
+    </ul>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Visibility">
+    <param name="See Also" value="Visibility">
+  </object>
+  <ul>
+    <li><object type="text/sitemap">
+      <param name="Name" value="Bar Graph">
+      <param name="Name" value="Visibility Tab">
+      <param name="Local" value="bar_visibility_tab.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="Meter">
+      <param name="Name" value="Visibility Tab">
+      <param name="Local" value="meter_visibility_tab.htm">
+    </object>
+    </ul>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Interlock">
+    <param name="See Also" value="Interlock">
+  </object>
+  <ul>
+    <li><object type="text/sitemap">
+      <param name="Name" value="Bar Graph">
+      <param name="Name" value="Advanced Tab">
+      <param name="Local" value="bar_advanced_tab.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="Meter">
+      <param name="Name" value="Advanced Tab">
+      <param name="Local" value="meter_advanced_tab.htm">
+    </object>
+    </ul>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Thin Bar Graph">
+    <param name="Name" value="Bar Graph">
+    <param name="Local" value="bar_graph.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="XY Graphs">
+    <param name="Name" value="XY Graphs">
+    <param name="Local" value="XY_Graphs.htm">
+    <param name="Name" value="Types of Graphs">
+    <param name="Local" value="Create_graph.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Parison Graphs">
+    <param name="Name" value="Parison Graphs">
+    <param name="Local" value="Parison_Graphs.htm">
+    <param name="Name" value="Types of Graphs">
+    <param name="Local" value="Create_graph.htm">
+  </object>
+</ul>
+</html>

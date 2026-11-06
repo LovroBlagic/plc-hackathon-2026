@@ -1,0 +1,28 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+ <meta name="generator" content="Adobe RoboHelp 2015">
+<title>Warning 2602</title>
+<link rel="StyleSheet" href="error-styl.css" type="text/css">
+</head>
+<body>
+<script type="text/javascript" src="ehlpdhtm.js" language="JavaScript1.2"></script>
+
+<p class="Error1">Warning 2602: [Alarm Summary] [object name] contains an alarm group with a Num of History Alarms property or Num of Log Alarms property disabled. Alarm messages from this alarm group will not be displayed.</p>
+<p>The alarm summary is set up to display active, historical, or log alarms from a particular alarm group. However, the corresponding NumOfAlarms property in the alarm group (NumOfHistoricalAlarms or NumOfLogAlarms) is not activated. As a result, the alarm summary will not display any error messages at startup or panel change.</p>
+<p class="Error2">Solution:</p>
+<ul>
+<li class="p-bullet">
+<p class="bullet">Make sure the alarm summary object is set up to display the type of alarms you want.</p>
+</li>
+<li class="p-bullet">
+<p class="bullet">Note the alarm group the alarm summary is assigned to.</p>
+</li>
+<li class="p-bullet">
+<p class="bullet">In the alarm group properties, select the corresponding NumOfAlarms property (NumOfHistoricalAlarms or NumOfLogAlarms) and enter the number of alarms to hold in memory.</p>
+</li>
+</ul>
+</body>
+</html>

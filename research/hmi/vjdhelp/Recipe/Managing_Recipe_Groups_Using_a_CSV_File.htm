@@ -1,0 +1,120 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+<meta name="template" content="Vijeo_template.htt">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="topic-status" content="In Progress">
+<meta name="topic-priority" content="0">
+<meta name="topic-time-estimate" content="0">
+<meta name="topic-comment" content="">
+<meta name="topic-id" content="Exporting a Recipe">
+<meta name="window-type" content="$global_NewWindow">
+ <meta name="generator" content="Adobe RoboHelp 10">
+<title>Managing Recipe Groups Using a CSV File</title>
+<link rel="StyleSheet" href="Tis-styl.css" type="text/css">
+</head>
+<body>
+<script type="text/javascript" src="ehlpdhtm.js" language="JavaScript1.2"></script>
+
+<div style="width: 100%; position: relative;" id="header">
+	<table style="background-attachment: scroll; margin-left: 0px; margin-right: 4px; 
+			 background-image: url(top_banner.bmp); background-repeat: Repeat-X; 
+			 line-height: 0pt; vertical-align: top;" cellspacing="0" width="100%" 
+			 background="top_banner.bmp">
+		<col style="width: 90%;">
+		<col style="width: 5%;">
+		<col style="width: 5%;">
+		<tr style="vertical-align: center; height: 39px;">
+			<td style="width: 90%; padding-right: 10px; padding-left: 10px; 
+				 border-right-color: #000000;">
+   <p><img src="logo.bmp" style="border: none;" alt="" width="37" height="37" border="0"></p></td>
+			<td style="width: 5%; padding-right: 0px; padding-left: 10px; 
+				 border-right-color: #000000;">
+   <p style="text-align: center;"><a 
+			 title="Glossary" href="Appendix.chm::/Glossary.htm"><img src="logo_glossary.bmp" style="border: none;" alt="" width="47" height="37" border="0"></a></p></td>
+			<td style="width: 5%; padding-right: 10px; padding-left: 5px; 
+				 border-right-color: #000000;">
+   <p style="text-align: center;"><a 
+			 href="About.chm::/What_is_Vijeo-Designer.htm" title="Home"><img src="logo_home.bmp" alt="Home" title="Home" style="border: none; 
+			 margin-left: 0px; margin-right: 0px; margin-bottom: 0px; margin-top: -2px;" width="47" height="37" border="0"></a></p></td>
+		</tr>
+	</table>
+</div>
+
+<h2>17.3.6 Exporting and Importing Recipe Groups</h2>
+<p>The Editor supports the following file formats for importing and exporting Recipe Groups:</p>
+<ul>
+<li class="p-Bullet">
+<p class="Bullet">.csv (comma separated value)</p>
+</li>
+<li class="p-Bullet">
+<p class="Bullet">.txt file</p>
+</li>
+<li class="p-Bullet">
+<p class="Bullet">.rcp (Recipe) file</p>
+</li>
+</ul>
+<p class="Bullet">For the .csv file format, you can select either an ANSI or Unicode .csv file type to produce a full recipe format, or UTF-8 .csv file type to produce a common recipe format. To view samples of the recipe formats, see Section 17.3.6.3, <a href="Sample_Common_Recipe_Format.htm">Sample Common Recipe Format</a>, and Section 17.3.6.4, <a href="Format_for_.csv_files.htm">Sample Full Recipe Format</a>.</p>
+<p class="Bullet">The sections within this book describe how to do the following:</p>
+<ul>
+<li class="p-Bullet">
+<p class="Bullet"><a href="Exporting_Recipes.htm#Exporting">Export a single Recipe Group</a></p>
+</li>
+<li class="p-Bullet">
+<p class="Bullet"><a href="Exporting_Recipes.htm#Exporting_All">Export all the Recipe Groups</a></p>
+</li>
+<li class="p-Bullet">
+<p class="Bullet"><a href="Importing_Recipes.htm#Importing">Import a single Recipe Group</a></p>
+</li>
+<li class="p-Bullet">
+<p class="Bullet"><a href="Importing_Recipes.htm#Importing_All">Import all the Recipe Groups</a></p>
+</li>
+</ul>
+<p>&#160;</p>
+<p style="margin-left: 0px;"><img src="NOTE_MOJI.bmp" style="border: none;" alt="" width="51" height="25" border="0"></p>
+<ul>
+<li class="p-NoteText">
+<p class="NoteText">If you are using Microsoft Excel to edit an exported *.txt file, we recommend using Excel's Text Import Wizard to import the *.txt file into Excel. By using the Text Import Wizard, you can specify the *.txt file's field delimiter and set how the data is organized in Excel. Be aware that once you Save the edited (*.txt) file in Excel, the *.txt file's field delimiter is replaced with the Tab delimiter. Therefore, when you import the edited *.txt file back into Vijeo-Designer, specify that the *.txt file uses the Tab as a field delimiter. See <a href="Importing_Recipes.htm#Importing">Importing a Recipe Group</a>.</p>
+</li>
+<li class="p-NoteText">
+<p class="NoteText">Excel files cannot be imported directly into Vijeo Designer.</p>
+</li>
+<li class="p-NoteText">
+<p class="NoteText">You can also use the Data Manager to both retrieve Recipe Groups from a Target Machine during Runtime and send Recipe Groups to a Target Machine during Runtime. See section 20.5, <a href="FrequentOperations.chm::/Managing_Run-time_Data.htm">Managing Run-time Data</a>.</p>
+</li>
+</ul>
+<p class="NoteImage" style="margin-left: 0px;"><span style="margin-left: 0px;"><img src="limit.bmp" style="border: none;" alt="" width="77" height="24" border="0"></span></p>
+<ul style="list-style: decimal;">
+<li class="p-NoteText">
+<p class="NoteText">If you want to import CSV recipe files from another project that contains user data type variables, you must use the following steps:</p>
+</li>
+</ul>
+<ul>
+<li class="p-NoteText2">
+<p class="NoteText2">Import the user data types from the other project. See section 6.2.4.5, <a href="InputAddress.chm::/Importing_and_Exporting_User_Data_Types.htm">Importing and exporting User Data types</a>.</p>
+</li>
+<li class="p-NoteText2">
+<p class="NoteText2">Import the variables from the other project. See section 6.6.2, <a href="InputAddress.chm::/csv_files.htm#2-7-2">Importing Variables</a>.</p>
+</li>
+<li class="p-NoteText2">
+<p class="NoteText2">Import the CSV recipe files.</p>
+</li>
+</ul>
+<h3>Reasons to Export and Import</h3>
+<ul>
+<li class="p-Bullet">
+<p class="Bullet">Back up the recipe group data</p>
+</li>
+<li class="p-Bullet">
+<p class="Bullet">Use the recipe group data in another project or in another target machine</p>
+</li>
+<li class="p-Bullet">
+<p class="Bullet">Edit recipe group data in a .txt or .csv file</p>
+</li>
+<li class="p-Bullet">
+<p class="Bullet">Use a text editor to create a new recipe group</p>
+</li>
+</ul>
+</body>
+</html>

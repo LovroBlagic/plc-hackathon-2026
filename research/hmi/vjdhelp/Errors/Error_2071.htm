@@ -1,0 +1,36 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="topic-status" content="In Progress">
+<meta name="topic-priority" content="0">
+<meta name="topic-time-estimate" content="0">
+<meta name="topic-id" content="Error 2071">
+<meta name="window-type" content="$global_NewWindow">
+ <meta name="generator" content="Adobe RoboHelp 2015">
+<title>Error 2071</title>
+<link rel="StyleSheet" href="error-styl.css" type="text/css">
+</head>
+<body>
+<script type="text/javascript" src="ehlpdhtm.js" language="JavaScript1.2"></script>
+
+<p class="Error1">Error 2071: [Panel] [panel name] [FunctionKeys] Operations will not run. Target Function Key is set up with system operations that prevent Panel Function Key operations.</p>
+<p class="Error1">Error 2071: [Object type] [object name] [FunctionKeys] Operations will not run. System operations are set up that prevent other Function Key operations.</p>
+<p>When setting up operations, system operations such as change panel and go to Configuration will prevent subsequent operations from running. These operations are forced as the last operation in actions, switches, and animation.</p>
+<p>In the case of function keys, target operations always run before panel operations. If you set up a system operation in the target function key, operations set up for panel function key cannot run. Similarly, system operations in the When Touch tab of a function key always run before other function key operations in other tabs.</p>
+<p>&#160;</p>
+<p class="Error2">Solution:</p>
+<ul>
+<li class="p-bullet">
+<p class="bullet">If you add system operations to a target function key, do not add any panel function key operations to that function key.</p>
+</li>
+<li class="p-bullet">
+<p class="bullet">If you want to run the system operation when the function key is touched, move the system operation to the panel function key.</p>
+</li>
+<li class="p-bullet">
+<p class="bullet">If you add system operations to the When Touch tab of a function key, do not add any other function key operations to that function key.</p>
+</li>
+</ul>
+</body>
+</html>

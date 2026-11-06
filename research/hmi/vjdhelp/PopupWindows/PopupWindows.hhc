@@ -1,0 +1,52 @@
+<html>
+<!-- Sitemap 1.0 -->
+<object type="text/site properties">
+  <param name="WindowName" value="$global_NewWindow">
+  <param name="SiteType" value="toc">
+  <param name="Image Width" value="16">
+  <param name="Window Styles" value="0x800022">
+  <param name="ExWindow Styles" value="0x100">
+</object>
+<ul>
+  <li><object type="text/sitemap">
+    <param name="Name" value="15.1 Creating Popup Windows">
+    <param name="Local" value="PopupWindow_Create.htm">
+  </object>
+  <ul>
+    <li><object type="text/sitemap">
+      <param name="Name" value="15.1.1 Basic Components of Popup Windows">
+      <param name="Local" value="PopupWindow_Create.htm#1642b3b9347ca42c9b00b820c00c373fa=1">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="15.1.2 Steps to Set Up Popup Windows">
+      <param name="Local" value="PopupWindow_Create.htm#2642b3b9347ca42c9b00b820c00c373fa=2">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="15.1.3 Changing Panels">
+      <param name="Local" value="PopupWindow_Folders.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="15.1.4 Displaying Multiple Popup Windows">
+      <param name="Local" value="PopupWindow_Folders.htm#2642b3b9347ca42c9b00b820c00c373fa=1">
+    </object>
+    </ul>
+  <li><object type="text/sitemap">
+    <param name="Name" value="15.2 Setting Up Popup Windows">
+    <param name="Local" value="PopupWindow_Setup.htm">
+  </object>
+  <ul>
+    <li><object type="text/sitemap">
+      <param name="Name" value="15.2.1 Creating Popup Window Panels">
+      <param name="Local" value="PopupWindow_Setup.htm#642b3b9347ca42c9b00b820c00c373fa=1">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="15.2.2 Displaying and Hiding Popup Windows">
+      <param name="Local" value="PopupWindow_Show_Hide.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="15.2.3 Defining Popup Window Styles">
+      <param name="Local" value="Modifying_Popup_Window_Styles.htm">
+    </object>
+    </ul>
+</ul>
+</html>

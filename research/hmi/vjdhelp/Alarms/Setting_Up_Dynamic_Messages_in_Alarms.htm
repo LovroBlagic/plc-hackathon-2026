@@ -1,0 +1,85 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+<meta name="template" content="Vijeo_template.htt">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+ <meta name="generator" content="Adobe RoboHelp 10">
+<title>16.3.8 Setting Up Dynamic Messages in Alarms</title>
+<link rel="StyleSheet" href="Tis-styl.css" type="text/css">
+</head>
+
+<body>
+<script type="text/javascript" src="ehlpdhtm.js" language="JavaScript1.2"></script>
+
+<div style="width: 100%; position: relative;" id="header">
+	<table style="background-attachment: scroll; margin-left: 0px; margin-right: 4px; 
+			 background-image: url(top_banner.bmp); background-repeat: Repeat-X; 
+			 line-height: 0pt; vertical-align: top;" cellspacing="0" width="100%" 
+			 background="top_banner.bmp">
+		<col style="width: 90%;">
+		<col style="width: 5%;">
+		<col style="width: 5%;">
+		<tr style="vertical-align: center; height: 39px;">
+			<td style="width: 90%; padding-right: 10px; padding-left: 10px; 
+				 border-right-color: #000000;">
+   <p><img src="logo.bmp" style="border: none;" alt="" width="37" height="37" border="0"></p></td>
+			<td style="width: 5%; padding-right: 0px; padding-left: 10px; 
+				 border-right-color: #000000;">
+   <p style="text-align: center;"><a 
+			 title="Glossary" href="Appendix.chm::/Glossary.htm"><img src="logo_glossary.bmp" style="border: none;" alt="" width="47" height="37" border="0"></a></p></td>
+			<td style="width: 5%; padding-right: 10px; padding-left: 5px; 
+				 border-right-color: #000000;">
+   <p style="text-align: center;"><a 
+			 href="About.chm::/What_is_Vijeo-Designer.htm" title="Home"><img src="logo_home.bmp" alt="Home" title="Home" style="border: none; 
+			 margin-left: 0px; margin-right: 0px; margin-bottom: 0px; margin-top: -2px;" width="47" height="37" border="0"></a></p></td>
+		</tr>
+	</table>
+</div>
+
+<h2>16.3.8 Setting Up Dynamic Messages in Alarms</h2>
+<p style="color: #000000;">To insert dynamic content into alarm messages:</p>
+<ol style="list-style: decimal;">
+	<li class="p"><p>In the General tab of the Alarm Group Settings dialog 
+	 box select the Dynamic Message check box to enable this feature. Alternatively, 
+	 you can enable it in the Alarm Group properties.</p></li>
+	<li class="p"><p>Select On Every State or On Active State as the trigger 
+	 for updating the alarm’s dynamic message. When you select On Every 
+	 State, the dynamic message updates on every alarm state change. When 
+	 you select On Active State, the dynamic message updates only when 
+	 an alarm becomes active.</p></li>
+	<li class="p"><p>In the Alarm spreadsheet under the Message column, 
+	 click the ellipsis to open the Alarm Message Editor.</p></li>
+	<li class="p"><p>Right-click the text field to display the shortcut 
+	 menu.</p></li>
+	<li class="p"><p>Click Insert to open the shortcut menu.</p></li>
+	<li class="p"><p>Select Time stamp or Variable. &#160;</p></li>
+</ol>
+<p>For more information on how to format placeholders, see Adding Dynamic 
+ Content in Section 21.1.5.12, <a href="EfficientOperations.chm::/Setting_Up_Embedded_Content.htm">Setting 
+ Up Messages with Dynamic Content</a>.</p>
+<p>For information on how to generate alarm messages in multiple languages, 
+ see Sections 20.2.7, <a href="FrequentOperations.chm::/working_with_user_languages.htm">Associating 
+ a Language with a Text Object or an Alarm</a>.</p>
+<p class="bullet2" style="margin-left: 0px;"><img src="LIMIT.bmp" alt="" style="border: none;" width="77" height="24" border="0"></p>
+<ul>
+	<li class="p-NoteText"><p class="NoteText">You need secondary or optional drive space to store alarm messages with dynamic content when you enable alarm backup. The amount of additional space depends on the number of unique placeholders you use. The data location is specified by Runtime Data Location setting. For more information, see Appendix 5.11.1, <a href="Appendix.chm::/manage_runtime_data.htm">Types of Data Locations</a>.
+</p></li>
+	<li class="p-NoteText"><p class="NoteText">When using dynamic messages 
+	 in alarms, the size of your dynamic messages affects the maximum number 
+	 of alarms. You must monitor the project's DRAM usage at run time before 
+	 using the project in a factory setting.</p></li>
+</ul>
+<p class="bullet2" style="margin-left: 0px;"><img src="NOTE_MOJI.BMP" alt="" style="border: none;" width="51" height="25" border="0"></p>
+<ul>
+	<li class="p-NoteText"><p class="NoteText">When you use time stamps 
+	 in alarm messages, the date and time is converted to the time zone 
+	 of the target machine that is accessing the application. As a result, 
+	 the same alarm message may show different date and time when viewed 
+	 on target machines that are in different time zones.</p></li>
+</ul>
+<div style="width: 100%; position: relative;" id="footer">
+	<p>&#160;</p>
+</div>
+</body>
+</html>

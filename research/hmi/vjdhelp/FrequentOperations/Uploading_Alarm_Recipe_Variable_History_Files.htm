@@ -1,0 +1,363 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+<meta name="template" content="Vijeo_template.htt">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="topic-status" content="In Progress">
+<meta name="topic-priority" content="0">
+<meta name="topic-time-estimate" content="0">
+<meta name="topic-comment" content="">
+<meta name="topic-id" content="">
+ <meta name="generator" content="Adobe RoboHelp 10">
+<title>Using Data Transfer Tool from the Command Prompt</title>
+<link rel="StyleSheet" href="Tis-styl.css" type="text/css">
+</head>
+<body>
+<script type="text/javascript" src="ehlpdhtm.js" language="JavaScript1.2"></script>
+
+<div style="width: 100%; position: relative;" id="header">
+	<table style="background-attachment: scroll; 
+														 margin-right: 4px; 
+														 background-image: url(top_banner.bmp); 
+														 background-repeat: Repeat-X; 
+														 line-height: 0pt; 
+														 vertical-align: top;" 
+														 cellspacing="0" 
+														 width="100%" background="top_banner.bmp">
+		<col style="width: 90%;">
+		<col style="width: 5%;">
+		<col style="width: 5%;">
+		<tr style="vertical-align: center; height: 39px;">
+			<td style="width: 90%; padding-right: 10px; padding-left: 10px; 
+				 border-right-color: #000000;">
+   <p><img src="logo.bmp" style="border: none;" alt="" width="37" height="37" border="0"></p></td>
+			<td style="width: 5%; padding-right: 0px; padding-left: 10px; 
+				 border-right-color: #000000;">
+   <p 
+				 style="text-align: center;"><a 
+			 title="Glossary" href="Appendix.chm::/Glossary.htm"><img src="logo_glossary.bmp" style="border: none;" alt="" width="47" height="37" border="0"></a></p></td>
+			<td style="width: 5%; padding-right: 10px; padding-left: 5px; 
+				 border-right-color: #000000;">
+   <p 
+				 style="text-align: center;"><a 
+			 href="About.chm::/What_is_Vijeo-Designer.htm" title="Home"><img src="logo_home.bmp" alt="Home" title="Home" style="border: none; 
+			 margin-top: -2px;" width="47" height="37" border="0"></a></p></td>
+		</tr>
+	</table>
+</div>
+
+<h3>20.5.3.1 Transferring Data using the Command Line</h3>
+<p>Command Line can Get (retrieve) recipe files (.rcp), data logging files (.dat), alarm files (.csv), video files (.mpeg), screen shot files (.jpeg), and the project backup files (.vdz) from a target machine. Command Line can also Put (send) recipe files (.rcp) on a target machine.</p>
+<h4><img src="Square.bmp" style="border: none;" alt="" width="12" height="10" border="0">Transferring Files</h4>
+<ol start="1" style="list-style: decimal;">
+<li class="p">
+<p>Launch the command prompt.</p>
+</li>
+<li class="p">
+<p>Change the directory to: C:\Program Files\Schneider Electric\Vijeo-Designer\Vijeo-Frame </p>
+</li>
+<li class="p">
+<p>Type the command and parameters as follows:</p>
+</li>
+</ol>
+<p style="margin-left: 40px; font-weight: bold;">DataTransferTool &#160;TargetMachine &#160;UserName Password &#160;Operation &#160;Disk &#160;DataPort &#160;DataType &#160;Path [Option]</p>
+<p>The command has the following return values:</p>
+<ul>
+<li class="p-Bullet">
+<p class="Bullet">0 - Data transfer was successful.</p>
+</li>
+<li class="p-Bullet">
+<p class="Bullet">Greater than 0 - Data transfer was not successful due to an error.</p>
+</li>
+</ul>
+<p>The following example gets all the data logging files for the month of December, 2004, from the target machine and copies to the folder D:\data\logfile:</p>
+<p style="margin-left: 40px;">C:\Program Files\Schneider Electric\Vijeo-Designer\Vijeo-Frame&gt;DataTransferTool -ip 192.168.2.1 -User MyUserName -pwd MyPassword -get -secondary -remotedatafolder Log -localfolder "D:\data\logfile" -r -delete 200412*.dat</p>
+<p style="margin-left: 40px;"></p>
+<table style="vertical-align: top; margin-left: 40px;" cellspacing="0" width="90%">
+<col style="width: 13.515%;">
+<col style="width: 20.06%;">
+<col style="width: 66.425%;">
+<tr style="vertical-align: top;">
+<td style="border-top: Solid 3px #000000; border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 13.515%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#91AFD9">
+<p class="Tabletitle">Parameter</p>
+</td>
+<td style="border-top: Solid 3px #000000; border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 20.06%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#91AFD9">
+<p class="Tabletitle">Parameter Options</p>
+</td>
+<td style="border-top: Solid 3px #000000; border-bottom: Solid 1px #000000; width: 66.425%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#91AFD9">
+<p class="Tabletitle">Description</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 13.515%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#CBD9ED">
+<p class="TableDefinitions">TargetMachine</p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 20.06%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">-ip</p>
+</td>
+<td style="border-bottom: Solid 1px #000000; width: 66.425%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">Required parameter.</p>
+<p class="Tabletext">Defines the target machine. You can use the target machine's IP address or host name. You must specify port 6001 along with the IP address or host name.</p>
+<p class="Tabletext">Example:</p>
+<p class="Tabletext">&#160;</p>
+<p>-ip 192.168.2.1:6001</p>
+<p>-ip MyComputerName:6001</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 13.515%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#CBD9ED">
+<p class="TableDefinitions">UserName</p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 20.06%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">-user</p>
+</td>
+<td rowspan="2" style="border-bottom: Solid 1px #000000; width: 66.425%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">Required parameters.</p>
+<p class="Tabletext">Use these parameters to define the target's user name and password as defined in the Target's Security settings defined in the Target properties. See Section 4.8, <a href="StandardOperation.chm::/security_overview.htm">Setting up Security Protection for Targets and Projects</a>.</p>
+<p class="Tabletext">User names and passwords are case sensitive.</p>
+<p class="Tabletext">Example:</p>
+<p>-user MyNaMe -pwd MyPaSsWord</p>
+<p>-user A41010 &#160;-pwd 90210</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 13.515%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#CBD9ED">
+<p class="TableDefinitions">Password</p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 20.06%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">-pwd</p>
+</td>
+</tr>
+<tr style="vertical-align: top; height: 0px;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 13.515%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#CBD9ED">
+<p class="TableDefinitions">Anonymous</p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 20.06%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p>-ua</p>
+</td>
+<td style="border-bottom: Solid 1px #000000; width: 66.425%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">Option parameter.</p>
+<p class="Tabletext">Some targets allow anonymous connections through the Command Line. Use this parameter to make an anonymous connection to the target machine.</p>
+<p class="Tabletext">Example:</p>
+
+<p class="Tabletext">C:\Program Files\Schneider Electric\Vijeo-Designer\Tools\Data Manager&gt;DataTransferTool -ip 192.168.2.1 -ua -get -secondary -remotedatafolder Log -localfolder "D:\data\logfile" -r -delete 200412*.dat</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td rowspan="2" style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 13.515%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#CBD9ED">
+<p class="TableDefinitions">Operation</p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 20.06%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">-get</p>
+</td>
+<td rowspan="2" style="border-bottom: Solid 1px #000000; width: 66.425%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">Required parameter.</p>
+<p class="Tabletext">Defines the operation: -get for getting the specified data from the target machine, -put for sending recipe files (.rcp) onto the target machine.</p>
+<p class="Tabletext">Only one of these operations can run at a time.</p>
+<p class="Tabletext">The -put operation is only for transferring recipe files to the target machine.</p>
+<p class="Tabletext">Read/Write, Delete user rights are required to overwrite a file that already exists on the target machine.</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 20.06%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">-put</p>
+</td>
+</tr>
+<tr style="vertical-align: top; height: 0px;">
+<td rowspan="3" style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 13.515%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#CBD9ED">
+<p class="TableDefinitions">Disk</p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 20.06%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">-Main</p>
+</td>
+<td rowspan="3" style="border-bottom: Solid 1px #000000; width: 66.425%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">Required parameter.</p>
+<p class="Tabletext">Defines the location of the data:</p>
+<p class="Tabletext">-Main for the Main drive, -Secondary for the Secondary drive, and -Optional for the Optional drive.</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 20.06%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">-Secondary</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 20.06%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">-Optional</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 13.515%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#CBD9ED">
+<p class="TableDefinitions">Data Port</p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 20.06%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">-NAT</p>
+</td>
+<td style="border-bottom: Solid 1px #000000; width: 66.425%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">Enables the Data Transfer Tool to work in NAT mode. To set up, contact your network administrator. For more information, see Section 25.6.1.2, <a href="Download.chm::/Downloading_through_a_router.htm">Downloading through a Router</a>.</p>
+<p class="Tabletext">The IP address will be treated as a NAT device address, and the Control Port and Data Port values will be treated as NAT device port forwarding settings.</p>
+<p class="Tabletext">Example:</p>
+
+<p class="Tabletext">datatransfertool -ip 10.187.225.26:7000 -NAT 14777 -user ABC -pwd MyPwd -get<br>
+-secondary -rdf Log -r -lf c:\download</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 13.515%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#CBD9ED">
+<p class="TableDefinitions">DataType</p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 20.06%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">-remotedatafolder</p>
+
+<p class="Tabletext">&#160;</p>
+<p class="Tabletext">or</p>
+<p class="Tabletext">&#160;</p>
+
+<p class="Tabletext">-rdf</p>
+</td>
+<td style="border-bottom: Solid 1px #000000; width: 66.425%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">Defines which data to get or put.</p>
+
+<p class="Tabletitle">Get</p>
+
+<p class="Tabletext">When running a get operation, type one of the following:</p>
+<ul>
+<li class="p-Bullet">
+<p class="Bullet">Alarm</p>
+</li>
+
+<li class="p-Bullet">
+<p class="Bullet">Log</p>
+</li>
+
+<li class="p-Bullet">
+<p class="Bullet">Recipe</p>
+</li>
+
+<li class="p-Bullet">
+<p class="Bullet">Project</p>
+</li>
+
+<li class="p-Bullet">
+<p class="Bullet">Video</p>
+</li>
+
+<li class="p-Bullet">
+<p class="Bullet">Snapshot</p>
+</li>
+</ul>
+<p><span style="font-weight: bold;">Alarm</span>: Files generated by alarm outputs. See Section 16.3.6, <a href="Alarms.chm::/Alarms_in_CSV_file.htm">Outputting Alarms and Events to a.CSV File</a>.</p>
+<p><span style="font-weight: bold;">Log</span>: Data logging files generated by changes in data. See Section 13.1, <a href="Trends.chm::/logging_data.htm">About Data Logging</a>.</p>
+<p><span style="font-weight: bold;">Recipe</span>: Recipe group files that store recipes. See Section 17.1, <a href="Recipe.chm::/About_Recipe.htm">About Recipe</a>.</p>
+<p><span style="font-weight: bold;">Project</span>: File contains a backup copy of the editor project. See Section 21.5.2, <a href="EfficientOperations.chm::/cf_project_backup.htm">Backing up Projects to Main Drive, CF Card/SD Card, or USB Drive</a>.</p>
+<p><span style="font-weight: bold;">Video</span>: File generated in run time for a video recording. See Section 19.1.1, <a href="Multimedia.chm::/About_Video.htm">About Video</a>.</p>
+<p><span style="font-weight: bold;">Snapshot</span>: A JPEG file that contains a snapshot of the target machine's screen. See Section 19.2, <a href="MultiMedia.chm::/overview_print_save_screencaptures.htm">Saving and Printing Screen Snapshots</a>.</p>
+<p class="NoteImage"><img src="limit.bmp" style="border: none;" alt="" width="77" height="24" border="0"></p>
+<ul>
+<li class="p-NoteText">
+<p class="NoteText">You cannot operate with more than one type of data in a single command.</p>
+</li>
+</ul>
+
+<p class="Tabletitle">Put</p>
+
+<p class="Tabletext">When running a put operation on a single recipe group, type: <span style="font-weight: bold;">Recipe</span><span style="font-weight: bold;">/</span><span style="font-weight: bold; font-style: italic;">RecipeGroupName</span></p>
+<p class="Tabletext">When running a put operation on all the recipe groups, use the recursive option <span style="font-weight: bold;">–r</span> and type: <span style="font-weight: bold;">Recipe</span></p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 13.515%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#CBD9ED">
+<p class="TableDefinitions">Path</p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 20.06%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">-localfolder</p>
+
+<p class="Tabletext">&#160;</p>
+<p class="Tabletext">or</p>
+<p class="Tabletext">&#160;</p>
+
+<p class="T">-lf</p>
+</td>
+<td style="border-bottom: Solid 1px #000000; width: 66.425%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">Gets the data and copies it to the defined path, or puts the data from the defined path onto the target machine.</p>
+<p class="Tabletext">&#160;</p>
+
+<p class="Tabletext">When using the put operation with recipe files (*.rcp), after building the application in the Vijeo-Designer editor, the recipe files are located in:</p>
+
+<p class="Tabletext" style="font-weight: bold;">\<span style="font-style: italic;">TargetName</span>\</p>
+
+<p class="Tabletext" style="font-weight: bold;">C:\Program Files\Schneider Electric\Vijeo-Designer\Vijeo-Frame\Vijeo-Manager\Security\Build\Projects\<span style="font-style: italic;">TargetName</span>\Data\Recipe\</p>
+<p class="Tabletext">&#160;</p>
+<p class="NoteImage"><img src="limit.bmp" style="border: none;" alt="" width="77" height="24" border="0"></p>
+<ul>
+<li class="p-NoteText">
+<p class="NoteText">Enclose the path with double-quotation marks.<br>
+Example: "C:\Documents and Settings\All Users\Data"</p>
+</li>
+</ul>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td rowspan="4" style="border-right: Solid 1px #000000; border-bottom: Solid 3px #000000; width: 13.515%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#CBD9ED">
+<p class="TableDefinitions">Options</p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 20.06%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">-r</p>
+</td>
+<td style="border-bottom: Solid 1px #000000; width: 66.425%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">Optional parameter.</p>
+<p class="Tabletext">Includes subfolders. Used with data logging files and recipe files.</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 20.06%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">-delete</p>
+</td>
+<td style="border-bottom: Solid 1px #000000; width: 66.425%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">Optional parameter.</p>
+<p class="Tabletext">When running a get operation, after the file is successfully copied, this parameter deletes the specified data file from the target machine.</p>
+<p class="Tabletext">&#160;</p>
+<p class="Tabletext"><img src="limit.bmp" style="border: none;" alt="" width="77" height="24" border="0"></p>
+<ul>
+<li class="p-NoteText">
+<p class="NoteText">You cannot delete Recipe files (.rcp) after you have retrieved them.</p>
+</li>
+</ul>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 20.06%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p>-nobuildtree</p>
+</td>
+<td style="border-bottom: Solid 1px #000000; width: 66.425%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">Optional parameter. Sets the Vijeo Designer command line to not create folders for retrieved data files. When this option is specified, the folders will not be created. By default, without this parameter being specified, the command line will create folders for retrieved data.</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 3px #000000; width: 20.06%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p>*.*</p>
+</td>
+<td style="border-bottom: Solid 3px #000000; width: 66.425%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">Optional parameter.</p>
+<p class="Tabletext">Specifies the last parameter in the command. Use this parameter to identify which files to work with. If there are no specified files, then operates on all the files of the type specified by the -remotedatafolder tag.</p>
+<p class="Tabletext">You can use any file specification characters.</p>
+<p class="Tabletext">Example:</p>
+<p class="Tabletext"><span style="font-weight: bold;">*.*</span> &#160;All files</p>
+<p class="Tabletext"><span style="font-weight: bold;">a*.*</span> &#160;All files that begin with "a"</p>
+<p class="Tabletext"><span style="font-weight: bold;">*.dat</span> &#160;All files with the ".dat" extension</p>
+<p class="Tabletext"><span style="font-weight: bold;">a?.dat</span> &#160;Files that begin with "a" plus another character.</p>
+</td>
+</tr>
+</table>
+<p class="NoteImage"><img src="NOTE_MOJI.bmp" style="border: none; margin-left: 0px; margin-right: 0px; margin-top: 10px; margin-bottom: 0px;" alt="" width="51" height="25" border="0"></p>
+<ul>
+<li class="p-NoteText">
+<p class="NoteText">Command Line uses spaces as delimiters between the data transfer command and each parameter. Be sure to use quotation marks when defining paths.</p>
+</li>
+<li class="p-NoteText">
+<p class="NoteText">You may have to include the path of the executable file if you run data transfer from a batch file or from a different directory.</p>
+</li>
+</ul>
+</body>
+</html>

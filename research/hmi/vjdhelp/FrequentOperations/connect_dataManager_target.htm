@@ -1,0 +1,252 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+<meta name="template" content="Vijeo_template.htt">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="topic-status" content="In Progress">
+<meta name="topic-priority" content="0">
+<meta name="topic-time-estimate" content="0">
+<meta name="topic-comment" content="">
+<meta name="topic-id" content="22.9.2_Connecting_Data_Manager_to_a_Target">
+<meta name="window-type" content="$global_NewWindow">
+ <meta name="generator" content="Adobe RoboHelp 10">
+<title>Connecting Data Manager to a Target</title>
+<link rel="StyleSheet" href="Tis-styl.css" type="text/css">
+</head>
+<body>
+<script type="text/javascript" src="ehlpdhtm.js" language="JavaScript1.2"></script>
+
+<div style="width: 100%; position: relative;" id="header">
+	<table style="background-attachment: scroll; 
+														 margin-right: 4px; 
+														 background-image: url(top_banner.bmp); 
+														 background-repeat: Repeat-X; 
+														 line-height: 0pt; 
+														 vertical-align: top;" 
+														 cellspacing="0" 
+														 width="100%" background="top_banner.bmp">
+		<col style="width: 90%;">
+		<col style="width: 5%;">
+		<col style="width: 5%;">
+		<tr style="vertical-align: center; height: 39px;">
+			<td style="width: 90%; padding-right: 10px; padding-left: 10px; 
+				 border-right-color: #000000;">
+   <p><img src="logo.bmp" style="border: none;" alt="" width="37" height="37" border="0"></p></td>
+			<td style="width: 5%; padding-right: 0px; padding-left: 10px; 
+				 border-right-color: #000000;">
+   <p 
+				 style="text-align: center;"><a 
+			 title="Glossary" href="Appendix.chm::/Glossary.htm"><img src="logo_glossary.bmp" style="border: none;" alt="" width="47" height="37" border="0"></a></p></td>
+			<td style="width: 5%; padding-right: 10px; padding-left: 5px; 
+				 border-right-color: #000000;">
+   <p 
+				 style="text-align: center;"><a 
+			 href="About.chm::/What_is_Vijeo-Designer.htm" title="Home"><img src="logo_home.bmp" alt="Home" title="Home" style="border: none; 
+			 margin-top: -2px;" width="47" height="37" border="0"></a></p></td>
+		</tr>
+	</table>
+</div>
+
+<h3>20.5.2.1 Creating a Target Connection</h3>
+<p>To send or retrieve data from a target machine, you must create a profile of the target machine that you want to connect to.</p>
+<p><img src="limit.bmp" style="border: none;" alt="" width="77" height="24" border="0"></p>
+<ul>
+<li class="p-NoteText">
+<p class="NoteText">If you do not enter a user name and password for your target machine's profile in the Configure a Target window, you will be required to enter in the target's user name and password when you connect to the target machine.</p>
+</li>
+</ul>
+<h4><img src="Square.bmp" style="border: none;" alt="" width="12" height="10" border="0"> Creating a Target Machine Profile</h4>
+<ol style="list-style: decimal;">
+<li class="p">
+<p>Start the Data Manager.<br>
+In the Windows Start menu, point to Programs, Schneider Electric, Vijeo-Designer‚ Tools, and Vijeo-Designer Data Manager.</p>
+</li>
+<li class="p">
+<p>On the main page, use the Media drop-down list to select New Target Connection and then click Create.</p>
+</li>
+</ol>
+<ol start="3" style="list-style: decimal;">
+<li class="p">
+<p>In the Configure a Target window, create your target's profile. The table below describes the target property settings.</p>
+</li>
+</ol>
+<table style="vertical-align: top; margin-left: 40px;" cellspacing="0" width="95.137%">
+<col style="width: 23.801%;">
+<col style="width: 76.199%;">
+<tr style="vertical-align: top;">
+<td style="border-top: Solid 3px #000000; border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 23.801%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#91AFD9">
+<p class="Tabletitle">Property</p>
+</td>
+<td style="border-top: Solid 3px #000000; border-bottom: Solid 1px #000000; width: 76.199%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#91AFD9">
+<p class="Tabletitle">Description</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 23.801%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#CBD9ED">
+<p class="TableDefinitions">Name</p>
+</td>
+<td style="border-bottom: Solid 1px #000000; width: 76.199%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p>Create a name for the target. The target's name must contain no more than 32 valid characters and must follow the naming conventions.</p>
+
+<p>For details, see Appendix 9, <a href="Appendix.chm::/Change_name.htm">Naming Conventions</a>.</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 23.801%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#CBD9ED">
+<p class="TableDefinitions">Connection</p>
+</td>
+<td style="border-bottom: Solid 1px #000000; width: 76.199%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p>Select a connection for sending or retrieving data:</p>
+<ul>
+<li class="p-Bullet">
+<p class="Bullet">Ethernet</p>
+</li>
+<li class="p-Bullet">
+<p class="Bullet">Ethernet Over NAT</p>
+</li>
+<li class="p-Bullet">
+<p class="Bullet">USB</p>
+</li>
+<li class="p-Bullet">
+<p class="Bullet">The remote target is a FTP server</p>
+</li>
+</ul>
+<p class="Tabletext">Ethernet Over NAT allows the Data Manager to establish an Ethernet connection to access targets behind a NAT device such as a router. To access targets behind a NAT device, contact your network administrator. The network administrator makes sure:</p>
+<ul>
+<li class="p-Bullet">
+<p class="Bullet">Gateway routers that support port forwarding are used.</p>
+</li>
+<li class="p-Bullet">
+<p class="Bullet">The NAT address, Control Port, and Data Port are configured.</p>
+</li>
+<li class="p-Bullet">
+<p class="Bullet">The Control Port and Data Port are not blocked by the firewall.</p>
+</li>
+</ul>
+<p class="NoteImage">&#160;</p>
+<p class="NoteImage"><img src="limit.bmp" style="border: none;" alt="" width="77" height="24" border="0"></p>
+<ul>
+<li class="p-NoteText">
+<p class="NoteText">To connect to targets inside a subnet, the most secure option is to use a VPN router rather than port forwarding. If you choose to use the port forwarding feature, it should be active for a short time only so unauthorized users cannot get access to the target.</p>
+</li>
+<li class="p-NoteText">
+<p class="NoteText">The network settings (IP Address, DHCP, Subnet Mask, and Default Gateway) must be correctly assigned to the target. The wrong settings can break communication between the target and the router.</p>
+</li>
+</ul>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 23.801%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#CBD9ED">
+<p class="TableDefinitions"><a name="ipAddressHostName" id="ipAddressHostName"></a>Target Address</p>
+</td>
+<td style="border-bottom: Solid 1px #000000; width: 76.199%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p>Type in the target machine's IP address or host name. This feature requires your network to have a DNS server that can store IP addresses and host names. If you enter a host name, the Data Manager contacts your network's DNS server to validate the host name's IP address.</p>
+<p>Host names must follow DNS host naming conventions. For more information on these conventions, see Appendix 9 <a href="Appendix.chm::/Change_name.htm">Naming Conventions</a>.</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 23.801%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#CBD9ED">
+<p class="TableDefinitions">Connect Via</p>
+</td>
+<td style="border-bottom: Solid 1px #000000; width: 76.199%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p>Enter a valid IPv4 address or a host name. The Data Manager uses this IP address to establish the Ethernet connection. This property is enabled only when you select the Ethernet over NAT connection. This feature requires your network to have a DNS server that can store IP addresses and host names. If you enter a host name, the Data Manager contacts your network's DNS server to validate host name's IP address.</p>
+<p>Host names must follow DNS host naming conventions. For more information on these conventions, see Appendix 9 <a href="Appendix.chm::/Change_name.htm">Naming Conventions</a>.</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 23.801%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#CBD9ED">
+<p class="TableDefinitions">Control Port</p>
+</td>
+<td style="border-bottom: Solid 1px #000000; width: 76.199%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p>Enter a value between 1025 and 65535 to define the control port that the command will be sent through. This property is enabled only when you select the Ethernet over NAT connection.</p>
+<p>The Control Port value entered in this window must be the same as the Control Port value in the NAT device port forwarding settings and mapped to the target's Control Port value set to 6001. For example, if the Control Port value in the NAT device settings is set to 6021, the Control Port value in the Configure a Target window must be set to 6021 and must be mapped to the target's Control Port value.</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 23.801%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#CBD9ED">
+<p class="TableDefinitions">Data Port</p>
+</td>
+<td style="border-bottom: Solid 1px #000000; width: 76.199%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p>Enter a value between 1025 and 65535 to define the data port that will enable data transfer between the target and the PC. This property is enabled only when you select the Ethernet over NAT connection.</p>
+<p>The Data Port value entered in this window must be the same as the Data Port value in the NAT device port forwarding settings and mapped to the target's Data Port value set to 13777. For example, if the Data Port value in the NAT device settings is set to 13977, the Data Port value in the Configure a Target window must be set to 13977 and must be mapped to the target's Control Port value.</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 23.801%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#CBD9ED">
+<p class="TableDefinitions">Anonymous Connection</p>
+</td>
+<td style="border-bottom: Solid 1px #000000; width: 76.199%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p>Select this check box to connect anonymously to the target. Be aware that the target may not be set up to accept anonymous connections.</p>
+<p>Anonymous connection settings are enabled and disabled in the target machine's security settings in Vijeo Designer. See Section 4.8.7, <a href="StandardOperation.chm::/Security_Settings.htm">Security Settings</a>.</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 23.801%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#CBD9ED">
+<p class="TableDefinitions">User name</p>
+</td>
+<td style="border-bottom: Solid 1px #000000; width: 76.199%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p>Type in the target machine's user name. This field is optional because you can enter the user name either in this property or in the User name property when you connect to a target. Authentication is required in order to use Data Manager.</p>
+<p>User names are set up in the target machine's security settings in Vijeo-Designer. See Section 4.8, <a href="StandardOperation.chm::/security_overview.htm">Setting up Security Protection for Targets and Projects</a>. </p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 23.801%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#CBD9ED">
+<p class="TableDefinitions">Password</p>
+</td>
+<td style="border-bottom: Solid 1px #000000; width: 76.199%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p>Type in the target machine's password. This field is optional because you can enter the password either in this property or in the Password property when you connect to a target. Authentication is required in order to use Data Manager.</p>
+<p>Passwords are set up in the target machine's security settings in Vijeo-Designer. See Section 4.8, <a href="StandardOperation.chm::/security_overview.htm">Setting up Security Protection for Targets and Projects</a>. </p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 23.801%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#CBD9ED">
+<p class="TableDefinitions">Confirm Password</p>
+</td>
+<td style="border-bottom: Solid 1px #000000; width: 76.199%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p>Retype the password in this field to confirm the password.</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 23.801%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#CBD9ED">
+<p class="TableDefinitions">Save Password</p>
+</td>
+<td style="border-bottom: Solid 1px #000000; width: 76.199%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p>Select this check box if you want to save the password for this target machine profile.</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 3px #000000; width: 23.801%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#CBD9ED">
+<p class="TableDefinitions">Data Location</p>
+</td>
+<td style="border-bottom: Solid 3px #000000; width: 76.199%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p>Specify where run-time data is located on the target machine. The locations of the drives depend on the type of target machine.</p>
+<ul>
+<li class="p-Bullet">
+<p class="Bullet"><span style="font-weight: bold;">Main Drive</span> - The main drive can be the Internal Memory (Flash Memory), CF card, or hard disk drive.</p>
+</li>
+<li class="p-Bullet">
+<p class="Bullet"><span style="font-weight: bold;">Secondary Drive</span> - The secondary drive can be any drive or a CF Card/SD Card. For targets that do not support a CF Card/SD Card, there is no secondary drive.</p>
+</li>
+<li class="p-Bullet">
+<p class="Bullet"><span style="font-weight: bold;">Optional Drive</span> - An optional drive is a drive connected externally to the target, for example, a USB drive.</p>
+</li>
+</ul>
+
+<p class="Tabletext">For more information on the data locations supported by a specific target series, see Appendix 5.11.2, <a href="Appendix.chm::/Data_Locations_Supported_by_Hardware_Platforms.htm">Supported Drives by Target Types</a>. For a list of targets that support optional drives, see Appendix 5, <a href="Appendix.chm::/Hardware_Specifications.htm">Hardware Specifications</a>.</p>
+</td>
+</tr>
+</table>
+<p class="NoteImage" style="margin-left: 40px;"><img src="NOTE_MOJI.bmp" style="border: none;" alt="" width="51" height="25" border="0"></p>
+<ul>
+<li class="p-NoteText2">
+<p class="NoteText2">For targets with security enabled, you can enter the user name and password in the target's profile to automatically log into the target when connecting. Otherwise, you will be prompted to enter the user name and password when connecting to the target.</p>
+</li>
+</ul>
+<ol start="4">
+<li class="p">
+<p style="margin-left: 0px;">Click Create to add the target's profile to Data Manager.</p>
+</li>
+</ol>
+</body>
+</html>

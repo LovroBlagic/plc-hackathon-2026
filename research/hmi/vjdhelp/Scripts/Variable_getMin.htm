@@ -1,0 +1,63 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+<meta name="template" content="Vijeo_template.htt">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="topic-status" content="In Progress">
+<meta name="topic-priority" content="0">
+<meta name="topic-time-estimate" content="0">
+<meta name="topic-comment" content="">
+<meta name="topic-id" content="Variable_getMin">
+<meta name="window-type" content="$global_NewWindow">
+ <meta name="generator" content="Adobe RoboHelp 10">
+<title>getMin</title>
+<link rel="StyleSheet" href="TIS-STYL.CSS" type="text/css">
+</head>
+<body>
+<script type="text/javascript" src="ehlpdhtm.js" language="JavaScript1.2"></script>
+
+<div style="width: 100%; position: relative;" id="header">
+	<table style="background-attachment: scroll; margin-left: 0px; margin-right: 4px; 
+			 background-image: url(top_banner.bmp); background-repeat: Repeat-X; 
+			 line-height: 0pt; vertical-align: top;" cellspacing="0" width="100%" 
+			 background="top_banner.bmp">
+		<col style="width: 90%;">
+		<col style="width: 5%;">
+		<col style="width: 5%;">
+		<tr style="vertical-align: center; height: 39px;">
+			<td style="width: 90%; padding-right: 10px; padding-left: 10px; 
+				 border-right-color: #000000;">
+   <p><img src="logo.bmp" style="border: none;" alt="" width="37" height="37" border="0"></p></td>
+			<td style="width: 5%; padding-right: 0px; padding-left: 10px; 
+				 border-right-color: #000000;">
+   <p style="text-align: center;"><a 
+			 title="Glossary" href="Appendix.chm::/Glossary.htm"><img src="logo_glossary.bmp" style="border: none;" alt="" width="47" height="37" border="0"></a></p></td>
+			<td style="width: 5%; padding-right: 10px; padding-left: 5px; 
+				 border-right-color: #000000;">
+   <p style="text-align: center;"><a 
+			 href="About.chm::/What_is_Vijeo-Designer.htm" title="Home"><img src="logo_home.bmp" alt="Home" title="Home" style="border: none; 
+			 margin-left: 0px; margin-right: 0px; margin-bottom: 0px; margin-top: -2px;" width="47" height="37" border="0"></a></p></td>
+		</tr>
+	</table>
+</div>
+
+<h4>getMin</h4>
+
+<p style="font-weight: bold;"><span style="font-weight: bold;">Function</span></p>
+<p style="font-weight: normal;">For use with variables set up with an input range, this method returns the minimum value of the integer type or REAL variable's input range. Using this method, you can make sure any writes to the variable are not less than the minimum allowable value.</p>
+<p class="NoteImage"><img src="Limit.bmp" style="border: none;" alt="" width="77" height="24" border="0"></p>
+<ul>
+<li class="p-NoteText">
+<p class="NoteText">If this method is used with a variable that does not have a defined input range, the method will return the minimum value that the variable can store. See section 6.2.1, <a href="InputAddress.chm::/var_type.htm">Variable Types</a> for more information on variables.</p>
+</li>
+</ul>
+<p style="font-weight: bold;">Format</p>
+<p class="Code" style="margin-left: 40px;">int IntegerVariableName.getMin()</p>
+<p class="Code" style="margin-left: 40px;">float RealVariableName.getMin()</p>
+<p style="font-weight: bold;">Return Value</p>
+<p style="font-weight: normal;">Returns the variable's minimum value, as set up in the variable's input range.</p>
+<p style="font-weight: bold;">See Also</p>
+<p><a href="Variable_getMax.htm">getMax</a>, <a href="Variable_setMinMaxValues.htm">setMinMaxValues</a></p>
+</body>
+</html>

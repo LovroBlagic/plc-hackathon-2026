@@ -1,0 +1,38 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+ <meta name="generator" content="Adobe RoboHelp 2015">
+<title>Error 2803</title>
+<link rel="StyleSheet" href="error-styl.css" type="text/css">
+</head>
+
+<body>
+<script type="text/javascript" src="ehlpdhtm.js" language="JavaScript1.2"></script>
+
+<h1>Error 2803: [Target Type] [Target Name] [Property Name] The current 
+ target machine does not support the Set IP Address operation.</h1>
+<p>This error occurs when you make one of the following changes after your 
+ project successfully validated with a Set IP Address operation:</p>
+<ul>
+	<li class="p-bullet"><p class="bullet">Changing the target machine 
+	 to one without Ethernet capability.</p></li>
+	<li class="p-bullet"><p class="bullet">Changing to an iPC, HMIG5U, 
+	 HMIG5U2 or HMIG5U22 target machine.</p></li>
+</ul>
+<p class="Error2">Solution:</p>
+<ul>
+	<li class="p-bullet"><p class="bullet">Select a target machine that 
+	 has Ethernet capability and that is not an iPC Series target machine.</p></li>
+	<li class="p-bullet"><p class="bullet">Select a target machine that 
+	 is not a Windows-based target machine (such as iPC or HMIG5U). Windows-based 
+	 target machines do not support IP address change at run time and cannot 
+	 run the Set IP Address operation.</p></li>
+	<li class="p-bullet"><p class="bullet">Make sure the DHCP property 
+	 in the Target properties is set to Disabled.</p></li>
+	<li class="p-bullet"><p class="bullet">Make sure the Set IP Address 
+	 at Run Time property in the Target properties is selected.</p></li>
+</ul>
+</body>
+</html>

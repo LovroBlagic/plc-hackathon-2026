@@ -1,0 +1,368 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+<meta name="template" content="Vijeo_template.htt">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="date" content="08 6, 2003 6:12:39 PM">
+<meta name="topic-status" content="In Progress">
+<meta name="topic-priority" content="0">
+<meta name="topic-time-estimate" content="0">
+<meta name="topic-comment" content="">
+<meta name="topic-id" content="17.3.9.3 StringBuffer Methods">
+ <meta name="generator" content="Adobe RoboHelp 10">
+<title>StringBuffer Methods</title>
+<link rel="StyleSheet" href="TIS-STYL.CSS" type="text/css">
+</head>
+<body>
+<script type="text/javascript" src="ehlpdhtm.js" language="JavaScript1.2"></script>
+
+<div style="width: 100%; position: relative;" id="header">
+	<table style="background-attachment: scroll; margin-left: 0px; margin-right: 4px; 
+			 background-image: url(top_banner.bmp); background-repeat: Repeat-X; 
+			 line-height: 0pt; vertical-align: top;" cellspacing="0" width="100%" 
+			 background="top_banner.bmp">
+		<col style="width: 90%;">
+		<col style="width: 5%;">
+		<col style="width: 5%;">
+		<tr style="vertical-align: center; height: 39px;">
+			<td style="width: 90%; padding-right: 10px; padding-left: 10px; 
+				 border-right-color: #000000;">
+   <p><img src="logo.bmp" style="border: none;" alt="" width="37" height="37" border="0"></p></td>
+			<td style="width: 5%; padding-right: 0px; padding-left: 10px; 
+				 border-right-color: #000000;">
+   <p style="text-align: center;"><a 
+			 title="Glossary" href="Appendix.chm::/Glossary.htm"><img src="logo_glossary.bmp" style="border: none;" alt="" width="47" height="37" border="0"></a></p></td>
+			<td style="width: 5%; padding-right: 10px; padding-left: 5px; 
+				 border-right-color: #000000;">
+   <p style="text-align: center;"><a 
+			 href="About.chm::/What_is_Vijeo-Designer.htm" title="Home"><img src="logo_home.bmp" alt="Home" title="Home" style="border: none; 
+			 margin-left: 0px; margin-right: 0px; margin-bottom: 0px; margin-top: -2px;" width="47" height="37" border="0"></a></p></td>
+		</tr>
+	</table>
+</div>
+
+<h3>18.9.2.3 StringBuffer Methods</h3>
+<p>Vijeo-Designer supports these methods from the standard java.lang StringBuffer class.</p>
+<p>To use these methods, create a StringBuffer variable, then call the variable and method plus any parameters.</p>
+<table style="border: Solid 0px #ffffff;vertical-align: top;" cellspacing="0" width="600">
+<col style="width: 100%;">
+<tr style="vertical-align: top;">
+<td style="width: 100%; padding-right: 10px; padding-left: 10px; border-top-style: Solid; border-top-width: 1px; border-right-width: 1px; border-right-style: Solid; border-bottom-style: Solid; border-bottom-width: 1px;">
+<p class="code" style="margin-left: 40px;">StringBuffer stringBufferVar1; &#160;<span style="color: #008000;">// declare StringBuffer variable</span></p>
+
+<p class="code" style="margin-left: 40px;">char rv;</p>
+
+<p class="code" style="margin-left: 40px;">rv = stringBufferVar1.charAt(5); <span style="color: #008000;">// StringBuffer variable</span> <span style="color: #008000;">method</span></p>
+<p class="code" style="margin-left: 40px; color: #008000;">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;// returns character at defined</p>
+<p class="code" style="margin-left: 40px;"><span style="color: #008000;">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;// position</span></p>
+</td>
+</tr>
+</table>
+<p style="margin-top: 6pt;">To use StringBuffer methods with a string variable in the Vijeo-Designer Variable List, get the value from the Vijeo-Designer string variable and create a new StringBuffer object.</p>
+<p class="code" style="margin-left: 40px;">StringBuffer s = new StringBuffer(StringVariable.getStringValue());</p>
+<table wrapperparagraphselector="P" style="margin-top: 14pt; margin-bottom: 14px; margin-left: 40px;" cellspacing="0" width="84.91%">
+<col style="width: 35.331%;">
+<col style="width: 64.669%;">
+<tr>
+<td style="border-top: Solid 3px #000000; border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 35.331%; vertical-align: TOP; padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#91AFD9">
+<p class="Tabletitle"><span style="font-weight: bold;">Method</span></p>
+</td>
+<td style="border-top: Solid 3px #000000; border-bottom: Solid 1px #000000; width: 64.669%; vertical-align: TOP; padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#91AFD9">
+<p class="Tabletitle"><span style="font-weight: bold;">Description</span></p>
+</td>
+</tr>
+<tr>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 35.331%; vertical-align: TOP; padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#CBD9ED">
+<p class="tabletext" style="margin-bottom: 0; font-weight: bold;">append(boolean b)</p>
+</td>
+<td style="border-bottom: Solid 1px #000000; width: 64.669%; vertical-align: TOP; padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="tabletext">Appends the string representation of the boolean argument to this StringBuffer.</p>
+<p class="tabletext" style="margin-bottom: 0;">parameter: boolean</p>
+<p class="tabletext" style="margin-bottom: 0;">return: StringBuffer</p>
+</td>
+</tr>
+<tr>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 35.331%; vertical-align: TOP; padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#CBD9ED">
+<p class="tabletext" style="margin-bottom: 0; font-weight: bold;">append(char c)</p>
+</td>
+<td style="border-bottom: Solid 1px #000000; width: 64.669%; vertical-align: TOP; padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="tabletext">Appends the string representation of the character argument to this StringBuffer.</p>
+<p class="tabletext" style="margin-bottom: 0;">parameter: character</p>
+<p class="tabletext" style="margin-bottom: 0;">return: StringBuffer</p>
+</td>
+</tr>
+<tr>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 35.331%; vertical-align: TOP; padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#CBD9ED">
+<p class="tabletext" style="margin-bottom: 0; font-weight: bold;">append(double d)</p>
+</td>
+<td style="border-bottom: Solid 1px #000000; width: 64.669%; vertical-align: TOP; padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="tabletext">Appends the string representation of the double argument to this StringBuffer.</p>
+<p class="tabletext" style="margin-bottom: 0;">parameter: double</p>
+<p class="tabletext" style="margin-bottom: 0;">return: StringBuffer</p>
+</td>
+</tr>
+<tr>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 35.331%; vertical-align: TOP; padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#CBD9ED">
+<p class="tabletext" style="margin-bottom: 0; font-weight: bold;">append(float f)</p>
+</td>
+<td style="border-bottom: Solid 1px #000000; width: 64.669%; vertical-align: TOP; padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="tabletext">Appends the string representation of the float argument to this StringBuffer.</p>
+<p class="tabletext" style="margin-bottom: 0;">parameter: float</p>
+<p class="tabletext" style="margin-bottom: 0;">return: StringBuffer</p>
+</td>
+</tr>
+<tr>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 35.331%; vertical-align: TOP; padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#CBD9ED">
+<p class="tabletext" style="margin-bottom: 0; font-weight: bold;">append(int i)</p>
+</td>
+<td style="border-bottom: Solid 1px #000000; width: 64.669%; vertical-align: TOP; padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="tabletext">Appends the string representation of the integer argument to this StringBuffer.</p>
+<p class="tabletext" style="margin-bottom: 0;">parameter: integer</p>
+<p class="tabletext" style="margin-bottom: 0;">return: StringBuffer</p>
+</td>
+</tr>
+<tr>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 35.331%; vertical-align: TOP; padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#CBD9ED">
+<p class="tabletext" style="margin-bottom: 0; font-weight: bold;">append(long l)</p>
+</td>
+<td style="border-bottom: Solid 1px #000000; width: 64.669%; vertical-align: TOP; padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="tabletext">Appends the string representation of the long argument to this StringBuffer.</p>
+<p class="tabletext" style="margin-bottom: 0;">parameter: long</p>
+<p class="tabletext" style="margin-bottom: 0;">return: StringBuffer</p>
+</td>
+</tr>
+<tr>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 35.331%; vertical-align: TOP; padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#CBD9ED">
+<p class="tabletext" style="margin-bottom: 0; font-weight: bold;">append(Object obj)</p>
+</td>
+<td style="border-bottom: Solid 1px #000000; width: 64.669%; vertical-align: TOP; padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="tabletext">Appends the string representation of the Object argument to this StringBuffer.</p>
+<p class="tabletext" style="margin-bottom: 0;">parameter: Object</p>
+<p class="tabletext" style="margin-bottom: 0;">return: StringBuffer</p>
+</td>
+</tr>
+<tr>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 35.331%; vertical-align: TOP; padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#CBD9ED">
+<p class="tabletext" style="margin-bottom: 0; font-weight: bold;">append(String str)</p>
+</td>
+<td style="border-bottom: Solid 1px #000000; width: 64.669%; vertical-align: TOP; padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="tabletext">Appends the string to this StringBuffer.</p>
+<p class="tabletext" style="margin-bottom: 0;">parameter: String</p>
+<p class="tabletext" style="margin-bottom: 0;">return: StringBuffer</p>
+</td>
+</tr>
+<tr>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 35.331%; vertical-align: TOP; padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#CBD9ED">
+<p class="tabletext" style="margin-bottom: 0; font-weight: bold;">capacity( )</p>
+</td>
+<td style="border-bottom: Solid 1px #000000; width: 64.669%; vertical-align: TOP; padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="tabletext">Returns the current capacity of the StringBuffer.</p>
+<p class="tabletext" style="margin-bottom: 0;">parameter: none</p>
+<p class="tabletext" style="margin-bottom: 0;">return: integer</p>
+</td>
+</tr>
+<tr>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 35.331%; vertical-align: TOP; padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#CBD9ED">
+<p class="tabletext" style="margin-bottom: 0; font-weight: bold;">charAt(int index)</p>
+</td>
+<td style="border-bottom: Solid 1px #000000; width: 64.669%; vertical-align: TOP; padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="tabletext">Returns the character at a specified index in this StringBuffer.</p>
+<p class="tabletext" style="margin-bottom: 0;">parameter: integer</p>
+<p class="tabletext" style="margin-bottom: 0;">return: character</p>
+</td>
+</tr>
+<tr>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 35.331%; vertical-align: TOP; padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#CBD9ED">
+<p class="tabletext" style="margin-bottom: 0; font-weight: bold;">ensureCapacity(int minimum)</p>
+</td>
+<td style="border-bottom: Solid 1px #000000; width: 64.669%; vertical-align: TOP; padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="tabletext">Ensures the capacity of this StringBuffer is at least equal to the specified minimum. If it isn't large enough, the capacity is increased.</p>
+<p class="tabletext" style="margin-bottom: 0;">parameter: integer</p>
+<p class="tabletext" style="margin-bottom: 0;">return: void</p>
+</td>
+</tr>
+<tr>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 35.331%; vertical-align: TOP; padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#CBD9ED">
+<p class="tabletext" style="margin-bottom: 0; font-weight: bold;">insert(</p>
+
+<p class="tabletext" style="margin-bottom: 0; margin-left: 40px; font-weight: bold;">int offset,<br>
+boolean b)</p>
+</td>
+<td style="border-bottom: Solid 1px #000000; width: 64.669%; vertical-align: TOP; padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="tabletext">Inserts the string representation of the boolean argument into this StringBuffer in the defined offset position.</p>
+<p class="tabletext" style="margin-bottom: 0;">parameter1: integer</p>
+<p class="tabletext" style="margin-bottom: 0;">parameter2: boolean</p>
+<p class="tabletext" style="margin-bottom: 0;">return: StringBuffer</p>
+</td>
+</tr>
+<tr>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 35.331%; vertical-align: TOP; padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#CBD9ED">
+<p class="tabletext" style="margin-bottom: 0; font-weight: bold;">insert(</p>
+
+<p class="tabletext" style="margin-bottom: 0; margin-left: 40px; font-weight: bold;">int offset,<br>
+char c)</p>
+</td>
+<td style="border-bottom: Solid 1px #000000; width: 64.669%; vertical-align: TOP; padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="tabletext">Inserts the string representation of the character argument into this StringBuffer in the defined offset position.</p>
+<p class="tabletext" style="margin-bottom: 0;">parameter1: integer</p>
+<p class="tabletext" style="margin-bottom: 0;">parameter2: character</p>
+<p class="tabletext" style="margin-bottom: 0;">return: StringBuffer</p>
+</td>
+</tr>
+<tr>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 35.331%; vertical-align: TOP; padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#CBD9ED">
+<p class="tabletext" style="margin-bottom: 0; font-weight: bold;">insert(</p>
+
+<p class="tabletext" style="margin-bottom: 0; margin-left: 40px; font-weight: bold;">int offset,<br>
+char[ ] str)</p>
+</td>
+<td style="border-bottom: Solid 1px #000000; width: 64.669%; vertical-align: TOP; padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="tabletext">Inserts the string representation of the character array argument into this StringBuffer in the defined offset position.</p>
+<p class="tabletext" style="margin-bottom: 0;">parameter1: integer</p>
+<p class="tabletext" style="margin-bottom: 0;">parameter2: character array</p>
+<p class="tabletext" style="margin-bottom: 0;">return: StringBuffer</p>
+</td>
+</tr>
+<tr>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 35.331%; vertical-align: TOP; padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#CBD9ED">
+<p class="tabletext" style="margin-bottom: 0; font-weight: bold;">insert(</p>
+
+<p class="tabletext" style="margin-bottom: 0; margin-left: 40px; font-weight: bold;">int offset,<br>
+double d)</p>
+</td>
+<td style="border-bottom: Solid 1px #000000; width: 64.669%; vertical-align: TOP; padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="tabletext">Inserts the string representation of the double argument into this StringBuffer in the defined offset position.</p>
+<p class="tabletext" style="margin-bottom: 0;">parameter1: integer</p>
+<p class="tabletext" style="margin-bottom: 0;">parameter2: double</p>
+<p class="tabletext" style="margin-bottom: 0;">return: StringBuffer</p>
+</td>
+</tr>
+<tr>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 35.331%; vertical-align: TOP; padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#CBD9ED">
+<p class="tabletext" style="margin-bottom: 0; font-weight: bold;">insert(</p>
+
+<p class="tabletext" style="margin-bottom: 0; margin-left: 40px; font-weight: bold;">int offset,<br>
+float f)</p>
+</td>
+<td style="border-bottom: Solid 1px #000000; width: 64.669%; vertical-align: TOP; padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="tabletext">Inserts the string representation of the float argument into this StringBuffer in the defined offset position.</p>
+<p class="tabletext" style="margin-bottom: 0;">parameter1: integer</p>
+<p class="tabletext" style="margin-bottom: 0;">parameter2: float</p>
+<p class="tabletext" style="margin-bottom: 0;">return: StringBuffer</p>
+</td>
+</tr>
+<tr>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 35.331%; vertical-align: TOP; padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#CBD9ED">
+<p class="tabletext" style="margin-bottom: 0; font-weight: bold;">insert(</p>
+
+<p class="tabletext" style="margin-bottom: 0; margin-left: 40px; font-weight: bold;">int offset,<br>
+int i)</p>
+</td>
+<td style="border-bottom: Solid 1px #000000; width: 64.669%; vertical-align: TOP; padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="tabletext">Inserts the string representation of the int argument into this StringBuffer in the defined offset position.</p>
+<p class="tabletext" style="margin-bottom: 0;">parameter1: integer</p>
+<p class="tabletext" style="margin-bottom: 0;">parameter2: integer</p>
+<p class="tabletext" style="margin-bottom: 0;">return: StringBuffer</p>
+</td>
+</tr>
+<tr>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 35.331%; vertical-align: TOP; padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#CBD9ED">
+<p class="tabletext" style="margin-bottom: 0; font-weight: bold;">insert(</p>
+
+<p class="tabletext" style="margin-bottom: 0; margin-left: 40px; font-weight: bold;">int offset,<br>
+long l)</p>
+</td>
+<td style="border-bottom: Solid 1px #000000; width: 64.669%; vertical-align: TOP; padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="tabletext">Inserts the string representation of the long argument into this StringBuffer in the defined offset position.</p>
+<p class="tabletext" style="margin-bottom: 0;">parameter1: integer</p>
+<p class="tabletext" style="margin-bottom: 0;">parameter2: long</p>
+<p class="tabletext" style="margin-bottom: 0;">return: StringBuffer</p>
+</td>
+</tr>
+<tr>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 35.331%; vertical-align: TOP; padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#CBD9ED">
+<p class="tabletext" style="margin-bottom: 0; font-weight: bold;">insert(</p>
+
+<p class="tabletext" style="margin-bottom: 0; margin-left: 40px; font-weight: bold;">int offset,<br>
+Object obj)</p>
+</td>
+<td style="border-bottom: Solid 1px #000000; width: 64.669%; vertical-align: TOP; padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="tabletext">Inserts the string representation of the Object argument into this StringBuffer in the defined offset position.</p>
+<p class="tabletext" style="margin-bottom: 0;">parameter1: integer</p>
+<p class="tabletext" style="margin-bottom: 0;">parameter2: Object</p>
+<p class="tabletext" style="margin-bottom: 0;">return: StringBuffer</p>
+</td>
+</tr>
+<tr>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 35.331%; vertical-align: TOP; padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#CBD9ED">
+<p class="tabletext" style="margin-bottom: 0; font-weight: bold;">insert(</p>
+
+<p class="tabletext" style="margin-bottom: 0; margin-left: 40px; font-weight: bold;">int offset,<br>
+String str)</p>
+</td>
+<td style="border-bottom: Solid 1px #000000; width: 64.669%; vertical-align: TOP; padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="tabletext">Inserts the string representation of the String argument into this StringBuffer in the defined offset position.</p>
+<p class="tabletext" style="margin-bottom: 0;">parameter1: integer</p>
+<p class="tabletext" style="margin-bottom: 0;">parameter2: String</p>
+<p class="tabletext" style="margin-bottom: 0;">return: StringBuffer</p>
+</td>
+</tr>
+<tr>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 35.331%; vertical-align: TOP; padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#CBD9ED">
+<p class="tabletext" style="margin-bottom: 0; font-weight: bold;">length( )</p>
+</td>
+<td style="border-bottom: Solid 1px #000000; width: 64.669%; vertical-align: TOP; padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="tabletext">Returns the number of characters in the StringBuffer.</p>
+<p class="tabletext" style="margin-bottom: 0;">parameter: none</p>
+<p class="tabletext" style="margin-bottom: 0;">return: integer</p>
+</td>
+</tr>
+<tr>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 35.331%; vertical-align: TOP; padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#CBD9ED">
+<p class="tabletext" style="margin-bottom: 0; font-weight: bold;">reverses( )</p>
+</td>
+<td style="border-bottom: Solid 1px #000000; width: 64.669%; vertical-align: TOP; padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="tabletext">Reverses the character sequence in the StringBuffer.</p>
+<p class="tabletext" style="margin-bottom: 0;">parameter: none</p>
+<p class="tabletext" style="margin-bottom: 0;">return: StringBuffer</p>
+</td>
+</tr>
+<tr>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 35.331%; vertical-align: TOP; padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#CBD9ED">
+<p class="tabletext" style="margin-bottom: 0; font-weight: bold;">setCharAt(</p>
+
+<p class="tabletext" style="margin-bottom: 0; margin-left: 40px; font-weight: bold;">int index,<br>
+char ch)</p>
+</td>
+<td style="border-bottom: Solid 1px #000000; width: 64.669%; vertical-align: TOP; padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="tabletext">The character at the specified index of this StringBuffer is set to the specified character.</p>
+<p class="tabletext" style="margin-bottom: 0;">parameter1: integer<br>
+parameter2: character<br>
+return: void</p>
+</td>
+</tr>
+<tr>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 35.331%; vertical-align: TOP; padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#CBD9ED">
+<p class="tabletext" style="margin-bottom: 0; font-weight: bold;">setLength(int i)</p>
+</td>
+<td style="border-bottom: Solid 1px #000000; width: 64.669%; vertical-align: TOP; padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="tabletext">Sets the length of this StringBuffer.</p>
+<p class="tabletext" style="margin-bottom: 0;">parameter: integer</p>
+<p class="tabletext" style="margin-bottom: 0;">return: void</p>
+</td>
+</tr>
+<tr>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 3px #000000; width: 35.331%; vertical-align: TOP; padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#CBD9ED">
+<p class="tabletext" style="margin-bottom: 0; font-weight: bold;">toString( )</p>
+</td>
+<td style="border-bottom: Solid 3px #000000; width: 64.669%; vertical-align: TOP; padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="tabletext">Converts the data in this StringBuffer to a string.</p>
+<p class="tabletext" style="margin-bottom: 0;">parameter: none</p>
+<p class="tabletext" style="margin-bottom: 0;">return: StringBuffer</p>
+</td>
+</tr>
+</table>
+<p>For more details about each method above, please refer to standard Java documentation.</p>
+</body>
+</html>

@@ -1,0 +1,140 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+<meta name="template" content="Vijeo_template.htt">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="date" content="08 9, 2003 3:12:44 PM">
+<meta name="topic-status" content="In Progress">
+<meta name="topic-priority" content="0">
+<meta name="topic-time-estimate" content="0">
+<meta name="topic-comment" content="">
+<meta name="topic-id" content="AlarmSummaryClearAll.htm">
+ <meta name="generator" content="Adobe RoboHelp 10">
+<title>clearAll</title>
+<link rel="StyleSheet" href="TIS-STYL.CSS" type="text/css">
+</head>
+<body>
+<script type="text/javascript" src="ehlpdhtm.js" language="JavaScript1.2"></script>
+
+<div style="width: 100%; position: relative;" id="header">
+	<table style="background-attachment: scroll; margin-left: 0px; margin-right: 4px; 
+			 background-image: url(top_banner.bmp); background-repeat: Repeat-X; 
+			 line-height: 0pt; vertical-align: top;" cellspacing="0" width="100%" 
+			 background="top_banner.bmp">
+		<col style="width: 90%;">
+		<col style="width: 5%;">
+		<col style="width: 5%;">
+		<tr style="vertical-align: center; height: 39px;">
+			<td style="width: 90%; padding-right: 10px; padding-left: 10px; 
+				 border-right-color: #000000;">
+   <p><img src="logo.bmp" style="border: none;" alt="" width="37" height="37" border="0"></p></td>
+			<td style="width: 5%; padding-right: 0px; padding-left: 10px; 
+				 border-right-color: #000000;">
+   <p style="text-align: center;"><a 
+			 title="Glossary" href="Appendix.chm::/Glossary.htm"><img src="logo_glossary.bmp" style="border: none;" alt="" width="47" height="37" border="0"></a></p></td>
+			<td style="width: 5%; padding-right: 10px; padding-left: 5px; 
+				 border-right-color: #000000;">
+   <p style="text-align: center;"><a 
+			 href="About.chm::/What_is_Vijeo-Designer.htm" title="Home"><img src="logo_home.bmp" alt="Home" title="Home" style="border: none; 
+			 margin-left: 0px; margin-right: 0px; margin-bottom: 0px; margin-top: -2px;" width="47" height="37" border="0"></a></p></td>
+		</tr>
+	</table>
+</div>
+
+<h4>clearAll</h4>
+
+<p style="font-weight: bold;">Function</p>
+<p>The purpose of this script method is to remove a message completely from the system.</p>
+<p>The clearAll script method clears all the alarms in the current alarm summary display, or clears all the events in the current event summary display. Clearing removes all instances of these alarms from all alarm lists (Active, History, and Log).</p>
+<p>The variables remain in the alarm state, but their associated alarm messages do not appear anymore in any alarm summary display. Even if alarms change states, such as from Hi to HiHi, these alarm messages will not appear.</p>
+<p>This behavior is a result of forcing the alarms to a returned to normal state. As a result, an alarm message can only be generated again after the alarm returns to normal. Returned to normal alarms cannot be cleared by the clearAll script method.</p>
+<p>Use a parameter to ensure only the specified alarm type is cleared.</p>
+<p class="NoteImage"><img src="Limit.bmp" style="border: none;" alt="" width="77" height="24" border="0"></p>
+<ul>
+<li class="p-NoteText">
+<p class="NoteText" style="line-height: Normal;">When used with a diagnostic alarm group, this script method does not affect alarms in the PLC's diagnostic buffer. This script method interacts only with the alarm summary display. You can use this method on all alarm messages in history and log alarm displays, and on acknowledged alarm messages in active alarm displays.</p>
+</li>
+</ul>
+<p style="font-weight: bold;">Format</p>
+<p class="code" style="margin-left: 40px;">int AlarmSummaryName.clearAll(int Msg_State, int Disp_State);</p>
+<p style="margin-top: 6pt;"><span style="font-style: normal; font-weight: bold;">Parameters</span></p>
+<table wrapperparagraphselector="P" style="margin-top: 14pt; margin-bottom: 14px; margin-left: 40px;" cellspacing="0" width="600">
+<col width="150">
+<col style="width: 90%;">
+<tr>
+<td style="border-top: Solid 3px #000000; border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; vertical-align: TOP; padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#91AFD9" width="150">
+<p class="Tabletitle"><span style="font-weight: bold;">Parameter</span></p>
+</td>
+<td style="border-top: Solid 3px #000000; border-bottom: Solid 1px #000000; width: 90%; vertical-align: TOP; padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#91AFD9">
+<p class="Tabletitle"><span style="font-weight: bold;">Description</span></p>
+</td>
+</tr>
+<tr>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; vertical-align: TOP; padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#CBD9ED" width="150">
+<p class="TableDefinitions">int Msg_State</p>
+</td>
+<td style="border-bottom: Solid 1px #000000; width: 90%; vertical-align: TOP; padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="tabletext">Specifies the type of alarms cleared in this operation.</p>
+<p class="tabletext">0: Clears all active, ACK, and UNACK state alarm messages in the alarm summary. RTN state alarm messages are not cleared.</p>
+<p class="tabletext">1: Clears all acknowledged state alarm messages.</p>
+</td>
+</tr>
+<tr>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 3px #000000; vertical-align: TOP; padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#CBD9ED" width="150">
+<p class="TableDefinitions">int Disp_State</p>
+</td>
+<td style="border-bottom: Solid 3px #000000; width: 90%; vertical-align: TOP; padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="tabletext">Specifies the range of alarms cleared in this operation.</p>
+<p class="tabletext">0: Clears all the alarm messages in the alarm summary display.</p>
+<p class="tabletext">1: Clears only the visible alarm messages in the alarm summary display. In other words, the alarms on the current page. For log alarm summary displays and the Msg_State = 0, also removes any active, acknowledged, or unacknowledged alarms associated with the cleared alarms.</p>
+</td>
+</tr>
+</table>
+<p class="NoteImage" style="font-weight: normal;"><span><span style="font-weight: bold;"><img src="Limit.bmp" style="border: none;" alt="" width="77" height="24" border="0"></span></span></p>
+<ul>
+<li style="font-weight: bold;" class="p-NoteText">
+<p class="NoteText" style="font-weight: normal;">When you clear an alarm, its state changes to returned to normal (RTN) and runs associated alarm actions.</p>
+</li>
+</ul>
+<p class="NoteText2">When Alarm Behavior = Optional ACK:</p>
+<ul>
+<li style="font-weight: bold;" class="p-NoteText2">
+<p class="NoteText2" style="font-weight: normal;">Clearing the alarm runs actions set up with the Condition = When alarm returns to normal.</p>
+</li>
+<li style="font-weight: bold;" class="p-NoteText2">
+<p class="NoteText2" style="font-weight: normal;">When the alarm is in the active state, clearing the alarm also runs actions set up with the Transition = Active to RTN.</p>
+</li>
+<li style="font-weight: bold;" class="p-NoteText2">
+<p class="NoteText2" style="font-weight: normal;">When the alarm is in the ACK state, clearing the alarm also runs actions set up with the Transition = ACK to RTN.</p>
+</li>
+</ul>
+<p class="NoteText2" style="font-weight: normal;">When Alarm Behavior = Mandatory ACK:</p>
+<ul>
+<li class="p-NoteText2">
+<p class="NoteText2" style="font-weight: normal;">Clearing the alarm runs actions set up with the Condition = When alarm returns to normal.</p>
+</li>
+<li class="p-NoteText2">
+<p class="NoteText2" style="font-weight: normal;">When the alarm is in the active state, clearing the alarm also runs actions set up with Transition = Active to ACK, and Transition = ACK to RTN.</p>
+</li>
+<li style="font-weight: bold;" class="p-NoteText2">
+<p class="NoteText2" style="font-weight: normal;">When the alarm is in the ACK state, clearing the alarm also runs actions set up with the Transition = ACK to RTN.</p>
+</li>
+<li style="font-weight: bold;" class="p-NoteText2">
+<p class="NoteText2" style="font-weight: normal;">When the alarm is in the UNACK state, clearing the alarm runs actions set up with the Transition = UNACK to RTN.</p>
+</li>
+</ul>
+<p><span style="font-weight: bold;">Return Value</span></p>
+<p>Returns an integer, which is the number of alarms that were cleared in this operation.</p>
+<p style="font-weight: bold;">See Also</p>
+
+<p><a href="AlarmSummaryClear.htm">clear</a>, <a href="AlarmSummaryDelete.htm">delete</a>, <a href="AlarmSummaryDeleteAll.htm">deleteAll</a></p>
+
+<p class="NoteImage"><img src="Note_Moji.bmp" style="border: none;" alt="" width="51" height="25" border="0"></p>
+<ul>
+<li class="p-NoteText">
+<p class="NoteText">If opening a project from version 4.1 or before, anywhere that <span style="font-family: 'Courier New', monospace;">clearAll</span> was used in a script is converted to <a href="AlarmSummaryDeleteAll.htm"><span style="font-family: 'Courier New', monospace;">deleteAll</span></a>.</p>
+</li>
+</ul>
+</body>
+</html>

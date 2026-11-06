@@ -1,0 +1,121 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+<meta name="template" content="Vijeo_template.htt">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="date" content="08 9, 2003 3:13:07 PM">
+<meta name="topic-status" content="In Progress">
+<meta name="topic-priority" content="0">
+<meta name="topic-time-estimate" content="0">
+<meta name="topic-comment" content="">
+<meta name="topic-id" content="AlarmSummaryFirstMsg.htm">
+ <meta name="generator" content="Adobe RoboHelp 10">
+<title>moveTop</title>
+<link rel="StyleSheet" href="TIS-STYL.CSS" type="text/css">
+</head>
+<body>
+<script type="text/javascript" src="ehlpdhtm.js" language="JavaScript1.2"></script>
+
+<div style="width: 100%; position: relative;" id="header">
+	<table style="background-attachment: scroll; margin-left: 0px; margin-right: 4px; 
+			 background-image: url(top_banner.bmp); background-repeat: Repeat-X; 
+			 line-height: 0pt; vertical-align: top;" cellspacing="0" width="100%" 
+			 background="top_banner.bmp">
+		<col style="width: 90%;">
+		<col style="width: 5%;">
+		<col style="width: 5%;">
+		<tr style="vertical-align: center; height: 39px;">
+			<td style="width: 90%; padding-right: 10px; padding-left: 10px; 
+				 border-right-color: #000000;">
+   <p><img src="logo.bmp" style="border: none;" alt="" width="37" height="37" border="0"></p></td>
+			<td style="width: 5%; padding-right: 0px; padding-left: 10px; 
+				 border-right-color: #000000;">
+   <p style="text-align: center;"><a 
+			 title="Glossary" href="Appendix.chm::/Glossary.htm"><img src="logo_glossary.bmp" style="border: none;" alt="" width="47" height="37" border="0"></a></p></td>
+			<td style="width: 5%; padding-right: 10px; padding-left: 5px; 
+				 border-right-color: #000000;">
+   <p style="text-align: center;"><a 
+			 href="About.chm::/What_is_Vijeo-Designer.htm" title="Home"><img src="logo_home.bmp" alt="Home" title="Home" style="border: none; 
+			 margin-left: 0px; margin-right: 0px; margin-bottom: 0px; margin-top: -2px;" width="47" height="37" border="0"></a></p></td>
+		</tr>
+	</table>
+</div>
+
+<h4>moveTop</h4>
+
+<p style="font-weight: bold;">Function</p>
+<p>Moves the cursor to the top alarm or event message in the alarm or event summary display.</p>
+<p style="font-weight: bold;">Format</p>
+<p class="code" style="margin-left: 40px;">int AlarmSummaryName.moveTop(int Msg_State);</p>
+<p style="margin-top: 6pt;"><span style="font-style: normal; font-weight: bold;">Parameters</span></p>
+<table wrapperparagraphselector="P" style="margin-top: 14pt; margin-bottom: 14px; margin-left: 40px;" cellspacing="0" width="600">
+<col width="150">
+<col style="width: 90%;">
+<tr>
+<td style="border-top: Solid 3px #000000; border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; vertical-align: TOP; padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#91AFD9" width="150">
+<p class="Tabletitle"><span style="font-weight: bold;">Parameter</span></p>
+</td>
+<td style="border-top: Solid 3px #000000; border-bottom: Solid 1px #000000; width: 90%; vertical-align: TOP; padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#91AFD9">
+<p class="Tabletitle"><span style="font-weight: bold;">Description</span></p>
+</td>
+</tr>
+<tr>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 3px #000000; vertical-align: TOP; padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#CBD9ED" width="150">
+<p class="TableDefinitions">int Msg_State</p>
+</td>
+<td style="border-bottom: Solid 3px #000000; width: 90%; vertical-align: TOP; padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="tabletext">Specifies the type of alarms or events the cursor can move to.</p>
+<p class="tabletext">0: Moves to the top message no matter what state it's in.</p>
+<p class="tabletext">1: Moves to the top active or unacknowledged state alarm message.</p>
+<p class="tabletext">2: Moves to the top acknowledged state alarm message.</p>
+<p class="tabletext">3: Moves to the top returned to normal state alarm message.</p>
+<p class="tabletext">4: Moves to the top active state alarm message. (Mandatory ACK only.)</p>
+<p class="tabletext">5: Moves to the top unacknowledged state alarm message. (Mandatory ACK only.)</p>
+</td>
+</tr>
+</table>
+<p style="font-weight: bold;">Return Value</p>
+<p>The following return values indicate the results of the operation.</p>
+<table wrapperparagraphselector="P" style="margin-top: 14pt; margin-bottom: 14px; left: 0px; top: 346px; margin-left: 40px;" cellspacing="0" width="529">
+<col width="75">
+<col style="width: 85.822%;">
+<tr>
+<td style="border-top: Solid 3px #000000; border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; vertical-align: TOP; padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#91AFD9" width="101">
+<p class="Tabletitle" style="text-align: center;"><span style="font-weight: bold;">Value</span></p>
+</td>
+<td style="border-top: Solid 3px #000000; border-bottom: Solid 1px #000000; width: 85.822%; vertical-align: TOP; padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#91AFD9">
+<p class="Tabletitle"><span style="font-weight: bold;">Description</span></p>
+</td>
+</tr>
+<tr>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; vertical-align: TOP; padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#CBD9ED" width="101">
+<p class="TableDefinitions">0</p>
+</td>
+<td style="border-bottom: Solid 1px #000000; width: 85.822%; vertical-align: TOP; padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">Operation is successful.</p>
+</td>
+</tr>
+<tr>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; vertical-align: TOP; padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#CBD9ED" width="101">
+<p class="TableDefinitions">1</p>
+</td>
+<td style="border-bottom: Solid 1px #000000; width: 85.822%; vertical-align: TOP; padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">Cursor is off. Cursor must be on to use this operation.</p>
+</td>
+</tr>
+<tr>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 3px #000000; vertical-align: TOP; padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#CBD9ED" width="101">
+<p class="TableDefinitions">2</p>
+</td>
+<td style="border-bottom: Solid 3px #000000; width: 85.822%; vertical-align: TOP; padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">Cursor cannot move up anymore. Cursor is at the top message.</p>
+</td>
+</tr>
+</table>
+<p style="font-weight: bold;">See Also</p>
+
+<p><a href="AlarmSummaryLastMsg.htm">moveBottom</a>, <a href="AlarmSummaryCursorUp.htm">cursorUp</a>, <a href="AlarmSummaryCursorDown.htm">cursorDown</a>, <a href="AlarmSummaryCursorOn.htm">cursorOn</a>, <a href="AlarmSummaryCursorOff.htm">cursorOff</a></p>
+
+</body>
+</html>

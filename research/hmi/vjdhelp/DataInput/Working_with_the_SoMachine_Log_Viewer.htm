@@ -1,0 +1,60 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+<meta name="template" content="Vijeo_template.htt">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+ <meta name="generator" content="Adobe RoboHelp 10">
+<title>Working with the SoMachine Log Viewer</title>
+<link rel="StyleSheet" href="TIS-STYL.CSS" type="text/css">
+</head>
+<body>
+<script type="text/javascript" src="ehlpdhtm.js" language="JavaScript1.2"></script>
+
+<div style="width: 100%; position: relative;" id="header">
+	<table style="background-attachment: scroll; margin-left: 0px; margin-right: 4px; 
+			 background-image: url(top_banner.bmp); background-repeat: Repeat-X; 
+			 line-height: 0pt; vertical-align: top;" cellspacing="0" width="100%" 
+			 background="top_banner.bmp">
+		<col style="width: 90%;">
+		<col style="width: 5%;">
+		<col style="width: 5%;">
+		<tr style="vertical-align: center; height: 39px;">
+			<td style="width: 90%; padding-right: 10px; padding-left: 10px; 
+				 border-right-color: #000000;">
+   <p><img src="logo.bmp" style="border: none;" alt="" width="37" height="37" border="0"></p></td>
+			<td style="width: 5%; padding-right: 0px; padding-left: 10px; 
+				 border-right-color: #000000;">
+   <p style="text-align: center;"><a 
+			 title="Glossary" href="Appendix.chm::/Glossary.htm"><img src="logo_glossary.bmp" style="border: none;" alt="" width="47" height="37" border="0"></a></p></td>
+			<td style="width: 5%; padding-right: 10px; padding-left: 5px; 
+				 border-right-color: #000000;">
+   <p style="text-align: center;"><a 
+			 href="About.chm::/What_is_Vijeo-Designer.htm" title="Home"><img src="logo_home.bmp" alt="Home" title="Home" style="border: none; 
+			 margin-left: 0px; margin-right: 0px; margin-bottom: 0px; margin-top: -2px;" width="47" height="37" border="0"></a></p></td>
+		</tr>
+	</table>
+</div>
+
+<h3>11.7.4.2 Working with the SoMachine Log Viewer</h3>
+<p>At run time, if the trigger value and the trigger type condition match, the SoMachine log file contents will display. For example, if the trigger value has a BOOL value that changes from 0 to 1 and the trigger type is set to When True, the file contents will display. You can reload the file contents by pressing a switch you created. For more information, see Section 11.7.4.1, <a href="Setting_Up_the_SoMachine_Log_Viewer.htm">Setting Up the SoMachine Log Viewer</a>.</p>
+<p>The log file can display up to 65535 lines and allows up to 700 characters per line. If the line exceeds 700 characters, the excess characters will not display. You can use the horizontal and vertical scroll bars to navigate through the file.</p>
+<p>&#160;</p>
+<h4><img src="square.bmp" style="border: none;" alt="" width="12" height="10" border="0"> Troubleshooting SoMachine Log Viewer</h4>
+<p>If a large file is being opened in the SoMachine Log Viewer at runtime, it may take a few moments to retrieve and display the file.</p>
+<p>If the log file does not display in the SoMachine Log Viewer when the panel opens at run time or when you press the switch to reload the file content, the following may have occurred:</p>
+<ul>
+<li class="p-Bullet">
+<p class="Bullet">Incorrect values were entered in the Machine Name and File Name properties when configuring the log viewer in Editor. An error message will display in the log viewer at run time indicating the file cannot be found.</p>
+</li>
+<li class="p-Bullet">
+<p class="Bullet">The file cannot load because the trigger value and the trigger type condition does not match.</p>
+</li>
+<li class="p-Bullet">
+<p class="Bullet">The trigger variable has a bad quality, preventing the log viewer to load or reload the file. The bad data quality icon displays at the top right corner of the log viewer.</p>
+</li>
+</ul>
+<p class="Image" style="margin-left: 40px;"><img src="SoMachine_Log_Viewer_RT_Bad_Quality.bmp" style="border: none;" alt="" width="179" height="132" border="0"></p>
+<p>&#160;</p>
+</body>
+</html>

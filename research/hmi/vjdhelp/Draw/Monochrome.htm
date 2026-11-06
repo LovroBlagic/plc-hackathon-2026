@@ -1,0 +1,97 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+<meta name="template" content="Vijeo_template.htt">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+ <meta name="generator" content="Adobe RoboHelp 10">
+<title>Previewing Colors for Target Machines</title>
+<link rel="StyleSheet" href="Tis-styl.css" type="text/css">
+</head>
+<body>
+<script type="text/javascript" src="ehlpdhtm.js" language="JavaScript1.2"></script>
+
+<div style="width: 100%; position: relative;" id="header">
+	<table style="background-attachment: scroll; margin-left: 0px; margin-right: 4px; 
+			 background-image: url(top_banner.bmp); background-repeat: Repeat-X; 
+			 line-height: 0pt; vertical-align: top;" cellspacing="0" width="100%" 
+			 background="top_banner.bmp">
+		<col style="width: 90%;">
+		<col style="width: 5%;">
+		<col style="width: 5%;">
+		<tr style="vertical-align: center; height: 39px;">
+			<td style="width: 90%; padding-right: 10px; padding-left: 10px; 
+				 border-right-color: #000000;">
+   <p><img src="logo.bmp" style="border: none;" alt="" width="37" height="37" border="0"></p></td>
+			<td style="width: 5%; padding-right: 0px; padding-left: 10px; 
+				 border-right-color: #000000;">
+   <p style="text-align: center;"><a 
+			 title="Glossary" href="Appendix.chm::/Glossary.htm"><img src="logo_glossary.bmp" style="border: none;" alt="" width="47" height="37" border="0"></a></p></td>
+			<td style="width: 5%; padding-right: 10px; padding-left: 5px; 
+				 border-right-color: #000000;">
+   <p style="text-align: center;"><a 
+			 href="About.chm::/What_is_Vijeo-Designer.htm" title="Home"><img src="logo_home.bmp" alt="Home" title="Home" style="border: none; 
+			 margin-left: 0px; margin-right: 0px; margin-bottom: 0px; margin-top: -2px;" width="47" height="37" border="0"></a></p></td>
+		</tr>
+	</table>
+</div>
+
+<h2>7.3.3 Previewing Colors for Target Machines</h2>
+<p>When you change either the target type or the target color, the panel editor converts the colors in objects, parts, and images (BMP, JPG, EMF, and PNG) to colors that are supported by the new target type or the new target color. For example, when the target color is changed from 256 colors to Monochrome, color objects in the project convert to black and white.</p>
+<p><img src="beforeafter.bmp" style="border: none;" alt="" width="389" height="192" border="0"></p>
+<p>The Editor retains an object's original color settings in the Property Inspector so that when you switch targets or target colors the object's color settings are not lost.</p>
+<p>See Section 4.5.1, <a href="StandardOperation.chm::/Setting_up_Targets-Creating_targets.htm">Target Properties</a> for a list of target machines and their supported color ranges.</p>
+<p><img src="limit.bmp" style="border: none;" alt="" width="77" height="24" border="0"></p>
+<ul>
+<li class="p-NoteText">
+<p class="NoteText">When changing targets or a target's color, some areas of an image may become transparent.</p>
+</li>
+</ul>
+<h4><img src="Square.bmp" style="border: none;" alt="" width="12" height="10" border="0">Previewing Color Objects</h4>
+<p>Draw a color object, part, or image on a panel and change either the target type or the target color. The panel editor automatically converts the object’s color to a color supported by the new target type or the new target color.</p>
+<h4><img src="Square.bmp" style="border: none;" alt="" width="12" height="10" border="0">Color Conversion Rules</h4>
+<p>Color conversion is based on a color's luminescence. Color luminescence is shown on the gradient slider.</p>
+<ul>
+<li class="p-Bullet">
+<p class="Bullet">Monochrome Color Conversion</p>
+</li>
+<li class="p-bullet2">
+<p class="bullet2">A color becomes white when its luminescence is in the gradient slider's top <span style="font-weight: bold;">50%</span>.</p>
+</li>
+<li class="p-bullet2">
+<p class="bullet2">A color becomes black when its luminescence is in the gradient slider's bottom <span style="font-weight: bold;">50%</span>.</p>
+</li>
+</ul>
+<p style="margin-left: 80px;"><img src="percentage.bmp" style="border: none;" alt="" width="413" height="271" border="0"></p>
+<ul>
+<li class="p-Bullet">
+<p class="Bullet">16 Level Color Conversion</p>
+</li>
+<li class="p-bullet2">
+<p class="bullet2">When converting colors into 16 Level Gray Scale, the gradient slider is segmented into 16 equal segments. Each segment is <span style="font-weight: bold;">6.25%</span> of the gradient slider's total size. Depending on where a color's luminescence is on the gradient slider, the color converts into one of the 16 gray scale colors. For example, if a color's luminescence is in the bottom segment, the color converts to black.</p>
+</li>
+</ul>
+<p style="margin-left: 80px;"><img src="16_percentage.bmp" style="border: none;" alt="" width="413" height="271" border="0"></p>
+<ul>
+<li class="p-Bullet">
+<p class="Bullet">Color Conversion for High Color Resolution to Low Color Resolution</p>
+</li>
+<li class="p-bullet2">
+<p class="bullet2">Colors are converted into the closest associated color.</p>
+</li>
+<li class="p-Bullet">
+<p class="Bullet">Color Conversion for Reverse - Monochrome or Reverse - 16 Level Gray Scale</p>
+</li>
+<li class="p-bullet2">
+<p class="bullet2">Reverse - Monochrome and Reverse - 16 Level Gray Scale use the same conversion rules as Monochrome and 16 Level Gray Scale conversion; however, the colors become reversed at run time and Simulation. For example, when changing the target color from 256 Colors to Reverse - Monochrome, the object's color converts to black in the Editor. When the object is viewed during run time or during Simulation, the object's color converts to white.</p>
+</li>
+</ul>
+<p class="Image" style="margin-left: 80px;"><img src="monochrome_inverted.bmp" style="border: none;" alt="" width="382" height="95" border="0"></p>
+<p class="NoteImage"><img src="note_moji.bmp" style="border: none;" alt="" width="51" height="25" border="0"></p>
+<ul>
+<li class="p-NoteText">
+<p class="NoteText">We recommend you create all your objects in color if you are creating a project for a monochrome target machine. The project is more versatile and you can easily move your project to a color-supported target machine in the future.</p>
+</li>
+</ul>
+</body>
+</html>

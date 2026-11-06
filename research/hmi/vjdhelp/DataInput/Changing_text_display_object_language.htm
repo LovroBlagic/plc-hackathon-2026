@@ -1,0 +1,198 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+<meta name="template" content="Vijeo_template.htt">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="date" content="07 17, 2003 4:52:44 PM">
+ <meta name="generator" content="Adobe RoboHelp 10">
+<title>Switching Text Files By Language</title>
+<link rel="StyleSheet" href="TIS-STYL.CSS" type="text/css">
+</head>
+<body>
+<script type="text/javascript" src="ehlpdhtm.js" language="JavaScript1.2"></script>
+
+<div style="width: 100%; position: relative;" id="header">
+	<table style="background-attachment: scroll; margin-left: 0px; margin-right: 4px; 
+			 background-image: url(top_banner.bmp); background-repeat: Repeat-X; 
+			 line-height: 0pt; vertical-align: top;" cellspacing="0" width="100%" 
+			 background="top_banner.bmp">
+		<col style="width: 90%;">
+		<col style="width: 5%;">
+		<col style="width: 5%;">
+		<tr style="vertical-align: center; height: 39px;">
+			<td style="width: 90%; padding-right: 10px; padding-left: 10px; 
+				 border-right-color: #000000;">
+   <p><img src="logo.bmp" style="border: none;" alt="" width="37" height="37" border="0"></p></td>
+			<td style="width: 5%; padding-right: 0px; padding-left: 10px; 
+				 border-right-color: #000000;">
+   <p style="text-align: center;"><a 
+			 title="Glossary" href="Appendix.chm::/Glossary.htm"><img src="logo_glossary.bmp" style="border: none;" alt="" width="47" height="37" border="0"></a></p></td>
+			<td style="width: 5%; padding-right: 10px; padding-left: 5px; 
+				 border-right-color: #000000;">
+   <p style="text-align: center;"><a 
+			 href="About.chm::/What_is_Vijeo-Designer.htm" title="Home"><img src="logo_home.bmp" alt="Home" title="Home" style="border: none; 
+			 margin-left: 0px; margin-right: 0px; margin-bottom: 0px; margin-top: -2px;" width="47" height="37" border="0"></a></p></td>
+		</tr>
+	</table>
+</div>
+
+<h3>11.7.2.3 Switching Text Files by Language</h3>
+<p style="margin-left: 0px;">With Text Display, you can display a different text file depending on the current language.</p>
+<p style="margin-left: 0px;">You can, for instance, display an English text file when you are in an English environment or a French file when you are in a French environment. This means that you can set up a single project with multiple languages and reduce maintenance costs, because you do not have to create French and English project files separately.</p>
+<p class="Image"><span style="text-align: center;"><img src="text%20display_language1.bmp" style="border: none;" alt="" width="457" height="230" border="0"></span></p>
+<p style="margin-left: 0px;">This section explains how to <span style="margin-left: 0px;">switch text files in the Text Display according to language</span>.</p>
+<ol style="list-style: decimal;">
+<li class="p">
+<p>Set up multiple languages in Vijeo-Designer.</p>
+</li>
+</ol>
+<p style="margin-left: 40px;">You can define up to 15 languages. For more information on setting up languages, see Section 20.2, <a href="FrequentOperations.chm::/Changing_Languages.htm">Switching Languages</a>.</p>
+<ol start="2" style="list-style: decimal;">
+<li class="p">
+<p>Create text display files for each language using any text editor such as Microsoft Notepad. Always save with Unicode character encoding regardless of the language.</p>
+</li>
+<li class="p">
+<p>In the Navigator window's Project tab, double-click Environment under the Target node, double-click Data Files, and then right-click the Text node to open the Text File Editor.</p>
+</li>
+</ol>
+<ol start="4" style="list-style: decimal;">
+<li class="p">
+<p>Define a text file in the File Name field. When the location of a text file is specified, the Alias field fills in automatically with the name of the file without the extension. You can change the alias to a different name.</p>
+</li>
+</ol>
+<p class="Image" style="margin-left: 40px;"><img src="test%20display_alias.bmp" style="border: none;" alt="" width="400" height="38" border="0"></p>
+<ol start="5" style="list-style: decimal;">
+<li class="p">
+<p>To each alias, append two digits to identify the user language. The language ID must be between 00 and 99. If your project has user Language IDs that exceed this range, they cannot be used with the text display.</p>
+</li>
+</ol>
+<p class="Image" style="margin-left: 40px;"><span style="text-align: center; margin-left: 40px;"><img src="languageNO%20variable.bmp" style="border: none;" alt="" width="140" height="48" border="0"></span></p>
+<p class="NoteImage" style="margin-left: 40px;"><img src="NOTE_MOJI.bmp" style="border: none;" alt="" width="51" height="25" border="0"></p>
+<ul>
+<li class="p-NoteText2">
+<p class="NoteText2">Language ID<br>
+In Vijeo-Designer, you can add up to 15 languages to a single project. Each language is assigned a language ID when it is created. To switch between languages in the Text Display, you must enter the language ID after the alias to match the corresponding user language.<br>
+You can check the ID for a particular language by checking the language node properties in the Languages node. You can edit the ID for each language.<br>
+For more information, see Section 20.2, <a href="FrequentOperations.chm::/Changing_Languages.htm">Switching Languages</a>.</p>
+</li>
+</ul>
+<ol start="6" style="list-style: decimal;">
+<li class="p">
+<p>Click Add. Repeat steps 2 to 5 to add all the text files and use the same alias for all the files. Only the language ID can be different.</p>
+</li>
+</ol>
+<p class="Image" style="margin-left: 40px;"><img src="Vijeo_text_display_add_alias.bmp" style="border: none;" alt="" width="382" height="259" border="0"></p>
+<p style="margin-left: 40px;">Example:</p>
+<p class="Code" style="margin-left: 80px;">Alias: Error<br>
+Language ID 01 = Error_E.txt<br>
+Language ID 02 = Error_F.txt</p>
+<p style="margin-left: 40px;">When you use the above 2 text files, your entries should look like this:</p>
+<p class="Image" style="margin-left: 40px;"><img src="Input_AliasandFilename.bmp" style="border: none;" alt="" width="389" height="56" border="0"></p>
+<ol start="7" style="list-style: decimal;">
+<li class="p">
+<p>Select the location the text files are stored.</p>
+</li>
+</ol>
+<p class="Image" style="margin-left: 40px;"><img src="StorageOptions.bmp" style="border: none;" alt="" width="347" height="405" border="0"></p>
+<p class="Image" style="margin-left: 40px;">&#160;</p>
+<table style="vertical-align: top; margin-left: 40px;" cellspacing="0" width="94.68%">
+<col style="width: 20.496%;">
+<col style="width: 79.504%;">
+<tr style="vertical-align: top;">
+<td style="border-top: Solid 3px #000000; border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 20.496%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#CBD9ED">
+<p class="TableDefinitions">Main Drive</p>
+</td>
+<td style="border-top: Solid 3px #000000; border-bottom: Solid 1px #000000; width: 79.504%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">Downloads text files to internal memory (flash memory).</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 20.496%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#CBD9ED">
+<p class="TableDefinitions">Secondary Drive</p>
+</td>
+<td style="border-bottom: Solid 1px #000000; width: 79.504%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">Downloads text files to the Secondary Drive.</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 3px #000000; width: 20.496%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#CBD9ED">
+<p class="TableDefinitions">Optional Drive</p>
+</td>
+<td style="border-bottom: Solid 3px #000000; width: 79.504%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">Downloads text files to the Optional Drive.</p>
+</td>
+</tr>
+</table>
+<ol start="8" style="list-style: decimal;">
+<li class="p">
+<p>Click the Toolchest icon <img src="toolchest_icon.bmp" style="border: none;" alt="" width="22" height="22" border="0"> to open the Toolchest window, and select the Text Display folder.</p>
+</li>
+</ol>
+<ol start="9" style="list-style: decimal;">
+<li class="p">
+<p>Move the Text Display onto the panel using the drag and drop operation.</p>
+</li>
+</ol>
+<ol start="10" style="list-style: decimal;">
+<li class="p">
+<p>In the Property Inspector, edit the AliasName and Font properties.</p>
+</li>
+</ol>
+<p style="margin-left: 40px;">Define other properties if necessary. You can combine the File Number, Block Number, and Line Number together in the same Text Display.</p>
+<ol start="10" style="list-style: decimal;">
+<li class="p-bullet2">
+<p class="bullet2">In AliasName, enter the text file alias, without the two-digit language ID</p>
+</li>
+</ol>
+<ul>
+<li class="p-bullet2">
+<p class="bullet2">In the Font property, define the font used to display the text in the corresponding language. Click <img src="Ellipsis.bmp" style="border: none;" alt="" width="26" height="19" border="0"> to display the Font Editor dialog box and define the font for each language.</p>
+</li>
+</ul>
+<p style="margin-left: 80px;">Example:<br>
+Language1 = English text file and Language2 = Japanese text file<span style="margin-left: 80px;"><br>
+Choose an English font for Language1.</span></p>
+<p class="Image" style="margin-left: 80px;"><img src="Vijeo_dialog_fontset2.bmp" style="border: none;" alt="" width="300" height="192" border="0"></p>
+<p style="margin-left: 80px;">Switch to Language2 and select a Japanese font.</p>
+<p class="Image" style="margin-left: 80px;"><img src="Diarog-Fontset-changeLanguage.bmp" style="border: none;" alt="" width="219" height="59" border="0"></p>
+<p class="NoteImage" style="margin-left: 40px;"><img src="NOTE_MOJI.bmp" style="border: none;" alt="" width="51" height="25" border="0"></p>
+<ul>
+<li class="p-NoteText2">
+<p class="NoteText2">Text Display and Language Font<br>
+Text Display does not use the LanguageFont defined for each Language node. The text display uses the font as defined in the text object's TextFont property.</p>
+</li>
+</ul>
+<p class="NoteText2" style="margin-left: 80px;">For more information about using LanguageFont, see Section 20.2, <a href="FrequentOperations.chm::/Changing_Languages.htm">Switching Languages</a>.</p>
+<ol start="11">
+<li class="p">
+<p>At runtime, you can switch languages using one of two methods:</p>
+</li>
+</ol>
+<ol start="11">
+<li class="p-bullet2">
+<p class="bullet2">Touching a Change Application Language switch.</p>
+</li>
+</ol>
+<p class="Image" style="margin-left: 80px;"><img src="change%20language_by%20switch.bmp" style="border: none;" alt="" width="204" height="148" border="0"></p>
+<ol start="11">
+<li class="p-bullet2">
+<p class="bullet2">Entering a value in the User Application Language system variable.</p>
+</li>
+</ol>
+<p class="Image" style="margin-left: 80px;"><span style="color: #ff0000;"><img src="change%20language_by%20system%20value.bmp" style="border: none;" alt="" width="242" height="106" border="0"></span></p>
+<p style="margin-left: 40px; color: #000000;">The text display updates to display the defined text file with the corresponding font. For more information about switching languages, see Section 20.2, <a href="FrequentOperations.chm::/Changing_Languages.htm">Switching Languages</a>.</p>
+<p class="NoteImage" style="margin-left: 40px;"><img src="NOTE_MOJI.bmp" style="border: none;" alt="" width="51" height="25" border="0"></p>
+<ol start="12">
+<li class="p-NoteText2">
+<p class="NoteText2">You can switch languages and text files with a single command by entering a file ID and language ID after the alias.</p>
+</li>
+</ol>
+<p class="Image" style="margin-left: 80px;"><img src="fileNO&amp;lauguageNO.bmp" style="border: none;" alt="" width="216" height="52" border="0"></p>
+<p class="NoteText" style="margin-left: 80px;">Example:</p>
+<p class="Image" style="margin-left: 80px;"><img src="fileNo&amp;languageNo_example.bmp" style="border: none;" alt="" width="429" height="79" border="0"></p>
+<p class="Code" style="margin-left: 120px;">File ID 000 (Language1) = Error1_E.txt<br>
+File ID 001 (Language2) = Error2_F.txt<br>
+File ID 002 (Language1) = Error3_E.txt</p>
+</body>
+</html>

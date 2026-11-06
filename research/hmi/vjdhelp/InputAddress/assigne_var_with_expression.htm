@@ -1,0 +1,270 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+<meta name="template" content="Vijeo_template.htt">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="date" content="11 6, 2003 11:16:31 AM">
+<meta name="topic-status" content="In Progress">
+<meta name="topic-priority" content="0">
+<meta name="topic-time-estimate" content="0">
+<meta name="topic-id" content="">
+<meta name="window-type" content="$global_NewWindow">
+ <meta name="generator" content="Adobe RoboHelp 2015">
+<title>Expressions</title>
+<link rel="StyleSheet" href="Tis-styl.css" type="text/css">
+</head>
+<body>
+<script type="text/javascript" src="ehlpdhtm.js" language="JavaScript1.2"></script>
+
+<div style="width: 100%; position: relative;" id="header">
+	<table style="background-attachment: scroll; margin-left: 0px; margin-right: 4px; 
+			 background-image: url(top_banner.bmp); background-repeat: Repeat-X; 
+			 line-height: 0pt; vertical-align: top;" cellspacing="0" background="top_banner.bmp" 
+			 width="100%">
+		<col style="width: 90%;">
+		<col style="width: 5%;">
+		<col style="width: 5%;">
+		<tr style="vertical-align: center; height: 39px;">
+			<td style="width: 90%; padding-right: 10px; padding-left: 10px; 
+				 border-right-color: #000000;">
+   <p><img src="logo.bmp" alt="" style="border: none;" width="37" height="37" border="0"></p></td>
+			<td style="width: 5%; padding-right: 0px; padding-left: 10px; 
+				 border-right-color: #000000;">
+   <p style="text-align: center;"><a 
+			 title="Glossary" href="Appendix.chm::/Glossary.htm"><img src="logo_glossary.bmp" alt="" style="border: none;" width="47" height="37" border="0"></a></p></td>
+			<td style="width: 5%; padding-right: 10px; padding-left: 5px; 
+				 border-right-color: #000000;">
+   <p style="text-align: center;"><a 
+			 href="About.chm::/What_is_Vijeo-Designer.htm" title="Home"><img src="logo_home.bmp" alt="Home" title="Home" style="border: none; 
+			 margin-left: 0px; margin-right: 0px; margin-bottom: 0px; margin-top: -2px;" width="47" height="37" border="0"></a></p></td>
+		</tr>
+	</table>
+</div>
+
+
+<h1>6.14 Assigning Variables Using Expressions</h1>
+<h2><a name="6_9_1_What_are_Expressions_642b3b9347ca42c9b00b820c00c373fa=1"></a><a name="6_9_1_What_are_Expressions_"></a>6.14.1 What are Expressions?</h2>
+<p>Expressions are equations, similar to scripts, that allow you to use variables easily. You can create expressions anywhere the <img src="expression_button.bmp" alt="" style="border-right: medium none; border-top: medium none; border-left: medium none; border-bottom: medium none;" width="21" height="17" border="0"> icon is displayed. The following example shows expressions typed in the Animation dialog box.</p>
+<p class="Image"><img src="expressions_in_dialog_box.bmp" alt="" style="border: none;" width="400" height="124" border="0"></p>
+<p class="Image">You can enter multiple variables into a single expression, as long as their resulting data types are the same.</p>
+<p class="Image"><span style="color: #000000;">Expressions enable you to use variables with mathematical and conditional operators. Mathematical expressions are used to calculate numerical values such as TankLevel + 60. Conditional expressions are used to compare numerical values such as TankLevel &gt; 30.</span></p>
+<p>&#160;</p>
+<h2><a name="6_9_2_Entering_Expressions642b3b9347ca42c9b00b820c00c373fa=2"></a><a name="6_9_2_Entering_Expressions"></a>6.14.2 Entering Expressions</h2>
+<ol style="list-style: decimal; list-style-type: decimal;">
+<li class="p">
+<p>In the expression field, click <img src="expression_button.bmp" alt="" style="border-right: medium none; border-top: medium none; border-left: medium none; border-bottom: medium none;" width="21" height="17" border="0"> to display the Expression Editor Pad.</p>
+</li>
+</ol>
+<p style="margin-left: 40px;">To display a keypad and enter expressions, click <img src="ExpressionEditorPad-Icon.bmp" alt="" style="border: none;" width="37" height="35" border="0">.</p>
+<p class="Image" style="margin-left: 40px;">&#160;</p>
+<p style="margin-left: 40px;">The expression editor operates in the same way as a calculator. Enter an expression using the keypad, math function list, and variable list. The expression displays in the Expression box. If the expression is invalid, it displays in red. If the expression is valid, it displays in black. For examples of expressions, see the remainder of this chapter.</p>
+<ol start="2" style="list-style: decimal;">
+<li class="p">
+<p>Click OK to display the expression you typed in the Animation dialog box.</p>
+</li>
+</ol>
+<p class="NoteText"><img src="Limit.bmp" alt="" style="border: none;" width="77" height="24" border="0"></p>
+<ul>
+<li class="p-NoteText">
+<p class="NoteText">In the Animation Properties dialog box, expressions cannot exceed 225 characters (not including spaces).</p>
+</li>
+<li class="p-NoteText">
+<p class="NoteText">You can enter single expression only.&#160;Plus, you do not need a semicolon [ ; ] at the end of the expression.</p>
+</li>
+<li class="p-NoteText">
+<p class="NoteText">If there is an error in the expression, the expression displays in red.</p>
+</li>
+<li class="p-NoteText">
+<p class="NoteText">You cannot enter conditional expressions into Value Range and Display Range fields. Use mathematical expressions.</p>
+</li>
+<li class="p-NoteText">
+<p class="NoteText">In the Touch animation Condition Setting dialog box, use conditional expressions only.</p>
+</li>
+<li class="p-NoteText">
+<p class="NoteText">When you use a large array in expressions, it may slow some operations such as change panel and animations.</p>
+</li>
+<li class="p-NoteText">
+<p class="NoteText">Use string variables in string expressions only. Mathematical and conditional expressions do not support string variables.</p>
+</li>
+</ul>
+<h2><a name="6_9_3_Rules_for_Expressions642b3b9347ca42c9b00b820c00c373fa=3"></a><a name="6_9_3_Rules_for_Expressions"></a>6.14.3 Rules for Expressions</h2>
+<h4><img src="square.bmp" alt="" style="border: none;" width="12" height="10" border="0">Operators</h4>
+<p>Scripts and expressions are different. For example, you cannot use just any Script operator in expressions. Only t<span style="margin-left: 0px;">he following operators are supported:</span></p>
+<ul>
+<li class="p-Bullet">
+<p class="Bullet">Mathematical operators</p>
+</li>
+</ul>
+<table style="margin-left: 36px; vertical-align: top;" cellspacing="0" width="31.86%">
+<colgroup>
+<col style="width: 13.38%;">
+<col style="width: 12.13%;">
+<col style="width: 12.97%;">
+<col style="width: 12.97%;">
+<col style="width: 12.13%;">
+<col style="width: 12.13%;">
+<col style="width: 12.13%;">
+<col style="width: 12.13%;"></colgroup>
+<tr style="height: 16px; vertical-align: top;">
+<td style="padding-right: 10px; padding-left: 10px; width: 13.38%;">
+<p class="Tabletext">+</p>
+</td>
+<td style="padding-right: 10px; padding-left: 10px; width: 12.13%;">
+<p class="Tabletext" style="font-size: small;">-</p>
+</td>
+<td style="padding-right: 10px; padding-left: 10px; width: 12.97%;">
+<p class="Tabletext">*</p>
+</td>
+<td style="padding-right: 10px; padding-left: 10px; width: 12.97%;">
+<p class="Tabletext">/</p>
+</td>
+<td style="padding-right: 10px; padding-left: 10px; width: 12.13%;">
+<p class="Tabletext">(</p>
+</td>
+<td style="padding-right: 10px; padding-left: 10px; width: 12.13%;">
+<p class="Tabletext">)</p>
+</td>
+<td style="padding-right: 10px; padding-left: 10px; width: 12.13%;">
+<p class="Tabletext">&amp;</p>
+</td>
+<td style="padding-right: 10px; padding-left: 10px; width: 12.13%;">
+<p class="Tabletext">|</p>
+</td>
+</tr>
+</table>
+<ul>
+<li class="p-Bullet">
+<p class="Bullet">Conditional operators</p>
+</li>
+</ul>
+<table style="margin-left: 36px; vertical-align: top;" cellspacing="0">
+<colgroup>
+<col width="26">
+<col width="19">
+<col width="18">
+<col width="14">
+<col width="19">
+<col width="17">
+<col width="19">
+<col width="9">
+<col width="6">
+<col width="16">
+<col width="18"></colgroup>
+<tr style="height: 9px; vertical-align: top;">
+<td style="padding-right: 10px; padding-left: 10px;" width="26">
+<p class="Tabletext">! =</p>
+</td>
+<td style="padding-right: 10px; padding-left: 10px;" width="19">
+<p class="Tabletext">&lt;</p>
+</td>
+<td style="padding-right: 10px; padding-left: 10px;" width="18">
+<p class="Tabletext">&lt;=</p>
+</td>
+<td style="padding-right: 10px; padding-left: 10px;" width="14">
+<p class="Tabletext">&gt;</p>
+</td>
+<td style="padding-right: 10px; padding-left: 10px;" width="19">
+<p class="Tabletext">&gt;=</p>
+</td>
+<td style="padding-right: 10px; padding-left: 10px;" width="17">
+<p class="Tabletext">==</p>
+</td>
+<td style="padding-right: 10px; padding-left: 10px;" width="19">
+<p class="Tabletext">&amp;&amp;</p>
+</td>
+<td style="padding-right: 10px; padding-left: 10px;" width="9">
+<p class="Tabletext">||</p>
+</td>
+<td style="padding-right: 10px; padding-left: 10px;" width="6">
+<p class="Tabletext">!</p>
+</td>
+<td style="padding-right: 10px; padding-left: 10px;" width="16">
+<p class="Tabletext">(</p>
+</td>
+<td style="padding-right: 10px; padding-left: 10px;" width="18">
+<p class="Tabletext">)</p>
+</td>
+</tr>
+</table>
+<ul>
+<li class="p-Bullet">
+<p class="Bullet">Bit shift operators</p>
+</li>
+</ul>
+<table style="margin-left: 36px; vertical-align: top;" cellspacing="0" width="12.263%">
+<col>
+<col>
+<col>
+<tr style="height: 16px; vertical-align: top;">
+<td style="padding-right: 10px; padding-left: 10px; width: 13.38%;">
+<p class="Tabletext">&lt;&lt;</p>
+</td>
+<td style="padding-right: 10px; padding-left: 10px; width: 12.13%;">
+<p class="Tabletext" style="font-size: small;">&gt;&gt;</p>
+</td>
+<td style="padding-right: 10px; padding-left: 10px; width: 12.97%;">
+<p class="Tabletext">&gt;&gt;&gt;</p>
+</td>
+</tr>
+</table>
+<p class="Bullet">&#160;</p>
+<p>For information about how each of these operators work, see Section 18.3.5, <a href="Scripts.chm::/Operators.htm">Operators</a>.</p>
+<h4><img src="square.bmp" alt="" style="border: none;" width="12" height="10" border="0">Data Type</h4>
+<p style="margin-left: 0px; color: #000000;">If the data types are identical, you can use multiple variables&#160;in one&#160;expression. The following is an example of a valid expression, where the two variables&#160;are of the same&#160;DINT data type:</p>
+<ul>
+<li class="p-Bullet" style="color: #000000;">
+<p class="Bullet" style="color: #000000;">MyDINT01 + MyDINT02</p>
+</li>
+</ul>
+<p style="margin-left: 0px; color: #000000;">The following is an example of an invalid expression, where the two variables&#160;are of data types&#160;DINT and STRING respectively:</p>
+<ul>
+<li class="p-Bullet" style="color: #000000;">
+<p class="Bullet" style="color: #000000;">MyDINT01 + MyString01</p>
+</li>
+</ul>
+<p>When expressions are displayed in red, it means that there is an error in the expression. Variables with different types will not work in an expression.</p>
+<h2><a name="6_9_4_Using_Arrays_in_Expressions642b3b9347ca42c9b00b820c00c373fa=4"></a><a name="6_9_4_Using_Arrays_in_Expressions"></a>6.14.4 Using Arrays in Expressions</h2>
+<p>When specifying array elements, you can enter element numbers such as Tank[5] and Tank[13].<br>
+If you use script methods, you can also use variables to specify the array element, as in Tank[MyInteger.getIntValue() + 10].</p>
+<p>For example, if you want to change the reference to an array element depending on the amount of water in the tank, use an expression in the Animation Properties dialog box.</p>
+<ol style="list-style: decimal;">
+<li class="p">
+<p>Display the Animation Properties dialog box.</p>
+</li>
+<li class="p">
+<p>Type the array variable <span style="font-weight: bold;">Tank[ ]</span> then use the variable <span style="font-weight: bold;">water</span> to specify the array element, <span style="font-weight: bold;">Tank[water</span><span style="font-weight: bold;">.getIntValue( )</span><span style="font-weight: bold;">]</span></p>
+</li>
+</ol>
+<p class="Image" style="text-indent: -40px; margin-left: 80px;"><img src="expression-example.bmp" alt="" style="border: none;" width="400" height="87" border="0"></p>
+<p class="NoteImage"><img src="NOTE_MOJI.BMP" alt="" style="border: none;" width="51" height="25" border="0"></p>
+<ul>
+<li class="p-NoteText">
+<p class="NoteText">The above example describes how to indirectly access elements in Vijeo Designer variable arrays. Be careful when using this method to define array elements, especially when there are many elements in the Vijeo Designer variable array.</p>
+</li>
+</ul>
+<p class="NoteText" style="margin-left: 40px;">For example, when Tank has 200 elements and you use the above expression, all 200 elements in the array must be loaded into memory. The amount of space required is the same as if 200 individual variables were loaded into memory.</p>
+<p class="NoteText" style="margin-left: 40px;">To avoid this memory problem, use a constant to define the array element: <span style="font-weight: bold;">Tank[10]</span></p>
+<p style="font-weight: bold;"><img src="Limit.bmp" alt="" style="border: none;" width="77" height="24" border="0"></p>
+<ul>
+<li class="p-NoteText" style="font-weight: bold;">
+<p class="NoteText"><span style="font-weight: normal;">Array variable elements cannot be used to define other array variable elements. For example, the following expression would fail validation:</span> Tank[Array[1].getIntValue()]</p>
+</li>
+</ul>
+<h2><a name="6_10_5642b3b9347ca42c9b00b820c00c373fa=5"></a><a name="6_10_5"></a>6.14.5 Using Structure, Folder, and Recipe Variables in Expressions</h2>
+<p>In folder and recipe variables, the topmost node is a folder that organizes variables for easy viewing and referencing.</p>
+<p class="Image"><img src="Recipe_and_structure_variables.bmp" alt="" style="border: none;" width="181" height="172" border="0"></p>
+<p>When specifying elements of structure, folder and recipe variables, type the node and variable name, for example:</p>
+<ul>
+<li class="p-Bullet">
+<p class="Bullet">RecipeGroup1.BOOL01</p>
+</li>
+<li class="p-Bullet">
+<p class="Bullet">Folder01.STRING01</p>
+</li>
+<li class="p-Bullet">
+<p class="Bullet">Structure101.REAL01</p>
+</li>
+</ul>
+</body>
+</html>

@@ -1,0 +1,116 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+<meta name="template" content="Vijeo_template.htt">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+ <meta name="generator" content="Adobe RoboHelp 10">
+<title>Vijeo Design'Air Overview</title>
+<link rel="StyleSheet" href="TIS-STYL.CSS" type="text/css">
+</head>
+
+<body>
+<script type="text/javascript" src="ehlpdhtm.js" language="JavaScript1.2"></script>
+
+<div style="width: 100%; position: relative;" id="header">
+	<table style="background-attachment: scroll; margin-left: 0px; margin-right: 4px; 
+			 background-image: url(top_banner.bmp); background-repeat: Repeat-X; 
+			 line-height: 0pt; vertical-align: top;" cellspacing="0" background="top_banner.bmp" 
+			 width="100%">
+		<col style="width: 90%;">
+		<col style="width: 5%;">
+		<col style="width: 5%;">
+		<tr style="vertical-align: center; height: 39px;">
+			<td style="width: 90%; padding-right: 10px; padding-left: 10px; 
+				 border-right-color: #000000;">
+   <p><img src="logo.bmp" alt="" style="border: none;" width="37" height="37" border="0"></p></td>
+			<td style="width: 5%; padding-right: 0px; padding-left: 10px; 
+				 border-right-color: #000000;">
+   <p style="text-align: center;"><a 
+			 title="Glossary" href="Appendix.chm::/Glossary.htm"><img src="logo_glossary.bmp" alt="" style="border: none;" width="47" height="37" border="0"></a></p></td>
+			<td style="width: 5%; padding-right: 10px; padding-left: 5px; 
+				 border-right-color: #000000;">
+   <p style="text-align: center;"><a 
+			 href="About.chm::/What_is_Vijeo-Designer.htm" title="Home"><img src="logo_home.bmp" alt="Home" title="Home" style="border: none; 
+			 margin-left: 0px; margin-right: 0px; margin-bottom: 0px; margin-top: -2px;" width="47" height="37" border="0"></a></p></td>
+		</tr>
+	</table>
+</div>
+
+<h2>23.1.2 Vijeo Design'Air</h2>
+<p>Vijeo Design'Air application enables you to connect to a target machine 
+ by using a tablet or smartphone. Depending 
+ on the target machine's <a href="Setting_Up_RMV_Server.htm#Remote Management Settings">remote 
+ management</a> settings, using a tablet or smartphone, you can view, control, 
+ and interact with the target machine over a wireless network. The target 
+ machine acts as the server, while the tablet or smartphone acts as the 
+ client.</p>
+<p>When connected to a target machine, Vijeo Design'Air client displays:</p>
+<ul>
+	<li class="p-Bullet"><p class="Bullet">A synchronized screen-by-screen 
+	 view of the HMI application that runs on the server</p></li>
+	<li class="p-Bullet"><p class="Bullet">The events that are taking place 
+	 on the HMI screen</p></li>
+	<li class="p-Bullet"><p class="Bullet">Actions that are being performed 
+	 by a local operator.</p></li>
+</ul>
+<p><img src="RMV_image.bmp" alt="" style="border: none;" width="450" height="308" border="0"></p>
+<p>When you remotely access a target machine using the Vijeo Design'Air 
+ client, you will have the same access rights and credentials as the local 
+ operator that is already logged into the target machine. This feature 
+ enables you to monitor or work together with another operator on a target 
+ machine. You must not allow for both operators to set the same variable 
+ at the same time as this will have unpredictable results. You can limit 
+ the remote access to the target machine by changing the security settings 
+ of Vijeo Design'Air server. For more information, see Sections <a href="Air_Server_Security.htm">Vijeo 
+ Design'Air Server Security</a> and <a href="Air_System_Variables.htm">Vijeo 
+ Design'Air System Variables</a>.</p>
+<p><img src="NOTE_MOJI.BMP" alt="" style="border: none;" width="51" height="25" border="0"></p>
+<ul>
+	<li class="p-NoteText"><p class="NoteText">When designing a project 
+	 for Vijeo Design'Air, carefully consider the potential of accidental 
+	 touches on objects that run operations. Apply security levels on such 
+	 objects to prevent unintended or unauthorized access. You must also 
+	 inform and warn the operators of hazards related to operating machinery 
+	 remotely. For more information on how to secure the target machines 
+	 and objects, see Section 4.8, <a href="StandardOperation.chm::/security_overview.htm">Setting 
+	 up Security Protection for Targets and Projects</a>, Section 4.8.2.1, 
+	 <a href="StandardOperation.chm::/protect_panel_switch.htm">Protecting 
+	 Panels and Switches from Unauthorized Users</a>, and Section 9.6, 
+	 <a href="Switches.chm::/Use_Interlock_function.htm">Using Interlock 
+	 to Prevent Accidental Touch Input</a>.</p></li>
+</ul>
+<h4><img src="Square.bmp" alt="" style="border: none;" width="12" height="10" border="0">Setting Up Vijeo Design'Air</h4>
+<p>To set up the remote access, you must configure both the server and 
+ the client:</p>
+<ul>
+	<li class="p-Bullet"><p class="Bullet">Vijeo Design'Air server — To set up the server, first enable 
+	 the remote management settings in Vijeo Designer, then proceed with 
+	 validating and downloading the project to the target machine. The 
+	 Vijeo Design'Air server is downloaded to the target machine as part 
+	 of the Vijeo Designer Runtime files and automatically runs when the 
+	 target machine starts up. For more information, see Section 23.1.2.1, 
+	 <a href="WebMonitoring.chm::/Setting_Up_RMV_Server.htm">Setting up 
+	 Vijeo Design'Air Server</a>.</p></li>
+	<li class="p-Bullet"><p class="Bullet">Vijeo Design'Air client — To set up the client, first download 
+	 the Vijeo Design'Air application from the application marketplace 
+	 (for example, Google Play or App Store) to your tablet or smartphone. 
+	 Then run the client application to identify, select, and connect to 
+	 the target machine (the server). For more information, see Section 
+	 23.1.2.2, <a href="WebMonitoring.chm::/Setting_Up_RMV_Client.htm">Setting 
+	 Up Vijeo Design'Air Client - Android</a>, and Section 23.1.2.3, <a 
+	 href="Air_for_iOS.htm">Setting Up Vijeo Design'Air Client - iOS</a>.</p></li>
+</ul>
+<p><img src="NOTE_MOJI.BMP" alt="" style="border: none;" width="51" height="25" border="0"></p>
+<ul>
+	<li class="p-NoteText"><p class="NoteText">Tablets and smartphones 
+	 must use Android 2.3.3 or later, or iOS 6.0 or later.</p></li>
+	<li class="p-NoteText"><p class="NoteText">At any given time, only 
+	 one Vijeo Design'Air client can connect to the server.</p></li>
+	<li class="p-NoteText"><p class="NoteText">Not all target machines 
+	 support Vijeo Design'Air. For a complete list of supported target 
+	 machines, see Appendix 5.2, <a href="Appendix.chm::/Hardware_Specifications.htm">Features 
+	 Supported by Hardware Platforms</a>.</p></li>
+</ul>
+</body>
+</html>

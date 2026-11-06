@@ -1,0 +1,376 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+<meta name="template" content="Vijeo_template.htt">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="date" content="07 11, 2003 2:55:23 PM">
+<meta name="topic-status" content="In Progress">
+<meta name="topic-priority" content="0">
+<meta name="topic-time-estimate" content="0">
+<meta name="topic-id" content="">
+ <meta name="generator" content="Adobe RoboHelp 2015">
+<title>Conditional Expressions used in Filters</title>
+<link rel="StyleSheet" href="Tis-styl.css" type="text/css">
+</head>
+<body>
+<script type="text/javascript" src="ehlpdhtm.js" language="JavaScript1.2"></script>
+
+<div style="width: 100%; position: relative;" id="header">
+	<table style="background-attachment: scroll; margin-left: 0px; margin-right: 4px; 
+			 background-image: url(top_banner.bmp); background-repeat: Repeat-X; 
+			 line-height: 0pt; vertical-align: top;" cellspacing="0" background="top_banner.bmp" 
+			 width="100%">
+		<col style="width: 90%;">
+		<col style="width: 5%;">
+		<col style="width: 5%;">
+		<tr style="vertical-align: center; height: 39px;">
+			<td style="width: 90%; padding-right: 10px; padding-left: 10px; 
+				 border-right-color: #000000;">
+   <p><img src="logo.bmp" alt="" style="border: none;" width="37" height="37" border="0"></p></td>
+			<td style="width: 5%; padding-right: 0px; padding-left: 10px; 
+				 border-right-color: #000000;">
+   <p style="text-align: center;"><a 
+			 title="Glossary" href="Appendix.chm::/Glossary.htm"><img src="logo_glossary.bmp" alt="" style="border: none;" width="47" height="37" border="0"></a></p></td>
+			<td style="width: 5%; padding-right: 10px; padding-left: 5px; 
+				 border-right-color: #000000;">
+   <p style="text-align: center;"><a 
+			 href="About.chm::/What_is_Vijeo-Designer.htm" title="Home"><img src="logo_home.bmp" alt="Home" title="Home" style="border: none; 
+			 margin-left: 0px; margin-right: 0px; margin-bottom: 0px; margin-top: -2px;" width="47" height="37" border="0"></a></p></td>
+		</tr>
+	</table>
+</div>
+
+
+<h2>6.16.5 Conditional Expressions Used in Filters</h2>
+<p>It is&#160;possible to combine conditions in Vijeo Designer's filters. Refer below&#160;to the explanations and examples of the delimiter types and their usage.</p>
+<p class="NoteImage"><img src="Note.bmp" alt="" style="border-right: medium none; border-top: medium none; border-left: medium none; border-bottom: medium none;" width="51" height="25" border="0"></p>
+<ul>
+<li class="p-NoteText">
+<p class="NoteText">Conditional expressions are case sensitive.</p>
+</li>
+</ul>
+<h4><img src="square.bmp" alt="" style="border: none;" width="12" height="10" border="0">List of Delimiters in Filter Conditional Expressions</h4>
+<table style="vertical-align: top; margin-left: 40px;" cellspacing="0" width="94.072%">
+<col style="width: 12.879%;">
+<col style="width: 87.121%;">
+<tr style="vertical-align: top;">
+<td style="border-top: Solid 3px #000000; border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 12.879%; vertical-align: top; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#91AFD9">
+<p class="Tabletitle" style="font-size: 11pt;">Delimiters</p>
+</td>
+<td style="border-top: Solid 3px #000000; border-bottom: Solid 1px #000000; width: 87.121%; vertical-align: top; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#91AFD9">
+<p class="Tabletitle" style="font-size: 11pt;">Description</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 12.879%; vertical-align: top; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#CBD9ED">
+<p class="Tabletext" style="font-weight: bold;">^</p>
+</td>
+<td style="border-bottom: Solid 1px #000000; width: 87.121%; vertical-align: top; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">For strings starting with <span style="font-weight: bold;">^</span>, variables&#160;with names that have&#160;their starting portion matching the filter string&#160;are retrieved.</p>
+<p class="Tabletext">For example, when MY is specified as the filter condition, all variables containing MY are retrieved, but when <span style="font-weight: bold;">^MY</span> is specified, only variables that have names starting with MY are retrieved.</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 12.879%; vertical-align: top; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#CBD9ED">
+<p style="font-weight: bold;">$</p>
+</td>
+<td style="border-bottom: Solid 1px #000000; width: 87.121%; vertical-align: top; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">For strings ending with <span style="font-weight: bold;">$</span>, variables with names that have an ending portion matching the filter string are retrieved.</p>
+<p class="Tabletext">For example, when DISK is specified as the filter condition, all variables containing DISK are retrieved, but when <span style="font-weight: bold;">DISK$</span> is specified, only variables that have names ending with DISK are retrieved.</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 12.879%; vertical-align: top; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#CBD9ED">
+<p class="Tabletext" style="font-weight: bold;">.</p>
+</td>
+<td style="border-bottom: Solid 1px #000000; width: 87.121%; vertical-align: top; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">A period in a conditional expression that represents any single character.</p>
+<p class="Tabletext">For example, when <span style="font-weight: bold; font-style: italic;">ABC</span> is specified as the filter condition, all variables containing ABC will be retrieved. However, when <span style="font-weight: bold;">A.C</span> is specified, AAC, ABC, AZC, and so on, are retrieved.</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 12.879%; vertical-align: top; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#CBD9ED">
+<p style="font-weight: bold;">[ ]</p>
+</td>
+<td style="border-bottom: Solid 1px #000000; width: 87.121%; vertical-align: top; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">Variables that match a single character that appears within the square brackets are retrieved.</p>
+<p class="Tabletext">The brackets can include character ranges, which are designated by a hyphen (-) between the first and last characters in the ASCII code range.</p>
+<p class="Tabletext">For example, when <span style="font-weight: bold;">[a-tA-TzZ]</span> is specified, variables with capital and small letters from A to T, and capital and small Z, are retrieved.</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 12.879%; vertical-align: top; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#CBD9ED">
+<p style="font-weight: bold;">( )</p>
+</td>
+<td style="border-bottom: Solid 1px #000000; width: 87.121%; vertical-align: top; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">Strings specified within parentheses ( ) are considered to be a single character.</p>
+<p class="Tabletext">For example, <span style="font-weight: bold;">^BA(NA)+$</span> displays BANA, BANANA, BANANANA, and so on, but filters out BANNA or BANNAAN. The <span style="font-weight: bold;">^</span> indicates that the variable must begin with <span style="font-weight: bold;">BANA</span>. The <span style="font-weight: bold;">+</span> indicates that the variable could have one or more number of occurrences of <span style="font-weight: bold;">NA</span>. The <span style="font-weight: bold;">$</span> indicates that the &#160;variable name must end with NA.</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 12.879%; vertical-align: top; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#CBD9ED">
+<p style="font-weight: bold;">*</p>
+</td>
+<td style="border-bottom: Solid 1px #000000; width: 87.121%; vertical-align: top; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">Expressions that match zero, one, or more occurrences of the preceding character or preceding expression in brackets.</p>
+<p class="Tabletext">For example, <span style="font-weight: bold;">Ar*gh</span> matches Agh, Argh, Arrgh, AArrgh, and so on. The expression <span style="font-weight: bold;">(AB)*45</span> matches 45, AB45, xxxAB45, xxxABAB45, and so on.</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 12.879%; vertical-align: top; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#CBD9ED">
+<p class="Tabletext" style="font-weight: bold;">+</p>
+</td>
+<td style="border-bottom: Solid 1px #000000; width: 87.121%; vertical-align: top; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">When at least one occurrence of the character immediately before the <span style="font-weight: bold;">+</span> (or the String in parentheses) exists, a match is found.</p>
+<p class="Tabletext">For example, when ABCD is specified as the filter condition, all variables containing ABCD are retrieved, but when <span style="font-weight: bold;">AB+CD</span> is specified, variables with names containing ABCD, ABBCD, ABBBCD are retrieved. However, ACD is not retrieved. Also when <span style="font-weight: bold;">(AB)+CD</span> is specified, variables with names containing ABCD, ABABCD, ABABABCD, and so on, are retrieved, but ACD, BCD and CD are not retrieved.</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 12.879%; vertical-align: top; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#CBD9ED">
+<p style="font-weight: bold;">?</p>
+</td>
+<td style="border-bottom: Solid 1px #000000; width: 87.121%; vertical-align: top; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">Variables that match zero or one occurrence of the preceding character or preceding expression in brackets are retrieved.</p>
+<p class="Tabletext">For example, when ABC is specified as the filter condition, all variables containing ABC will be retrieved, but when <span style="font-weight: bold;">AB?C</span> is specified, variables with names containing AC and ABC are retrieved; however, ADC and ABBC are not retrieved.</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 12.879%; vertical-align: top; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#CBD9ED">
+<p class="Tabletext" style="font-weight: bold;">|</p>
+</td>
+<td style="border-bottom: Solid 1px #000000; width: 87.121%; vertical-align: top; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">Variable names that match either the expression preceding the pipe character or the expression after the pipe character are retrieved.</p>
+<p class="Tabletext">For example, <span style="font-weight: bold;">DISC|BOOL</span> matches all variable names with the letters DISC or the letters BOOL anywhere in their names.</p>
+<p class="Tabletext">You cannot include spaces before and after the | character.</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 3px #000000; width: 12.879%; vertical-align: top; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#CBD9ED">
+<p class="Tabletext" style="font-weight: bold;">[^]</p>
+</td>
+<td style="border-bottom: Solid 3px #000000; width: 87.121%; vertical-align: top; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">Variables that match any character except the single characters or character ranges that follow the carat symbol ("<span style="font-weight: bold;">^</span>") are retrieved.</p>
+<p class="Tabletext">For example, <span style="font-weight: bold;">Mr[^A-Wa-z]</span> matches MrX, MrY, and MrZ, but does not match MrA, Mra, Mr or Mrx.</p>
+<p class="Tabletext">When <span style="font-weight: bold;">^[^_]</span> is specified, all system variables will no longer be displayed on the variable list, and when <span style="font-weight: bold;">^_</span> is specified, only system variables are displayed in the variable list.</p>
+</td>
+</tr>
+</table>
+<p>&#160;</p>
+<h4><img src="square.bmp" alt="" style="border: none;" width="12" height="10" border="0">Examples of Frequently Used Filters</h4>
+<p>Some examples of frequently used filters are shown below.</p>
+<ul>
+<li class="p-Bullet" style="font-weight: bold;">
+<p class="Bullet">Retrieving variables starting with specific characters</p>
+</li>
+</ul>
+<p style="margin-left: 40px;">To retrieve variables with names starting with the string ABC, specify <span style="font-weight: bold;">^ABC</span>.</p>
+<p style="margin-left: 40px;">To retrieve system variables (names starting with underscore), specify <span style="font-weight: bold;">^_</span>.</p>
+<ul>
+<li class="p-Bullet" style="font-weight: bold;">
+<p class="Bullet">Retrieving variables ending with specific characters</p>
+</li>
+</ul>
+<p style="margin-left: 40px;">To retrieve variables that have names ending with the string XYZ, use <span style="font-weight: bold;">XYZ$</span>.</p>
+<ul>
+<li class="p-Bullet" style="font-weight: bold;">
+<p class="Bullet">Retrieving variables that begin and end with specific characters</p>
+</li>
+</ul>
+<p style="margin-left: 40px;">To retrieve variables that have names starting with the string ABC and ending with XYZ, use <span style="font-weight: bold;">^ABC.*XYZ$</span>.</p>
+<ul>
+<li class="p-Bullet" style="font-weight: bold;">
+<p class="Bullet">Retrieving variables with names containing specific numbers</p>
+</li>
+</ul>
+<p style="margin-left: 40px;">Variable default names begin with the variable type followed by a counter. For example, new integer variables are named Integer1, Integer2, and so on. For a list of these variables, use <span style="font-weight: bold;">^Integer[0-9]+$</span></p>
+<p class="NoteImage"><img src="Note.bmp" alt="" style="border-right: medium none; border-top: medium none; border-left: medium none; border-bottom: medium none;" width="51" height="25" border="0"></p>
+<ul>
+<li class="p-NoteText">
+<p class="NoteText">The above specification does not apply to&#160;names with only <span style="font-weight: bold;">Integer</span> and no number.&#160;If <span style="font-weight: bold;">Integer</span> is also to be included in the retrieval, specify <span style="font-weight: bold;">^Integer[0-9]*$</span>.</p>
+</li>
+</ul>
+<h4><img src="square.bmp" alt="" style="border: none;" width="12" height="10" border="0">Filter Examples</h4>
+<p>The table below demonstrates how operators filter the variable list.</p>
+<table style="vertical-align: top; margin-left: 40px;" cellspacing="0" width="80%">
+<col style="width: 20.35%;">
+<col style="width: 22.196%;">
+<col style="width: 57.454%;">
+<tr style="vertical-align: top;">
+<td style="border-top: Solid 3px #000000; border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 20.35%; vertical-align: top; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#91AFD9">
+<p class="Tabletitle" style="font-size: 11pt;">Variable List</p>
+</td>
+<td style="border-top: Solid 3px #000000; border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 22.196%; vertical-align: top; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#91AFD9">
+<p class="Tabletitle" style="font-size: 11pt;">Filter Conditional Expression</p>
+</td>
+<td style="border-top: Solid 3px #000000; border-bottom: Solid 1px #000000; width: 57.454%; vertical-align: top; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#91AFD9">
+<p class="Tabletitle" style="font-size: 11pt;">Retrieved Variables</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td rowspan="14" style="border-right: Solid 1px #000000; border-bottom: Solid 3px #000000; width: 20.35%; vertical-align: top; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#CBD9ED">
+<p class="Tabletext">ABA</p>
+<p class="Tabletext">ABAA</p>
+<p class="Tabletext">ABAAAC</p>
+<p class="Tabletext">ABABAC</p>
+<p class="Tabletext">ABAC</p>
+<p class="Tabletext">ABADAC</p>
+<p class="Tabletext">ABBA</p>
+<p class="Tabletext">ABC</p>
+<p class="Tabletext">ACE</p>
+<p class="Tabletext">BABA</p>
+<p class="Tabletext">BABB</p>
+<p class="Tabletext">BCDA</p>
+<p class="Tabletext">BFAC</p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 22.196%; vertical-align: top; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px; background-color: Transparent;">
+<p>ABA</p>
+</td>
+<td style="border-bottom: Solid 1px #000000; width: 57.454%; vertical-align: top; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">ABA</p>
+<p class="Tabletext">ABAA</p>
+<p class="Tabletext">ABAAAC</p>
+<p class="Tabletext">ABABAC</p>
+<p class="Tabletext">ABAC</p>
+<p class="Tabletext">ABADAC</p>
+<p class="Tabletext">BABA</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 22.196%; vertical-align: top; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px; background-color: Transparent;">
+<p class="Tabletext">^ABA</p>
+</td>
+<td style="border-bottom: Solid 1px #000000; width: 57.454%; vertical-align: top; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">ABA</p>
+<p class="Tabletext">ABAA</p>
+<p class="Tabletext">ABAAAC</p>
+<p class="Tabletext">ABABAC</p>
+<p class="Tabletext">ABAC</p>
+<p class="Tabletext">ABADAC</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 22.196%; vertical-align: top; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px; background-color: Transparent;">
+<p>ABA$</p>
+</td>
+<td style="border-bottom: Solid 1px #000000; width: 57.454%; vertical-align: top; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">ABA</p>
+<p class="Tabletext">BABA</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 22.196%; vertical-align: top; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px; background-color: Transparent;">
+<p>B..A</p>
+</td>
+<td style="border-bottom: Solid 1px #000000; width: 57.454%; vertical-align: top; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">ABAAAC</p>
+<p class="Tabletext">ABABAC</p>
+<p class="Tabletext">ABADAC</p>
+<p class="Tabletext">BABA</p>
+<p class="Tabletext">BCDA</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 22.196%; vertical-align: top; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px; background-color: Transparent;">
+<p>[D-F]</p>
+</td>
+<td style="border-bottom: Solid 1px #000000; width: 57.454%; vertical-align: top; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">ABADAC</p>
+<p class="Tabletext">ACE</p>
+<p class="Tabletext">BCDA</p>
+<p class="Tabletext">BFAC</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 22.196%; vertical-align: top; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px; background-color: Transparent;">
+<p>^ABA+C</p>
+</td>
+<td style="border-bottom: Solid 1px #000000; width: 57.454%; vertical-align: top; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">ABAAAC</p>
+<p class="Tabletext">ABAC</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 22.196%; vertical-align: top; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px; background-color: Transparent;">
+<p>^A(BA)+C</p>
+</td>
+<td style="border-bottom: Solid 1px #000000; width: 57.454%; vertical-align: top; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">ABABAC</p>
+<p class="Tabletext">ABAC</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 22.196%; vertical-align: top; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px; background-color: Transparent;">
+<p>^ABA*C</p>
+</td>
+<td style="border-bottom: Solid 1px #000000; width: 57.454%; vertical-align: top; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">ABAAAC</p>
+<p class="Tabletext">ABAC</p>
+<p class="Tabletext">ABC</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 22.196%; vertical-align: top; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px; background-color: Transparent;">
+<p>^A(BA)*C</p>
+</td>
+<td style="border-bottom: Solid 1px #000000; width: 57.454%; vertical-align: top; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">ABABAC</p>
+<p class="Tabletext">ABAC</p>
+<p class="Tabletext">ACE</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 22.196%; vertical-align: top; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px; background-color: Transparent;">
+<p>^ABA?C</p>
+</td>
+<td style="border-bottom: Solid 1px #000000; width: 57.454%; vertical-align: top; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">ABAC</p>
+<p class="Tabletext">ABC</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 22.196%; vertical-align: top; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px; background-color: Transparent;">
+<p>^A(BA)?C</p>
+</td>
+<td style="border-bottom: Solid 1px #000000; width: 57.454%; vertical-align: top; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">ABAC</p>
+<p class="Tabletext">ACE</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 22.196%; vertical-align: top; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px; background-color: Transparent;">
+<p class="Tabletext">^AB.*C$</p>
+</td>
+<td style="border-bottom: Solid 1px #000000; width: 57.454%; vertical-align: top; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">ABAAAC</p>
+<p class="Tabletext">ABABAC</p>
+<p class="Tabletext">ABAC</p>
+<p class="Tabletext">ABADAC</p>
+<p class="Tabletext">ABC</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 22.196%; vertical-align: top; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px; background-color: Transparent;">
+<p>AA|BB|ABC</p>
+</td>
+<td style="border-bottom: Solid 1px #000000; width: 57.454%; vertical-align: top; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">ABAA</p>
+<p class="Tabletext">ABAAAC</p>
+<p class="Tabletext">ABBA</p>
+<p class="Tabletext">ABC</p>
+<p class="Tabletext">BABB</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 3px #000000; width: 22.196%; vertical-align: top; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px; background-color: Transparent;">
+<p>AB[^B]A</p>
+</td>
+<td style="border-bottom: Solid 3px #000000; width: 57.454%; vertical-align: top; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">ABAA</p>
+<p class="Tabletext">ABAAAC</p>
+</td>
+</tr>
+</table>
+<p>&#160;</p>
+</body>
+</html>

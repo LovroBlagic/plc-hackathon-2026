@@ -1,0 +1,92 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+<meta name="template" content="Vijeo_template.htt">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+ <meta name="generator" content="Adobe RoboHelp 10">
+<title>Duplicating Objects</title>
+<link rel="StyleSheet" href="Tis-styl.css" type="text/css">
+</head>
+<body>
+<script type="text/javascript" src="ehlpdhtm.js" language="JavaScript1.2"></script>
+
+<div style="width: 100%; position: relative;" id="header">
+	<table style="background-attachment: scroll; margin-left: 0px; margin-right: 4px; 
+			 background-image: url(top_banner.bmp); background-repeat: Repeat-X; 
+			 line-height: 0pt; vertical-align: top;" cellspacing="0" width="100%" 
+			 background="top_banner.bmp">
+		<col style="width: 90%;">
+		<col style="width: 5%;">
+		<col style="width: 5%;">
+		<tr style="vertical-align: center; height: 39px;">
+			<td style="width: 90%; padding-right: 10px; padding-left: 10px; 
+				 border-right-color: #000000;">
+   <p><img src="logo.bmp" style="border: none;" alt="" width="37" height="37" border="0"></p></td>
+			<td style="width: 5%; padding-right: 0px; padding-left: 10px; 
+				 border-right-color: #000000;">
+   <p style="text-align: center;"><a 
+			 title="Glossary" href="Appendix.chm::/Glossary.htm"><img src="logo_glossary.bmp" style="border: none;" alt="" width="47" height="37" border="0"></a></p></td>
+			<td style="width: 5%; padding-right: 10px; padding-left: 5px; 
+				 border-right-color: #000000;">
+   <p style="text-align: center;"><a 
+			 href="About.chm::/What_is_Vijeo-Designer.htm" title="Home"><img src="logo_home.bmp" alt="Home" title="Home" style="border: none; 
+			 margin-left: 0px; margin-right: 0px; margin-bottom: 0px; margin-top: -2px;" width="47" height="37" border="0"></a></p></td>
+		</tr>
+	</table>
+</div>
+
+<h2>7.4.5 Duplicating Objects</h2>
+<p style="color: #000080;">The Duplicate operation can also be performed with its corresponding Edit menu item or <span style="color: #000080;">its corresponding Edit toolbar icon <img src="dupli_but.bmp" style="margin: 0px;" alt="" width="24" height="24" border="0">.</span></p>
+<ol style="list-style: decimal;">
+<li class="p">
+<p>Right-click an object and click Duplicate to open the Duplicate dialog box.</p>
+</li>
+</ol>
+<ol start="2" style="list-style: decimal; list-style-type: decimal;">
+<li class="p">
+<p>Define the settings for the object's duplicates.</p>
+</li>
+</ol>
+<p style="font-weight: bold; margin-left: 40px;">Number of Copy: <span style="font-weight: normal;">The number of duplicates includes the selected object, set at the top-left position of the duplicated objects, and is limited by the panel size, object location, object size, spacing setting, etc.</span></p>
+<ul>
+<li class="p-bullet2">
+<p class="bullet2"><span style="font-weight: bold;">Columns:</span> Select the number of objects to display horizontally, for each row specified.</p>
+</li>
+<li class="p-bullet2">
+<p class="bullet2"><strong style="font-weight: bold;"><span style="font-weight: bold;">Rows</span>:</strong>&#160;Select the number of objects to display vertically, for each column specified.</p>
+</li>
+</ul>
+<p style="font-weight: bold; margin-left: 40px;">Increase Variable Name, Array Index, and Device Address: <span style="font-weight: normal;">Available only when a variable is associated with the selected object. When selected, you can then select either X or Y to increment the object's name and device address in either horizontal or vertical succession. Do not select this check box if you want the duplicates to retain the selected object's original name and device address.</span></p>
+<ul>
+<li class="p-bullet2">
+<p class="bullet2"><span style="font-weight: bold;">X direction:</span> Enter a number to increment the variable, variable array, or device address associated with the selected object, in horizontal succession, when an object is duplicated.</p>
+</li>
+</ul>
+<p style="margin-left: 80px;"><img src="DrawDuplicateX.bmp" style="border: none;" alt="" width="133" height="225" border="0"></p>
+<ul>
+<li class="p-bullet2">
+<p class="bullet2"><span style="font-weight: bold;">Y direction:</span> Enter a number to increment the variable, variable array, or device address associated with the selected object, in vertical succession, when an object is duplicated.</p>
+</li>
+</ul>
+<p style="margin-left: 80px;"><img src="DrawDuplicateY.bmp" style="border: none;" alt="" width="132" height="223" border="0"></p>
+<p class="bullet2" style="margin-left: 80px;">Example of Array Index increment:<br>
+When an object uses variable array elements [0] and [1], and you duplicate with Increment = 4, the duplicated objects contain, in succession, elements [4] and [5], [9] and [10], [13] and [14], and so on.</p>
+<p class="bullet2" style="margin-left: 80px;">Example of Variable Name and Device Address increment:<br>
+When an object uses a variable [DINT_03] with a device address of [CC041], and you duplicate with Increment = 6, the duplicated objects will contain, in succession, [DINT_09] set to [CC047], [DINT_15] set to [CC053], [DINT_21] set to [CC059], and so on.</p>
+<p style="font-weight: bold; margin-left: 40px;">Spacing</p>
+<ol>
+<li class="p-bullet2">
+<p class="bullet2"><span style="font-weight: bold;">X direction:</span> Enter the number of pixels between each of the horizontally duplicated objects. The default setting, 0, positions the objects in each row with no space between the horizontally adjacent objects.</p>
+</li>
+<li class="p-bullet2">
+<p class="bullet2"><span style="font-weight: bold;">Y direction:</span>&#160;Enter the number of pixels between each of the vertically duplicated objects. The default setting, 0, positions the objects in each column with no space between the vertically adjacent objects.</p>
+</li>
+<li class="p">
+<p style="font-weight: normal; margin-left: 0px;">Click OK to duplicate the selected object with the defined settings, and when the pop-up message to confirm the duplication displays, click OK.</p>
+</li>
+</ol>
+<p style="margin-left: 40px;">The duplicated objects will display on the panel as defined.</p>
+<p class="Image" style="margin-left: 40px;"><img src="Vijeo_DrawDuplicateArray0.bmp" style="border: none;" alt="" width="447" height="389" border="0"></p>
+</body>
+</html>

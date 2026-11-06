@@ -1,0 +1,53 @@
+<html>
+<!-- Sitemap 1.0 -->
+<object type="text/site properties">
+  <param name="SiteType" value="toc">
+  <param name="Image Width" value="16">
+  <param name="Window Styles" value="0x800002">
+  <param name="ExWindow Styles" value="0x100">
+</object>
+<ul>
+  <li><object type="text/sitemap">
+    <param name="Name" value="14.1 Message/Image Display: Overview">
+    <param name="Local" value="List_Tool_Overview.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="14.2 Message/Image Display Settings">
+    <param name="Local" value="List_Settings.htm">
+  </object>
+  <ul>
+    <li><object type="text/sitemap">
+      <param name="Name" value="14.2.1 General Tab">
+      <param name="Local" value="List_Settings_General_Tab.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="14.2.2 Input Mode Tab">
+      <param name="Local" value="List_Settings_Input_Mode_Tab.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="14.2.3 Visibility Tab">
+      <param name="Local" value="List_Settings_Visibility_Tab.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="14.2.4 Advanced Tab">
+      <param name="Local" value="List_Settings_Advanced_Tab.htm">
+    </object>
+    </ul>
+  <li><object type="text/sitemap">
+    <param name="Name" value="14.3 Example: Creating a Message Display">
+    <param name="Local" value="List_Example_Creating_Message_Display.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="14.4 Example: Creating an Image Display">
+    <param name="Local" value="List_Creating_a_Picture_Display.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="14.5 Example: Combined Message/Image Display">
+    <param name="Local" value="Example_of_a_Combined_Message_Picture_Display.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="14.6 Example: Changing to the Next/Previous State">
+    <param name="Local" value="List_Changing_Values.htm">
+  </object>
+</ul>
+</html>

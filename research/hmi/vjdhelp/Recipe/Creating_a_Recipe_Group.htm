@@ -1,0 +1,155 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+<meta name="template" content="Vijeo_template.htt">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="topic-status" content="In Progress">
+<meta name="topic-priority" content="0">
+<meta name="topic-time-estimate" content="0">
+<meta name="topic-comment" content="">
+<meta name="topic-id" content="Setting Up and Editing Recipe Variables">
+ <meta name="generator" content="Adobe RoboHelp 10">
+<title>Creating a Recipe Group</title>
+<link rel="StyleSheet" href="Tis-styl.css" type="text/css">
+</head>
+<body>
+<script type="text/javascript" src="ehlpdhtm.js" language="JavaScript1.2"></script>
+
+<div style="width: 100%; position: relative;" id="header">
+	<table style="background-attachment: scroll; margin-left: 0px; margin-right: 4px; 
+			 background-image: url(top_banner.bmp); background-repeat: Repeat-X; 
+			 line-height: 0pt; vertical-align: top;" cellspacing="0" width="100%" 
+			 background="top_banner.bmp">
+		<col style="width: 90%;">
+		<col style="width: 5%;">
+		<col style="width: 5%;">
+		<tr style="vertical-align: center; height: 39px;">
+			<td style="width: 90%; padding-right: 10px; padding-left: 10px; 
+				 border-right-color: #000000;">
+   <p><img src="logo.bmp" style="border: none;" alt="" width="37" height="37" border="0"></p></td>
+			<td style="width: 5%; padding-right: 0px; padding-left: 10px; 
+				 border-right-color: #000000;">
+   <p style="text-align: center;"><a 
+			 title="Glossary" href="Appendix.chm::/Glossary.htm"><img src="logo_glossary.bmp" style="border: none;" alt="" width="47" height="37" border="0"></a></p></td>
+			<td style="width: 5%; padding-right: 10px; padding-left: 5px; 
+				 border-right-color: #000000;">
+   <p style="text-align: center;"><a 
+			 href="About.chm::/What_is_Vijeo-Designer.htm" title="Home"><img src="logo_home.bmp" alt="Home" title="Home" style="border: none; 
+			 margin-left: 0px; margin-right: 0px; margin-bottom: 0px; margin-top: -2px;" width="47" height="37" border="0"></a></p></td>
+		</tr>
+	</table>
+</div>
+
+<h2>17.3.3 Creating a Recipe Group</h2>
+<p>To create and manage a recipe group, use the Recipes node in the Navigator window. You can create up to 32 recipe groups for each target.</p>
+<ol style="list-style: decimal;">
+<li class="p">
+<p>Right-click the Recipes node, and select New Recipe Group or New Parison Recipe Group.</p>
+</li>
+</ol>
+<p style="margin-left: 40px;">You have created a new recipe group. The Property Inspector for the new recipe group is displayed with default settings in the properties. The Recipe Group Editor is also displayed.</p>
+<p class="Image" style="margin-left: 40px;"><img src="VD_NewRecipeGroup2.bmp" style="border: none;" alt="" width="650" height="470" border="0"></p>
+<ol start="2" style="list-style: decimal;">
+<li class="p">
+<p>If you need to make changes to the recipe group properties, use the Property Inspector.</p>
+</li>
+</ol>
+<table style="vertical-align: top; margin-left: 40px;" cellspacing="0" width="91.304%">
+<col style="width: 19.528%;">
+<col style="width: 80.472%;">
+<tr style="vertical-align: top;">
+<td style="border-top: Solid 3px #000000; border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 19.528%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#91AFD9">
+<p class="Tabletitle">Property</p>
+</td>
+<td style="border-top: Solid 3px #000000; border-bottom: Solid 1px #000000; width: 80.472%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#91AFD9">
+<p class="Tabletitle">Description</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 19.528%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#CBD9ED">
+<p class="TableDefinitions">Name</p>
+</td>
+<td style="border-bottom: Solid 1px #000000; width: 80.472%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">The recipe group's name.</p>
+<p class="Tabletext">Whenever a recipe group is created, a default name is generated. When renaming a recipe group, its name must be unique within the target, must contain no more than 32 valid characters, and must follow the naming conventions.</p>
+<p class="Tabletext">For more information, see Appendix 9, <a href="Appendix.chm::/Change_name.htm">Naming Conventions</a>.</p>
+<p class="NoteImage"><img src="limit.bmp" style="border: none;" alt="" width="77" height="24" border="0"></p>
+<ul>
+<li class="p-NoteText">
+<p class="NoteText">The Name is not displayed at runtime in the Recipe Manager or other recipe list objects. The Label property stores the string displayed at runtime. If the application is set up with multiple languages, each language can use a different label for the recipe group.</p>
+</li>
+</ul>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 19.528%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#CBD9ED">
+<p class="TableDefinitions">RecipeGroupID</p>
+</td>
+<td style="border-bottom: Solid 1px #000000; width: 80.472%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">Displays a unique recipe group ID, ranging from 1 to 65535.</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 19.528%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#CBD9ED">
+<p class="TableDefinitions">Recipe Group Type</p>
+</td>
+<td style="border-bottom: Solid 1px #000000; width: 80.472%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p>Use this property to change a recipe group type to Normal or Parison.</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 19.528%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#CBD9ED">
+<p class="TableDefinitions">Access Right</p>
+</td>
+<td style="border-bottom: Solid 1px #000000; width: 80.472%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p>Enter a value from 0 to 65535 to indicate the access rights for the recipe group. Set to 0, if you do not want to use security. For more information, see Section 17.8.1, <a href="Setting_Up_Access_Rights.htm">Setting the User Access Right</a>.</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 19.528%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#CBD9ED">
+<p class="TableDefinitions">Label</p>
+</td>
+<td style="border-bottom: Solid 1px #000000; width: 80.472%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">Displays the recipe group name that will be displayed in runtime for the specified language. The label can be up to 32 characters long.</p>
+<p class="Tabletext">Click <img src="ellipsisIcon.bmp" style="border: none;" alt="" width="20" height="18" border="0"> to open the Recipe Group Label Editor and edit the label for other languages. For information about multi-language projects, see Section 20.2, <a href="FrequentOperations.chm::/Changing_Languages.htm">Switching Languages</a>.</p>
+<p class="Tabletext">You can overwrite the text string in all languages in the recipe group or copy the text string to all languages with no text string input.</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 3px #000000; width: 19.528%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#CBD9ED">
+<p class="TableDefinitions">Send Mode</p>
+</td>
+<td style="border-bottom: Solid 3px #000000; width: 80.472%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">Specify how you want the recipe data to be transmitted to and from the equipment during a Send or Snapshot operation. Select conditional or unconditional.</p>
+<ul>
+<li class="p-Bullet">
+<p class="Bullet">Send Conditional: In a Send operation, recipe data is sent to the equipment only if there are no communication errors. In a Snapshot operation, equipment data is placed in the recipe's ingredient values, only if the data is successfully retrieved from the equipment. The Send or Snapshot operation is not performed if, for example, the equipment is powered down.</p>
+</li>
+<li class="p-Bullet">
+<p class="Bullet">Send Unconditional: In a Send operation, recipe data is sent to the equipment, regardless of any errors. In a Snapshot operation, equipment data is placed in the recipe's ingredient values, regardless of any errors.</p>
+</li>
+</ul>
+</td>
+</tr>
+</table>
+<p style="margin-left: 40px;">&#160;</p>
+<p style="margin-left: 40px;">An empty recipe group entry is automatically created in the Variable Editor to contain the ingredient variables for this recipe group.</p>
+<ol start="3" style="list-style: decimal;">
+<li class="p">
+<p>Create variables in the recipe editor by adding ingredients. When you add ingredients and assign a variable, the variable is also added to the recipe group structure. In the Recipe Group Editor, you can specify that variables created in the Navigator window's Variable List be included in the Recipe Group List.</p>
+<ul>
+<li class="p-Bullet">
+<p class="Bullet">Recipe Group Variables used for ingredient values can be an integer type, REAL, BOOL, a Block Integer type, or Block REAL variables. For more information, see Chapter 6, <a href="InputAddress.chm::/About_Variables_and_Device_Addresses.htm">Creating Variables</a>.</p>
+</li>
+<li class="p-Bullet">
+<p class="Bullet">Parison Group Variables can only be one Block INT or one array of integer type with 64 to 400 elements.</p>
+</li>
+</ul>
+</li>
+<li class="p">
+<p>In the Recipe Group Editor, define or edit the ingredients, recipes, and other values for the recipe group. For more information, see Section 17.3.4, <a href="Editing_a_Recipe_Group.htm">Editing a Recipe Group</a>.</p>
+</li>
+</ol>
+</body>
+</html>

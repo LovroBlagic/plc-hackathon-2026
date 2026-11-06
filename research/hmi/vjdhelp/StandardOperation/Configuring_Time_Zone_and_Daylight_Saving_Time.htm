@@ -1,0 +1,174 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+<meta name="template" content="Vijeo_template.htt">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="topic-status" content="In Progress">
+<meta name="topic-priority" content="0">
+<meta name="topic-time-estimate" content="0">
+<meta name="topic-comment" content="">
+<meta name="topic-id" content="4.5.3_Configuring_Time_Zone_and_Daylight_Saving_Time">
+<meta name="window-type" content="$global_NewWindow">
+ <meta name="generator" content="Adobe RoboHelp 10">
+<title>Configuring Time Zone and Daylight Saving Time</title>
+<link rel="StyleSheet" href="Tis-styl.css" type="text/css">
+</head>
+<body>
+<script type="text/javascript" src="ehlpdhtm.js" language="JavaScript1.2"></script>
+
+<div style="width: 100%; position: relative;" id="header">
+	<table style="background-attachment: scroll; margin-left: 0px; margin-right: 4px; 
+			 background-image: url(top_banner.bmp); background-repeat: Repeat-X; 
+			 line-height: 0pt; vertical-align: top;" cellspacing="0" background="top_banner.bmp" 
+			 width="100%">
+		<col style="width: 90%;">
+		<col style="width: 5%;">
+		<col style="width: 5%;">
+		<tr style="vertical-align: center; height: 39px;">
+			<td style="width: 90%; padding-right: 10px; padding-left: 10px; 
+				 border-right-color: #000000;">
+   <p><img src="logo.bmp" alt="" style="border: none;" width="37" height="37" border="0"></p></td>
+			<td style="width: 5%; padding-right: 0px; padding-left: 10px; 
+				 border-right-color: #000000;">
+   <p style="text-align: center;"><a 
+			 title="Glossary" href="Appendix.chm::/Glossary.htm"><img src="logo_glossary.bmp" alt="" style="border: none;" width="47" height="37" border="0"></a></p></td>
+			<td style="width: 5%; padding-right: 10px; padding-left: 5px; 
+				 border-right-color: #000000;">
+   <p style="text-align: center;"><a 
+			 href="About.chm::/What_is_Vijeo-Designer.htm" title="Home"><img src="logo_home.bmp" alt="Home" style="border: none; margin-left: 0px; 
+			 margin-right: 0px; margin-bottom: 0px; margin-top: -2px;" width="47" height="37" border="0"></a></p></td>
+		</tr>
+	</table>
+</div>
+
+<h2>4.5.3 Displaying Data Using Time Zone and Configuring Daylight Saving Time</h2>
+<p>This section explains how the Time Zone and Daylight Saving Time affect how data is stored and displayed on a target. It also explains how to configure Daylight Saving Time.</p>
+<h4><img src="square.bmp" style="border: none;" alt="" width="12" height="10" border="0">Displaying Data using Time Zone and Daylight Saving Time</h4>
+<p>Targets store data using Greenwich Mean Time (GMT) and display data using the target's Time Zone and Daylight Saving Time settings. Therefore, the time displayed when viewing data at run time is GMT time, plus the Time Zone, plus Daylight Saving Time. When the time changes due to Daylight Saving Time, the stored data will not change, but the time displayed will. This applies to logged data, alarms, and event logs.</p>
+<h4><img src="square.bmp" style="border: none;" alt="" width="12" height="10" border="0">Configuring Daylight Saving Time</h4>
+<p>Some regions of the world change their time seasonally, such as turning the clock ahead one hour in Spring and turning the clock back one hour in Autumn. This is handled using the Daylight Saving Time settings.</p>
+<p>Open the Time Adjustment (Daylight Saving Time) dialog box by enabling the Time Adjustment property in the Target node. When a target is first created, Daylight Saving Time is set to the same settings as the editor computer. You can change the settings to match the geographic region where the target will be used. Daylight Saving Time must be set properly to ensure data is logged and displayed using the correct time.</p>
+<p>At run time, an event message appears when the time is changed due to Daylight Saving Time. Some targets do not allow changes to the Daylight Saving Time in Vijeo-Designer. For information on which targets allow Daylight Saving Time changes, see Appendix 5, <a href="Appendix.chm::/Hardware_Specifications.htm">Hardware Specifications</a>.</p>
+<p><img src="Daylight_Saving_Time.bmp" style="border: none;" alt="" width="486" height="315" border="0"></p>
+<table style="vertical-align: top;" cellspacing="0" width="100%">
+<col style="width: 17.451%;">
+<col style="width: 16.745%;">
+<col style="width: 65.804%;">
+<tr style="vertical-align: top;">
+<td style="border-top: Solid 3px #000000; border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 17.451%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#91AFD9">
+<p class="Tabletitle" style="font-size: 11pt;">Property</p>
+</td>
+<td colspan="2" style="border-top: Solid 3px #000000; border-bottom: Solid 1px #000000; width: 82.549%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#91AFD9">
+<p class="Tabletitle" style="font-size: 11pt;">Description</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 17.451%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#CBDAED">
+<p class="TableDefinitions">Type</p>
+</td>
+<td colspan="2" style="border-bottom: Solid 1px #000000; width: 82.549%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p>Select how the target determines when Daylight Saving Time starts and ends: either as a Rule, such as the "First Sunday March @ 2:00", or as a Date, such as "March 1 @ 2:00."</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td rowspan="5" style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 17.451%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#CBDAED">
+<p class="TableDefinitions">Rule - Add Time</p>
+</td>
+<td colspan="2" style="border-bottom: Solid 1px #000000; width: 82.549%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p>Configure when Daylight Saving Time starts according to the specified Rule.</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 16.745%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">Date (field name not displayed)</p>
+</td>
+<td style="border-bottom: Solid 1px #000000; width: 65.804%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">Select the occurrence of the day of the week that Daylight Saving Time begins: First, Second, Third, Fourth, Last.</p>
+<p class="Tabletext">For example, First Sunday of March.</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 16.745%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">Day of the Week (field name not displayed)</p>
+</td>
+<td style="border-bottom: Solid 1px #000000; width: 65.804%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">Select the day of the week that Daylight Saving Time begins: Sunday, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday.</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 16.745%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">Month (field name not displayed)</p>
+</td>
+<td style="border-bottom: Solid 1px #000000; width: 65.804%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">Select the month that Daylight Saving Time begins: January, February, March, April, May, June, July, August, September, October, November, December.</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 16.745%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">@ Time (field name not displayed)</p>
+</td>
+<td style="border-bottom: Solid 1px #000000; width: 65.804%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">Select the time, in 24 hour format, that Daylight Saving Time begins. The time can be any time between 00:00 to 23:59.</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 17.451%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#CBDAED">
+<p class="TableDefinitions">Rule - Subtract Time</p>
+</td>
+<td colspan="2" style="border-bottom: Solid 1px #000000; width: 82.549%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p>Configure when Daylight Saving Time ends according to the specified Rule. The properties are the same as described in Rule - Add Time.</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td rowspan="4" style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 17.451%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#CBDAED">
+<p class="TableDefinitions">Date - Add Time</p>
+</td>
+<td colspan="2" style="border-bottom: Solid 1px #000000; width: 82.549%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p>Specify the specific Date that Daylight Saving Time begins.</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 16.745%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">Month (field name not displayed)</p>
+</td>
+<td style="border-bottom: Solid 1px #000000; width: 65.804%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">Select the month that Daylight Saving Time begins: January, February, March, April, May, June, July, August, September, October, November, December.</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 16.745%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">Date (field name not displayed)</p>
+</td>
+<td style="border-bottom: Solid 1px #000000; width: 65.804%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">Select the day of the month that Daylight Saving Time begins. The range of days depends on the selected month. January, March, May, July, August, October, and December are valid from 1 to 31. April, June, September, and November are valid from 1 to 30. February is valid from 1 to 29. Only select February 29 on a leap year.</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 16.745%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">@ Time (field name not displayed)</p>
+</td>
+<td style="border-bottom: Solid 1px #000000; width: 65.804%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">Select the time, in 24 hour format, that Daylight Saving Time begins. The time can be any time between 00:00 to 23:59.</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 17.451%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#CBDAED">
+<p class="TableDefinitions">Date - Subtract Time</p>
+</td>
+<td colspan="2" style="border-bottom: Solid 1px #000000; width: 82.549%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">Specify the specific Date that Daylight Saving Time ends. The properties are the same as described in Date - Add Time.</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 3px #000000; width: 17.451%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#CBDAED">
+<p class="TableDefinitions">Amount of Time to Add or Subtract</p>
+</td>
+<td colspan="2" style="border-bottom: Solid 3px #000000; width: 82.549%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p>Enter the amount of time, in minutes, that will be added when Daylight Saving Time starts and subtracted when Daylight Saving Time ends. You can enter any whole number between -120 to +120.</p>
+<p>For example, to add one hour, enter +60.</p>
+</td>
+</tr>
+</table>
+</body>
+</html>

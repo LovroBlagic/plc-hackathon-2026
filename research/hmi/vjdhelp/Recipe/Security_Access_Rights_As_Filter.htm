@@ -1,0 +1,316 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+<meta name="template" content="Vijeo_template.htt">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="topic-status" content="In Progress">
+<meta name="topic-priority" content="0">
+<meta name="topic-time-estimate" content="0">
+<meta name="topic-comment" content="">
+<meta name="topic-id" content="">
+<meta name="window-type" content="$global_NewWindow">
+ <meta name="generator" content="Adobe RoboHelp 10">
+<title>Using the Access Right as a Recipe Group or Recipe Filter</title>
+<link rel="StyleSheet" href="Tis-styl.css" type="text/css">
+</head>
+<body>
+<script type="text/javascript" src="ehlpdhtm.js" language="JavaScript1.2"></script>
+
+<div style="width: 100%; position: relative;" id="header">
+	<table style="background-attachment: scroll; margin-left: 0px; margin-right: 4px; 
+			 background-image: url(top_banner.bmp); background-repeat: Repeat-X; 
+			 line-height: 0pt; vertical-align: top;" cellspacing="0" width="100%" 
+			 background="top_banner.bmp">
+		<col style="width: 90%;">
+		<col style="width: 5%;">
+		<col style="width: 5%;">
+		<tr style="vertical-align: center; height: 39px;">
+			<td style="width: 90%; padding-right: 10px; padding-left: 10px; 
+				 border-right-color: #000000;">
+   <p><img src="logo.bmp" style="border: none;" alt="" width="37" height="37" border="0"></p></td>
+			<td style="width: 5%; padding-right: 0px; padding-left: 10px; 
+				 border-right-color: #000000;">
+   <p style="text-align: center;"><a 
+			 title="Glossary" href="Appendix.chm::/Glossary.htm"><img src="logo_glossary.bmp" style="border: none;" alt="" width="47" height="37" border="0"></a></p></td>
+			<td style="width: 5%; padding-right: 10px; padding-left: 5px; 
+				 border-right-color: #000000;">
+   <p style="text-align: center;"><a 
+			 href="About.chm::/What_is_Vijeo-Designer.htm" title="Home"><img src="logo_home.bmp" alt="Home" title="Home" style="border: none; 
+			 margin-left: 0px; margin-right: 0px; margin-bottom: 0px; margin-top: -2px;" width="47" height="37" border="0"></a></p></td>
+		</tr>
+	</table>
+</div>
+
+<h2>17.8.2 Using the Access Right as a Recipe Group or Recipe Filter</h2>
+<p>You can use the Recipe Group or Recipe access right as a filter in Recipe lists. The filter works the same way as recipe security access, and is best described using an example.</p>
+<p>Given the following Recipe Group and Recipe access rights, recipe list objects display only those that are allowed by the current User access right. For information on how to calculate access rights, see Section 17.8, <a href="Setting_Up_Security_for_Recipe_Group_Data.htm">Setting Up Security for Recipes</a>.</p>
+<p class="Image"><img src="Recipe_Access_Rights_EX.bmp" style="border: none;" alt="" width="533" height="221" border="0"></p>
+<p>Different User access rights affect which Recipe Groups and Recipes are available for selection.</p>
+<h4><img src="Square.bmp" style="border: none;" alt="" width="12" height="10" border="0">If User Access Right = 0</h4>
+<p class="Image"><img src="Select_recipe_group_empty.bmp" style="border: none;" alt="" width="314" height="85" border="0"></p>
+<p>If the User access right is zero, then the only things the user can view are items with an access right of zero. Since all the Recipe Groups and Recipes have an access right greater than zero, none of these items are visible.</p>
+<p>&#160;</p>
+<h4><img src="Square.bmp" style="border: none;" alt="" width="12" height="10" border="0">If User Access Right = 3</h4>
+<h5>Recipe Groups</h5>
+<p class="Image">Recipe Groups with access rights of 3 (Dough and Toppings) are visible. The Sauce Recipe Group is hidden because its access right is 5.</p>
+<p><img src="Select_recipe_group_AR3.bmp" style="border: none;" alt="" width="308" height="101" border="0"></p>
+<h5>Recipe Group Access Right Calculation</h5>
+<p>The access right to Dough and Toppings (3) equals the User access right (3).</p>
+<table style="vertical-align: top; margin-left: 40px; margin-bottom: 10px;" cellspacing="0" width="400">
+<col style="width: 50%;">
+<col style="width: 50%;">
+<tr style="vertical-align: top;">
+<td style="border-top: Solid 3px #000000; border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 50%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#CBD9ED">
+<p class="Tabletext" style="font-weight: bold;">User = 3</p>
+</td>
+<td style="border-top: Solid 3px #000000; border-bottom: Solid 1px #000000; width: 50%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Code" style="text-align: right;">0000 0000 0000 00<span style="font-weight: bold;">11</span></p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 2px #000000; width: 50%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#CBD9ED">
+<p class="Tabletext" style="font-weight: bold;">Recipe Group = 3</p>
+</td>
+<td style="border-bottom: Solid 2px #000000; width: 50%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Code" style="text-align: right;">&amp; &#160;0000 0000 0000 00<span style="font-weight: bold;">11</span></p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 3px #000000; width: 50%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#CBD9ED">
+<p class="Tabletext" style="font-weight: bold;">Result (bitwise AND) = 3</p>
+</td>
+<td style="border-bottom: Solid 3px #000000; width: 50%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Code" style="text-align: right;">0000 0000 0000 00<span style="font-weight: bold;">11</span></p>
+</td>
+</tr>
+</table>
+<p>The Result of the bitwise AND operation (3) equals the Recipe Group access right (3).</p>
+<p>The access right to Sauce (5) is greater than the User access right (3). In all instances, if the access right to an item is greater than the User access right, then access is denied.</p>
+<table style="vertical-align: top; margin-left: 40px; margin-bottom: 10px;" cellspacing="0" width="400">
+<col style="width: 50%;">
+<col style="width: 50%;">
+<tr style="vertical-align: top;">
+<td style="border-top: Solid 3px #000000; border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 50%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#CBD9ED">
+<p class="Tabletext" style="font-weight: bold;">User = 3</p>
+</td>
+<td style="border-top: Solid 3px #000000; border-bottom: Solid 1px #000000; width: 50%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Code" style="text-align: right;">0000 0000 0000 00<span style="font-weight: bold;">11</span></p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 2px #000000; width: 50%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#CBD9ED">
+<p class="Tabletext" style="font-weight: bold;">Recipe Group = 5</p>
+</td>
+<td style="border-bottom: Solid 2px #000000; width: 50%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Code" style="text-align: right;">&amp; &#160;0000 0000 0000 0<span style="font-weight: bold;">1</span>0<span style="font-weight: bold;">1</span></p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 3px #000000; width: 50%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#CBD9ED">
+<p class="Tabletext" style="font-weight: bold;">Result (bitwise AND) = 1</p>
+</td>
+<td style="border-bottom: Solid 3px #000000; width: 50%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Code" style="text-align: right;">0000 0000 0000 000<span style="font-weight: bold;">1</span></p>
+</td>
+</tr>
+</table>
+<p>The Result of the bitwise AND operation (1) does not equal the Recipe Group access right (5).</p>
+<h5>Recipes</h5>
+<p>After selecting the Dough Recipe Group, select the recipe.</p>
+<p>Recipes with access rights of 3 (Thin Crust and Deep Pan) are visible. The Special Recipe is hidden because its access right is 7.</p>
+<p><img src="Select_recipe_Dough_AR3.bmp" style="border: none;" alt="" width="306" height="138" border="0"></p>
+<h5>Recipe Access Right Calculation</h5>
+<p>The access right to Thin Crust and Deep Pan (3) equals the User access right (3).</p>
+<table style="vertical-align: top; margin-left: 40px; margin-bottom: 10px;" cellspacing="0" width="400">
+<col style="width: 50%;">
+<col style="width: 50%;">
+<tr style="vertical-align: top;">
+<td style="border-top: Solid 3px #000000; border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 50%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#CBD9ED">
+<p class="Tabletext" style="font-weight: bold;">User = 3</p>
+</td>
+<td style="border-top: Solid 3px #000000; border-bottom: Solid 1px #000000; width: 50%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Code" style="text-align: right;">0000 0000 0000 00<span style="font-weight: bold;">11</span></p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 2px #000000; width: 50%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#CBD9ED">
+<p class="Tabletext" style="font-weight: bold;">Recipe = 3</p>
+</td>
+<td style="border-bottom: Solid 2px #000000; width: 50%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Code" style="text-align: right;">&amp; &#160;0000 0000 0000 00<span style="font-weight: bold;">11</span></p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 3px #000000; width: 50%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#CBD9ED">
+<p class="Tabletext" style="font-weight: bold;">Result (bitwise AND) = 3</p>
+</td>
+<td style="border-bottom: Solid 3px #000000; width: 50%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Code" style="text-align: right;">0000 0000 0000 00<span style="font-weight: bold;">11</span></p>
+</td>
+</tr>
+</table>
+<p>The Result of the bitwise AND operation (3) equals the Recipe access right (3).</p>
+<p>The access right to Special (7) is greater than the User access right (3).</p>
+<table style="vertical-align: top; margin-left: 40px; margin-bottom: 10px;" cellspacing="0" width="400">
+<col style="width: 50%;">
+<col style="width: 50%;">
+<tr style="vertical-align: top;">
+<td style="border-top: Solid 3px #000000; border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 50%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#CBD9ED">
+<p class="Tabletext" style="font-weight: bold;">User = 3</p>
+</td>
+<td style="border-top: Solid 3px #000000; border-bottom: Solid 1px #000000; width: 50%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Code" style="text-align: right;">0000 0000 0000 00<span style="font-weight: bold;">11</span></p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 2px #000000; width: 50%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#CBD9ED">
+<p class="Tabletext" style="font-weight: bold;">Recipe &#160;= 7</p>
+</td>
+<td style="border-bottom: Solid 2px #000000; width: 50%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Code" style="text-align: right;">&amp; &#160;0000 0000 0000 0<span style="font-weight: bold;">111</span></p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 3px #000000; width: 50%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#CBD9ED">
+<p class="Tabletext" style="font-weight: bold;">Result (bitwise AND) = 3</p>
+</td>
+<td style="border-bottom: Solid 3px #000000; width: 50%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Code" style="text-align: right;">0000 0000 0000 00<span style="font-weight: bold;">11</span></p>
+</td>
+</tr>
+</table>
+<p>The Result of the bitwise AND operation (7) does not equal the Recipe access right (7).</p>
+<p>&#160;</p>
+<h4><img src="Square.bmp" style="border: none;" alt="" width="12" height="10" border="0">If User Access Right = 7</h4>
+<h5>Recipe Groups</h5>
+<p>Recipe Groups with access rights of 3 (Dough and Toppings) and 5 (Sauce) are visible.</p>
+<p><img src="Select_recipe_group_AR7.bmp" style="border: none;" alt="" width="311" height="129" border="0"></p>
+<h5>Recipe Group Access Right Calculation</h5>
+<p>The User access right (7) is greater than the Dough and Toppings access right (3).</p>
+<table style="vertical-align: top; margin-left: 40px; margin-bottom: 10px;" cellspacing="0" width="400">
+<col style="width: 50%;">
+<col style="width: 50%;">
+<tr style="vertical-align: top;">
+<td style="border-top: Solid 3px #000000; border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 50%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#CBD9ED">
+<p class="Tabletext" style="font-weight: bold;">User = 7</p>
+</td>
+<td style="border-top: Solid 3px #000000; border-bottom: Solid 1px #000000; width: 50%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Code" style="text-align: right;">0000 0000 0000 0<span style="font-weight: bold;">111</span></p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 2px #000000; width: 50%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#CBD9ED">
+<p class="Tabletext" style="font-weight: bold;">Recipe Group = 3</p>
+</td>
+<td style="border-bottom: Solid 2px #000000; width: 50%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Code" style="text-align: right;">&amp; &#160;0000 0000 0000 00<span style="font-weight: bold;">11</span></p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 3px #000000; width: 50%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#CBD9ED">
+<p class="Tabletext" style="font-weight: bold;">Result (bitwise AND) = 3</p>
+</td>
+<td style="border-bottom: Solid 3px #000000; width: 50%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Code" style="text-align: right;">0000 0000 0000 00<span style="font-weight: bold;">11</span></p>
+</td>
+</tr>
+</table>
+<p>The Result of the bitwise AND operation (3) equals the Recipe Group access right (3).</p>
+<p>The User access right (7) is greater than the Sauce access right (5).</p>
+<table style="vertical-align: top; margin-left: 40px; margin-bottom: 10px;" cellspacing="0" width="400">
+<col style="width: 50%;">
+<col style="width: 50%;">
+<tr style="vertical-align: top;">
+<td style="border-top: Solid 3px #000000; border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 50%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#CBD9ED">
+<p class="Tabletext" style="font-weight: bold;">User = 7</p>
+</td>
+<td style="border-top: Solid 3px #000000; border-bottom: Solid 1px #000000; width: 50%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Code" style="text-align: right;">0000 0000 0000 0<span style="font-weight: bold;">111</span></p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 2px #000000; width: 50%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#CBD9ED">
+<p class="Tabletext" style="font-weight: bold;">Recipe Group = 5</p>
+</td>
+<td style="border-bottom: Solid 2px #000000; width: 50%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Code" style="text-align: right;">&amp; &#160;0000 0000 0000 0<span style="font-weight: bold;">1</span>0<span style="font-weight: bold;">1</span></p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 3px #000000; width: 50%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#CBD9ED">
+<p class="Tabletext" style="font-weight: bold;">Result (bitwise AND) = 5</p>
+</td>
+<td style="border-bottom: Solid 3px #000000; width: 50%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Code" style="text-align: right;">0000 0000 0000 0<span style="font-weight: bold;">1</span>0<span style="font-weight: bold;">1</span></p>
+</td>
+</tr>
+</table>
+<p>The Result of the bitwise AND operation (5) equals the Recipe Group access right (5).</p>
+<h5>Recipes</h5>
+<p>After selecting the Dough Recipe Group, select the recipe.</p>
+<p>Recipes with access rights of 3 (Thin Crust and Deep Pan) and 7 (Special) are visible.</p>
+<p><img src="Select_recipe_Dough_AR7.bmp" style="border: none;" alt="" width="307" height="167" border="0"></p>
+<h5>Recipe Access Right Calculation</h5>
+<p>The User access right (7) is greater than the Thin Crust and Deep Pan access right (3). If the ON bits for the User access right match the ON bits for the Recipe access right, then access is accepted.</p>
+<table style="vertical-align: top; margin-left: 40px; margin-bottom: 10px;" cellspacing="0" width="400">
+<col style="width: 50%;">
+<col style="width: 50%;">
+<tr style="vertical-align: top;">
+<td style="border-top: Solid 3px #000000; border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 50%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#CBD9ED">
+<p class="Tabletext" style="font-weight: bold;">User = 7</p>
+</td>
+<td style="border-top: Solid 3px #000000; border-bottom: Solid 1px #000000; width: 50%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Code" style="text-align: right;">0000 0000 0000 0<span style="font-weight: bold;">111</span></p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 2px #000000; width: 50%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#CBD9ED">
+<p class="Tabletext" style="font-weight: bold;">Recipe = 3</p>
+</td>
+<td style="border-bottom: Solid 2px #000000; width: 50%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Code" style="text-align: right;">&amp; &#160;0000 0000 0000 00<span style="font-weight: bold;">11</span></p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 3px #000000; width: 50%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#CBD9ED">
+<p class="Tabletext" style="font-weight: bold;">Result (bitwise AND) = 3</p>
+</td>
+<td style="border-bottom: Solid 3px #000000; width: 50%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Code" style="text-align: right;">0000 0000 0000 00<span style="font-weight: bold;">11</span></p>
+</td>
+</tr>
+</table>
+<p>The Result of the bitwise AND operation (3) equals the Recipe access right (3).</p>
+<p>The User access right (7) and Special Recipe access right (7) are equal.</p>
+<table style="vertical-align: top; margin-left: 40px; margin-bottom: 10px;" cellspacing="0" width="400">
+<col style="width: 50%;">
+<col style="width: 50%;">
+<tr style="vertical-align: top;">
+<td style="border-top: Solid 3px #000000; border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 50%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#CBD9ED">
+<p class="Tabletext" style="font-weight: bold;">User = 7</p>
+</td>
+<td style="border-top: Solid 3px #000000; border-bottom: Solid 1px #000000; width: 50%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Code" style="text-align: right;">0000 0000 0000 0<span style="font-weight: bold;">111</span></p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 2px #000000; width: 50%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#CBD9ED">
+<p class="Tabletext" style="font-weight: bold;">Recipe &#160;= 7</p>
+</td>
+<td style="border-bottom: Solid 2px #000000; width: 50%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Code" style="text-align: right;">&amp; &#160;0000 0000 0000 0<span style="font-weight: bold;">111</span></p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 3px #000000; width: 50%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#CBD9ED">
+<p class="Tabletext" style="font-weight: bold;">Result (bitwise AND) = 7</p>
+</td>
+<td style="border-bottom: Solid 3px #000000; width: 50%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Code" style="text-align: right;">0000 0000 0000 0<span style="font-weight: bold;">111</span></p>
+</td>
+</tr>
+</table>
+<p>The Result of the bitwise AND operation (7) equals the Recipe access right (7).</p>
+</body>
+</html>

@@ -1,0 +1,178 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+<meta name="template" content="Vijeo_template.htt">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="topic-status" content="In Progress">
+<meta name="topic-priority" content="0">
+<meta name="topic-time-estimate" content="0">
+<meta name="topic-id" content="aux_ports">
+<meta name="window-type" content="$global_NewWindow">
+ <meta name="generator" content="Adobe RoboHelp 2015">
+<title>Controlling Equipment Using DIO Ports</title>
+<link rel="StyleSheet" href="TIS-STYL.css" type="text/css">
+</head>
+<body>
+<script type="text/javascript" src="ehlpdhtm.js" language="JavaScript1.2"></script>
+
+<div style="width: 100%; position: relative;" id="header">
+	<table style="background-attachment: scroll; margin-left: 0px; margin-right: 4px; 
+			 background-image: url(top_banner.bmp); background-repeat: Repeat-X; 
+			 line-height: 0pt; vertical-align: top;" cellspacing="0" background="top_banner.bmp" 
+			 width="100%">
+		<col style="width: 90%;">
+		<col style="width: 5%;">
+		<col style="width: 5%;">
+		<tr style="vertical-align: center; height: 39px;">
+			<td style="width: 90%; padding-right: 10px; padding-left: 10px; 
+				 border-right-color: #000000;">
+   <p><img src="logo.bmp" alt="" style="border: none;" width="37" height="37" border="0"></p></td>
+			<td style="width: 5%; padding-right: 0px; padding-left: 10px; 
+				 border-right-color: #000000;">
+   <p style="text-align: center;"><a 
+			 title="Glossary" href="Appendix.chm::/Glossary.htm"><img src="logo_glossary.bmp" alt="" style="border: none;" width="47" height="37" border="0"></a></p></td>
+			<td style="width: 5%; padding-right: 10px; padding-left: 5px; 
+				 border-right-color: #000000;">
+   <p style="text-align: center;"><a 
+			 href="About.chm::/What_is_Vijeo-Designer.htm" title="Home"><img src="logo_home.bmp" alt="Home" title="Home" style="border: none; 
+			 margin-left: 0px; margin-right: 0px; margin-bottom: 0px; margin-top: -2px;" width="47" height="37" border="0"></a></p></td>
+		</tr>
+	</table>
+</div>
+
+
+<h1>24.6 DIO Ports</h1>
+<p>A DIO Port is a hardware interface on your target machine that provides input and output signals to connected equipment. Vijeo Designer supports the following pins on the DIO Port: ALM, RUN, and BUZZ.</p>
+<p><img src="limit.bmp" alt="" style="border: none;" width="77" height="24" border="0"></p>
+<ul>
+<li class="p-NoteText">
+<p class="NoteText">Not all target machines support the DIO port, see Appendix 5, <a href="Appendix.chm::/Hardware_Specifications.htm">Hardware Specifications</a>.</p>
+</li>
+</ul>
+<p><img src="Note_Moji.bmp" alt="" style="border: none;" width="51" height="25" border="0"></p>
+<ul>
+<li class="p-NoteText">
+<p class="NoteText">For most target types, you can find DIO pins in the AUX interface.</p>
+</li>
+<li class="p-NoteText">
+<p class="NoteText">When a target machine is restarted, the DIO Port is initialized to 0 (OFF).</p>
+</li>
+<li class="p-NoteText">
+<p class="NoteText">For some iPCs, you can choose either ALM or RUN by configuring the Target setting, DIOPort Out 1, to either Alarm or Error. For some iPCs, you only have the ALM option. See Section 4.5.1, <a href="StandardOperation.chm::/Setting_up_Targets-Creating_targets.htm">Target Properties</a>.</p>
+</li>
+</ul>
+<p>The following table lists the pins on the DIO port supported by Vijeo Designer.</p>
+<table style="vertical-align: top; left: 0px; top: 224px; margin-left: 40px;" cellspacing="0" width="90%">
+<col style="width: 15%;">
+<col style="width: 15%;">
+<col style="width: 70%;">
+<tr style="vertical-align: top;">
+<td style="border-top: Solid 3px #000000; border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 15%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#91AFD9">
+<p class="Tabletitle">Name of DIO Pin on Hardware</p>
+</td>
+<td style="border-top: Solid 3px #000000; border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 15%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#91AFD9">
+<p class="Tabletitle">Name of DIO Pin in Vijeo Designer</p>
+</td>
+<td style="border-top: Solid 3px #000000; border-bottom: Solid 1px #000000; width: 70%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#91AFD9">
+<p class="Tabletitle">Description</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 15%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#CBD9ED">
+<p class="TableDefinitions">ALM<br>
+(DOUT_1 on Targets with a RAS Port)</p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 15%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#CBD9ED">
+<p class="TableDefinitions">Alarm</p>
+</td>
+<td style="border-bottom: Solid 1px #000000; width: 70%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">The ALM pin turns on when an alarm in either the assigned alarm group or the assigned alarm category becomes active. The ALM pin turns off once all active alarms in either the specified alarm group or the specified alarm category return to normal (RTN), become acknowledged (ACK), or change to the unacknowledged (UNACK) state.</p>
+<p class="Tabletext">See Section 16.2.3, <a href="Alarms.chm::/backup_setting.htm">Setting up the Alarms and Events Node</a> for information on how to specify an alarm group or an alarm category to output to the ALM pin.</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 15%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#CBD9ED">
+<p class="TableDefinitions">RUN<br>
+(DOUT_1 on Targets with a RAS Port)</p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 15%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#CBD9ED">
+<p class="TableDefinitions">Error</p>
+</td>
+<td style="border-bottom: Solid 1px #000000; width: 70%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">The RUN pin turns on when a run-time event occurs. The run-time event also triggers the Active Event Viewer to display. The RUN pin turns off when the user closes the Active Event Viewer.</p>
+<p class="Tabletext">See Section 28.1, <a href="Errors.chm::/Runtime_Events.htm">Run-time Events</a> for information on run-time events.</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 3px #000000; width: 15%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#CBD9ED">
+<p class="TableDefinitions">BUZZ<br>
+(DOUT_0 on Targets with a RAS Port)</p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 3px #000000; width: 15%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#CBD9ED">
+<p class="TableDefinitions">DIO DOut0</p>
+</td>
+<td style="border-bottom: Solid 3px #000000; width: 70%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">The BUZZ pin is controlled by the user. You can turn the BUZZ pin on and off by writing values to the BOOL system variable _DIOPort.DOut0. Use the following methods to write values to the _DIOPort.DOut0 and control the BUZZ pin:</p>
+<ul>
+<li class="p-Bullet">
+<p class="Bullet">Connected Equipment: see Section 6.7.3, <a href="InputAddress.chm::/Using_System_Variables_on_Connected_Equipment.htm">Using System Variables on Connected Equipment</a>.</p>
+</li>
+<li class="p-Bullet">
+<p class="Bullet">Scripts: see the following section, <a href="#buzz_script_methods">Script Methods for Controlling the BUZZ port</a>.</p>
+</li>
+<li class="p-Bullet">
+<p class="Bullet">Animation: see Section 9.2.7, <a href="Switches.chm::/Create_Original_switches.htm">Creating A Custom Switch</a>.</p>
+</li>
+<li class="p-Bullet">
+<p class="Bullet">Data Displays: see Section 11.1, <a href="DataInput.chm::/Numeric_Display.htm">Overview</a>.</p>
+</li>
+<li class="p-Bullet">
+<p class="Bullet">Switches: see Section 9.2, <a href="Switches.chm::/SW_Settings.htm">Creating Switches</a>.</p>
+</li>
+</ul>
+<p class="Tabletext">The following table describes how the BUZZ pin's on/off states correspond to the values of the system variable _DIOPort.DOut0.</p>
+<table style="vertical-align: top;" cellspacing="0" width="80%">
+<col style="width: 55.533%;">
+<col style="width: 44.467%;">
+<tr style="vertical-align: top;">
+<td style="border-top: Solid 3px #000000; border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 55.533%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#91AFD9">
+<p class="Tabletitle">_DIOPort.DOut0 Value</p>
+</td>
+<td style="border-top: Solid 3px #000000; border-bottom: Solid 1px #000000; width: 44.467%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#91AFD9">
+<p class="Tabletitle">BUZZ pin State</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 55.533%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">0</p>
+</td>
+<td style="border-bottom: Solid 1px #000000; width: 44.467%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">OFF</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 3px #000000; width: 55.533%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">1</p>
+</td>
+<td style="border-bottom: Solid 3px #000000; width: 44.467%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">ON</p>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+<p class="NoteText">&#160;</p>
+<h4><a name="buzz_script_methods" id="buzz_script_methods"></a><img src="Square.bmp" alt="" style="border: none;" width="12" height="10" border="0"> Script Methods for Controlling the BUZZ pin</h4>
+<p>The following lists some script variable methods you can use to control your target machine's BUZZ pin.</p>
+<h5>Turn the BUZZ pin ON</h5>
+<p class="Code" style="margin-left: 40px;">_DIOPort.DOut0.write(1);</p>
+<h5>Turn the BUZZ pin OFF</h5>
+<p class="Code" style="margin-left: 40px;">_DIOPort.DOut0.write(0);</p>
+<h5>Reading the BUZZ pin value</h5>
+<p class="Code" style="margin-left: 40px;">_DIOPort.DOut0.getIntValue();</p>
+<p>&#160;</p>
+<p>For more information on script variable methods, see Section 18.9.1.6, <a href="Scripts.chm::/Variable_Methods.htm">Variable Methods</a>.</p>
+</body>
+</html>

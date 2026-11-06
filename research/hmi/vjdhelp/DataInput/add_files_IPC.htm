@@ -1,0 +1,78 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="template" content="Vijeo_template.htt">
+ <meta name="generator" content="Adobe RoboHelp 10">
+<title>Adding Documents to the Browser Node</title>
+<link rel="StyleSheet" href="TIS-STYL.CSS" type="text/css">
+</head>
+<body>
+<script type="text/javascript" src="ehlpdhtm.js" language="JavaScript1.2"></script>
+
+<div style="width: 100%; position: relative;" id="header">
+	<table style="background-attachment: scroll; margin-left: 0px; margin-right: 4px; 
+			 background-image: url(top_banner.bmp); background-repeat: Repeat-X; 
+			 line-height: 0pt; vertical-align: top;" cellspacing="0" width="100%" 
+			 background="top_banner.bmp">
+		<col style="width: 90%;">
+		<col style="width: 5%;">
+		<col style="width: 5%;">
+		<tr style="vertical-align: center; height: 39px;">
+			<td style="width: 90%; padding-right: 10px; padding-left: 10px; 
+				 border-right-color: #000000;">
+   <p><img src="logo.bmp" style="border: none;" alt="" width="37" height="37" border="0"></p></td>
+			<td style="width: 5%; padding-right: 0px; padding-left: 10px; 
+				 border-right-color: #000000;">
+   <p style="text-align: center;"><a 
+			 title="Glossary" href="Appendix.chm::/Glossary.htm"><img src="logo_glossary.bmp" style="border: none;" alt="" width="47" height="37" border="0"></a></p></td>
+			<td style="width: 5%; padding-right: 10px; padding-left: 5px; 
+				 border-right-color: #000000;">
+   <p style="text-align: center;"><a 
+			 href="About.chm::/What_is_Vijeo-Designer.htm" title="Home"><img src="logo_home.bmp" alt="Home" title="Home" style="border: none; 
+			 margin-left: 0px; margin-right: 0px; margin-bottom: 0px; margin-top: -2px;" width="47" height="37" border="0"></a></p></td>
+		</tr>
+	</table>
+</div>
+
+<h3>11.8.1 Displaying Local Documents</h3>
+<p>The Internet Explorer Browser and Multi-Platform Browser can display documents that reside locally on the target machine.</p>
+<p>To display local documents:</p>
+<ol style="list-style: decimal;">
+<li class="p">
+<p>Add the documents you want to view to your project. See <a href="#Adding">Adding Documents to the Browser Node</a> below.</p>
+</li>
+<li class="p">
+<p>Add the Browser to your project and configure the part to view Local Documents. See Section 11.8.3, <a href="set_viewer.htm">Adding the Browser to a Project</a>.</p>
+</li>
+<li class="p">
+<p>Create a string variable to open the documents in the Browser. See Section 11.8.4, <a href="toggle_files.htm">Opening Documents in the Browser</a>.</p>
+</li>
+<li class="p">
+<p>Set up a method for displaying documents by creating a switch, string display, or Browser controls. See Section 11.8.6, <a href="Using_Switches_and_String_Displays_to_Display_Documents.htm">Using Switches and String Displays to Display Documents</a>.</p>
+</li>
+</ol>
+<h4><a name="Adding" id="Adding"></a><img src="square.bmp" style="border: none;" alt="" width="12" height="10" border="0">Adding Documents to the Browser Node</h4>
+<ol style="list-style: decimal;">
+<li class="p">
+<p>Place all the documents want to view in the Browser into a single folder on your computer.</p>
+</li>
+<li class="p">
+<p>In Vijeo-Designer, double-click Environment under the Target node, select Data Files, then right-click the Browser node and select Properties to display the Browser Files node Properties.</p>
+</li>
+</ol>
+<ol start="3" style="list-style: decimal;">
+<li class="p">
+<p>In the Browser Folder property, click the ellipsis and select the folder that contains the Browser documents. Note that you cannot select a sub-folder of Vijeo Manager.</p>
+</li>
+</ol>
+<p style="margin-left: 40px;">When you download your project to the target machine, the documents in the selected folder are also downloaded.</p>
+<p class="NoteImage" style="margin-left: 40px;"><img src="NOTE_MOJI.bmp" style="border: none;" alt="" width="51" height="25" border="0"></p>
+<ul>
+<li class="p-NoteText2">
+<p class="NoteText2">If you exceed 10 MB of files, a warning message displays to inform you that more time is required for each project save.</p>
+</li>
+</ul>
+</body>
+</html>

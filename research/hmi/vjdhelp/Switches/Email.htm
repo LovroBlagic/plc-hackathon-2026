@@ -1,0 +1,387 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+<meta name="template" content="Vijeo_template.htt">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+ <meta name="generator" content="Adobe RoboHelp 10">
+<title>Email Operations</title>
+<link rel="StyleSheet" href="Tis-styl.css" type="text/css">
+</head>
+
+<body>
+<script type="text/javascript" src="ehlpdhtm.js" language="JavaScript1.2"></script>
+
+<div style="width: 100%; position: relative;" id="header">
+	<table style="background-attachment: scroll; margin-left: 0px; margin-right: 4px; 
+			 background-image: url(top_banner.bmp); background-repeat: Repeat-X; 
+			 line-height: 0pt; vertical-align: top;" cellspacing="0" width="100%" 
+			 background="top_banner.bmp">
+		<col style="width: 90%;">
+		<col style="width: 5%;">
+		<col style="width: 5%;">
+		<tr style="vertical-align: center; height: 39px;">
+			<td style="width: 90%; padding-right: 10px; padding-left: 10px; 
+				 border-right-color: #000000;">
+   <p><img src="logo.bmp" style="border: none;" alt="" width="37" height="37" border="0"></p></td>
+			<td style="width: 5%; padding-right: 0px; padding-left: 10px; 
+				 border-right-color: #000000;">
+   <p style="text-align: center;"><a 
+			 title="Glossary" href="Appendix.chm::/Glossary.htm"><img src="logo_glossary.bmp" style="border: none;" alt="" width="47" height="37" border="0"></a></p></td>
+			<td style="width: 5%; padding-right: 10px; padding-left: 5px; 
+				 border-right-color: #000000;">
+   <p style="text-align: center;"><a 
+			 href="About.chm::/What_is_Vijeo-Designer.htm" title="Home"><img src="logo_home.bmp" alt="Home" title="Home" style="border: none; 
+			 margin-left: 0px; margin-right: 0px; margin-bottom: 0px; margin-top: -2px;" width="47" height="37" border="0"></a></p></td>
+		</tr>
+	</table>
+</div>
+
+<h2>9.5.20 E-mail Operations</h2>
+<p>Use the dialog to set up an e-mail recipient, subject, message, and 
+ attachment for the E-mail operation. E-mail messages can be a text message 
+ or a Vijeo Designer Form. By using a form, you can e-mail current variable 
+ values, current alarm statuses, current recipe values, etc. E-mail text 
+ messages can contain dynamic content such as variable values and time 
+ stamps. For more information on adding dynamic content to e-mails, Section 
+ 21.1.5.12, <a href="EfficientOperations.chm::/Setting_Up_Embedded_Content.htm#dynamicContent">Setting 
+ Up Messages with Dynamic Content: Adding Dynamic Content</a>. For more 
+ information on creating forms, see Section 27.3, <a href="VijeoPrinting.chm::/Form_Printing.htm">Working 
+ with Forms</a>.</p>
+<p>You can also send Email or SMS messages to your tablet/smartphone with 
+ a link to open the Vijeo Design’Air Plus App and launch the alarm page. 
+
+ For more information, see <a href="WebMonitoring.chm::/Working_in_the_Discovery_Screen.htm#Accessing_the_Alarm_Panel_from_Email_or_SMS_message">Accessing 
+ the Alarm Panel from Email or SMS message</a> in Section 23.1.1.3 <a href="WebMonitoring.chm::/Working_in_the_Discovery_Screen.htm">Working 
+ in Vijeo Design’Air Plus</a>.</p>
+<p class="NoteImage"><img src="NOTE_MOJI.bmp" alt="" style="border: none;" width="51" height="25" border="0"></p>
+<ul>
+	<li class="p-NoteText"><p class="NoteText">To use E-mail operations 
+	 on the target machine, set E-mail to Enabled in the Target properties.</p></li>
+</ul>
+<p><img src="EmailOperations.bmp" alt="" style="border: none;" width="376" height="359" border="0"></p>
+<p>&#160;</p>
+<table style="margin-left: 40px;" cellspacing="0" width="90%">
+	<col style="width: 14.646%;">
+	<col style="width: 85.156%;">
+	<tr style="vertical-align: top;">
+		<td style="width: 14.646%; vertical-align: top; border-top: Solid 3px #000000; 
+			 border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; 
+			 padding-right: 10px; padding-left: 10px; padding-top: 10px; 
+			 padding-bottom: 10px; border-bottom-width: 1px; border-right-width: 1px;" 
+			 bgcolor="#91AFD9"><p class="Tabletitle" style="font-size: 11pt;">Property</p></td>
+		<th style="border-top: Solid 3px #000000; border-bottom: Solid 1px #000000; 
+			 width: 85.156%; vertical-align: top; padding-right: 10px; 
+			 padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" 
+			 bgcolor="#91AFD9"><p class="Tabletitle" style="font-size: 11pt;">Description</p></th>
+	</tr>
+	<tr style="vertical-align: top;">
+		<td style="width: 14.646%; vertical-align: top; border-right: Solid 1px #000000; 
+			 border-bottom: Solid 1px #000000; padding-right: 10px; padding-left: 10px; 
+			 padding-top: 10px; padding-bottom: 10px; border-right-width: 1px;" 
+			 bgcolor="#CBD9ED"><p class="TableDefinitions">Send to</p></td>
+		<td style="border-bottom: Solid 1px #000000; width: 85.156%; vertical-align: top; 
+			 padding-right: 10px; padding-left: 10px; padding-top: 10px; 
+			 padding-bottom: 10px;"><p>Select either of these options:</p>
+		<ul style="list-style: square;">
+			<li class="p"><p><span style="font-weight: bold;">Alias</span>, 
+			 to send to an alias name that represents one or more e-mail 
+			 addresses. Use the drop-down list box to select an Alias. 
+			 If you select this option, you cannot modify e-mail addresses 
+			 at run time.</p></li>
+			<li class="p"><p><span style="font-weight: bold;">Variable</span>, 
+			 to send to a string variable that defines the destination 
+			 e-mail addresses. Enter the string variable in the Variable 
+			 text box. Select this option to change e-mail addresses at 
+			 run time.</p></li>
+		</ul>
+		<p>E-mail aliases and SMTP (Simple Mail Transfer Protocol) server 
+		 configurations are set up in the E-mail configuration dialog box. 
+		 For more information, see Section 4.14, <a href="StandardOperation.chm::/Working_with_Email.htm">Working 
+		 with E-mail</a>.</p></td>
+	</tr>
+	<tr style="vertical-align: top;">
+		<td style="width: 14.646%; vertical-align: top; border-right: Solid 1px #000000; 
+			 border-bottom: Solid 1px #000000; padding-right: 10px; padding-left: 10px; 
+			 padding-top: 10px; padding-bottom: 10px; border-right-width: 1px;" 
+			 bgcolor="#CBD9ED"><p class="TableDefinitions">Subject</p></td>
+		<td style="border-bottom: Solid 1px #000000; width: 85.156%; vertical-align: top; 
+			 padding-right: 10px; padding-left: 10px; padding-top: 10px; 
+			 padding-bottom: 10px;"><p>Define the e-mail subject. You can 
+		 enter up to 200 characters, which may include regular text and 
+		 dynamic content. For information on content length, see <a href="#Determining_Content_Length_in_an_E-mail_Subject_and_Message">Determining 
+		 Content Length in an E-mail Subject and Message</a>.</p></td>
+	</tr>
+	<tr style="vertical-align: top;">
+		<td style="width: 14.646%; vertical-align: top; border-right: Solid 1px #000000; 
+			 border-bottom: Solid 1px #000000; padding-right: 10px; padding-left: 10px; 
+			 padding-top: 10px; padding-bottom: 10px; border-bottom-width: 1px; 
+			 border-right-width: 1px;" bgcolor="#CBD9ED"><p class="TableDefinitions">Message</p></td>
+		<td style="border-bottom: Solid 1px #000000; width: 85.156%; vertical-align: top; 
+			 padding-right: 10px; padding-left: 10px; padding-top: 10px; 
+			 padding-bottom: 10px;"><p>Define the message. You can enter 
+		 up to 1000 characters in the e-mail message, which may include 
+		 regular text and dynamic content. You can enter up to 160 characters 
+		 in SMS messages to your smartphone. For information on content 
+		 length, see <a href="#Determining_Content_Length_in_an_E-mail_Subject_and_Message">Determining 
+		 Content Length in an E-mail Subject and Message</a>. </p>
+		<p>For information on how to add dynamic content in an e-mail message, 
+		 see <a href="EfficientOperations.chm::/Setting_Up_Embedded_Content.htm#dynamicContent">Adding 
+		 Dynamic Content</a>.</p></td>
+	</tr>
+	<tr style="vertical-align: top;">
+		<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; 
+			 width: 14.646%; vertical-align: top; padding-right: 10px; 
+			 padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" 
+			 bgcolor="#CBD9ED"><p class="TableDefinitions">Form ID</p></td>
+		<td style="border-bottom: Solid 1px #000000; width: 85.156%; vertical-align: top; 
+			 padding-right: 10px; padding-left: 10px; padding-top: 10px; 
+			 padding-bottom: 10px;"><p>Select the form to e-mail to the 
+		 recipient.</p></td>
+	</tr>
+	<tr style="vertical-align: top;">
+		<td style="border-right: Solid 1px #000000; border-bottom: Solid 3px #000000; 
+			 width: 14.646%; vertical-align: top; padding-right: 10px; 
+			 padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" 
+			 bgcolor="#CBD9ED"><p class="TableDefinitions">Attach Data</p></td>
+		<td style="border-bottom: Solid 3px #000000; width: 85.156%; vertical-align: top; 
+			 padding-right: 10px; padding-left: 10px; padding-top: 10px; 
+			 padding-bottom: 10px;"><p>Select the check box if you want 
+		 to append an attachment to the e-mail. Then click the ellipsis 
+		 to open the Attachment dialog box. For more information, see <a 
+		 href="#Configuring_the_Attachment_Settings">Configuring the Attachment 
+		 Settings</a>.</p>
+		<p>The &lt;Attachment info&gt; displayed beside this check box 
+		 indicates the type of attachment set up for the e-mail.</p></td>
+	</tr>
+</table>
+<p>&#160;</p>
+<h4><a name="Determining_Content_Length_in_an_E-mail_Subject_and_Message" 
+		 id="Determining_Content_Length_in_an_E-mail_Subject_and_Message"></a><img src="square.bmp" alt="" style="border: none;" width="12" height="10" border="0"> Determining Content Length in an E-mail Subject and 
+ Message</h4>
+<p>For regular text, the content length is the number of characters entered.</p>
+<p>For dynamic content that uses a time stamp, the content length is determined 
+ by the length of the format string. For example, the character count in 
+ the YYYY/mm/dd format string is 10 characters.</p>
+<p>For dynamic content that uses a variable, the content length is determined 
+ as follows:</p>
+<ul>
+	<li class="p-Bullet"><p class="Bullet">The content length is the variable 
+	 value (the output), not the variable name. The only time the variable 
+	 name counts as the content length is when a variable that does not 
+	 exist is entered, for example:<span style="font-family: 'Courier New', monospace;"><br>
+	<br>
+	&lt;var:Folder01.Folder02.REAL01&gt;</span><span style="margin-left: 38px;"><br>
+	The variable REAL01 does not exist. The variable name (</span><span 
+	 style="font-family: 'Courier New', monospace;">Folder01.Folder02.REAL01</span>) 
+	 is counted as the content length, which is 24.</p></li>
+</ul>
+<ul>
+	<li class="p-Bullet"><p class="Bullet">For the following variables, 
+	 the content lengths are as follows:<span style="font-weight: bold;"><br>
+	<br>
+	String Variable</span> - The content length is the value (up to a maximum 
+	 of 100 characters) defined in the Num of Bytes property in the Variable 
+	 Properties dialog box. For example, if the Num of Bytes property is 
+	 defined as 30, the content length is 30. The following is an example 
+	 of a String variable in the dynamic content:<span style="font-family: 'Courier New', monospace;"><br>
+	&lt;var:STRING01&gt;</span><span style="font-weight: bold;"><br>
+	<br>
+	BOOL Variable</span> - The content length is 1 character. The BOOL 
+	 value is either 0 or 1. The following is an example of a BOOL variable 
+	 in the dynamic content:<span style="font-family: 'Courier New', monospace;"><br>
+	&lt;var:Folder01.Folder02.Folder02.Folder04.Folder05.BOOL01&gt;</span><br>
+	<span style="font-weight: bold;"><br>
+	Integer Variable</span> - The content length is 10 characters. The 
+	 following is an example of an Integer variable in the dynamic content:<span 
+	 style="font-family: 'Courier New', monospace;"><br>
+	&lt;var:Folder01.Folder02.Folder02.Folder04.Folder05.DINT01&gt;</span><span 
+	 style="font-weight: bold;"><br>
+	<br>
+	Real Variable</span> - The content length is 17 characters. The following 
+	 is an example of a Real variable in the dynamic content:<span style="margin-left: 38px; 
+	 font-family: 'Courier New', monospace;"><br>
+	&lt;var:Folder01.Folder02.REAL03&gt;</span><br>
+	&#160;</p></li>
+	<li class="p-Bullet"><p class="Bullet">You can provide an explicit 
+	 format string to specify the content length of the String, BOOL, Integer, 
+	 or Real variable value, for example:<span style="margin-left: 40px; 
+												 font-family: 'Courier New', monospace;"><br>
+	<br>
+	&lt;var:STRING01,20&gt;</span><span style="margin-left: 40px;"><br>
+	Though the Num of Bytes property is defined as 30, the String's byte 
+	 length specified in the explicit format string, which is 20, takes 
+	 precedence.</span></p></li>
+</ul>
+<h4><a name="Configuring_the_Attachment_Settings" id="Configuring_the_Attachment_Settings"></a><img src="square.bmp" alt="" style="border: none;" width="12" height="10" border="0"> Configuring the Attachment Settings</h4>
+<p>In the Attachment dialog box, specify the attachment by configuring 
+ the following settings: &#160;</p>
+<table style="vertical-align: top; left: 0px; top: 87px; margin-left: 40px;" 
+		 cellspacing="0" width="90%">
+	<col style="width: 25.361%;">
+	<col style="width: 74.639%;">
+	<tr style="vertical-align: top; height: 47px;">
+		<td style="border-top: Solid 3px #000000; border-right: Solid 1px #000000; 
+			 border-bottom: Solid 1px #000000; width: 25.361%; padding-right: 10px; 
+			 padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" 
+			 bgcolor="#91AFD9"><p class="Tabletitle" style="font-size: 11pt;">Property</p></td>
+		<td style="border-top: Solid 3px #000000; border-bottom: Solid 1px #000000; 
+			 width: 74.639%; padding-right: 10px; padding-left: 10px; padding-top: 10px; 
+			 padding-bottom: 10px;" bgcolor="#91AFD9"><p class="Tabletitle" 
+														 style="font-size: 11pt;">Description</p></td>
+	</tr>
+	<tr style="vertical-align: top; height: 38px;">
+		<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; 
+			 width: 25.361%; padding-right: 10px; padding-left: 10px; padding-top: 10px; 
+			 padding-bottom: 10px;" bgcolor="#CBD9ED"><p class="TableDefinitions">Type</p></td>
+		<td style="border-bottom: Solid 1px #000000; width: 74.639%; padding-right: 10px; 
+			 padding-left: 10px; padding-top: 10px; padding-bottom: 10px;"><p>Select 
+		 one of the following types of data you want to attach:</p>
+		<ul style="list-style: square;">
+			<li class="p"><p>Alarm &amp; Event. Attaches a CSV file of 
+			 the specified alarm or event group, system error group, system 
+			 event group, or alarm category to the e-mail.</p></li>
+			<li class="p"><p>Captured Image. Attaches an image you captured 
+			 to the e-mail (for example, a JPG file).</p></li>
+			<li class="p"><p>Data Logging. Attaches DAT data logging files 
+			 to the e-mail.</p></li>
+			<li class="p"><p>File. Attaches any file on the target that 
+			 you want to send with the e-mail.</p></li>
+			<li class="p"><p>Recipe. Attaches RCP or CSV recipe files to 
+			 the e-mail.</p></li>
+			<li class="p"><p>Recorded Video. Attaches a video you recorded 
+			 to the e-mail (for example, a MPG file).</p></li>
+		</ul></td>
+	</tr>
+	<tr style="vertical-align: top; height: 38px;">
+		<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; 
+			 width: 25.361%; padding-right: 10px; padding-left: 10px; padding-top: 10px; 
+			 padding-bottom: 10px;" bgcolor="#CBD9ED"><p class="TableDefinitions">Alarm 
+		 Group / Variable / Recipe Group</p></td>
+		<td style="border-bottom: Solid 1px #000000; width: 74.639%; padding-right: 10px; 
+			 padding-left: 10px; padding-top: 10px; padding-bottom: 10px;"><p>If 
+		 the Type property is set to:</p>
+		<ul style="list-style: square;">
+			<li class="p"><p>Alarm &amp; Event, the Alarm Group property 
+			 is displayed. In the drop-down 
+			 list box, select the alarm group, event group or category 
+			 to attach to the e-mail so its data is in the CSV file attachment.</p></li>
+			<li class="p"><p>Recipe, the Recipe Group property is displayed. 
+			 In the drop-down list box, select the recipe group so its 
+			 data is in the RCP or CSV file attachment.<br>
+			<br>
+			When data is selected as the CSV file type, select the Source 
+			 Drive as either the Secondary Drive or Optional Drive. The 
+			 Source Drive selection depends on where the recipe CSV file 
+			 is generated at run time. To determine this, configure a switch 
+			 with a Copy Data to Drive operation with Recipe selected. 
+			 Then use the Destination Drive to indicate the Source Drive.</p></li>
+			<li class="p"><p>Data Logging, the Variable property is displayed. 
+			 Select the variable associated with the logging group so its 
+			 data is in the DAT file attachment.</p></li>
+			<li class="p"><p>Captured Image, File, or Recorded Video, the 
+			 Variable property is disabled.</p></li>
+		</ul></td>
+	</tr>
+	<tr style="vertical-align: top; height: 38px;">
+		<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; 
+			 width: 25.361%; padding-right: 10px; padding-left: 10px; padding-top: 10px; 
+			 padding-bottom: 10px;" bgcolor="#CBD9ED"><p class="TableDefinitions">Newest 
+		 File by Date</p></td>
+		<td style="border-bottom: Solid 1px #000000; width: 74.639%; padding-right: 10px; 
+			 padding-left: 10px; padding-top: 10px; padding-bottom: 10px;"><p>The 
+		 file with the latest time stamp is attached to the e-mail.</p>
+		<p>This property is disabled if the Type property is set to File.</p></td>
+	</tr>
+	<tr style="vertical-align: top; height: 38px;">
+		<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; 
+			 width: 25.361%; padding-right: 10px; padding-left: 10px; padding-top: 10px; 
+			 padding-bottom: 10px;" bgcolor="#CBD9ED"><p class="TableDefinitions">File 
+		 Name from Variable</p></td>
+		<td style="border-bottom: Solid 1px #000000; width: 74.639%; padding-right: 10px; 
+			 padding-left: 10px; padding-top: 10px; padding-bottom: 10px;"><p>Select 
+		 if you want to attach a string variable to the e-mail. The variable's 
+		 value must include the file name. At run time, Vijeo Designer 
+		 looks for the file in the following location:</p>
+		<p style="margin-left: 40px;"><span style="font-style: italic;">&lt;Defined 
+		 Drive Location&gt;</span> \PUBLIC\PROJECTS\<span style="font-style: italic;">&lt;target 
+		 name&gt;</span>\DATA\<span style="font-style: italic;">&lt;Type 
+		 folder&gt;</span></p>
+		<p>For non-iPC targets, the <span style="font-style: italic;">&lt;Defined 
+		 Drive Location&gt;</span> is the USB drive or the CF Card/SD Card.</p>
+		<p>Depending on the type of the attachment, the file is stored 
+		 in one of the following folders:</p>
+		<ul>
+			<li class="p-Bullet"><p class="Bullet">Alarm and Event: ALARM\<span 
+			 style="font-style: italic;">&lt;alarm group name&gt;</span></p></li>
+			<li class="p-Bullet" style="font-style: normal;"><p class="Bullet">Data 
+			 Logging: LOG</p></li>
+			<li class="p-Bullet" style="font-style: normal;"><p class="Bullet">Captured 
+			 Image: SNAPSHOT</p></li>
+			<li class="p-Bullet"><p class="Bullet">Recorded Video: VIDEO</p></li>
+		</ul>
+		<p>When you set the type of the attachment to File, you must specify 
+		 the full path and file name in the string variable.</p>
+		<p>You can not use this method to select recipes.</p></td>
+	</tr>
+	<tr style="vertical-align: top; height: 38px;">
+		<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; 
+			 width: 25.361%; padding-right: 10px; padding-left: 10px; padding-top: 10px; 
+			 padding-bottom: 10px;" bgcolor="#CBD9ED"><p class="TableDefinitions">File 
+		 Name</p></td>
+		<td style="border-bottom: Solid 1px #000000; width: 74.639%; padding-right: 10px; 
+			 padding-left: 10px; padding-top: 10px; padding-bottom: 10px;"><p>Select 
+		 if you want to attach the file specified in the text box. Enter 
+		 the file name in the text box. If the Type property is set to 
+		 File, you must enter the full path and file name. The text box 
+		 allows a maximum of 100 characters.</p>
+		<p>This property is disabled if the Type property is set to Recipe.</p></td>
+	</tr>
+	<tr style="vertical-align: top; height: 38px;">
+		<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; 
+			 width: 25.361%; padding-right: 10px; padding-left: 10px; padding-top: 10px; 
+			 padding-bottom: 10px;" bgcolor="#CBD9ED"><p class="TableDefinitions">Latest 
+		 Records</p></td>
+		<td style="border-bottom: Solid 1px #000000; width: 74.639%; padding-right: 10px; 
+			 padding-left: 10px; padding-top: 10px; padding-bottom: 10px;"><p>Select 
+		 if you want to attach the latest alarm or event records. This 
+		 property is displayed when the Type property is set to Alarm &amp; 
+		 Event.</p>
+		<ul style="list-style: square;">
+			<li class="p"><p><span style="font-weight: bold;">Alarm &amp; 
+			 Event List</span>: Select the database &#160;(Active, History, 
+			 or Log) to retrieve the records from. For an event group, 
+			 you can only select History or Log records.</p></li>
+		</ul>
+		<p class="NoteImage" style="text-indent: 38px;"><img src="Limit.bmp" alt="" style="border: none;" width="77" height="24" border="0"></p>
+		<ul>
+			<li class="p-NoteText2"><p class="NoteText2">If Active is selected 
+			 for an event group, no records will be retrieved for the e-mail 
+			 attachment.</p></li>
+		</ul>
+		<ul style="list-style: square;">
+			<li class="p"><p><span style="font-weight: bold;">Most Recent</span>: 
+			 Enter the number of most recent records to retrieve from the 
+			 database. You can specify up to 200 most recent records from 
+			 the Active, History, or Log database.</p></li>
+			<li class="p"><p><span style="font-weight: bold;">All</span><span>: 
+			 Select if you want to retrieve all the records from the Active, 
+			 History, or Log database.</span></p></li>
+		</ul></td>
+	</tr>
+	<tr style="vertical-align: top; height: 35px;">
+		<td style="border-right: Solid 1px #000000; border-bottom: Solid 3px #000000; 
+			 width: 25.361%; padding-right: 10px; padding-left: 10px; padding-top: 10px; 
+			 padding-bottom: 10px;" bgcolor="#CBD9ED"><p class="TableDefinitions">Recipe 
+		 Format</p></td>
+		<td style="border-bottom: Solid 3px #000000; width: 74.639%; padding-right: 10px; 
+			 padding-left: 10px; padding-top: 10px; padding-bottom: 10px;"><p>Select 
+		 the recipe file format (RCP or CSV) for the recipe attachment. 
+		 This property is enabled only when the Type property is set to 
+		 Recipe.</p></td>
+	</tr>
+</table>
+<p>&#160;</p>
+<p style="margin-left: 40px;">&#160;</p>
+</body>
+</html>

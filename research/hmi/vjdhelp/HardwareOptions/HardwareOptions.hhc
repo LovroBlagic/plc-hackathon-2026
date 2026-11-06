@@ -1,0 +1,271 @@
+<html>
+<!-- Sitemap 1.0 -->
+<object type="text/site properties">
+  <param name="SiteType" value="toc">
+  <param name="Image Width" value="16">
+  <param name="Window Styles" value="0x800027">
+  <param name="ExWindow Styles" value="0x100">
+</object>
+<ul>
+  <li><object type="text/sitemap">
+    <param name="Name" value="24.1 Bar Code Scanners">
+    <param name="Local" value="BarcodeScannerOverview.htm">
+  </object>
+  <ul>
+    <li><object type="text/sitemap">
+      <param name="Name" value="24.1.1 Connecting the Bar Code Scanner to the Target Machine">
+      <param name="Local" value="Barcode-TargetConnection.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="24.1.2 Setting Up the Bar Code Scanner Driver">
+      <param name="Local" value="BarcodeDriverSetup.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="24.1.3 Direct Input and Use Enter Key Input Modes">
+      <param name="Local" value="Direct_Input_and_Enter_Key_Input_Modes.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="24.1.4 Configuring the Display of Bar Code Data">
+      <param name="Local" value="BarcodeValueAnimation.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="24.1.5 Scanning Data with the Bar Code Scanner">
+      <param name="Local" value="BarcodeScanning.htm">
+    </object>
+    </ul>
+  <li><object type="text/sitemap">
+    <param name="Name" value="24.2 Target Machine Sound Files">
+    <param name="Local" value="TMSoundsOverview.htm">
+  </object>
+  <ul>
+    <li><object type="text/sitemap">
+      <param name="Name" value="24.2.1 Working with the Sound File Editor">
+      <param name="Local" value="TMsoundsSetup.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="24.2.2 Editing Sound Files">
+      <param name="Local" value="TMsoundsEditing.htm">
+    </object>
+    </ul>
+  <li><object type="text/sitemap">
+    <param name="Name" value="24.3 Buzzer">
+    <param name="Local" value="BuzzerSoundsOverview.htm">
+  </object>
+  <ul>
+    <li><object type="text/sitemap">
+      <param name="Name" value="24.3.1 Enable a Target's Buzzer">
+      <param name="Local" value="BuzzerTargetEnabled.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="24.3.2 Enable a Touch Animated Object's Buzzer">
+      <param name="Local" value="BuzzerTouchObject.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="24.3.3 Enable the Buzzer in Parts">
+      <param name="Local" value="BuzzerSmartParts.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="24.3.4 Emit Beeps Using Scripts">
+      <param name="Local" value="Enable_the_Buzzer_Using_Scripts.htm">
+    </object>
+    </ul>
+  <li><object type="text/sitemap">
+    <param name="Name" value="24.4 Setting Up Startup">
+    <param name="Local" value="Startup_Options.htm">
+  </object>
+  <ul>
+    <li><object type="text/sitemap">
+      <param name="Name" value="24.4.1 Startup Delay">
+      <param name="Local" value="StartupDelayOverview.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="24.4.2 Checking Project Integrity">
+      <param name="Local" value="Project_Integrity.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="24.4.3 Custom Startup Screen">
+      <param name="Local" value="Custom_Startup_Screen.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="24.4.4 Time Management">
+      <param name="Local" value="Time_Synchronization.htm">
+    </object>
+    </ul>
+  <li><object type="text/sitemap">
+    <param name="Name" value="24.5 Function Keys">
+    <param name="Local" value="FunctionKeysOverview.htm">
+  </object>
+  <ul>
+    <li><object type="text/sitemap">
+      <param name="Name" value="24.5.1 Target Function Key">
+      <param name="Local" value="Target_Function_Key.htm">
+    </object>
+    <ul>
+      <li><object type="text/sitemap">
+        <param name="Name" value="24.5.1.1 Target Function Key General Tab">
+        <param name="Local" value="Target_Function_Keys.htm">
+      </object>
+      <li><object type="text/sitemap">
+        <param name="Name" value="24.5.1.2 Target Function Key Advanced Tab">
+        <param name="Local" value="Target_Function_Key_Advanced_Tab.htm">
+      </object>
+      </ul>
+    <li><object type="text/sitemap">
+      <param name="Name" value="24.5.2 Panel Function Key">
+      <param name="Local" value="Panel_Function_Keys.htm">
+    </object>
+    <ul>
+      <li><object type="text/sitemap">
+        <param name="Name" value="24.5.2.1 Panel Function Key General Tab">
+        <param name="Local" value="Panel_General_Tab.htm">
+      </object>
+      <li><object type="text/sitemap">
+        <param name="Name" value="24.5.2.2 Panel Function Key Advanced Tab">
+        <param name="Local" value="Panel_Advanced_Tab.htm">
+      </object>
+      <li><object type="text/sitemap">
+        <param name="Name" value="24.5.2.3 Using Object Settings for Panel Function Keys">
+        <param name="Local" value="Basing_a_Panel_Function_Key_on_an_Object.htm">
+      </object>
+      </ul>
+    <li><object type="text/sitemap">
+      <param name="Name" value="24.5.3 LED Control">
+      <param name="Local" value="LED_Control.htm">
+    </object>
+    <ul>
+      <li><object type="text/sitemap">
+        <param name="Name" value="24.5.3.1 LED Control Auto">
+        <param name="Local" value="LED_Control_Auto.htm">
+      </object>
+      <li><object type="text/sitemap">
+        <param name="Name" value="24.5.3.2 LED Control Manual">
+        <param name="Local" value="LED_Control_Manual.htm">
+      </object>
+      <ul>
+        <li><object type="text/sitemap">
+          <param name="Name" value="Static Variable LED Color Table">
+          <param name="Local" value="Variable_LED_Color_Table.htm">
+        </object>
+        <li><object type="text/sitemap">
+          <param name="Name" value="Static Variable LED Blink Table">
+          <param name="Local" value="Variable_LED_Blink_Table.htm">
+        </object>
+        <li><object type="text/sitemap">
+          <param name="Name" value="Dynamic Variable LED Color Table">
+          <param name="Local" value="Dynamic_Variable_LED_Color_Table.htm">
+        </object>
+        <li><object type="text/sitemap">
+          <param name="Name" value="Dynamic Variable LED Blink Table">
+          <param name="Local" value="Dynamic_Variable_LED_Blink_Table.htm">
+        </object>
+        <li><object type="text/sitemap">
+          <param name="Name" value="Controlling Groups of LEDs">
+          <param name="Local" value="Controlling_Groups_of_LEDs.htm">
+        </object>
+        </ul>
+      </ul>
+    <li><object type="text/sitemap">
+      <param name="Name" value="24.5.4 Adding and Removing Function Keys">
+      <param name="Local" value="Adding_Function_Keys.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="24.5.5 Setting Up Interlock for Function Keys">
+      <param name="Local" value="Setting_Up_Interlock_for_Function_Keys.htm">
+    </object>
+    </ul>
+  <li><object type="text/sitemap">
+    <param name="Name" value="24.6 DIO Ports">
+    <param name="Local" value="aux_ports.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="24.7 Setting Up a Tower Light">
+    <param name="Local" value="Set_Up_Tower_Light.htm">
+  </object>
+  <ul>
+    <li><object type="text/sitemap">
+      <param name="Name" value="24.7.1 Adding the Tower Light">
+      <param name="Local" value="Add_Tower_Light.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="24.7.2 Drawing the Tower Light Part">
+      <param name="Local" value="Draw_Tower_Light_Part.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="24.7.3 Adding Parts to Control the Tower Light">
+      <param name="Local" value="Add_Parts_to_Control_the_Tower_Light.htm">
+    </object>
+    </ul>
+  <li><object type="text/sitemap">
+    <param name="Name" value="24.8 Illuminated Switch">
+    <param name="Local" value="Alarm_Console.htm">
+  </object>
+  <ul>
+    <li><object type="text/sitemap">
+      <param name="Name" value="24.8.1 Adding the Illuminated Switch">
+      <param name="Local" value="Adding_Alarm_Console.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="24.8.2 Setting Up the Illuminated Switch">
+      <param name="Local" value="Setting_up_Alarm_Console.htm">
+    </object>
+    <ul>
+      <li><object type="text/sitemap">
+        <param name="Name" value="24.8.2.1 Illuminated Switch at IO Manager Node">
+        <param name="Local" value="Device_Alarm_Console.htm">
+      </object>
+      <li><object type="text/sitemap">
+        <param name="Name" value="24.8.2.2 Illuminated Switch at Target Node">
+        <param name="Local" value="Target_Alarm_Console.htm">
+      </object>
+      <li><object type="text/sitemap">
+        <param name="Name" value="24.8.2.3 Illuminated Switch at Panel Node">
+        <param name="Local" value="Panel_Alarm_Console.htm">
+      </object>
+      </ul>
+    </ul>
+  <li><object type="text/sitemap">
+    <param name="Name" value="24.9 Biometric Switch">
+    <param name="Local" value="Fingerprint_Reader.htm">
+  </object>
+  <ul>
+    <li><object type="text/sitemap">
+      <param name="Name" value="24.9.1 Adding Biometric Switch to IO Manager">
+      <param name="Local" value="Adding_Fingerprint_Reader.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="24.9.2 Capturing Fingerprints">
+      <param name="Local" value="Capturing_Fingerprints.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="24.9.3 Upgrading Existing Projects to Include Fingerprints">
+      <param name="Local" value="Upgrading_Existing_Projects_to_Include_Fingerprints.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="24.9.4 Importing/Exporting Fingerprints">
+      <param name="Local" value="Importing_Exporting_Fingerprint_Database.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="24.9.5 Working with Biometric Switch at Runtime">
+      <param name="Local" value="Fingerprint_Reader_at_Runtime.htm">
+    </object>
+    <ul>
+      <li><object type="text/sitemap">
+        <param name="Name" value="24.9.5.1 Logging in and out of Target Machines">
+        <param name="Local" value="Fingerprint_Reader_Login_Logout.htm">
+      </object>
+      <li><object type="text/sitemap">
+        <param name="Name" value="24.9.5.2 Managing Users with Fingerprints">
+        <param name="Local" value="Add_Edit_Delete_Fingerprints.htm">
+      </object>
+      </ul>
+    </ul>
+  <li><object type="text/sitemap">
+    <param name="Name" value="24.10 Harmony USB Keyboard">
+    <param name="Local" value="USB_Keyboard.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="24.11 Front USB Ports">
+    <param name="Local" value="Front_USB_Ports.htm">
+  </object>
+</ul>
+</html>

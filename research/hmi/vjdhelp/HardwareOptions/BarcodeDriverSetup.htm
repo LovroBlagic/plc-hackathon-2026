@@ -1,0 +1,236 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+<meta name="template" content="Vijeo_template.htt">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="topic-status" content="In Progress">
+<meta name="topic-priority" content="0">
+<meta name="topic-time-estimate" content="0">
+<meta name="topic-id" content="">
+ <meta name="generator" content="Adobe RoboHelp 2015">
+<title>Setting up the Bar Code Scanner Driver</title>
+<link rel="StyleSheet" href="TIS-STYL.css" type="text/css">
+</head>
+<body>
+<script type="text/javascript" src="ehlpdhtm.js" language="JavaScript1.2"></script>
+
+<div style="width: 100%; position: relative;" id="header">
+	<table style="background-attachment: scroll; margin-left: 0px; margin-right: 4px; 
+			 background-image: url(top_banner.bmp); background-repeat: Repeat-X; 
+			 line-height: 0pt; vertical-align: top;" cellspacing="0" background="top_banner.bmp" 
+			 width="100%">
+		<col style="width: 90%;">
+		<col style="width: 5%;">
+		<col style="width: 5%;">
+		<tr style="vertical-align: center; height: 39px;">
+			<td style="width: 90%; padding-right: 10px; padding-left: 10px; 
+				 border-right-color: #000000;">
+   <p><img src="logo.bmp" alt="" style="border: none;" width="37" height="37" border="0"></p></td>
+			<td style="width: 5%; padding-right: 0px; padding-left: 10px; 
+				 border-right-color: #000000;">
+   <p style="text-align: center;"><a 
+			 title="Glossary" href="Appendix.chm::/Glossary.htm"><img src="logo_glossary.bmp" alt="" style="border: none;" width="47" height="37" border="0"></a></p></td>
+			<td style="width: 5%; padding-right: 10px; padding-left: 5px; 
+				 border-right-color: #000000;">
+   <p style="text-align: center;"><a 
+			 href="About.chm::/What_is_Vijeo-Designer.htm" title="Home"><img src="logo_home.bmp" alt="Home" title="Home" style="border: none; 
+			 margin-left: 0px; margin-right: 0px; margin-bottom: 0px; margin-top: -2px;" width="47" height="37" border="0"></a></p></td>
+		</tr>
+	</table>
+</div>
+
+
+<h2><a name="20_1_2BarcodeScannerDriver"></a>24.1.2 Setting Up the Bar Code Scanner Driver</h2>
+<ol start="1" style="list-style: decimal;">
+<li class="p">
+<p>In the Navigator window's Project tab, right-click the target's IO Manager node and click New Driver.</p>
+</li>
+</ol>
+<ol start="2" style="list-style: decimal;">
+<li class="p">
+<p style="margin-left: 0px;">In the New Driver dialog box, select Generic Drivers as the Manufacturer, then select the driver and type. See Appendix 5, <a href="Appendix.chm::/Hardware_Specifications.htm">Hardware Specifications</a>, for target machine connections to bar code scanners.</p>
+</li>
+</ol>
+<ol start="3">
+<li class="p">
+<p>Click OK to add the Barcode Scanner driver.</p>
+</li>
+</ol>
+<p style="margin-left: 40px;"><img src="Note_Moji.bmp" alt="" style="border: none;" width="51" height="25" border="0"></p>
+<ul>
+<li class="p-NoteText2">
+<p class="NoteText2">Once you click OK, the bar code's string variable is automatically created. This barcode variable is used to store data that is read from the Barcode Scanner. The barcode variable is named <span style="font-weight: bold;">Barcode01</span> for the first bar code variable, <span style="font-weight: bold;">Barcode02</span> for the second bar code variable, and so on for each new bar code driver created.</p>
+</li>
+</ul>
+<ul>
+<li class="p-NoteText2">
+<p class="NoteText2">If you use Tab Groups, use the same barcode variable for every input in the Tab Group.</p>
+</li>
+</ul>
+<ol start="4" style="list-style: decimal;">
+<li class="p">
+<p><span>Right-click the Bar Code Scanner driver node and click Configuration to display the Driver Configuration dialog box.</span></p>
+</li>
+</ol>
+<ol start="5" style="list-style: decimal;">
+<li class="p">
+<p><span>Match the settings in the Driver Configuration dialog box with the communication settings required by the bar code scanner, then click OK to accept the driver settings.</span></p>
+</li>
+</ol>
+<p style="margin-left: 40px;"><span>The configuration settings are different for each driver.</span></p>
+<h4><a name="SIO" id="SIO"></a><img src="Square.bmp" alt="" style="border: none;" width="12" height="10" border="0">Serial: Generic Bar Code Scanner (SIO)</h4>
+<p class="Image"><img src="Driver_Configuration_Barcode.bmp" alt="" style="border: none;" width="468" height="296" border="0"></p>
+<p><span>The following table describes the Driver Configuration settings for the Serial Barcode Scanner.</span></p>
+<table style="vertical-align: top; margin-bottom: 10px; margin-left: 40px; left: 0px; top: 699px; height: 245px;" cellspacing="0" width="90%">
+<col style="width: 25%;">
+<col style="width: 75%;">
+<tr style="vertical-align: top;">
+<td style="border-top: Solid 3px #000000; border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 25%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#91AFD9">
+<p class="Tabletitle">Property</p>
+</td>
+<td style="border-top: Solid 3px #000000; border-bottom: Solid 1px #000000; width: 75%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#91AFD9">
+<p class="Tabletitle">Description</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 25%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#CBD9ED">
+<p class="TableDefinitions">Manufacturer</p>
+</td>
+<td style="border-bottom: Solid 1px #000000; width: 75%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">Read-only property displays the equipment manufacturer.</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 25%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#CBD9ED">
+<p class="TableDefinitions">Driver</p>
+</td>
+<td style="border-bottom: Solid 1px #000000; width: 75%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">Read-only property displays the name of the driver.</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 25%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#CBD9ED">
+<p class="TableDefinitions">COM Port</p>
+</td>
+<td style="border-bottom: Solid 1px #000000; width: 75%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">Defines which COM port to use on the target machine for the bar code scanner.</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 25%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#CBD9ED">
+<p class="TableDefinitions">Serial Interface</p>
+</td>
+<td style="border-bottom: Solid 1px #000000; width: 75%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">Read-only property displays the serial connection for the selected COM port.</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 25%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#CBD9ED">
+<p class="TableDefinitions">Flow Control</p>
+</td>
+<td style="border-bottom: Solid 1px #000000; width: 75%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">Read-only property defines the signals that control the data flow.</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 25%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#CBD9ED">
+<p class="TableDefinitions">Transmission Speed</p>
+</td>
+<td style="border-bottom: Solid 1px #000000; width: 75%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">Sets the communication speed in bits per second (bps). Available selections: 115200, 57600, 38400, 19200, 9600, 4800, 2400.</p>
+<p class="Tabletext">Make sure the Transmission Speed between the driver and bar code scanner match. In some instances, the runtime cannot detect a scanner is connected when the speeds are different.</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 25%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#CBD9ED">
+<p class="TableDefinitions">Parity Bit</p>
+</td>
+<td style="border-bottom: Solid 1px #000000; width: 75%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">For detecting communication errors, set the parity bit to Even, Odd, or None.</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 25%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#CBD9ED">
+<p class="TableDefinitions">Stop Bit</p>
+</td>
+<td style="border-bottom: Solid 1px #000000; width: 75%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">Defines the stop bit (1 or 2) for communication packets.</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 25%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#CBD9ED">
+<p class="TableDefinitions">Data Length</p>
+</td>
+<td style="border-bottom: Solid 1px #000000; width: 75%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">Defines the length of each unit of data as 7 or 8 bits.</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 3px #000000; width: 25%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#CBD9ED">
+<p class="TableDefinitions">End Mark</p>
+</td>
+<td style="border-bottom: Solid 3px #000000; width: 75%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">Defines the termination character (CR or CR+LF).</p>
+<p class="Tabletext">This setting must match the termination character on the bar code scanner.</p>
+</td>
+</tr>
+</table>
+<h4><a name="USB" id="USB"></a><img src="Square.bmp" alt="" style="border: none;" width="12" height="10" border="0">USB: Generic Barcode Scanner (USB)</h4>
+<p class="Image" style="margin-left: 0px;"><img src="Driver_Configuration_USB.bmp" alt="" style="border: none;" width="468" height="211" border="0"></p>
+<p>The following table describes the Driver Configuration settings for the USB Barcode Scanner.</p>
+<table style="vertical-align: top; margin-bottom: 10px; height: 128px; margin-left: 40px; left: 0px; top: 1221px;" cellspacing="0" width="90%">
+<col style="width: 25%;">
+<col style="width: 75%;">
+<tr style="vertical-align: top;">
+<td style="border-top: Solid 3px #000000; border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 25%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#91AFD9">
+<p class="Tabletitle">Property</p>
+</td>
+<td style="border-top: Solid 3px #000000; border-bottom: Solid 1px #000000; width: 75%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#91AFD9">
+<p class="Tabletitle">Description</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 25%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#CBD9ED">
+<p class="TableDefinitions">Manufacturer</p>
+</td>
+<td style="border-bottom: Solid 1px #000000; width: 75%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">Read-only property displays the device manufacturer. For the bar code scanner, displays Generic Drivers.</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 25%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#CBD9ED">
+<p class="TableDefinitions">Driver</p>
+</td>
+<td style="border-bottom: Solid 1px #000000; width: 75%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">Read-only property displays the name of the driver.</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 25%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#CBD9ED">
+<p class="TableDefinitions">Port</p>
+</td>
+<td style="border-bottom: Solid 1px #000000; width: 75%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">Read-only property displays the communication port on the target machine where the bar code scanner is connected.</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 25%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#CBD9ED">
+<p class="TableDefinitions">Key Code</p>
+</td>
+<td style="border-bottom: Solid 1px #000000; width: 75%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">Read-only property displays the English 101 keyboard character code used by the bar code scanner.</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 3px #000000; width: 25%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#CBD9ED">
+<p class="TableDefinitions">End Mark</p>
+</td>
+<td style="border-bottom: Solid 3px #000000; width: 75%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">Defines the termination character (CR or CR+LF).</p>
+<p class="Tabletext">This setting must match the termination character on the bar code scanner.</p>
+</td>
+</tr>
+</table>
+</body>
+</html>

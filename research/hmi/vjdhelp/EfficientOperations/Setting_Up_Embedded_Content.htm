@@ -1,0 +1,585 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+<meta name="template" content="Vijeo_template.htt">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+ <meta name="generator" content="Adobe RoboHelp 10">
+<title>Setting Up Dynamic Content in a Text Resource</title>
+<link rel="StyleSheet" href="Tis-styl.css" type="text/css">
+</head>
+
+<body>
+<script type="text/javascript" src="ehlpdhtm.js" language="JavaScript1.2"></script>
+
+<div style="width: 100%; position: relative;" id="header">
+	<table style="background-attachment: scroll; margin-left: 0px; margin-right: 4px; 
+			 background-image: url(top_banner.bmp); background-repeat: Repeat-X; 
+			 line-height: 0pt; vertical-align: top;" cellspacing="0" width="100%" 
+			 background="top_banner.bmp">
+		<col style="width: 90%;">
+		<col style="width: 5%;">
+		<col style="width: 5%;">
+		<tr style="vertical-align: center; height: 39px;">
+			<td style="width: 90%; padding-right: 10px; padding-left: 10px; 
+				 border-right-color: #000000;">
+   <p><img src="logo.bmp" style="border: none;" alt="" width="37" height="37" border="0"></p></td>
+			<td style="width: 5%; padding-right: 0px; padding-left: 10px; 
+				 border-right-color: #000000;">
+   <p style="text-align: center;"><a 
+			 title="Glossary" href="Appendix.chm::/Glossary.htm"><img src="logo_glossary.bmp" style="border: none;" alt="" width="47" height="37" border="0"></a></p></td>
+			<td style="width: 5%; padding-right: 10px; padding-left: 5px; 
+				 border-right-color: #000000;">
+   <p style="text-align: center;"><a 
+			 href="About.chm::/What_is_Vijeo-Designer.htm" title="Home"><img src="logo_home.bmp" alt="Home" title="Home" style="border: none; 
+			 margin-left: 0px; margin-right: 0px; margin-bottom: 0px; margin-top: -2px;" width="47" height="37" border="0"></a></p></td>
+		</tr>
+	</table>
+</div>
+
+<h3>21.1.5.12 Setting Up Messages with Dynamic Content</h3>
+<p>Dynamic content messages are user event messages that include current 
+ variable values, time stamps, and other text you want to predefine.</p>
+<p>Messages with dynamic content can be used in:</p>
+<ul>
+	<li class="p-Bullet"><p class="Bullet">Event logging: Log user actions 
+	 by creating messages with dynamic content, such as current values, 
+	 date, and time. For more information on custom event messages, see 
+	 Section 16.2.2.2, <a href="Alarms.chm::/Event_Logging.htm">Event Logging</a>.</p></li>
+	<li class="p-Bullet"><p class="Bullet">Data logging: Log data for multiple 
+	 variables into one CSV file at runtime. For more information, see 
+	 Section 13.1.1.5, <a href="Trends.chm::/Displaying_Multi_Variables_Single_CSV.htm">Saving 
+	 Multiple Variable Values to a Single CSV File</a>.</p></li>
+	<li class="p-Bullet"><p class="Bullet">Message Displays: Display messages 
+	 on the panel with dynamic content when used with text resources. For 
+	 more information, see Section 14.3, <a href="OtherParts.chm::/List_Example_Creating_Message_Display.htm">Example: 
+	 Creating a Message Display</a>.</p></li>
+	<li class="p-Bullet"><p class="Bullet">E-mails: Send an e-mail message 
+	 with dynamic content. For more information on how to set up an e-mail 
+	 operation, see Section 9.5.20, <a href="Switches.chm::/Email.htm">E-mail 
+	 Operations</a>.</p></li>
+	<li class="p-Bullet"><p class="Bullet">Forms: Add a message display 
+	 with dynamic content to appear on the form. For more information, 
+	 see Section 27.3.4, <a href="VijeoPrinting.chm::/Adding_a_Data_Display_to_the_Form_Editor.htm">Adding 
+	 a Data Display or Message Display</a>.</p></li>
+	<li class="p-Bullet"><p class="Bullet">Text Resources: Create text 
+	 resources with dynamic content to use with message displays. For more 
+	 information on text resources, see Section 21.1.2, <a href="Resource_Editors.htm">Resource 
+	 Editors (Color, Text, Image)</a>.</p></li>
+	<li class="p-Bullet"><p class="Bullet">Dynamic Alarm Messages: Display 
+	 alarm messages with dynamic content. For more information, see Section 
+	 16.3.8, <a href="Alarms.chm::/Setting_Up_Dynamic_Messages_in_Alarms.htm">Setting 
+	 Up Dynamic Messages in Alarms</a>.</p></li>
+</ul>
+<h4><a name="dynamicContent642b3b9347ca42c9b00b820c00c373fa=1"></a><a name="dynamicContent" id="dynamicContent"></a><img src="Square.bmp" alt="" style="border: none;" width="12" height="10" border="0">Adding 
+ Dynamic Content</h4>
+<p>Dynamic content can be created in a text resource's label column, an 
+ e-mail's subject, and in an e-mail's message.</p>
+<ol style="list-style: decimal;">
+	<li class="p"><p>Right-click the text resource's label column, the 
+	 e-mail's subject field, or the e-mail's message field and select Insert.</p></li>
+	<li class="p"><p>Select <a href="#timestamp">Time stamp</a>, <a href="#variable">Variable</a> 
+	 or <a href="#Vijeo_Design_Air_Plus_Alarm_URL">Vijeo Design'Air Plus 
+	 Alarm URL</a>.</p></li>
+</ol>
+<p style="margin-left: 40px; font-weight: bold;"><a name="timestamp" id="timestamp"></a>Time 
+ stamp</p>
+<ul style="list-style: square;">
+	<li class="p"><p style="margin-left: 40px;">Custom time stamp</p></li>
+	<li style="list-style: none; display: inline;"><p class="Image"><img src="customTimestampDialog.bmp" alt="" style="border: none;" width="317" height="326" border="0"></p></li>
+</ul>
+<table style="vertical-align: top; left: 0px; top: 373px; margin-left: 80px;" 
+		 cellspacing="0" width="80.836%">
+	<col style="width: 23.038%;">
+	<col style="width: 76.962%;">
+	<tr style="vertical-align: top; height: 45px;">
+		<td style="border-top: Solid 3px #000000; border-right: Solid 1px #000000; 
+			 border-bottom: Solid 1px #000000; width: 23.038%; padding-right: 10px; 
+			 padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" 
+			 bgcolor="#91AFD9"><p class="Tabletitle">Property</p></td>
+		<td style="border-top: Solid 3px #000000; border-bottom: Solid 1px #000000; 
+			 width: 76.962%; padding-right: 10px; padding-left: 10px; padding-top: 10px; 
+			 padding-bottom: 10px;" bgcolor="#91AFD9"><p class="Tabletitle">Description</p></td>
+	</tr>
+	<tr style="vertical-align: top; height: 38px;">
+		<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; 
+			 width: 23.038%; padding-right: 10px; padding-left: 10px; padding-top: 10px; 
+			 padding-bottom: 10px;" bgcolor="#CBD9ED"><p>Sample</p></td>
+		<td style="border-bottom: Solid 1px #000000; width: 76.962%; padding-right: 10px; 
+			 padding-left: 10px; padding-top: 10px; padding-bottom: 10px; 
+			 background-color: Transparent;"><p>Displays the time stamp 
+		 output for the format defined in this dialog box.</p></td>
+	</tr>
+	<tr style="vertical-align: top; height: 39px;">
+		<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; 
+			 width: 23.038%; padding-right: 10px; padding-left: 10px; padding-top: 10px; 
+			 padding-bottom: 10px;" bgcolor="#CBD9ED"><p>Date</p></td>
+		<td style="border-bottom: Solid 1px #000000; width: 76.962%; padding-right: 10px; 
+			 padding-left: 10px; padding-top: 10px; padding-bottom: 10px; 
+			 background-color: Transparent;"><p>Select if you want to display 
+		 a date. Choose the date format and date separator.</p></td>
+	</tr>
+	<tr style="vertical-align: top; height: 38px;">
+		<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; 
+			 width: 23.038%; padding-right: 10px; padding-left: 10px; padding-top: 10px; 
+			 padding-bottom: 10px;" bgcolor="#CBD9ED"><p>Time</p></td>
+		<td style="border-bottom: Solid 1px #000000; width: 76.962%; padding-right: 10px; 
+			 padding-left: 10px; padding-top: 10px; padding-bottom: 10px; 
+			 background-color: Transparent;"><p>Select if you want to display 
+		 a time. Choose the time format.</p></td>
+	</tr>
+	<tr style="vertical-align: top; height: 54px;">
+		<td style="border-right: Solid 1px #000000; border-bottom: Solid 3px #000000; 
+			 width: 23.038%; padding-right: 10px; padding-left: 10px; padding-top: 10px; 
+			 padding-bottom: 10px;" bgcolor="#CBD9ED"><p>Date and Time</p></td>
+		<td style="border-bottom: Solid 3px #000000; width: 76.962%; padding-right: 10px; 
+			 padding-left: 10px; padding-top: 10px; padding-bottom: 10px; 
+			 background-color: Transparent;"><p>Select if you want to display 
+		 date and time. Choose the date and time format you want.</p></td>
+	</tr>
+</table>
+<p style="margin-left: 40px;">&#160;</p>
+<ul style="list-style: square;">
+	<li class="p"><p style="margin-left: 40px;">Time stamp: The Date, Time, 
+	 or Date &amp; Time menu options allow you to select predefined formats. 
+	 Once the format is selected, the time stamp inserts into the field.</p></li>
+</ul>
+<p style="margin-left: 40px; font-weight: bold;"><a name="variable" id="variable"></a>Variable</p>
+<p class="Image" style="margin-left: 40px;"><img src="variableDialog.bmp" alt="" style="border: none;" width="336" height="186" border="0"></p>
+<p style="margin-left: 40px; font-weight: bold;">&#160;</p>
+<table style="vertical-align: top; left: 0px; top: 373px; margin-left: 40px;" 
+		 cellspacing="0" width="87.443%">
+	<col style="width: 21.297%;">
+	<col style="width: 78.703%;">
+	<tr style="vertical-align: top; height: 61px;">
+		<td style="border-top: Solid 3px #000000; border-right: Solid 1px #000000; 
+			 border-bottom: Solid 1px #000000; width: 21.297%; padding-right: 10px; 
+			 padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" 
+			 bgcolor="#91AFD9"><p class="Tabletitle">Property</p></td>
+		<td style="border-top: Solid 3px #000000; border-bottom: Solid 1px #000000; 
+			 width: 78.703%; padding-right: 10px; padding-left: 10px; padding-top: 10px; 
+			 padding-bottom: 10px;" bgcolor="#91AFD9"><p class="Tabletitle">Description</p></td>
+	</tr>
+	<tr style="vertical-align: top; height: 52px;">
+		<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; 
+			 width: 21.297%; padding-right: 10px; padding-left: 10px; padding-top: 10px; 
+			 padding-bottom: 10px;" bgcolor="#CBD9ED"><p class="TableDefinitions">Variable</p></td>
+		<td style="border-bottom: Solid 1px #000000; width: 78.703%; padding-right: 10px; 
+			 padding-left: 10px; padding-top: 10px; padding-bottom: 10px; 
+			 background-color: Transparent;"><p>Select a valid variable 
+		 in the project. Supports BOOL, Integer, String, and Float types. 
+		 BOOL and Integer types are formatted as decimal numbers.</p></td>
+	</tr>
+	<tr style="vertical-align: top; height: 39px;">
+		<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; 
+			 width: 21.297%; padding-right: 10px; padding-left: 10px; padding-top: 10px; 
+			 padding-bottom: 10px;" bgcolor="#CBD9ED"><p class="TableDefinitions">Enable 
+		 Format</p></td>
+		<td style="border-bottom: Solid 1px #000000; width: 78.703%; padding-right: 10px; 
+			 padding-left: 10px; padding-top: 10px; padding-bottom: 10px; 
+			 background-color: Transparent;"><p>Select to enable variable 
+		 code formatting.</p></td>
+	</tr>
+	<tr style="vertical-align: top; height: 38px;">
+		<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; 
+			 width: 21.297%; padding-right: 10px; padding-left: 10px; padding-top: 10px; 
+			 padding-bottom: 10px;" bgcolor="#CBD9ED"><p class="TableDefinitions">Total 
+		 Digits</p></td>
+		<td style="border-bottom: Solid 1px #000000; width: 78.703%; padding-right: 10px; 
+			 padding-left: 10px; padding-top: 10px; padding-bottom: 10px; 
+			 background-color: Transparent;"><p>Enter the minimum number 
+		 of digits or characters to display. For example, if Total Digits 
+		 is 6, Decimal Digits is 0, and the variable value is 5, the output 
+		 would be: 000005</p>
+		<p>See <a href="#dynamicFormattingExamples">below</a> for more 
+		 formatting examples.</p></td>
+	</tr>
+	<tr style="vertical-align: top; height: 38px;">
+		<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; 
+			 width: 21.297%; padding-right: 10px; padding-left: 10px; padding-top: 10px; 
+			 padding-bottom: 10px;" bgcolor="#CBD9ED"><p class="TableDefinitions">Decimal 
+		 Digits</p></td>
+		<td style="border-bottom: Solid 1px #000000; width: 78.703%; padding-right: 10px; 
+			 padding-left: 10px; padding-top: 10px; padding-bottom: 10px; 
+			 background-color: Transparent;"><p>Enter the minimum number 
+		 of decimal digits to display. For example, if Total Digits is 
+		 10, Decimal Digits is 9, and the variable value is 5, the output 
+		 would be: 0.000000005</p>
+		<p>See <a href="#dynamicFormattingExamples">below</a> for more 
+		 formatting examples.</p></td>
+	</tr>
+	<tr style="vertical-align: top; height: 54px;">
+		<td style="border-right: Solid 1px #000000; border-bottom: Solid 3px #000000; 
+			 width: 21.297%; padding-right: 10px; padding-left: 10px; padding-top: 10px; 
+			 padding-bottom: 10px;" bgcolor="#CBD9ED"><p class="TableDefinitions">Leading 
+		 Zeros</p></td>
+		<td style="border-bottom: Solid 3px #000000; width: 78.703%; padding-right: 10px; 
+			 padding-left: 10px; padding-top: 10px; padding-bottom: 10px; 
+			 background-color: Transparent;"><p>Select to fill the number 
+		 with leading zeros.</p></td>
+	</tr>
+</table>
+<p style="margin-left: 40px;">&#160;</p>
+<p style="margin-left: 40px; font-weight: bold;"><a name="Vijeo_Design_Air_Plus_Alarm_URL"></a>Vijeo 
+ Design'Air Plus Alarm URL</p>
+<p style="margin-left: 40px; mso-fareast-font-family: 'Times New Roman'; 
+	 font-weight: normal; font-size: 10pt;"><span style="mso-ansi-language: EN-US; 
+													 mso-fareast-language: EN-US; 
+													 mso-bidi-language: AR-SA;">This 
+ option inserts an Alarm URL which is &lt;url: AirPlus,Alarm&gt;. Use this 
+ URL to open the Vijeo Design’Air Plus App and launch the alarm page in 
+ the tablet project associated with the HMI. </span></p>
+<p style="margin-left: 40px; font-weight: bold;"><span style="mso-fareast-font-family: 'Times New Roman'; 
+														 mso-ansi-language: EN-US; 
+														 mso-fareast-language: EN-US; 
+														 mso-bidi-language: AR-SA; 
+														 font-weight: normal; 
+														 font-size: 10pt;">For 
+ more information, see <u style="font-weight: normal; font-size: 10pt; 
+							 text-decoration: none; "><a href="WebMonitoring.chm::/Working_in_the_Discovery_Screen.htm#Accessing_the_Alarm_Panel_from_Email_or_SMS_message">Accessing 
+ the Alarm Panel from Email or SMS message</a></u> in Section 23.1.1.3 
+ <u style="font-weight: normal; font-size: 10pt; text-decoration: none; "><a 
+	 href="WebMonitoring.chm::/Working_in_the_Discovery_Screen.htm">Working 
+ in Vijeo Design’Air Plus</a></u></span><span style="mso-fareast-font-family: 'Times New Roman'; 
+												 mso-ansi-language: EN-US; 
+												 mso-fareast-language: EN-US; 
+												 mso-bidi-language: AR-SA; 
+												 font-weight: normal; font-size: 10pt;">.</span> 
+ </p>
+<p style="margin-left: 40px; font-weight: bold;">&#160;</p>
+<ol start="3" style="list-style: decimal;">
+	<li class="p"><p>Click OK to insert the time stamp or the variable.</p></li>
+</ol>
+<h4><a name="formattingCodes642b3b9347ca42c9b00b820c00c373fa=2"></a><a name="formattingCodes" id="formattingCodes"></a><img src="Square.bmp" alt="" style="border: none;" width="12" height="10" border="0">Formatting 
+ Codes</h4>
+<p>The tables below describe <a href="#variableFormattingCodes">variable</a> 
+ and <a href="#timestamp">time stamp</a> formatting codes.</p>
+<p>&#160;</p>
+<h5><a name="variableFormattingCodes" id="variableFormattingCodes"></a>Variable 
+ Formatting Codes</h5>
+<table style="vertical-align: top; left: 0px; top: 373px; margin-left: 40px;" 
+		 cellspacing="0" width="89.718%">
+	<col style="width: 17.805%;">
+	<col style="width: 11.905%;">
+	<col style="width: 70.29%;">
+	<tr style="vertical-align: top; height: 61px;">
+		<td style="border-top: Solid 3px #000000; border-right: Solid 1px #000000; 
+			 border-bottom: Solid 1px #000000; width: 17.805%; padding-right: 10px; 
+			 padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" 
+			 bgcolor="#91AFD9"><p class="Tabletitle">Format Code</p></td>
+		<td colspan="2" style="border-top: Solid 3px #000000; border-bottom: Solid 1px #000000; 
+			 width: 82.195%; padding-right: 10px; padding-left: 10px; padding-top: 10px; 
+			 padding-bottom: 10px;" bgcolor="#91AFD9"><p class="Tabletitle">Description</p></td>
+		
+	</tr>
+	<tr style="vertical-align: top; height: 49px;">
+		<td rowspan="4" style="border-right: Solid 1px #000000; border-bottom: Solid 3px #000000; 
+			 width: 17.805%; padding-right: 10px; padding-left: 10px; padding-top: 10px; 
+			 padding-bottom: 10px;" bgcolor="#CBD9ED"><p class="TableDefinitions">&lt;var:<span 
+		 style="font-style: italic; font-weight: normal;">variableName,</span><span 
+		 style="font-style: italic; font-weight: normal;">m.n</span><span 
+		 style="font-style: italic;">&gt;</span></p></td>
+		<td colspan="2" style="border-bottom: Solid 1px #000000; width: 82.195%; 
+			 padding-right: 10px; padding-left: 10px; padding-top: 10px; 
+			 padding-bottom: 10px; background-color: Transparent;"><p>Inserts 
+		 the variable name. The following describes the components in the 
+		 format code.</p></td>
+		
+	</tr>
+	<tr style="vertical-align: top; height: 49px;">
+		<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; 
+			 width: 11.905%; padding-right: 10px; padding-left: 10px; padding-top: 10px; 
+			 padding-bottom: 10px;"><p class="TableDefinitions">variableName</p></td>
+		<td style="border-bottom: Solid 1px #000000; width: 70.29%; padding-right: 10px; 
+			 padding-left: 10px; padding-top: 10px; padding-bottom: 10px;"><p>Indicates 
+		 the variable name. Supports BOOL, 
+		 Integer, 
+		 String, 
+		 and Float 
+		 types. BOOL 
+		 and Integer 
+		 types will be formatted as decimal numbers.</p></td>
+	</tr>
+	<tr style="vertical-align: top; height: 67px;">
+		<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; 
+			 width: 11.905%; padding-right: 10px; padding-left: 10px; padding-top: 10px; 
+			 padding-bottom: 10px;"><p 
+			 class="TableDefinitions">m</p></td>
+		<td style="border-bottom: Solid 1px #000000; width: 70.29%; padding-right: 10px; 
+			 padding-left: 10px; padding-top: 10px; padding-bottom: 10px;"><p>Indicates 
+		 the number of characters to fill for the variable value. The value 
+		 will be displayed left justified.</p></td>
+	</tr>
+	<tr style="vertical-align: top; height: 52px;">
+		<td style="border-right: Solid 1px #000000; border-bottom: Solid 3px #000000; 
+			 width: 11.905%; padding-right: 10px; padding-left: 10px; padding-top: 10px; 
+			 padding-bottom: 10px;"><p 
+			 class="TableDefinitions">n</p></td>
+		<td style="border-bottom: Solid 3px #000000; width: 70.29%; padding-right: 10px; 
+			 padding-left: 10px; padding-top: 10px; padding-bottom: 10px;"><p>Indicates 
+		 the decimal digits, for Integer types.</p></td>
+	</tr>
+</table>
+<p>&#160;</p>
+<h5><a name="timeStampFormattingCodes" id="timeStampFormattingCodes"></a>Time 
+ stamp Formatting Codes</h5>
+<table style="vertical-align: top; left: 0px; top: 373px; margin-left: 40px;" 
+		 cellspacing="0" width="89.678%">
+	<col style="width: 17.413%;">
+	<col style="width: 10.625%;">
+	<col style="width: 71.962%;">
+	<tr style="vertical-align: top; height: 61px;">
+		<td style="border-top: Solid 3px #000000; border-right: Solid 1px #000000; 
+			 border-bottom: Solid 1px #000000; width: 17.413%; padding-right: 10px; 
+			 padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" 
+			 bgcolor="#91AFD9"><p class="Tabletitle">Format Code</p></td>
+		<td colspan="2" style="border-top: Solid 3px #000000; border-bottom: Solid 1px #000000; 
+			 width: 82.587%; padding-right: 10px; padding-left: 10px; padding-top: 10px; 
+			 padding-bottom: 10px;" bgcolor="#91AFD9"><p class="Tabletitle">Description</p></td>
+		
+	</tr>
+	<tr style="vertical-align: top; height: 49px;">
+		<td rowspan="20" style="border-right: Solid 1px #000000; border-bottom: Solid 3px #000000; 
+			 width: 17.413%; padding-right: 10px; padding-left: 10px; padding-top: 10px; 
+			 padding-bottom: 10px;" bgcolor="#CBD9ED"><p class="TableDefinitions">&lt;timestamp:<span 
+		 style="font-style: italic; font-weight: normal;">MM/dd/yy</span>&gt;</p></td>
+		<td colspan="2" style="border-bottom: Solid 1px #000000; width: 82.587%; 
+			 padding-right: 10px; padding-left: 10px; padding-top: 10px; 
+			 padding-bottom: 10px; background-color: Transparent;"><p>Inserts 
+		 the date and time. The following describes the components in the 
+		 format code. For MMM 
+		 and MMMM, 
+		 enter the month in English only (for example, FEB and February).</p></td>
+		
+	</tr>
+	<tr style="vertical-align: top; height: 52px;">
+		<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; 
+			 width: 10.625%; padding-right: 10px; padding-left: 10px; padding-top: 10px; 
+			 padding-bottom: 10px;"><p 
+			 class="TableDefinitions">y</p></td>
+		<td style="border-bottom: Solid 1px #000000; width: 71.962%; padding-right: 10px; 
+			 padding-left: 10px; padding-top: 10px; padding-bottom: 10px;"><p>Indicates 
+		 the one-digit year, with no leading zero.</p></td>
+	</tr>
+	<tr style="vertical-align: top; height: 38px;">
+		<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; 
+			 width: 10.625%; padding-right: 10px; padding-left: 10px; padding-top: 10px; 
+			 padding-bottom: 10px;"><p 
+			 class="TableDefinitions">yy</p></td>
+		<td style="border-bottom: Solid 1px #000000; width: 71.962%; padding-right: 10px; 
+			 padding-left: 10px; padding-top: 10px; padding-bottom: 10px;"><p>Indicates 
+		 the two-digit year with leading zeros.</p></td>
+	</tr>
+	<tr style="vertical-align: top; height: 38px;">
+		<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; 
+			 width: 10.625%; padding-right: 10px; padding-left: 10px; padding-top: 10px; 
+			 padding-bottom: 10px;"><p 
+			 class="TableDefinitions">yyyy</p></td>
+		<td style="border-bottom: Solid 1px #000000; width: 71.962%; padding-right: 10px; 
+			 padding-left: 10px; padding-top: 10px; padding-bottom: 10px;"><p>Indicates 
+		 the four-digit year.</p></td>
+	</tr>
+	<tr style="vertical-align: top; height: 52px;">
+		<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; 
+			 width: 10.625%; padding-right: 10px; padding-left: 10px; padding-top: 10px; 
+			 padding-bottom: 10px;"><p 
+			 class="TableDefinitions">M</p></td>
+		<td style="border-bottom: Solid 1px #000000; width: 71.962%; padding-right: 10px; 
+			 padding-left: 10px; padding-top: 10px; padding-bottom: 10px;"><p>Indicates 
+		 one- or two-digit month with no leading zeros or spaces.</p></td>
+	</tr>
+	<tr style="vertical-align: top; height: 38px;">
+		<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; 
+			 width: 10.625%; padding-right: 10px; padding-left: 10px; padding-top: 10px; 
+			 padding-bottom: 10px;"><p 
+			 class="TableDefinitions">MM</p></td>
+		<td style="border-bottom: Solid 1px #000000; width: 71.962%; padding-right: 10px; 
+			 padding-left: 10px; padding-top: 10px; padding-bottom: 10px;"><p>Indicates 
+		 two-digit month with leading zeros.</p></td>
+	</tr>
+	<tr style="vertical-align: top; height: 52px;">
+		<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; 
+			 width: 10.625%; padding-right: 10px; padding-left: 10px; padding-top: 10px; 
+			 padding-bottom: 10px;"><p 
+			 class="TableDefinitions">MMM</p></td>
+		<td style="border-bottom: Solid 1px #000000; width: 71.962%; padding-right: 10px; 
+			 padding-left: 10px; padding-top: 10px; padding-bottom: 10px;"><p>Indicates 
+		 three-character month name in all uppercase letters.</p></td>
+	</tr>
+	<tr style="vertical-align: top; height: 52px;">
+		<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; 
+			 width: 10.625%; padding-right: 10px; padding-left: 10px; padding-top: 10px; 
+			 padding-bottom: 10px;"><p 
+			 class="TableDefinitions">MMMM</p></td>
+		<td style="border-bottom: Solid 1px #000000; width: 71.962%; padding-right: 10px; 
+			 padding-left: 10px; padding-top: 10px; padding-bottom: 10px;"><p>Indicates 
+		 the full name of the month in mixed case letters.</p></td>
+	</tr>
+	<tr style="vertical-align: top; height: 52px;">
+		<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; 
+			 width: 10.625%; padding-right: 10px; padding-left: 10px; padding-top: 10px; 
+			 padding-bottom: 10px;"><p 
+			 class="TableDefinitions">d</p></td>
+		<td style="border-bottom: Solid 1px #000000; width: 71.962%; padding-right: 10px; 
+			 padding-left: 10px; padding-top: 10px; padding-bottom: 10px;"><p>Indicates 
+		 the day (one- or two digit) with no leading zeros or spaces.</p></td>
+	</tr>
+	<tr style="vertical-align: top; height: 52px;">
+		<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; 
+			 width: 10.625%; padding-right: 10px; padding-left: 10px; padding-top: 10px; 
+			 padding-bottom: 10px;"><p 
+			 class="TableDefinitions">dd</p></td>
+		<td style="border-bottom: Solid 1px #000000; width: 71.962%; padding-right: 10px; 
+			 padding-left: 10px; padding-top: 10px; padding-bottom: 10px;"><p>Indicates 
+		 the day (two-digit) with leading zeros.</p></td>
+	</tr>
+	<tr style="vertical-align: top; height: 52px;">
+		<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; 
+			 width: 10.625%; padding-right: 10px; padding-left: 10px; padding-top: 10px; 
+			 padding-bottom: 10px;"><p 
+			 class="TableDefinitions">H</p></td>
+		<td style="border-bottom: Solid 1px #000000; width: 71.962%; padding-right: 10px; 
+			 padding-left: 10px; padding-top: 10px; padding-bottom: 10px;"><p>Indicates 
+		 one- or two-digit hour in 24-hour format with leading zeros or 
+		 spaces.</p></td>
+	</tr>
+	<tr style="vertical-align: top; height: 52px;">
+		<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; 
+			 width: 10.625%; padding-right: 10px; padding-left: 10px; padding-top: 10px; 
+			 padding-bottom: 10px;"><p 
+			 class="TableDefinitions">HH</p></td>
+		<td style="border-bottom: Solid 1px #000000; width: 71.962%; padding-right: 10px; 
+			 padding-left: 10px; padding-top: 10px; padding-bottom: 10px;"><p>Indicates 
+		 the hour in 24-hour format with no leading zeros.</p></td>
+	</tr>
+	<tr style="vertical-align: top; height: 52px;">
+		<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; 
+			 width: 10.625%; padding-right: 10px; padding-left: 10px; padding-top: 10px; 
+			 padding-bottom: 10px;"><p 
+			 class="TableDefinitions">h</p></td>
+		<td style="border-bottom: Solid 1px #000000; width: 71.962%; padding-right: 10px; 
+			 padding-left: 10px; padding-top: 10px; padding-bottom: 10px;"><p>Indicates 
+		 one-or two-digit hour in 12-hour format with no leading zeros 
+		 or spaces.</p></td>
+	</tr>
+	<tr style="vertical-align: top; height: 52px;">
+		<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; 
+			 width: 10.625%; padding-right: 10px; padding-left: 10px; padding-top: 10px; 
+			 padding-bottom: 10px;"><p 
+			 class="TableDefinitions">hh</p></td>
+		<td style="border-bottom: Solid 1px #000000; width: 71.962%; padding-right: 10px; 
+			 padding-left: 10px; padding-top: 10px; padding-bottom: 10px;"><p>Indicates 
+		 the hour in 12-hour format with leading zeros.</p></td>
+	</tr>
+	<tr style="vertical-align: top; height: 52px;">
+		<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; 
+			 width: 10.625%; padding-right: 10px; padding-left: 10px; padding-top: 10px; 
+			 padding-bottom: 10px;"><p 
+			 class="TableDefinitions">m</p></td>
+		<td style="border-bottom: Solid 1px #000000; width: 71.962%; padding-right: 10px; 
+			 padding-left: 10px; padding-top: 10px; padding-bottom: 10px;"><p>Indicates 
+		 the minutes (one- or two-digit) without leading zeros or spaces.</p></td>
+	</tr>
+	<tr style="vertical-align: top; height: 52px;">
+		<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; 
+			 width: 10.625%; padding-right: 10px; padding-left: 10px; padding-top: 10px; 
+			 padding-bottom: 10px;"><p 
+			 class="TableDefinitions">mm</p></td>
+		<td style="border-bottom: Solid 1px #000000; width: 71.962%; padding-right: 10px; 
+			 padding-left: 10px; padding-top: 10px; padding-bottom: 10px;"><p>Indicates 
+		 the minutes (two-digit) with leading zeros.</p></td>
+	</tr>
+	<tr style="vertical-align: top; height: 52px;">
+		<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; 
+			 width: 10.625%; padding-right: 10px; padding-left: 10px; padding-top: 10px; 
+			 padding-bottom: 10px;"><p 
+			 class="TableDefinitions">s</p></td>
+		<td style="border-bottom: Solid 1px #000000; width: 71.962%; padding-right: 10px; 
+			 padding-left: 10px; padding-top: 10px; padding-bottom: 10px;"><p>Indicates 
+		 the seconds (one- or two-digit) without leading zeros or spaces.</p></td>
+	</tr>
+	<tr style="vertical-align: top; height: 52px;">
+		<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; 
+			 width: 10.625%; padding-right: 10px; padding-left: 10px; padding-top: 10px; 
+			 padding-bottom: 10px;"><p 
+			 class="TableDefinitions">ss</p></td>
+		<td style="border-bottom: Solid 1px #000000; width: 71.962%; padding-right: 10px; 
+			 padding-left: 10px; padding-top: 10px; padding-bottom: 10px;"><p>Indicates 
+		 the seconds (two-digit) with leading zeros.</p></td>
+	</tr>
+	<tr style="vertical-align: top; height: 40px;">
+		<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; 
+			 width: 10.625%; padding-right: 10px; padding-left: 10px; padding-top: 10px; 
+			 padding-bottom: 10px;"><p 
+			 class="TableDefinitions">a</p></td>
+		<td style="border-bottom: Solid 1px #000000; width: 71.962%; padding-right: 10px; 
+			 padding-left: 10px; padding-top: 10px; padding-bottom: 10px;"><p>Indicates 
+		 AM/PM in uppercase.</p></td>
+	</tr>
+	<tr style="vertical-align: top; height: 40px;">
+		<td style="border-right: Solid 1px #000000; border-bottom: Solid 3px #000000; 
+			 width: 10.625%; padding-right: 10px; padding-left: 10px; padding-top: 10px; 
+			 padding-bottom: 10px;"><p class="TableDefinitions">Other Characters</p></td>
+		<td style="border-bottom: Solid 3px #000000; width: 71.962%; padding-right: 10px; 
+			 padding-left: 10px; padding-top: 10px; padding-bottom: 10px;"><p>Indicates 
+		 the allowable characters within the format code. They are: - : 
+		 \ / ^ $ ( ) &lt; &gt; { } [ ] . * + and space</p>
+		<p>Alphanumeric characters and characters that do not appear in 
+		 this list can be used between single quotes, for example: ’r;=’, 
+		 ’r;~’ or 'km'</p></td>
+	</tr>
+</table>
+<p>&#160;</p>
+<p>&#160;</p>
+<h4><a name="dynamicFormattingExamples642b3b9347ca42c9b00b820c00c373fa=3"></a><a name="dynamicFormattingExamples" id="dynamicFormattingExamples"></a><img src="Square.bmp" alt="" style="border: none;" width="12" height="10" border="0">Dynamic Content Examples</h4>
+<p>&#160;</p>
+<p style="margin-left: 40px; font-weight: bold;">Example 1: Variable</p>
+<p style="margin-left: 40px;"><span style="font-family: 'Courier New', monospace;">Current 
+ Temperature: &lt;</span><span 
+	 style="font-family: 'Courier New', monospace;">var:DINT01</span><span 
+	 style="font-family: 'Courier New', monospace;">,2&gt; degrees</span><br>
+Output:</p>
+<p style="margin-left: 40px; font-family: 'Courier New', monospace;">Current 
+ Temperature: &#160;5 degrees<br>
+Current Temperature: 11 degrees</p>
+<p style="margin-left: 40px; font-weight: bold;">Example 2: Variable Decimal 
+ Places</p>
+<p style="margin-left: 40px;">DINT01 
+ = 5</p>
+<p style="font-family: 'Courier New', monospace; margin-left: 40px;">&lt;var:DINT01,06.0&gt;<br>
+&lt;var:DINT01,6.0&gt;<br>
+&lt;var:DINT01,04.1&gt;<br>
+&lt;var:DINT01,10.9&gt;</p>
+<p style="margin-left: 40px; font-family: Arial, sans-serif;">Output:</p>
+<p style="font-family: 'Courier New', monospace; margin-left: 40px;">000005<span 
+	 style="font-family: 'Courier New', monospace; margin-left: 80px;"><br>
+&#160;&#160;&#160;&#160;5<br>
+000.5<br>
+0.000000005</span></p>
+<p style="margin-left: 40px; font-weight: bold;">Example 3: Time stamp</p>
+<p style="margin-left: 40px; margin-top: 3pt; font-family: 'Courier New', monospace;">&lt;timestamp:MM/dd/yy 
+ HH:mm:ss&gt; &lt;var:Temperature&gt; 
+ degrees, &lt;var:Pressure,3.2&gt;, 
+ &lt;var:Velocity&gt; 
+ km/h</p>
+<p style="margin-left: 40px; margin-top: 3pt;"><span style="margin-left: 40px;">Output:</span></p>
+<p style="margin-left: 40px; font-family: 'Courier New', monospace;">12/23/09 
+ 23:34:25 3 degrees, 2. 17, 15 km/h</p>
+<p style="margin-left: 40px; font-weight: bold;">Example 4: Custom Time 
+ stamp</p>
+<p style="margin-left: 40px; font-family: 'Courier New', monospace;">Door 
+ Opened: Date: &lt;timestamp:dd-MMM-yyyy&gt; 
+ Time: &lt;timestamp:HH:mm:ss 
+ a&gt;<br>
+Door Closed: Date: &lt;timestamp:dd-MMM-yyyy&gt; 
+ Time: &lt;timestamp:HH:mm:ss 
+ a&gt;</p>
+<p style="font-family: 'Lucida Console', monospace; margin-left: 40px;"><span 
+	 style="margin-left: 40px; font-family: Arial, sans-serif;">Output:</span></p>
+<p style="margin-left: 40px; font-family: 'Courier New', monospace;">Door 
+ Opened: Date: 23-DEC-2009 Time: 09:30:34 AM<br>
+Door Closed: Date: 23-DEC-2009 Time: 11:25:21 AM</p>
+<p style="margin-left: 80px; font-family: 'Courier New', monospace;">&#160;</p>
+<p>&#160;</p>
+</body>
+</html>

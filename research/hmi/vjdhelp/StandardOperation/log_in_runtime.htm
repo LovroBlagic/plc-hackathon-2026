@@ -1,0 +1,147 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+<meta name="template" content="Vijeo_template.htt">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="topic-status" content="In Progress">
+<meta name="topic-priority" content="0">
+<meta name="topic-time-estimate" content="0">
+<meta name="topic-comment" content="">
+<meta name="topic-id" content="Logging_In_at_Run-Time">
+<meta name="window-type" content="$global_NewWindow">
+ <meta name="generator" content="Adobe RoboHelp 10">
+<title>Logging In at Run-Time</title>
+<link rel="StyleSheet" href="Tis-styl.css" type="text/css">
+</head>
+<body>
+<script type="text/javascript" src="ehlpdhtm.js" language="JavaScript1.2"></script>
+
+<div style="width: 100%; position: relative;" id="header">
+	<table style="background-attachment: scroll; margin-left: 0px; margin-right: 4px; 
+			 background-image: url(top_banner.bmp); background-repeat: Repeat-X; 
+			 line-height: 0pt; vertical-align: top;" cellspacing="0" background="top_banner.bmp" 
+			 width="100%">
+		<col style="width: 90%;">
+		<col style="width: 5%;">
+		<col style="width: 5%;">
+		<tr style="vertical-align: center; height: 39px;">
+			<td style="width: 90%; padding-right: 10px; padding-left: 10px; 
+				 border-right-color: #000000;">
+   <p><img src="logo.bmp" alt="" style="border: none;" width="37" height="37" border="0"></p></td>
+			<td style="width: 5%; padding-right: 0px; padding-left: 10px; 
+				 border-right-color: #000000;">
+   <p style="text-align: center;"><a 
+			 title="Glossary" href="Appendix.chm::/Glossary.htm"><img src="logo_glossary.bmp" alt="" style="border: none;" width="47" height="37" border="0"></a></p></td>
+			<td style="width: 5%; padding-right: 10px; padding-left: 5px; 
+				 border-right-color: #000000;">
+   <p style="text-align: center;"><a 
+			 href="About.chm::/What_is_Vijeo-Designer.htm" title="Home"><img src="logo_home.bmp" alt="Home" style="border: none; margin-left: 0px; 
+			 margin-right: 0px; margin-bottom: 0px; margin-top: -2px;" width="47" height="37" border="0"></a></p></td>
+		</tr>
+	</table>
+</div>
+
+<h3>4.8.4.1 Logging In at Run Time</h3>
+<p class="NoteImage"><img src="NOTE_MOJI.bmp" style="border: none;" alt="" width="49" height="23" border="0"></p>
+<ul>
+<li class="p-NoteText">
+<p class="NoteText">When using common security, if the security server is unavailable, then depending on your system's communication load, operators may experience a delay at login. For more information see Section 4.8.6, <a href="Common_Security.htm">Common Security</a>.</p>
+</li>
+</ul>
+<h4><a name="system_login_panel642b3b9347ca42c9b00b820c00c373fa=1"></a><a name="system_login_panel" id="system_login_panel"></a><img src="square.bmp" style="border: none;" alt="" width="12" height="10" border="0"> System Login Panel</h4>
+<p>The System Login Panel logs users onto a target machine.</p>
+<table style="vertical-align: top;" cellspacing="0" width="360">
+<col width="120">
+<col width="90">
+<col width="90">
+<tr style="vertical-align: top; height: 10px;">
+<td colspan="3" style="padding-right: 10px; padding-left: 10px;" width="300">
+<p><img src="system_login.bmp" style="border: none;" alt="" width="321" height="161" border="0"></p>
+</td>
+</tr>
+<tr style="vertical-align: top; height: 10px;">
+<td style="padding-right: 10px; padding-left: 10px;" width="120">
+<p>Initial Panel</p>
+</td>
+<td style="padding-right: 10px; padding-left: 10px;" width="90">
+<p>Return</p>
+</td>
+<td style="padding-right: 10px; padding-left: 10px;" width="90">
+<p>Login</p>
+</td>
+</tr>
+</table>
+<p>&#160;</p>
+<p>You can display the System Login Panel during run time using the following methods:</p>
+<ul>
+<li class="p-Bullet">
+<p class="Bullet"><span style="font-weight: bold;">Displaying the System Login Panel at Target Startup</span><br>
+The System Login Panel can be set to display when the target machine starts up. See Section 20.3, <a href="FrequentOperations.chm::/changing_initial_panel.htm">Setting the Startup Panel</a> for information on setting the System Login Panel to display on target start up.</p>
+</li>
+<li class="p-Bullet">
+<p class="Bullet"><span style="font-weight: bold;">Displaying the System Login Panel using Scripts</span><br>
+A script can be used to display the System Login Panel. Create a script that writes the System Login Screen panel ID (<span style="font-weight: bold;">65502</span>) to the _CurPanelID system variable. See Section 18.1, <a href="scripts.chm::/Scripts_Overview.htm">Programming with Scripts</a>, for information on writing and running scripts.</p>
+</li>
+</ul>
+<p class="Code" style="margin-left: 40px;"><span style="color: #008000;">_CurPanelID.write(65502); //writes the login panel ID to the system variable _CurPanelID</span></p>
+<ul>
+<li class="p-Bullet">
+<p class="Bullet"><span style="font-weight: bold;">Displaying the System Login Panel using a Switch</span><br>
+You can use a Switch to display the System Login Panel. You must enable Target Security before you can set up a switch to display the Login Panel.</p>
+</li>
+<li class="p-bullet2">
+<p class="bullet2">Create a switch, select System for the Operation, and select Login Panel.</p>
+</li>
+</ul>
+<p style="margin-left: 80px;"><img src="system_login_panel.bmp" style="border: none;" alt="" width="229" height="206" border="0"></p>
+<p style="margin-left: 80px;">When the defined switch is touched, it displays the Login Panel.</p>
+<ul>
+<li class="p-Bullet">
+<p class="Bullet"><span style="font-weight: bold;">Displaying the System Login Panel using a Toolchest part</span><br>
+You can display the System Login Panel using a Toolchest part.<br>
+To add the Login Toolchest part to your project:</p>
+</li>
+<li class="p-bullet2">
+<p class="bullet2">Drag the SystemLogin part from the Toolchest Security folder and drop it onto a panel or popup window.<br>
+When the System Login part is touched, it displays the Login Panel.</p>
+</li>
+</ul>
+<h4><a name="Secured642b3b9347ca42c9b00b820c00c373fa=2"></a><a name="Secured" id="Secured"></a><img src="square.bmp" style="border: none;" alt="" width="12" height="10" border="0"> Secured Object Behavior: When Touch</h4>
+<p>The When Touch setting in the Secured Object Behavior property sets Vijeo-Designer Runtime to display the System Login Panel when an unauthorized user touches a secured switch.</p>
+<p>To set up When Touch security:</p>
+<p>Target Security must be enabled before configuring Secured Object Behavior.</p>
+<ul>
+<li class="p-Bullet">
+<p class="Bullet">In the Security node's properties, select System Login Panel from the When Touch drop-down list.</p>
+</li>
+</ul>
+<p style="margin-left: 40px;"><img src="when_touch_system_login.bmp" style="border: none;" alt="" width="290" height="217" border="0"></p>
+<h4><a name="toolchest_login_part642b3b9347ca42c9b00b820c00c373fa=3"></a><a name="toolchest_login_part" id="toolchest_login_part"></a><img src="square.bmp" style="border: none;" alt="" width="12" height="10" border="0"> Toolchest Login Parts</h4>
+<p>Toolchest Login parts have been provided in the Security Toolchest folder to enable users to log in to secured target machines. Toolchest login parts are useful because they can be positioned on any panel or on any popup window. There are two login parts are available:</p>
+<ul>
+<li class="p-Bullet">
+<p class="Bullet">Login: At runtime, requires a user to enter their user name and password through a popup keypad. Alternatively, you can disable the popup keypad, which allows a user to log in through a target's external keyboard or function key.</p>
+</li>
+<li class="p-Bullet">
+<p class="Bullet">FixedNameLogin: In the editor, requires a user name, which you enter in the UserName property of the part. At runtime, requires only a password to log in.</p>
+</li>
+</ul>
+<p>To add the Toolchest Login part to your project:</p>
+<ul>
+<li class="p-Bullet">
+<p class="Bullet">Drag the Login part from the Toolchest Security folder and drop it onto a panel or popup window.</p>
+</li>
+</ul>
+<p class="NoteImage"><img src="NOTE_MOJI.bmp" style="border: none;" alt="" width="49" height="23" border="0"></p>
+<ul>
+<li class="p-NoteText">
+<p class="NoteText">When using common security, depending on your system's communication load, operators may experience a delay at login. For more information see Section 4.8.6, <a href="Common_Security.htm">Common Security</a>.</p>
+</li>
+</ul>
+<h4><a name="switchLogin642b3b9347ca42c9b00b820c00c373fa=4"></a><a name="switchLogin" id="switchLogin"></a><img src="square.bmp" style="border: none;" alt="" width="12" height="10" border="0">Script Login</h4>
+<p>A script system method is available to log a user in to the target machine.</p>
+<p>Sys.login();</p>
+<p>See Section 18.3.8.5, <a href="Scripts.chm::/Sys.Login.htm">System Methods (Sys.login)</a>.</p>
+</body>
+</html>

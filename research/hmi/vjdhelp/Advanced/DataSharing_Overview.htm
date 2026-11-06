@@ -1,0 +1,112 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+<meta name="template" content="Vijeo_template.htt">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="date" content="11 10, 2003 2:07:41 PM">
+<meta name="topic-status" content="In Progress">
+<meta name="topic-priority" content="0">
+<meta name="topic-time-estimate" content="0">
+<meta name="topic-comment" content="">
+<meta name="topic-id" content="">
+<meta name="window-type" content="$global_NewWindow">
+ <meta name="generator" content="Adobe RoboHelp 10">
+<title>Sharing Data Between Target Machines</title>
+<link rel="StyleSheet" href="TIS-STYL.CSS" type="text/css">
+</head>
+
+<body>
+<script type="text/javascript" src="ehlpdhtm.js" language="JavaScript1.2"></script>
+
+<div style="width: 100%; position: relative;" id="header">
+	<table style="background-attachment: scroll; margin-left: 0px; margin-right: 4px; 
+			 background-image: url(top_banner.bmp); background-repeat: Repeat-X; 
+			 line-height: 0pt; vertical-align: top;" cellspacing="0" width="100%" 
+			 background="top_banner.bmp">
+		<col style="width: 90%;">
+		<col style="width: 5%;">
+		<col style="width: 5%;">
+		<tr style="vertical-align: center; height: 39px;">
+			<td style="width: 90%; padding-right: 10px; padding-left: 10px; 
+				 border-right-color: #000000;">
+   <p><img src="logo.bmp" style="border: none;" alt="" width="37" height="37" border="0"></p></td>
+			<td style="width: 5%; padding-right: 0px; padding-left: 10px; 
+				 border-right-color: #000000;">
+   <p style="text-align: center;"><a 
+			 title="Glossary" href="Appendix.chm::/Glossary.htm"><img src="logo_glossary.bmp" style="border: none;" alt="" width="47" height="37" border="0"></a></p></td>
+			<td style="width: 5%; padding-right: 10px; padding-left: 5px; 
+				 border-right-color: #000000;">
+   <p style="text-align: center;"><a 
+			 href="About.chm::/What_is_Vijeo-Designer.htm" title="Home"><img src="logo_home.bmp" alt="Home" title="Home" style="border: none; 
+			 margin-left: 0px; margin-right: 0px; margin-bottom: 0px; margin-top: -2px;" width="47" height="37" border="0"></a></p></td>
+		</tr>
+	</table>
+</div>
+
+<h1>22.1 Sharing Data Between Tablets, Smartphones, and Target Machines</h1>
+<p>You can share variables and alarms between tablets, smartphones, target 
+ machines and a Web Gate Client. This process of reading from and writing 
+ to variables and alarms from other target machines on the network is called 
+ Data Sharing.</p>
+<p>One of the benefits of Data Sharing is that you can expose PLC register 
+ values to other PLCs that could not otherwise view the data. Another benefit 
+ is you can view and acknowledge alarms occurring on another target machine. 
+ For more information on Alarm and Event Data Sharing, see Section 16.3.1.4, 
+ <a href="Alarms.chm::/Creating_Remote_Categories.htm">Remote Categories</a>.</p>
+<h4><img src="Square.bmp" alt="" style="border: none;" width="12" height="10" border="0"> Data Sharing Between Target Machines</h4>
+<p>Data Sharing enables you to share data between target machines, between 
+ target machines and tablets/smartphones, and between targets and a Web 
+ Gate client. Each target machine has a set of variables. Other target 
+ machines, tablets/smartphones, and a Web Gate client can access these 
+ variables and alarms at run time, as long as they reside on the same network 
+ and are set up to share their data.</p>
+<p>For example, in the diagram below, Data Sharing makes it possible for:</p>
+<ul>
+	<li class="p-Bullet"><p class="Bullet">PLC A to view PLC B's register 
+	 values</p></li>
+	<li class="p-Bullet"><p class="Bullet">The Tablet to present variables 
+	 and alarms from any target machine</p></li>
+	<li class="p-Bullet"><p class="Bullet">Web Gate to view data available 
+	 on a single target machine</p></li>
+</ul>
+<p class="Image"><img src="VD_Dsimage.bmp" alt="" style="border: none;" width="485" height="335" border="0"></p>
+<p class="NoteImage"><img src="limit.bmp" alt="" style="border: none;" width="77" height="24" border="0"></p>
+<ul>
+	<li class="p-NoteText"><p class="NoteText">If PLC A, B, and C (see 
+	 above) are from different manufacturers, Data Sharing might be the 
+	 only way for the PLCs to view register values on other PLCs.</p></li>
+	<li class="p-NoteText"><p class="NoteText">If using a target machine 
+	 with two network cards, only one of the cards can be used with Data 
+	 Sharing. The IP address is configured in the Target properties. For 
+	 more information, see Section 4.5.1, <a href="StandardOperation.chm::/Setting_up_Targets-Creating_targets.htm">Target 
+	 Properties</a>.</p></li>
+</ul>
+<h4 style="margin-top: 18pt;"><img src="Square.bmp" alt="" style="border: none;" width="12" height="10" border="0"> 
+ Number of Alarms You can Share</h4>
+<p>The number of alarms you can share are limited. See Appendix 4 <a href="Appendix.chm::/Performance_Specifications.htm#alarmsAndEvents">Runtime 
+ Specifications</a> for the maximum number of remote categories each target 
+ can have.</p>
+<h4 style="margin-top: 18pt;"><img src="Square.bmp" alt="" style="border: none;" width="12" height="10" border="0"> 
+ Number of Variables You Can Share</h4>
+<p>Both the number of variables you can share and the number of targets 
+ you can share the variables with are limited. See Appendix 4 <a href="Appendix.chm::/Performance_Specifications.htm">Runtime 
+ Specifications</a> for the recommended maximum number of variables each 
+ target should share.</p>
+<h4><img src="Square.bmp" alt="" style="border: none;" width="12" height="10" border="0"> Number of Target Connections</h4>
+<p>The number of target machines that one target can connect to at a time 
+ is described in Appendix 4 <a href="Appendix.chm::/Performance_Specifications.htm">Runtime 
+ Specifications</a>.</p>
+<p class="NoteImage" style="margin-top: 0pt;"><img src="NOTE_MOJI.bmp" alt="" style="border: none;" width="51" height="25" border="0"></p>
+<ul>
+	<li class="p-NoteText"><p class="NoteText">Connections may be rejected 
+	 if you exceed the recommended maximum, as the target machine runs 
+	 out of communication ports.</p></li>
+	<li class="p-NoteText"><p class="NoteText">Remote access to targets 
+	 using the features above can impact the target's performance. Take 
+	 care to consider the recommendations and limitations specified in 
+	 Appendix 4 <a href="Appendix.chm::/Performance_Specifications.htm">Runtime 
+	 Specifications</a> when working remotely with target machines.</p></li>
+</ul>
+</body>
+</html>

@@ -1,0 +1,349 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+<meta name="template" content="Vijeo_template.htt">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="topic-status" content="In Progress">
+<meta name="topic-priority" content="0">
+<meta name="topic-time-estimate" content="0">
+<meta name="topic-comment" content="">
+<meta name="topic-id" content="Diagnostic_Alarm_Groups.htm">
+ <meta name="generator" content="Adobe RoboHelp 10">
+<title>Diagnostic Alarm Groups</title>
+<link rel="StyleSheet" href="Tis-styl.css" type="text/css">
+</head>
+
+<body>
+<script type="text/javascript" src="ehlpdhtm.js" language="JavaScript1.2"></script>
+
+<div style="width: 100%; position: relative;" id="header">
+	<table style="background-attachment: scroll; margin-left: 0px; margin-right: 4px; 
+			 background-image: url(top_banner.bmp); background-repeat: Repeat-X; 
+			 line-height: 0pt; vertical-align: top;" cellspacing="0" width="100%" 
+			 background="top_banner.bmp">
+		<col style="width: 90%;">
+		<col style="width: 5%;">
+		<col style="width: 5%;">
+		<tr style="vertical-align: center; height: 39px;">
+			<td style="width: 90%; padding-right: 10px; padding-left: 10px; 
+				 border-right-color: #000000;">
+   <p><img src="logo.bmp" style="border: none;" alt="" width="37" height="37" border="0"></p></td>
+			<td style="width: 5%; padding-right: 0px; padding-left: 10px; 
+				 border-right-color: #000000;">
+   <p style="text-align: center;"><a 
+			 title="Glossary" href="Appendix.chm::/Glossary.htm"><img src="logo_glossary.bmp" style="border: none;" alt="" width="47" height="37" border="0"></a></p></td>
+			<td style="width: 5%; padding-right: 10px; padding-left: 5px; 
+				 border-right-color: #000000;">
+   <p style="text-align: center;"><a 
+			 href="About.chm::/What_is_Vijeo-Designer.htm" title="Home"><img src="logo_home.bmp" alt="Home" title="Home" style="border: none; 
+			 margin-left: 0px; margin-right: 0px; margin-bottom: 0px; margin-top: -2px;" width="47" height="37" border="0"></a></p></td>
+		</tr>
+	</table>
+</div>
+
+<h2>16.3.2 Diagnostic Alarm Groups</h2>
+<p style="line-height: Normal;">A diagnostic alarm group is a collection 
+ of alarms that reside in a PLC's diagnostic buffer. For information about 
+ the diagnostic buffer, see Section 5.5, <a href="ExternalDevice.chm::/DiagBuffer_WorkingWith.htm">Working 
+ with Alarms on the Equipment (Diagnostic Buffer)</a>.</p>
+<table style="vertical-align: top;" cellspacing="0" width="500">
+	<col style="width: 50%;">
+	<col style="width: 50%;">
+	<tr style="vertical-align: top;">
+		<td style="width: 50%; padding-right: 10px; padding-left: 10px;"><p 
+			 class="Tabletitle">Alarm Group</p></td>
+		<td style="width: 50%; padding-right: 10px; padding-left: 10px;"><p 
+			 class="Tabletitle">Diagnostic Alarm Group</p></td>
+	</tr>
+	<tr style="vertical-align: top;">
+		<td style="width: 50%; padding-right: 10px; padding-left: 10px;"><p><img src="DiagAlarmExample2.bmp" alt="" style="border: none;" width="205" height="53" border="0"></p></td>
+		<td style="width: 50%; padding-right: 10px; padding-left: 10px;"><p><img src="DiagAlarmExample1.bmp" alt="" style="border: none;" width="205" height="53" border="0"></p></td>
+	</tr>
+</table>
+<p style="line-height: Normal;">&#160;</p>
+<p style="line-height: Normal;">Diagnostic alarms have the following similarities 
+ with standard Vijeo-Designer alarms.</p>
+<ul>
+	<li class="p-Bullet"><p class="Bullet"><span style="line-height: Normal;">You 
+	 can display an alarm group, diagnostic alarm group, or alarm category</span> 
+	 in an alarm summary (see Section 16.3.2.1, <a href="Diagnostic_Alarm_Group_Adding.htm">Displaying 
+	 Diagnostic Alarms</a>) or alarm banner (see Section 16.4, <a href="Alarm_banner_outline.htm">Alarm 
+	 Banner</a>).</p></li>
+	<li class="p-Bullet"><p class="Bullet">An alarm category can include 
+	 both alarm groups and diagnostic alarm groups.</p></li>
+	<li class="p-Bullet"><p class="Bullet">Actions can run when the alarm 
+	 is selected in the alarm summary. See Section 16.3.4.2, <a href="Action_at_Touch_Alarm.htm">Touch 
+	 Actions</a>.</p></li>
+	<li class="p-Bullet"><p class="Bullet">You can send alarms to the printer 
+	 or save alarms to file. See sections 16.3.5.2, <a href="Real-time_printing.htm">Configuring 
+	 Real-Time Printing</a>, 16.3.5.3, <a href="Printouts_at_once.htm">Configuring 
+	 Batch Printing</a>, or 16.3.6, <a href="Alarms_in_CSV_file.htm">Outputting 
+	 Alarms and Events to a .CSV File</a>.</p></li>
+	<li class="p-Bullet"><p class="Bullet">You can use counters to show 
+	 the number of alarms in each state. See Section 16.2.4.1, <a href="Alarm_Group_Settings.htm#Counters">Alarm 
+	 Group Settings: Counters Tab</a>.</p></li>
+	<li class="p-Bullet"><p class="Bullet">You can run alarm operations 
+	 such as acknowledge and delete.</p></li>
+	<li class="p-Bullet"><p class="Bullet">Diagnostic alarms support most 
+	 alarm summary and alarm group script methods, except for the alarm 
+	 group's clearSum, getCurrent, and getSum methods.</p></li>
+</ul>
+<p style="line-height: Normal;">Diagnostic alarms have the following differences 
+ with standard Vijeo-Designer alarms.</p>
+<ul>
+	<li class="p-Bullet"><p class="Bullet">Diagnostic alarms and standard 
+	 alarms are configured differently.</p></li>
+	<li class="p-bullet2"><p class="bullet2">To display the PLC's diagnostic 
+	 alarms in Vijeo-Designer, add a diagnostic alarm group, define its 
+	 settings, and display it in an alarm summary or alarm banner.</p></li>
+	<li class="p-bullet2"><p class="bullet2">To display standard Vijeo-Designer 
+	 alarms, define the alarm in a variable, assign the alarm to an alarm 
+	 group, and display it in either an alarm summary or alarm banner.</p></li>
+	<li class="p-Bullet"><p class="Bullet">You can display diagnostic buffer 
+	 alarms on multiple target machines. Each alarm would display the same 
+	 message and date and time stamp. Standard Vijeo-Designer alarms display 
+	 only on the target machine where they are set up.</p></li>
+	<li class="p-Bullet"><p class="Bullet">The alarm message for diagnostic 
+	 alarms is the comment from the Derived Function Block (DFB), System, 
+	 or SFC/Grafcet. Standard Vijeo-Designer alarms specify an alarm message.</p></li>
+	<li class="p-Bullet"><p class="Bullet">Date and time stamps of diagnostic 
+	 alarms are generated and stored on the PLC for precision. Standard 
+	 alarms are generated and stored on the target machine.</p></li>
+	<li class="p-Bullet"><p class="Bullet" style="line-height: Normal;">The 
+	 limit for diagnostic alarms, which can be up to 1000, is set up in 
+	 the PLC configuration software. For standard alarms, the logical limit 
+	 is 10,000 per alarm group, and the physical limit is defined by the 
+	 available space in SRAM. For more information, see Section 25.3.3, 
+	 <a href="Download.chm::/DRAM_Usage_Indicator.htm">Checking Memory 
+	 Usage</a>.</p></li>
+	<li class="p-Bullet"><p class="Bullet" style="line-height: Normal;">Alarm 
+	 Behavior must be Mandatory ACK. Optional ACK is not available for 
+	 diagnostic alarm groups.</p></li>
+	<li class="p-Bullet"><p class="Bullet" style="line-height: Normal;">The 
+	 alarm summary's clear, clearAll, delete, and deleteAll operations 
+	 do not affect alarms in the PLC's diagnostic buffer. These script 
+	 methods and buttons interact only with the alarm summary display.</p></li>
+</ul>
+<table style="vertical-align: top; margin-left: 40px;" cellspacing="0" 
+		 width="90%">
+	<col style="width: 16.667%;">
+	<col style="width: 16.667%;">
+	<col style="width: 16.667%;">
+	<col style="width: 16.667%;">
+	<col style="width: 16.667%;">
+	<col style="width: 16.667%;">
+	<tr style="vertical-align: top;">
+		<td rowspan="2" style="border-top: Solid 3px #000000; border-right: Solid 1px #000000; 
+			 border-bottom: Solid 1px #000000; width: 16.667%; padding-right: 10px; 
+			 padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" 
+			 bgcolor="#91AFD9"><p class="Tabletitle">Alarm Type</p></td>
+		<td rowspan="2" style="border-top: Solid 3px #000000; border-right: Solid 1px #000000; 
+			 border-bottom: Solid 1px #000000; width: 16.667%; padding-right: 10px; 
+			 padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" 
+			 bgcolor="#91AFD9"><p class="Tabletitle">Alarm Command</p></td>
+		<td colspan="4" style="border-top: Solid 3px #000000; border-bottom: Solid 1px #000000; 
+			 width: 66.668%; padding-right: 10px; padding-left: 10px; padding-top: 10px; 
+			 padding-bottom: 10px;" bgcolor="#91AFD9"><p class="Tabletitle">Alarm 
+		 State</p></td>
+		
+	</tr>
+	<tr style="vertical-align: top;">
+		<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; 
+			 width: 16.667%; padding-right: 10px; padding-left: 10px; padding-top: 10px; 
+			 padding-bottom: 10px;" bgcolor="#91AFD9"><p class="Tabletitle" 
+														 style="text-align: center;">ACTIVE</p></td>
+		<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; 
+			 width: 16.667%; padding-right: 10px; padding-left: 10px; padding-top: 10px; 
+			 padding-bottom: 10px;" bgcolor="#91AFD9"><p class="Tabletitle" 
+														 style="text-align: center;">UNACK</p></td>
+		<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; 
+			 width: 16.667%; padding-right: 10px; padding-left: 10px; padding-top: 10px; 
+			 padding-bottom: 10px;" bgcolor="#91AFD9"><p class="Tabletitle" 
+														 style="text-align: center;">ACK</p></td>
+		<td style="border-bottom: Solid 1px #000000; width: 16.667%; padding-right: 10px; 
+			 padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" 
+			 bgcolor="#91AFD9"><p class="Tabletitle" style="text-align: center;">RTN</p></td>
+	</tr>
+	<tr style="vertical-align: top;">
+		<td rowspan="2" style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; 
+			 width: 16.667%; padding-right: 10px; padding-left: 10px; padding-top: 10px; 
+			 padding-bottom: 10px;" bgcolor="#CBD9ED"><p class="Tabletitle">Active</p></td>
+		<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; 
+			 width: 16.667%; padding-right: 10px; padding-left: 10px; padding-top: 10px; 
+			 padding-bottom: 10px;"><p class="Tabletext">Clear/ClearAll</p></td>
+		<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; 
+			 width: 16.667%; padding-right: 10px; padding-left: 10px; padding-top: 10px; 
+			 padding-bottom: 10px;"><p class="Tabletext" style="text-align: center;"><img src="X_small.bmp" alt="" style="border: none;" width="19" height="14" border="0"></p></td>
+		<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; 
+			 width: 16.667%; padding-right: 10px; padding-left: 10px; padding-top: 10px; 
+			 padding-bottom: 10px;"><p class="Tabletext" style="text-align: center;"><img src="X_small.bmp" alt="" style="border: none;" width="19" height="14" border="0"></p></td>
+		<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; 
+			 width: 16.667%; padding-right: 10px; padding-left: 10px; padding-top: 10px; 
+			 padding-bottom: 10px;"><p class="Tabletext" style="text-align: center;"><img src="Check_small.bmp" alt="" style="border: none;" width="17" height="14" border="0"></p></td>
+		<td style="border-bottom: Solid 1px #000000; width: 16.667%; padding-right: 10px; 
+			 padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" 
+			 bgcolor="#808080"><p class="Tabletext" style="text-align: center;">—</p></td>
+	</tr>
+	<tr style="vertical-align: top;">
+		<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; 
+			 width: 16.667%; padding-right: 10px; padding-left: 10px; padding-top: 10px; 
+			 padding-bottom: 10px;"><p class="Tabletext">Delete/DeleteAll</p></td>
+		<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; 
+			 width: 16.667%; padding-right: 10px; padding-left: 10px; padding-top: 10px; 
+			 padding-bottom: 10px;"><p class="Tabletext" style="text-align: center;"><img src="X_small.bmp" alt="" style="border: none;" width="19" height="14" border="0"></p></td>
+		<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; 
+			 width: 16.667%; padding-right: 10px; padding-left: 10px; padding-top: 10px; 
+			 padding-bottom: 10px;"><p class="Tabletext" style="text-align: center;"><img src="X_small.bmp" alt="" style="border: none;" width="19" height="14" border="0"></p></td>
+		<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; 
+			 width: 16.667%; padding-right: 10px; padding-left: 10px; padding-top: 10px; 
+			 padding-bottom: 10px;"><p class="Tabletext" style="text-align: center;"><img src="Check_small.bmp" alt="" style="border: none;" width="17" height="14" border="0"></p></td>
+		<td style="border-bottom: Solid 1px #000000; width: 16.667%; padding-right: 10px; 
+			 padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" 
+			 bgcolor="#808080"><p class="Tabletext" style="text-align: center;">—</p></td>
+	</tr>
+	<tr style="vertical-align: top;">
+		<td rowspan="2" style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; 
+			 width: 16.667%; padding-right: 10px; padding-left: 10px; padding-top: 10px; 
+			 padding-bottom: 10px;" bgcolor="#CBD9ED"><p class="Tabletitle">History</p></td>
+		<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; 
+			 width: 16.667%; padding-right: 10px; padding-left: 10px; padding-top: 10px; 
+			 padding-bottom: 10px;"><p class="Tabletext">Clear/ ClearAll</p></td>
+		<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; 
+			 width: 16.667%; padding-right: 10px; padding-left: 10px; padding-top: 10px; 
+			 padding-bottom: 10px;"><p style="text-align: center;"><img src="Check_small.bmp" alt="" style="border: none;" width="17" height="14" border="0"></p></td>
+		<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; 
+			 width: 16.667%; padding-right: 10px; padding-left: 10px; padding-top: 10px; 
+			 padding-bottom: 10px;"><p style="text-align: center;"><img src="Check_small.bmp" alt="" style="border: none;" width="17" height="14" border="0"></p></td>
+		<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; 
+			 width: 16.667%; padding-right: 10px; padding-left: 10px; padding-top: 10px; 
+			 padding-bottom: 10px;"><p style="text-align: center;"><img src="Check_small.bmp" alt="" style="border: none;" width="17" height="14" border="0"></p></td>
+		<td style="border-bottom: Solid 1px #000000; width: 16.667%; padding-right: 10px; 
+			 padding-left: 10px; padding-top: 10px; padding-bottom: 10px;"><p 
+			 style="text-align: center;"><img src="Check_small.bmp" alt="" style="border: none;" width="17" height="14" border="0"></p></td>
+	</tr>
+	<tr style="vertical-align: top;">
+		<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; 
+			 width: 16.667%; padding-right: 10px; padding-left: 10px; padding-top: 10px; 
+			 padding-bottom: 10px;"><p class="Tabletext">Delete/DeleteAll</p></td>
+		<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; 
+			 width: 16.667%; padding-right: 10px; padding-left: 10px; padding-top: 10px; 
+			 padding-bottom: 10px;"><p style="text-align: center;"><img src="Check_small.bmp" alt="" style="border: none;" width="17" height="14" border="0"></p></td>
+		<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; 
+			 width: 16.667%; padding-right: 10px; padding-left: 10px; padding-top: 10px; 
+			 padding-bottom: 10px;"><p style="text-align: center;"><img src="Check_small.bmp" alt="" style="border: none;" width="17" height="14" border="0"></p></td>
+		<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; 
+			 width: 16.667%; padding-right: 10px; padding-left: 10px; padding-top: 10px; 
+			 padding-bottom: 10px;"><p style="text-align: center;"><img src="Check_small.bmp" alt="" style="border: none;" width="17" height="14" border="0"></p></td>
+		<td style="border-bottom: Solid 1px #000000; width: 16.667%; padding-right: 10px; 
+			 padding-left: 10px; padding-top: 10px; padding-bottom: 10px;"><p 
+			 style="text-align: center;"><img src="Check_small.bmp" alt="" style="border: none;" width="17" height="14" border="0"></p></td>
+	</tr>
+	<tr style="vertical-align: top;">
+		<td rowspan="2" style="border-right: Solid 1px #000000; border-bottom: Solid 3px #000000; 
+			 width: 16.667%; padding-right: 10px; padding-left: 10px; padding-top: 10px; 
+			 padding-bottom: 10px;" bgcolor="#CBD9ED"><p class="Tabletitle">Log</p></td>
+		<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; 
+			 width: 16.667%; padding-right: 10px; padding-left: 10px; padding-top: 10px; 
+			 padding-bottom: 10px;"><p class="Tabletext">Clear/ ClearAll</p></td>
+		<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; 
+			 width: 16.667%; padding-right: 10px; padding-left: 10px; padding-top: 10px; 
+			 padding-bottom: 10px;"><p style="text-align: center;"><img src="Check_small.bmp" alt="" style="border: none;" width="17" height="14" border="0"></p></td>
+		<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; 
+			 width: 16.667%; padding-right: 10px; padding-left: 10px; padding-top: 10px; 
+			 padding-bottom: 10px;"><p style="text-align: center;"><img src="Check_small.bmp" alt="" style="border: none;" width="17" height="14" border="0"></p></td>
+		<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; 
+			 width: 16.667%; padding-right: 10px; padding-left: 10px; padding-top: 10px; 
+			 padding-bottom: 10px;"><p style="text-align: center;"><img src="Check_small.bmp" alt="" style="border: none;" width="17" height="14" border="0"></p></td>
+		<td style="border-bottom: Solid 1px #000000; width: 16.667%; padding-right: 10px; 
+			 padding-left: 10px; padding-top: 10px; padding-bottom: 10px;"><p 
+			 style="text-align: center;"><img src="Check_small.bmp" alt="" style="border: none;" width="17" height="14" border="0"></p></td>
+	</tr>
+	<tr style="vertical-align: top;">
+		<td style="border-right: Solid 1px #000000; border-bottom: Solid 3px #000000; 
+			 width: 16.667%; padding-right: 10px; padding-left: 10px; padding-top: 10px; 
+			 padding-bottom: 10px;"><p class="Tabletext">Delete/DeleteAll</p></td>
+		<td style="border-right: Solid 1px #000000; border-bottom: Solid 3px #000000; 
+			 width: 16.667%; padding-right: 10px; padding-left: 10px; padding-top: 10px; 
+			 padding-bottom: 10px;"><p style="text-align: center;"><img src="Check_small.bmp" alt="" style="border: none;" width="17" height="14" border="0"></p></td>
+		<td style="border-right: Solid 1px #000000; border-bottom: Solid 3px #000000; 
+			 width: 16.667%; padding-right: 10px; padding-left: 10px; padding-top: 10px; 
+			 padding-bottom: 10px;"><p style="text-align: center;"><img src="Check_small.bmp" alt="" style="border: none;" width="17" height="14" border="0"></p></td>
+		<td style="border-right: Solid 1px #000000; border-bottom: Solid 3px #000000; 
+			 width: 16.667%; padding-right: 10px; padding-left: 10px; padding-top: 10px; 
+			 padding-bottom: 10px;"><p style="text-align: center;"><img src="Check_small.bmp" alt="" style="border: none;" width="17" height="14" border="0"></p></td>
+		<td style="border-bottom: Solid 3px #000000; width: 16.667%; padding-right: 10px; 
+			 padding-left: 10px; padding-top: 10px; padding-bottom: 10px;"><p 
+			 style="text-align: center;"><img src="Check_small.bmp" alt="" style="border: none;" width="17" height="14" border="0"></p></td>
+	</tr>
+</table>
+<table style="vertical-align: top; margin-left: 40px; margin-top: 6pt;" 
+		 cellspacing="0" width="200">
+	<col style="width: 10%;">
+	<col style="width: 90%;">
+	<tr style="vertical-align: top;">
+		<td style="width: 10%; padding-right: 10px; padding-left: 10px;"><p 
+			 class="Tabletext"><img src="Check_small.bmp" alt="" style="border: none;" width="17" height="14" border="0"></p></td>
+		<td style="width: 90%; padding-right: 10px; padding-left: 10px;"><p 
+			 class="Tabletext">Supported</p></td>
+	</tr>
+	<tr style="vertical-align: top;">
+		<td style="width: 10%; padding-right: 10px; padding-left: 10px;"><p 
+			 class="Tabletext"><img src="X_small.bmp" alt="" style="border: none;" width="19" height="14" border="0"></p></td>
+		<td style="width: 90%; padding-right: 10px; padding-left: 10px;"><p 
+			 class="Tabletext">Unsupported</p></td>
+	</tr>
+</table>
+<ul>
+	<li class="p-Bullet"><p class="Bullet">The Vijeo Designer alarm summary 
+	 follows what is displayed in the PLC's diagnostic buffer. If the alarm 
+	 state is not ACK and returned, it creates a new line when the next 
+	 alarm is triggered. Once the alarm state is ACK, the line is deleted 
+	 from the PLC's diagnostic buffer, and the behavior will also be reflected 
+	 in the Vijeo Designer alarm summary. You can see the same behavior 
+	 using the Diagnostic Viewer feature in Unity Pro.</p></li>
+	<li class="p-Bullet"><p class="Bullet">There are special script methods 
+	 that allow you to interact with a DFB alarm's .sto files. See Section 
+	 18.9.1.7, <a href="Scripts.chm::/DiagBuffer_Methods.htm">DiagBuffer 
+	 Methods</a>. Alternatively, you can use the STO Message String variable 
+	 to interact with the DFB alarm's .sto files, see Section 16.3.2.3, 
+	 <a href="Diagnostic_Alarm_Group_StatusMsg.htm">Displaying Derived 
+	 Function Block Status Messages</a>.</p></li>
+	<li class="p-Bullet"><p class="Bullet">When the diagnostic buffer sends 
+	 an alarm, Vijeo-Designer stores the initial value of status words 
+	 associated with the DFB alarm. Using the latest values on the PLC, 
+	 the status words are updated when the state of the alarm changes by 
+	 an acknowledgement, or by another viewer performing a <span style="font-style: italic;">retrigger 
+	 fault causes</span> operation. Vijeo-Designer does not update status 
+	 words when using the decodeStatusWords or getStatusWords script methods.</p></li>
+</ul>
+<p class="NoteImage"><img src="LIMIT.bmp" alt="" style="border: none;" width="77" height="24" border="0"></p>
+<ul>
+	<li class="p-NoteText"><p class="NoteText">Vijeo-Designer does not 
+	 support retrieving and viewing fault cases of diagnostic alarms.</p></li>
+	<li class="p-NoteText"><p class="NoteText">After a diagnostic alarm 
+	 has been acknowledged and returned to normal, the diagnostic buffer 
+	 on the PLC removes the alarm. For Vijeo-Designer's History and Log 
+	 alarm summary displays, the returned to normal alarm will remain as 
+	 long as you are connected to the PLC. After you disconnect from the 
+	 PLC (log off or a communication error occurs), and communication to 
+	 the PLC is restored, the display is refreshed with the current diagnostic 
+	 buffer contents and the returned to normal alarm will not display.</p></li>
+	<li class="p-NoteText"><p class="NoteText">When the target machine 
+	 starts up, communication between the diagnostic alarm group and the 
+	 PLC does not begin until one instance of the polling rate time elapses. 
+	 For example, if you have a 90.0 second polling rate and the target 
+	 machine starts up, the diagnostic alarm group will not communicate 
+	 with the PLC after startup until 90.0 seconds elapses.</p></li>
+	<li class="p-NoteText"><p class="NoteText">Diagnostic alarm groups 
+	 that have the same polling rates will update one after the other in 
+	 the same thread. If a diagnostic alarm group cannot update because 
+	 of a communication problem, the other diagnostic alarm groups in the 
+	 thread do not update until the diagnostic alarm group experiencing 
+	 the communication problem can either update or time out.</p></li>
+</ul>
+<div style="width: 100%; position: relative;" id="footer">
+	<p>&#160;</p>
+</div>
+</body>
+</html>

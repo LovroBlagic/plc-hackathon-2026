@@ -1,0 +1,183 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="template" content="Vijeo_template.htt">
+ <meta name="generator" content="Adobe RoboHelp 10">
+<title>Displaying Diagnostic Alarms</title>
+<link rel="StyleSheet" href="Tis-styl.css" type="text/css">
+</head>
+<body>
+<script type="text/javascript" src="ehlpdhtm.js" language="JavaScript1.2"></script>
+
+<div style="width: 100%; position: relative;" id="header">
+	<table style="background-attachment: scroll; margin-left: 0px; margin-right: 4px; 
+			 background-image: url(top_banner.bmp); background-repeat: Repeat-X; 
+			 line-height: 0pt; vertical-align: top;" cellspacing="0" width="100%" 
+			 background="top_banner.bmp">
+		<col style="width: 90%;">
+		<col style="width: 5%;">
+		<col style="width: 5%;">
+		<tr style="vertical-align: center; height: 39px;">
+			<td style="width: 90%; padding-right: 10px; padding-left: 10px; 
+				 border-right-color: #000000;">
+   <p><img src="logo.bmp" style="border: none;" alt="" width="37" height="37" border="0"></p></td>
+			<td style="width: 5%; padding-right: 0px; padding-left: 10px; 
+				 border-right-color: #000000;">
+   <p style="text-align: center;"><a 
+			 title="Glossary" href="Appendix.chm::/Glossary.htm"><img src="logo_glossary.bmp" style="border: none;" alt="" width="47" height="37" border="0"></a></p></td>
+			<td style="width: 5%; padding-right: 10px; padding-left: 5px; 
+				 border-right-color: #000000;">
+   <p style="text-align: center;"><a 
+			 href="About.chm::/What_is_Vijeo-Designer.htm" title="Home"><img src="logo_home.bmp" alt="Home" title="Home" style="border: none; 
+			 margin-left: 0px; margin-right: 0px; margin-bottom: 0px; margin-top: -2px;" width="47" height="37" border="0"></a></p></td>
+		</tr>
+	</table>
+</div>
+
+<h3>16.3.2.1 Displaying Diagnostic Alarms</h3>
+<p>To display alarms in a PLC's diagnostic buffer on the target machine, add a diagnostic alarm group and then assign the diagnostic alarm group to an alarm summary.</p>
+<ol style="list-style: decimal;">
+<li class="p">
+<p>In the I/O Manager node, set up equipment that supports the diagnostic buffer.</p>
+</li>
+</ol>
+<p class="NoteImage" style="margin-left: 40px;"><img src="NOTE_MOJI.BMP" style="border: none;" alt="" width="51" height="25" border="0"></p>
+<ul>
+<li class="p-NoteText2">
+<p class="NoteText2">For a list of PLCs that support the diagnostic buffer, see Section 5.5, <a href="ExternalDevice.chm::/DiagBuffer_WorkingWith.htm">Working with Alarms on the Equipment (Diagnostic Buffer)</a>.</p>
+</li>
+</ul>
+<ol start="2">
+<li class="p">
+<p>Right-click the Alarms node and select New Diagnostic Alarm Group. The Diagnostic Alarm Group editor will display.</p>
+</li>
+</ol>
+<p class="NoteImage" style="margin-left: 40px;"><img src="NOTE_MOJI.BMP" style="border: none;" alt="" width="51" height="25" border="0"></p>
+<ul>
+<li class="p-NoteText2">
+<p class="NoteText2">You can add a combined total of 32 alarm groups and diagnostic alarm groups in a single target.</p>
+</li>
+<li class="p-NoteText2">
+<p class="NoteText2">You can add a maximum of 14 diagnostic alarm groups in a project.<br>
+For example, you can have 14 targets with one diagnostic alarm group per target, all connected to one PLC. Or you can have two targets with seven diagnostic alarm groups per target, with both connected to one PLC. The distribution of diagnostic alarm groups across multiple targets does not matter, only the total number connected to one PLC.</p>
+</li>
+</ul>
+<ul>
+<li class="p-NoteText2">
+<p class="NoteText2">The number of areas to monitor specified in the Diagnostic Alarm Group editor for each group does not affect how many viewers can be connected to a PLC.</p>
+</li>
+</ul>
+<ol start="3" style="list-style: decimal;">
+<li class="p">
+<p>Define the settings for the diagnostic alarm group. Group Setting properties define the settings for each diagnostic alarm group. The Global Setting property defines the setting for all diagnostic alarm groups.</p>
+</li>
+</ol>
+<table style="vertical-align: top; margin-left: 40px;" cellspacing="0" width="90%">
+<col style="width: 15.942%;">
+<col style="width: 15.942%;">
+<col style="width: 68.115%;">
+<tr style="vertical-align: top;">
+<td colspan="2" style="border-top: Solid 3px #000000; border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 31.884%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#91AFD9">
+<p class="Tabletitle">Property</p>
+</td>
+<td style="border-top: Solid 3px #000000; border-bottom: Solid 1px #000000; width: 68.115%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#91AFD9">
+<p class="Tabletitle">Description</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td rowspan="5" style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 15.942%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#CBD9ED">
+<p class="TableDefinitions">Group Setting</p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 15.942%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#CBD9ED">
+<p class="TableDefinitions">Equipment</p>
+</td>
+<td style="border-bottom: Solid 1px #000000; width: 68.115%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">Select the PLC equipment set up with diagnostic buffer alarms.</p>
+<p class="Tabletext">The protocol for the selected Equipment enables communication with the PLC so diagnostic alarm information can be passed back and forth.</p>
+<p class="Tabletext">Only drivers that support diagnostic buffer are listed in this field.</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 15.942%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#CBD9ED">
+<p class="TableDefinitions">Areas to Monitor</p>
+</td>
+<td style="border-bottom: Solid 1px #000000; width: 68.115%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">The PLC configuration software divides the diagnostic buffer alarms into different areas. Select the check boxes of areas in the diagnostic buffer you want to display on the target machine.</p>
+<p class="NoteImage"><img src="NOTE_MOJI.BMP" style="border: none;" alt="" width="51" height="25" border="0"></p>
+<ul>
+<li class="p-NoteText">
+<p class="NoteText">When using the target machine to display alarms on a PLC's diagnostic buffer, and the PLC is a Unity-based PLC, the diagnostic buffer will always return alarms from Area 0, even if you have not selected Area 0 as one of the Areas to Monitor. PL7-based PLCs do not have this behavior.<br>
+For Unity-based PLCs, design your project so Area 0 in the diagnostic buffer is used for global alarms that will appear in all diagnostic alarm displays. For alarms that can be filtered and not displayed in the alarm summary, use Areas 1 to 15.</p>
+</li>
+</ul>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 15.942%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#CBD9ED">
+<p class="TableDefinitions">Polling Rate</p>
+</td>
+<td style="border-bottom: Solid 1px #000000; width: 68.115%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">Select the rate at which you want to check the PLC for new alarm records. You can enter values between 0.1 and 90.0 seconds.</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 15.942%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#CBD9ED">
+<p class="TableDefinitions">Severity</p>
+</td>
+<td style="border-bottom: Solid 1px #000000; width: 68.115%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">This field is used when the diagnostic alarm group is in an alarm category and is displayed in an alarm summary sorted by severity, all alarms in the diagnostic alarm group are assigned the selected Severity value.</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 15.942%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#CBD9ED">
+<p class="TableDefinitions">Enable Fast Reload</p>
+</td>
+<td style="border-bottom: Solid 1px #000000; width: 68.115%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">When the target machine connects to the PLC, at startup or when recovering from a communication failure, select Fast Reload to read all the alarms one after another. After all the alarms are read, the diagnostic alarm group uses the defined Polling Rate to continue monitoring alarms.</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 3px #000000; width: 15.942%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#CBD9ED">
+<p class="TableDefinitions">Global Setting</p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 3px #000000; width: 15.942%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#CBD9ED">
+<p class="TableDefinitions">Encoding</p>
+</td>
+<td style="border-bottom: Solid 3px #000000; width: 68.115%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p>This field allows you to select the character encoding for all diagnostic alarm groups so that the correct character set will be used to display diagnostic buffer alarm messages at run time.</p>
+<p>Select ASCII, ANSI, Unicode, Simplified Chinese, or Traditional Chinese.</p>
+</td>
+</tr>
+</table>
+<ol start="4" style="list-style: decimal;">
+<li style="color: #000000;" class="p">
+<p style="color: #000000;">After you configure the diagnostic alarm group settings, select the Alarm Summary icon in the Graphical Objects toolbar and draw the alarm summary on the panel.</p>
+</li>
+</ol>
+<p class="Image" style="margin-left: 40px;"><img src="creating_alarm_summary.bmp" style="border: none;" alt="" width="413" height="144" border="0"></p>
+<ol start="5" style="list-style: decimal;">
+<li style="color: #000000;" class="p">
+<p style="color: #000000;">In the alarm summary settings, select the newly created diagnostic alarm group in the Alarm Group property.</p>
+</li>
+</ol>
+<p class="NoteImage" style="margin-left: 40px;"><img src="NOTE_MOJI.BMP" style="border: none;" alt="" width="51" height="25" border="0"></p>
+<ul>
+<li class="p-NoteText2">
+<p class="NoteText2">For information on displaying multiple diagnostic alarm groups in the same alarm summary, see Section 16.3.2.2, <a href="Diagnostic_Alarms_Display_Multiple.htm">Displaying Multiple Diagnostic Alarm Groups in an Alarm Summary</a>.</p>
+</li>
+</ul>
+<ol start="6" style="list-style: decimal;">
+<li class="p">
+<p>Click the Columns tab and add the Area Number column to display the alarm's diagnostic buffer area.</p>
+</li>
+<li class="p">
+<p>Refer to the property descriptions in Section 16.2.6, <a href="Setting_up_alarm_Summary.htm">Setting Up an Alarm and Event Summary</a> to customize the alarm summary display.</p>
+</li>
+</ol>
+<div style="width: 100%; position: relative;" id="footer">
+	<p>&#160;</p>
+</div>
+</body>
+</html>

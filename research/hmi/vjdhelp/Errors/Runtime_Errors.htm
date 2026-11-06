@@ -1,0 +1,2319 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+ <meta name="generator" content="Adobe RoboHelp 2015">
+<title>Run-time Event Messages</title>
+<link rel="StyleSheet" href="TIS-STYL.CSS" type="text/css">
+<script type="text/javascript" language="JavaScript1.2">
+//<![CDATA[
+function sorting()
+        {
+                //this array holds all the div elements unsorted
+                arrayOfUnsortedData = new Array();
+                //this array holds all the letter divs
+                arrayOfLetters = new Array();
+                //holds an array of unsorted data
+                arrayOfUnsortedData = document.all["sort"];
+                //array holds the letter divisions
+                arrayOfLetters = document.all["letter"];
+                //holds the index links
+                indexLinks = document.getElementById("links");
+                //this holds all the index links that will be added to the doc
+                glossaryLinks = indexLinks.innerHTML;
+                //this array holds all the documents objects
+                objectArray = new Array();
+                
+                updateObjectArray(arrayOfUnsortedData);
+                createObjectsAddToArray();
+                objectArray.sort(ObjKeySort);
+                addSortedItemsToDoc();
+                cleanUp();
+        }
+
+        //function cleans up the document by removing the section letters that do not have any items underneath them
+        //like Z does not have index items so Z and its index link should be removed from the document
+        //loops through all the letter sections checking if they have children (i.e. index items)
+        //if they don't have children, then removes them from the document
+        //if they do have children, then adds the index link to this section
+        function cleanUp()
+        {
+                var i=0;
+                for (i=0; i<arrayOfLetters.length; i++)
+                {
+                        //removes the child from the document and removed the hyperlink
+                        if(arrayOfLetters[i].children.length <= 1)
+                        {       
+                                removeIndexLink(getFirstLetter(arrayOfLetters[i].innerText));
+                                arrayOfLetters[i].parentNode.removeChild(arrayOfLetters[i]);
+                                i--;
+                        }
+                }
+                setIndex();
+        }
+        
+        
+        //sets the index links to the defined string 
+        function setIndex()
+        {
+                document.getElementById("links").innerHTML = glossaryLinks;
+        }
+        
+        //this function creates the index links by building up a string for the index links. Only indexes that have items in them get added to this list
+        //Note: can't simply adjust: indexLinks.innerHTML and indexLinks.innerText to update index -> strange results occur when removing characters from these places
+        function addIndexLink(addLetter)
+        {
+                var letterToAdd = "<A href=\"#"+addLetter+"\">"+addLetter+"<\/A>"+"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;";
+                glossaryLinks = glossaryLinks+letterToAdd;
+        }
+        
+        //removes the hyperlink from the glossary index letters
+        function removeIndexLink(removeLetter)
+        {
+                var linkToKill = "<A href=\"#"+removeLetter+"\">"+removeLetter+"<\/A>";
+                glossaryLinks = glossaryLinks.replace(linkToKill, removeLetter);
+        }
+        
+        //returns the first letter of a string
+        function getFirstLetter(letter)
+        {
+                return letter.charAt(0);
+        }
+        
+        //loops through the sorted objectArray and appends the div elements underneath the correct letter heading
+        function addSortedItemsToDoc()
+        {
+                for (y in objectArray)
+                {
+                        //element[1].appendChild(objectArray[y].description);
+                        var firstLetter = getFirstLetter(objectArray[y].name);
+                        switch (firstLetter)
+                        {
+                                case "a":
+                                        arrayOfLetters[0].appendChild(objectArray[y].description);
+                                        break;
+                                case "b":
+                                        arrayOfLetters[1].appendChild(objectArray[y].description);
+                                        break;
+                                case "c":
+                                        arrayOfLetters[2].appendChild(objectArray[y].description);
+                                        break;
+                                case "d":
+                                        arrayOfLetters[3].appendChild(objectArray[y].description);
+                                        break;
+                                case "e":
+                                        arrayOfLetters[4].appendChild(objectArray[y].description);
+                                        break;
+                                case "f":
+                                        arrayOfLetters[5].appendChild(objectArray[y].description);
+                                        break;
+                                case "g":
+                                        arrayOfLetters[6].appendChild(objectArray[y].description);
+                                        break;
+                                case "h":
+                                        arrayOfLetters[7].appendChild(objectArray[y].description);
+                                        break;
+                                case "i":
+                                        arrayOfLetters[8].appendChild(objectArray[y].description);
+                                        break;
+                                case "j":
+                                        arrayOfLetters[9].appendChild(objectArray[y].description);
+                                        break;
+                                case "k":
+                                        arrayOfLetters[10].appendChild(objectArray[y].description);
+                                        break;
+                                case "l":
+                                        arrayOfLetters[11].appendChild(objectArray[y].description);
+                                        break;
+                                case "m":
+                                        arrayOfLetters[12].appendChild(objectArray[y].description);
+                                        break;
+                                case "n":
+                                        arrayOfLetters[13].appendChild(objectArray[y].description);
+                                        break;
+                                case "o":
+                                        arrayOfLetters[14].appendChild(objectArray[y].description);
+                                        break;
+                                case "p":
+                                        arrayOfLetters[15].appendChild(objectArray[y].description);
+                                        break;
+                                case "q":
+                                        arrayOfLetters[16].appendChild(objectArray[y].description);
+                                        break;
+                                case "r":
+                                        arrayOfLetters[17].appendChild(objectArray[y].description);
+                                        break;
+                                case "s":
+                                        arrayOfLetters[18].appendChild(objectArray[y].description);
+                                        break;
+                                case "t":
+                                        arrayOfLetters[19].appendChild(objectArray[y].description);
+                                        break;
+                                case "u":
+                                        arrayOfLetters[20].appendChild(objectArray[y].description);
+                                        break;
+                                case "v":
+                                        arrayOfLetters[21].appendChild(objectArray[y].description);
+                                        break;
+                                case "w":
+                                        arrayOfLetters[22].appendChild(objectArray[y].description);
+                                        break;
+                                case "x":
+                                        arrayOfLetters[23].appendChild(objectArray[y].description);
+                                        break;
+                                case "y":
+                                        arrayOfLetters[24].appendChild(objectArray[y].description);
+                                        break;
+                                case "z":
+                                        arrayOfLetters[25].appendChild(objectArray[y].description);
+                                        break;
+                                default:
+                                        arrayOfLetters[25].appendChild(objectArray[y].description);
+                        }
+                        
+                        
+                        
+                        
+                }
+        }       
+        
+        //this function loops through the object array updating the accents in the object.name property
+        function createObjectsAddToArray()
+        {
+                for(k in objectArray)
+                {
+                        updateAccents(objectArray[k]);
+                }
+        }
+        
+        //this function goes through the existing array and creates objects from the arrayOfUnsorted data and puts them into an object
+        //the object is then added to the objectArray
+          function updateObjectArray(theArray)
+          {
+                var i=0;
+                for (i=0; i<theArray.length; i++)
+                {
+                        objectArray[i]  = objCreate(theArray[i].firstChild.innerText, theArray[i]);
+                }
+          }
+
+  //this function goes through each letter and checks if it is a special character and then replaces it with its associated english character
+  function updateAccents(glossaryObj)
+  {
+                var nameArray = new Array();
+                nameArray = glossaryObj.name.toLowerCase().split("");
+                
+                for (idx in nameArray)
+                {
+                        var letter = returnCharDecimal(nameArray[idx]);
+                        if(letter>122)
+                        {
+                                nameArray[idx] = getAccentEquivelent(letter);
+                        }
+                }
+                        glossaryObj.name = nameArray.join("");                          
+  }
+  
+  //this function returns the special characters english character equivalent
+  function getAccentEquivelent(letter)
+        {
+                var returnLetter;
+                if((letter>=123)&&(letter<=129)||(letter>=150)&&(letter<=151)||(letter==154)||(letter==163)||(letter>=217)&&(letter<=220)||
+                (letter>=249)&&(letter<=252))
+                {
+                        returnLetter = "u";
+                }
+                else if((letter==130)||(letter>=135)&&(letter<=138)||(letter==144)||(letter>=200)&&(letter<=203)||
+                (letter>=232)&&(letter<=235))
+                {
+                        returnLetter = "e";
+                }
+                else if((letter>=131)&&(letter<=134)||(letter>=142)&&(letter<=143)||(letter>=145)&&(letter<=146)||(letter==160)||
+                (letter>=180)&&(letter<=199)||(letter>=224)&&(letter<=230))
+                {
+                        returnLetter = "a";
+                }
+                else if((letter>=139)&&(letter<=141)||(letter==161)||(letter>=204)&&(letter<=207)||(letter>=236)&&(letter<=239))
+                {
+                        returnLetter = "i";
+                }
+                else if((letter>=147)&&(letter<=149)||(letter==153)||(letter>=155)&&(letter<=156)||(letter==162)||
+                (letter>=210)&&(letter<=216)||(letter==240)||(letter>=242)&&(letter<=248))
+                {
+                        returnLetter = "o";
+                }
+                else if((letter==152)||(letter==159)||(letter>=221)&&(letter<=223)||(letter>=253)&&(letter<=255))
+                {
+                        returnLetter = "y";
+                }
+                else if((letter>=157)&&(letter<=158))
+                {
+                        returnLetter = "z";
+                }
+                else if((letter>=164)&&(letter<=165)||(letter>=208)&&(letter<=209)||(letter==241))
+                {
+                        returnLetter = "n";
+                }
+                else if(letter==231)
+                {
+                        returnLetter = "c";
+                }
+                else if (letter==8218)
+                {
+                        returnLetter = ",";
+                }
+                else if (letter==65533)
+                {
+                        returnLetter = "";
+                }
+                else
+                {
+                        returnLetter = "z";
+                }
+                
+                return returnLetter;
+        }       
+
+  //this function returns the decimal value of a character
+  function returnCharDecimal(letter)
+  {
+        return letter.charCodeAt(0);
+  }
+  
+  //this function is for sorting and allows the javascript sort(); to work on objects and sort by an object's property
+  function ObjKeySort(a, b)
+  { 
+        return (b.name<a.name)-(a.name<b.name);
+  }
+  //creates an object with an name and an id. Id is the element's id, name is the glossary term
+  function objCreate(name, description)
+  {
+        glossaryItem = new Object();
+        glossaryItem.name=name;
+        glossaryItem.description=description;
+        return glossaryItem;
+  }
+//]]>
+</script>
+</head>
+<body onload="sorting()">
+<script type="text/javascript" src="ehlpdhtm.js" language="JavaScript1.2"></script>
+
+<div style="width: 100%; position: relative;" id="header">
+ <table style="background-attachment: scroll; margin-left: 0px; margin-right: 4px; background-image: url(top_banner.bmp); background-repeat: Repeat-X; line-height: 0pt; vertical-align: top;" cellspacing="0" background="top_banner.bmp" width="100%">
+  <col style="width: 90%;">
+  <col style="width: 5%;">
+  <col style="width: 5%;">
+  <tr style="vertical-align: center; height: 39px;">
+  <td style="width: 90%; padding-right: 10px; padding-left: 10px; border-right-color: #000000;">
+  <p><img src="logo.bmp" alt="" style="border: none;" width="37" height="37" border="0"></p>
+</td>
+  <td style="width: 5%; padding-right: 0px; padding-left: 10px; border-right-color: #000000;">
+  <p style="text-align: center;"><a title="Glossary" href="Appendix.chm::/Glossary.htm"><img src="logo_glossary.bmp" alt="" style="border: none;" width="47" height="37" border="0"></a></p>
+</td>
+  <td style="width: 5%; padding-right: 10px; padding-left: 5px; border-right-color: #000000;">
+  <p style="text-align: center;"><a href="About.chm::/What_is_Vijeo-Designer.htm" title="Home"><img src="logo_home.bmp" alt="Home" title="Home" style="border: none; margin-left: 0px; margin-right: 0px; margin-bottom: 0px; margin-top: -2px;" width="47" height="37" border="0"></a></p>
+</td>
+</tr>
+ </table>
+</div>
+<h1>28.2.4.1 Run-time Event Messages</h1>
+<p>Events are organized alphabetically by their event message. A recommended solution follows the event messages.</p>
+<div id="links">
+<p><a href="#A">A</a> &#160;<a href="#B">B</a> &#160;<a href="#C">C</a> &#160;<a href="#D">D</a> &#160;<a href="#E">E</a> &#160;<a href="#F">F</a> &#160;<a href="#G">G</a> &#160;<a href="#H">H</a> &#160;<a href="#I">I</a> &#160;<a href="#J">J</a> &#160;<a href="#K">K</a> &#160;<a href="#L">L</a> &#160;<a href="#M">M</a> &#160;<a href="#N">N</a> &#160;<a href="#O">O</a> &#160;<a href="#P">P</a> &#160;<a href="#Q">Q</a> &#160;<a href="#R">R</a> &#160;<a href="#S">S</a> &#160;<a href="#T">T</a> &#160;<a href="#U">U</a> &#160;<a href="#V">V</a> &#160;<a href="#W">W</a> &#160;<a href="#X">X</a> &#160;<a href="#Y">Y</a> &#160;<a href="#Z">Z</a></p>
+</div>
+<div id="letter">
+<h2 style="margin-top: 27pt;"><a name="A" id="A"></a>A</h2>
+</div>
+<div id="sort">
+<h3 id="I:FAILED_TO_START_CALLBACK_TIMER:KAOScore">A call-back timer failed to start.</h3>
+<p>Return to the editor, run the Clean command on the project, build the user application again, then download to the target machine. If these operations don't solve the problem, please contact customer support.</p>
+</div>
+<div>
+<h3 id="E:MPI_DUPLICATE_NODE:SiemensMPID">A duplicate node has been detected in the network.</h3>
+<p>The node ID is the same as another node currently in the network. Change the duplicate node ID as necessary.</p>
+</div>
+<div>
+<h3 id="E:ABDH485_DUPLICATE_STATION_FOUND:Rockwell">A duplicate station has been found on the DH485 network.</h3>
+<p>Two Target Machines on the DH485 network share the same Node Number. Solution: Return to the Editor, assign each of the Target Machines on the DH485 network an unique Node Number, and then download to the Target Machines.</p>
+</div>
+<div>
+<h3 id="E:FP_SCANNER_MISSING_FP:Security">Add User failed. You must provide fingerprints for user.</h3>
+<p>The security group that you are adding the user to uses fingerprints for authentication, but no fingerprints were captured by the biometric switch. Add the user again, and make sure the user's fingerprints are captured on the biometric switch.</p>
+</div>
+<div>
+<h3 id="I:FAIL_TO_REGISTER_POINTS">Access to the variable was denied by the server.</h3>
+<p>Return to the editor, and for each variable, check the Sharing property setting in the Variable Properties. If the Sharing property is set to None, the variable cannot be viewed or edited by other targets on the network; if set to Read-Only, the variable can only be viewed by other targets on the network; if set to Read/Write, the variable can be viewed and edited by other targets on the network.</p>
+</div>
+<div>
+<h3 id="E:SHARED_KOM_NUMBER_CONVERSION_FAIL:Shared Error Messages">An Error Occurred while converting PLC register format to/from a Java Integer.</h3>
+<p>This error indicates an application error. The PLC integer, which is stored in binary format, did not successfully convert into an integer so it could be used in the runtime user application. Solution: Restart runtime. If the message displays again, please report to customer support.</p>
+</div>
+<div>
+<h3 id="I:EXTERNAL_ERROR_FROM_POST_WRITE_METHOD:DefaultTagCallBack">An error occurs in the post write method.</h3>
+<p>Return to the editor, run the Clean command on the project, build the user application again, then download to the target machine. If these operations don't solve the problem, please contact customer support.</p>
+</div>
+<div>
+<h3 id="I:EXTERNAL_ERROR_FROM_QUERY_METHOD:DefaultTagCallBack">An error occurs in the query method.</h3>
+<p>Return to the editor, run the Clean command on the project, build the user application again, then download to the target machine. If these operations don't solve the problem, please contact customer support.</p>
+</div>
+<div>
+<h3 id="E:CODESYS_EXCEPTION:KAOScore">An exception occurred in CoDeSys runtime.</h3>
+<p>This is a general PLC runtime error message that may indicate the following errors: - A watchdog error - An array index that is out of bounds - Division by zero. If you are unable to diagnose the problem, contact Product Support.</p>
+</div>
+<div>
+<h3 id="I:INVALID_FILE_SEARCH_HANDLE:KAOScore">An invalid handle was passed to a file-search function.</h3>
+<p>Return to the editor, run the Clean command on the project, build the user application again, then download to the target machine. If these operations don't solve the problem, please contact customer support.</p>
+</div>
+<div>
+<h3 id="I:INVALID_FILE_OPEN_MODE:KAOScore">An invalid mode was specified in a file open function.</h3>
+<p>Return to the editor, run the Clean command on the project, build the user application again, then download to the target machine. If these operations don't solve the problem, please contact customer support.</p>
+</div>
+<div>
+<h3 id="E:MPI_ILLEGAL_NODE:SiemensMPID">An invalid node number has been detected.</h3>
+<p>Check the node number and the network configuration.</p>
+</div>
+<div>
+<h3 id="I:INVALID_TIME_VALUE:KAOScore">An invalid time value was passed into a system time function.</h3>
+<p>Return to the editor, run the Clean command on the project, build the user application again, then download to the target machine. If these operations don't solve the problem, please contact customer support.</p>
+</div>
+<div>
+<h3 id="E:MODBUS_PLUS_DUPLICATE_NETWORK_ADDRESS:Modbus Plus">Another Modbus Plus device has the same address as this device.</h3>
+<p>Occurs when connecting the target machine to the Modbus Plus network and the unit number set up on the target machine is already being used. When this event occurs, Modbus Plus communications is disabled on the target machine. Solution: Change the Modbus Plus unit ID so there is no conflict with other nodes then restart the runtime.</p>
+</div>
+<div>
+<h3 id="E:APPLICATION_SCRIPT_ERROR:Shared Error Messages">Application Script Error.</h3>
+<p>An application script, where Trigger = On Startup, On Shutdown, or When Touch, performs an illegal operation. For example, the script may be trying to access an array index that's out of bounds, attempting a divide by zero, or running some other exception error. Solution: Find and correct the script that's causing the error. The script is a user-created application script, where Trigger = On Startup, On Shutdown, or When Touch.</p>
+</div>
+<div>
+<h3 id="I:SIO_CONFIG_ERROR:KAOScore">Attempt to configure a communication option failed.</h3>
+<p>Return to the editor, run the Clean command on the project, build the user application again, then download to the target machine. If these operations don't solve the problem, please contact customer support.</p>
+</div>
+<div>
+<h3 id="I:COM_WRITE_ON_READONLY:Communications System">Attempted IO operation (write) on READONLY.</h3>
+<p>Return to the editor, run the Clean command on the project, build the user application again, then download to the target machine. If these operations don't solve the problem, please contact customer support.</p>
+<p>If you are using the Zelio/Millenium driver and Dialog Table, see Section 5.6.7, <a href="externaldevice.chm::/Working_with_the_Zelio_Millenium_Driver.htm">Working with the Zelio/Millenium Driver</a> for the correct configuration of the Dialog Table.</p>
+</div>
+<div>
+<h3 id="E:KIDD_INVALID_KOOHI_INTERFACING_DEVICE_DRIVER_DLM:KIDD">Attempted to load an invalid device driver (*.DLM).</h3>
+<p>The driver information passed to runtime is invalid. Solution:<br>
+- Restart target machine<br>
+- Return to the editor, run the Clean command on the user application, build the user application again, and download to the target machine.<br>
+- Reinstall any device drivers such as mouse and keyboard drivers.</p>
+</div>
+<div>
+<h3 id="I:TEM_FORCE_REGISTERING_ON_AN_INVALID_LIST:TagEventMgr">Attempting to Force Update IO Tags on an invalid context. ForceRegisterChange message from ComMgr contains an invalid context.</h3>
+<p>Return to the editor, run the Clean command on the project, build the user application again, then download to the target machine. If these operations don't solve the problem, please contact customer support.</p>
+</div>
+<div>
+<h2 style="margin-top: 27pt;"><a name="B" id="B"></a>B</h2>
+</div>
+<div>
+<h3 id="E:BACKLIGHT_BURNED_OUT:KAOScore">Backlight bulb is burned out. Check the hardware manual for instructions or contact the distributor/customer support for replacement.</h3>
+<p>The target machine has detected one of the backlight bulbs is burned out and requires replacement. As a result, touch operations may be locked. (This setting is configurable.) In addition to displaying this message, the target machine uses the LED indicator to show the user the backlight is out. Solution: - As instructed by the event message, first refer to your hardware manual to see if there are instructions on how to replace the backlight bulb. Depending on the hardware, backlight bulbs may be ordered and replaced onsite.<br>
+- If your hardware manual does not include instructions on how to replace the backlight bulb, then contact your local distributor for replacement.</p>
+</div>
+<div>
+<h3 id="E:BAR_CODE_EMPTY:Shared Error Messages">Bar code input is Empty. Try scanning again. If problem continues, check the communication settings.</h3>
+<p>Please check following. Communication - communication settings in bar code scanner don't match bar code driver set up in the editor. Especially pay attention to end delimiter character. Cable - Connections loose, cable is damaged, or magnetic interference. Hardware - Bar Code Scanner is damaged.</p>
+</div>
+<div>
+<h3 id="E:BAR_CODE_MISSING_END_DELIMITER:Shared Error Messages">Bar code input is missing End Delimiter. Try scanning again. If problem continues, check the communication settings.</h3>
+<p>Please check following. Communication - communication settings in bar code scanner don't match bar code driver set up in the editor. Especially pay attention to end delimiter character. Cable - Connections loose, cable is damaged, or magnetic interference. Hardware - Bar Code Scanner is damaged.</p>
+</div>
+<div>
+<h3 id="E:BAR_CODE_NOT_ASCII:Shared Error Messages">Bar code input is not ASCII. Try scanning again. If problem continues, check the communication settings.</h3>
+<p>The bar code driver assumes scanned data is ASCII byte code. The data being scanned is not recognized as ASCII. Solution: - Check to make sure the bar code reader is configured to read ASCII code.<br>
+- Check the connection between the bar code reader and the target machine.<br>
+- Check for any magnetic interference that could alter the signals in the line.<br>
+- Make sure the bar code reader is not damaged.<br>
+- As a last resort, you may have to restart the runtime or build and download the application again.</p>
+</div>
+<div>
+<h3 id="E:SHARED_LOW_BATTERY_ERROR:Shared Error Messages">Battery level is low.</h3>
+<p>On HMIGTO2310/2315, HMIGTO3510, HMIGTO4310, HMIGTO5310/5315, and HMIGTO6310/6315 target machines that only use a primary replaceable battery, this run-time event message displays when the battery voltage has fallen to or below the minimum of 2.76 V. For information on how to replace the primary battery, see the HMIGTO User Manual.</p>
+<p style="mso-fareast-language: JA;">On HMIGK2310 and HMIGK5310 target machines that only use a primary replaceable battery, this run-time event message displays when the battery voltage has fallen to or below the minimum of 2.76 V. For information on how to replace the primary battery, see the HMIGK User Manual.</p>
+<p>On HMIGTO2300, HMIGTO1300, and HMIGTO1310 target machines that only use a secondary rechargeable battery, this run-time event message displays when low voltage is detected. The secondary battery requires 24 hours to charge in order to perform a backup and 120 hours to charge for the battery to be fully charged.</p>
+<p>On all HMIGTO target machines, if the rechargeable battery is fully charged, this message indicates the primary battery needs replacement. For more information, see the HMIGTO User Manual.</p>
+<p style="mso-fareast-language: JA;">On all HMIGK target machines, if the rechargeable battery is fully charged, this message indicates the primary battery needs replacement. For more information, see the HMIGK User Manual.</p>
+<p>For other types of target machines, this message indicates internal battery level is low.<br>
+Solution: Recharge the internal battery (4 hours or more) to restore to good working condition. Four hours of recharging will provide approximately 10 days of backup time. If the target machine has not been in use for an extended amount of time (one year or longer), recharge the battery for a minimum of 24 hours.<br>
+Note: The error message will not automatically disappear after recharging. After recharging the battery, turn the target machine off and then on again to restore.</p>
+</div>
+<div>
+<h3 id="h33">Biometric switch database mismatch detected; device reprogrammed.</h3>
+<p>This message informs you that the user authentication information on the target machine did not match that of the biometric switch. The target machine updated the biometric switch with the latest user authentication data.</p>
+</div>
+<div>
+<h3 id="E:SHARED_KOM_INVALID_BIT_ALIGNMENT:Shared Error Messages">Bit register address not word aligned.</h3>
+<p>A PLC bit device address is being used as a word address; however, the bit address does not align with a word's bit position. Solution: Return to the editor and type a valid PLC word address. Refer to the PLC's corresponding documentation for the list of valid addresses. For most PLCs, word addresses are a multiple of 16 bits. If bit addresses start at bit 0, then the word addresses are 0, 16, 32, 48, and so on.</p>
+</div>
+<div>
+<h3 id="E:S_KOM_BLKARRAY_CONFIG:Shared Error Messages">Block Array Variable address calculation failed.</h3>
+<p>Return to the editor, run the Clean command on the project, build the user application again, then download to the target machine. If these operations don't solve the problem, please contact customer support.</p>
+</div>
+<div>
+<h3 id="I:SHARED_BUFFER_FULL:Shared Error Messages">Buffer Full.</h3>
+<p>Return to the editor, run the Clean command on the project, build the user application again, then download to the target machine. If these operations don't solve the problem, please contact customer support.</p>
+</div>
+<div>
+<h3 id="I:SHARED_BUFFER_READ_FAIL:Shared Error Messages">Buffer Read Failed.</h3>
+<p>Return to the editor, run the Clean command on the project, build the user application again, then download to the target machine. If these operations don't solve the problem, please contact customer support.</p>
+</div>
+<div>
+<h3 id="I:SHARED_BUFFER_TOO_SMALL:Shared Error Messages">Buffer Too Small.</h3>
+<p>Return to the editor, run the Clean command on the project, build the user application again, then download to the target machine. If these operations don't solve the problem, please contact customer support.</p>
+</div>
+<div>
+<h3 id="I:SHARED_BUFFER_WRITE_FAIL:Shared Error Messages">Buffer Write Failed.</h3>
+<p>Return to the editor, run the Clean command on the project, build the user application again, then download to the target machine. If these operations don't solve the problem, please contact customer support.</p>
+</div>
+<div>
+<h2 style="margin-top: 27pt;"><a name="C" id="C"></a>C</h2>
+</div>
+<div>
+<h3 id="I:CF_FILE_RECREATED">Cache file has been recreated. All alarm data is flushed.</h3>
+<p>This message displays when the cache file goes missing while the target machine is running and a new secondary or optional drive is put into the system. A new cache file is created, and all the alarm data is flushed into the new cache file so the dynamic messages can be retained.</p>
+</div>
+<div>
+<h3 id="I:CF_CACHE_MISSING_BUT_CREATED">Cache was expected but not found. File is now being recreated.</h3>
+<p>The dynamic messages that are supposed to be in the cache does not load because the file is missing. The reason can be that the operator put in a new secondary/optional drive or somehow deleted the cache file. Note that a new cache file will be created and that all future alarm messages will be loaded in the cache.</p>
+</div>
+<div>
+<h3 id="E:USB_MASS_MISSING_OR_FULL:KAOScore">Cannot copy data to the defined destination. The device is either missing or not enough space is available on the device.</h3>
+<p>To resolve this error, either check:<br>
+- That the USB device is connected, or<br>
+- The amount of space available on the USB device. If there is insufficient space, you will need to remove files from the USB device that are no longer used.</p>
+</div>
+<div>
+<h3 id="I:PRN_M_ERROR:Printer">Cannot establish communications with the printer.</h3>
+<p>Depending on your printer, this message may indicate one of these problems:<br>
+- Printer is offline or turned off<br>
+- Printer not connected or connections are loose<br>
+- Out of paper</p>
+</div>
+<div>
+<h3 id="E:EMAIL_SERVER_ERROR:KAOSCORE">Cannot establish connection to the e-mail server. Check your e-mail server settings.</h3>
+<p>This message means that the target cannot attempt to connect to the e-mail server. The target may not be connected or its network settings may be incorrect. Alternatively, the target may not be able to resolve the server hostname to an IP address due to a DNS problem.</p>
+</div>
+<div>
+<h3 id="E:EMAIL_LOGIN_ERROR:KAOSCORE">Cannot log in to the e-mail server. Check the authentication settings.</h3>
+<p>Make sure you have entered the correct credentials in Buildtime.</p>
+</div>
+<div>
+<h3 id="E:EMAIL_SEND_FAILED:KAOScore">Cannot send the e-mail message. Check the settings, connection, e-mail server.</h3>
+<p>This message informs you e-mail is unable to send after the maximum number of retries, which is defined in Buildtime and has a default number of 3 retries. The issue may be a failure to connect to the server. Check your server connection.</p>
+</div>
+<div>
+<h3 id="E:PASSWORD_PREV_USED:Security">Cannot use previous password. Please enter a different password.</h3>
+<p>You cannot repeat the use of a previous password. Choose a different password.</p>
+</div>
+<div>
+<h3 id="E:SCRIPT_IO_DATA_WRITE_LIMITED_TO_1024:Shared Error Messages">Cannot write more than 1024 bytes with Script IO.</h3>
+<p>The amount of data exceeds the script driver's maximum. Attempting to run a Write operation that sends more data than the script driver allows will fail. Solution: Reduce the amount of data that the script sends. The script driver can write a maximum of 1024 bytes of data in one operation.</p>
+</div>
+<div>
+<h3 id="E:TEM_FAILURE_SENDING_POSTSTRING_MESSAGE_LOW_MEMORY_ERROR:TagEventMgr">Cannot write to string variable. Memory is low.</h3>
+<p>Variable write operation on an Internal variable has failed due to memory allocation problems. Solution: To resolve this problem, reduce the memory load on the target machine by closing any unnecessary applications or reducing the size of each panel in the user application.</p>
+</div>
+<div>
+<h3 id="E:NO_CF_CARD_INSERTED:CFCard">CF card is missing.</h3>
+<p>The application is trying to access the CF card but it has not been inserted. Make sure the CF card is manufactured by Schneider Electric. If the CF card is inserted, it may not be inserted correctly. Solution: Insert the CF card and restart the target machine.</p>
+</div>
+<div>
+<h3 id="E:CF_MISSING">CF card is not accessible. Saving to cache file failed.</h3>
+<p>The application is trying to access the CF card but it cannot find it. Solution: Make sure the CF card is manufactured by Schneider Electric. If the CF card is inserted, it may not be inserted correctly. Insert the CF card and restart the target machine.</p>
+</div>
+<div>
+<h3 id="E:PANEL_SECURITY_FAILED:Shared Error Messages">Change panel operation failed. Your security level is too low.</h3>
+<p>You do not have security access to perform this change panel operation. See your system administrator.</p>
+</div>
+<div>
+<h3 id="E:PANEL_SECURED:Shared Error Messages">Change panel operation failed. Your security level is too low.</h3>
+<p>Check with your system administrator.</p>
+</div>
+<div>
+<h3 id="I:SHARED_CLASS_NEW_FAILED:Shared Error Messages">Class Instantiation Failure.</h3>
+<p>Return to the editor, run the Clean command on the project, build the user application again, then download to the target machine. If these operations don't solve the problem, please contact customer support.</p>
+</div>
+<div>
+<h3 id="I:SHARED_COM_CLEAR_BUFFER_FAIL:Shared Error Messages">Clear COM Buffer Failed.</h3>
+<p>Return to the editor, run the Clean command on the project, build the user application again, then download to the target machine. If these operations don't solve the problem, please contact customer support.</p>
+</div>
+<div>
+<h3 id="I:CODESYS_STARTAPP:KAOScore">CoDeSys runtime started.</h3>
+<p>This message displays to inform you the PLC is in RUN mode.</p>
+</div>
+<div>
+<h3 id="I:CODESYS_STOPAPP:KAOScore">CoDeSys runtime stopped.</h3>
+<p>This message displays to inform you the PLC is in STOP mode.</p>
+</div>
+<div>
+<h3 id="I:SHARED_COM_CLEAR_DTR_FAIL:Shared Error Messages">COM Port Clear DTR Failed.</h3>
+<p>Return to the editor, run the Clean command on the project, build the user application again, then download to the target machine. If these operations don't solve the problem, please contact customer support.</p>
+</div>
+<div>
+<h3 id="I:SHARED_COM_CLOSE_ERROR:Shared Error Messages">COM Port Close Failed.</h3>
+<p>Return to the editor, run the Clean command on the project, build the user application again, then download to the target machine. If these operations don't solve the problem, please contact customer support.</p>
+</div>
+<div>
+<h3 id="I:SHARED_COM_CONFIG_ERROR:Shared Error Messages">COM Port Configuration Failed.</h3>
+<p>Return to the editor, run the Clean command on the project, build the user application again, then download to the target machine. If these operations don't solve the problem, please contact customer support.</p>
+</div>
+<div>
+<h3 id="E:SHARED_COM_OPEN_ERROR:Shared Error Messages">COM Port Open Failed.</h3>
+<p>On XBTGT2000 Series and higher target machines, check the DipSwitch settings then restart the runtime.<br>
+Otherwise, return to the editor, run the Clean command on the project, build the user application again, then download to the target machine. If these operations don't solve the problem, please contact customer support.<br>
+If your Vijeo Designer project is within a SoMachine project, check if the SoMachine project is using a driver on COM1 or COM2. Only one driver can use a single COM port at a time. For example, if the SoMachine project is using COM1 for Modbus RTU, then the Vijeo Designer HMI project cannot use any driver on COM1. Check your SoMachine and Vijeo Designer project configurations to make sure this scenario does not exist.</p>
+</div>
+<div>
+<h3 id="I:SHARED_COM_READ_FAIL:Shared Error Messages">COM Port Read Failed.</h3>
+<p>Return to the editor, run the Clean command on the project, build the user application again, then download to the target machine. If these operations don't solve the problem, please contact customer support.</p>
+</div>
+<div>
+<h3 id="I:SHARED_COM_SET_DTR_FAIL:Shared Error Messages">COM Port Set DTR Failed.</h3>
+<p>Return to the editor, run the Clean command on the project, build the user application again, then download to the target machine. If these operations don't solve the problem, please contact customer support.</p>
+</div>
+<div>
+<h3 id="E:TRY_AGAIN:Security">Common security server is busy. Please try again later.</h3>
+<p>The server has too many other clients connecting to it.</p>
+</div>
+<div>
+<h3 id="E:SIGNATURE_MISMATCH:Security">Common security server signature does not match this client. Please synchronize client and server.</h3>
+<p>The client's security settings do not match with that of common security server. From the Navigator window select the Security node and view its properties. Change Security Data from Use Local to Use Common and download the project to your target machine.</p>
+</div>
+<div>
+<h3 id="I:SIO_FUNCTION_FAILED:KAOScore">Communication function failed.</h3>
+<p>IP address is already in use. Please setup different IP address.</p>
+</div>
+<div>
+<h3 id="I:OK_COMM_BROKEN:DSClient Driver Protocol">Communications restored with the target at -target-</h3>
+<p>This message appears on the client when communication with the server target machine has been restored.</p>
+</div>
+<div>
+<h3 id="E:COM_VERSION_MISMATCH:Communications System">Communications System Data Files, editor and runtime versions are incompatible.</h3>
+<p>The version of the editor used to build the user application is not supported by the version of runtime on the target machine. Solution: Build the user application in a version of the editor that is compatible with the runtime.</p>
+</div>
+<div>
+<h3 id="E:SHARED_KOM_COMM_RESTORED:Shared Error Messages">Communications to device restored.</h3>
+<p>Status message signalling communications with the device have returned to normal.</p>
+</div>
+<div>
+<h3 id="E:PLEASE_WAIT:Security">Connecting to common security server. Please wait.</h3>
+<p>This message displays for information purposes. While connecting is in process, additional touch actions and some other operations may be disabled. This message disappears if the operation is successful, or it is followed by an error message if the operation is unsuccessful.</p>
+</div>
+<div>
+<h3 id="E:HANDSHAKE_FAILED:Security">Connection to common security server failed. Client-Server handshake failed.</h3>
+<p>The Security Server is unavailable. This can be due to the target machine being offline, damaged, or disconnected from the network.</p>
+</div>
+<div>
+<h3 id="E:SOCKET_UNAVAILABLE:Security">Connection to common security server failed. Could not obtain IP socket.</h3>
+<p>This message displays when a system error occurs during normal operation. To fix, restart the target.</p>
+</div>
+<div>
+<h3 id="E:COULD_NOT_RESOLVE:Security">Connection to common security server failed. Could not resolve hostname.</h3>
+<p>This message displays due to incorrect DNS settings, or the connection to the server is broken. Check the DNS settings on the target machine and the network, and make sure the server is connected.</p>
+</div>
+<div>
+<h3 id="E:COULD_NOT_CONNECT:Security">Connection to common security server failed. Could not find server.</h3>
+<p>This message displays because you cannot connect to the server's IP address. Make sure the server is on, and both target machines are connected to the network.</p>
+</div>
+<div>
+<h3 id="E:SHARED_KOM_CONN_RESTORED:Shared Error Messages">Connection to device restored.</h3>
+<p>Status message signalling the connection with the device has been corrected.</p>
+</div>
+<div>
+<h3 id="E:CODESYS_NO_LOCKOUT:KAOScore">Controller cannot be put into Lockout mode unless it is in STOP mode.</h3>
+<p>To use the Vijeo Designer lockout feature, you must make sure the PLC is in STOP mode.</p>
+</div>
+<div>
+<h3 id="E:CODESYS_LOCKOUT:KAOScore">Controller cannot start. Lockout mode is enabled.</h3>
+<p>The lockout feature is enabled in Vijeo Designer Runtime, preventing the PLC from being in RUN mode.</p>
+</div>
+<div>
+<h3 id="E:CSV_RECIPE_TAGS_MISMATCH:KAOScore">CSV recipe file contains an incorrect list of ingredient tags. Import aborted.</h3>
+<p>Runtime cannot match the list of ingredient tags in the CSV recipe file to the existing variable tags. Correct the CSV file and import again.</p>
+</div>
+<div>
+<h3 id="E:CSV_RECIPE_LANG_MISMATCH:KAOScore">CSV recipe file contains an incorrect list of languages. Import aborted.</h3>
+<p>The CSV file must have labels for all the user languages defined in the project. Correct the CSV file and import again.</p>
+</div>
+<div>
+<h3 id="E:CSV_RECIPE_DUPLICATE_RECIPE_LABEL:KAOScore">CSV recipe file contains duplicate recipe labels. Import aborted.</h3>
+<p>This message indicates there are identical recipe labels. Remove the duplicate recipe labels in the CSV file before importing.</p>
+</div>
+<div>
+<h3 id="I:CSV_RECIPE_DUPE_RECIPE_ID:KAOScore">CSV recipe file contains recipes with identical IDs. Fewer than expected recipes will be imported.</h3>
+<p>Recipes with identical IDs will be overwritten. If you want all the recipes contained in the file, correct the CSV file and import it again.</p>
+</div>
+<div>
+<h3 id="E:CSV_RECIPE_COLUMN_NUM_MISMATCH:KAOScore">CSV recipe file contains varying number of columns. Import aborted.</h3>
+<p>The CSV file is not formatted correctly. Before importing, make sure the CSV file is formatted correctly.</p>
+</div>
+<div>
+<h3 id="E:CSV_RECIPE_BLOCK_NOT_FOUND:KAOScore">CSV recipe file is missing the recipe block.</h3>
+<p>The import is unsuccessful, because the recipe section of the CSV recipe file is missing.</p>
+</div>
+<div>
+<h3 id="E:CSV_RECIPE_FILE_NOT_FOUND:KAOScore">CSV recipe file is not found for group.</h3>
+<p>The recipe file you want to import is not found. The cause may be the CF Card or the USB stick is missing.</p>
+</div>
+<div>
+<h3 id="E:Con_Commset_Invalid:ConfigurationMenu">Current page's equipment address is invalid.</h3>
+<p>Your defined settings for the equipment are invalid. Either the equipment does not exist in the defined address or the address is incorrect.</p>
+</div>
+<div>
+<h2 style="margin-top: 27pt;"><a name="D" id="D"></a>D</h2>
+</div>
+<div>
+<h3 id="E:CSV_RECIPE_DELIMITER_ERROR:KAOScore">Delimiter cannot be determined due to bad file header. Import aborted.</h3>
+<p>The CSV file is not formatted correctly. Before importing, check that the CSV file is formatted correctly.</p>
+</div>
+<div>
+<h3 id="E:DEVICENETSLAVE_BASE_ADDRESS_ERROR:DeviceNetSlave">DeviceNet Slave base address error.</h3>
+<p>The configuration of the DeviceNet Slave module is invalid. Solution: You will need to edit the Driver Configuration dialog box. In the MAC Address property, select a valid entry from the drop-down list.</p>
+</div>
+<div>
+<h3 id="E:ABDH485_RETRY_FAILED:Rockwell">DH485 Packet retry has failed.</h3>
+<p>A communication error was returned by the PLC. Solution: Restart the Runtime. If the problem persists, please contact customer support.</p>
+</div>
+<div>
+<h3 id="E:ABDH485_TIMER_INIT_FAILED:Rockwell">DH485 timer initialization has failed.</h3>
+<p>Restart the Runtime. If the problem persists, please contact customer support.</p>
+</div>
+<div>
+<h3 id="E:DIAG_NO_AVAILABLE_CONNECTION:Shared Error Messages">Diagnostic Alarm Group cannot log on to PLC. No viewer connections are available.</h3>
+<p>The PLC has a limited number of diagnostic buffer viewer connections, usually 16. All these connections are currently in use. Solution:</p>
+<p>- The target machine will display diagnostic alarms once a connection becomes available.</p>
+<p>- A diagnostic alarm group needs to disconnect from the PLC for another to log on.</p>
+</div>
+<div>
+<h3 id="E:FP_SCANNER_SAME_TEMPLATE:Security">Duplicate fingerprint found in database. Add record failed.</h3>
+<p>One or both fingerprints offered by the user to be registered is already in the HMI. All fingerprints in the HMI must be unique. Pick different fingers to be registered.</p>
+</div>
+<div>
+<h2 style="margin-top: 27pt;"><a name="E" id="E"></a>E</h2>
+</div>
+<div>
+<h3 id="I:TEM_ERROR_IN_EVENT_HANDLER_NOTIFICATION:TagEventMgr">Encountered error during event handler external IO data change notification. One of the event handlers produced an error.</h3>
+<p>Return to the editor, run the Clean command on the project, build the user application again, then download to the target machine. If these operations don't solve the problem, please contact customer support.</p>
+</div>
+<div>
+<h3 id="I:TEM_ERROR_IN_INTERNAL_EVENT_HANDLER_NOTIFICATION:TagEventMgr">Encountered error during event handler internal data change notification. One of the event handlers produced an error.</h3>
+<p>Return to the editor, run the Clean command on the project, build the user application again, then download to the target machine. If these operations don't solve the problem, please contact customer support.</p>
+</div>
+<div>
+<h3 id="E:UIM_ERROR_TOUCH_RELEASE_TAKING_TOO_MUCH_TIME:UserInputMgr">Error in on-release script. Script has been stopped because it is taking too much time.</h3>
+<p>The touch script has run for more than two seconds inside a for/while loop. To allow other touch operations to function, the loop has been terminated. Solution: Edit touch scripts so they do not take more than two seconds to complete. Other touch operations cannot run until previous touch scripts have completed.</p>
+</div>
+<div>
+<h3 id="E:UIM_ERROR_IN_TOUCH_PRESS_SCRIPT:UserInputMgr">Error in on-touch script. java.lang.NullPointerException</h3>
+<p>The script method has failed. Solution: Return to the editor and make sure methods are used properly, and there are no errors with the programming logic. See Section 18.9, <a href="Scripts.chm::/Script Functions.htm">Script Methods</a> for guidance on how to use methods.</p>
+</div>
+<div>
+<h3 id="E:UIM_ERROR_TOUCH_PRESS_TAKING_TOO_MUCH_TIME:UserInputMgr">Error in on-touch script. Script has been stopped because it is taking too much time.</h3>
+<p>The touch script has run for more than two seconds inside a for/while loop. To allow other touch operations to function, the loop has been terminated. Solution: Edit touch scripts so they do not take more than two seconds to complete. Other touch operations cannot run until previous touch scripts have completed.</p>
+</div>
+<div>
+<h3 id="E:SCRIPT_ERROR_TAKING_TOO_MUCH_TIME:Shared Error Messages">Error in script. Script has been stopped because it is taking too much time.</h3>
+<p>The script has run for more than five seconds inside a for/while loop. To allow other operations to function, the loop has been terminated. Solution: Edit scripts so they do not take more than five seconds to complete. Depending on the type of script, other operations may be prevented from running.</p>
+</div>
+<div>
+<h3 id="I:TIMERMGR_FAILURE_IN_UNREGISTRATION_OF_ALL_SCRIPTS:TimerMgr">Error in unregistration of all scripts. System state questionable.</h3>
+<p>Return to the editor, run the Clean command on the project, build the user application again, then download to the target machine. If these operations don't solve the problem, please contact customer support.</p>
+</div>
+<div>
+<h3 id="E:UIM_ERROR_WHILE_TOUCH_TAKING_TOO_MUCH_TIME:UserInputMgr">Error in while-touch script. Script has been stopped because it is taking too much time.</h3>
+<p>The touch script has run for more than two seconds inside a for/while loop. To allow other touch operations to function, the loop has been terminated. Solution: Edit touch scripts so they do not take more than two seconds to complete. Other touch operations cannot run until previous touch scripts have completed.</p>
+</div>
+<div>
+<h3 id="E:GROUP_FILE_ERROR:Security">Error reading security group file. Download the user application again.</h3>
+<p>The security group file may be damaged or corrupt. First try to restart the target machine. If that doesn't work, you may want to try downloading the user application again.</p>
+</div>
+<div>
+<h3 id="E:USER_FILE_ERROR:Security">Error reading security user file. Download the user application again.</h3>
+<p>The security user file may be damaged or corrupt. First try to restart the target machine. If that doesn't work, you may want to try downloading the user application again.</p>
+</div>
+<div>
+<h3 id="I:TIMERMGR_FAILURE_RESUME:TimerMgr">Error Timeout - Error attempting to pause the timer manager. Semaphore wait failed. System state questionable.</h3>
+<p>Return to the editor, run the Clean command on the project, build the user application again, then download to the target machine. If these operations don't solve the problem, please contact customer support.</p>
+</div>
+<div>
+<h3 id="I:TIMERMGR_FAILURE_ERROR_WAIT_FOR_SEMAPHORE_DURING_PROCESSING:TimerMgr">Error Timeout - while attempting to acquire semaphore, max wait timeout. Unable to process timer scripts at scheduled time. System state questionable.</h3>
+<p>Return to the editor, run the Clean command on the project, build the user application again, then download to the target machine. If these operations don't solve the problem, please contact customer support.</p>
+</div>
+<div>
+<h3 id="I:TIMERMGR_FAILURE_ERROR_WAIT_FOR_SEMAPHORE_AFTER_PAUSE:TimerMgr">Error Timeout in timer manager main thread during resume event. Unable to wait for semaphore. System state questionable.</h3>
+<p>Return to the editor, run the Clean command on the project, build the user application again, then download to the target machine. If these operations don't solve the problem, please contact customer support.</p>
+</div>
+<div>
+<h3 id="E:CF_WRITE_TO_FILE_ERROR">Error writing to cache file.</h3>
+<p>This message displays when there is a problem with the secondary or optional drive. It could be full, missing, or corrupted. Make sure the secondary or optional drive is in the drive. If it is already in the drive, remove it and try another CF card.</p>
+</div>
+<div>
+<h3 id="E:LAN_NOCABLE:KAOScore">Ethernet cable is not connected correctly.</h3>
+<p>Indicates the target machine requires a network connection, but the cable is either loose or not connected. Solution: Make sure the cable plug is not damaged and fits snugly in the Ethernet port. Check the other end of the cable and make sure it's securly connected to the hub, bridge, or other network device. If the problem continues, the cable might be damaged. Try connecting an existing network cable that works with other nodes.</p>
+</div>
+<div>
+<h3 id="I:TAG_EVENT_HANDLER_NOTIFICATION_ERROR:Tags">Event handler error during data change notification.</h3>
+<p>Return to the editor, run the Clean command on the project, build the user application again, then download to the target machine. If these operations don't solve the problem, please contact customer support.</p>
+</div>
+<div>
+<h3 id="E:TREND_ERROR_DURING_PEN_UPDATE:Trend">Expression error. Trend Graph, Channel.</h3>
+<p>The expression performs an illegal operation. The expression may be trying to access an array index that's out of bounds, perform a divide by zero operation, and so on. Solution: Find and correct the expression in the Trend Graph that's causing the error.</p>
+</div>
+<div>
+<h2 style="margin-top: 27pt;"><a name="F" id="F"></a>F</h2>
+</div>
+<div>
+<h3 id="I:SHARED_KOM_FAIL_TO_ACCEPT_ON_A_SOCKET:Shared Error Messages">Failed to accept on a socket.</h3>
+<p>Return to the editor, run the Clean command on the project, build the user application again, then download to the target machine. If these operations don't solve the problem, please contact customer support.</p>
+</div>
+<div>
+<h3 id="I:SHARED_KOM_FAIL_TO_BIND_TO_A_SOCKET:Shared Error Messages">Failed to bind to a socket.</h3>
+<p>Return to the editor, run the Clean command on the project, build the user application again, then download to the target machine. If these operations don't solve the problem, please contact customer support.</p>
+</div>
+<div>
+<h3 id="I:SHARED_KOM_FAIL_TO_CONNECT_TO_ADDRESS:Shared Error Messages">Failed to connect to address.</h3>
+<p>Return to the editor, run the Clean command on the project, build the user application again, then download to the target machine. If these operations don't solve the problem, please contact customer support.</p>
+</div>
+<div>
+<h3 id="I:FAIL_TO_GET_METHOD:DefaultTagCallBack">Failed to get the reference to a Method object.</h3>
+<p>Return to the editor, run the Clean command on the project, build the user application again, then download to the target machine. If these operations don't solve the problem, please contact customer support.</p>
+</div>
+<div>
+<h3 id="I:FAIL_TO_INVOKE_POST_WRITE_METHOD:DefaultTagCallBack">Failed to start the post write method.</h3>
+<p>Return to the editor, run the Clean command on the project, build the user application again, then download to the target machine. If these operations don't solve the problem, please contact customer support.</p>
+</div>
+<div>
+<h3 id="I:FAIL_TO_INVOKE_QUERY_METHOD:DefaultTagCallBack">Failed to start the query method.</h3>
+<p>Return to the editor, run the Clean command on the project, build the user application again, then download to the target machine. If these operations don't solve the problem, please contact customer support.</p>
+</div>
+<div>
+<h3 id="I:SHARED_KOM_FAIL_TO_LISTEN_ON_A_SOCKET:Shared Error Messages">Failed to listen on a socket.</h3>
+<p>Return to the editor, run the Clean command on the project, build the user application again, then download to the target machine. If these operations don't solve the problem, please contact customer support.</p>
+</div>
+<div>
+<h3 id="I:SHARED_KOM_FAIL_TO_OPEN_A_SOCKET:Shared Error Messages">Failed to open a socket.</h3>
+<p>Return to the editor, run the Clean command on the project, build the user application again, then download to the target machine. If these operations don't solve the problem, please contact customer support.</p>
+</div>
+<div>
+<h3 id="I:COM_READ_PROJECT_PATH_FAIL:Communications System">Failed to read the project path.</h3>
+<p>Return to the editor, run the Clean command on the project, build the user application again, then download to the target machine. If these operations don't solve the problem, please contact customer support.</p>
+</div>
+<div>
+<h3 id="I:SHARED_KOM_FAIL_TO_RECIEVE_ON_A_SOCKET:Shared Error Messages">Failed to receive on a socket.</h3>
+<p>Return to the editor, run the Clean command on the project, build the user application again, then download to the target machine. If these operations don't solve the problem, please contact customer support.</p>
+</div>
+<div>
+<h3 id="I:SHARED_KOM_FAIL_TO_SELECT_ON_A_SOCKET:Shared Error Messages">Failed to select on a socket.</h3>
+<p>Return to the editor, run the Clean command on the project, build the user application again, then download to the target machine. If these operations don't solve the problem, please contact customer support.</p>
+</div>
+<div>
+<h3 id="I:SHARED_KOM_FAIL_TO_SET_SOCKET_BLOCKING:Shared Error Messages">Failed to set socket blocking.</h3>
+<p>Return to the editor, run the Clean command on the project, build the user application again, then download to the target machine. If these operations don't solve the problem, please contact customer support.</p>
+</div>
+<div>
+<h3 id="I:SHARED_KOM_FAIL_TO_SET_SOCKET_NON-BLOCKING:Shared Error Messages">Failed to set socket non-blocking.</h3>
+<p>Return to the editor, run the Clean command on the project, build the user application again, then download to the target machine. If these operations don't solve the problem, please contact customer support.</p>
+</div>
+<div>
+<h3 id="I:SHARED_KOM_FAIL_TO_SHARE_A_SOCKET:Shared Error Messages">Failed to share a socket with another thread.</h3>
+<p>Return to the editor, run the Clean command on the project, build the user application again, then download to the target machine. If these operations don't solve the problem, please contact customer support.</p>
+</div>
+<div>
+<h3 id="I:SHARED_KOM_VARDB_LOCK_FAIL:Shared Error Messages">Failed to acquire the variable table lock.</h3>
+<p>Return to the editor, run the Clean command on the project, build the user application again, then download to the target machine. If these operations don't solve the problem, please contact customer support.</p>
+</div>
+<div>
+<h3 id="E:GROUP_EXISTS:Security">Failed to add security group. Name already exists.</h3>
+<p>Rename the security group.</p>
+</div>
+<div>
+<h3 id="E:MAX_GROUPS:Security">Failed to add security group. Reached maximum number of groups.</h3>
+<p>Review your security settings to ensure that you have categorized security groups efficiently.</p>
+</div>
+<div>
+<h3 id="E:USER_EXISTS:Security">Failed to add user. Name already exists.</h3>
+<p>Rename the user.</p>
+</div>
+<div>
+<h3 id="E:MAX_USERS:Security">Failed to add user. Reached maximum number of users.</h3>
+<p>Remove unnecessary or redundant users.</p>
+</div>
+<div>
+<h3 id="E:FS_CREATE_DIRECTORY_FAILED:KAOScore">Failed to create given directory.</h3>
+<p>The directory could not be created. For example, the directory name may be too long. Solution:<br>
+Check if the directory that you gave is too long or already exists.<br>
+If it's VijeoLayouts too long, reduce the length of the directory name.<br>
+If it exists, either delete the existing directory and restart runtime, or change the directory name.</p>
+</div>
+<div>
+<h3 id="I:SHARED_THREAD_NOT_CREATED:Shared Error Messages">Failed To Create Thread.</h3>
+<p>Return to the editor, run the Clean command on the project, build the user application again, then download to the target machine. If these operations don't solve the problem, please contact customer support.</p>
+</div>
+<div>
+<h3 id="E:FS_DELETE_DIRECTORY_FAILED:KAOScore">Failed to delete or remove given directory.</h3>
+<p>The directory cannot be deleted, possibly due to another process working with the directory. Solution: If possible, close the other process.</p>
+</div>
+<div>
+<h3 id="E:DELETE_CURRENT_USER:Security">Failed to delete user. You cannot delete the current logged in user.</h3>
+<p>You can only delete users who are not currently logged on.</p>
+</div>
+<div>
+<h3 id="I:TAGDB_FREE_CONTEXT_FAILED:Tags">Failed to free the Context.</h3>
+<p>Return to the editor, run the Clean command on the project, build the user application again, then download to the target machine. If these operations don't solve the problem, please contact customer support.</p>
+</div>
+<div>
+<h3 id="E:SHARED_KOM_QUEUE_INIT_FAILED:Shared Error Messages">Failed to initialize internal list manager.</h3>
+<p>A lack of resources has caused an internal function to fail. Solution: Restart the target machine.<br>
+If that does not solve the issue, increase the memory available to run the user application.<br>
+- Increase the operation memory.<br>
+- Reduce the number of applications running on the target machine.<br>
+- Reduce the size of the user application.<br>
+- Erase any unused user application projects.</p>
+</div>
+<div>
+<h3 id="E:SHARED_KOM_OPEN_SOCKET_FAILED:Shared Error Messages">Failed to open connection to PLC.</h3>
+<p>Failed to connect to the PLC during the initialization sequence. Solution:<br>
+- Check the connections.<br>
+- Check the cable.<br>
+- Check the cable path for any magnetic interference.<br>
+- Make sure the equipment and driver settings are correct.</p>
+</div>
+<div>
+<h3 id="I:UIM_WARNING_ERROR_READING_CONFIG_FOR_PAUSE_BEFORE_DELAY:UserInputMgr">Failed to read Pause Delay information. Using default.</h3>
+<p>Return to the editor, run the Clean command on the project, build the user application again, then download to the target machine. If these operations don't solve the problem, please contact customer support.</p>
+</div>
+<div>
+<h3 id="I:UIM_WARNING_ERROR_OPENING_CONFIG:UserInputMgr">Failed to read project configuration information. Using defaults.</h3>
+<p>Return to the editor, run the Clean command on the project, build the user application again, then download to the target machine. If these operations don't solve the problem, please contact customer support.</p>
+</div>
+<div>
+<h3 id="I:UIM_WARNING_ERROR_READING_CONFIG_FOR_REPEAT_DELAY_MS:UserInputMgr">Failed to read Repeat Delay information. Using default.</h3>
+<p>Return to the editor, run the Clean command on the project, build the user application again, then download to the target machine. If these operations don't solve the problem, please contact customer support.</p>
+</div>
+<div>
+<h3 id="I:KAOS_SOCKET_CONFIG_FAILED:KAOS Socket">Failed to read socket module information from the runtime configuration file.</h3>
+<p>Return to the editor, run the Clean command on the project, build the user application again, then download to the target machine. If these operations don't solve the problem, please contact customer support.</p>
+</div>
+<div>
+<h3 id="E:UTC_OFFSET_READ_ERROR:KAOScore">Failed to read Time Zone information from the runtime configuration file.</h3>
+<p>The target machine stores the time zone in a configuration file. This information is missing and affects how the date and time is displayed on the panel. Solution: Return to the editor and download the application again.</p>
+</div>
+<div>
+<h3 id="I:SHARED_KOM_VARDB_RELEASE_FAIL:Shared Error Messages">Failed to release the variable table lock.</h3>
+<p>Return to the editor, run the Clean command on the project, build the user application again, then download to the target machine. If these operations don't solve the problem, please contact customer support.</p>
+</div>
+<div>
+<h3 id="E:SHARED_SRAM_CRC_ERROR:Shared Error Messages">Failed to retrieve configuration settings from SRAM (CRC Error). Please review defaulted configuration settings.</h3>
+<p>The default configuration settings will display. Ensure that the default settings are the settings that you want. If not, change the settings.</p>
+</div>
+<div>
+<h3 id="E:SHARED_KOM_SET_BAUDRATE_FAILED:Shared Error Messages">Failed to set dynamically the PLC Baudrate. The Command returned an error response.</h3>
+<p>Failed to set dynamically the PLC Baudrate. The Command returned an error response. At initialization, the PLC is set to a low baud rate (e.g. 9600bps). The target machine connects to the PLC at this baud rate and negotiates the desired baud rate. This message appears because the PLC did not respond or refused to negotiate, which indicates a communication failure. Solution:<br>
+To resolve this error:<br>
+- Check the PLC to make sure it's continuing to operate correctly<br>
+- Check the connections<br>
+- Check the cable<br>
+- Check the cable path for any magnetic interference.</p>
+</div>
+<div>
+<h3 id="I:TAGDB_SET_CONTEXT_FAILED:Tags">Failed to set the Context ID.</h3>
+<p>Return to the editor, run the Clean command on the project, build the user application again, then download to the target machine. If these operations don't solve the problem, please contact customer support.</p>
+</div>
+<div>
+<h3 id="I:TEM_FORCE_REGISTER_CHANGE_CONFIRM_FAILER:TagEventMgr">Failure in ComMgr -- Change panel ForceRegisterChange failed. Panel may lock.</h3>
+<p>Return to the editor, run the Clean command on the project, build the user application again, then download to the target machine. If these operations don't solve the problem, please contact customer support.</p>
+</div>
+<div>
+<h3 id="E:COM_REGISTER_FAILURE:Communications System">Failure in panel change register sequence.</h3>
+<p>Indicates an error in the application. Solution: Restart runtime. If the problem persists, contact customer support.</p>
+</div>
+<div>
+<h3 id="E:MELSECA_CPU_CPUCODE_FAILURE:MelsecA Cpu">Failure in query PLC CPU Code sequence.</h3>
+<p>Could not connect to the PLC during the initialization sequence. Solution:<br>
+- Check the connections<br>
+- Check the cable<br>
+- Check the cable path for any magnetic interference</p>
+</div>
+<div>
+<h3 id="E:MELSECA_CPU_CPUNAME_EXT_FAILURE:MelsecA Cpu">Failure in query PLC CPU Name Extension sequence.</h3>
+<p>During the initialization sequence, failed in querying the PLC's CPU name extension. Solution:<br>
+- Check the connections<br>
+- Check the cable<br>
+- Check the cable path for any magnetic interference</p>
+</div>
+<div>
+<h3 id="E:MELSECA_CPU_CPUNAME_FAILURE:MelsecA Cpu">Failure in query PLC CPU Name sequence.</h3>
+<p>During the initialization sequence, failed in querying the PLC's CPU name. Solution:<br>
+- Check the connections<br>
+- Check the cable<br>
+- Check the cable path for any magnetic interference</p>
+</div>
+<div>
+<h3 id="E:MELSECA_CPU_MON_REG_ADDR_FAILURE:MelsecA Cpu">Failure in query PLC for Monitor Register Address sequence.</h3>
+<p>During the initialization sequence, failed in querying for the PLC's monitor registration address. Solution:<br>
+- Check the connections<br>
+- Check the cable<br>
+- Check the cable path for any magnetic interference</p>
+</div>
+<div>
+<h3 id="E:MELSECA_CPU_QUERY_R_DEVICE_FAILURE:MelsecA Cpu">Failure in query R Device Info sequence.</h3>
+<p>During the initialization sequence, failed in querying for the PLC's R device information. Solution:<br>
+- Check the connections<br>
+- Check the cable<br>
+- Check the cable path for any magnetic interference</p>
+</div>
+<div>
+<h3 id="I:TIMERMGR_FAILURE_TIMER_UNREGISTRATION:TimerMgr">Failure in timer unregistration. System state questionable.</h3>
+<p>Return to the editor, run the Clean command on the project, build the user application again, then download to the target machine. If these operations don't solve the problem, please contact customer support.</p>
+</div>
+<div>
+<h3 id="I:SHARED_FILE_READ_FAIL:Shared Error Messages">Failure occurred while reading a file.</h3>
+<p>Return to the editor, run the Clean command on the project, build the user application again, then download to the target machine. If these operations don't solve the problem, please contact customer support.</p>
+</div>
+<div>
+<h3 id="I:SHARED_FILE_WRITE_FAIL:Shared Error Messages">Failure occurred while writing to a file.</h3>
+<p>Return to the editor, run the Clean command on the project, build the user application again, then download to the target machine. If these operations don't solve the problem, please contact customer support.</p>
+</div>
+<div>
+<h3 id="I:TEM_FAILURE_SENDING_POSTDISCRETE_MESSAGE:TagEventMgr">Failure sending postdiscrete message. Message dropped. Mailbox full?</h3>
+<p>Return to the editor, run the Clean command on the project, build the user application again, then download to the target machine. If these operations don't solve the problem, please contact customer support.</p>
+</div>
+<div>
+<h3 id="I:TEM_FAILURE_SENDING_POSTFLOAT_MESSAGE:TagEventMgr">Failure sending postfloat message. Message dropped. Mailbox full?</h3>
+<p>Return to the editor, run the Clean command on the project, build the user application again, then download to the target machine. If these operations don't solve the problem, please contact customer support.</p>
+</div>
+<div>
+<h3 id="I:TEM_FAILURE_SENDING_POSTINT_MESSAGE:TagEventMgr">Failure sending postint message. Message dropped. Mailbox full?</h3>
+<p>Return to the editor, run the Clean command on the project, build the user application again, then download to the target machine. If these operations don't solve the problem, please contact customer support.</p>
+</div>
+<div>
+<h3 id="I:TEM_FAILURE_SENDING_POSTSTRING_MESSAGE:TagEventMgr">Failure sending poststring message. Message dropped. Mailbox full?</h3>
+<p>Return to the editor, run the Clean command on the project, build the user application again, then download to the target machine. If these operations don't solve the problem, please contact customer support.</p>
+</div>
+<div>
+<h3 id="I:TEM_FAILURE_SENDING_SHUTDOWN_MESSAGE:TagEventMgr">Failure sending shutdown message. Manager not running? Mailbox full?</h3>
+<p>Return to the editor, run the Clean command on the project, build the user application again, then download to the target machine. If these operations don't solve the problem, please contact customer support.</p>
+</div>
+<div>
+<h3 id="E:FS_SRAM_FILE_DELETE_FAIL:KAOScore">Failure to delete file from SRAM.</h3>
+<p>Indicates problems with the system. Restart runtime to reinitialize the memory.</p>
+</div>
+<div>
+<h3 id="E:FS_FILE_DELETE_FAIL:KAOScore">Failure to delete file.</h3>
+<p>Indicates problems with the system. Restart runtime.</p>
+</div>
+<div>
+<h3 id="E:FS_FILE_DELETE_FAIL_NO_DRIVER:KAOScore">Failure to delete file. The device is unplugged.</h3>
+<p>The delete file operation on the optional drive has failed because the device cannot be detected.</p>
+</div>
+<div>
+<h3 id="I:UIM_FAILURE_OUT_OF_MEMORY_DURING_POINTER_TABLE_ALLOCATION:UserInputMgr">Failure, out of memory during pointer table allocation in initialization. User Input disabled.</h3>
+<p>Return to the editor, run the Clean command on the project, build the user application again, then download to the target machine. If these operations don't solve the problem, please contact customer support.</p>
+</div>
+<div>
+<h3 id="I:TIMERMGR_ERROR_CREATING_SEMAPHORE_DURING_INIT:TimerMgr">Fatal error - unable to create semaphore for timer thread. System low on resources.</h3>
+<p>Return to the editor, run the Clean command on the project, build the user application again, then download to the target machine. If these operations don't solve the problem, please contact customer support.</p>
+</div>
+<div>
+<h3 id="I:TIMERMGR_ERROR_CREATING_METHOD_TABLE_DURING_INIT:TimerMgr">Fatal error - unable to find java methods for timer manager. Dynamic module mismatch.</h3>
+<p>Return to the editor, run the Clean command on the project, build the user application again, then download to the target machine. If these operations don't solve the problem, please contact customer support.</p>
+</div>
+<div>
+<h3 id="I:TIMERMGR_ERROR_REGISTERING_TIMER_SCRIPT_OUT_OF_MEMORY:TimerMgr">Fatal Error registering timer script, out of memory error. System low on memory.</h3>
+<p>Return to the editor, run the Clean command on the project, build the user application again, then download to the target machine. If these operations don't solve the problem, please contact customer support.</p>
+</div>
+<div>
+<h3 id="I:TIMERMGR_TIMEOUT_WAITING_FOR_SEMAPHORE_DURING_REGISTER:TimerMgr">Fatal timeout error waiting for semaphore during AddRegistration.</h3>
+<p>Return to the editor, run the Clean command on the project, build the user application again, then download to the target machine. If these operations don't solve the problem, please contact customer support.</p>
+</div>
+<div>
+<h3 id="I:TIMERMGR_FAILURE_IN_SEMAPHORE_WAIT_DURING_TIMER_UNREGISTRATION:TimerMgr">Fatal Timeout waiting for semaphore during timer unregistration. System state questionable.</h3>
+<p>Return to the editor, run the Clean command on the project, build the user application again, then download to the target machine. If these operations don't solve the problem, please contact customer support.</p>
+</div>
+<div>
+<h3 id="I:TIMERMGR_FAILURE_EVENT_WAIT:TimerMgr">Fatal Timer error - failure in event wait call. System state questionable.</h3>
+<p>Return to the editor, run the Clean command on the project, build the user application again, then download to the target machine. If these operations don't solve the problem, please contact customer support.</p>
+</div>
+<div>
+<h3 id="E:FP_SCANNER_NO_MATCH:Security">Fingerprint does not match any of the existing users.</h3>
+<p>The fingerprint captured from the user logging in does not match any stored fingerprints from registered users. The user trying to log in may not be using the registered finger. Or, if users have not registered fingerprints, contact a supervisor to register them.</p>
+</div>
+<div>
+<h3 id="E:FP_SCANNER_INCORRECT_MATCH:Security">Fingerprint does not match user.</h3>
+<p>The fingerprint captured from the user trying to log in does not match the fingerprints registered to that User ID. (This is for security groups that require both a password and fingerprints to log in.) The user trying to log in may not be using the registered finger. Or, if users have not registered fingerprints, contact a supervisor to register them.</p>
+</div>
+<div>
+<h3 id="E:FP_SCANNER_CLEARED:Security">Biometric switch cleared.</h3>
+<p>This message informs you that fingerprint information stored in the biometric switch has been deleted.</p>
+</div>
+<div>
+<h3 id="E:FP_SCANNER_INITIALIZE_ERROR:Security">The biometric switch encountered an error during initialization.</h3>
+<p>The biometric switch encountered an error while the HMI was loading fingerprint information. Reboot the HMI and cycle the power to the biometric switch. If you still encounter an error, contact Product Support.</p>
+</div>
+<div>
+<h3 id="E:FP_SCANNER_CANNOT_PERFORM_ACTION:Security">The biometric switch is not connected. Cannot perform action.</h3>
+<p>There is no biometric switch connected to the HMI, so the requested action involving the biometric switch cannot be performed. Connect a biometric switch to the HMI and repeat the process. If the biometric switch is connected, check the USB cable for any physical damage. If you connect one or more USB devices to the target machine, use a USB hub with external power supply.</p>
+</div>
+<div>
+<h3 id="E:FP_SCANNER_INITIALIZED:Security">The biometric switch is now ready to use for this HMI.</h3>
+<p>Users with registered fingerprints can now log in.</p>
+</div>
+<div>
+<h3 id="E:FP_SCANNER_INITIALIZING:Security">The biometric switch initializing...</h3>
+<p>The HMI is loading fingerprint information into the fingerprint scanner so it can recognize users with registered fingerprints.</p>
+</div>
+<div>
+<h3 id="E:IPADDR_SAME:KAOScore">Found Same IP Address. IP collision:</h3>
+<p>This message indicates a collision with the displayed IP address. There are three scenarios when this message appears:<br>
+- When changing the IP address on the target machine and the IP address you enter is already being used. This situation disables Ethernet communications on the target machine.<br>
+- When connecting the target machine to the network and the IP address set up on the target machine is already being used.<br>
+This situation disables Ethernet communications on the target machine.<br>
+- When the IP address is being used by a different machine on the network. Ethernet communications will continue unless resolved.<br>
+Solution:<br>
+Change the IP address so there is no conflict with other nodes on the network.</p>
+</div>
+<div>
+<h2 style="margin-top: 27pt;"><a name="G" id="G"></a>G</h2>
+</div>
+<div>
+<h3 id="I:SHARED_THREAD_GET_ID_FAIL:Shared Error Messages">Get Thread ID Failed.</h3>
+<p>Return to the editor, run the Clean command on the project, build the user application again, then download to the target machine. If these operations don't solve the problem, please contact customer support.</p>
+</div>
+<div>
+<h3 id="E:FS_INVALID_DIRECTORY:KAOScore">Given directory does not exist or has incorrect permissions.</h3>
+<p>The directory does not exist or you do not have permission to use the directory. For example, some files may have the same name as the directory, or the directory exists with different permissions. Solution: To resolve this error, clear the directory contents and reinstall runtime.</p>
+</div>
+<div>
+<h3 id="E:MODBUS_PLUS_GLOBAL_DATA_TIMEOUT:Modbus Plus">Global Data is no longer being received from the PLC.</h3>
+<p>Five seconds have elapsed and the target machine has not received any global data from the indicated PLC. Solution:<br>
+- Check the PLC. It may be offline or not in RUN mode.<br>
+- Check the PLC global data configuration and make sure it matches global data expected by the target machine.<br>
+- Check the connections. They may be loose or frayed.<br>
+- Check the lines. Magnetic interference may be disturbing signals on the network.</p>
+</div>
+<div>
+<h2 style="margin-top: 27pt;"><a name="H" id="H"></a>H</h2>
+</div>
+<div>
+<h3 id="E:MPI_HARDWARE_ERROR:SiemensMPID">Hardware initialization error. MPI feature not supported.</h3>
+<p>Check the driver configuration and/or the PLC hardware and network configuration.</p>
+</div>
+<div>
+<h3 id="E:HATCH_OPENED:CFCard">Hatch is open on the CF card drive.</h3>
+<p>Hatch is open. Close the hatch to use the CF card.</p>
+</div>
+<div>
+<h3 id="E:TIMERMGR_SCRIPTS_NOT_RUNNING:TimerMgr">High CPU usage. Periodic scripts -which may be user or system created- are not running.</h3>
+<p>The CPU is busy running other higher priority operations such as communications and touch inputs, causing periodic scripts not to run. Periodic scripts can be written by the user -- as application or panel scripts, or the system may use periodic scripts in setting up certain types of operations.<br>
+Solution:<br>
+- If the operation in the periodic script is very important, then you should change how the script is triggered. You can make the script conditional and run whenever the value of a variable changes. Of course, too many of these types of scripts could lead to similar CPU usage problems.<br>
+- You can also reduce the frequency of scripts.<br>
+- Another option is to reduce the number of scripts altogether, or reduce the size of your scripts. For example, recursive calls and scripts with 1000+ lines is not recommended.</p>
+</div>
+<div>
+<h2 style="margin-top: 27pt;"><a name="I" id="I"></a>I</h2>
+</div>
+<div>
+<h3 id="I:ILLEGAL_ACCESS_POST_WRITE_METHOD:DefaultTagCallBack">Illegal access to the post write method.</h3>
+<p>Return to the editor, run the Clean command on the project, build the user application again, then download to the target machine. If these operations don't solve the problem, please contact customer support.</p>
+</div>
+<div>
+<h3 id="I:ILLEGAL_ACCESS_QUERY_METHOD:DefaultTagCallBack">Illegal access to the query method.</h3>
+<p>Return to the editor, run the Clean command on the project, build the user application again, then download to the target machine. If these operations don't solve the problem, please contact customer support.</p>
+</div>
+<div>
+<h3 id="E:OUTDATED_LOGS:Tags">Incompatible data logging files are detected and renamed.</h3>
+<p>This message displays when:<br>
+- You do not remove old data logging files before you change the Start of Day time in the Data Logging properties and download the project<br>
+OR<br>
+- You have incompatible data logging files because the time stamp falls before January 1, 2000 or after the current system time.<br>
+Solution: Back up your old data logging files using the Data Manager tool.</p>
+</div>
+<div>
+<h3 id="E:SHARED_KOM_INCORRECT_EXTERNAL_MODULE_ATTACHED:Shared Error Messages">Incorrect external module attached.</h3>
+<p>The application expects an external module that attaches to the back of the target machine, but the wrong module is connected. The external module is required by one of the device drivers set up in the project. Solution: Confirm the right module is connected to the target machine.</p>
+</div>
+<div>
+<h3 id="I:SHARED_KOM_DRIVER_THREAD_FAILED:Shared Error Messages">Initialization of driver thread failed.</h3>
+<p>Return to the editor, run the Clean command on the project, build the user application again, then download to the target machine. If these operations don't solve the problem, please contact customer support.</p>
+</div>
+<div>
+<h3 id="I:INVALID_BUZZER_MODE:ConfigurationMenu">Input buzzer mode is invalid.</h3>
+<p>Return to the editor, run the Clean command on the project, build the user application again, then download to the target machine. If these operations don't solve the problem, please contact customer support.</p>
+</div>
+<div>
+<h3 id="E:SHARED_KOM_METHOD_FAILURE:Shared Error Messages">Internal Communications Method failure.</h3>
+<p>This error indicates an application error. Solution: Restart runtime. If the message displays again, please report to customer support.</p>
+</div>
+<div>
+<h3>Internal Communications Method failure.</h3>
+<p>This error indicates an application error. Solution: Restart runtime. If the message displays again, please report to customer support.</p>
+</div>
+<div>
+<h3 id="E:AUTOINSTALL_MFAIL:Installation aborted.">Installation aborted. Multi-install is not possible when any Data Location property is set the same as the Install Drive.</h3>
+<p>This warning message displays when you install other files (such as recipe files) onto the installation drive. This occurs when the Data Locations for those project files are set to the same drive as the installation drive. To fix this issue, you need to edit the Data Locations in Vijeo Designer Editor.</p>
+</div>
+<div>
+<h3 id="E:SHARED_KOM_INVALID_BATCH_READ_REPLY:Shared Error Messages">Invalid batch read reply.</h3>
+<p>A batch read command was sent to the PLC but an invalid reply was received. Solution:<br>
+- Check the connections<br>
+- Check the cable<br>
+- Check the cable path for any magnetic interference</p>
+</div>
+<div>
+<h3 id="E:SHARED_KOM_INVALID_COMMAND:Shared Error Messages">Invalid command in PLC packet.</h3>
+<p>A communication error was returned by the PLC. Solution:<br>
+- Check the connections<br>
+- Check the cable<br>
+- Check the cable path for any magnetic interference</p>
+</div>
+<div>
+<h3 id="I:PRN_M_CMDERR:Printer">Invalid command in the Control Variable.</h3>
+<p>The Control Variable is used to output alarm messages either to a file or printer. The value in this variable controls the format. However, the value in the Control Variable does not match one of the expected values. Solution: Make sure the values you write to the Control Variable are valid.</p>
+</div>
+<div>
+<h3 id="E:COM_INVALID_INTEREST:Communications System">Invalid ComSystem Interest Context.</h3>
+<p>Indicates an error in the application. Solution: Restart runtime. If the problem persists, contact customer support.</p>
+</div>
+<div>
+<h3 id="E:MELSECA_CPU_INVALID_CPU_NAME:MelsecA Cpu">Invalid CPU Name.</h3>
+<p>An error occurred during the initialization sequence. Solution:<br>
+- Check the connections<br>
+- Check the cable<br>
+- Check the cable path for any magnetic interference</p>
+</div>
+<div>
+<h3 id="E:SHARED_KOM_INVALID_DATA_LENGTH:Shared Error Messages">Invalid data length.</h3>
+<p>Invalid PLC device address is used. The number portion of the device address is too large or the bit number is too high. Solution: Return to the editor and locate and correct the variable or script assigning the invalid address.</p>
+</div>
+<div>
+<h3 id="E:SHARED_KOM_INVALID_ACCESS_SIZE:Shared Error Messages">Invalid device access size.</h3>
+<p>Invalid PLC device address is used. The device portion of the device address is invalid. Solution: Return to the editor and locate and correct the variable or script that works with the invalid device.</p>
+</div>
+<div>
+<h3 id="E:INVALID_GROUP_NAME:Security">Invalid group name. Group names must be between 1 and 32 characters consisting of letters (a-z, A-Z), numbers (0-9), and the underscore (_).</h3>
+<p>A monitor command was sent to the PLC but an invalid reply was received. Solution:<br>
+- Check the connections<br>
+- Check the cable<br>
+- Check the cable path for any magnetic interference</p>
+</div>
+<div>
+<h3 id="E:SHARED_KOM_INVALID_MON_REG_REPLY:Shared Error Messages">Invalid monitor registration reply received.</h3>
+<p>Registration for a monitor command was sent to the PLC but an invalid reply was received. Solution:<br>
+- Check the connections<br>
+- Check the cable<br>
+- Check the cable path for any magnetic interference</p>
+</div>
+<div>
+<h3 id="I:SHARED_KOM_INVALID_SOCKETS:Shared Error Messages">Invalid number of socket connections value.</h3>
+<p>Return to the editor, run the Clean command on the project, build the user application again, then download to the target machine. If these operations don't solve the problem, please contact customer support.</p>
+</div>
+<div>
+<h3 id="E:SHARED_KOM_INVALID_PKT_TYPE:Shared Error Messages">Invalid packet type.</h3>
+<p>Unrecognized packet received from the PLC. Solution:<br>
+- Check the connections<br>
+- Check the cable for any wear<br>
+- Check the cable path for any magnetic interference</p>
+</div>
+<div>
+<h3 id="E:INVALID_PASSWORD:Security">Invalid password. Passwords must be between 1 and 32 characters consisting of letters (a-z, A-Z), numbers (0-9), and the underscore (_).</h3>
+<p>Enter a valid password.</p>
+</div>
+<div>
+<h3 id="E:PASSWORD_MISMATCH:Security">Invalid password. Type the user name and password again.</h3>
+<p>You may have entered an invalid password. Retype your password. If that doesn't work, check with your system administrator.</p>
+</div>
+<div>
+<h3 id="E:SHARED_KOM_INVALID_PLCMODEL:Shared Error Messages">Invalid PLC Family/Model/Type.</h3>
+<p>The PLC set up in the runtime user application does not match the connected PLC. The PLC is the wrong family, model, or type. Solution:<br>
+- In the editor, confirm the correct PLC driver is set up in the I/O Manager.<br>
+- In the Driver Configuration dialog box, confirm the correct COM port is selected.<br>
+- Confirm the PLC driver supports the connected PLC.</p>
+</div>
+<div>
+<h3 id="I:SHARPJW_SERIAL_INVALID_QUERY_EWR_REPLY_PACKET_LEN:SharpJW Serial">Invalid Query EWR reply packet length.</h3>
+<p>Return to the editor, run the Clean command on the project, build the user application again, then download to the target machine. If these operations don't solve the problem, please contact customer support.</p>
+</div>
+<div>
+<h3 id="I:SHARPJW_SERIAL_INVALID_QUERY_SWE_REPLY_PACKET_LEN:SharpJW Serial">Invalid Query SWE reply packet length.</h3>
+<p>Return to the editor, run the Clean command on the project, build the user application again, then download to the target machine. If these operations don't solve the problem, please contact customer support.</p>
+</div>
+<div>
+<h3 id="E:MinMax_InvalidRange:">Invalid range. Minimum value must be smaller than maximum value.</h3>
+<p>The Min property has been set to an invalid value. Set the Min property to a value within the valid range.</p>
+</div>
+<div>
+<h3 id="E:SHARED_KOM_INVALID_READ_REPLY:Shared Error Messages">Invalid read reply.</h3>
+<p>Read command was sent to the PLC but an invalid reply was received. Solution:<br>
+- Check the connections<br>
+- Check the cable<br>
+- Check the cable path for any magnetic interference</p>
+</div>
+<div>
+<h3 id="E:SHARED_KOM_INVALID_REPLY:Shared Error Messages">Invalid reply.</h3>
+<p>A command was sent to the PLC but an invalid reply was received. Solution:<br>
+- Check the connections<br>
+- Check the cable<br>
+- Check the cable path for any magnetic interference</p>
+</div>
+<div>
+<h3 id="E:INVALID_FILE:Security">Invalid security file. Security database not initialized.</h3>
+<p>The security file may be damaged or corrupt. First try to restart the target machine. If that doesn't work, you may want to try downloading the user application again.</p>
+</div>
+<div>
+<h3 id="E:BAD_LOGIN:Security">Invalid user name or password. Type the user name and password again.</h3>
+<p>You may have entered an invalid character. Retype your user name and password. If that doesn't work, check with your system administrator.</p>
+</div>
+<div>
+<h3 id="E:INVALID_USER_NAME:Security">Invalid user name. Names must be between 1 and 32 characters consisting of letters (a-z, A-Z), numbers (0-9), and the underscore (_).</h3>
+<p>Enter a valid user name.</p>
+</div>
+<div>
+<h3 id="E:NO_SUCH_USER:Security">Invalid user name. Type the user name and password again.</h3>
+<p>You may have entered an invalid user name. Retype your user name. If that doesn't work, check with your system administrator.</p>
+</div>
+<div>
+<h3 id="I:TAGDB_INVALID_TAG_ID:Tags">Invalid Variable ID.</h3>
+<p>Return to the editor, run the Clean command on the project, build the user application again, then download to the target machine. If these operations don't solve the problem, please contact customer support.</p>
+</div>
+<div>
+<h3 id="E:SHARED_KOM_INVALID_WRITE_REPLY:Shared Error Messages">Invalid write reply received.</h3>
+<p>A write command was sent to the PLC but an invalid reply was received. Solution:<br>
+- Check the connections<br>
+- Check the cable<br>
+- Check the cable path for any magnetic interference</p>
+</div>
+<div>
+<h2 style="margin-top: 27pt;"><a name="J" id="J"></a>J</h2>
+</div>
+<div>
+<h2 style="margin-top: 27pt;"><a name="K" id="K"></a>K</h2>
+</div>
+<div>
+<h3 id="I:SHARED_OTHER_KAOS_FN_FAILED:Shared Error Messages">KAOS Function failed.</h3>
+<p>Return to the editor, run the Clean command on the project, build the user application again, then download to the target machine. If these operations don't solve the problem, please contact customer support.</p>
+</div>
+<div>
+<h3 id="E:NO_HISTORIAN:Tags">KeepHistory must be True for variables used in trend graph channels.</h3>
+<p>The KeepHistory property is Disabled for one of the variables displayed by the trend graph. Changing panels will cause the trend graph display to reset without the variable history. Solution: Return to the editor and set KeepHistory True for all variables used in trend graph channels.</p>
+</div>
+<div>
+<h2 style="margin-top: 27pt;"><a name="L" id="L"></a>L</h2>
+</div>
+<div>
+<h2 style="margin-top: 27pt;"><a name="M" id="M"></a>M</h2>
+</div>
+<div>
+<h3 id="I:SHARED_MBOX_CREATE_ERROR:Shared Error Messages">Mailbox Creation Failed.</h3>
+<p>Return to the editor, run the Clean command on the project, build the user application again, then download to the target machine. If these operations don't solve the problem, please contact customer support.</p>
+</div>
+<div>
+<h3 id="I:SHARED_MESSAGE_UNKNOWN:Shared Error Messages">Mailbox Message is not recognized.</h3>
+<p>Return to the editor, run the Clean command on the project, build the user application again, then download to the target machine. If these operations don't solve the problem, please contact customer support.</p>
+</div>
+<div>
+<h3 id="I:SHARED_MBOX_READ_FAIL:Shared Error Messages">Mailbox Read Failed.</h3>
+<p>Return to the editor, run the Clean command on the project, build the user application again, then download to the target machine. If these operations don't solve the problem, please contact customer support.</p>
+</div>
+<div>
+<h3 id="E:CG_STRING_SIZE_EXCEEDED:KAOScore">Maximum string size exceeded in Project Configuration.</h3>
+<p>Project configuration file has been altered so that one of the configuration items is now too long. Solution: Because the project configuration file is invalid, the simplest solution is to download the user application again. If that's not possible, then review the items in the project.cfg file and fix any items that are longer than 80 characters.</p>
+</div>
+<div>
+<h3 id="I:SHARED_MEMORY_ERROR:Shared Error Messages">Memory Allocation Failure.</h3>
+<p>Return to the editor, run the Clean command on the project, build the user application again, then download to the target machine. If these operations don't solve the problem, please contact customer support.</p>
+</div>
+<div>
+<h3 id="E:SHARED_KOM_NO_SUPPORT:Shared Error Messages">Method or function in Communications System unsupported.</h3>
+<p>Either one of two problems:<br>
+- The PLC communication driver has not been implemented correctly.<br>
+- Project.cfg file has been modified and is now invalid.<br>
+Solution:<br>
+Return to the editor and check communication settings in the I/O Manager. Build and download the user application.<br>
+If the user application is set up with a Barcode Scanner driver, the bar code input setup may be incorrect. Make sure the Value Animation variable and bar code variable are different.</p>
+</div>
+<div>
+<h3 id="E:TIMERMGR_SCRIPTS_RUNNING:TimerMgr">Monitored periodic script is now running at the defined frequency.</h3>
+<p>After a delay in the script, the status message indicates that an Application or Panel Script (with Trigger set to Periodic and Scheduling set to Monitor) has started running again at its defined frequency.</p>
+</div>
+<div>
+<h3 id="E:TIMERMGR_SCRIPTS_OFF_SCHEDULE:TimerMgr">Monitored periodic script is running, but slower than defined.</h3>
+<p>Occurs with Application or Panel Scripts (Trigger property set to Periodic and Scheduling property set to Monitor), when not enough CPU power is available to run the script at the defined frequency due to communication, popup windows, or change panel operations. Solution:<br>
+If it is not essential that the script run exactly as defined, no change is necessary. To increase the probability that the script will run at its defined frequency:<br>
+- Reduce the frequency of the script.<br>
+- Reduce the total number of scripts.<br>
+- Reduce the script's size by removing non-essential portions of the script.</p>
+</div>
+<div>
+<h3 id="I:KAOS_SOCKET_SOCKET_CLOSED_TWICE:KAOS Socket">More sockets have been closed than opened.</h3>
+<p>Return to the editor, run the Clean command on the project, build the user application again, then download to the target machine. If these operations don't solve the problem, please contact customer support.</p>
+</div>
+<div>
+<h3 id="E:MOUNT_CFCARD_FAIL:CFCard">Mounting of CF Card failed. It's either not formatted or formatted as FAT32. Format the CF card as FAT16.</h3>
+<p>The CF card has been formatted the wrong way and thus cannot be used on the target machine. Solution: Format the CF card as indicated in the message.</p>
+</div>
+<div>
+<h3 id="E:AUTOINSTALL_MFAIL1:AutoInstall">Multi-install is not possible when the Data Location property is set the same as the Install Drive.</h3>
+<p>This warning message displays when you install other files (such as recipe files) onto the installation drive. This occurs when the Data Locations for those project files are set to the same drive as the installation drive. To fix this issue, you need to edit the Data Locations in Vijeo Designer Editor.</p>
+</div>
+<div>
+<h2 style="margin-top: 27pt;"><a name="N" id="N"></a>N</h2>
+</div>
+<div>
+<h3 id="E:EXCEED_MAX_RECIPE_NUMBER:KAOScore">New recipes cannot be created for this recipe group because the maximum of 256 recipes has been reached for this recipe group.</h3>
+<p>To resolve this error, either remove some of the recipes in the recipe group to accommodate new recipes, or create a new recipe group so you can add new recipes.</p>
+</div>
+<div>
+<h3 id="I:SRAM_FILESYSTEM_FULL:KAOScore">No available space in the SRAM region. Rebooting system to defragment the SRAM region may help to free up space.</h3>
+<p>As instructed in the error message, restart the target machine. If the problem continues, then too much SRAM is being used by the user application, or for data generated by the user application, such as variable history, alarm output, and trend graphs. You can try to reduce the size of the user application, or reduce the amount of data output by the application.</p>
+</div>
+<div>
+<h3 id="E:Con_NoDriver_OrEquipment:ConfigurationMenu">No drivers or equipment have been defined.</h3>
+<p>Communication diagnostics cannot run on this user application, because there are no drivers added.</p>
+</div>
+<div>
+<h3 id="E:SHARED_KOM_NO_EXTERNAL_MODULE_ATTACHED:Shared Error Messages">No external module attached.</h3>
+<p>The application expects an external module that attaches to the back of the target machine, but could not detect it. The external module is required by one of the device drivers set up in the project. Solution: Check if the external module is connected to the target machine. If so, the external module may not be connected properly (connections are loose or broken), or the external module may be damaged.</p>
+</div>
+<div>
+<h3 id="E:MPI_NO_TOKEN_RING:SiemensMPID">No MPI token ring detected. Check cable and baud rate settings.</h3>
+<p>Your connection is broken. Check your cable and baud rate settings.</p>
+</div>
+<div>
+<h3 id="E:PROFIBUS_NO_NETWORK_ERROR:Profibus">No Profibus network found.</h3>
+<p>Check that your cables are plugged in and the termination settings are configured properly. The termination switch should be set to ON at the ends.</p>
+</div>
+<div>
+<h3 id="E:SHARED_KOM_TIMEOUT_DETECTED:Shared Error Messages">No reply from PLC within Timeout period.</h3>
+<p>A valid reply has not been received from the PLC within the specified timeout period and the communication packet was retried the defined number of times. Solution:<br>
+- Check the load on the PLC and network. The hardware and communication medium might be too busy to handle further communications. If this is the problem, you can increase the Transmission Speed, increase the Receive Timeout, or edit the project to use more consecutive addresses.<br>
+- Check the connections<br>
+- Check the cable<br>
+- Check the cable path for any magnetic interference<br>
+- Check if the PLC device drivers on both the PLC and runtime match<br>
+- Check if PLC hardware device is damaged</p>
+</div>
+<div>
+<h3 id="I:SHARED_KOM_NO_SOCKET_INFO_FOUND:Shared Error Messages">No socket info found.</h3>
+<p>Return to the editor, run the Clean command on the project, build the user application again, then download to the target machine. If these operations don't solve the problem, please contact customer support.</p>
+</div>
+<div>
+<h3 id="I:SHARED_NULL_POINTER:Shared Error Messages">NULL Pointer Passed Incorrectly.</h3>
+<p>Return to the editor, run the Clean command on the project, build the user application again, then download to the target machine. If these operations don't solve the problem, please contact customer support.</p>
+</div>
+<div>
+<h2 style="margin-top: 27pt;"><a name="O" id="O"></a>O</h2>
+</div>
+<div>
+<h3 id="I:OBTAIN_IPADDR_FAILED:ConfigurationMenu">Obtaining IP address failed.</h3>
+<p>This problem occurs when it is not possible to get the IP address from the DHCP server. Check the Ethernet cable connection and make sure the DHCP server is running.</p>
+</div>
+<div>
+<h3 id="E:SHARED_KOM_QUEUE_OVERFLOW:Shared Error Messages">Overflow of internal list manager.</h3>
+<p>A lack of resources has caused an internal function to fail. Solution:<br>
+Restart the target machine.<br>
+If that does not solve the issue, increase the memory available to run the user application.<br>
+- Increase the operation memory.<br>
+- Reduce the number of applications running on the target machine.<br>
+- Reduce the size of the user application.<br>
+- Erase any unused user application projects.</p>
+</div>
+<div>
+<h2 style="margin-top: 27pt;"><a name="P" id="P"></a>P</h2>
+</div>
+<div>
+<h3 id="E:SHARED_KOM_INCOMPLETE_MSG_SENT:Shared Error Messages">Packet send incomplete. Possible cable problem.</h3>
+<p>Solution:<br>
+- Check the connections<br>
+- Check the cable for any wear<br>
+- Check the cable path for any magnetic interference</p>
+</div>
+<div>
+<h3 id="E:SIEMENSMPI_VALIDATE_FAILED_DUE_TO_INVALID_PACKET_MARKERS:Siemens Mpi">Packet validation failed. Invalid start or end characters.</h3>
+<p>A communication error was returned by the PLC. Solution:<br>
+- Check the connections<br>
+- Check the cable<br>
+- Check the cable path for any magnetic interference</p>
+</div>
+<div>
+<h3 id="E:PANEL_SCRIPT_ERROR:Shared Error Messages">Panel Script Error.</h3>
+<p>A panel script performs an illegal operation. For example, the script may be trying to access an array index that's out of bounds, the script may be attempting a divide by zero, or some other exception error. Solution: Find and correct the script that's causing the error. The script may be accessing an array out of bounds, performing a divide by zero operation, or committing some other programming error.</p>
+</div>
+<div>
+<h3 id="E:PASSWORD_STRENGTH:Security">Password strength criteria not satisfied. Please enter a different password.</h3>
+<p>The password does not follow the requirements set up in the Security tab. Enter a password that adheres to the requirements.</p>
+</div>
+<div>
+<h3 id="I:SHARED_FILE_PERMISSION_FAILURE:Shared Error Messages">Permission to access the specified file was denied.</h3>
+<p>Return to the editor, run the Clean command on the project, build the user application again, then download to the target machine. If these operations don't solve the problem, please contact customer support.</p>
+</div>
+<div>
+<h3 id="E:FP_SCANNER_NEED_FP:Security">Please provide fingerprints for user.</h3>
+<p>The User Manager is ready to capture two of your fingerprints to register, so you can log in with the biometric switch. Place your finger in the biometric switch so it can be captured.</p>
+</div>
+<div>
+<h3 id="E:FP_SCANNER_NEED_PWD:Security">Please provide a password for user.</h3>
+<p>The User Manager prompts you for your password so you can log on with a user ID and password. Enter your password and verify your entry.</p>
+</div>
+<div>
+<h3 id="E:MELSECA_CPU_MISMATCH:MelsecA Cpu">PLC CPU Code/Name/Extension mismatch - has PLC been changed? Restart runtime.</h3>
+<p>A successful connection and initialization was previously established between runtime and the PLC. However, in the meantime, communication has failed and cannot be reconnected. Solution:<br>
+- Check for a change in the PLC configuration or a general communication error.<br>
+- PLC configuration is different Check the PLC and make sure it hasn't been tampered with. The PLC settings must match those in the user application for successful communication.<br>
+- General communication - Check the connections, - Check the cable, or - Check the cable path for any magnetic interference.<br>
+- Restart runtime.</p>
+</div>
+<div>
+<h3 id="E:SHARED_KOM_UNSUPPORTED_COMMAND:Shared Error Messages">PLC doesn't support requested feature.</h3>
+<p>The user application is requesting an operation or data that is not supported by the PLC. Solution: Return to the editor and remove access to the unsupported PLC feature. Look for scrips that start a process, or scripts that access device addresses.</p>
+</div>
+<div>
+<h3 id="E:MODBUS_PLUS_GLOBAL_DATA_MISSING:Modbus Plus">PLC is not transmitting enough Global Data words.</h3>
+<p>The target machine does not display any global data when the expected number of words don't match the actual number of words. The application displays the data quality icon to indicate the global data values are not available. Solution:<br>
+Make sure the number of global data words broadcast on the network matches the number of global data words expected in the target machine application. Either,<br>
+- Change the settings in the PLC, or<br>
+- Change the number of global data words configured in the editor, then download the application to the target machine.</p>
+</div>
+<div>
+<h3 id="E:PROFIBUS_PLC_NOT_READY:Profibus">PLC or packet interpreter not running.</h3>
+<p>Check the settings for the PLC's packet interpreter (FB99) to ensure configuration is correct. For instructions on how to configure the FB99 Packet Interpretter on your Siemens PLC, contact technical support.</p>
+</div>
+<div>
+<h3 id="E:SHARED_PACKET_UNKNOWN:Shared Error Messages">PLC packet not recognized.</h3>
+<p>Solution:<br>
+- Check the connections<br>
+- Check the cable for any wear<br>
+- Check the cable path for any magnetic interference</p>
+</div>
+<div>
+<h3 id="E:SHARED_KOM_CHECKSUM_ERROR:Shared Error Messages">PLC packet validation failed. Invalid checksum.</h3>
+<p>PLC packet validation failed. Invalid checksum. A communication error was returned by the PLC. Solution:<br>
+- Check the connections<br>
+- Check the cable<br>
+- Check the cable path for any magnetic interference</p>
+</div>
+<div>
+<h3 id="E:PROFIBUS_GENERAL_ERRROR:Profibus">PLC Returned Error Code XX YY</h3>
+<p>You can do either of the following:<br>
+- Confirm the configuration information in both the Driver Configuration dialog box and in the Step7 PLC programming software. The slave address and Total I/O size must match in both places.<br>
+- Contact technical support as you could have a hardware problem with the interface card.</p>
+</div>
+<div>
+<h3 id="E:SHARED_PLC_ERROR_REPORT:Shared Error Messages">PLC returned error code.</h3>
+<p>The error system has overwritten a previous error message with a new error. This backup error message ensures the user knows a problem has occurred with the PLC. Solution:<br>
+Look up the error code in the PLC manual for any troubleshooting information.</p>
+</div>
+<div>
+<h3 id="E:THREAD_PRIORITY_ERROR:KAOScore">Please verify the thread priority settings in the runtime configuration file.</h3>
+<p>Runtime operations are not adversely affected when this message appears. Solution: This message indicates a difference in priority in the software thread. If this problem continues, please contact your local distributor.</p>
+</div>
+<div>
+<h3 id="I:NULL_POINTER_REFERENCE:ConfigurationMenu">Pointer passed incorrectly.</h3>
+<p>Return to the editor, run the Clean command on the project, build the user application again, then download to the target machine. If these operations don't solve the problem, please contact customer support.</p>
+</div>
+<div>
+<h3 id="I:PRN_M_ERR_OPEN:Printer">Printer command error.</h3>
+<p>Printer is receiving commands it isn't configured to handle. Could indicate one of these problems:<br>
+- Target machine is configured with the wrong printer driver<br>
+- Magnetic interference between the target machine and printer<br>
+- Printer hardware is faulty</p>
+</div>
+<div>
+<h3 id="E:PRINTER_ERROR:Shared Error Messages">Printer Error.</h3>
+<p>Indicates a general printer error. Solution:<br>
+Check the printer.</p>
+</div>
+<div>
+<h3 id="E:PRINTER_CONNECT_ERROR:Shared Error Messages">Printer Error. The device is not connected.</h3>
+<p>Tried to connect to the printer but failed. Solution:<br>
+To resolve this error:<br>
+- Turn on or reset the printer<br>
+- Check the connections<br>
+- Check the cable<br>
+- Check the cable path for any magnetic interference</p>
+</div>
+<div>
+<h3 id="E:PRINTER_ERROR_PAPER_END:Shared Error Messages">Printer Error. The device is out of paper.</h3>
+<p>Printing has failed because the printer has run out of paper. Solution: Refill the printer with paper. If this error appears often, you may have to rethink your printing needs.</p>
+</div>
+<div>
+<h3 id="I:PRN_M_NOTREADY:Printer">Printer is not online.</h3>
+<p>Depending on your printer, this message may indicate one of these problems:<br>
+- Printer is offline or turned off<br>
+- Printer not connected or connections are loose<br>
+- Out of paper</p>
+</div>
+<div>
+<h3 id="I:PRN_M_BUSY:Printer">Printer is not responding. Printer may be offline.</h3>
+<p>Depending on your printer, this message may indicate one of these problems:<br>
+- Printer not turned on<br>
+- Printer not connected or connections are loose<br>
+- Out of paper</p>
+</div>
+<div>
+<h3 id="I:PRN_M_PAPEREND:Printer">Printer is out of paper.</h3>
+<p>Indicates you've run out of paper. If this message continually appears, you may want to re-evaluate your printing needs and set up a printer with a bigger paper load tray.</p>
+</div>
+<div>
+<h3 id="I:PRN_M_PRINTING_NOT_ENABLED:Printer">Printing is not enabled.</h3>
+<p>The project has not been set up to allow for printing, however, you have written a value in the control variable to request printing.</p>
+</div>
+<div>
+<h3 id="E:PROFIBUS_BASE_ADDRESS_ERROR:Profibus">Profibus base address error.</h3>
+<p>You have selected an incorrect Profibus port. In the Driver Configuration dialog box, select another port.</p>
+</div>
+<div>
+<h3 id="E:PROFIBUS_WATCHDOG_FAIL_ERROR:Profibus">Profibus stack watchdog failure.</h3>
+<p>A watchdog timeout has occurred. Please check the connection between the XBTGT and the Profibus master.</p>
+</div>
+<div>
+<h3 id="E:CG_FAILED_READ_FILE:KAOScore">Project Configuration failed to read project.cfg.</h3>
+<p>Either the project.cfg file is corrupted or invalid, or a lack of resources has caused project initialization to fail.<br>
+Solution:<br>
+If project.cfg is corrupted or invalid, return to the editor, run the Clean command on the user application, build the user application again, and download to the target machine.<br>
+If there is a lack of resources:<br>
+- Restart the target machine.<br>
+- If that does not solve the issue, increase the memory available to run the user application.<br>
+a. Increase the operation memory.<br>
+b. Reduce the number of applications running on the target machine.<br>
+c. Reduce the size of the user application.<br>
+d. Erase any unused user application projects.</p>
+</div>
+<div>
+<h3 id="E:CG_FAILED_WRITE_FILE:KAOScore">Project Configuration failed to write to project.cfg.</h3>
+<p>The write operation failed. Solution:<br>
+Normally this error appears because the project.cfg file is read-only.<br>
+Another less-frequent reason for the error message is a lack of disk space.</p>
+</div>
+<div>
+<h3 id="E:CG_FAILED_INITIALIZE:KAOScore">Project Configuration File failed to initialize.</h3>
+<p>The runtime project configuration file is damaged and unusable. Solution: To resolve this error, return to the editor, run the Clean command on the user application, build the user application again, and download to the target machine.</p>
+</div>
+<div>
+<h3 id="E:CG_MAIN_HASHTABLE_FULL:KAOScore">Project Configuration main hash table size exceeded.</h3>
+<p>Too many sections are in the project configuration file. User has defined too many things in the user application. Solution:<br>
+Check if the user application contains any unnecessary items, such as unused drivers or devices. Remove these items.</p>
+</div>
+<div>
+<h3 id="E:CG_SECTION_HASHTABLE_FULL:KAOScore">Project Configuration section hash table size exceeded.</h3>
+<p>Too many items in one section in the project configuration file. User has defined too many things in one part of the user application. Solution:<br>
+Check if the user application contains a large number of items in a single part of the user application or project settings, such as too many scan groups.<br>
+If the project does not contain any unusual settings, contact customer support and report your findings.</p>
+</div>
+<div>
+<h3 id="I:CG_INVALID_FILENAME:KAOScore">Project Configuration supplied an invalid filename.</h3>
+<p>Return to the editor, run the Clean command on the project, build the user application again, then download to the target machine. If these operations don't solve the problem, please contact customer support.</p>
+</div>
+<div>
+<h3 id="E:MODBUS_PLUS_DUPLICATE_ROUTE:Modbus Plus">Project contains a duplicate Modbus Plus route.</h3>
+<p>The project has been configured with two or more Modbus Plus equipment that uses the same routing information. Solution:<br>
+Return to the editor and make sure routing information is not repeated in the Modbus Plus equipment settings.</p>
+</div>
+<div>
+<h2 style="margin-top: 27pt;"><a name="Q" id="Q"></a>Q</h2>
+</div>
+<div>
+<h3 id="I:SHARPJW_SERIAL_INCORRECT_QUERY_EWR_CMD:SharpJW Serial">Query EWR command not found in reply packet.</h3>
+<p>Return to the editor, run the Clean command on the project, build the user application again, then download to the target machine. If these operations don't solve the problem, please contact customer support.</p>
+</div>
+<div>
+<h3 id="I:SHARPJW_SERIAL_SWE_QUERY_FAILURE:SharpJW Serial">Query PLC SWE failed.</h3>
+<p>Return to the editor, run the Clean command on the project, build the user application again, then download to the target machine. If these operations don't solve the problem, please contact customer support.</p>
+</div>
+<div>
+<h3 id="I:SHARPJW_SERIAL_INCORRECT_QUERY_SWE_CMD:SharpJW Serial">Query SWE command not found in reply packet.</h3>
+<p>Return to the editor, run the Clean command on the project, build the user application again, then download to the target machine. If these operations don't solve the problem, please contact customer support.</p>
+</div>
+<div>
+<h2 style="margin-top: 27pt;"><a name="R" id="R"></a>R</h2>
+</div>
+<div>
+<h3 id="E:SHARED_KOM_REGISTER_READ_ONLY:Shared Error Messages">Register is read-only.</h3>
+<p>Indicates an error in the user application. A variable write operation is attempted on an output PLC device address. Solution:<br>
+Return to the editor and change the PLC device address or do not do a write operation to the variable.</p>
+</div>
+<div>
+<h3 id="I:SHARED_KOM_REGISTERS_MUST_BE_2_OR_4_BYTES:Shared Error Messages">Registers must be 2 or 4 bytes</h3>
+<p>Return to the editor, run the Clean command on the project, build the user application again, then download to the target machine. If these operations don't solve the problem, please contact customer support.</p>
+</div>
+<div>
+<h3 id="I:CG_INVALID_INTEGER:KAOScore">Request from Project Configuration requiring an integer, did not find one.</h3>
+<p>Return to the editor, run the Clean command on the project, build the user application again, then download to the target machine. If these operations don't solve the problem, please contact customer support.</p>
+</div>
+<div>
+<h3 id="E:REQUEST_QUEUE_OVERFLOW:Shared Error Messages">Request queue overflow. Too many write operations.</h3>
+<p>The queue is overflowed because too many write operations have been activated by touch operations. Solution:<br>
+-add a delay as a the last action on for the touch operation so that the touch object cannot be pressed too quickly.</p>
+</div>
+<div>
+<h3 id="E:SHARED_KOM_ITEM_NOT_FOUND:Shared Error Messages">Requested Item from Project Configuration Section not found.</h3>
+<p>Restart the target machine. Return to the editor, run the Clean command on the project, build the user application again, then download to the target machine. If these operations don't solve the problem, please contact customer support.</p>
+</div>
+<div>
+<h3 id="E:CG_SECTION_NOT_FOUND:KAOScore">Requested Section from Project Configuration file not found.</h3>
+<p>This messages indicates either of these conditions:<br>
+- Requested section is missing or removed from project.cfg<br>
+- File is corrupted<br>
+Solution:<br>
+Return to the editor, run the Clean command on the user application, build the user application again, and download to the target machine.</p>
+</div>
+<div>
+<h2 style="margin-top: 27pt;"><a name="S" id="S"></a>S</h2>
+</div>
+<div>
+<h3 id="E:FP_SCANNER_DUPE_FINGER:Security">Add user failed. You must provide fingerprints for two different fingers.</h3>
+<p>The user used the same finger twice instead of using two different fingers to be registered. Use two different fingers to be registered to your user ID.</p>
+</div>
+<div>
+<h3 id="E:MAINTENANCE_OUTPUT_ERROR:KAOScore">Saving or printing is not allowed during Maintenance mode.</h3>
+<p>You are attempting to save or print while the target is in Maintenance mode. Solution: Turn off Maintenance mode and then print or save.</p>
+</div>
+<div>
+<h3 id="E:MODBUS_PLUS_USB_DRIVER_MISSING:Modbus PlusUSB">Schneider Electric MBX Driver Suite is required when running Modbus Plus USB in simulation mode, or on iPC and XBTGTW target machines.</h3>
+<p>You must install the new MBX Driver Suite 7.0 (released September 2008) to use TSX C USB MBP and XBTZGUMP Revision 2 adapters with Simulation Mode on your PC. This driver is now available in the Vijeo Designer installation disc in the Tools directory.<br>
+Solution:<br>
+<br>
+Installation:<br>
+1. On the Vijeo Designer Installer DVD, select the "Tools\Modbus Plus Driver Suite" path and then double-click Setup.exe.<br>
+2. Follow the installation wizard to install the driver.<br>
+Note: A full license is required for use on XBTGTW platforms, and iPC platforms. &#160;To purchase the license, please contact your local Schneider Electric sales representative.</p>
+</div>
+<div>
+<h3 id="E:USER_SCRIPT_ERROR:Shared Error Messages">Script error in Switch part.</h3>
+<p>A script set up in a Switch part performs an illegal operation. For example, the script may be trying to access an array index that's out of bounds, the script may be attempting a divide by zero, and so on. Solution:<br>
+Return to the editor and edit the scripts set up in the switch.<br>
+Examine the code in the script and make sure it doesn't access an array out of bounds, perform a divide by zero operation, or some other runtime programming error.</p>
+</div>
+<div>
+<h3 id="E:UIM_ERROR_IN_ACTION_SCRIPT:UserInputMgr">Script error. Alarm action script.</h3>
+<p>An alarm action script performs an illegal operation.<br>
+For example, the script may be trying to access an array index that's out of bounds, the script may be attempting a divide by zero, and so on.<br>
+Solution:<br>
+Return to the editor and edit the action settings of the corresponding variable.<br>
+Examine the code in the action scripts and make sure they don't access an array out of bounds, perform a divide by zero operation, or some other runtime programming error.</p>
+</div>
+<div>
+<h3 id="E:TIMERMGR_ERROR_EXECUTING_SCRIPT:TimerMgr">Script error. Application or Panel script, Activate=[Periodic or Conditional].</h3>
+<p>A script where Trigger = Periodic, or where Trigger = Conditional, performs an illegal operation.<br>
+For example, the script may be trying to access an array index that's out of bounds, the script may be attempting a divide by zero, or some other exception error.<br>
+Solution:<br>
+Find and correct the script that's causing the error.<br>
+The script's Trigger property is Periodic. The script may be accessing an array out of bounds, performing a divide by zero operation, or committing some other programming error.</p>
+</div>
+<div>
+<h3 id="E:UIM_ERROR_IN_TOUCH_RELEASE_SCRIPT:UserInputMgr">Script error. Touch animation script, Trigger Condition = [When Release]</h3>
+<p>A script where TriggerCondition =When Release performs an illegal operation. For example, the script may be trying to access an array index that's out of bounds, the script may be attempting a divide by zero, and so on. Solution:<br>
+Return to the editor and open the panel of the corresponding touch object.<br>
+Examine the code in the touch script and make sure it doesn't access an array out of bounds, perform a divide by zero operation, or some other runtime programming error.</p>
+</div>
+<div>
+<h3>Script error. Touch animation script, Trigger Condition = [When Touch]</h3>
+<p>A script where TriggerCondition =When Touch performs an illegal operation. For example, the script may be trying to access an array index that's out of bounds, the script may be attempting a divide by zero, and so on. Solution:<br>
+Return to the editor and open the panel of the corresponding touch object.<br>
+Examine the code in the touch script and make sure it doesn't access an array out of bounds, perform a divide by zero operation, or some other runtime programming error.</p>
+</div>
+<div>
+<h3 id="E:UIM_ERROR_IN_WHILE_TOUCH_PRESS_SCRIPT: UserInputMgr">Script error. Touch animation script, Trigger Condition = [While Touch]</h3>
+<p>A script where TriggerCondition =While Touch performs an illegal operation. For example, the script may be trying to access an array index that's out of bounds, the script may be attempting a divide by zero, and so on. Solution:<br>
+Return to the editor and open the panel of the corresponding touch object.<br>
+Examine the code in the touch script and make sure it doesn't access an array out of bounds, perform a divide by zero operation, or some other runtime programming error.</p>
+</div>
+<div>
+<h3 id="E:NO_SECOND_DRIVE:CFCard">Secondary or Optional storage device is missing or does not have enough space. Run-time operations that require this storage device will fail.</h3>
+<p>Make sure a secondary drive or an optional storage device is available and have adequate storage space.</p>
+</div>
+<div>
+<h3 id="E:NO_SECOND_DRIVE:CF Card">Secondary storage device is missing or does not have enough space. Run-time operations that require this storage device will fail.</h3>
+<p>Use Data Manager to extract and delete data from your target machine.</p>
+</div>
+<div>
+<h3 id="I:SHARED_SEM_RELEASE_FAIL:Shared Error Messages">Semaphore Release Failed.</h3>
+<p>Return to the editor, run the Clean command on the project, build the user application again, then download to the target machine. If these operations don't solve the problem, please contact customer support.</p>
+</div>
+<div>
+<h3 id="I:SHARED_SEM_ACQUIRE_FAIL:Shared Error Messages">Semaphore Acquire Failed.</h3>
+<p>Return to the editor, run the Clean command on the project, build the user application again, then download to the target machine. If these operations don't solve the problem, please contact customer support.</p>
+</div>
+<div>
+<h3 id="I:SHARED_SEM_CREATE_ERROR:Shared Error Messages">Semaphore Creation Failed.</h3>
+<p>Return to the editor, run the Clean command on the project, build the user application again, then download to the target machine. If these operations don't solve the problem, please contact customer support.</p>
+</div>
+<div>
+<h3 id="I:SHARED_EVENT_SEND_FAIL:Shared Error Messages">Send An Event Failed.</h3>
+<p>Return to the editor, run the Clean command on the project, build the user application again, then download to the target machine. If these operations don't solve the problem, please contact customer support.</p>
+</div>
+<div>
+<h3 id="I:SHARED_CONFIG_SET_DEFAULT_FAIL:Shared Error Messages">Set configuration items to default values failed.</h3>
+<p>Return to the editor, run the Clean command on the project, build the user application again, then download to the target machine. If these operations don't solve the problem, please contact customer support.</p>
+</div>
+<div>
+<h3 id="I:SHARED_KOM_SOCKET_LIST_FULL:Shared Error Messages">Socket list full.</h3>
+<p>Return to the editor, run the Clean command on the project, build the user application again, then download to the target machine. If these operations don't solve the problem, please contact customer support.</p>
+</div>
+<div>
+<h3 id="E:KAOS_SOCKET_NO_HANDLER_FOR_SOCKET_DOMAIN:KAOS Socket">Socket protocol handler for requested domain not found.</h3>
+<p>Socket hasn't been configured properly. A protocol handler is required for each type of socket (TCP/IP, UDP, etc.). The application is trying to open a socket without the corresponding handler in place.<br>
+This message indicates a communication error on the target machine as a communication socket could not be opened.<br>
+Solution:<br>
+Try restarting the target machine. Otherwise, build the user application in the editor again and download to the target machine.<br>
+Please contact customer support.</p>
+</div>
+<div>
+<h3 id="E:SHARED_SRAM_NOTEXIST:Shared Error Messages">SRAM is not found in the target. Please check if device is installed.</h3>
+<p>If the SRAM card is not installed, install it and restart the target.</p>
+</div>
+<div>
+<h3 id="E:IPCEWF_WARN:AutoInstall">System volume is unlocked.</h3>
+<p>This message appears at the beginning of runtime if Enhanced Write Filter (EWF) is not enabled for the main drive. EWF minimizes the number of write operations to the storage drive to help extend its life.<br>
+Solution:<br>
+Select one of the options (Lock, Continue, Exit) on the prompt to enable EWF or keep it disabled. To avoid future pop-ups, configure EWF via the EWF tool in Window's system tray.</p>
+</div>
+<div>
+<h2 style="margin-top: 27pt;"><a name="T" id="T"></a>T</h2>
+</div>
+<div>
+<h3 id="E:TARGET_OPERATION_NOT_SUPPORTED:ConfigurationMenu">Target machine does not support this operation.</h3>
+<p>Tried to perform a configuration menu operation that isn't supported by the hardware platform.</p>
+<p>Solution:<br>
+This message does not require a solution.</p>
+</div>
+<div>
+<h3 id="E:TARGET_SETTING_NOT_SUPPORTED:ConfigurationMenu">Target machine does not support this setting.</h3>
+<p>Tried to perform a configuration menu operation that isn't supported by the hardware platform.</p>
+<p>Solution:<br>
+This message does not require a solution.</p>
+</div>
+<div>
+<h3 id="E:TARGET_SETTING_NOT_SUPPORTED_PREV_RESTORED:ConfigurationMenu">Target machine does not support this setting. Previous setting will be restored.</h3>
+<p>The setting is supported by the hardware platform, but the selected option is not. Solution: This message does not require a solution.</p>
+</div>
+<div>
+<h3 id="E:Con_NotSupport_Offline:ConfigurationMenu">The "Diagnostics" function does not work offline.</h3>
+<p>The user application is not running. To use Diagnostics, the user application needs to run. Touch the Run mode and use a switch to display the Configuration menu.</p>
+</div>
+<div>
+<h3 id="E:AUTOINSTALL_ERROR:AutoInstall">The auto-installer has detected an error. Your application might not function correctly. Please make sure the target type is correct.</h3>
+<p>This problem occurs when target machine is starting up from the CF card or USB drive.<br>
+USB Drive<br>
+If you are starting from the USB drive, the Target Type and Panel Size of the user application may not match the actual target machine.<br>
+Solution:<br>
+- Turn the target machine OFF, insert a USB drive with a valid application, then turn the target machine back on.<br>
+CF Card<br>
+The runtime information is incomplete, or the CF card contains invalid files or folders. Invalid files/folders include files with names longer than 8 characters (+3 extension), and names with characters that are not ASCII.<br>
+Solution:<br>
+- Download the application again. Download should remove any unnecessary files and folders. Make sure download is complete before removing the CF card drive. The CF card drive continues to write for 2 to 3 minutes after the busy indicator turns off.<br>
+- If downloading doesn't work, format the CF card.</p>
+</div>
+<div>
+<h3 id="E:BIO_SWITCH_INSERT:KAOScore">The biometric switch is connected.</h3>
+<p>This message informs you the biometric switch is plugged in and is available for use.</p>
+</div>
+<div>
+<h3 id="h31">The biometric switch is not connected.</h3>
+<p>This message informs you the biometric switch is not connected and is not available for use. Connect the biometric switch. If it is already connected, check the external power supply or the USB cable for any physical damage. If you connect one or more USB devices to the target machine, use a USB hub with external power supply.</p>
+</div>
+<div>
+<h3 id="h32">The biometric switch is unplugged.</h3>
+<p>This message informs you the biometric switch is unplugged during the run time and is not available for use. Connect the biometric switch. If it is already connected, check its external power supply or the USB cable for any physical damage. I If you connect one or more USB devices to the target machine, use a USB hub with external power supply.</p>
+</div>
+<div>
+<h3 id="E:INVALID_POSITION_IN_BIT_ACCESS:Shared Error Messages">The bit position defined in the following expression is invalid:</h3>
+<p>The bit position, defined by the value of the variable specified, cannot be accessed. The bit position is either higher than the maximum value or lower than the minimum value specified for bit access. Solution:<br>
+Check the specified bit access range, then raise or lower the bit position accordingly.</p>
+</div>
+<div>
+<h3 id="E:WRONG_CFCARD_FSTYPE:CFCard">The CF card is formatted as FAT16. CF cards should use the FAT32 file system.</h3>
+<p>Format the CF card as a FAT32 file system.</p>
+</div>
+<div>
+<h3 id="E:CFCARD_FULL:CFCard">The CF card is full.</h3>
+<p>The CF card's disk space has been exceeded. For example, when using recipes at runtime, running the Save As operation to save the current settings and the previous settings to a CF card may fail.<br>
+Solution:<br>
+Run the Save operation instead of the Save As operation to save your current settings to a CF card.<br>
+Note:<br>
+The Save operation saves only the current settings and overwrites any previous settings.</p>
+</div>
+<div>
+<h3 id="E:UNRECOGNIZED_CFCARD_AGP:CFCard">The CF card is not recognized. It's either not formatted or formatted incorrectly. Format the CF card as FAT16 or FAT32.</h3>
+<p>The CF card is not formatted properly. Solution:<br>
+Format the CF card as FAT16 or FAT32.</p>
+</div>
+<div>
+<h3 id="E:UNRECOGNIZED_CFCARD:CFCard">The CF card is not recognized. It's either not formatted or formatted as FAT32. Format the CF card as FAT16.</h3>
+<p>The CF card drive indicates a CF card has been inserted, but the card is not recognized. Solution:<br>
+Formatting of the CF card may be required, or the CF card is not created by Schneider Electric. Insert the correct CF card and restart the target machine.</p>
+</div>
+<div>
+<h3 id="E:TIME_AUTOMATICALLY_ADJUSTED_FOR_DST:KAOScore">The clock has been adjusted for daylight saving time.</h3>
+<p>This message informs you the clock has been adjusted to the current daylight savings time.</p>
+</div>
+<div>
+<h3 id="E:Con_Hostname_Set_Failed:ConfigurationMenu">The configuration for the hostname cannot be set because a duplicate hostname exists.</h3>
+<p>To solve the error, set a different hostname.</p>
+</div>
+<div>
+<h3 id="E:OMS_CONTROL_RUNTIME_UNAVAILABLE:OMS">The control runtime is not available.</h3>
+<p>Control runtime must be available for the driver on the XBTGC and XBTGT 2000 and up targets.<br>
+For XBTGC, use the Runtime Installer to ensure control runtime is installed correctly.<br>
+For XBTGT 2000 and up, add the SO network driver to ensure control runtime is installed.</p>
+</div>
+<div>
+<h3 id="E:MELSECQNU_NOEXIST_CPU">The destination CPU does not exist.</h3>
+<p>The destination CPU does not exist because a multi-CPU environment is currently not supported.</p>
+</div>
+<div>
+<h3 id="I:DEVICE_TABLE_EMPTY:ConfigurationMenu">The device table is empty.</h3>
+<p>Return to the editor, run the Clean command on the project, build the user application again, then download to the target machine. If these operations don't solve the problem, please contact customer support.</p>
+</div>
+<div>
+<h3 id="E:ABDH485_IN_DATA_BUFFER_FULL:Rockwell">The DH485 data input buffer is full.</h3>
+<p>Restart the runtime. If the problem persists, please contact customer support.</p>
+</div>
+<div>
+<h3 id="E:ABDH485_OUT_DATA_BUFFER_FULL:Rockwell">The DH485 data message output buffer is full.</h3>
+<p>Restart the runtime. If the problem persists, please contact customer support.</p>
+</div>
+<div>
+<h3 id="E:ABDH485_UNKNOWN_STATE:Rockwell">The DH485 state machine is in an unknown state.</h3>
+<p>Restart the Runtime. If the problem persists, please contact customer support.</p>
+</div>
+<div>
+<h3 id="E:ABDH485_IN_US_BUFFER_FULL:Rockwell">The DH485 Unsolicited Message input buffer is full.</h3>
+<p>Restart the runtime. If the problem persists, please contact customer support.</p>
+</div>
+<div>
+<h3 id="E:ABDH485_UNSOLICITED_PKT_BUFFER_FULL:Rockwell">The DH485 Unsolicited Message output buffer is full.</h3>
+<p>Restart the runtime. If the problem persists, please contact customer support.</p>
+</div>
+<div>
+<h3 id="I:INVALID_DRIVER_INDEX:Communications System">The Driver Index is invalid (i.e. does not exist or out of bound).</h3>
+<p>Return to the editor, run the Clean command on the project, build the user application again, then download to the target machine. If these operations don't solve the problem, please contact customer support.</p>
+</div>
+<div>
+<h3 id="E:FILE_NUMBER_ERROR:KAOScore">The file number is out of range.</h3>
+<p>Make sure the File Number variable value is in the required range of 00-65536 if saving by file number, or in an acceptable date format if saving by date. For more information on saving alarm history data to CSV files, see the online help.</p>
+</div>
+<div>
+<h3 id="E:INVALID_SYSTEM_LANGUAGE_ID:ConfigurationMenu">The following system language ID is invalid.</h3>
+<p>Touch operation or scripting has been used to change the system language, but the defined ID number is invalid. (i.e., There is no language associated with the ID number.) Solution:<br>
+Find the switch, touch animation, action, or script and enter a valid system language ID number.</p>
+</div>
+<div>
+<h3 id="E:INVALID_FONT_TYPE:ConfigurationMenu">The following user font is invalid and needs to be downloaded.</h3>
+<p>The user application is using a font that is not available on the target machine. Solution:<br>
+Use the Runtime Installer application to forcefully download the font.</p>
+</div>
+<div>
+<h3 id="E:INVALID_USER_APP_LANGUAGE_ID:ConfigurationMenu">The following user language ID is invalid.</h3>
+<p>Touch operation or scripting has been used to change the user application language, but the defined ID number is invalid. (i.e., There is no language associated with the ID number.) Solution:<br>
+Find the switch, touch animation, action, or script and enter a valid user application language ID number.</p>
+</div>
+<div>
+<h3 id="E:TARGET_MISMATCH:Autoinstall">The hardware platform does not match the target type defined in the application. Installation has been stopped.</h3>
+<p>The application being loaded from the CF card has been set up for a different hardware platform.<br>
+Solution:<br>
+- If the CF card is intended for use on a different platform, find the correct CF card that matches your target machine.<br>
+- If the application is supposed to run on your target machine, return to the editor, define the correct hardware platform, then download the application to the CF card.</p>
+</div>
+<div>
+<h3 id="E:MPI_ILLEGAL_HSA:SiemensMPID">The Highest Node Number parameter is invalid.</h3>
+<p>Correct the node number.</p>
+</div>
+<div>
+<h3 id="E:ALARM_CONSOLE_INSERT:KAOScore">The illuminated switch is connected.</h3>
+<p>This message informs you the illumniated switch is plugged in and ready for use.</p>
+</div>
+<div>
+<h3 id="E:ALARM_CONSOLE_DISCONNECT:KAOScore">The illuminated switch is not connected.</h3>
+<p>This message informs you the illumniated switch is not connected and is not available for use. Connect the illuminated switch. If it is already connected, check the USB cable for any physical damage. If you connect one or more USB devices to the target machine, use a USB hub with external power supply.</p>
+</div>
+<div>
+<h3 id="E:ALARM_CONSOLE_REMOVE:KAOScore">The illuminated switch is unplugged.</h3>
+<p>This message informs you the illumniated switch is unplugged during the run time and is not available for use. Connect the illuminated switch. If it is already connected, check the USB cable for any physical damage. If you connect one or more USB devices to the target machine, use a USB hub with external power supply.</p>
+</div>
+<div>
+<h3 id="E:BLOCK_INDEX_OUT_OF_RANGE:Shared Error Messages">The index of Block Variable is out of range, failed to write to Block Variable Buffer.</h3>
+<p>You are accessing elements in a block variable, probably in a script. However, you are trying to access an element that does not exist in the block variable.<br>
+Solution:<br>
+- Create a variable cross-reference report to find all the locations where the block variable is used. Make sure access to elements in the block variable are correct.<br>
+For example, elements in the block variable begin with index 0. For a block variable with 10 elements, to access the tenth element, use index 9.</p>
+</div>
+<div>
+<h3 id="I:KERNEL_INIT_TABLE_NOT_FOUND:KAOScore">The kernel initialization table was not found; this is a system startup problem.</h3>
+<p>Return to the editor, run the Clean command on the project, build the user application again, then download to the target machine. If these operations don't solve the problem, please contact customer support.</p>
+</div>
+<div>
+<h3 id="E:MAIN_FLASH_FULL:CFCard">The main flash memory is full.</h3>
+<p>The main Flash memory has been exceeded.<br>
+For example, when using recipes at runtime, running the Save As operation to save the current settings and the previous settings to the main Flash memory may fail.<br>
+Solution:<br>
+Run the Save operation instead of the Save As operation to save your current settings to main Flash memory.<br>
+Note:<br>
+The Save operation saves only the current settings and overwrites any previous settings.</p>
+</div>
+<div>
+<h3 id="E:MODBUS_PLUS_CARD_INITIALIZATION_FAILURE:Modbus Plus">The Modbus Plus card failed to initialize.</h3>
+<p>This message indicates either connection or hardware problems. Solution: Make sure the Modbus Plus module is connected securely to the target machine.</p>
+</div>
+<div>
+<h3 id="E:MODBUS_PLUS_NETWORK_CABLE_UNPLUGGED:Modbus Plus">The Modbus Plus network cable has been disconnected.</h3>
+<p>The cable connecting the target machine to the Modbus Plus network is loose, disconnected, or damaged.<br>
+Solution:<br>
+- Check the cable and cable connection on the target machine and on other network nodes. Wires may be loose or the connection jacks may not fit perfectly.<br>
+- Check the Modbus Plus module hardware.</p>
+</div>
+<div>
+<h3 id="I:SHARED_MODULE_NOT_IN_PAUSE_STATE:Shared Error Messages">The module is not in paused state.</h3>
+<p>Return to the editor, run the Clean command on the project, build the user application again, then download to the target machine. If these operations don't solve the problem, please contact customer support.</p>
+</div>
+<div>
+<h3 id="E:INVALID_PANEL_ID:Shared Error Messages">The Panel ID must be a positive integer. The following panel ID is invalid.</h3>
+<p>The specified Panel ID number specified in the script is not a positive integer. For example, a Change Operation script that specifies a Panel ID that is not a positive integer will fail.<br>
+Solution:<br>
+In the script, specify a Panel ID that is a positive integer.</p>
+</div>
+<div>
+<h3 id="E:Not_Published_For_PeV:Shared Error Messages">The panel is not published for Web Gate!</h3>
+<p>This error displays when you try to navigate to a panel that has not been set up to publish to Web Gate.<br>
+Solution:<br>
+If you want Web Gate clients to view the panel, set the panel to publish to Web Gate.</p>
+</div>
+<div>
+<h3 id="I:PANEL_LOCKED_OUT:Shared Error Messages">The panel you are trying to access is locked out by another target and is not available at the moment. Please try again later.</h3>
+<p>The panel you are trying to access has been locked out because the target is in Exclusive Input mode.<br>
+Solution:<br>
+The panel can be accessed once the target is no longer in Exclusive Input mode.</p>
+</div>
+<div>
+<h3 id="I:INVALID_PLC_INDEX:Communications System">The PLC Index is invalid (i.e. does not exist or out of bound).</h3>
+<p>Return to the editor, run the Clean command on the project, build the user application again, then download to the target machine. If these operations don't solve the problem, please contact customer support.</p>
+</div>
+<div>
+<h3 id="E:BLANK_LABEL:KAOScore">The recipe label is blank.</h3>
+<p>You have entered a blank recipe label. You must enter a valid recipe label.</p>
+</div>
+<div>
+<h3 id="E:LABEL_TO_LONG:KAOScore">The recipe label is too long.</h3>
+<p>The recipe label you have entered exceeds the valid range. The label can be up to 32 characters long.</p>
+</div>
+<div>
+<h3 id="E:DUPL_LABEL:KAOScore">The recipe label name already exists.</h3>
+<p>Enter a unique recipe label name.</p>
+</div>
+<div>
+<h3 id="E:ABDH485_STATION_NOT_ONLINE:Rockwell">The requested DH485 station is not online.</h3>
+<p>This message may indicate one of these problems:<br>
+- The station is offline or turned off<br>
+- The station is not connected or connections are loose<br>
+Solution:<br>
+- Turn on or reset the station<br>
+- Check the connections<br>
+- Check the cable<br>
+- Return to the Editor and check if the stations set up in the Editor match the stations on the network.</p>
+</div>
+<div>
+<h3 id="I:SHARED_FILE_NOT_FOUND:Shared Error Messages">The requested file was not found.</h3>
+<p>Return to the editor, run the Clean command on the project, build the user application again, then download to the target machine. If these operations don't solve the problem, please contact customer support.</p>
+</div>
+<div>
+<h3 id="E:MPI_CONNECTION_REFUSED:SiemensMPID">The requested target node has refused the connection.</h3>
+<p>The PLC only supports a certain number of connections and may not have the resources to allow you to connect. Reconfigure your network to enable connection.</p>
+</div>
+<div>
+<h3 id="E:MPI_NO_TARGET:SiemensMPID">The requested target node was not found in the token ring.</h3>
+<p>You have configured a piece of equipment that either does not exist or have been configured incorrectly. Check that the equipment exists and check the equipment configuration.</p>
+</div>
+<div>
+<h3 id="I:UNSUPPORTED_RETURN_TYPE_FROM_POST_WRITE_METHOD:DefaultTagCallBack">The return type in the post write method is not supported.</h3>
+<p>Return to the editor, run the Clean command on the project, build the user application again, then download to the target machine. If these operations don't solve the problem, please contact customer support.</p>
+</div>
+<div>
+<h3 id="E:BRAND_UNSUPPORTED_IPC:AutoInstall">The Runtime application only runs on specific IPC target machines. Refer to the Vijeo-Designer online help for a list of supported target machines.</h3>
+<p>You are running the Runtime application on an unsupported target machine. Refer to Section 2.2, <a href="Environment.chm::/Supported_target_machines.htm">Supported Tablets, Smartphones, and Target Machines</a>, in the Vijeo-Designer online help.</p>
+</div>
+<div>
+<h3 id="E:IPCSRAMSIMULATION_MSG1">The Secondary Drive is being used for SRAM Simulation.</h3>
+<p>The Vijeo Designer application, which is running on an iPC that simulates SRAM, is using a feature that requires SRAM usage (for example, retentive variables and data logging). However, the iPC has no secondary or optional drive inserted, so run time is unable to simulate SRAM.</p>
+</div>
+<div>
+<h3 id="I:INVALID_AG_INDEX:Communications System">The Scan Group Index is invalid (i.e. does not exist or out of bound).</h3>
+<p>Return to the editor, run the Clean command on the project, build the user application again, then download to the target machine. If these operations don't solve the problem, please contact customer support.</p>
+</div>
+<div>
+<h3 id="I:KAOS_SOCKET_SHUTDOWN_FAILED:KAOS Socket">The shutdown of the KAOSSocket module failed.</h3>
+<p>Return to the editor, run the Clean command on the project, build the user application again, then download to the target machine. If these operations don't solve the problem, please contact customer support.</p>
+</div>
+<div>
+<h3 id="E:SHARED_KOM_INVALID_ADDRESS:Shared Error Messages">The specified address is invalid.</h3>
+<p>The user application is referencing an invalid PLC device address. This error message indicates the device address is out of range, not supported by the PLC, or not supported by the particular PLC model or type.<br>
+Solution:<br>
+Return to the editor and make sure valid, supported PLC device addresses are used in each PLC variable.<br>
+To find the device addresses supported by your PLC:<br>
+- Refer to your PLC manual<br>
+- Check the PLC configuration</p>
+</div>
+<div>
+<h3 id="E:COMMAND_ERROR:KAOScore">The specified command is invalid.</h3>
+<p>The Control Variable value is not recognized as a valid command number for saving alarm history data. The control variable value in the save to CF card settings dialog can only be set to 0, 1, 2, 3 or 16 (hex 0, 1, 2, 3, or 10). Solution<br>
+Make sure your control variable uses only recognized command values. For more information on saving alarm history data to CSV files, see section the online help.</p>
+</div>
+<div>
+<h3 id="I:INVALID_DIRECTION_VALUE:ConfigurationMenu">The specified destination value is invalid.</h3>
+<p>Return to the editor, run the Clean command on the project, build the user application again, then download to the target machine. If these operations don't solve the problem, please contact customer support.</p>
+</div>
+<div>
+<h3 id="I:INVALID_SOURCE_VALUE:ConfigurationMenu">The specified source value is invalid.</h3>
+<p>Return to the editor, run the Clean command on the project, build the user application again, then download to the target machine. If these operations don't solve the problem, please contact customer support.</p>
+</div>
+<div>
+<h3 id="E:Con_Network_Not_Connect:ConfigurationMenu">The target is not connected to the network. Reboot the target for settings to take effect.</h3>
+<p>You cannot save current network settings because the target has been disconnected from the network. To fix, check your network connection and then reboot the target for the network settings to take effect.</p>
+</div>
+<div>
+<h3 id="E:USB_MASS_INSERT:KAOScore">The USB device is connected.</h3>
+<p>This message indicates that the USB memory stick that you have inserted into the USB port is now connected and available for use.</p>
+</div>
+<div>
+<h3 id="E:WRONG_USB_MASS_FSTYPE:CFCard">The USB device is formatted as FAT16. USB devices should use the FAT32 file system.</h3>
+<p>Format the USB device as a FAT32 file system.</p>
+</div>
+<div>
+<h3 id="E:USB_MASS_FULL: KAOScore">The USB device is full.</h3>
+<p>This message indicates that the USB memory stick has reached its storage capacity. To resolve, remove files from the USB memory stick that are no longer used.</p>
+</div>
+<div>
+<h3 id="E:USB_MASS_REMOVE:KAOScore">The USB device is unplugged.</h3>
+<p>This message indicates that the USB memory stick is now disconnected and is no longer available for use.</p>
+</div>
+<div>
+<h3 id="E:OVER_CURRENT:KAOScore">The USB device requires more current than is available.</h3>
+<p>The HMISTU655 target machine's USB port supports a maximum output current of 250 mA. This message displays when you plug a USB device into the HMISTU655 target machine's USB port, and the USB device requires more current than is available.</p>
+<p>Solution:</p>
+<p>Use a USB device that consumes 250 mA or less.</p>
+</div>
+<div>
+<h3 id="I:COM_INVALID_VARID_INDEX:Communications System">The Variable Identifier is invalid (i.e. does not exist or out of bound).</h3>
+<p>Return to the editor, run the Clean command on the project, build the user application again, then download to the target machine. If these operations don't solve the problem, please contact customer support.</p>
+</div>
+<div>
+<h3 id="E:WRONG_DISKETTE_IN_CFCARD:CFCard">The wrong disk is in the CF Card drive. Insert the disk used at startup to continue operations.</h3>
+<p>The CF card has been removed, but the wrong CF card has been reinserted. Solution:<br>
+For the user application to continue running successfully on the target machine, the CF card that was originally used at startup must be reinserted.</p>
+</div>
+<div>
+<h3 id="E:SERVER_ERROR:Security">There was a server error.</h3>
+<p>When there is a communications error, specifically in common security, another message initially displays to inform you of the error details, followed by this message.</p>
+</div>
+<div>
+<h3 id="E:MPI_RECEIVE_ERROR:SiemensMPID">There was an error during the receiving of data via the built-in MPI feature.</h3>
+<p>Check the serial cable.</p>
+</div>
+<div>
+<h3 id="E:MPI_SEND_ERROR:SiemensMPID">There was an error during the sending of data via the built-in MPI feature.</h3>
+<p>Check the serial cable.</p>
+</div>
+<div>
+<h3 id="E:USER_LOCKED:Security">This account has been locked.</h3>
+<p>You have exceeded the maximum number of tries to log in. Contact your administrator to reset the user by modifying the password.</p>
+</div>
+<div>
+<h3 id="E:USER_REQUIRES_FP:Security">This user requires a fingerprint to log in.</h3>
+<p>The user is a member of a security group that requires authentication with a fingerprint.</p>
+</div>
+<div>
+<h3 id="E:USER_REQUIRES_PASSWORD:Security">This user requires a password to log in.</h3>
+<p>The user is a member of a security group that requires authentication with a password.</p>
+</div>
+<div>
+<h3 id="I:TOO_MANY_FILE_FINDS_ARE_OPEN:KAOScore">Too many files are open; this is a configuration file problem.</h3>
+<p>Return to the editor, run the Clean command on the project, build the user application again, then download to the target machine. If these operations don't solve the problem, please contact customer support.</p>
+</div>
+<div>
+<h3 id="E:TIMERMGR_FAILURE_IN_ADDING_SCRIPT_DURING_REGISTRATION:TimerMgr">Too many periodic type scripts. Periodic script will not execute.</h3>
+<p>Memory problem. This message probably displays at panel change, where too many timer scripts have been added so you ran out of memory. The scripts that have already been initialized will continue to run. Other timer scripts cannot be added. The periodic scripts in the user application need to be reorganized to reduce their number.<br>
+Solution:<br>
+- Reduce the number of periodic scripts<br>
+- If multiple Application Scripts have the same timing, move all the code into the same script<br>
+- If multiple Panel Scripts in the same panel have the same timing, move all the code into the same script.</p>
+</div>
+<div>
+<h3 id="E:KAOS_SOCKET_TOO_MANY_SOCKETS_DECLARED:KAOS Socket">Too many sockets. System has reached network communication limit.</h3>
+<p>Occurs during PLC and target machine communications over an Ethernet. There is a logical limitation in the number of sockets you can create. This message indicates your system is too complicated from a network communications point of view. That is, your system uses too many network sockets, which may be a result of too many Scan Groups.<br>
+Solution:<br>
+To resolve this error, if you have multiple Scan Groups with the same Poll Rate, group the variables into the same Scan Group.<br>
+Although this is not recommended, you can increase the value of MaxSockets in the project configuration file (Project.cfg).</p>
+</div>
+<div>
+<h3 id="E:LOW_SPACE_NOTIFICATION:CFCard">The storage space available on the drive has reached the Low Space Notification threshold.</h3>
+<p>Use Data Manager to extract and delete data from your target machine.</p>
+</div>
+<div>
+<h3 id="I:NULL_PEN_IN_CONSTRUCTION_LIST:Trend">Trend graph initialization failed. A channel is empty.</h3>
+<p>Return to the editor, run the Clean command on the project, build the user application again, then download to the target machine. If these operations don't solve the problem, please contact customer support.</p>
+</div>
+<div>
+<h3 id="I:NULL_OUTPUT_CHART:Trend">Trend graph initialization failed. Graph is empty.</h3>
+<p>Return to the editor, run the Clean command on the project, build the user application again, then download to the target machine. If these operations don't solve the problem, please contact customer support.</p>
+</div>
+<div>
+<h3 id="I:NULL_PENS_IN_CONSTRUCTION:Trend">Trend graph initialization failed. List of channels empty.</h3>
+<p>Return to the editor, run the Clean command on the project, build the user application again, then download to the target machine. If these operations don't solve the problem, please contact customer support.</p>
+</div>
+<div>
+<h3 id="E:TREND_NO_CF_CARD:Trend">Trend graph is using backup option. CF Card is required.</h3>
+<p>A trend graph in the user application is backing up its data. Solution:<br>
+In order to use the backup function, this target machine requires a CF card be inserted into its CF card drive. If no CF card or drive is available, then you cannot use the backup function, and the data will be lost when you turn the machine back on.</p>
+</div>
+<div>
+<h3 id="E:SHARED_KOM_READ_ONLY_DEVICE:Shared Error Messages">Tried to write to read only device. Operation cancelled.</h3>
+<p>The user application is set up to write to a PLC device that is read-only (write protected.) Solution:<br>
+If possible, remove the write protection from the PLC device, or do not write to that device from the target machine.</p>
+</div>
+<div>
+<h2 style="margin-top: 27pt;"><a name="U" id="U"></a>U</h2>
+</div>
+<div>
+<h3 id="E:SHARED_KOM_UNABLE_TO_CONNECT_TO_NETWORK:SharedMessages">Unable to connect to network. Check the cable and any connections.</h3>
+<p>Make sure the cable and other connections are plugged in correctly.</p>
+</div>
+<div>
+<h3 id="E:SHARED_KOM_UNABLE_TO_CONNECT_TO_NETWORK:Shared Error Messages">Unable to connect to network. Possible cable problem.</h3>
+<p>A target has been configured but the network cable is not plugged in. Solution:<br>
+Plug in the network cable.</p>
+</div>
+<div>
+<h3 id="E:TAG_STRING_TO_FLOAT_CONVERSION_ERROR:Tags">Unable to convert string to float.</h3>
+<p>Using scripts, an attempt was made to convert a string to a float in a variable. Solution:<br>
+Return to the editor and open the panel where this error occurs. Search for script code that tries to convert a string to float and correct the code.</p>
+</div>
+<div>
+<h3 id="E:TAG_STRING_TO_INT_CONVERSION_ERROR:Tags">Unable to convert string to integer.</h3>
+<p>Using scripts, an attempt was made to convert a string to an integer in a variable. Solution:<br>
+Return to the editor and open the panel where this error occurs. Search for script code that tries to convert a string to integer and correct the code.</p>
+</div>
+<div>
+<h3 id="E:KIDD_ERROR_LOADING_DLM:KIDD">Unable to load requested driver.</h3>
+<p>Unable to find the passed driver name. The driver could be the PLC protocol, keyboard, mouse, or error display driver.<br>
+Solution:<br>
+This message indicates a driver that should have been loaded wasn't.<br>
+To resolve this error:<br>
+- Restart the target machine<br>
+- Return to the editor, run the Clean command on the user application, build the user application again, and download to the target machine.</p>
+</div>
+<div>
+<h3 id="E:CF_READ_ERROR:CFCard">Unable to read from CF card.</h3>
+<p>Data on the CF card may be corrupted or the card may be damaged. Try another CF card.</p>
+</div>
+<div>
+<h3 id="E:CF_WRITE_ERROR:CFCard">Unable to write to CF card.</h3>
+<p>The CF card may be damaged. Try another CF card.</p>
+</div>
+<div>
+<h3 id="E:SHARED_KOM_INVALID_UNLOCATED_VAR_CHECKSUM:SharedMessages">Unlocated variable read/write failed. Invalid application checksum.</h3>
+<p>The unlocated variables in the PLC project and HMI project are not synchronized. Use Update Link in the Editor to refresh.</p>
+</div>
+<div>
+<h3 id="E:MELSECA_CPU_UNKNOWN_MEMORY_CASSETTE_TYPE:MelsecA Cpu">Unrecognized memory cassette type installed in PLC.</h3>
+<p>During the initialization sequence, failed in recognizing the PLC's memory cassette type.<br>
+Solution:<br>
+- Check the connections<br>
+- Check the cable<br>
+- Check the cable path for any magnetic interference</p>
+</div>
+<div>
+<h2 style="margin-top: 27pt;"><a name="V" id="V"></a>V</h2>
+</div>
+<div>
+<h3 id="I:SHARED_CONFIG_VALIDATE_FAIL:Shared Error Messages">Validation of configuration items failed.</h3>
+<p>Return to the editor, run the Clean command on the project, build the user application again, then download to the target machine. If these operations don't solve the problem, please contact customer support.</p>
+</div>
+<div>
+<h3 id="E:VARIABLE_ARRAY_INDEX_ERROR:UserInputMgr">Variable array index is out of bounds.</h3>
+<p>The variable array is a fixed size. You are trying to access a variable array element that has not been set up in the editor. Make sure references to variable array elements are valid.</p>
+</div>
+<div>
+<h3 id="E:SHARED_KOM_WRITE_ABORT:Shared Error Messages">Variable has bad data quality. Write aborted.</h3>
+<p>The variable's communication has reported a bad Quality status. Attempting to run a Write operation to a device address when a variable's Quality status is bad will fail.<br>
+Solution:<br>
+As long as the variable has bad data quality, you cannot change its value. A problem with the communication system is causing the bad data quality.<br>
+To resolve the communication problem:<br>
+- Check the cable connections<br>
+- Make sure the external device is ON<br>
+- Make sure the other target machines on the network are ON</p>
+</div>
+<div>
+<h3 id="I:TAGDB_TAGNAME_ALREADY_EXISTS:Tags">Variable name already exists in Variable DB.</h3>
+<p>Return to the editor, run the Clean command on the project, build the user application again, then download to the target machine. If these operations don't solve the problem, please contact customer support.</p>
+</div>
+<div>
+<h3 id="E:NO_CF_CARD:Tags">Variables are being logged to the storage volume, which is now either unavailable or full.</h3>
+<p>The KeepHistory property is Enabled for variables in the user application. If logging to a CF Card, it's either unavailable or full. If logging to the hard disk, the disk is now full. The user application will continue taking the variable history, but the oldest data in the memory buffer will be dropped to make room for the latest data.</p>
+<p>Solution:<br>
+CF Card - Insert the CF Card. Avoid removing the CF Card from the target machine while runtime is in operation. If you do remove the CF Card, up to 48 or 49 data changes in each variable can take place before the next write operation to the CF Card.</p>
+<p>CF Card - Due to fragmentation of the CF Card, it is recommended to format the CF Card in FAT32 format if this error appears.</p>
+<p>Hard Disk - Make more room on the hard disk so applications can run properly. Delete unnecessary files and defragment the hard disk.</p>
+</div>
+<div>
+<h3 id="E:DIO_PORT_CONFLICT:KAOScore">Vijeo-Runtime cannot use the DIO port as configured. The DIO port is already in use by another application.</h3>
+<p>This message indicates that you cannot use the DIO port as it is already being used by another application, System Monitor. To resolve this error, shut down System Monitor.</p>
+</div>
+<div>
+<h2 style="margin-top: 27pt;"><a name="W" id="W"></a>W</h2>
+</div>
+<div>
+<h3 id="I:SHARED_EVENT_WAIT_FAIL:Shared Error Messages">Wait For An Event Failed.</h3>
+<p>Return to the editor, run the Clean command on the project, build the user application again, then download to the target machine. If these operations don't solve the problem, please contact customer support.</p>
+</div>
+<div>
+<h3 id="I:UIM_UNKNOW_MESSAGE_TYPE:UserInputMgr">Warning, UIM received an unhandled message type.</h3>
+<p>Return to the editor, run the Clean command on the project, build the user application again, then download to the target machine. If these operations don't solve the problem, please contact customer support.</p>
+</div>
+<div>
+<h3 id="E:INACTIVE_TIMEOUT_MSG:Runtime application">Web Gate connection was closed because of inactivity timeout. In order to connect to the Web Gate, press the button below.</h3>
+<p>Press the Reconnect button on the system panel to reconnect to Web Gate.</p>
+</div>
+<div>
+<h3 id="E:SHARED_KOM_PLCMODE_MISMATCH:Shared Error Messages">Write command is not allowed. Change the setting in Editor.</h3>
+<p>Change the setting in Editor. The PLC is protected by the Write Mode. runtime will attempt to change the Write Mode and write to the PLC.<br>
+Solution:<br>
+Change the Write Mode on the PLC if writing from the target machine is allowed.<br>
+Otherwise, do not write to the PLC from runtime.</p>
+</div>
+<div>
+<h3 id="E:CG_WRITE_BUFFER_EXCEEDED:KAOScore">Write to buffer, size exceeded.</h3>
+<p>Configuration file is too large. Exceeded buffer size of 32Kbytes.<br>
+Solution:<br>
+Because the project configuration file is invalid, the simplest solution is to download the user application again.<br>
+If that's not possible, then review the items in the project.cfg file and remove or edit any items that may have caused the configuration file to increase in size so much.</p>
+</div>
+<div>
+<h3 id="E:PROFIBUS_WRONG_CFG_ERROR:Profibus">Wrong Profibus configuration data.</h3>
+<p>The Total I/O value in the Driver Configuration dialog box has to equal the Total I/O value in the PLC. To fix, change either the Total I/O value in the Driver Configuration dialog box or the Total I/O value in the PLC so that they are the same.</p>
+</div>
+<div>
+<h3 id="E:PROFIBUS_WRONG_PRM_ERROR:Profibus">Wrong Profibus PRM error.</h3>
+<p>Compare User_Prm_Data with the original GSD file.</p>
+</div>
+<div>
+<h2 style="margin-top: 27pt;"><a name="X" id="X"></a>X</h2>
+</div>
+<div>
+<h2 style="margin-top: 27pt;"><a name="Y" id="Y"></a>Y</h2>
+</div>
+<div>
+<h3 id="E:DELETE_FILE:Security">You cannot delete the file. Your security level does not have file deletion rights.</h3>
+<p>If you need to delete the file, see your system administrator.</p>
+</div>
+<div>
+<h3 id="E:EMAIL_OVER_QUEUE_LIMIT:KAOScore">You have more than 16 e-mail requests in the queue. The current e-mail request will be ignored.</h3>
+<p>You have exceeded the maximum number of queued e-mail requests allowed. Additional requests are ignored until you process the existing requests.</p>
+</div>
+<div>
+<h2 style="margin-top: 27pt;"><a name="Z" id="Z"></a>Z</h2>
+</div>
+</body>
+</html>

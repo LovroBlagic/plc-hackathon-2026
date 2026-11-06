@@ -1,0 +1,108 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+<meta name="template" content="Vijeo_template.htt">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="topic-status" content="In Progress">
+<meta name="topic-priority" content="0">
+<meta name="topic-time-estimate" content="0">
+<meta name="topic-id" content="">
+ <meta name="generator" content="Adobe RoboHelp 2015">
+<title>Naming Conventions</title>
+<link rel="StyleSheet" href="Tis-styl.css" type="text/css">
+</head>
+<body>
+<script type="text/javascript" src="ehlpdhtm.js" language="JavaScript1.2"></script>
+
+<div style="width: 100%; position: relative;" id="header">
+	<table style="background-attachment: scroll; margin-left: 0px; margin-right: 4px; 
+			 background-image: url(top_banner.bmp); background-repeat: Repeat-X; 
+			 line-height: 0pt; vertical-align: top;" cellspacing="0" background="top_banner.bmp" 
+			 width="100%">
+		<col style="width: 90%;">
+		<col style="width: 5%;">
+		<col style="width: 5%;">
+		<tr style="vertical-align: center; height: 39px;">
+			<td style="width: 90%; padding-right: 10px; padding-left: 10px; 
+				 border-right-color: #000000;">
+   <p><img src="logo.bmp" alt="" style="border: none;" width="37" height="37" border="0"></p></td>
+			<td style="width: 5%; padding-right: 0px; padding-left: 10px; 
+				 border-right-color: #000000;">
+   <p style="text-align: center;"><a 
+			 title="Glossary" href="Glossary.htm"><img src="logo_glossary.bmp" alt="" style="border: none;" width="47" height="37" border="0"></a></p></td>
+			<td style="width: 5%; padding-right: 10px; padding-left: 5px; 
+				 border-right-color: #000000;">
+   <p style="text-align: center;"><a 
+			 href="About.chm::/What_is_Vijeo-Designer.htm" title="Home"><img src="logo_home.bmp" alt="Home" title="Home" style="border: none; 
+			 margin-left: 0px; margin-right: 0px; margin-bottom: 0px; margin-top: -2px;" width="47" height="37" border="0"></a></p></td>
+		</tr>
+	</table>
+</div>
+
+
+<h1>9. Naming Conventions</h1>
+<p>&#160;</p>
+<h2>9.1 Parts, Devices, Objects, Variables, Passwords</h2>
+<p>You must use distinct names for all objects in the application. Be aware that although Vijeo Designer checks that you are using distinct names in your projects, there may be some scenarios which result in duplicate names and broken object name references. Test your application thoroughly on the run-time platform before going into a production environment.</p>
+<p>The following characters are valid characters that can be used for naming parts, devices, objects, variables and passwords in Vijeo Designer:</p>
+<ul>
+<li class="p-Bullet">
+<p class="Bullet">Alphabet [ a-z, A-Z ]</p>
+</li>
+<li class="p-Bullet">
+<p class="Bullet">Numbers [ 0-9 ]</p>
+</li>
+<li class="p-Bullet">
+<p class="Bullet">Underscore [ _ ]</p>
+</li>
+<li class="p-Bullet">
+<p class="Bullet">Other special characters, with the exception of punctuation marks, asterisk (*), pound key (#), backward slash (\), forward slash (/), angle brackets (&lt;&gt;), and the vertical bar (|).</p>
+</li>
+</ul>
+<p class="NoteImage"><img src="Limit.bmp" alt="" style="border: none;" width="77" height="24" border="0"></p>
+<ul>
+<li class="p-NoteText">
+<p class="NoteText">You cannot use the underscore or numbers as the initial character for a name.</p>
+</li>
+<li class="p-NoteText">
+<p class="NoteText">You cannot use the underscore character in a target name.</p>
+</li>
+<li class="p-NoteText">
+<p class="NoteText">You cannot use spaces in a name.</p>
+</li>
+<li class="p-NoteText">
+<p class="NoteText">Java names are reserved and cannot be used as names of objects in Vijeo-Designer.<br>
+For a list of reserved words, see Appendix 3, <a href="Appendix.chm::/Reserved_words_list.htm">Reserved Words</a>.</p>
+</li>
+</ul>
+<h2><a name="hostNamesApp" id="hostNamesApp"></a>9.2 Host Names</h2>
+<p>&#160;</p>
+<p>Host names must follow DNS host naming conventions. &#160;For example: “TargetName.Domain.com” follows these conventions. Each word in the host name is a label defining the targets location within the DNS hierarchy: TargetName [leaf domain] . Domain [second-level domain] . com [top-level domain]</p>
+<p>Host Label Conventions:</p>
+<ul>
+<li class="p-Bullet">
+<p class="Bullet">Labels are concatenated with dots.</p>
+</li>
+<li class="p-Bullet">
+<p class="Bullet">Labels are not case sensitive.</p>
+</li>
+<li class="p-Bullet">
+<p class="Bullet">Labels can only use ASCII letters a - z, numbers 0 – 9, or hyphens (-).</p>
+</li>
+<li class="p-Bullet">
+<p class="Bullet">Labels must be 1 to 63 characters long.</p>
+</li>
+<li class="p-Bullet">
+<p class="Bullet">Labels cannot start with digits or hyphens.</p>
+</li>
+<li class="p-Bullet">
+<p class="Bullet">Labels cannot end with hyphens.</p>
+</li>
+<li class="p-Bullet">
+<p class="Bullet">Entire host name cannot be longer than 255 characters.</p>
+</li>
+</ul>
+<p>&#160;</p>
+</body>
+</html>

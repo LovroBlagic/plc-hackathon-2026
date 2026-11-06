@@ -1,0 +1,99 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+<meta name="template" content="Vijeo_template.htt">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="date" content="08 6, 2003 4:15:31 PM">
+<meta name="topic-status" content="In Progress">
+<meta name="topic-priority" content="0">
+<meta name="topic-time-estimate" content="0">
+<meta name="topic-comment" content="">
+<meta name="topic-id" content="KEYWORD_return.htm">
+ <meta name="generator" content="Adobe RoboHelp 10">
+<title>return</title>
+<link rel="StyleSheet" href="TIS-STYL.CSS" type="text/css">
+</head>
+<body>
+<script type="text/javascript" src="ehlpdhtm.js" language="JavaScript1.2"></script>
+
+<div style="width: 100%; position: relative;" id="header">
+	<table style="background-attachment: scroll; margin-left: 0px; margin-right: 4px; 
+			 background-image: url(top_banner.bmp); background-repeat: Repeat-X; 
+			 line-height: 0pt; vertical-align: top;" cellspacing="0" width="100%" 
+			 background="top_banner.bmp">
+		<col style="width: 90%;">
+		<col style="width: 5%;">
+		<col style="width: 5%;">
+		<tr style="vertical-align: center; height: 39px;">
+			<td style="width: 90%; padding-right: 10px; padding-left: 10px; 
+				 border-right-color: #000000;">
+   <p><img src="logo.bmp" style="border: none;" alt="" width="37" height="37" border="0"></p></td>
+			<td style="width: 5%; padding-right: 0px; padding-left: 10px; 
+				 border-right-color: #000000;">
+   <p style="text-align: center;"><a 
+			 title="Glossary" href="Appendix.chm::/Glossary.htm"><img src="logo_glossary.bmp" style="border: none;" alt="" width="47" height="37" border="0"></a></p></td>
+			<td style="width: 5%; padding-right: 10px; padding-left: 5px; 
+				 border-right-color: #000000;">
+   <p style="text-align: center;"><a 
+			 href="About.chm::/What_is_Vijeo-Designer.htm" title="Home"><img src="logo_home.bmp" alt="Home" title="Home" style="border: none; 
+			 margin-left: 0px; margin-right: 0px; margin-bottom: 0px; margin-top: -2px;" width="47" height="37" border="0"></a></p></td>
+		</tr>
+	</table>
+</div>
+
+<h4>return</h4>
+
+<table wrapperparagraphselector="P" style="margin-top: 14pt; margin-bottom: 14px;" cellspacing="0" width="400">
+<tr>
+<td style="border: Solid 1px #000000;vertical-align: TOP; width: 100%; padding-left: 1px; padding-top: 1px; padding-right: 1px; padding-bottom: 1px;">
+<p class="code" style="margin-bottom: 0;">[statements]</p>
+
+<p class="code" style="margin-bottom: 0;"><span style="font-weight: bold;">return</span>;</p>
+
+<p class="code" style="margin-bottom: 0;">[statements]</p>
+</td>
+</tr>
+</table>
+<p>Brackets [ ] indicate optional items. Keywords are <span style="font-weight: bold;">bolded.</span></p>
+<p><span style="font-weight: bold;">return</span> exits the script. Use <span style="font-weight: bold;">return</span> when you want to exit from the middle of script code.</p>
+<p style="font-weight: bold;">Comments</p>
+<p style="font-weight: bold;"><span style="font-weight: normal;">None</span></p>
+<p style="font-weight: bold;">Example</p>
+<p>In the example below, switch evaluates the expression and executes the matching case statements. When the expression does not evaluate to any of these case values, the default is run, and when we encounter the return keyword, the script is exited.</p>
+<table wrapperparagraphselector="P" style="margin-top: 14pt; margin-bottom: 14px;" cellspacing="0" width="400">
+<tr>
+<td style="border: Solid 1px #000000;vertical-align: TOP; width: 100%; padding-left: 1px; padding-top: 1px; padding-right: 1px; padding-bottom: 1px;">
+<p class="code">int option=1;</p>
+
+<p class="code">&#160;</p>
+
+<p class="code">switch (option)</p>
+
+<p class="code">{</p>
+
+<p class="code" style="margin-left: 40px;">case 1:</p>
+
+<p class="code" style="margin-left: 80px;">variable1.write(1);</p>
+
+<p class="code" style="margin-left: 80px;">break;</p>
+
+<p class="code" style="margin-left: 40px;">case 2:</p>
+
+<p class="code" style="margin-left: 80px;">variable2.write(2);</p>
+
+<p class="code" style="margin-left: 40px;">default:</p>
+
+<p class="code" style="margin-left: 80px;">return; <span style="color: #008000;">// exit script</span></p>
+<p class="code" style="margin-bottom: 0;">}</p>
+<p class="code" style="margin-bottom: 0; color: #008000;">// more statements</p>
+</td>
+</tr>
+</table>
+<p class="note">In the example, case 1 breaks out of the switch and runs <span style="font-style: italic;">more statements</span>; case 2 exits the script because it runs its case statements then runs the default statements.</p>
+<p style="font-weight: bold;">See Also</p>
+
+<p><a href="KEYWORD_break.htm">break</a>, <a href="KEYWORD_dowhile.htm">do-while</a>, <a href="KEYWORD_for.htm">for</a>, <a href="KEYWORD_if-else.htm">if-else</a>, <a href="KEYWORD_switch.htm">switch-case-default</a>, <a href="KEYWORD_while.htm">while</a></p>
+
+</body>
+</html>

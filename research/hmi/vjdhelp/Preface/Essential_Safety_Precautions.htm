@@ -1,0 +1,200 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="date" content="07 10, 2003 2:16:17 PM">
+<meta name="topic-status" content="In Progress">
+<meta name="topic-priority" content="0">
+<meta name="topic-time-estimate" content="0">
+<meta name="topic-comment" content="">
+<meta name="topic-id" content="????????????">
+<meta name="template" content="Vijeo_template.htt">
+ <meta name="generator" content="Adobe RoboHelp 10">
+<title>Safety Precautions</title>
+<link rel="StyleSheet" href="Tis-styl.css" type="text/css">
+</head>
+<body>
+<script type="text/javascript" src="ehlpdhtm.js" language="JavaScript1.2"></script>
+
+<div style="width: 100%; position: relative;" id="header">
+	<table style="background-attachment: scroll; margin-left: 0px; margin-right: 4px; 
+			 background-image: url(top_banner.bmp); background-repeat: Repeat-X; 
+			 line-height: 0pt; vertical-align: top;" cellspacing="0" width="100%" 
+			 background="top_banner.bmp">
+		<col style="width: 90%;">
+		<col style="width: 5%;">
+		<col style="width: 5%;">
+		<tr style="vertical-align: center; height: 39px;">
+			<td style="width: 90%; padding-right: 10px; padding-left: 10px; 
+				 border-right-color: #000000;">
+   <p><img src="logo.bmp" style="border: none;" alt="" width="37" height="37" border="0"></p></td>
+			<td style="width: 5%; padding-right: 0px; padding-left: 10px; 
+				 border-right-color: #000000;">
+   <p style="text-align: center;"><a 
+			 title="Glossary" href="Appendix.chm::/Glossary.htm"><img src="logo_glossary.bmp" style="border: none;" alt="" width="47" height="37" border="0"></a></p></td>
+			<td style="width: 5%; padding-right: 10px; padding-left: 5px; 
+				 border-right-color: #000000;">
+   <p style="text-align: center;"><a 
+			 href="About.chm::/What_is_Vijeo-Designer.htm" title="Home"><img src="logo_home.bmp" alt="Home" title="Home" style="border: none; 
+			 margin-left: 0px; margin-right: 0px; margin-bottom: 0px; margin-top: -2px;" width="47" height="37" border="0"></a></p></td>
+		</tr>
+	</table>
+</div>
+
+<h1>Safety Precautions</h1>
+<h2>Notice</h2>
+<p>Read all instructions carefully, and look at the equipment and HMI device to become familiar with the device before trying to install, operate, or maintain it. The following special messages may appear throughout this documentation or on the equipment to warn of potential hazards or to call attention to information that clarifies or simplifies a procedure.</p>
+<p>&#160;</p>
+<h2>Note</h2>
+<p>Electrical equipment must be installed, operated, serviced, and maintained only by qualified personnel. No responsibility is assumed by Schneider Electric for any consequences arising out of the use of this material.</p>
+<p>A qualified person is one who has skills and knowledge related to the construction and operation of electrical equipment and the installation, and has received safety training to recognize and avoid the hazards involved.</p>
+<p>&#160;</p>
+<h2>General Operation</h2>
+<p>&#160;</p>
+<table style="vertical-align: top;" cellspacing="0" width="100%">
+<col style="width: 100%;">
+<tr style="vertical-align: top;">
+<td style="border: Solid 2px Black;width: 100%; padding-right: 10px; padding-left: 10px; vertical-align: center;">
+<p class="Tabletitle" style="text-align: center;"><img src="Text_warning.bmp" style="border: none;" alt="" width="431" height="31" border="0"></p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-left: Solid 2px Black; border-right: Solid 2px Black; border-bottom: Solid 2px Black; width: 100%; padding-right: 10px; padding-left: 10px;">
+<p style="font-weight: bold;">LOSS OF CONTROL</p>
+<ul>
+<li class="p-Bullet">
+<p class="Bullet">The application designer must consider the potential of accidental touches causing touch operations to run and account for that possibility when designing an application.</p>
+</li>
+<li class="p-Bullet">
+<p class="Bullet">The designer of any control scheme must consider the potential breakdown modes of control paths and, for certain critical control functions, provide a means to achieve a safe state during and after a path breakdown.</p>
+</li>
+<li class="p-Bullet">
+<p class="Bullet">Provide separate or redundant control paths for critical control functions.</p>
+</li>
+<li class="p-Bullet">
+<p class="Bullet">System control paths may include communication links. Consideration must be given to the implications of unanticipated transmission delays or failures of the link.</p>
+</li>
+<li class="p-Bullet">
+<p class="Bullet">Each implementation of application on the target machine must be individually and thoroughly tested for proper operation before being placed into service. For example, test your application for heavy CPU loads and make sure application requirements fit your target machine's specifications. &#160;Use Vijeo Designer Simulation to thoroughly test your application, and test your application on the unit itself. For more information, see Section 25.3, <a href="Download.chm::/Simulate.htm">Simulating Runtime Operations</a>.</p>
+</li>
+</ul>
+<p style="font-weight: bold;">Failure to follow these instructions can result in death, serious injury, or equipment damage.</p>
+</td>
+</tr>
+</table>
+<p>&#160;</p>
+<table style="vertical-align: top;" cellspacing="0" width="100%">
+<col style="width: 100%;">
+<tr style="vertical-align: top;">
+<td style="border: Solid 2px Black;width: 100%; padding-right: 10px; padding-left: 10px; vertical-align: center;" bgcolor="#000000">
+<p class="Tabletitle" style="text-align: center;"><img src="Text_danger.bmp" style="border: none;" alt="" width="433" height="32" border="0"></p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-left: Solid 2px Black; border-right: Solid 2px Black; border-bottom: Solid 2px Black; width: 100%; padding-right: 10px; padding-left: 10px;">
+<p style="font-weight: bold;">EMERGENCY STOP SWITCH</p>
+<ul>
+<li class="p-Bullet">
+<p class="Bullet">The touch panel switch must NOT be used as an equipment's Emergency Stop switch.&#160;For safety reasons, international safety codes typically recommend or require that all industrial machinery and systems be equipped with a mechanical, manually-operated Emergency Stop switch. To ensure safe operation of other equipment, similar mechanical switches must also be provided for other kinds of systems.</p>
+</li>
+</ul>
+<p style="font-weight: bold;">Failure to follow these instructions will result in death, serious injury, or equipment damage.</p>
+</td>
+</tr>
+</table>
+<p>&#160;</p>
+<table style="vertical-align: top;" cellspacing="0" width="100%">
+<col style="width: 100%;">
+<tr style="vertical-align: top;">
+<td style="border: Solid 2px Black;width: 100%; padding-right: 10px; padding-left: 10px; vertical-align: center;" bgcolor="#000000">
+<p class="Tabletitle" style="text-align: center;"><img src="Text_danger.bmp" style="border: none;" alt="" width="433" height="32" border="0"></p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-left: Solid 2px Black; border-right: Solid 2px Black; border-bottom: Solid 2px Black; width: 100%; padding-right: 10px; padding-left: 10px;">
+<p style="font-weight: bold;">SAFETY INTERLOCK</p>
+<ul>
+<li class="p-Bullet">
+<p class="Bullet">During equipment repair or maintenance work, the safety interlock feature must be used to prevent unintended startup of the system. For more information on how to set up the safety interlock feature, see Section 6.7.1, <a href="InputAddress.chm::/systemVariable_controllerLockout.htm">System Variables: _ControllerLockout</a>.</p>
+</li>
+</ul>
+<p style="font-weight: bold;">Failure to follow these instructions will result in death, serious injury, or equipment damage.</p>
+</td>
+</tr>
+</table>
+<p>&#160;</p>
+<table style="vertical-align: top;" cellspacing="0" width="100%">
+<col style="width: 100%;">
+<tr style="vertical-align: top;">
+<td style="border: Solid 2px Black;width: 100%; padding-right: 10px; padding-left: 10px; vertical-align: center;">
+<p style="text-align: center;"><img src="Text_caution2.bmp" style="border: none;" alt="" width="431" height="30" border="0"></p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-left: Solid 2px Black; border-right: Solid 2px Black; border-bottom: Solid 2px Black; width: 100%; padding-right: 10px; padding-left: 10px;">
+<p style="font-weight: bold;">IMPORTING DATA AND PROJECTS INTO VIJEO DESIGNER</p>
+<ul>
+<li class="p-Bullet">
+<p class="Bullet">Projects and data imported into Vijeo Designer must be checked thoroughly to make sure the data has imported successfully.</p>
+</li>
+</ul>
+<p style="font-weight: bold;">Failure to follow these instructions can result in equipment damage.</p>
+</td>
+</tr>
+</table>
+<p>&#160;</p>
+<table style="vertical-align: top;" cellspacing="0" width="100%">
+<col style="width: 100%;">
+<tr style="vertical-align: top;">
+<td style="border: Solid 2px Black;width: 100%; padding-right: 10px; padding-left: 10px; vertical-align: center;">
+<p style="text-align: center;"><img src="Text_caution2.bmp" style="border: none;" alt="" width="431" height="30" border="0"></p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-left: Solid 2px Black; border-right: Solid 2px Black; border-bottom: Solid 2px Black; width: 100%; padding-right: 10px; padding-left: 10px;">
+<p style="font-weight: bold;">IDENTIFYING INOPERABLE TARGET MACHINES</p>
+<ul>
+<li class="p-Bullet">
+<p class="Bullet">The application designer must provide a way for the operator to see if an application has stopped running on the HMI. We recommend adding a time display to the panel. For more information on adding a time display to your application, see Section 11.5.2, <a href="DataInput.chm::/Creating_a_clock_display.htm">Creating Your Own Time Displays</a>.</p>
+</li>
+</ul>
+<p style="font-weight: bold;">Failure to follow these instructions can result in equipment damage.</p>
+</td>
+</tr>
+</table>
+<p>&#160;</p>
+<table style="vertical-align: top;" cellspacing="0" width="100%">
+<col style="width: 100%;">
+<tr style="vertical-align: top;">
+<td style="border: Solid 2px Black;width: 100%; padding-right: 10px; padding-left: 10px; vertical-align: center;">
+<p class="Tabletitle" style="text-align: center;"><img src="Text_caution2.bmp" style="border: none;" alt="" width="431" height="30" border="0"></p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-left: Solid 2px Black; border-right: Solid 2px Black; border-bottom: Solid 2px Black; width: 100%; padding-right: 10px; padding-left: 10px;">
+<p style="font-weight: bold;">Disk Handling</p>
+<ul>
+<li class="p-Bullet">
+<p class="Bullet">Remove the DVD before switching the computer's power ON or OFF.</p>
+</li>
+<li class="p-Bullet">
+<p class="Bullet">Do NOT remove DVD when the disk drive lamp is lit or flashing.</p>
+</li>
+<li class="p-Bullet">
+<p class="Bullet">Do NOT touch the recording surface of DVD .</p>
+</li>
+<li class="p-Bullet">
+<p class="Bullet">Do NOT expose the DVD to extreme temperatures, humidity, aridity, or dust.</p>
+</li>
+<li class="p-Bullet">
+<p class="Bullet">Do NOT turn the computer OFF while an application or program is running.</p>
+</li>
+</ul>
+<p style="font-weight: bold;">Failure to follow these instructions can result in equipment damage.</p>
+</td>
+</tr>
+</table>
+<p class="Bullet">&#160;</p>
+</body>
+</html>

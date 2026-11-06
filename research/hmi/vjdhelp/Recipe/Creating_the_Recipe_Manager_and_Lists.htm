@@ -1,0 +1,141 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+<meta name="template" content="Vijeo_template.htt">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+ <meta name="generator" content="Adobe RoboHelp 10">
+<title>Creating the Recipe Manager and Lists</title>
+<link rel="StyleSheet" href="Tis-styl.css" type="text/css">
+</head>
+
+<body>
+<script type="text/javascript" src="ehlpdhtm.js" language="JavaScript1.2"></script>
+
+<div style="width: 100%; position: relative;" id="header">
+	<table style="background-attachment: scroll; margin-left: 0px; margin-right: 4px; 
+			 background-image: url(top_banner.bmp); background-repeat: Repeat-X; 
+			 line-height: 0pt; vertical-align: top;" cellspacing="0" width="100%" 
+			 background="top_banner.bmp">
+		<col style="width: 90%;">
+		<col style="width: 5%;">
+		<col style="width: 5%;">
+		<tr style="vertical-align: center; height: 39px;">
+			<td style="width: 90%; padding-right: 10px; padding-left: 10px; 
+				 border-right-color: #000000;">
+   <p><img src="logo.bmp" style="border: none;" alt="" width="37" height="37" border="0"></p></td>
+			<td style="width: 5%; padding-right: 0px; padding-left: 10px; 
+				 border-right-color: #000000;">
+   <p style="text-align: center;"><a 
+			 title="Glossary" href="Appendix.chm::/Glossary.htm"><img src="logo_glossary.bmp" style="border: none;" alt="" width="47" height="37" border="0"></a></p></td>
+			<td style="width: 5%; padding-right: 10px; padding-left: 5px; 
+				 border-right-color: #000000;">
+   <p style="text-align: center;"><a 
+			 href="About.chm::/What_is_Vijeo-Designer.htm" title="Home"><img src="logo_home.bmp" alt="Home" title="Home" style="border: none; 
+			 margin-left: 0px; margin-right: 0px; margin-bottom: 0px; margin-top: -2px;" width="47" height="37" border="0"></a></p></td>
+		</tr>
+	</table>
+</div>
+
+<h4><a name="Manager_and_Lists" id="Manager_and_Lists"></a>17.4.1.1 Creating 
+ the Recipe Manager and Lists</h4>
+<p>You can create a recipe manager and lists to select the recipe group 
+ or recipe. You can create an ingredient list to edit the current ingredient 
+ values in the recipe group. This section describes an example of how to 
+ create a recipe manager. When you use the recipe manager to select the 
+ recipe group or recipe, the associated value is written to the recipe 
+ control variable.</p>
+<ol style="list-style: decimal;">
+	<li class="p"><p>Click the Toolchest icon <img src="toolchest_icon.bmp" alt="" style="border: none;" width="22" height="22" border="0"> in the 
+	 menu bar to open the Toolchest window, and select the Recipe folder.</p></li>
+	<li class="p"><p>Move the recipe part onto the panel using the drag 
+	 and drop operation.</p></li>
+</ol>
+<p class="Image" style="margin-left: 40px;"><img src="RecipeToolchest1.bmp" alt="" style="border: none;" width="677" height="470" border="0"></p>
+<p style="margin-left: 40px;">The part is displayed on the panel</p>
+<p class="Image" style="margin-left: 40px;"><img src="ToolchestPartDropped.bmp" alt="" style="border: none;" width="375" height="184" border="0"></p>
+<ol start="3" style="list-style: decimal;">
+	<li class="p"><p>In the part's properties, assign the recipe control 
+	 group.</p></li>
+</ol>
+<p class="Image" style="margin-left: 40px;"><img src="Parts-ControlGroup.bmp" alt="" style="border: none;" width="277" height="395" border="0"></p>
+<ol start="4" style="list-style: decimal;">
+	<li class="p"><p>Define the part's display properties as required by 
+	 your application:</p></li>
+</ol>
+<ul>
+	<li class="p-bullet2"><p class="bullet2">Color – 
+	 Set the color for the text and part.</p></li>
+	<li class="p-bullet2"><p class="bullet2">Font – 
+	 Set the font for the text.</p></li>
+	<li class="p-bullet2"><p class="bullet2">Scroll button size <span style="font-weight: bold;">–</span> 
+	 <span>Set the size (large or small) of the arrow button.</span></p></li>
+</ul>
+<p class="NoteImage" style="margin-left: 40px;"><img src="limit.bmp" alt="" style="border: none;" width="77" height="24" border="0"></p>
+<ul>
+	<li class="p-NoteText2"><p class="NoteText2">Button size settings are 
+	 only available for target types with a 20x20 touch grid. Targets with 
+	 40x40 touch grids will be set to large buttons. For a list of target 
+	 type touch grids, see Appendix 5.1.4, <a href="Appendix.chm::/Touch_Grids.htm">Touch 
+	 Grids</a>.</p></li>
+	<li class="p-NoteText2"><p class="NoteText2">When you change the scroll 
+	 button size, the change will not be shown in the Editor. To view the 
+	 size change of the buttons, you must run simulation or download the 
+	 project to a target.</p></li>
+	<li class="p-NoteText2"><p class="NoteText2">When you change the size 
+	 of scroll buttons from small to large, the size of the Recipe part 
+	 will not change, just the size of the scroll buttons. As a result, 
+	 the larger buttons may shorten the text fields next to them. To accommodate 
+	 the larger button size, you may want to make the Recipe part larger, 
+	 or shorten recipe names or ingredient names to ensure they fit in 
+	 the shorter text fields.</p></li>
+</ul>
+<ol start="5" style="list-style: decimal;">
+	<li class="p"><p>In the RecipeNameEditable property, select True to 
+	 rename recipe names in the Recipe list box. In run time, this function 
+	 displays a keypad so you can edit the name of a recipe.</p></li>
+</ol>
+<p style="margin-left: 40px;">In the SortByRecipeName property, select 
+ True to sort all the recipe names in the Recipe list box alphabetically. 
+ In run time, this function displays a keypad when you select the Recipe 
+ list box, so you can enter one or more characters of the recipe name and 
+ jump to the recipe.</p>
+<p style="margin-left: 40px;">The SortByRecipeName and RecipeNameEditable 
+ properties are available for the following Recipe Toolchest parts:</p>
+<ul>
+	<li class="p-bullet2"><p 
+		 class="bullet2">LargeRecipeMgr</p></li>
+	<li class="p-bullet2"><p 
+		 class="bullet2">LargeRecipeMgrwithIcons</p></li>
+	<li class="p-bullet2"><p 
+		 class="bullet2">RG_Rselection</p></li>
+	<li class="p-bullet2"><p 
+		 class="bullet2">RecipeSelect</p></li>
+	<li class="p-bullet2"><p 
+		 class="bullet2">SmallRecipeMgr</p></li>
+	<li class="p-bullet2"><p 
+		 class="bullet2">SmallRecipeMgrWithIcons</p></li>
+</ul>
+<p style="margin-left: 40px;">In the AutoLoadRecipe property, select True 
+ to automatically load recipe data from the PLC to your project. The AutoLoadRecipe 
+ property is available only for the RecipeSelect Toolchest part.</p>
+<p style="margin-left: 40px;">&#160;</p>
+<p class="NoteImage" style="margin-left: 40px;"><img src="limit.bmp" alt="" style="border: none;" width="77" height="24" border="0"></p>
+<ul>
+	<li class="p-NoteText2"><p class="NoteText2">When the RecipeNameEditable 
+	 and the SortByRecipeName properties are both set to True, the RecipeNameEditable 
+	 function takes priority over the sort function. The keypad that displays 
+	 is for editing the current recipe name and not for sorting. For more 
+	 information on editing recipe names, see Section 17.6.7.3, <a href="SavingRecipeinTarget.htm#Rename">Renaming 
+	 Recipes</a>.</p></li>
+	<li class="p-NoteText2"><p class="NoteText2">Though you can set up 
+	 Unicode recipe names in the editor to display in run time, you cannot 
+	 sort Unicode recipe names.</p></li>
+</ul>
+<ol start="6" style="list-style: decimal;">
+	<li class="p"><p>If you are creating a list, go to Section 17.4.1.2, 
+	 <a href="Creating_Recipe_Operation_Buttons.htm">Creating Recipe Operation 
+	 Buttons</a>, to create a recipe operation button.</p></li>
+</ol>
+</body>
+</html>

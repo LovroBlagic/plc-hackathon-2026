@@ -1,0 +1,81 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+<meta name="template" content="Vijeo_template.htt">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="topic-status" content="In Progress">
+<meta name="topic-priority" content="0">
+<meta name="topic-time-estimate" content="0">
+<meta name="topic-comment" content="">
+<meta name="topic-id" content="">
+<meta name="window-type" content="$global_NewWindow">
+ <meta name="generator" content="Adobe RoboHelp 10">
+<title>Working with Data Logging</title>
+<link rel="StyleSheet" href="TIS-STYL.CSS" type="text/css">
+</head>
+<body>
+<script type="text/javascript" src="ehlpdhtm.js" language="JavaScript1.2"></script>
+
+<div style="width: 100%; position: relative;" id="header">
+	<table style="background-attachment: scroll; margin-left: 0px; margin-right: 4px; 
+			 background-image: url(top_banner.bmp); background-repeat: Repeat-X; 
+			 line-height: 0pt; vertical-align: top;" cellspacing="0" width="100%" 
+			 background="top_banner.bmp">
+		<col style="width: 90%;">
+		<col style="width: 5%;">
+		<col style="width: 5%;">
+		<tr style="vertical-align: center; height: 39px;">
+			<td style="width: 90%; padding-right: 10px; padding-left: 10px; 
+				 border-right-color: #000000;">
+   <p><img src="logo.bmp" style="border: none;" alt="" width="37" height="37" border="0"></p></td>
+			<td style="width: 5%; padding-right: 0px; padding-left: 10px; 
+				 border-right-color: #000000;">
+   <p style="text-align: center;"><a 
+			 title="Glossary" href="Appendix.chm::/Glossary.htm"><img src="logo_glossary.bmp" style="border: none;" alt="" width="47" height="37" border="0"></a></p></td>
+			<td style="width: 5%; padding-right: 10px; padding-left: 5px; 
+				 border-right-color: #000000;">
+   <p style="text-align: center;"><a 
+			 href="About.chm::/What_is_Vijeo-Designer.htm" title="Home"><img src="logo_home.bmp" alt="Home" title="Home" style="border: none; 
+			 margin-left: 0px; margin-right: 0px; margin-bottom: 0px; margin-top: -2px;" width="47" height="37" border="0"></a></p></td>
+		</tr>
+	</table>
+</div>
+
+<h2>13.1.1 Working with Data Logging</h2>
+<p>Data logging provides you with the capability to collect, store, and view sampled data for a variable. With data logging, you need to determine:</p>
+<ul>
+<li class="p-Bullet">
+<p class="Bullet"><a href="#Determining_What_Data_to_Log">What variables you want to record data for</a></p>
+</li>
+<li class="p-Bullet">
+<p class="Bullet"><a href="When_to_Collect_Data.htm">When data should be collected</a></p>
+</li>
+<li class="p-Bullet">
+<p class="Bullet"><a href="logged_data_details.htm">Where to store your data</a></p>
+</li>
+<li class="p-Bullet">
+<p class="Bullet"><a href="Displaying_Your_Data.htm">How data can be displayed</a></p>
+</li>
+<li class="p-Bullet">
+<p class="Bullet"><a href="Displaying_Multi_Variables_Single_CSV.htm">Displaying multiple variables in a single CSV file</a></p>
+</li>
+</ul>
+<p>When you determine the data collection and storage options for a data logging group, you are essentially defining the options for an individual variable that is assigned to that data logging group. For more information, see Section 13.2, <a href="Setting_Up_a_Variable_for_Data_Logging.htm">Setting Up a Variable for Data Logging</a>.</p>
+<p><a name="Changes_in_Date_Time" id="Changes_in_Date_Time"></a>For data logging purposes, you must set up the Time Zone and Time Adjustment (Daylight Saving Time) on the target machine properly before downloading an application. If you change the date or time on the target machine instead of using the Time Zone and Time Adjustment settings after the application has been running and historical data has been logged, then this historical data will no longer be valid with the new date and time. For example, if Time Adjustment is mistakenly disabled in a location where Daylight Saving Time is used when an application is downloaded to the target machine, and Time Adjustment is later enabled in run time, the time may become off by one hour as the time will automatically be adjusted for Daylight Saving Time. Manually changing the time by one hour to compensate will then cause problems between previously logged data and new data. In this example, if you change the time back 1 hour, then there might be two sets of data for the same time. Or, if you change the time forward 1 hour, the time when historical data is flushed from memory may occur 1 hour late, resulting in a 1-hour gap in the data logging.</p>
+<p>For information on setting the Time Zone and Time Adjustment (Daylight Saving Time), see Section 4.5.3, <a href="StandardOperation.chm::/Configuring_Time_Zone_and_Daylight_Saving_Time.htm">Displaying Data Using Time Zone and Configuring Daylight Saving Time</a>.</p>
+<p>If you must manually change the date or time, remove previous historical data for the current day from the application. To do this:</p>
+<ul>
+<li class="p-Bullet">
+<p class="Bullet">Flush the data to the storage device. See Section 18.9.1.6, <a href="Scripts.chm::/Variable_FlushToStorage.htm">Variable Methods: flushToStorage</a>.</p>
+</li>
+<li class="p-Bullet">
+<p class="Bullet">If required, extract and back up the data. See Section 20.5.2, <a href="FrequentOperations.chm::/Data_Manager.htm">Transferring and Converting Data Using the Data Manager</a>.</p>
+</li>
+</ul>
+<h3><a name="Determining_What_Data_to_Log642b3b9347ca42c9b00b820c00c373fa=1"></a><a name="Determining_What_Data_to_Log" id="Determining_What_Data_to_Log"></a>13.1.1.1 Determining What Data to Log</h3>
+<p>In working with data logging, you must first determine what variables need to be logged. The variables that you choose are elements in the production process specific to your site. You may need to collect data for the purposes of figuring out volume, speed, or units produced over a period of time. You may need to collect data about certain elements on a production line to comply with company or regional guidelines.</p>
+<p>After you determine which variables need to be logged, you would assign the variable to a data logging group. A data logging group contains a set of properties that specifies the data collection method and data storage details for a variable. You would create a logging group from the Data Logging node in the Navigator window.</p>
+<p>To assign a variable to a logging group, you can either make a selection in the Logging Group property of the Variable Properties dialog box or define the Logging Group property in the Variable Property Inspector.</p>
+</body>
+</html>

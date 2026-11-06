@@ -1,0 +1,108 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+<meta name="template" content="Vijeo_template.htt">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="date" content="08 6, 2003 4:21:43 PM">
+<meta name="topic-status" content="In Progress">
+<meta name="topic-priority" content="0">
+<meta name="topic-time-estimate" content="0">
+<meta name="topic-comment" content="">
+<meta name="topic-id" content="KEYWORD_dowhile.htm">
+ <meta name="generator" content="Adobe RoboHelp 10">
+<title>do-while</title>
+<link rel="StyleSheet" href="TIS-STYL.CSS" type="text/css">
+</head>
+<body>
+<script type="text/javascript" src="ehlpdhtm.js" language="JavaScript1.2"></script>
+
+<div style="width: 100%; position: relative;" id="header">
+	<table style="background-attachment: scroll; margin-left: 0px; margin-right: 4px; 
+			 background-image: url(top_banner.bmp); background-repeat: Repeat-X; 
+			 line-height: 0pt; vertical-align: top;" cellspacing="0" width="100%" 
+			 background="top_banner.bmp">
+		<col style="width: 90%;">
+		<col style="width: 5%;">
+		<col style="width: 5%;">
+		<tr style="vertical-align: center; height: 39px;">
+			<td style="width: 90%; padding-right: 10px; padding-left: 10px; 
+				 border-right-color: #000000;">
+   <p><img src="logo.bmp" style="border: none;" alt="" width="37" height="37" border="0"></p></td>
+			<td style="width: 5%; padding-right: 0px; padding-left: 10px; 
+				 border-right-color: #000000;">
+   <p style="text-align: center;"><a 
+			 title="Glossary" href="Appendix.chm::/Glossary.htm"><img src="logo_glossary.bmp" style="border: none;" alt="" width="47" height="37" border="0"></a></p></td>
+			<td style="width: 5%; padding-right: 10px; padding-left: 5px; 
+				 border-right-color: #000000;">
+   <p style="text-align: center;"><a 
+			 href="About.chm::/What_is_Vijeo-Designer.htm" title="Home"><img src="logo_home.bmp" alt="Home" title="Home" style="border: none; 
+			 margin-left: 0px; margin-right: 0px; margin-bottom: 0px; margin-top: -2px;" width="47" height="37" border="0"></a></p></td>
+		</tr>
+	</table>
+</div>
+
+<h4><a name="top" id="top"></a>do-while</h4>
+<table style="vertical-align: top; margin-top: 14px; margin-bottom: 14px;" cellspacing="0" width="400">
+<col style="width: 100%;">
+<tr style="vertical-align: top;">
+<td style="border: Solid 1px #000000;width: 100%; padding-right: 10px; padding-left: 10px;">
+<p class="Code">do</p>
+
+<p class="Code"><span style="font-weight: normal;">{</span></p>
+<p class="Code" style="margin-left: 40px;">[statements<span>];</span></p>
+<p class="Code">}</p>
+<p class="Code"><span style="font-weight: bold;">while</span> (conditional expression);</p>
+</td>
+</tr>
+</table>
+<p style="font-weight: bold;">Comments</p>
+<p>Statements between the <span style="font-weight: bold;">do-while</span> keywords run at least once. These statements are repeated so long as the conditional expression evaluated by <span style="font-weight: bold;">while</span> is true.</p>
+<p>Use <span style="font-weight: bold;">break</span> to exit the block of statements.</p>
+<p>The difference between <span style="font-weight: bold;">while</span> and <span style="font-weight: bold;">do-while</span> loops is when the condition is tested. <span style="font-weight: bold;">while</span> loops check the condition before running any statements, and <span style="font-weight: bold;">do-while</span> runs the statements at least once before checking the condition.</p>
+<p class="NoteImage" style="font-weight: bold; margin-left: 0px;"><img src="Limit.bmp" style="border: none; margin-left: 0px; margin-right: 0px; margin-top: 10px; margin-bottom: 0px;" alt="" width="77" height="24" border="0"></p>
+<ul style="list-style: disc;">
+<li class="p-NoteText">
+<p class="NoteText">When using loops (do-while, for, while), be careful not to create an infinite loop. Infinite loops, which cannot be caught at validation, can cause the target machine to crash as more and more memory is used by the script.</p>
+</li>
+<li class="p-NoteText">
+<p class="NoteText">If you use <span style="font-weight: bold;">do-while</span> loops in On Startup, On Panel Open, On Panel Close, Trigger Action, or Conditional scripts, and the script takes more than five seconds to complete, the script will be terminated so panel operations can continue.</p>
+</li>
+<li class="p-NoteText">
+<p class="NoteText">If you use <span style="font-weight: bold;">do-while</span> loops in touch scripts, which include Touch animation, switches, On Touch Panel application scripts, and alarm touch actions, and the script takes more than five seconds to complete, the script will be terminated so touch panel operations can continue.</p>
+</li>
+</ul>
+<p style="font-weight: bold;">Example</p>
+<p>Message displays over and over again until value is greater than or equal to 10.</p>
+<table style="vertical-align: top; margin-top: 14px; margin-bottom: 14px;" cellspacing="0" width="400">
+<col style="width: 100%;">
+<tr style="vertical-align: top;">
+<td style="border: Solid 1px #000000;width: 100%; padding-right: 10px; padding-left: 10px;">
+<p class="Code">int counter=0, value=0;</p>
+
+<p class="Code">String msg;</p>
+
+<p class="Code">&#160;</p>
+
+<p class="Code">do</p>
+
+<p class="Code">{</p>
+
+<p class="Code" style="margin-left: 40px;">++counter;</p>
+
+<p class="Code" style="margin-left: 40px;">msg = "Current count is "+counter;</p>
+
+<p class="Code" style="margin-left: 40px;">value++;</p>
+
+<p class="Code">}</p>
+
+<p class="Code">while (value&lt;=10);</p>
+</td>
+</tr>
+</table>
+<p style="font-weight: bold;">See Also</p>
+
+<p><a href="KEYWORD_break.htm">break</a>, <a href="KEYWORD_for.htm">for</a>, <a href="KEYWORD_if-else.htm">if-else</a>, <a href="KEYWORD_return.htm">return</a>, <a href="KEYWORD_switch.htm">switch-case-default</a>, <a href="KEYWORD_while.htm">while</a></p>
+
+</body>
+</html>

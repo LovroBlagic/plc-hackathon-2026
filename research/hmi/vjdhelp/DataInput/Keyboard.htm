@@ -1,0 +1,310 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+<meta name="template" content="Vijeo_template.htt">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+ <meta name="generator" content="Adobe RoboHelp 10">
+<title>Keyboard</title>
+<link rel="StyleSheet" href="TIS-STYL.CSS" type="text/css">
+</head>
+<body>
+<script type="text/javascript" src="ehlpdhtm.js" language="JavaScript1.2"></script>
+
+<div style="width: 100%; position: relative;" id="header">
+	<table style="background-attachment: scroll; margin-left: 0px; margin-right: 4px; 
+			 background-image: url(top_banner.bmp); background-repeat: Repeat-X; 
+			 line-height: 0pt; vertical-align: top;" cellspacing="0" width="100%" 
+			 background="top_banner.bmp">
+		<col style="width: 90%;">
+		<col style="width: 5%;">
+		<col style="width: 5%;">
+		<tr style="vertical-align: center; height: 39px;">
+			<td style="width: 90%; padding-right: 10px; padding-left: 10px; 
+				 border-right-color: #000000;">
+   <p><img src="logo.bmp" style="border: none;" alt="" width="37" height="37" border="0"></p></td>
+			<td style="width: 5%; padding-right: 0px; padding-left: 10px; 
+				 border-right-color: #000000;">
+   <p style="text-align: center;"><a 
+			 title="Glossary" href="Appendix.chm::/Glossary.htm"><img src="logo_glossary.bmp" style="border: none;" alt="" width="47" height="37" border="0"></a></p></td>
+			<td style="width: 5%; padding-right: 10px; padding-left: 5px; 
+				 border-right-color: #000000;">
+   <p style="text-align: center;"><a 
+			 href="About.chm::/What_is_Vijeo-Designer.htm" title="Home"><img src="logo_home.bmp" alt="Home" title="Home" style="border: none; 
+			 margin-left: 0px; margin-right: 0px; margin-bottom: 0px; margin-top: -2px;" width="47" height="37" border="0"></a></p></td>
+		</tr>
+	</table>
+</div>
+
+<h2>11.9.2 Types of System Keypads</h2>
+<p>Vijeo-Designer provides <a href="String_Keypads.htm">String</a>, <a href="Numeric_Keypads.htm">Numeric</a>, <a href="Discrete_Keypads.htm">Discrete</a>, <a href="Change_Immediate_Keypad.htm">Change-Immediate</a>, <a href="Numeric_Keypads.htm#Setting_up_Scientific_Notation_Keypad">Scientific Notation</a>, and <a href="Change-on-Enter_Keypad.htm">Change-On-Enter</a> keypads that work with targets that have different touch grids and screen sizes. Use the target properties to define system keypad settings.</p>
+<table style="vertical-align: top; margin-left: 40px;" cellspacing="0" width="94.072%">
+<col style="width: 25.55%;">
+<col style="width: 74.45%;">
+<tr style="vertical-align: top;">
+<td style="border-top: Solid 3px #000000; border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 25.55%; vertical-align: top; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#91AFD9">
+<p class="Tabletitle" style="font-size: 11pt;">Property</p>
+</td>
+<td style="border-top: Solid 3px #000000; border-bottom: Solid 1px #000000; width: 74.45%; vertical-align: top; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#91AFD9">
+<p class="Tabletitle" style="font-size: 11pt;">Description</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 25.55%; vertical-align: top; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#CBD9ED">
+<p class="TableDefinitions">String Keypad Layout</p>
+</td>
+<td style="border-bottom: Solid 1px #000000; width: 74.45%; vertical-align: top; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p>Select <a href="String_Keypads.htm#Standard_Keypad">Standard Keyboard</a>, <a href="String_Keypads.htm#Alphabetical_Keypad">Alphabetical Order</a>, or <a href="String_Keypads.htm#MultiPage_Keypad">Compact (Multi-page)</a>. This property is hidden if the target screen size is less than 640x480. For targets with a 200x80 screen size, the string keypad layout will automatically be <a href="String_Keypads.htm#Alphanumeric_Keypad">Alphanumeric</a>.</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 25.55%; vertical-align: top; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#CBD9ED">
+<p class="TableDefinitions">Key Size</p>
+</td>
+<td style="border-bottom: Solid 1px #000000; width: 74.45%; vertical-align: top; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p>Specifies the key size for the target screen size. This property is hidden if the target screen size is less than 640x480. The default key size is automatically selected for your target screen size. The table below shows the target screen size availability for the following key sizes and string keypad layouts.</p>
+<table style="vertical-align: top; margin-left: 40px; height: 440px; left: 0px; top: 44px;" cellspacing="0" width="636">
+<col style="width: 14.646%;">
+<col style="width: 42.677%;">
+<col style="width: 42.677%;">
+<tr style="vertical-align: top;">
+<td style="border-top: Solid 3px #000000; border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 14.646%; vertical-align: top; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#91AFD9">
+<p class="Tabletitle" style="font-size: 11pt;">Key Size</p>
+</td>
+<td style="border-top: Solid 3px #000000; border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 42.677%; vertical-align: top; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#91AFD9">
+<p class="Tabletitle">String Keypad Layout and Size</p>
+</td>
+<td style="border-top: Solid 3px #000000; border-bottom: Solid 1px #000000; width: 42.677%; vertical-align: top; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#91AFD9">
+<p class="Tabletitle" style="font-size: 11pt;">Supported Target Screen Sizes</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td rowspan="8" style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 14.646%; vertical-align: top; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#CBD9ED">
+<p>Small</p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 42.677%; vertical-align: top; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">Standard</p>
+<p class="Tabletext">640x240</p>
+</td>
+<td style="border-bottom: Solid 1px #000000; width: 42.677%; vertical-align: top; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">640x480</p>
+<p class="Tabletext">800x600</p>
+<p class="Tabletext">1024x768 or larger</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 42.677%; vertical-align: top; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">Alphabetical Order</p>
+<p class="Tabletext">640x240</p>
+</td>
+<td style="border-bottom: Solid 1px #000000; width: 42.677%; vertical-align: top; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">640x480</p>
+<p class="Tabletext">800x600</p>
+<p class="Tabletext">1024x768 or larger</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 42.677%; vertical-align: top; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">Compact (Multi-page)</p>
+<p class="Tabletext">320x240</p>
+</td>
+<td style="border-bottom: Solid 1px #000000; width: 42.677%; vertical-align: top; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">320x240</p>
+<p class="Tabletext">640x480</p>
+<p class="Tabletext">800x600</p>
+<p class="Tabletext">1024x768 or larger</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 42.677%; vertical-align: top; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">Discrete</p>
+<p class="Tabletext">200x80</p>
+</td>
+<td style="border-bottom: Solid 1px #000000; width: 42.677%; vertical-align: top; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">320x240</p>
+<p class="Tabletext">640x480</p>
+<p class="Tabletext">800x600</p>
+<p class="Tabletext">1024x768 or larger</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 42.677%; vertical-align: top; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">Numeric (Dec/Oct/Hex)</p>
+<p class="Tabletext">320x240</p>
+</td>
+<td style="border-bottom: Solid 1px #000000; width: 42.677%; vertical-align: top; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">320x240</p>
+<p class="Tabletext">640x480</p>
+<p class="Tabletext">800x600</p>
+<p class="Tabletext">1024x768 or larger</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 42.677%; vertical-align: top; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">Numeric (Bin)</p>
+<p class="Tabletext">320x160</p>
+</td>
+<td style="border-bottom: Solid 1px #000000; width: 42.677%; vertical-align: top; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">320x240</p>
+<p class="Tabletext">640x480</p>
+<p class="Tabletext">800x600</p>
+<p class="Tabletext">1024x768 or larger</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 42.677%; vertical-align: top; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">Change-Immediate</p>
+<p class="Tabletext">200x40</p>
+</td>
+<td style="border-bottom: Solid 1px #000000; width: 42.677%; vertical-align: top; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">320x240</p>
+<p class="Tabletext">640x480</p>
+<p class="Tabletext">800x600</p>
+<p class="Tabletext">1024x768 or larger</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 42.677%; vertical-align: top; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">Change-On-Enter</p>
+<p class="Tabletext">160x40</p>
+</td>
+<td style="border-bottom: Solid 1px #000000; width: 42.677%; vertical-align: top; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">320x240</p>
+<p class="Tabletext">640x480</p>
+<p class="Tabletext">800x600</p>
+<p class="Tabletext">1024x768 or larger</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td rowspan="8" style="border-right: Solid 1px #000000; border-bottom: Solid 3px #000000; width: 14.646%; vertical-align: top; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#CBD9ED">
+<p>Large</p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 42.677%; vertical-align: top; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">Standard</p>
+<p class="Tabletext">960x360</p>
+</td>
+<td style="border-bottom: Solid 1px #000000; width: 42.677%; vertical-align: top; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p>1024x768 or larger</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 42.677%; vertical-align: top; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">Alphabetical Order</p>
+<p class="Tabletext">960x360</p>
+</td>
+<td style="border-bottom: Solid 1px #000000; width: 42.677%; vertical-align: top; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p>1024x768 or larger</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 42.677%; vertical-align: top; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p>Compact (Multi-page)<br>
+640x480</p>
+</td>
+<td style="border-bottom: Solid 1px #000000; width: 42.677%; vertical-align: top; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">640x480</p>
+<p class="Tabletext">800x600</p>
+<p class="Tabletext">1024x768 or larger</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 42.677%; vertical-align: top; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">Discrete</p>
+<p class="Tabletext">400x160</p>
+</td>
+<td style="border-bottom: Solid 1px #000000; width: 42.677%; vertical-align: top; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">640x480</p>
+<p class="Tabletext">800x600</p>
+<p class="Tabletext">1024x768 or larger</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 42.677%; vertical-align: top; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">Numeric (Dec/Oct/Hex)</p>
+<p class="Tabletext">640x480</p>
+</td>
+<td style="border-bottom: Solid 1px #000000; width: 42.677%; vertical-align: top; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">640x480</p>
+<p class="Tabletext">800x600</p>
+<p class="Tabletext">1024x768 or larger</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 42.677%; vertical-align: top; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">Numeric (Bin)</p>
+<p class="Tabletext">640x320</p>
+</td>
+<td style="border-bottom: Solid 1px #000000; width: 42.677%; vertical-align: top; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">640x480</p>
+<p class="Tabletext">800x600</p>
+<p class="Tabletext">1024x768 or larger</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 42.677%; vertical-align: top; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">Change-Immediate</p>
+<p class="Tabletext">400x80</p>
+</td>
+<td style="border-bottom: Solid 1px #000000; width: 42.677%; vertical-align: top; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">640x480</p>
+<p class="Tabletext">800x600</p>
+<p class="Tabletext">1024x768 or larger</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 3px #000000; width: 42.677%; vertical-align: top; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">Change-On-Enter</p>
+<p class="Tabletext">320x80</p>
+</td>
+<td style="border-bottom: Solid 3px #000000; width: 42.677%; vertical-align: top; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">640x480</p>
+<p class="Tabletext">800x600</p>
+<p class="Tabletext">1024x768 or larger</p>
+</td>
+</tr>
+</table>
+<p>&#160;</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 25.55%; vertical-align: top; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#CBD9ED">
+<p class="TableDefinitions">Key Label Color</p>
+</td>
+<td rowspan="5" style="border-bottom: Solid 3px #000000; width: 74.45%; vertical-align: top; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p>Select the color for each area on the keypad. The Color palette displays when you click the color area. You cannot set transparent color for the keypad.</p>
+<p class="Image"><img src="KeypadColor.bmp" style="border: none;" alt="" width="362" height="192" border="0"></p>
+<p class="NoteImage"><img src="NOTE_MOJI.bmp" style="border: none;" alt="" width="51" height="25" border="0"></p>
+<ul>
+<li style="color: #000000;" class="p-NoteText">
+<p class="NoteText">When you enter an invalid value on a color target machine, the Text Display Color turns red. Make sure you select a Text Display Color that is visible when the Display Area Back Color is red.</p>
+</li>
+<li style="color: #000000;" class="p-NoteText">
+<p class="NoteText">For monochrome targets, the Display Area Back Color blinks to indicate invalid values.</p>
+</li>
+</ul>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 25.55%; vertical-align: top; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#CBD9ED">
+<p class="TableDefinitions">Text Display Color</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 25.55%; vertical-align: top; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#CBD9ED">
+<p class="TableDefinitions">Character Key Back Color</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 25.55%; vertical-align: top; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#CBD9ED">
+<p class="TableDefinitions">Control Key Back Color</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 3px #000000; width: 25.55%; vertical-align: top; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#CBD9ED">
+<p class="TableDefinitions">Display Area Back Color</p>
+</td>
+</tr>
+</table>
+<p>&#160;</p>
+</body>
+</html>

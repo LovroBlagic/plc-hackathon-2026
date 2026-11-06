@@ -1,0 +1,352 @@
+<html>
+<!-- Sitemap 1.0 -->
+<object type="text/site properties">
+  <param name="WindowName" value="$global_NewWindow">
+  <param name="SiteType" value="index">
+</object>
+<ul>
+  <li><object type="text/sitemap">
+    <param name="Name" value="HMIBMW Script Methods">
+    <param name="Name" value="HMIBMW Script Methods">
+    <param name="Local" value="HMIBMW_Script_Methods.htm">
+  </object>
+  <ul>
+    <li><object type="text/sitemap">
+      <param name="Name" value="getTemperature">
+      <param name="Name" value="Sys.getTemperature">
+      <param name="Local" value="Sys.getTemperature.htm">
+    </object>
+    </ul>
+  <li><object type="text/sitemap">
+    <param name="Name" value="HMIBMW Scripts">
+    <param name="Name" value="HMIBMW Script Methods">
+    <param name="Local" value="HMIBMW_Script_Methods.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Installing Vijeo Designer Runtime to HMIBMW">
+    <param name="Name" value="Installing Vijeo-Designer Runtime to HMIBMW Series">
+    <param name="Local" value="Installing_Vijeo-Designer_Runtime_to_HMIBMW.htm">
+  </object>
+  <ul>
+    <li><object type="text/sitemap">
+      <param name="Name" value="Install Runtime over USB">
+      <param name="Name" value="Installing Vijeo-Designer Runtime to HMIBMW Series">
+      <param name="Local" value="Installing_Vijeo-Designer_Runtime_to_HMIBMW.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="Runtime on HMIBMW">
+      <param name="Name" value="Installing Vijeo-Designer Runtime to HMIBMW Series">
+      <param name="Local" value="Installing_Vijeo-Designer_Runtime_to_HMIBMW.htm">
+    </object>
+    </ul>
+  <li><object type="text/sitemap">
+    <param name="Name" value="HMIBMW Upload Project">
+    <param name="Name" value="Features Supported by HMIBMW Series">
+    <param name="Local" value="Features_Supported_by_HMIBMW_Series.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="HMIBMW Trend Graph">
+    <param name="Name" value="Features Supported by HMIBMW Series">
+    <param name="Local" value="Features_Supported_by_HMIBMW_Series.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="HMIBMW Touch Grids">
+    <param name="Name" value="HMIBMW Hardware Platforms">
+    <param name="Local" value="HMIBMW_Hardware_Platforms.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="HMIBMW System Settings">
+    <param name="Name" value="Features Supported by HMIBMW Series">
+    <param name="Local" value="Features_Supported_by_HMIBMW_Series.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="HMIBMW System Config Menu">
+    <param name="Name" value="System Configuration menu Items">
+    <param name="Local" value="HMIBMW_System_Configuration_menu_Items.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="HMIBMW Supported Printers">
+    <param name="Name" value="HMIBMW Printers">
+    <param name="Local" value="HMIBMW_Printers.htm">
+  </object>
+  <ul>
+    <li><object type="text/sitemap">
+      <param name="Name" value="ASCII">
+      <param name="Name" value="HMIBMW Printers">
+      <param name="Local" value="HMIBMW_Printers.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="Epson ESC/P">
+      <param name="Name" value="HMIBMW Printers">
+      <param name="Local" value="HMIBMW_Printers.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="HP PCL3/PCL5">
+      <param name="Name" value="HMIBMW Printers">
+      <param name="Local" value="HMIBMW_Printers.htm">
+    </object>
+    </ul>
+  <li><object type="text/sitemap">
+    <param name="Name" value="HMIBMW Supported Features">
+    <param name="Name" value="Features Supported by HMIBMW Series">
+    <param name="Local" value="Features_Supported_by_HMIBMW_Series.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="HMIBMW Security">
+    <param name="Name" value="Features Supported by HMIBMW Series">
+    <param name="Local" value="Features_Supported_by_HMIBMW_Series.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="HMIBMW Remote Access">
+    <param name="Name" value="Features Supported by HMIBMW Series">
+    <param name="Local" value="Features_Supported_by_HMIBMW_Series.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="HMIBMW Recipes">
+    <param name="Name" value="Features Supported by HMIBMW Series">
+    <param name="Local" value="Features_Supported_by_HMIBMW_Series.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="HMIBMW Printing">
+    <param name="Name" value="Features Supported by HMIBMW Series">
+    <param name="Local" value="Features_Supported_by_HMIBMW_Series.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="HMIBMW Ports and Communications">
+    <param name="Name" value="Features Supported by HMIBMW Series">
+    <param name="Local" value="Features_Supported_by_HMIBMW_Series.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="HMIBMW Peripherals and Equipment">
+    <param name="Name" value="Features Supported by HMIBMW Series">
+    <param name="Local" value="Features_Supported_by_HMIBMW_Series.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="HMIBMW Panels and Keypads">
+    <param name="Name" value="Features Supported by HMIBMW Series">
+    <param name="Local" value="Features_Supported_by_HMIBMW_Series.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="HMIBMW Panel Sizes">
+    <param name="Name" value="HMIBMW Hardware Platforms">
+    <param name="Local" value="HMIBMW_Hardware_Platforms.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="HMIBMW Offline Config Menu">
+    <param name="Name" value="Offline Configuration Menu Items">
+    <param name="Local" value="HMIBMW_Offline_Configuration_Menu_Items.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="HMIBMW Multimedia">
+    <param name="Name" value="Features Supported by HMIBMW Series">
+    <param name="Local" value="Features_Supported_by_HMIBMW_Series.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="HMIBMW Memory Capacity">
+    <param name="Name" value="HMIBMW Data Locations">
+    <param name="Local" value="HMIBMW_Data_Locations.htm">
+  </object>
+  <ul>
+    <li><object type="text/sitemap">
+      <param name="Name" value="DRAM">
+      <param name="Name" value="HMIBMW Data Locations">
+      <param name="Local" value="HMIBMW_Data_Locations.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="Flash">
+      <param name="Name" value="HMIBMW Data Locations">
+      <param name="Local" value="HMIBMW_Data_Locations.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="SRAM">
+      <param name="Name" value="HMIBMW Data Locations">
+      <param name="Local" value="HMIBMW_Data_Locations.htm">
+    </object>
+    </ul>
+  <li><object type="text/sitemap">
+    <param name="Name" value="HMIBMW Memory">
+    <param name="Name" value="Features Supported by HMIBMW Series">
+    <param name="Local" value="Features_Supported_by_HMIBMW_Series.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="HMIBMW Hardware Specifications">
+    <param name="Name" value="HMIBMW Hardware Specifications">
+    <param name="Local" value="HMIBMW_Hardware_Specifications.htm">
+  </object>
+  <ul>
+    <li><object type="text/sitemap">
+      <param name="Name" value="HMIX7PR">
+      <param name="Name" value="HMIBMW Hardware Specifications">
+      <param name="Local" value="HMIBMW_Hardware_Specifications.htm">
+    </object>
+    </ul>
+  <li><object type="text/sitemap">
+    <param name="Name" value="HMIBMW Hardware Attributes">
+    <param name="Name" value="HMIBMW Hardware Platforms">
+    <param name="Local" value="HMIBMW_Hardware_Platforms.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="HMIBMW Fonts">
+    <param name="Name" value="HMIBMW Supported Fonts">
+    <param name="Local" value="HMIBMW_Supported_Fonts.htm">
+  </object>
+  <ul>
+    <li><object type="text/sitemap">
+      <param name="Name" value="Vijeo Fonts">
+      <param name="Name" value="HMIBMW Supported Fonts">
+      <param name="Local" value="HMIBMW_Supported_Fonts.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="Vijeo-S Fonts">
+      <param name="Name" value="HMIBMW Supported Fonts">
+      <param name="Local" value="HMIBMW_Supported_Fonts.htm">
+    </object>
+    </ul>
+  <li><object type="text/sitemap">
+    <param name="Name" value="HMIBMW Features">
+    <param name="Name" value="Features Supported by HMIBMW Series">
+    <param name="Local" value="Features_Supported_by_HMIBMW_Series.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="HMIBMW Download">
+    <param name="Name" value="Features Supported by HMIBMW Series">
+    <param name="Local" value="Features_Supported_by_HMIBMW_Series.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="HMIBMW Data Management">
+    <param name="Name" value="Features Supported by HMIBMW Series">
+    <param name="Local" value="Features_Supported_by_HMIBMW_Series.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="HMIBMW Data Locations">
+    <param name="Name" value="HMIBMW Data Locations">
+    <param name="Local" value="HMIBMW_Data_Locations.htm">
+  </object>
+  <ul>
+    <li><object type="text/sitemap">
+      <param name="Name" value="Main Drive">
+      <param name="Name" value="HMIBMW Data Locations">
+      <param name="Local" value="HMIBMW_Data_Locations.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="Optional Drive">
+      <param name="Name" value="HMIBMW Data Locations">
+      <param name="Local" value="HMIBMW_Data_Locations.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="Secondary Drive">
+      <param name="Name" value="HMIBMW Data Locations">
+      <param name="Local" value="HMIBMW_Data_Locations.htm">
+    </object>
+    </ul>
+  <li><object type="text/sitemap">
+    <param name="Name" value="HMIBMW Configuration Menu Items">
+    <param name="Name" value="HMIBMW Configuration Menu Items">
+    <param name="Local" value="HMIBMW_Configuration_Menu_Items.htm">
+  </object>
+  <ul>
+    <li><object type="text/sitemap">
+      <param name="Name" value="Offline">
+      <param name="Name" value="Offline Configuration Menu Items">
+      <param name="Local" value="HMIBMW_Offline_Configuration_Menu_Items.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="System">
+      <param name="Name" value="System Configuration menu Items">
+      <param name="Local" value="HMIBMW_System_Configuration_menu_Items.htm">
+    </object>
+    </ul>
+  <li><object type="text/sitemap">
+    <param name="Name" value="HMIBMW Configuration Menu">
+    <param name="Name" value="Features Supported by HMIBMW Series">
+    <param name="Local" value="Features_Supported_by_HMIBMW_Series.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="HMIBMW Colors">
+    <param name="Name" value="HMIBMW Hardware Platforms">
+    <param name="Local" value="HMIBMW_Hardware_Platforms.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="HMIBMW Brightness Levels">
+    <param name="Name" value="HMIBMW Hardware Platforms">
+    <param name="Local" value="HMIBMW_Hardware_Platforms.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="HMIBMW Blink Speed">
+    <param name="Name" value="HMIBMW Hardware Platforms">
+    <param name="Local" value="HMIBMW_Hardware_Platforms.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="HMIBMW Alarms">
+    <param name="Name" value="Features Supported by HMIBMW Series">
+    <param name="Local" value="Features_Supported_by_HMIBMW_Series.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="HMIBMW">
+    <param name="Name" value="HMIBMW Introduction">
+    <param name="Local" value="HMIBMW_Introduction.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Download Project to HMIBMW">
+    <param name="Name" value="Downloading the Project">
+    <param name="Local" value="Downloading_the_Project.htm">
+  </object>
+  <ul>
+    <li><object type="text/sitemap">
+      <param name="Name" value="Download over USB">
+      <param name="Name" value="Downloading the Project to HMIBMW over USB Port">
+      <param name="Local" value="Downloading_the_Project_over_USB.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="Download over Ethernet">
+      <param name="Name" value="Downloading over Ethernet">
+      <param name="Local" value="Download_the_Project_over_Ethernet.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="Download using File System">
+      <param name="Name" value="Downloading the Project to HMIBMW using File System">
+      <param name="Local" value="Downloading_the_Project_using_File_System.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="HMIBMW, Download">
+      <param name="Name" value="Downloading the Project">
+      <param name="Local" value="Downloading_the_Project.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="HMIBMW, Transfer Files">
+      <param name="Name" value="Downloading the Project">
+      <param name="Local" value="Downloading_the_Project.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="Transfer files to HMIBMW">
+      <param name="Name" value="Downloading the Project">
+      <param name="Local" value="Downloading_the_Project.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="HMIBMW, USB Download">
+      <param name="Name" value="Downloading the Project to HMIBMW over USB Port">
+      <param name="Local" value="Downloading_the_Project_over_USB.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="HMIBMW, Ethernet Download">
+      <param name="Name" value="Downloading over Ethernet">
+      <param name="Local" value="Download_the_Project_over_Ethernet.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="HMIBMW, File System Download">
+      <param name="Name" value="Downloading the Project to HMIBMW using File System">
+      <param name="Local" value="Downloading_the_Project_using_File_System.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="Self Downloading">
+      <param name="Name" value="Self Downloading to HMIBMW">
+      <param name="Local" value="Self_Downloading_to_HMIBMW.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="HMIBMW, Self Download">
+      <param name="Name" value="Self Downloading to HMIBMW">
+      <param name="Local" value="Self_Downloading_to_HMIBMW.htm">
+    </object>
+    </ul>
+</ul>
+</html>

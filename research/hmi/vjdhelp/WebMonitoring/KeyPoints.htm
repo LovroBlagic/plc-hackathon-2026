@@ -1,0 +1,784 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+<meta name="template" content="Vijeo_template.htt">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="date" content="11 10, 2003 2:57:42 PM">
+<meta name="topic-status" content="In Progress">
+<meta name="topic-priority" content="0">
+<meta name="topic-time-estimate" content="0">
+<meta name="topic-comment" content="">
+<meta name="topic-id" content="20.6 Pro-eView???????">
+<meta name="window-type" content="$global_NewWindow">
+ <meta name="generator" content="Adobe RoboHelp 10">
+<title>Web Gate and Web Server Key Points.</title>
+<link rel="StyleSheet" href="TIS-STYL.CSS" type="text/css">
+</head>
+
+<body>
+<script type="text/javascript" src="ehlpdhtm.js" language="JavaScript1.2"></script>
+
+<div style="width: 100%; position: relative;" id="header">
+	<table style="background-attachment: scroll; margin-left: 0px; margin-right: 4px; 
+			 background-image: url(top_banner.bmp); background-repeat: Repeat-X; 
+			 line-height: 0pt; vertical-align: top;" cellspacing="0" background="top_banner.bmp" 
+			 width="100%">
+		<col style="width: 90%;">
+		<col style="width: 5%;">
+		<col style="width: 5%;">
+		<tr style="vertical-align: center; height: 39px;">
+			<td style="width: 90%; padding-right: 10px; padding-left: 10px; 
+				 border-right-color: #000000;">
+   <p><img src="logo.bmp" alt="" style="border: none;" width="37" height="37" border="0"></p></td>
+			<td style="width: 5%; padding-right: 0px; padding-left: 10px; 
+				 border-right-color: #000000;">
+   <p style="text-align: center;"><a 
+			 title="Glossary" href="Appendix.chm::/Glossary.htm"><img src="logo_glossary.bmp" alt="" style="border: none;" width="47" height="37" border="0"></a></p></td>
+			<td style="width: 5%; padding-right: 10px; padding-left: 5px; 
+				 border-right-color: #000000;">
+   <p style="text-align: center;"><a 
+			 href="About.chm::/What_is_Vijeo-Designer.htm" title="Home"><img src="logo_home.bmp" alt="Home" title="Home" style="border: none; 
+			 margin-left: 0px; margin-right: 0px; margin-bottom: 0px; margin-top: -2px;" width="47" height="37" border="0"></a></p></td>
+		</tr>
+	</table>
+</div>
+
+<h2>23.2.10 Web Gate and Web Server Key Points</h2>
+<p>This section explains special Web Gate and Web Server behavior:</p>
+<ul>
+	<li class="p-Bullet"><p class="Bullet"><a href="#Number">Number of 
+	 Web Gate Connections</a></p></li>
+	<li class="p-Bullet"><p class="Bullet"><a href="#Web_Gate_and_Internet_Explorer">Web 
+	 Gate and Internet Explorer</a></p></li>
+	<li class="p-Bullet"><p class="Bullet"><a href="#Web_Gate_and_Firewall_Use">Web 
+	 Gate and Firewall Use</a></p></li>
+	<li class="p-Bullet"><p class="Bullet"><a href="#Data_Sharing">Data 
+	 Sharing</a></p></li>
+	<li class="p-Bullet"><p class="Bullet"><a href="#Panel_Capacity">Panel 
+	 Capacity 64 KB</a></p></li>
+	<li class="p-Bullet"><p class="Bullet"><a href="#Integrity">Data Quality</a></p></li>
+	<li class="p-Bullet"><p class="Bullet"><a href="#Target">Target Machine 
+	 Processing Speed</a></p></li>
+	<li class="p-Bullet"><p class="Bullet"><a href="#Web_Gate_Date_and_Time">Web 
+	 Gate Date and Time</a></p></li>
+	<li class="p-Bullet"><p class="Bullet"><a href="#Trend_Graph_Data">Trend 
+	 Graph Data</a></p></li>
+	<li class="p-Bullet"><p class="Bullet"><a href="#Parison_Graph">Parison 
+	 Graph on Web Gate</a></p></li>
+	<li class="p-Bullet"><p class="Bullet"><a href="#Web_Gate_and_External_Variables">Web 
+	 Gate and External Variables</a></p></li>
+	<li class="p-Bullet"><p class="Bullet"><a href="#Write_Values_to_Data_Display_on_Web_Gate">Write 
+	 Values to a Data Display on Web Gate</a></p></li>
+	<li class="p-Bullet"><p class="Bullet"><a href="#Web_Gate_Synchronization_and_Exclusive_Input">Web 
+	 Gate Synchronization and Exclusive Input</a></p></li>
+	<li class="p-Bullet"><p class="Bullet"><a href="#Web_Gate_and_Reference_Variables">Web 
+	 Gate and Reference Variables</a></p></li>
+	<li class="p-Bullet"><p class="Bullet"><a href="#Script">Script: clearSum</a></p></li>
+	<li class="p-Bullet"><p class="Bullet"><a href="#Recipes">Recipes</a></p></li>
+	<li class="p-Bullet"><p class="Bullet"><a href="#View_Block_Trend_Graph_Data">Viewing 
+	 Block Trend Graph Data from Web Gate</a></p></li>
+	<li class="p-Bullet"><p class="Bullet"><a href="#Form_Printing">Form 
+	 Printing</a></p></li>
+	<li class="p-Bullet"><p class="Bullet"><a href="#Features_Not_Avail">Features 
+	 Not Available with Web Gate</a></p></li>
+	<li class="p-Bullet"><p class="Bullet"><a href="#Different_Information_Displays">Different 
+	 Information Displays on Web Gate and Targets</a></p></li>
+	<li class="p-Bullet"><p class="Bullet"><a href="#SoMachine_Log_Viewer">SoMachine 
+	 Log Viewer and Web Gate</a></p></li>
+	<li class="p-Bullet"><p class="Bullet"><a href="#webServerLogout">Web 
+	 Server Logout</a></p></li>
+	<li class="p-Bullet"><p class="Bullet"><a href="#Image_Capture_Viewer_on_Web_Gate">Image 
+	 Capture Viewer on Web Gate</a></p></li>
+</ul>
+<h4><a name="Number" id="Number"></a><img src="Square.bmp" alt="" style="border: none;" width="12" height="10" border="0">Number 
+ of Web Gate Connections</h4>
+<p>A target machine server can support up to eight Web Gate client connections 
+ at once.</p>
+<p>A Web Gate client can connect to eight target machine servers at once. 
+ Be aware that client cannot connect to the same target machine server 
+ more than once.</p>
+<p class="NoteImage"><img src="Limit.bmp" alt="" style="border: none;" width="77" height="24" border="0"></p>
+<ul>
+	<li class="p-NoteText"><p class="NoteText">The performance of the panel 
+	 and the client connections may be affected by the number of connections, 
+	 the complexity of the project, and the amount of data being transferred 
+	 from the panel to each client. Limit the number of connections to 
+	 achieve better Web Gate performance.</p></li>
+</ul>
+<h4><a name="Web_Gate_and_Internet_Explorer" id="Web_Gate_and_Internet_Explorer"></a><img src="Square.bmp" alt="" style="border: none;" width="12" height="10" border="0">Web Gate and Internet Explorer</h4>
+<p>Web Gate supports the 32-bit version of Internet Explorer. It does not 
+ support the 64-bit version of Internet Explorer.</p>
+<h4><a name="Web_Gate_and_Firewall_Use" id="Web_Gate_and_Firewall_Use"></a><img src="Square.bmp" alt="" style="border: none;" width="12" height="10" border="0">Web Gate and Firewall Use</h4>
+<p>When using Web Gate to connect to the target machine, the firewall that 
+ the connection goes through may block some files that Web Gate needs to 
+ operate. The following file types are necessary for a Web Gate connection 
+ and cannot be blocked:</p>
+<ul>
+	<li class="p-Bullet"><p class="Bullet">.I</p></li>
+	<li class="p-Bullet"><p class="Bullet">.i</p></li>
+	<li class="p-Bullet"><p class="Bullet">.cfg</p></li>
+	<li class="p-Bullet"><p class="Bullet">.bin</p></li>
+	<li class="p-Bullet"><p class="Bullet">.dlm</p></li>
+	<li class="p-Bullet"><p class="Bullet">.dll</p></li>
+	<li class="p-Bullet"><p class="Bullet">.bin</p></li>
+	<li class="p-Bullet"><p class="Bullet">.exe</p></li>
+	<li class="p-Bullet"><p class="Bullet">.uni</p></li>
+	<li class="p-Bullet"><p class="Bullet">.fnt</p></li>
+	<li class="p-Bullet"><p class="Bullet">.txt</p></li>
+</ul>
+<h4><a name="Data_Sharing" id="Data_Sharing"></a><img src="Square.bmp" alt="" style="border: none;" width="12" height="10" border="0">Data 
+ Sharing</h4>
+<p>When you enable Web Gate, you automatically enable the data-sharing 
+ feature. See Section 22.1, <a href="Advanced.chm::/DataSharing_Overview.htm">Sharing 
+ Data Between Tablets, Smartphones, and Target Machines</a> for more information.</p>
+<p class="NoteImage"><img src="NOTE_MOJI.BMP" alt="" style="border: none;" width="51" height="25" border="0"></p>
+<ul>
+	<li class="p-NoteText"><p class="NoteText">Web Gate uses one Data Sharing 
+	 connection. The number of clients that can connect to a target at 
+	 the same time depends on the number of Data Sharing connections available. 
+	 For example, if a target supports eight Data Sharing connections and 
+	 two connections are in use, only six clients can connect to the target.</p></li>
+</ul>
+<h4><a name="Panel_Capacity" id="Panel_Capacity"></a><img src="Square.bmp" alt="" style="border: none;" width="12" height="10" border="0">Panel 
+ Capacity 64 KB</h4>
+<p>The size of each panel in a project should be less that 64 KB. A warning 
+ will display in the Feedback Zone when you build a project that has panels 
+ whose size exceeds 64 KB. A panel may not properly display on a Web Gate 
+ client if the panel's size exceeds 64 KB.</p>
+<p>To reduce panel size:</p>
+<ul>
+	<li class="p-Bullet"><p class="Bullet">Reduce the number of objects 
+	 on the panel.</p></li>
+	<li class="p-Bullet"><p class="Bullet">Reduce the number of variables 
+	 used by the panel.</p></li>
+</ul>
+<h4><img src="Square.bmp" alt="" style="border: none;" width="12" height="10" border="0">Data Quality<a name="Integrity" id="Integrity"></a></h4>
+<p>On the client PC, when there is a communication error, the data quality 
+ icon <img src="Quality_Icon.bmp" alt="" style="border: none;" width="15" height="14" border="0"> can appear on objects that display 
+ the value of external variables. The icon <img src="Quality_Icon.bmp" alt="" style="border: none;" width="15" height="14" border="0"> indicates 
+ the data is unreliable.</p>
+<p><img src="Quality.bmp" alt="" style="border: none;" width="370" height="94" border="0"></p>
+<p>There are two reasons why data might be unreliable:</p>
+<ul>
+	<li class="p-Bullet"><p class="Bullet">Connection between the Web Gate 
+	 client and Target Machine. The data quality icon <img src="Quality_Icon.bmp" alt="" style="border: none;" width="15" height="14" border="0"> 
+	 displays on the Web Gate client if there is a problem with the network 
+	 connection between the client and target machine. The data may be 
+	 valid on the target machine, but not visible on the Web Gate client.</p></li>
+	<li class="p-Bullet"><p class="Bullet">Connection between the Target 
+	 Machine and equipment. The data quality icon <img src="Quality_Icon.bmp" alt="" style="border: none;" width="15" height="14" border="0"> 
+	 displays on the target machine AND the Web Gate client if there is 
+	 a problem with the connection between the target machine and equipment. 
+	 The data may be valid on the equipment, but not visible on the target 
+	 machine or the Web Gate client.</p></li>
+</ul>
+<p>For more information about data quality, see Section 25.8, <a href="Download.chm::/Checking_Communication.htm">Checking 
+ the Integrity of Variable Values</a>.</p>
+<h4><a name="Target" id="Target"></a><img src="Square.bmp" alt="" style="border: none;" width="12" height="10" border="0">Target 
+ Machine Processing Speed</h4>
+<p>When client PCs connect to the target machine, the processing speed 
+ on the target machine may be slowed when displaying popup windows or changing 
+ panels.</p>
+<h4><a name="Web_Gate_Date_and_Time" id="Web_Gate_Date_and_Time"></a><img src="Square.bmp" alt="" style="border: none;" width="12" height="10" border="0">Web Gate Date and Time</h4>
+<h5>Timezones</h5>
+<p>When viewing projects using Web Gate, the date and time is converted 
+ to the Time Zone from where you are viewing the application.</p>
+<p class="Image"><img src="Date_time_Pro-eView.bmp" alt="" style="border: none;" width="456" height="225" border="0"></p>
+<p>For example, if the target machine is running in New York (January 1, 
+ 0:00:00), and you use Web Gate from Paris to view the target machine, 
+ the date/time displays as January 1, 6:00:00. For more information, see 
+ Section 4.5.3, <a href="StandardOperation.chm::/Configuring_Time_Zone_and_Daylight_Saving_Time.htm">Displaying 
+ Data Using Time Zone and Configuring Daylight Saving Time</a>.</p>
+<h5><img src="NOTE_MOJI.BMP" alt="" style="border: none;" width="51" height="25" border="0"></h5>
+<ul>
+	<li class="p-NoteText"><p class="NoteText">The Time column in Event 
+	 Summary displays target machine's server time converted to the local 
+	 time zone from where you are viewing the application.</p></li>
+	<li class="p-NoteText"><p class="NoteText">Event Messages with dynamic 
+	 time stamps show the local time of the machine that triggered the 
+	 event. For more information on dynamic time stamps, see section 21.1.5.12, 
+	 <a href="EfficientOperations.chm::/Setting_Up_Embedded_Content.htm" 
+		 style="background-color: Transparent;">Setting Up Messages with 
+	 Dynamic Content</a>.</p></li>
+</ul>
+<h4><a name="Trend_Graph_Data" id="Trend_Graph_Data"></a><img src="Square.bmp" alt="" style="border: none;" width="12" height="10" border="0">Trend 
+ Graph Data</h4>
+<p>Trend graphs viewed from Web Gate may not exactly match the trend graph 
+ on the target machine. Factors such as network traffic and the target 
+ machine's CPU load can alter the exact moment when the Web Gate client 
+ receives and displays the trend data.</p>
+<h4><a name="Parison_Graph" id="Parison_Graph"></a><img src="Square.bmp" alt="" style="border: none;" width="12" height="10" border="0">Parison 
+ Graph on Web Gate</h4>
+<p>A Parison Graph viewed from Web Gate may not exactly match the Parison 
+ Graph on the target machine. An update of a recipe on the target machine 
+ may not update the recipe cache image on Web Gate. You may need to perform 
+ a Snapshot or Save.</p>
+<h4><a name="Web_Gate_and_External_Variables" id="Web_Gate_and_External_Variables"></a><img src="Square.bmp" alt="" style="border: none;" width="12" height="10" border="0">Web Gate and External Variables</h4>
+<p>When you use Web Gate to change the value of external variables whose 
+ data exists on external equipment, the write and read operation may not 
+ perform as expected.</p>
+<p>For example, when using scripts to run a write operation, reading data 
+ from the equipment does not run properly. You may need to either reduce 
+ the frequency if it’s a periodic script, or separate the write operations 
+ into multiple scripts to split up the data.</p>
+<h4><a name="Write_Values_to_Data_Display_on_Web_Gate" id="Write_Values_to_Data_Display_on_Web_Gate"></a><img src="Square.bmp" alt="" style="border: none;" width="12" height="10" border="0">Write Values to a Data Display on Web Gate</h4>
+<p>To write values to a data display on Web Gate when target security is 
+ set to enabled, you need to add a login part to use with Web Gate. The 
+ read/write setting for Web Gate is set on a security group, so you need 
+ to log on as a user assigned to the read/write group.</p>
+<h4><a name="Web_Gate_Synchronization_and_Exclusive_Input" id="Web_Gate_Synchronization_and_Exclusive_Input"></a><img src="Square.bmp" alt="" style="border: none;" width="12" height="10" border="0">Web Gate Synchronization and Exclusive Input</h4>
+<p>Web Gate Synchronization and the exclusive input feature may come into 
+ conflict. This occurs when synchronization is enabled and the connected 
+ target displays a panel with exclusive input. In this case, Web Gate displays 
+ an error message and shows the target's initial panel.</p>
+<p>For information on exclusive input, see Section 22.2, <a href="Advanced.chm::/Data_Sharing_Synchronization.htm">Setting 
+ Up Exclusive Input Relationships</a>.</p>
+<p>For information on Web Gate synchronization, see Section 23.2.8, <a 
+	 href="Web_Gate_Actions.htm#synchronizing_panels">Web Gate Operations: 
+ Synchronizing Web Gate with a Target</a>.</p>
+<h4><a name="Web_Gate_and_Reference_Variables" id="Web_Gate_and_Reference_Variables"></a><img src="Square.bmp" alt="" style="border: none;" width="12" height="10" border="0">Web Gate and Reference Variables</h4>
+<p>On Web Gate, a panel operator can view an assembly of objects that use 
+ a reference variable. When sharing is enabled on all the parameter variables 
+ for the reference variable, the Web Gate client can view exactly the same 
+ display as the target machine server. The target machine server and Web 
+ Gate client can make changes to a parameter and the most recent change 
+ will be displayed. When sharing is set to None, the Web Gate client and 
+ the target machine server would view their own copies of the parameter 
+ variables.</p>
+<p>When sharing is set to None for a parameter variable and Shared for 
+ another parameter variable in a reference string, then part of the view 
+ will be independent and part will be shared. For example, for the Reference 
+ String Plant%s.Station%d, the parameter variable PlantName is Shared and 
+ StationNumber is set to None. In this case, the operators on the Web Gate 
+ client and the target machine server would be able to make changes to 
+ and view the same updated plant data, but they would each view and make 
+ updates to their own copies of station data.</p>
+<h4><a name="Script" id="Script"></a><img src="Square.bmp" alt="" style="border: none;" width="12" height="10" border="0">Script: 
+ clearSum</h4>
+<p>When clearSum() executes from the Web Gate client, only the client's 
+ Sum counter resets to 0. The Sum counter on the target does not reset.</p>
+<p>For more information, see Section 18.3.8.1, Alarm Group/Category Methods: 
+ <a href="Scripts.chm::/AlarmGroupGrpCountSumClear.htm">clearSum</a>.</p>
+<h4><a name="Recipes" id="Recipes"></a><img src="Square.bmp" alt="" style="border: none;" width="12" height="10" border="0">Recipes</h4>
+<p>Recipes on the target machine server can be viewed and modified by the 
+ Web Gate client. However, changes must be saved to the server where the 
+ actual data is stored. When sending recipe data to the PLC from the client 
+ machine, the data is downloaded to the PLC without saving to the target 
+ machine server. When taking a snapshot of the recipe data on the PLC, 
+ the data is uploaded to the client machine without saving to the target 
+ machine server. For more information, see Section 17.6.8, <a href="Recipe.chm::/Sharing_Recipes_Using_Web_Gate.htm">Sharing 
+ Recipes Using Web Gate</a>.</p>
+<table style="vertical-align: top;" cellspacing="0">
+	<col>
+	<col>
+	<col>
+	<tr style="vertical-align: top;">
+		<td style="padding-right: 10px; padding-left: 10px;"><p style="text-align: center;">Target 
+		 Server</p></td>
+		<td style="padding-right: 10px; padding-left: 10px;"><p>&#160;</p></td>
+		<td style="padding-right: 10px; padding-left: 10px;"><p style="text-align: center;">Web 
+		 Gate Client</p></td>
+	</tr>
+	<tr style="vertical-align: top;">
+		<td style="padding-right: 10px; padding-left: 10px;"><p style="text-align: center;"><img src="target-PLC.bmp" alt="" style="border: none;" width="76" height="102" border="0"></p></td>
+		<td style="padding-right: 10px; padding-left: 10px; vertical-align: center;"><p 
+			 style="text-align: center;">Load Recipe<span style="text-align: center;"><br>
+		<img src="arrow-leftright.bmp" alt="" style="border: none;" width="70" height="29" border="0"><br>
+		Save Recipe</span></p></td>
+		<td style="padding-right: 10px; padding-left: 10px; vertical-align: center;"><p 
+			 style="text-align: center;"><img src="pc-comp.bmp" alt="" style="border: none;" width="79" height="67" border="0"></p></td>
+	</tr>
+	<tr style="vertical-align: top;">
+		<td style="padding-right: 10px; padding-left: 10px;"><p style="text-align: center;">PLC</p></td>
+		<td style="padding-right: 10px; padding-left: 10px; vertical-align: center;"><p>&#160;</p></td>
+		<td style="padding-right: 10px; padding-left: 10px; vertical-align: center;"><p 
+			 style="text-align: center;">&#160;</p></td>
+	</tr>
+</table>
+<p style="margin-left: 0px;">&#160;</p>
+<h4><a name="View_Block_Trend_Graph_Data" id="View_Block_Trend_Graph_Data"></a><img src="Square.bmp" alt="" style="border: none;" width="12" height="10" border="0">Viewing Block Trend Graph Data from Web Gate</h4>
+<p>Web Gate clients can view block trend graph data on the target machine 
+ server. To do this, the block variable assigned for the block trend graph 
+ must have Sharing set to Read Only or Read/Write.</p>
+<p>Web Gate clients can use the trigger to get the latest value of the 
+ block variable, only if the trigger variable has Sharing set to Read/Write.</p>
+<h4><a name="Form_Printing" id="Form_Printing"></a><img src="Square.bmp" alt="" style="border: none;" width="12" height="10" border="0">Form 
+ Printing</h4>
+<p>You can set up the print form operation to work remotely through Web 
+ Gate, only if you use the print form action triggered by a shared variable. 
+ The print form operation will not support Web Gate if you use other triggers, 
+ such as switches or selectors.</p>
+<h4><a name="Features_Not_Avail" id="Features_Not_Avail"></a><img src="Square.bmp" alt="" style="border: none;" width="12" height="10" border="0">Features 
+ Not Available with Web Gate</h4>
+<ul>
+	<li class="p-Bullet"><p class="Bullet">You cannot directly access system 
+	 variables on Web Gate. However, you can indirectly access system variables 
+	 by using the Read From Variable and Write To Variable properties.</p></li>
+	<li class="p-Bullet"><p class="Bullet">The Toolchest security parts 
+	 for modifying user account information, such as UserManager and PasswordChange, 
+	 are not supported on Web Gate.</p></li>
+	<li class="p-Bullet"><p class="Bullet">Alarm Summary cursor-related 
+	 operations such as cursor up/down, page up/down, move top/bottom that 
+	 are run on the target machine are not reflected on the Web Gate client.</p></li>
+	<li class="p-Bullet"><p class="Bullet">In run time, Alarm Banner moves 
+	 to the back when an error message box appears. But in Web Gate, the 
+	 Alarm Banner does not change position when an error message box appears.</p></li>
+	<li class="p-Bullet"><p class="Bullet">The Alarm Trigger action is 
+	 not supported on Web Gate for the following functions:</p></li>
+	<li class="p-bullet2"><p class="bullet2">Bit</p></li>
+	<li class="p-bullet2"><p class="bullet2">Special</p></li>
+	<li class="p-bullet2"><p class="bullet2">Popup Panel</p></li>
+	<li class="p-bullet2"><p class="bullet2">Script.</p></li>
+	<li class="p-Bullet"><p class="Bullet">The following Operations are 
+	 not supported on the Web Gate client</p></li>
+</ul>
+<table style="vertical-align: top; margin-left: 40px;" cellspacing="0" 
+		 width="66.667%">
+	<col style="width: 50%;">
+	<col style="width: 50%;">
+	<tr style="vertical-align: top;">
+		<td style="border-top: Solid 3px #000000; border-right: Solid 1px #000000; 
+			 border-bottom: Solid 1px #000000; width: 50%; padding-right: 10px; 
+			 padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" 
+			 bgcolor="#91AFD9"><p class="Tabletitle">Operation</p></td>
+		<td style="border-top: Solid 3px #000000; border-bottom: Solid 1px #000000; 
+			 width: 50%; padding-right: 10px; padding-left: 10px; padding-top: 10px; 
+			 padding-bottom: 10px;" bgcolor="#91AFD9"><p class="Tabletitle">Supported/Not 
+		 Supported</p></td>
+	</tr>
+	<tr style="vertical-align: top;">
+		<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; 
+			 width: 50%; padding-right: 10px; padding-left: 10px; padding-top: 10px; 
+			 padding-bottom: 10px;"><p><a href="Switches.chm::/configuration.htm">System 
+		 Operations</a></p></td>
+		<td style="border-bottom: Solid 1px #000000; width: 50%; padding-right: 10px; 
+			 padding-left: 10px; padding-top: 10px; padding-bottom: 10px;"><p>All 
+		 system operations are supported except the following:</p>
+		<ul>
+			<li class="p-Bullet"><p class="Bullet"><a href="Switches.chm::/configuration.htm">Restart 
+			 Runtime</a></p></li>
+			<li class="p-Bullet"><p class="Bullet"><a href="Switches.chm::/configuration.htm">Exit 
+			 Runtime</a></p></li>
+			<li class="p-Bullet"><p class="Bullet"><a href="Switches.chm::/configuration.htm">Configuration</a></p></li>
+			<li class="p-Bullet"><p class="Bullet"><a href="Switches.chm::/Set_IP_Address.htm">Set 
+			 IP Address</a></p></li>
+		</ul></td>
+	</tr>
+	<tr style="vertical-align: top;">
+		<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; 
+			 width: 50%; padding-right: 10px; padding-left: 10px; padding-top: 10px; 
+			 padding-bottom: 10px;"><p><a href="Switches.chm::/Controller.htm">Controller</a></p></td>
+		<td style="border-bottom: Solid 1px #000000; width: 50%; padding-right: 10px; 
+			 padding-left: 10px; padding-top: 10px; padding-bottom: 10px;"><p>Not 
+		 Supported</p></td>
+	</tr>
+	<tr style="vertical-align: top;">
+		<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; 
+			 width: 50%; padding-right: 10px; padding-left: 10px; padding-top: 10px; 
+			 padding-bottom: 10px;"><p><a href="Switches.chm::/Copy_Data_To_Operation.htm">Copy 
+		 Data To Drive</a></p></td>
+		<td style="border-bottom: Solid 1px #000000; width: 50%; padding-right: 10px; 
+			 padding-left: 10px; padding-top: 10px; padding-bottom: 10px;"><p>Not 
+		 Supported</p></td>
+	</tr>
+	<tr style="vertical-align: top;">
+		<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; 
+			 width: 50%; padding-right: 10px; padding-left: 10px; padding-top: 10px; 
+			 padding-bottom: 10px;"><p><a href="Switches.chm::/Copy_Data_From_Operations.htm">Copy 
+		 Data From Drive</a></p></td>
+		<td style="border-bottom: Solid 1px #000000; width: 50%; padding-right: 10px; 
+			 padding-left: 10px; padding-top: 10px; padding-bottom: 10px;"><p>Not 
+		 Supported</p></td>
+	</tr>
+	<tr style="vertical-align: top;">
+		<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; 
+			 width: 50%; padding-right: 10px; padding-left: 10px; padding-top: 10px; 
+			 padding-bottom: 10px;"><p><a href="Switches.chm::/Video_Operations.htm">Video</a></p></td>
+		<td style="border-bottom: Solid 1px #000000; width: 50%; padding-right: 10px; 
+			 padding-left: 10px; padding-top: 10px; padding-bottom: 10px;"><p>Not 
+		 Supported</p></td>
+	</tr>
+	<tr style="vertical-align: top;">
+		<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; 
+			 width: 50%; padding-right: 10px; padding-left: 10px; padding-top: 10px; 
+			 padding-bottom: 10px; "><p><a href="Switches.chm::/Browser_Operations.htm">Browser</a></p></td>
+		<td style="border-bottom: Solid 1px #000000; width: 50%; padding-right: 10px; 
+			 padding-left: 10px; padding-top: 10px; padding-bottom: 10px; 
+			 "><p>Not Supported</p></td>
+	</tr>
+	<tr style="vertical-align: top;">
+		<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; 
+			 width: 50%; padding-right: 10px; padding-left: 10px; padding-top: 10px; 
+			 padding-bottom: 10px; "><p><a href="Switches.chm::/JPEG_Viewer_Operations.htm">Image 
+		 Capture Viewer</a></p></td>
+		<td style="border-bottom: Solid 1px #000000; width: 50%; padding-right: 10px; 
+			 padding-left: 10px; padding-top: 10px; padding-bottom: 10px; 
+			 "><p>Not Supported</p></td>
+	</tr>
+	<tr style="vertical-align: top;">
+		<td style="border-right: Solid 1px #000000; border-bottom: Solid 3px #000000; 
+			 width: 50%; padding-right: 10px; padding-left: 10px; padding-top: 10px; 
+			 padding-bottom: 10px; "><p><a href="Switches.chm::/Email.htm">Email</a></p></td>
+		<td style="border-bottom: Solid 3px #000000; width: 50%; padding-right: 10px; 
+			 padding-left: 10px; padding-top: 10px; padding-bottom: 10px; 
+			 "><p>Not Supported</p></td>
+	</tr>
+</table>
+<p>&#160;</p>
+<ul>
+	<li class="p-Bullet"><p class="Bullet">Some script methods are not 
+	 supported on the Web Gate client. The following table lists the supported 
+	 and unsupported script methods.</p></li>
+</ul>
+<table style="vertical-align: top; margin-left: 40px;" cellspacing="0" 
+		 width="66.667%">
+	<col style="width: 50%;">
+	<col style="width: 50%;">
+	<tr style="vertical-align: top;">
+		<td style="border-top: Solid 3px #000000; border-right: Solid 1px #000000; 
+			 border-bottom: Solid 1px #000000; width: 50%; padding-right: 10px; 
+			 padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" 
+			 bgcolor="#91AFD9"><p class="Tabletitle">Method Type</p></td>
+		<td style="border-top: Solid 3px #000000; border-bottom: Solid 1px #000000; 
+			 width: 50%; padding-right: 10px; padding-left: 10px; padding-top: 10px; 
+			 padding-bottom: 10px;" bgcolor="#91AFD9"><p class="Tabletitle">Supported/Not 
+		 Supported</p></td>
+	</tr>
+	<tr style="vertical-align: top;">
+		<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; 
+			 width: 50%; padding-right: 10px; padding-left: 10px; padding-top: 10px; 
+			 padding-bottom: 10px;"><p><a href="Scripts.chm::/AlarmGroup_Methods.htm#AlarmMethods">Alarm 
+		 Group/Category Methods</a></p></td>
+		<td style="border-bottom: Solid 1px #000000; width: 50%; padding-right: 10px; 
+			 padding-left: 10px; padding-top: 10px; padding-bottom: 10px;"><p>All 
+		 Methods Supported</p></td>
+	</tr>
+	<tr style="vertical-align: top;">
+		<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; 
+			 width: 50%; padding-right: 10px; padding-left: 10px; padding-top: 10px; 
+			 padding-bottom: 10px;"><p><a href="Scripts.chm::/Mathematical_methods.htm">Java 
+		 Methods</a></p></td>
+		<td style="border-bottom: Solid 1px #000000; width: 50%; padding-right: 10px; 
+			 padding-left: 10px; padding-top: 10px; padding-bottom: 10px;"><p>All 
+		 Methods Supported</p></td>
+	</tr>
+	<tr style="vertical-align: top;">
+		<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; 
+			 width: 50%; padding-right: 10px; padding-left: 10px; padding-top: 10px; 
+			 padding-bottom: 10px;"><p><a href="Scripts.chm::/Alarm_Summary_methods.htm">Alarm 
+		 Summary Methods</a></p></td>
+		<td style="border-bottom: Solid 1px #000000; width: 50%; padding-right: 10px; 
+			 padding-left: 10px; padding-top: 10px; padding-bottom: 10px;"><p>All 
+		 Methods Supported</p></td>
+	</tr>
+	<tr style="vertical-align: top;">
+		<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; 
+			 width: 50%; padding-right: 10px; padding-left: 10px; padding-top: 10px; 
+			 padding-bottom: 10px;"><p><a href="Scripts.chm::/Serial_Driver_Methods.htm">Script 
+		 Driver Methods</a></p></td>
+		<td style="border-bottom: Solid 1px #000000; width: 50%; padding-right: 10px; 
+			 padding-left: 10px; padding-top: 10px; padding-bottom: 10px;"><p>All 
+		 Methods Supported</p></td>
+	</tr>
+	<tr style="vertical-align: top;">
+		<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; 
+			 width: 50%; padding-right: 10px; padding-left: 10px; padding-top: 10px; 
+			 padding-bottom: 10px;"><p><a href="Scripts.chm::/SoundMethod.htm">Sound 
+		 Methods</a></p></td>
+		<td style="border-bottom: Solid 1px #000000; width: 50%; padding-right: 10px; 
+			 padding-left: 10px; padding-top: 10px; padding-bottom: 10px;"><p>All 
+		 Methods Supported</p></td>
+	</tr>
+	<tr style="vertical-align: top;">
+		<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; 
+			 width: 50%; padding-right: 10px; padding-left: 10px; padding-top: 10px; 
+			 padding-bottom: 10px;"><p><a href="Scripts.chm::/SystemMethods.htm">System 
+		 Methods</a></p></td>
+		<td style="border-bottom: Solid 1px #000000; width: 50%; padding-right: 10px; 
+			 padding-left: 10px; padding-top: 10px; padding-bottom: 10px;"><p>All 
+		 Methods Supported except for the following methods:</p>
+		<ul>
+			<li class="p-Bullet"><p 
+				 class="Bullet"><a 
+			 href="Scripts.chm::/Sys.beep.htm">beep</a></p></li>
+			<li class="p-Bullet"><p 
+				 class="Bullet"><a 
+			 href="Scripts.chm::/SystemCreateProcess.htm">createProcess</a></p></li>
+			<li class="p-Bullet"><p 
+				 class="Bullet"><a 
+			 href="Scripts.chm::/SystemRemoveProcess.htm">removeProcess</a></p></li>
+			<li class="p-Bullet"><p 
+				 class="Bullet"><a 
+			 href="Scripts.chm::/SystemSetDate.htm">setDate</a></p></li>
+			<li class="p-Bullet"><p 
+				 class="Bullet"><a 
+			 href="Scripts.chm::/SystemSetTime.htm">setTime</a></p></li>
+			<li class="p-Bullet"><p 
+				 class="Bullet"><a href="Scripts.chm::/Sys.clearAllDataLoggingInMemory.htm">clearAllDataLoggingInMemory</a></p></li>
+			<li class="p-Bullet"><p 
+				 class="Bullet"><a href="Scripts.chm::/SysdataLoggingFlushAll.htm">flushAllDataLogging</a></p></li>
+			<li class="p-Bullet"><p 
+				 class="Bullet"><a href="Scripts.chm::/Sys.exitRuntime.htm">exitRuntime</a></p></li>
+			<li class="p-Bullet"><p 
+				 class="Bullet"><a href="Scripts.chm::/Sys.setTargetIPAddress.htm">setTargetIPAddress</a></p></li>
+		</ul></td>
+	</tr>
+	<tr style="vertical-align: top;">
+		<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; 
+			 width: 50%; padding-right: 10px; padding-left: 10px; padding-top: 10px; 
+			 padding-bottom: 10px;"><p><a href="Scripts.chm::/Variable_Methods.htm">Variable 
+		 Methods</a></p></td>
+		<td style="border-bottom: Solid 1px #000000; width: 50%; padding-right: 10px; 
+			 padding-left: 10px; padding-top: 10px; padding-bottom: 10px;"><p>All 
+		 Methods Supported except for the following methods:</p>
+		<ul>
+			<li class="p-Bullet"><p class="Bullet"><a href="Scripts.chm::/Variable_enableScaling.htm">enableScaling</a></p></li>
+			<li class="p-Bullet"><p class="Bullet"><a href="Scripts.chm::/Variable_FlushToStorage.htm">flushToStorage</a></p></li>
+		</ul></td>
+	</tr>
+	<tr style="vertical-align: top;">
+		<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; 
+			 width: 50%; padding-right: 10px; padding-left: 10px; padding-top: 10px; 
+			 padding-bottom: 10px;"><p><a href="Scripts.chm::/Equipment_Methods.htm">Equipment 
+		 Methods</a></p></td>
+		<td style="border-bottom: Solid 1px #000000; width: 50%; padding-right: 10px; 
+			 padding-left: 10px; padding-top: 10px; padding-bottom: 10px;"><p>Not 
+		 Supported</p></td>
+	</tr>
+	<tr style="vertical-align: top;">
+		<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; 
+			 width: 50%; padding-right: 10px; padding-left: 10px; padding-top: 10px; 
+			 padding-bottom: 10px;"><p><a href="Scripts.chm::/Video_Methods.htm">Video 
+		 Methods</a></p></td>
+		<td style="border-bottom: Solid 1px #000000; width: 50%; padding-right: 10px; 
+			 padding-left: 10px; padding-top: 10px; padding-bottom: 10px;"><p>Not 
+		 Supported</p></td>
+	</tr>
+	<tr style="vertical-align: top;">
+		<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; 
+			 width: 50%; padding-right: 10px; padding-left: 10px; padding-top: 10px; 
+			 padding-bottom: 10px;"><p><a href="Scripts.chm::/File_Method.htm">File 
+		 Methods</a></p></td>
+		<td style="border-bottom: Solid 1px #000000; width: 50%; padding-right: 10px; 
+			 padding-left: 10px; padding-top: 10px; padding-bottom: 10px;"><p>Supported</p></td>
+	</tr>
+	<tr style="vertical-align: top;">
+		<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; 
+			 width: 50%; padding-right: 10px; padding-left: 10px; padding-top: 10px; 
+			 padding-bottom: 10px;"><p><a href="Scripts.chm::/DiagBuffer_Methods.htm">DiagBuffer 
+		 Methods</a></p></td>
+		<td style="border-bottom: Solid 1px #000000; width: 50%; padding-right: 10px; 
+			 padding-left: 10px; padding-top: 10px; padding-bottom: 10px;"><p>Not 
+		 Supported</p></td>
+	</tr>
+	<tr style="vertical-align: top;">
+		<td style="border-right: Solid 1px #000000; border-bottom: Solid 3px #000000; 
+			 width: 50%; padding-right: 10px; padding-left: 10px; padding-top: 10px; 
+			 padding-bottom: 10px;"><p><a href="Scripts.chm::/Recipe_Control_methods.htm">Recipe 
+		 Control Methods</a></p></td>
+		<td style="border-bottom: Solid 3px #000000; width: 50%; padding-right: 10px; 
+			 padding-left: 10px; padding-top: 10px; padding-bottom: 10px;"><p>All 
+		 Methods Supported except for the following method:</p>
+		<ul>
+			<li class="p-Bullet"><p class="Bullet"><a href="Recipe.chm::/Setting_Up_Recipe_Group_Controls.htm">OperationsLock</a></p></li>
+		</ul></td>
+	</tr>
+</table>
+<ul>
+	<li class="p-Bullet"><p class="Bullet">Actions that run On Shutdown 
+	 are not supported.</p></li>
+	<li class="p-Bullet"><p class="Bullet">Strings that use a font that 
+	 is not installed on the client PC may appear different from the target 
+	 machine. Strings are displayed with the closest matching font that 
+	 is available on the Web Gate client.</p></li>
+	<li class="p-Bullet"><p class="Bullet">Popup windows on the Web Gate 
+	 client always show a titlebar even though the target machine may not 
+	 use a titlebar.</p></li>
+	<li class="p-Bullet"><p class="Bullet">The Video Display is not supported 
+	 on Web Gate.</p></li>
+	<li class="p-Bullet"><p class="Bullet">Printing is not available on 
+	 the Web Gate client.</p></li>
+	<li class="p-Bullet"><p class="Bullet">The web browser's Back, Forward, 
+	 and Refresh buttons are not supported with Web Gate. Using these buttons 
+	 may cause errors during run time.</p></li>
+	<li class="p-Bullet"><p class="Bullet">Function Key operations assigned 
+	 to Function Keys on the target can be executed from a client's PC 
+	 Keyboard through Web Gate, see Section 25.3.4 <a href="Download.chm::/Simulating_the_Keyboard.htm">Simulating 
+	 the Keyboard</a> for information on how the Function Keys map to a 
+	 PC Keyboard. The following Function Keys on the PC Keyboard will not 
+	 run Function Key operations on the target machine:</p></li>
+	<li class="p-bullet2"><p class="bullet2">F1 - Displays Web Browser 
+	 Help</p></li>
+	<li class="p-bullet2"><p class="bullet2">F5 - Refreshes Screen</p></li>
+	<li class="p-bullet2"><p class="bullet2">F11 - Displays Full Screen</p></li>
+	<li class="p-bullet2"><p class="bullet2">Alt + F4 - Closes current 
+	 window</p></li>
+	<li class="p-bullet2"><p class="bullet2">Ctrl + F4 - Closes current 
+	 tab</p></li>
+</ul>
+<h4><a name="Different_Information_Displays" id="Different_Information_Displays"></a><img src="Square.bmp" alt="" style="border: none;" width="12" height="10" border="0">Different Information Displays on Web Gate and Targets</h4>
+<p>After you download the project to a target, start Runtime, and connect 
+ to Web Gate, the following parameters display differently on Web Gate 
+ and in Runtime:</p>
+<table style="vertical-align: top; margin-left: 40px;" cellspacing="0" 
+		 width="90%">
+	<col style="width: 23.454%;">
+	<col style="width: 37.915%;">
+	<col style="width: 38.631%;">
+	<tr style="vertical-align: top;">
+		<td style="border-top: Solid 3px #000000; border-right: Solid 1px #000000; 
+			 border-bottom: Solid 1px #000000; width: 23.454%; padding-right: 10px; 
+			 padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" 
+			 bgcolor="#91AFD9"><p class="Tabletitle">Parameter</p></td>
+		<td style="border-top: Solid 3px #000000; border-right: Solid 1px #000000; 
+			 border-bottom: Solid 1px #000000; width: 37.915%; padding-right: 10px; 
+			 padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" 
+			 bgcolor="#91AFD9"><p class="Tabletitle">Web Gate Displays</p></td>
+		<td style="border-top: Solid 3px #000000; border-bottom: Solid 1px #000000; 
+			 width: 38.631%; padding-right: 10px; padding-left: 10px; padding-top: 10px; 
+			 padding-bottom: 10px;" bgcolor="#91AFD9"><p class="Tabletitle">Runtime 
+		 Displays</p></td>
+	</tr>
+	<tr style="vertical-align: top;">
+		<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; 
+			 width: 23.454%; padding-right: 10px; padding-left: 10px; padding-top: 10px; 
+			 padding-bottom: 10px;" bgcolor="#CBDAED"><p class="TableDefinitions">IP 
+		 Address 1</p></td>
+		<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; 
+			 width: 37.915%; padding-right: 10px; padding-left: 10px; padding-top: 10px; 
+			 padding-bottom: 10px;"><p>Current Web Gate PC's IP Address 
+		 1</p></td>
+		<td style="border-bottom: Solid 1px #000000; width: 38.631%; padding-right: 10px; 
+			 padding-left: 10px; padding-top: 10px; padding-bottom: 10px;"><p>Target 
+		 machine's IP Address 1</p></td>
+	</tr>
+	<tr style="vertical-align: top;">
+		<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; 
+			 width: 23.454%; padding-right: 10px; padding-left: 10px; padding-top: 10px; 
+			 padding-bottom: 10px;" bgcolor="#CBDAED"><p class="TableDefinitions">IP 
+		 Address 2</p></td>
+		<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; 
+			 width: 37.915%; padding-right: 10px; padding-left: 10px; padding-top: 10px; 
+			 padding-bottom: 10px;"><p>Current Web Gate PC's IP Address 
+		 2</p></td>
+		<td style="border-bottom: Solid 1px #000000; width: 38.631%; padding-right: 10px; 
+			 padding-left: 10px; padding-top: 10px; padding-bottom: 10px;"><p>Target 
+		 machine's IP Address 2</p></td>
+	</tr>
+	<tr style="vertical-align: top;">
+		<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; 
+			 width: 23.454%; padding-right: 10px; padding-left: 10px; padding-top: 10px; 
+			 padding-bottom: 10px;" bgcolor="#CBDAED"><p class="TableDefinitions">MAC 
+		 Address 1</p></td>
+		<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; 
+			 width: 37.915%; padding-right: 10px; padding-left: 10px; padding-top: 10px; 
+			 padding-bottom: 10px;"><p>Current Web Gate PC's MAC Address 
+		 1</p></td>
+		<td style="border-bottom: Solid 1px #000000; width: 38.631%; padding-right: 10px; 
+			 padding-left: 10px; padding-top: 10px; padding-bottom: 10px;"><p>Target 
+		 machine's MAC Address 1</p></td>
+	</tr>
+	<tr style="vertical-align: top;">
+		<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; 
+			 width: 23.454%; padding-right: 10px; padding-left: 10px; padding-top: 10px; 
+			 padding-bottom: 10px;" bgcolor="#CBDAED"><p class="TableDefinitions">MAC 
+		 Address 2</p></td>
+		<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; 
+			 width: 37.915%; padding-right: 10px; padding-left: 10px; padding-top: 10px; 
+			 padding-bottom: 10px;"><p>Current Web Gate PC's MAC Address 
+		 2</p></td>
+		<td style="border-bottom: Solid 1px #000000; width: 38.631%; padding-right: 10px; 
+			 padding-left: 10px; padding-top: 10px; padding-bottom: 10px;"><p>Target 
+		 machine's MAC Address 2</p></td>
+	</tr>
+	<tr style="vertical-align: top;">
+		<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; 
+			 width: 23.454%; padding-right: 10px; padding-left: 10px; padding-top: 10px; 
+			 padding-bottom: 10px;" bgcolor="#CBDAED"><p class="TableDefinitions">DNS 
+		 Address 1</p></td>
+		<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; 
+			 width: 37.915%; padding-right: 10px; padding-left: 10px; padding-top: 10px; 
+			 padding-bottom: 10px;"><p>Current Web Gate PC's DNS Address 
+		 1</p></td>
+		<td style="border-bottom: Solid 1px #000000; width: 38.631%; padding-right: 10px; 
+			 padding-left: 10px; padding-top: 10px; padding-bottom: 10px;"><p>Target 
+		 machine's DNS Address 1</p></td>
+	</tr>
+	<tr style="vertical-align: top;">
+		<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; 
+			 width: 23.454%; padding-right: 10px; padding-left: 10px; padding-top: 10px; 
+			 padding-bottom: 10px;" bgcolor="#CBDAED"><p class="TableDefinitions">Subnet 
+		 Mask</p></td>
+		<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; 
+			 width: 37.915%; padding-right: 10px; padding-left: 10px; padding-top: 10px; 
+			 padding-bottom: 10px;"><p>Current Web Gate PC's Subnet Mask</p></td>
+		<td style="border-bottom: Solid 1px #000000; width: 38.631%; padding-right: 10px; 
+			 padding-left: 10px; padding-top: 10px; padding-bottom: 10px;"><p>Target 
+		 machine's Subnet Mask</p></td>
+	</tr>
+	<tr style="vertical-align: top;">
+		<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; 
+			 width: 23.454%; padding-right: 10px; padding-left: 10px; padding-top: 10px; 
+			 padding-bottom: 10px;" bgcolor="#CBDAED"><p class="TableDefinitions">Default 
+		 Gateway</p></td>
+		<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; 
+			 width: 37.915%; padding-right: 10px; padding-left: 10px; padding-top: 10px; 
+			 padding-bottom: 10px;"><p>Current Web Gate PC's default gateway</p></td>
+		<td style="border-bottom: Solid 1px #000000; width: 38.631%; padding-right: 10px; 
+			 padding-left: 10px; padding-top: 10px; padding-bottom: 10px;"><p>Target 
+		 machine's default gateway</p></td>
+	</tr>
+	<tr style="vertical-align: top;">
+		<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; 
+			 width: 23.454%; padding-right: 10px; padding-left: 10px; padding-top: 10px; 
+			 padding-bottom: 10px;" bgcolor="#CBDAED"><p class="TableDefinitions">Target 
+		 Type</p></td>
+		<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; 
+			 width: 37.915%; padding-right: 10px; padding-left: 10px; padding-top: 10px; 
+			 padding-bottom: 10px;"><p>WinNT 4.0</p></td>
+		<td style="border-bottom: Solid 1px #000000; width: 38.631%; padding-right: 10px; 
+			 padding-left: 10px; padding-top: 10px; padding-bottom: 10px;"><p>Target 
+		 type</p></td>
+	</tr>
+	<tr style="vertical-align: top;">
+		<td style="border-right: Solid 1px #000000; border-bottom: Solid 3px #000000; 
+			 width: 23.454%; padding-right: 10px; padding-left: 10px; padding-top: 10px; 
+			 padding-bottom: 10px;" bgcolor="#CBDAED"><p class="TableDefinitions">DRAM 
+		 Usage</p></td>
+		<td style="border-right: Solid 1px #000000; border-bottom: Solid 3px #000000; 
+			 width: 37.915%; padding-right: 10px; padding-left: 10px; padding-top: 10px; 
+			 padding-bottom: 10px;"><p>Current Web Gate PC's DRAM usage</p></td>
+		<td style="border-bottom: Solid 3px #000000; width: 38.631%; padding-right: 10px; 
+			 padding-left: 10px; padding-top: 10px; padding-bottom: 10px;"><p>Target 
+		 machine's DRAM usage</p></td>
+	</tr>
+</table>
+<h4>&#160;</h4>
+<h4><a name="SoMachine_Log_Viewer" id="SoMachine_Log_Viewer"></a><img src="Square.bmp" alt="" style="border: none;" width="12" height="10" border="0">SoMachine 
+ Log Viewer and Web Gate</h4>
+<p>When using Web Gate, while the Web Gate client and the target machine 
+ server would be viewing the same file on the SoMachine Log Viewer, the 
+ file content may not be the same. The switch allows each user on the Web 
+ Gate client and target machine server to reload the file independently. 
+ For example, if an operator on the Web Gate client triggers a reload while 
+ an operator on the target machine server does not, only the Web Gate client 
+ will display the most up-to-date file.</p>
+<p>&#160;</p>
+<h4><a name="webServerLogout" id="webServerLogout"></a><img src="Square.bmp" alt="" style="border: none;" width="12" height="10" border="0">Web 
+ Server Logout</h4>
+<p>The Web Gate client may at times close or open an HTTP connection to 
+ target's Web Server. This is recorded as a Web Server Login or Web Server 
+ Logout system event. This is normal in the course of the target's Web 
+ Server Operations and does not affect Web Gate performance.</p>
+<p>&#160;</p>
+<h4><a name="Image_Capture_Viewer_on_Web_Gate" id="Image_Capture_Viewer_on_Web_Gate"></a><img src="Square.bmp" alt="" style="border: none;" width="12" height="10" border="0">Image Capture Viewer on Web Gate</h4>
+<p>Web Gate copies the image files from the target machine server to the 
+ Web Gate client when the panel opens. The Web Gate client then reads the 
+ image files from its local drive. New images that are subsequently added 
+ onto the server would not be copied to the client. To display any new 
+ images from the server to the client, you need to change panel. When the 
+ panel opens, the new image files are copied from the server to the client.</p>
+<p>&#160;</p>
+</body>
+</html>

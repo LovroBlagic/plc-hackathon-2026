@@ -1,0 +1,801 @@
+<html>
+<!-- Sitemap 1.0 -->
+<object type="text/site properties">
+  <param name="WindowName" value="$global_NewWindow">
+  <param name="SiteType" value="index">
+</object>
+<ul>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Copying Resources">
+    <param name="Name" value="Copying Resources Between Targets and Projects">
+    <param name="Local" value="Copying_Resources_Between_Targets_and_Projects.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Defining Values for each Property in each State">
+    <param name="Name" value="Defining Values for each Property in each State">
+    <param name="Local" value="Defining_Values_for_each_Property_in_each_State.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Selecting Resources for Your Part">
+    <param name="Name" value="Selecting Resources for Your Part">
+    <param name="Local" value="Selecting_Resources_For_Your_Part.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="New Resource Dialog Box">
+    <param name="Name" value="Creating Resources">
+    <param name="Local" value="Creating_Resources.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Creating Resources">
+    <param name="Name" value="Creating Resources">
+    <param name="Local" value="Creating_Resources.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Font Resource Properties">
+    <param name="Name" value="Font Resource Editor">
+    <param name="Local" value="Font_Resource_Editor.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Font Resource Editor">
+    <param name="Name" value="Font Resource Editor">
+    <param name="Local" value="Font_Resource_Editor.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Resource Toolbar">
+    <param name="Name" value="Resource Editors (Color, Text, Image)">
+    <param name="Local" value="Resource_Editors.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Resource Library">
+    <param name="Name" value="Setting Up Reusable Resources">
+    <param name="Local" value="Setting_Up_Reusable_Resources.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Variable Name, Object Information">
+    <param name="Name" value="Editing Using Object Information">
+    <param name="Local" value="Editing_Using_Object_Status.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Device Address, Object Information">
+    <param name="Name" value="Editing Using Object Information">
+    <param name="Local" value="Editing_Using_Object_Status.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Object Name, Object Information">
+    <param name="Name" value="Editing Using Object Information">
+    <param name="Local" value="Editing_Using_Object_Status.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Graphic Name, Object Information">
+    <param name="Name" value="Editing Using Object Information">
+    <param name="Local" value="Editing_Using_Object_Status.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Drawing Name, Object Information">
+    <param name="Name" value="Editing Using Object Information">
+    <param name="Local" value="Editing_Using_Object_Status.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Z-Order, Object Information">
+    <param name="Name" value="Editing Using Object Information">
+    <param name="Local" value="Editing_Using_Object_Status.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Drawing Order (Z-Order), Object Information">
+    <param name="Name" value="Editing Using Object Information">
+    <param name="Local" value="Editing_Using_Object_Status.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Tab Order, Object Information">
+    <param name="Name" value="Editing Using Object Information">
+    <param name="Local" value="Editing_Using_Object_Status.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Data Input Order (Tab Order), Object Information">
+    <param name="Name" value="Editing Using Object Information">
+    <param name="Local" value="Editing_Using_Object_Status.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Change Panel, Object Information">
+    <param name="Name" value="Editing Using Object Information">
+    <param name="Local" value="Editing_Using_Object_Status.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Animation, Object Information">
+    <param name="Name" value="Editing Using Object Information">
+    <param name="Local" value="Editing_Using_Object_Status.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Backup Management Dialog Box">
+    <param name="Name" value="Backing up Projects on your PC">
+    <param name="Local" value="backup_project.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Write-protecting Folders in the Toolchest">
+    <param name="Name" value="Working with Toolchest folders">
+    <param name="Local" value="Working_with_Toolchest_folders.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Read-Only Folders in the Toolchest">
+    <param name="Name" value="Working with Toolchest folders">
+    <param name="Local" value="Working_with_Toolchest_folders.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Backing Up Projects">
+    <param name="Name" value="Backing up Projects on your PC">
+    <param name="Local" value="backup_project.htm">
+    <param name="Name" value="Creating a Backup">
+    <param name="Local" value="Making_a_Backup.htm">
+    <param name="Name" value="Using a Backup">
+    <param name="Local" value="Using_a_Backup.htm">
+    <param name="Name" value="Backing up Projects">
+    <param name="Local" value="backup_methods.htm">
+    <param name="Name" value="Backing up Projects on a CF Card">
+    <param name="Local" value="cf_project_backup.htm">
+  </object>
+  <ul>
+    <li><object type="text/sitemap">
+      <param name="Name" value="Importing Projects">
+      <param name="Name" value="Importing Projects">
+      <param name="Local" value="Import.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="Exporting Projects">
+      <param name="Name" value="Exporting Projects">
+      <param name="Local" value="Export.htm">
+    </object>
+    </ul>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Toolchest">
+    <param name="Name" value="Using the Toolchest to Reuse Common Objects">
+    <param name="Local" value="Use_ParsLibrary.htm">
+  </object>
+  <ul>
+    <li><object type="text/sitemap">
+      <param name="Name" value="Working with Toolchest Objects">
+      <param name="Name" value="Working with Toolchest Objects">
+      <param name="Local" value="Working_with_Toolchest_Objects.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="Objects You can Store in the Toolchest">
+      <param name="Name" value="Objects You can Store in the Toolchest">
+      <param name="Local" value="Objects_You_can_Store_in_the_Toolchest.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="Working with Toolchest folders">
+      <param name="Name" value="Working with Toolchest folders">
+      <param name="Local" value="Working_with_Toolchest_folders.htm">
+    </object>
+    </ul>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Storage (Toolchest)">
+    <param name="Name" value="Using the Toolchest to Reuse Common Objects">
+    <param name="Local" value="Use_ParsLibrary.htm">
+  </object>
+  <ul>
+    <li><object type="text/sitemap">
+      <param name="Name" value="Working with Toolchest Objects">
+      <param name="Name" value="Working with Toolchest Objects">
+      <param name="Local" value="Working_with_Toolchest_Objects.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="Objects You can Store in the Toolchest">
+      <param name="Name" value="Objects You can Store in the Toolchest">
+      <param name="Local" value="Objects_You_can_Store_in_the_Toolchest.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="Working with Toolchest folders">
+      <param name="Name" value="Working with Toolchest folders">
+      <param name="Local" value="Working_with_Toolchest_folders.htm">
+    </object>
+    </ul>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Parts Library (Toolchest)">
+    <param name="Name" value="Using the Toolchest to Reuse Common Objects">
+    <param name="Local" value="Use_ParsLibrary.htm">
+  </object>
+  <ul>
+    <li><object type="text/sitemap">
+      <param name="Name" value="Working with Toolchest Objects">
+      <param name="Name" value="Working with Toolchest Objects">
+      <param name="Local" value="Working_with_Toolchest_Objects.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="Objects You can Store in the Toolchest">
+      <param name="Name" value="Objects You can Store in the Toolchest">
+      <param name="Local" value="Objects_You_can_Store_in_the_Toolchest.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="Working with Toolchest folders">
+      <param name="Name" value="Working with Toolchest folders">
+      <param name="Local" value="Working_with_Toolchest_folders.htm">
+    </object>
+    </ul>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Library (Toolchest)">
+    <param name="Name" value="Using the Toolchest to Reuse Common Objects">
+    <param name="Local" value="Use_ParsLibrary.htm">
+  </object>
+  <ul>
+    <li><object type="text/sitemap">
+      <param name="Name" value="Working with Toolchest Objects">
+      <param name="Name" value="Working with Toolchest Objects">
+      <param name="Local" value="Working_with_Toolchest_Objects.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="Objects You can Store in the Toolchest">
+      <param name="Name" value="Objects You can Store in the Toolchest">
+      <param name="Local" value="Objects_You_can_Store_in_the_Toolchest.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="Working with Toolchest folders">
+      <param name="Name" value="Working with Toolchest folders">
+      <param name="Local" value="Working_with_Toolchest_folders.htm">
+    </object>
+    </ul>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Repository (Toolchest)">
+    <param name="Name" value="Using the Toolchest to Reuse Common Objects">
+    <param name="Local" value="Use_ParsLibrary.htm">
+  </object>
+  <ul>
+    <li><object type="text/sitemap">
+      <param name="Name" value="Working with Toolchest Objects">
+      <param name="Name" value="Working with Toolchest Objects">
+      <param name="Local" value="Working_with_Toolchest_Objects.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="Objects You can Store in the Toolchest">
+      <param name="Name" value="Objects You can Store in the Toolchest">
+      <param name="Local" value="Objects_You_can_Store_in_the_Toolchest.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="Working with Toolchest folders">
+      <param name="Name" value="Working with Toolchest folders">
+      <param name="Local" value="Working_with_Toolchest_folders.htm">
+    </object>
+    </ul>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Memory (Toolchest)">
+    <param name="Name" value="Using the Toolchest to Reuse Common Objects">
+    <param name="Local" value="Use_ParsLibrary.htm">
+  </object>
+  <ul>
+    <li><object type="text/sitemap">
+      <param name="Name" value="Working with Toolchest Objects">
+      <param name="Name" value="Working with Toolchest Objects">
+      <param name="Local" value="Working_with_Toolchest_Objects.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="Objects You can Store in the Toolchest">
+      <param name="Name" value="Objects You can Store in the Toolchest">
+      <param name="Local" value="Objects_You_can_Store_in_the_Toolchest.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="Working with Toolchest folders">
+      <param name="Name" value="Working with Toolchest folders">
+      <param name="Local" value="Working_with_Toolchest_folders.htm">
+    </object>
+    </ul>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Saving Time: Using the Toolchest to Reuse Common Objects">
+    <param name="Name" value="Using the Toolchest to Reuse Common Objects">
+    <param name="Local" value="Use_ParsLibrary.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Common Objects">
+    <param name="Name" value="Using the Toolchest to Reuse Common Objects">
+    <param name="Local" value="Use_ParsLibrary.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Drawings, Reusing Common Objects">
+    <param name="Name" value="Using the Toolchest to Reuse Common Objects">
+    <param name="Local" value="Use_ParsLibrary.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Dynamic Content">
+    <param name="Name" value="Setting Up Dynamic Content in a Text Resource">
+    <param name="Local" value="Setting_Up_Embedded_Content.htm">
+  </object>
+  <ul>
+    <li><object type="text/sitemap">
+      <param name="Name" value="Setting Up in a Text Resource">
+      <param name="Name" value="Setting Up Dynamic Content in a Text Resource">
+      <param name="Local" value="Setting_Up_Embedded_Content.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="Insert Timestamp">
+      <param name="Name" value="Setting Up Dynamic Content in a Text Resource#Timestamp_Insertion">
+      <param name="Local" value="Setting_Up_Embedded_Content.htm#timestamp">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="Insert Variable">
+      <param name="Name" value="Setting Up Dynamic Content in a Text Resource#Insert_Variable">
+      <param name="Local" value="Setting_Up_Embedded_Content.htm#variable">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="Formatting Codes">
+      <param name="Name" value="Setting Up Dynamic Content in a Text Resource#dynamicFormattingExamples">
+      <param name="Local" value="Setting_Up_Embedded_Content.htm#dynamicFormattingExamples">
+    </object>
+    </ul>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Parts, Reusing Common Objects">
+    <param name="Name" value="Using the Toolchest to Reuse Common Objects">
+    <param name="Local" value="Use_ParsLibrary.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Reusing Objects">
+    <param name="Name" value="Using the Toolchest to Reuse Common Objects">
+    <param name="Local" value="Use_ParsLibrary.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Graphics List">
+    <param name="Name" value="Editing Objects from the Graphics List">
+    <param name="Local" value="DataList.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Editing Objects from the Graphics List">
+    <param name="Name" value="Editing Objects from the Graphics List">
+    <param name="Local" value="DataList.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Data List (Graphics List)">
+    <param name="Name" value="Editing Objects from the Graphics List">
+    <param name="Local" value="DataList.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Importing and Exporting Projects">
+    <param name="Name" value="Importing Projects">
+    <param name="Local" value="Import.htm">
+    <param name="Name" value="Exporting Projects">
+    <param name="Local" value="Export.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Exporting Projects">
+    <param name="Name" value="Exporting Projects">
+    <param name="Local" value="Export.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Projects, Backing Up">
+    <param name="Name" value="Backing up Projects on your PC">
+    <param name="Local" value="backup_project.htm">
+    <param name="Name" value="Creating a Backup">
+    <param name="Local" value="Making_a_Backup.htm">
+    <param name="Name" value="Using a Backup">
+    <param name="Local" value="Using_a_Backup.htm">
+    <param name="Name" value="Backing up Projects">
+    <param name="Local" value="backup_methods.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Editing Using Object Information">
+    <param name="Name" value="Editing Using Object Information">
+    <param name="Local" value="Editing_Using_Object_Status.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Object Information">
+    <param name="Name" value="Editing Using Object Information">
+    <param name="Local" value="Editing_Using_Object_Status.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Efficient Editing, Object Information">
+    <param name="Name" value="Editing Using Object Information">
+    <param name="Local" value="Editing_Using_Object_Status.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Quick Editing, Object Information">
+    <param name="Name" value="Editing Using Object Information">
+    <param name="Local" value="Editing_Using_Object_Status.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Reviewing Projects, Object Information">
+    <param name="Name" value="Editing Using Object Information">
+    <param name="Local" value="Editing_Using_Object_Status.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Creating a Backup (Project)">
+    <param name="Name" value="Creating a Backup">
+    <param name="Local" value="Making_a_Backup.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Using a Backup (Project)">
+    <param name="Name" value="Using a Backup">
+    <param name="Local" value="Using_a_Backup.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Exporting Toolchest Folders">
+    <param name="Name" value="Working with Toolchest folders#Exporting_folders">
+    <param name="Local" value="Working_with_Toolchest_folders.htm#Exporting_folders">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Importing Toolchest Folders">
+    <param name="Name" value="Working with Toolchest folders#Importing_folders">
+    <param name="Local" value="Working_with_Toolchest_folders.htm#Importing_folders">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Sorting Objects in the Graphics List">
+    <param name="Name" value="Editing Objects from the Graphics List">
+    <param name="Local" value="DataList.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Concurrency">
+    <param name="Name" value="Downloading Backups to a CF Card#multiple_copies">
+    <param name="Local" value="cf_backup_download.htm#multiple_copies">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Downloading Backups to a CF Card">
+    <param name="Name" value="Downloading Backups to a CF Card">
+    <param name="Local" value="cf_backup_download.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="CF Card, Downloading Project Backup to">
+    <param name="Name" value="Downloading Backups to a CF Card">
+    <param name="Local" value="cf_backup_download.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Project, Downloading Backup to CF Card">
+    <param name="Name" value="Downloading Backups to a CF Card">
+    <param name="Local" value="cf_backup_download.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Include Editor Project">
+    <param name="Name" value="Downloading Backups to a CF Card">
+    <param name="Local" value="cf_backup_download.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="CF Card, Backing Up Projects">
+    <param name="Name" value="Backing up Projects on a CF Card">
+    <param name="Local" value="cf_project_backup.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Project, Backing Up to CF Card">
+    <param name="Name" value="Backing up Projects on a CF Card">
+    <param name="Local" value="cf_project_backup.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="CF Card, Comparing Backup to Editor Project">
+    <param name="Name" value="Comparing CF Card Backups to Editor Projects">
+    <param name="Local" value="compare_backup_projects.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Comparing CF Card Backup to Editor Project">
+    <param name="Name" value="Comparing CF Card Backups to Editor Projects">
+    <param name="Local" value="compare_backup_projects.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Project, Comparing CF Card Backup to Editor Project">
+    <param name="Name" value="Comparing CF Card Backups to Editor Projects">
+    <param name="Local" value="compare_backup_projects.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Uploading Backups from a CF Card">
+    <param name="Name" value="Uploading Backups from a CF Card">
+    <param name="Local" value="uploading_cf_backups.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="CF Card, Uploading Backups from">
+    <param name="Name" value="Uploading Backups from a CF Card">
+    <param name="Local" value="uploading_cf_backups.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Reusing Colors, Text, Images, and Fonts">
+    <param name="Name" value="Setting Up Reusable Resources">
+    <param name="Local" value="Setting_Up_Reusable_Resources.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Meter, Resources">
+    <param name="Name" value="Setting Up Reusable Resources">
+    <param name="Local" value="Setting_Up_Reusable_Resources.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Bar Graph, Resources">
+    <param name="Name" value="Setting Up Reusable Resources">
+    <param name="Local" value="Setting_Up_Reusable_Resources.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Selector, Resources">
+    <param name="Name" value="Setting Up Reusable Resources">
+    <param name="Local" value="Setting_Up_Reusable_Resources.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Message Display, Resources">
+    <param name="Name" value="Setting Up Reusable Resources">
+    <param name="Local" value="Setting_Up_Reusable_Resources.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Image Display, Resources">
+    <param name="Name" value="Setting Up Reusable Resources">
+    <param name="Local" value="Setting_Up_Reusable_Resources.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Resources, Reasons to Use">
+    <param name="Name" value="Setting Up Reusable Resources">
+    <param name="Local" value="Setting_Up_Reusable_Resources.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Resource Editors (Color, Text, Image)">
+    <param name="Name" value="Resource Editors (Color, Text, Image)">
+    <param name="Local" value="Resource_Editors.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Color Resource Editor">
+    <param name="Name" value="Resource Editors (Color, Text, Image)">
+    <param name="Local" value="Resource_Editors.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Text Resource Editor">
+    <param name="Name" value="Resource Editors (Color, Text, Image)">
+    <param name="Local" value="Resource_Editors.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Image Resource Editor">
+    <param name="Name" value="Resource Editors (Color, Text, Image)">
+    <param name="Local" value="Resource_Editors.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Resource Properties">
+    <param name="Name" value="Resource Editors (Color, Text, Image)">
+    <param name="Local" value="Resource_Editors.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Resource Editor, Font">
+    <param name="Name" value="Font Resource Editor">
+    <param name="Local" value="Font_Resource_Editor.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Font Resource Toolbar">
+    <param name="Name" value="Font Resource Editor">
+    <param name="Local" value="Font_Resource_Editor.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Working with Resources">
+    <param name="Name" value="Working with Resources">
+    <param name="Local" value="Working_with_Resources.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Setting Up Resources">
+    <param name="Name" value="Working with Resources">
+    <param name="Local" value="Working_with_Resources.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Parts Dialog Box, Resources">
+    <param name="Name" value="Creating Resources">
+    <param name="Local" value="Creating_Resources.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Part, Selecting Resources">
+    <param name="Name" value="Selecting Resources for Your Part">
+    <param name="Local" value="Selecting_Resources_For_Your_Part.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Message Display, Selecting Resources">
+    <param name="Name" value="Selecting Resources for Your Part">
+    <param name="Local" value="Selecting_Resources_For_Your_Part.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Image Display, Selecting Resources">
+    <param name="Name" value="Selecting Resources for Your Part">
+    <param name="Local" value="Selecting_Resources_For_Your_Part.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Bar Graph, Selecting Resources">
+    <param name="Name" value="Selecting Resources for Your Part">
+    <param name="Local" value="Selecting_Resources_For_Your_Part.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Meter, Selecting Resources">
+    <param name="Name" value="Selecting Resources for Your Part">
+    <param name="Local" value="Selecting_Resources_For_Your_Part.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Selector, Selecting Resources">
+    <param name="Name" value="Selecting Resources for Your Part">
+    <param name="Local" value="Selecting_Resources_For_Your_Part.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Resources, Adding and Deleting States">
+    <param name="Name" value="Adding and Deleting States">
+    <param name="Local" value="Adding_and_Deleting_States.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Adding and Deleting States, Resources">
+    <param name="Name" value="Adding and Deleting States">
+    <param name="Local" value="Adding_and_Deleting_States.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Deleting States, Resources">
+    <param name="Name" value="Adding and Deleting States">
+    <param name="Local" value="Adding_and_Deleting_States.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Selecting Multiple Cells, Resources">
+    <param name="Name" value="Setting the Same Value to Multiple States">
+    <param name="Local" value="Setting_the_Same_Value_to_Multiple_States.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Resources, Selecting Multiple Cells">
+    <param name="Name" value="Setting the Same Value to Multiple States">
+    <param name="Local" value="Setting_the_Same_Value_to_Multiple_States.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Filtering Properties, Resources">
+    <param name="Name" value="Displaying Properties and States for Specified Parts">
+    <param name="Local" value="Displaying_Properties_and_States_for_Specified_Parts.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Resources, Filtering Properties">
+    <param name="Name" value="Displaying Properties and States for Specified Parts">
+    <param name="Local" value="Displaying_Properties_and_States_for_Specified_Parts.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Viewing Multiple Resources">
+    <param name="Name" value="Viewing Multiple Resource Types">
+    <param name="Local" value="Viewing_Multiple_Resource_Types.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Resources, Viewing Multiple Resources">
+    <param name="Name" value="Viewing Multiple Resource Types">
+    <param name="Local" value="Viewing_Multiple_Resource_Types.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Resources, Multiple Languages">
+    <param name="Name" value="Editing Text and Font Settings in a Multiple Language Application">
+    <param name="Local" value="Editing_Text_and_Font_Settings_in_a_Multiple_Language_Application.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Resources, Copying Resources">
+    <param name="Name" value="Copying Resources Between Targets and Projects">
+    <param name="Local" value="Copying_Resources_Between_Targets_and_Projects.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Carriage Return, Text Resource">
+    <param name="Name" value="Defining Values for each Property in each State">
+    <param name="Local" value="Defining_Values_for_each_Property_in_each_State.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Text Resource, Typing a Carriage Return">
+    <param name="Name" value="Defining Values for each Property in each State">
+    <param name="Local" value="Defining_Values_for_each_Property_in_each_State.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="New Line, Text Resource">
+    <param name="Name" value="Defining Values for each Property in each State">
+    <param name="Local" value="Defining_Values_for_each_Property_in_each_State.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Label, Typing a Carriage Return in a Text Resource">
+    <param name="Name" value="Defining Values for each Property in each State">
+    <param name="Local" value="Defining_Values_for_each_Property_in_each_State.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Changing Resource">
+    <param name="Name" value="Changing the Objects Associated with a Resource">
+    <param name="Local" value="Changing_the_Objects_Associated_with_a_Resource.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Resources, Changing Object Types">
+    <param name="Name" value="Changing the Objects Associated with a Resource">
+    <param name="Local" value="Changing_the_Objects_Associated_with_a_Resource.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Deleting Resources">
+    <param name="Name" value="Deleting Resources">
+    <param name="Local" value="Deleting_Resources.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Resources, Deleting">
+    <param name="Name" value="Deleting Resources">
+    <param name="Local" value="Deleting_Resources.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Renumber Field IDs">
+    <param name="Name" value="Renumbering Field IDs">
+    <param name="Local" value="Renumbering_Field_IDs.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Actions Report">
+    <param name="Name" value="Actions Report">
+    <param name="Local" value="Actions_Report.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Panel Report">
+    <param name="Name" value="Panel Reports">
+    <param name="Local" value="Report_about_panel.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Variable Report">
+    <param name="Name" value="Variable Reports">
+    <param name="Local" value="search_var.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Reports, Panel">
+    <param name="Name" value="Panel Reports">
+    <param name="Local" value="Report_about_panel.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Reports, Variable">
+    <param name="Name" value="Variable Reports">
+    <param name="Local" value="search_var.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Reports, Actions">
+    <param name="Name" value="Actions Report">
+    <param name="Local" value="Actions_Report.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Language Selection Tool">
+    <param name="Name" value="Changing the Installed Language">
+    <param name="Local" value="Changing_the_Installed_Language.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Changing Vijeo Designer Language">
+    <param name="Name" value="Changing the Installed Language">
+    <param name="Local" value="Changing_the_Installed_Language.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Custom Event Messages, Creating">
+    <param name="Name" value="Creating Resources">
+    <param name="Local" value="Creating_Resources.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="CF Card">
+    <param name="Name" value="Backing up Projects on a CF Card">
+    <param name="Local" value="cf_project_backup.htm">
+    <param name="Name" value="Downloading Backups to a CF Card">
+    <param name="Local" value="cf_backup_download.htm">
+    <param name="Name" value="Backing up Projects">
+    <param name="Local" value="backup_methods.htm">
+    <param name="Name" value="Uploading Backups from a CF Card">
+    <param name="Local" value="uploading_cf_backups.htm">
+    <param name="Name" value="Comparing CF Card Backups to Editor Projects">
+    <param name="Local" value="compare_backup_projects.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="XML Export Target">
+    <param name="Name" value="Exporting Targets">
+    <param name="Local" value="Exporting_Targets.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Export Targets">
+    <param name="Name" value="Exporting Targets">
+    <param name="Local" value="Exporting_Targets.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Exporting Targets">
+    <param name="Name" value="Exporting Targets">
+    <param name="Local" value="Exporting_Targets.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Formatting Codes, dynamic content">
+    <param name="Name" value="Setting Up Dynamic Content in a Text Resource#dynamicFormattingExamples">
+    <param name="Local" value="Setting_Up_Embedded_Content.htm#dynamicFormattingExamples">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Variable Formatting Codes">
+    <param name="Name" value="Setting Up Dynamic Content in a Text Resource#dynamicFormattingExamples">
+    <param name="Local" value="Setting_Up_Embedded_Content.htm#dynamicFormattingExamples">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Timestamp Formatting Codes">
+    <param name="Name" value="Setting Up Dynamic Content in a Text Resource#dynamicFormattingExamples">
+    <param name="Local" value="Setting_Up_Embedded_Content.htm#dynamicFormattingExamples">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Template Objects">
+    <param name="Name" value="Working with Variable Placeholders">
+    <param name="Local" value="Template_Objects.htm">
+    <param name="Name" value="Objects You Can Store in the Toolchest">
+    <param name="Local" value="Objects_You_can_Store_in_the_Toolchest.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Placeholders, Variable">
+    <param name="Name" value="Working with Variable Placeholders">
+    <param name="Local" value="Template_Objects.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Editor Project, Include">
+    <param name="Name" value="Downloading Backups to a CF Card">
+    <param name="Local" value="cf_backup_download.htm">
+  </object>
+</ul>
+</html>

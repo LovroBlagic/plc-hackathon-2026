@@ -1,0 +1,283 @@
+<html>
+<!-- Sitemap 1.0 -->
+<object type="text/site properties">
+  <param name="SiteType" value="toc">
+  <param name="Image Width" value="16">
+  <param name="Window Styles" value="0x800027">
+  <param name="ExWindow Styles" value="0x100">
+</object>
+<ul>
+  <li><object type="text/sitemap">
+    <param name="Name" value="9.1 Creating Switches, Selectors, and Actions">
+    <param name="Local" value="Intro_Switches.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="9.2 Creating Switches">
+    <param name="Local" value="SW_Settings.htm">
+  </object>
+  <ul>
+    <li><object type="text/sitemap">
+      <param name="Name" value="9.2.1 Switch General Tab">
+      <param name="Local" value="Touch_tab.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="9.2.2 Switch Color tab">
+      <param name="Local" value="Style_tab_primitive.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="9.2.3 Switch Label Tab">
+      <param name="Local" value="Switch_Label_tab.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="9.2.4 Switch Visibility Tab">
+      <param name="Local" value="Switch_Visibility_Tab.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="9.2.5 Switch Advanced Tab">
+      <param name="Local" value="Switch_Advanced_Tab.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="9.2.6 Examples of Creating Switches">
+      <param name="Local" value="examples.htm">
+    </object>
+    <ul>
+      <li><object type="text/sitemap">
+        <param name="Name" value="9.2.6.1 Example of Creating a Switch">
+        <param name="Local" value="setting_up_example.htm">
+      </object>
+      <li><object type="text/sitemap">
+        <param name="Name" value="9.2.6.2 Example of Creating a Radio Button">
+        <param name="Local" value="Radio_Button_in_Runtime.htm">
+      </object>
+      </ul>
+    <li><object type="text/sitemap">
+      <param name="Name" value="9.2.7 Creating a Custom Switch">
+      <param name="Local" value="Create_Original_switches.htm">
+    </object>
+    <ul>
+      <li><object type="text/sitemap">
+        <param name="Name" value="9.2.7.1 Adding Touch Animation to an Object">
+        <param name="Local" value="Touch_animation_function_is_attached_to_object.htm">
+      </object>
+      <li><object type="text/sitemap">
+        <param name="Name" value="9.2.7.2 Setting Up Touch Animation">
+        <param name="Local" value="Setup_of_Touch_animation_function.htm">
+      </object>
+      <li><object type="text/sitemap">
+        <param name="Name" value="9.2.7.3 Setting Up Conditions for Touch Animation">
+        <param name="Local" value="Setup_of_the_execution_conditions_of_Touch_animation_function.htm">
+      </object>
+      <li><object type="text/sitemap">
+        <param name="Name" value="9.2.7.4 Setting Up Multiple Touch Operations">
+        <param name="Local" value="Setting_Up_Multiple_Touch_Operations.htm">
+      </object>
+      </ul>
+    <li><object type="text/sitemap">
+      <param name="Name" value="9.2.8 Troubleshooting a Switch">
+      <param name="Local" value="When_Input_of_switch_is_not_recognize.htm">
+    </object>
+    </ul>
+  <li><object type="text/sitemap">
+    <param name="Name" value="9.3 Creating Selectors">
+    <param name="Local" value="Selector_Slider.htm">
+  </object>
+  <ul>
+    <li><object type="text/sitemap">
+      <param name="Name" value="9.3.1 Circular Selector">
+      <param name="Local" value="overview_selector.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="9.3.2 Vertical/Horizontal Selector">
+      <param name="Local" value="overview_linear_selector.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="9.3.3 Selector General Tab">
+      <param name="Local" value="selector_slider_general_tabs.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="9.3.4 Selector Color Tab">
+      <param name="Local" value="selector_slider_color_tab.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="9.3.5 Selector Label Tab">
+      <param name="Local" value="selector_slider_label_tab.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="9.3.6 Selector Input Mode Tab">
+      <param name="Local" value="selector_slider_input_tab.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="9.3.7 Selector Visibility Tab">
+      <param name="Local" value="selector_slider_visibility_tab.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="9.3.8 Selector Advanced Tab">
+      <param name="Local" value="selector_slider_advanced_tab.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="9.3.9 Example of Creating a Selector">
+      <param name="Local" value="selector_example.htm">
+    </object>
+    </ul>
+  <li><object type="text/sitemap">
+    <param name="Name" value="9.4 Creating Actions">
+    <param name="Local" value="Application_Scripts.htm">
+  </object>
+  <ul>
+    <li><object type="text/sitemap">
+      <param name="Name" value="9.4.1 Working with Actions and Panel Actions">
+      <param name="Local" value="Application_Scripts.htm#Action_List_View642b3b9347ca42c9b00b820c00c373fa=1">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="9.4.2 Actions Wizard">
+      <param name="Local" value="Actions_Wizard.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="9.4.3 Editing an Action">
+      <param name="Local" value="Editing_an_Action.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="9.4.4 Example of Creating an Action">
+      <param name="Local" value="Example_of_Creating_an_Action.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="9.4.5 Example of Creating a Panel Action">
+      <param name="Local" value="Free_Addressing_Sample_script.htm">
+    </object>
+    </ul>
+  <li><object type="text/sitemap">
+    <param name="Name" value="9.5 Operations">
+    <param name="Local" value="Operations.htm">
+  </object>
+  <ul>
+    <li><object type="text/sitemap">
+      <param name="Name" value="9.5.1 Bit Operations">
+      <param name="Local" value="setting_up_bit_swith.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="9.5.2 Word Operations">
+      <param name="Local" value="setting_up_wordswitch.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="9.5.3 String Operations">
+      <param name="Local" value="String_Operation.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="9.5.4 Panel Operations">
+      <param name="Local" value="Panel_Operations.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="9.5.5 Popup Window Operations">
+      <param name="Local" value="setting_up_a_popupwindow.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="9.5.6 Alarm and Event Operations">
+      <param name="Local" value="Alarm_details.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="9.5.7 Sound Operations">
+      <param name="Local" value="setting_up_sound.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="9.5.8 Language Operations">
+      <param name="Local" value="language_system.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="9.5.9 Script Operations">
+      <param name="Local" value="scripts.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="9.5.10 System Operations">
+      <param name="Local" value="configuration.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="9.5.11 Delay Operations">
+      <param name="Local" value="setting_up_delay_operation.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="9.5.12 Video Operations">
+      <param name="Local" value="Video_Operations.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="9.5.13 Information Operations">
+      <param name="Local" value="Information_Operations.htm">
+    </object>
+    <ul>
+      <li><object type="text/sitemap">
+        <param name="Name" value="9.5.13.1 Station Number">
+        <param name="Local" value="Station_Number.htm">
+      </object>
+      <li><object type="text/sitemap">
+        <param name="Name" value="9.5.13.2 Checksum">
+        <param name="Local" value="Checksum.htm">
+      </object>
+      </ul>
+    <li><object type="text/sitemap">
+      <param name="Name" value="9.5.14 Browser Operations">
+      <param name="Local" value="Browser_Operations.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="9.5.15 Copy Data Operations">
+      <param name="Local" value="Copy_Data_Operations.htm">
+    </object>
+    <ul>
+      <li><object type="text/sitemap">
+        <param name="Name" value="9.5.15.1 Copy Data To Drive Operation">
+        <param name="Local" value="Copy_Data_To_Operation.htm">
+      </object>
+      <li><object type="text/sitemap">
+        <param name="Name" value="9.5.15.2 Copy Data From Drive Operation">
+        <param name="Local" value="Copy_Data_From_Operations.htm">
+      </object>
+      </ul>
+    <li><object type="text/sitemap">
+      <param name="Name" value="9.5.16 Image Capture Viewer Operations">
+      <param name="Local" value="JPEG_Viewer_Operations.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="9.5.17 Print Form Operations">
+      <param name="Local" value="Print_Form.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="9.5.18 Controller Operations">
+      <param name="Local" value="Controller.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="9.5.19 Setting Up Multiple Operations">
+      <param name="Local" value="Give_two_or_more_functions_to_one_switch.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="9.5.20 E-mail Operations">
+      <param name="Local" value="Email.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="9.5.21 Backlight Color Operations">
+      <param name="Local" value="Backlight_Color_Operations.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="9.5.22 Event Message Operations">
+      <param name="Local" value="Event_Message_Operations.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="9.5.23 Decision Operation">
+      <param name="Local" value="Decision_Operation.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="9.5.24 Variable Initialization">
+      <param name="Local" value="Variable_Initialization.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="9.5.25 Set IP Address and Set IP Address 2">
+      <param name="Local" value="Set_IP_Address.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="9.5.26 Self Download">
+      <param name="Local" value="Self_Download.htm">
+    </object>
+    </ul>
+  <li><object type="text/sitemap">
+    <param name="Name" value="9.6 Using Interlock to Prevent Accidental Touch Inputs">
+    <param name="Local" value="Use_Interlock_function.htm">
+  </object>
+</ul>
+</html>

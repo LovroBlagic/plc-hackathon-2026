@@ -1,0 +1,101 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+<meta name="template" content="Vijeo_template.htt">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="date" content="08 9, 2003 3:17:16 PM">
+<meta name="topic-status" content="In Progress">
+<meta name="topic-priority" content="0">
+<meta name="topic-time-estimate" content="0">
+<meta name="topic-comment" content="">
+<meta name="topic-id" content="VariableGetIntValue.htm">
+<meta name="window-type" content="$global_NewWindow">
+ <meta name="generator" content="Adobe RoboHelp 10">
+<title>getIntValue</title>
+<link rel="StyleSheet" href="TIS-STYL.CSS" type="text/css">
+</head>
+<body>
+<script type="text/javascript" src="ehlpdhtm.js" language="JavaScript1.2"></script>
+
+<div style="width: 100%; position: relative;" id="header">
+	<table style="background-attachment: scroll; margin-left: 0px; margin-right: 4px; 
+			 background-image: url(top_banner.bmp); background-repeat: Repeat-X; 
+			 line-height: 0pt; vertical-align: top;" cellspacing="0" width="100%" 
+			 background="top_banner.bmp">
+		<col style="width: 90%;">
+		<col style="width: 5%;">
+		<col style="width: 5%;">
+		<tr style="vertical-align: center; height: 39px;">
+			<td style="width: 90%; padding-right: 10px; padding-left: 10px; 
+				 border-right-color: #000000;">
+   <p><img src="logo.bmp" style="border: none;" alt="" width="37" height="37" border="0"></p></td>
+			<td style="width: 5%; padding-right: 0px; padding-left: 10px; 
+				 border-right-color: #000000;">
+   <p style="text-align: center;"><a 
+			 title="Glossary" href="Appendix.chm::/Glossary.htm"><img src="logo_glossary.bmp" style="border: none;" alt="" width="47" height="37" border="0"></a></p></td>
+			<td style="width: 5%; padding-right: 10px; padding-left: 5px; 
+				 border-right-color: #000000;">
+   <p style="text-align: center;"><a 
+			 href="About.chm::/What_is_Vijeo-Designer.htm" title="Home"><img src="logo_home.bmp" alt="Home" title="Home" style="border: none; 
+			 margin-left: 0px; margin-right: 0px; margin-bottom: 0px; margin-top: -2px;" width="47" height="37" border="0"></a></p></td>
+		</tr>
+	</table>
+</div>
+
+<h4>getIntValue</h4>
+
+<p style="font-weight: bold;">Function</p>
+<p>Enables the script to interact with Vijeo-Designer variables. BOOL, Integer type, and REAL variables can return an integer value.</p>
+<p class="NoteImage"><img src="Limit.bmp" style="border: none;" alt="" width="77" height="24" border="0"></p>
+<ul>
+<li class="p-NoteText">
+<p class="NoteText">Before working with any shared or external variables, you should check the data integrity (<a href="Variable_isGood.htm">isDataQualityGood</a>).</p>
+</li>
+</ul>
+<p style="font-weight: bold;">Format</p>
+<p class="code" style="margin-left: 40px;">int VariableName.getIntValue();</p>
+<p class="code" style="margin-left: 40px;">int BlockVariableName.getIntValue(int index);</p>
+<p style="font-weight: bold; margin-top: 6pt;">Parameter</p>
+<table wrapperparagraphselector="P" style="margin-top: 14pt; margin-bottom: 14px; margin-left: 40px;" cellspacing="0" width="600">
+<col width="150">
+<col style="width: 90%;">
+<tr>
+<td style="border-top: Solid 3px #000000; border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; vertical-align: TOP; padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#91AFD9" width="150">
+<p class="Tabletitle"><span style="font-weight: bold;">Parameter</span></p>
+</td>
+<td style="border-top: Solid 3px #000000; border-bottom: Solid 1px #000000; width: 90%; vertical-align: TOP; padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#91AFD9">
+<p class="Tabletitle"><span style="font-weight: bold;">Description</span></p>
+</td>
+</tr>
+<tr>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 3px #000000; vertical-align: TOP; padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#CBD9ED" width="150">
+<p class="TableDefinitions">int index</p>
+</td>
+<td style="border-bottom: Solid 3px #000000; width: 90%; vertical-align: TOP; padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">For block variables, specify the index position of the element that you are getting the data from. Element numbers begin with 0.</p>
+<p class="NoteImage"><img src="Limit.bmp" style="border: none;" alt="" width="77" height="24" border="0"></p>
+<ul>
+<li class="p-NoteText">
+<p class="NoteText">After working with block variable values, use the write method to edit the block on the target machine, then use the sendData method to write values to the equipment.</p>
+</li>
+</ul>
+</td>
+</tr>
+</table>
+<p style="font-weight: bold; margin-top: 6pt;">Return Value</p>
+<p>Returns an integer value of the Vijeo-Designer variable.</p>
+<p>Returns 0 when you access a block variable element that's out of bounds.</p>
+<p class="NoteImage"><img src="Limit.bmp" style="border: none;" alt="" width="77" height="24" border="0"></p>
+<ul>
+<li class="p-NoteText">
+<p class="NoteText">There is no way to check between a good value of 0 or a bad value (array index out of bounds) of 0. The panel displays a runtime event message to indicate an invalid access to a block variable has been made, but there is no way to automate this check.</p>
+</li>
+<li class="p-NoteText">
+<p class="NoteText">When using scripts to get the value of a specific element in a block variable, and the index you specify does not exist, the script will simply return the value "0". Check to make sure index accesses in scripts to a block variable are run correctly.</p>
+</li>
+</ul>
+<p style="font-weight: bold;">See Also</p>
+<p><a href="VariableGetFloatValue.htm">getFloatValue</a>, <a href="VariablegetStringValue.htm">getStringValue</a>, <a href="VariableWrite.htm">write</a></p>
+</body>
+</html>

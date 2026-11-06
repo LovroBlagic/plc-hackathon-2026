@@ -1,0 +1,173 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+<meta name="template" content="Vijeo_template.htt">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="date" content="11 6, 2003 4:00:49 PM">
+<meta name="topic-status" content="In Progress">
+<meta name="topic-priority" content="0">
+<meta name="topic-time-estimate" content="0">
+<meta name="topic-comment" content="">
+<meta name="topic-id" content="17.7.1.1 Setting up the Variables and Parts">
+<meta name="window-type" content="$global_NewWindow">
+ <meta name="generator" content="Adobe RoboHelp 10">
+<title>Setting Up Variables and Parts</title>
+<link rel="StyleSheet" href="TIS-STYL.CSS" type="text/css">
+</head>
+<body>
+<script type="text/javascript" src="ehlpdhtm.js" language="JavaScript1.2"></script>
+
+<div style="width: 100%; position: relative;" id="header">
+	<table style="background-attachment: scroll; margin-left: 0px; margin-right: 4px; 
+			 background-image: url(top_banner.bmp); background-repeat: Repeat-X; 
+			 line-height: 0pt; vertical-align: top;" cellspacing="0" width="100%" 
+			 background="top_banner.bmp">
+		<col style="width: 90%;">
+		<col style="width: 5%;">
+		<col style="width: 5%;">
+		<tr style="vertical-align: center; height: 39px;">
+			<td style="width: 90%; padding-right: 10px; padding-left: 10px; 
+				 border-right-color: #000000;">
+   <p><img src="logo.bmp" style="border: none;" alt="" width="37" height="37" border="0"></p></td>
+			<td style="width: 5%; padding-right: 0px; padding-left: 10px; 
+				 border-right-color: #000000;">
+   <p style="text-align: center;"><a 
+			 title="Glossary" href="Appendix.chm::/Glossary.htm"><img src="logo_glossary.bmp" style="border: none;" alt="" width="47" height="37" border="0"></a></p></td>
+			<td style="width: 5%; padding-right: 10px; padding-left: 5px; 
+				 border-right-color: #000000;">
+   <p style="text-align: center;"><a 
+			 href="About.chm::/What_is_Vijeo-Designer.htm" title="Home"><img src="logo_home.bmp" alt="Home" title="Home" style="border: none; 
+			 margin-left: 0px; margin-right: 0px; margin-bottom: 0px; margin-top: -2px;" width="47" height="37" border="0"></a></p></td>
+		</tr>
+	</table>
+</div>
+
+<h3>18.7.1.3 Setting Up Variables and Parts</h3>
+<p>Before writing the scripts, set up the following variables, switches, and data displays.</p>
+<h4><img src="Square.bmp" style="border: none;" alt="" width="12" height="10" border="0">Variables</h4>
+<table style="vertical-align: top; margin-left: 40px;" cellspacing="0" width="86.215%">
+<col style="width: 32.847%;">
+<col style="width: 67.153%;">
+<tr style="vertical-align: top;">
+<td style="border-top: Solid 3px #000000; border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 32.847%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#91AFD9">
+<p class="Tabletitle">Name</p>
+</td>
+<td style="border-top: Solid 3px #000000; border-bottom: Solid 1px #000000; width: 67.153%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#91AFD9">
+<p class="Tabletitle">Description</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 32.847%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#CBD9ED">
+<p class="TableDefinitions">D</p>
+</td>
+<td style="border-bottom: Solid 1px #000000; width: 67.153%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">DINT array variable, with 15 elements.</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 32.847%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#CBD9ED">
+<p class="TableDefinitions">Address</p>
+</td>
+<td style="border-bottom: Solid 1px #000000; width: 67.153%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">Internal DINT variable used to define the device address number. This variable will store values 500 to 514 only.</p>
+<p class="Image"><img src="Device_Addres_Device.bmp" style="border: none;" alt="" width="104" height="42" border="0"></p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 32.847%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#CBD9ED">
+<p class="TableDefinitions">Set</p>
+</td>
+<td style="border-bottom: Solid 1px #000000; width: 67.153%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">Internal DINT variable which stores the value that's written to the device address.</p>
+<p class="Image"><img src="Device_Addres_Value.bmp" style="border: none;" alt="" width="101" height="39" border="0"></p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 32.847%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#CBD9ED">
+<p class="TableDefinitions">Read_Switch</p>
+</td>
+<td style="border-bottom: Solid 1px #000000; width: 67.153%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">Internal BOOL variable used to trigger the operation that reads the value in the device address.</p>
+<p class="Image"><img src="Device_Addres_Read.bmp" style="border: none;" alt="" width="57" height="39" border="0"></p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 3px #000000; width: 32.847%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#CBD9ED">
+<p class="TableDefinitions">Write_Switch</p>
+</td>
+<td style="border-bottom: Solid 3px #000000; width: 67.153%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">Internal BOOL variable used to trigger the operation that writes a new value to the device address.</p>
+<p class="Image"><img src="Device_Addres_write.bmp" style="border: none;" alt="" width="57" height="36" border="0"></p>
+</td>
+</tr>
+</table>
+<h5>D[15]</h5>
+<ol style="list-style: decimal;">
+<li class="p">
+<p>Create a new DINT variable and name it D. Set the Array Dimension to 15, and Data Source to External.</p>
+</li>
+</ol>
+<ol start="2" style="list-style: decimal;">
+<li class="p">
+<p style="margin-left: 0px;">After you've created the variable array, you can quickly configure the device addresses for each array element. Right-click the variable array node and select Configure Device Address.</p>
+</li>
+</ol>
+<ol start="3" style="list-style: decimal;">
+<li class="p">
+<p>Click OK to create the Array.</p>
+</li>
+</ol>
+
+<h5>Address, Set</h5>
+
+<ol style="list-style: decimal;">
+<li class="p">Create internal variables for Address and Set.</li>
+</ol>
+<p class="Image" style="margin-left: 40px;"><img src="Device_Address_Address.bmp" style="border: none;" alt="" width="326" height="250" border="0"></p>
+<ol start="2" style="list-style: decimal;">
+<li class="p">
+<p>For Address, which stores values 500 to 514 only, in the New Variable dialog box click the Data Details tab and select Input Range. Define the MinValue as 500, and the MaxValue as 514.</p>
+</li>
+</ol>
+<p class="Image" style="margin-left: 40px;"><img src="Device_Address_Addr_Details.bmp" style="border: none;" alt="" width="442" height="339" border="0"></p>
+<p class="NoteImage" style="margin-left: 0px;"><img src="Note_Moji.bmp" style="border: none;" alt="" width="51" height="25" border="0"></p>
+<ul style="list-style: disc;">
+<li class="p-NoteText">
+<p class="NoteText">By defining the Input Range, you limit the values you can input from the keypad. However, other methods of changing the variable value (such as scripts, switches, and writes from the equipment) are not blocked.</p>
+</li>
+</ul>
+
+<h5>Read_Switch, Write_Switch</h5>
+
+<p>Create two internal BOOL variables, named Read_Switch and Write_Switch.</p>
+<p class="Image" style="margin-left: 0px;"><img src="vd_switch.bmp" style="border: none;" alt="" width="326" height="250" border="0"></p>
+<h4><img src="Square.bmp" style="border: none;" alt="" width="12" height="10" border="0">Data Displays and Switches</h4>
+<p>After defining your variables, you can set up data displays and switches associated with these variables, to be read or written (by the switches) and displayed (by the data displays) at runtime.</p>
+<p class="Image"><img src="Device_address_parts.bmp" style="border: none;" alt="" width="461" height="177" border="0"></p>
+<p style="font-weight: bold;">Data Display</p>
+<ol style="list-style: decimal;">
+<li class="p">
+<p>Set up data display parts with the defined variable.</p>
+</li>
+<li class="p">
+<p>To enable keypad inputs, click the Input Mode tab, select Enable Input Mode. The Display Popup Keypad check box is automatically selected. This enables the popup keypad. To disable the popup keypad, clear the Display Popup Keypad check box.</p>
+</li>
+</ol>
+<p class="Image" style="margin-left: 40px;"><img src="Select_Keypad_Input.bmp" style="border: none;" alt="" width="211" height="187" border="0"></p>
+<p>For information on how to set up Data Display parts, see Chapter 11, <a href="DataInput.chm::/numeric_display.htm">Displaying and Inputting Data</a>.</p>
+<p>Instead of a Data Display part, you can use Value animation for displaying and inputting data.</p>
+<p style="font-weight: bold;">Switches</p>
+<ol style="list-style: decimal;">
+<li class="p">
+<p>Set up switches with the defined variable.</p>
+</li>
+<li class="p">
+<p>Set up the bit set operation in the When Touch tab.</p>
+</li>
+</ol>
+<p class="Image" style="margin-left: 40px;"><img src="Device_Addr_BitOperation.bmp" style="border: none;" alt="" width="290" height="267" border="0"></p>
+<p>For information on how to work with switches, see Section 9.2, <a href="Switches.chm::/SW_Settings.htm">Creating Switches</a>.</p>
+<p>Instead of a Switch part, you can use Touch animation for setting and resetting BOOL variables.</p>
+</body>
+</html>

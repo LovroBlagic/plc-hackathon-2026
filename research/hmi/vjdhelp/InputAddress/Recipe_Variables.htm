@@ -1,0 +1,239 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+<meta name="template" content="Vijeo_template.htt">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="topic-status" content="In Progress">
+<meta name="topic-priority" content="0">
+<meta name="topic-time-estimate" content="0">
+<meta name="topic-id" content="Recipe Variables">
+<meta name="window-type" content="$global_NewWindow">
+ <meta name="generator" content="Adobe RoboHelp 2015">
+<title>Recipe Variables</title>
+<link rel="StyleSheet" href="Tis-styl.css" type="text/css">
+</head>
+<body>
+<script type="text/javascript" src="ehlpdhtm.js" language="JavaScript1.2"></script>
+
+<div style="width: 100%; position: relative;" id="header">
+	<table style="background-attachment: scroll; margin-left: 0px; margin-right: 4px; 
+			 background-image: url(top_banner.bmp); background-repeat: Repeat-X; 
+			 line-height: 0pt; vertical-align: top;" cellspacing="0" background="top_banner.bmp" 
+			 width="100%">
+		<col style="width: 90%;">
+		<col style="width: 5%;">
+		<col style="width: 5%;">
+		<tr style="vertical-align: center; height: 39px;">
+			<td style="width: 90%; padding-right: 10px; padding-left: 10px; 
+				 border-right-color: #000000;">
+   <p><img src="logo.bmp" alt="" style="border: none;" width="37" height="37" border="0"></p></td>
+			<td style="width: 5%; padding-right: 0px; padding-left: 10px; 
+				 border-right-color: #000000;">
+   <p style="text-align: center;"><a 
+			 title="Glossary" href="Appendix.chm::/Glossary.htm"><img src="logo_glossary.bmp" alt="" style="border: none;" width="47" height="37" border="0"></a></p></td>
+			<td style="width: 5%; padding-right: 10px; padding-left: 5px; 
+				 border-right-color: #000000;">
+   <p style="text-align: center;"><a 
+			 href="About.chm::/What_is_Vijeo-Designer.htm" title="Home"><img src="logo_home.bmp" alt="Home" title="Home" style="border: none; 
+			 margin-left: 0px; margin-right: 0px; margin-bottom: 0px; margin-top: -2px;" width="47" height="37" border="0"></a></p></td>
+		</tr>
+	</table>
+</div>
+
+
+<h1>6.11 Recipe Variables</h1>
+<p>When working with recipes, there are two types of variables:</p>
+<ul>
+<li class="p-Bullet">
+<p class="Bullet"><span style="font-weight: bold;">Recipe Control and Parison Control variables</span>: Run recipe operations such as selecting recipes and sending recipe values. Also store error and status values that result from recipe operations.</p>
+</li>
+<li class="p-Bullet">
+<p class="Bullet"><span style="font-weight: bold;">Ingredient variables</span>: Represent ingredients in a recipe. Each ingredient variable stores the value for its associated ingredient.</p>
+</li>
+</ul>
+<table style="vertical-align: top;" cellspacing="0" width="46.283%">
+<col style="width: 55.308%;">
+<col style="width: 44.692%;">
+<tr style="vertical-align: top;">
+<td style="border-top: Solid 2px #000000; border-left: Solid 2px #000000; border-right: Solid 1px #c0c0c0; border-bottom: Solid 1px #c0c0c0; width: 55.308%; padding-right: 10px; padding-left: 10px;" bgcolor="#DCE6F8">
+<p><img src="icon_recipeControl.bmp" alt="" style="border: none;" width="34" height="21" border="0">_RecipeControlDefault</p>
+</td>
+
+<td rowspan="9" style="border-top: Solid 2px #000000; border-right: Solid 2px #000000; border-bottom: Solid 2px #000000; width: 44.692%; padding-right: 10px; padding-left: 10px; vertical-align: center;">
+<p style="text-align: center;">Recipe Control Variables</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-left: Solid 2px #000000; border-right: Solid 1px #c0c0c0; border-bottom: Solid 1px #c0c0c0; width: 55.308%; padding-right: 10px; padding-left: 10px;" bgcolor="#DCE6F8">
+<p style="margin-left: 40px;"><img src="icon_recipeIntControl.bmp" alt="" style="border: none;" width="21" height="19" border="0">AccessRight</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-left: Solid 2px #000000; border-right: Solid 1px #c0c0c0; border-bottom: Solid 1px #c0c0c0; width: 55.308%; padding-right: 10px; padding-left: 10px;" bgcolor="#DCE6F8">
+<p style="margin-left: 40px;"><img src="icon_recipeIntControl.bmp" alt="" style="border: none;" width="21" height="19" border="0">Error</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-left: Solid 2px #000000; border-right: Solid 1px #c0c0c0; border-bottom: Solid 1px #c0c0c0; width: 55.308%; padding-right: 10px; padding-left: 10px;" bgcolor="#DCE6F8">
+<p style="margin-left: 40px;"><img src="icon_recipeIntControl.bmp" alt="" style="border: none;" width="21" height="19" border="0">RecipeNumber</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-left: Solid 2px #000000; border-right: Solid 1px #c0c0c0; border-bottom: Solid 1px #c0c0c0; width: 55.308%; padding-right: 10px; padding-left: 10px;" bgcolor="#DCE6F8">
+<p style="margin-left: 40px;"><img src="icon_recipeIntControl.bmp" alt="" style="border: none;" width="21" height="19" border="0">RecipeGroupNumber</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-left: Solid 2px #000000; border-right: Solid 1px #c0c0c0; border-bottom: Solid 1px #c0c0c0; width: 55.308%; padding-right: 10px; padding-left: 10px;" bgcolor="#DCE6F8">
+<p style="margin-left: 40px;"><img src="icon_recipeIntControl.bmp" alt="" style="border: none;" width="21" height="19" border="0">Operation</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-left: Solid 2px #000000; border-right: Solid 1px #c0c0c0; border-bottom: Solid 1px #c0c0c0; width: 55.308%; padding-right: 10px; padding-left: 10px;" bgcolor="#DCE6F8">
+<p style="margin-left: 40px;"><img src="icon_recipeIntControl.bmp" alt="" style="border: none;" width="21" height="19" border="0">OperationsLock</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-left: Solid 2px #000000; border-right: Solid 1px #c0c0c0; border-bottom: Solid 1px #c0c0c0; width: 55.308%; padding-right: 10px; padding-left: 10px;" bgcolor="#DCE6F8">
+<p style="margin-left: 40px;"><img src="icon_recipeIntControl.bmp" alt="" style="border: none;" width="21" height="19" border="0">Status</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-left: Solid 2px #000000; border-right: Solid 1px #c0c0c0; border-bottom: Solid 2px #000000; width: 55.308%; padding-right: 10px; padding-left: 10px;" bgcolor="#DCE6F8">
+<p style="margin-left: 40px;"><img src="icon_recipeLabel.bmp" alt="" style="border: none;" width="18" height="19" border="0">RecipeLabel</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-bottom: Solid 2px #000000; width: 55.308%; padding-right: 10px; padding-left: 10px; background-color: Transparent;">
+<p>&#160;</p>
+</td>
+<td style="border-bottom: Solid 2px #000000; width: 44.692%; padding-right: 10px; padding-left: 10px; background-color: Transparent;">
+<p>&#160;</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-left: Solid 2px #000000; border-right: Solid 1px #c0c0c0; border-bottom: Solid 1px #c0c0c0; width: 55.308%; padding-right: 10px; padding-left: 10px;" bgcolor="#DCE6F8">
+<p><img src="icon_recipeIngredientFolder.bmp" alt="" style="border: none;" width="33" height="21" border="0"> _RecipeGroup1</p>
+</td>
+
+<td rowspan="3" style="border-right: Solid 2px #000000; border-bottom: Solid 2px #000000; width: 44.692%; padding-right: 10px; padding-left: 10px; vertical-align: center;">
+<p style="text-align: center;">Ingredient Variables</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-left: Solid 2px #000000; border-right: Solid 1px #c0c0c0; border-bottom: Solid 1px #c0c0c0; width: 55.308%; padding-right: 10px; padding-left: 10px;" bgcolor="#DCE6F8">
+<p style="margin-left: 40px;"><img src="icon_recipeBoolIngredient.bmp" alt="" style="border: none;" width="19" height="19" border="0">BOOL01</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-left: Solid 2px #000000; border-right: Solid 1px #c0c0c0; border-bottom: Solid 2px #000000; width: 55.308%; padding-right: 10px; padding-left: 10px;" bgcolor="#DCE6F8">
+<p style="margin-left: 40px;"><img src="icon_recipeIntControl.bmp" alt="" style="border: none;" width="21" height="19" border="0">DINT01</p>
+</td>
+</tr>
+</table>
+<p class="Image">&#160;</p>
+<table style="vertical-align: top;" cellspacing="0" width="46.283%">
+<col style="width: 55.308%;">
+<col style="width: 44.692%;">
+<tr style="vertical-align: top;">
+<td style="border-top: Solid 2px #000000; border-left: Solid 2px #000000; border-right: Solid 1px #c0c0c0; border-bottom: Solid 1px #c0c0c0; width: 55.308%; padding-right: 10px; padding-left: 10px;" bgcolor="#DCE6F8">
+<p><img src="icon_recipeControl.bmp" alt="" style="border: none;" width="34" height="21" border="0">_ParisonControl1</p>
+</td>
+
+<td rowspan="10" style="border-top: Solid 2px #000000; border-right: Solid 2px #000000; border-bottom: Solid 2px #000000; width: 44.692%; padding-right: 10px; padding-left: 10px; vertical-align: center;">
+<p style="text-align: center;">Parison Control Variables</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-left: Solid 2px #000000; border-right: Solid 1px #c0c0c0; border-bottom: Solid 1px #c0c0c0; width: 55.308%; padding-right: 10px; padding-left: 10px;" bgcolor="#DCE6F8">
+<p style="margin-left: 40px;"><img src="icon_recipeIntControl.bmp" alt="" style="border: none;" width="21" height="19" border="0">AccessRight</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-left: Solid 2px #000000; border-right: Solid 1px #c0c0c0; border-bottom: Solid 1px #c0c0c0; width: 55.308%; padding-right: 10px; padding-left: 10px;" bgcolor="#DCE6F8">
+<p style="margin-left: 40px;"><img src="icon_recipeIntControl.bmp" alt="" style="border: none;" width="21" height="19" border="0">Error</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-left: Solid 2px #000000; border-right: Solid 1px #c0c0c0; border-bottom: Solid 1px #c0c0c0; width: 55.308%; padding-right: 10px; padding-left: 10px;" bgcolor="#DCE6F8">
+<p style="margin-left: 40px;"><img src="icon_recipeIntControl.bmp" alt="" style="border: none;" width="21" height="19" border="0">RecipeNumber</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-left: Solid 2px #000000; border-right: Solid 1px #c0c0c0; border-bottom: Solid 1px #c0c0c0; width: 55.308%; padding-right: 10px; padding-left: 10px;" bgcolor="#DCE6F8">
+<p style="margin-left: 40px;"><img src="icon_recipeIntControl.bmp" alt="" style="border: none;" width="21" height="19" border="0">RecipeGroupNumber</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-left: Solid 2px #000000; border-right: Solid 1px #c0c0c0; border-bottom: Solid 1px #c0c0c0; width: 55.308%; padding-right: 10px; padding-left: 10px;" bgcolor="#DCE6F8">
+<p style="margin-left: 40px;"><img src="icon_recipeIntControl.bmp" alt="" style="border: none;" width="21" height="19" border="0">Operation</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-left: Solid 2px #000000; border-right: Solid 1px #c0c0c0; border-bottom: Solid 1px #c0c0c0; width: 55.308%; padding-right: 10px; padding-left: 10px;" bgcolor="#DCE6F8">
+<p style="margin-left: 40px;"><img src="icon_recipeIntControl.bmp" alt="" style="border: none;" width="21" height="19" border="0">OperationsLock</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-left: Solid 2px #000000; border-right: Solid 1px #c0c0c0; border-bottom: Solid 1px #c0c0c0; width: 55.308%; padding-right: 10px; padding-left: 10px;" bgcolor="#DCE6F8">
+<p style="margin-left: 40px;"><img src="icon_recipeIntControl.bmp" alt="" style="border: none;" width="21" height="19" border="0">Status</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-left: Solid 2px #000000; border-right: Solid 1px #c0c0c0; border-bottom: Solid 1px #c0c0c0; width: 55.308%; padding-right: 10px; padding-left: 10px;" bgcolor="#DCE6F8">
+<p style="margin-left: 40px;"><img src="icon_recipeLabel.bmp" alt="" style="border: none;" width="18" height="19" border="0">RecipeLabel</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-left: Solid 2px #000000; border-right: Solid 1px #c0c0c0; border-bottom: Solid 2px #000000; width: 55.308%; padding-right: 10px; padding-left: 10px;" bgcolor="#DCE6F8">
+<p style="margin-left: 40px;"><img src="icon_recipeIntControl.bmp" alt="" style="border: none;" width="21" height="19" border="0">ParisonMasterPointTag</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-bottom: Solid 2px #000000; width: 55.308%; padding-right: 10px; padding-left: 10px; background-color: Transparent;">
+<p>&#160;</p>
+</td>
+<td style="border-bottom: Solid 2px #000000; width: 44.692%; padding-right: 10px; padding-left: 10px; background-color: Transparent;">
+<p>&#160;</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-left: Solid 2px #000000; border-right: Solid 1px #c0c0c0; border-bottom: Solid 1px #c0c0c0; width: 55.308%; padding-right: 10px; padding-left: 10px;" bgcolor="#DCE6F8">
+<p><img src="icon_recipeIngredientFolder.bmp" alt="" style="border: none;" width="33" height="21" border="0"> _ParisonGroup1</p>
+</td>
+
+<td rowspan="2" style="border-right: Solid 2px #000000; border-bottom: Solid 2px #000000; width: 44.692%; padding-right: 10px; padding-left: 10px; vertical-align: center;">
+<p style="text-align: center;">Parison Ingredient Variables</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-left: Solid 2px #000000; border-right: Solid 1px #c0c0c0; border-bottom: Solid 2px #000000; width: 55.308%; padding-right: 10px; padding-left: 10px;" bgcolor="#DCE6F8">
+<p style="margin-left: 40px;"><img src="icon_recipeBlockIntControl.bmp" alt="" style="border: none;" width="21" height="18" border="0">BlockINT01</p>
+</td>
+</tr>
+</table>
+<p class="Image">&#160;</p>
+<p>The following discusses Ingredient Variables. For information about Recipe Control Variables, see Section 17.3.5 <a href="Recipe.chm::/Setting_Up_Recipe_Group_Controls.htm">Setting Up Recipe Controls</a>.</p>
+<h5>Ingredient Variables</h5>
+<p>When you add an ingredient to a recipe you specify a variable, which generates two copies of the variable. In the above diagram, <span style="font-weight: bold;">DINT01</span> is below the Target node, and another copy is below the RecipeGroup1 folder variable. The data source for the copy in the RecipeGroup1 folder is Internal.</p>
+<p>At runtime, because RecipeGroup1.DINT01 is internal, it does not update as part of the normal scan process for external variable values.</p>
+<p class="Image"><img src="Recipe_Variable_scandata.bmp" alt="" style="border: none;" width="419" height="223" border="0"></p>
+<p>When the value on the equipment (address 40601) changes, the value in DINT01 also changes. RecipeGroup1.DINT01 does not change.</p>
+<p>Because ingredient variables are internal, you can manipulate recipes and recipe groups without affecting the current recipe process. Only until you specify a recipe command (via the recipe control variables) will data be synchronized between the ingredient variables and on the equipment.</p>
+<p>&#160;</p>
+<p class="Image"><img src="Recipe_Variable_snapshot_send.bmp" alt="" style="border: none;" width="419" height="223" border="0"></p>
+<p><span style="font-weight: bold;">Snapshot</span> updates the ingredient variables (ReciptGroup1.DINT01) with values from the equipment.</p>
+<p class="Image"><img src="Recipe_Variable_send.bmp" alt="" style="border: none;" width="419" height="223" border="0"></p>
+<p><span style="font-weight: bold;">Send</span> writes the ingredient variables to the equipment.</p>
+<p class="NoteImage"><img src="NOTE_MOJI.BMP" alt="" style="border: none;" width="51" height="25" border="0"></p>
+<ul>
+<li class="p-NoteText">
+<p class="NoteText">There are two types of Recipe structures (Recipe Group and Recipe Control). Each counts as a variable towards the Target's maximum number of supported variables. See Appendix 4 <a href="Appendix.chm::/Performance_Specifications.htm">Run-Time Specifications</a>.</p>
+</li>
+<li class="p-NoteText">
+<p class="NoteText">When you add a variable to the Recipe Group, there are two copies of the variable. Each counts as a variable towards the Target's maximum of supported variables. See Appendix 4 <a href="Appendix.chm::/Performance_Specifications.htm">Run-Time Specifications</a>.</p>
+</li>
+</ul>
+</body>
+</html>

@@ -1,0 +1,142 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+<meta name="template" content="Vijeo_template.htt">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="date" content="07 16, 2003 12:16:28 PM">
+ <meta name="generator" content="Adobe RoboHelp 10">
+<title>Creating Your Own Time Display</title>
+<link rel="StyleSheet" href="TIS-STYL.CSS" type="text/css">
+</head>
+<body>
+<script type="text/javascript" src="ehlpdhtm.js" language="JavaScript1.2"></script>
+
+<div style="width: 100%; position: relative;" id="header">
+	<table style="background-attachment: scroll; margin-left: 0px; margin-right: 4px; 
+			 background-image: url(top_banner.bmp); background-repeat: Repeat-X; 
+			 line-height: 0pt; vertical-align: top;" cellspacing="0" width="100%" 
+			 background="top_banner.bmp">
+		<col style="width: 90%;">
+		<col style="width: 5%;">
+		<col style="width: 5%;">
+		<tr style="vertical-align: center; height: 39px;">
+			<td style="width: 90%; padding-right: 10px; padding-left: 10px; 
+				 border-right-color: #000000;">
+   <p><img src="logo.bmp" style="border: none;" alt="" width="37" height="37" border="0"></p></td>
+			<td style="width: 5%; padding-right: 0px; padding-left: 10px; 
+				 border-right-color: #000000;">
+   <p style="text-align: center;"><a 
+			 title="Glossary" href="Appendix.chm::/Glossary.htm"><img src="logo_glossary.bmp" style="border: none;" alt="" width="47" height="37" border="0"></a></p></td>
+			<td style="width: 5%; padding-right: 10px; padding-left: 5px; 
+				 border-right-color: #000000;">
+   <p style="text-align: center;"><a 
+			 href="About.chm::/What_is_Vijeo-Designer.htm" title="Home"><img src="logo_home.bmp" alt="Home" title="Home" style="border: none; 
+			 margin-left: 0px; margin-right: 0px; margin-bottom: 0px; margin-top: -2px;" width="47" height="37" border="0"></a></p></td>
+		</tr>
+	</table>
+</div>
+
+<h2>11.5.2 Creating Your Own Time Displays</h2>
+<p>To create your own time display, you can use system variables.</p>
+<h4><img src="square.bmp" style="border: none;" alt="" width="12" height="10" border="0">System Variables for Time Display</h4>
+<p>Each target machine stores the current time in its internal system clock. Use the following variables to access the hours, minutes, seconds, and the time zone offset from GMT.</p>
+<table style="vertical-align: top; margin-left: 40px;" cellspacing="0" width="95.32%">
+<col style="width: 16.569%;">
+<col style="width: 83.431%;">
+<tr style="vertical-align: top; height: 19px;">
+<td style="border-top: Solid 3px #000000; border-right: Solid 1px Black; border-bottom: Solid 1px Black; width: 16.569%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#91AFD9">
+<p class="Tabletitle">Variable Name</p>
+</td>
+<td style="border-top: Solid 3px #000000; border-bottom: Solid 1px Black; width: 83.431%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#91AFD9">
+<p class="Tabletitle">Outline</p>
+</td>
+</tr>
+<tr style="vertical-align: top; height: 13px;">
+<td style="border-right: Solid 1px Black; border-bottom: Solid 1px Black; width: 16.569%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#CBD9ED">
+<p class="TableDefinitions">_Hour</p>
+</td>
+<td style="border-bottom: Solid 1px Black; width: 83.431%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="tabletext">Integer variable stores the "hh" (0–23) portion of the time (hh:mm:ss) as a decimal value. An hour value of 24 is converted to 0. This variable is read only.</p>
+</td>
+</tr>
+<tr style="vertical-align: top; height: 18px;">
+<td style="border-right: Solid 1px Black; border-bottom: Solid 1px Black; width: 16.569%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#CBD9ED">
+<p class="TableDefinitions">_Minutes</p>
+</td>
+<td style="border-bottom: Solid 1px Black; width: 83.431%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="tabletext">Integer variable stores the "mm" (0–59) portion of the time (hh:mm:ss) as a decimal value. This variable is read only.</p>
+</td>
+</tr>
+<tr style="vertical-align: top; height: 18px;">
+<td style="border-right: Solid 1px Black; border-bottom: Solid 1px #000000; width: 16.569%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#CBD9ED">
+<p class="TableDefinitions">_Seconds</p>
+</td>
+<td style="border-bottom: Solid 1px #000000; width: 83.431%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="tabletext">Integer variable stores the "ss" (0–59) portion of the time (hh:mm:ss) as a decimal value. This variable is read only.</p>
+</td>
+</tr>
+<tr style="vertical-align: top; height: 18px;">
+<td style="border-right: Solid 1px Black; border-bottom: Solid 3px #000000; width: 16.569%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#CBD9ED">
+<p class="TableDefinitions">_TimeZoneOffset</p>
+</td>
+<td style="border-bottom: Solid 3px #000000; width: 83.431%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="tabletext">Integer variable determines the local time in the target, which is calculated as an offset (in minutes) from GMT. This variable is read only.</p>
+</td>
+</tr>
+</table>
+<p style="margin-left: 0px;">&#160;</p>
+<p style="margin-left: 0px;">For more information about other system variables, see Section 6.7.2, <a href="InputAddress.chm::/Using_Data_and_Time_System_Variables.htm">Using Date and Time System Variables</a>.</p>
+<p>When you create a custom time display with system variables, first type text labels such as "hours," "minutes," and "seconds" using the Text drawing tool and then display the time stored in system variables using Value Animation.</p>
+<p class="Image"><img src="time%20display_sample.bmp" style="border: none;" alt="" width="361" height="209" border="0"></p>
+<p>The following section shows how to create the above time display using Value Animation.</p>
+<ol style="list-style: decimal;">
+<li class="p">
+<p>From the Graphical Objects toolbar, select the Text icon.</p>
+</li>
+</ol>
+<ol start="2" style="list-style: decimal;">
+<li class="p">
+<p>Drag and draw a selection box, then click to set the Text object's area and to open the Text Editor.</p>
+</li>
+</ol>
+<ol start="3" style="list-style: decimal;">
+<li class="p">
+<p>Type the pound symbol [#], which will act as the time display, then click OK.</p>
+</li>
+</ol>
+<ol start="4" style="list-style: decimal;">
+<li class="p">
+<p>In the Text Property Inspector, define the color and font as needed.</p>
+</li>
+</ol>
+<ol start="5" style="list-style: decimal;">
+<li class="p">
+<p>Right-click the text object and select Animation to display the Animation Properties dialog box.</p>
+</li>
+</ol>
+<ol start="6" style="list-style: decimal;">
+<li class="p">
+<p>Click the Value tab, and select the Enable Value Animation checkbox.</p>
+</li>
+</ol>
+<ol start="7" style="list-style: decimal;">
+<li class="p">
+<p>Click the <img src="icon_light.bmp" style="border: none;" alt="" width="17" height="13" border="0"> icon to open the Expression Editor Pad, and in the Variable List, select _Hour, _Minutes, or _Seconds from the menu.</p>
+</li>
+</ol>
+<p class="Image" style="margin-left: 40px;"><img src="ExpEdTime.bmp" style="border: none;" alt="" width="355" height="288" border="0"></p>
+<ol start="8" style="list-style: decimal;">
+<li class="p">
+<p>Click OK. Repeat for each portion of the time (Hour, Minutes, and Seconds).</p>
+</li>
+</ol>
+<p class="Image" style="margin-left: 40px;"><img src="time%20display_put%20a%20data%20animation.bmp" style="border: none;" alt="" width="81" height="88" border="0"></p>
+<ol start="9" style="list-style: decimal;">
+<li class="p">
+<p>To add context to the time values, use the Text drawing tool, and add text such as "Hour," "Minutes," or "Sec."</p>
+</li>
+</ol>
+<p class="Image" style="margin-left: 40px;"><img src="time%20display_put%203%20data%20animations.bmp" style="border: none;" alt="" width="314" height="72" border="0"></p>
+</body>
+</html>

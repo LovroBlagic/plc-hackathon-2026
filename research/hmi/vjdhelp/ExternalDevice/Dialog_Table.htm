@@ -1,0 +1,73 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+<meta name="template" content="Vijeo_template.htt">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="topic-status" content="In Progress">
+<meta name="topic-priority" content="0">
+<meta name="topic-time-estimate" content="0">
+<meta name="topic-id" content="Working with the Dialog Table">
+<meta name="window-type" content="$global_NewWindow">
+ <meta name="generator" content="Adobe RoboHelp 2015">
+<title>Working with the Dialog Table</title>
+<link rel="StyleSheet" href="TIS-STYL.CSS" type="text/css">
+</head>
+<body>
+<script type="text/javascript" src="ehlpdhtm.js" language="JavaScript1.2"></script>
+
+<div style="width: 100%; position: relative;" id="header">
+	<table style="background-attachment: scroll; margin-left: 0px; margin-right: 4px; 
+			 background-image: url(top_banner.bmp); background-repeat: Repeat-X; 
+			 line-height: 0pt; vertical-align: top;" cellspacing="0" background="top_banner.bmp" 
+			 width="100%">
+		<col style="width: 90%;">
+		<col style="width: 5%;">
+		<col style="width: 5%;">
+		<tr style="vertical-align: center; height: 39px;">
+			<td style="width: 90%; padding-right: 10px; padding-left: 10px; 
+				 border-right-color: #000000;">
+   <p><img src="logo.bmp" alt="" style="border: none;" width="37" height="37" border="0"></p></td>
+			<td style="width: 5%; padding-right: 0px; padding-left: 10px; 
+				 border-right-color: #000000;">
+   <p style="text-align: center;"><a 
+			 title="Glossary" href="Appendix.chm::/Glossary.htm"><img src="logo_glossary.bmp" alt="" style="border: none;" width="47" height="37" border="0"></a></p></td>
+			<td style="width: 5%; padding-right: 10px; padding-left: 5px; 
+				 border-right-color: #000000;">
+   <p style="text-align: center;"><a 
+			 href="About.chm::/What_is_Vijeo-Designer.htm" title="Home"><img src="logo_home.bmp" alt="Home" title="Home" style="border: none; 
+			 margin-left: 0px; margin-right: 0px; margin-bottom: 0px; margin-top: -2px;" width="47" height="37" border="0"></a></p></td>
+		</tr>
+	</table>
+</div>
+
+
+<h1>5.6 Working with the Dialog Table</h1>
+<p class="Image">The Dialog Table provides a simple way for running common functions and communicating data between the target machine (HMI) and the PLC. These operations are made possible by the Dialog Table synchronizing a block of data on the target machine with a block of data on the PLC. When the values change in one of the blocks, the Dialog Table automatically updates the other block to have the same values. The functions that correspond to the updated values are then run by the Dialog Table. Data updates on the Dialog Table occur during a processing cycle that runs on a configurable schedule called the cycle time.</p>
+<p class="Image">The Dialog Table settings are in the Property Inspector for the PLC equipment. For a list of the Dialog Table's supported functions, see Section 5.6.2, <a href="Dialog_table_list.htm">Dialog Table Functions</a>.</p>
+<p><img src="Limit.bmp" alt="" style="border: none;" width="77" height="24" border="0"></p>
+<ul>
+<li class="p-NoteText">
+<p class="NoteText" style="background-color: Transparent;">Only one Dialog Table is available for each device driver. Dialog Tables are only available for the device drivers that support block variables. For information on adding a device driver to your project, see Section 5.2.1, <a href="the_detail_of_settgin_host_controller.htm">Adding a Device Driver</a>.</p>
+</li>
+<li class="p-NoteText">
+<p class="NoteText" style="background-color: Transparent;"><span style="font-weight: bold;">The Dialog Table has been designed exclusively for compatibility between XBTL1000 and Vijeo-Designer.</span> New software features have been implemented for other models to replace those used in the Dialog Table. For more information, see Section 5.6.2, <a href="Dialog_table_list.htm">Dialog Table Functions</a>.</p>
+</li>
+<li class="p-NoteText">
+<p class="NoteText" style="background-color: Transparent;">Vijeo-Designer lists all XBTL1000 Dialog Table functions, even the unsupported XBTL1000 Dialog Table functions. Unsupported functions are shown in red in the Dialog Table and become available when the Include XBTL featured functions check box is selected. Vijeo Designer allows you to add these unsupported functions to your dialog table so you can match the HMI project's dialog table to the PLC's dialog table. For a list of unsupported function see Section 5.6.2, <a href="Dialog_table_list.htm#unsupportedFunction">Dialog Table Functions: Unsupported Functions</a>.</p>
+</li>
+<li class="p-NoteText">
+<p class="NoteText" style="background-color: Transparent;">When upgrading from XBTL1000 to Vijeo-Designer, make sure the Vijeo-Designer's Dialog Table configurations match the PLC's Dialog Table configurations. Both Dialog Tables must have the same number of functions. The start address for the Dialog Tables must also be correct. If the two Dialog Table configurations do not match exactly, communication errors will occur. For information on defining the Dialog Table start address, see Section 5.6.5, <a href="set_start_functions.htm">Setting the Dialog Table Start Address</a>.</p>
+</li>
+<li class="p-NoteText">
+<p class="NoteText" style="background-color: Transparent;">Note that when configuring the Zelio/Millenium driver, you must follow the requirements as outlined in Section 5.6.7, <a href="Working_with_the_Zelio_Millenium_Driver.htm">Working with the Zelio/Millenium Driver</a>.</p>
+</li>
+</ul>
+<p class="NoteImage"><img src="NOTE_MOJI.BMP" alt="" style="border: none;" width="51" height="25" border="0"></p>
+<ul>
+<li class="p-NoteText">
+<p class="NoteText">To use function keys with the Dialog Table, you must first add function keys to the project in the Target Function Keys properties, and then set Control Mode to Dialog Table. For more information on Target Function Keys properties, see Section 4.5.1, <a href="StandardOperation.chm::/Setting_up_Targets-Creating_targets.htm">Target Properties</a>.</p>
+</li>
+</ul>
+</body>
+</html>

@@ -1,0 +1,187 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+<meta name="template" content="Vijeo_template.htt">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="topic-status" content="In Progress">
+<meta name="topic-priority" content="0">
+<meta name="topic-time-estimate" content="0">
+<meta name="topic-id" content="Indirect Address Example">
+<meta name="window-type" content="$global_NewWindow">
+ <meta name="generator" content="Adobe RoboHelp 2015">
+<title>Indirect Address Example</title>
+<link rel="StyleSheet" href="Tis-styl.css" type="text/css">
+</head>
+<body>
+<script type="text/javascript" src="ehlpdhtm.js" language="JavaScript1.2"></script>
+
+<div style="width: 100%; position: relative;" id="header">
+	<table style="background-attachment: scroll; margin-left: 0px; margin-right: 4px; 
+			 background-image: url(top_banner.bmp); background-repeat: Repeat-X; 
+			 line-height: 0pt; vertical-align: top;" cellspacing="0" background="top_banner.bmp" 
+			 width="100%">
+		<col style="width: 90%;">
+		<col style="width: 5%;">
+		<col style="width: 5%;">
+		<tr style="vertical-align: center; height: 39px;">
+			<td style="width: 90%; padding-right: 10px; padding-left: 10px; 
+				 border-right-color: #000000;">
+   <p><img src="logo.bmp" alt="" style="border: none;" width="37" height="37" border="0"></p></td>
+			<td style="width: 5%; padding-right: 0px; padding-left: 10px; 
+				 border-right-color: #000000;">
+   <p style="text-align: center;"><a 
+			 title="Glossary" href="Appendix.chm::/Glossary.htm"><img src="logo_glossary.bmp" alt="" style="border: none;" width="47" height="37" border="0"></a></p></td>
+			<td style="width: 5%; padding-right: 10px; padding-left: 5px; 
+				 border-right-color: #000000;">
+   <p style="text-align: center;"><a 
+			 href="About.chm::/What_is_Vijeo-Designer.htm" title="Home"><img src="logo_home.bmp" alt="Home" title="Home" style="border: none; 
+			 margin-left: 0px; margin-right: 0px; margin-bottom: 0px; margin-top: -2px;" width="47" height="37" border="0"></a></p></td>
+		</tr>
+	</table>
+</div>
+
+
+<h3>6.3.3.2 Indirect Address Example</h3>
+<p>This example describes how to use indirect addressing for the setup and operation of three different pumps at a pump station.</p>
+<p>The following single panel displays each pump and its specific values for energy consumption, motor temperature<span style="font-style: italic;">,</span> and pressure exerted. The buttons at the top of the panel are used to switch between Pump 1, Pump 2, and Pump 3.</p>
+<p class="Image"><img src="Input_Address_example_editor.bmp" alt="" style="border: none;" width="448" height="271" border="0"></p>
+<h4><a name="SettingVariables" id="SettingVariables"></a><img src="square.bmp" alt="" style="border: none;" width="12" height="10" border="0">Setting up the Variables</h4>
+<p>To design this example application, you will:</p>
+<ul>
+<li class="p-Bullet">
+<p class="Bullet">Set up three variables—Energy, Pressure, and Temperature.</p>
+</li>
+<li class="p-Bullet">
+<p class="Bullet">Associate all three variables with each pump—Pump 1, Pump 2, and Pump 3.</p>
+</li>
+<li class="p-Bullet">
+<p class="Bullet">Assign the values for each variable to consecutive addresses on the equipment.</p>
+</li>
+</ul>
+<p><img src="Indirect_Address_Example_Address.bmp" alt="" style="border: none;" width="263" height="243" border="0"></p>
+<p>This example uses a folder variable to group the variables for each pump.</p>
+<ol style="list-style: decimal;">
+<li class="p">
+<p>Create a new folder and name it <span style="font-weight: bold;">Pump</span>.</p>
+</li>
+</ol>
+<p class="Image" style="margin-left: 40px;"><img src="Indirect_Address_StrVar.bmp" alt="" style="border: none;" width="188" height="30" border="0"></p>
+<ol start="2" style="list-style: decimal;">
+<li class="p">
+<p>Add INT variables to the folder and name them <span style="font-weight: bold;">Energy</span> <span style="font-weight: bold;">and</span> <span style="font-weight: bold;">Pressure</span>. Add a DINT variable to the folder and name it <span style="font-weight: bold;">Temperature</span>.</p>
+</li>
+</ol>
+<p class="Image" style="margin-left: 40px;"><img src="Indirect_Address_StrVarName.bmp" alt="" style="border: none;" width="181" height="101" border="0"></p>
+<ol start="3" style="list-style: decimal;">
+<li class="p">
+<p>Assign a device address to each element: Energy = <span style="font-weight: bold;">40001</span>, Pressure = <span style="font-weight: bold;">40006</span>, Temperature = <span style="font-weight: bold;">40011</span>.</p>
+</li>
+</ol>
+<p class="Image" style="margin-left: 40px;"><img src="Indirect_Address_StrVar_Addr.bmp" alt="" style="border: none;" width="483" height="101" border="0"></p>
+<ol start="4" style="list-style: decimal;">
+<li class="p">
+<p>Data Length of each element is: Energy = <span style="font-weight: bold;">16 bits</span>, Pressure = <span style="font-weight: bold;">16 bits</span>, Temperature = <span style="font-weight: bold;">32 bits</span>.<br>
+Location of data = Device Address + Variable data length x Offset</p>
+</li>
+<li class="p">
+<p>Create the offset variable, which in this example is an internal variable called <span style="font-weight: bold;">OffsetVar</span>.</p>
+</li>
+<li class="p">
+<p>In each of the folder's elements, Energy, Pressure, and temperatures, define the Indirect Address as the variable OffsetVar. For more information on defined Indirect Address, see Section 6.3.3.1, <a href="Setting_Up_Indirect_Address.htm">Setting Up an Indirect Address</a>.</p>
+</li>
+</ol>
+<p><img src="NOTE_MOJI.BMP" alt="" style="border: none;" width="51" height="25" border="0"></p>
+<ol start="7" style="list-style: decimal;">
+<li class="p-NoteText">
+<p class="NoteText">Make sure the variable properties such as Data Format, Signed, and Data Length in each variable match the settings in the equipment.</p>
+</li>
+</ol>
+<h4><a name="DrawingPanels" id="DrawingPanels"></a><img src="square.bmp" alt="" style="border: none;" width="12" height="10" border="0">Drawing the Panel</h4>
+<ol style="list-style: decimal;">
+<li class="p">
+<p>Create a panel and name it <span style="font-weight: bold;">PumpPanel</span>.</p>
+</li>
+</ol>
+<p class="Image" style="margin-left: 40px;"><img src="Indirect_Address_Example_PumpPanels.bmp" alt="" style="border: none;" width="131" height="24" border="0"></p>
+<ol start="2" style="list-style: decimal;">
+<li class="p">
+<p>Draw three switches on the panel.</p>
+</li>
+</ol>
+<p class="Image" style="margin-left: 40px;"><img src="Input_Address_example_pumpswitches.bmp" alt="" style="border: none;" width="279" height="166" border="0"></p>
+<ol start="3" style="list-style: decimal;">
+<li class="p">
+<p>For each switch, double-click to open the Switch Settings dialog box, then add a word operation that changes the value of the offset variable <span style="font-weight: bold;">OffsetVar</span>.</p>
+</li>
+</ol>
+<p class="Image" style="margin-left: 40px;"><img src="Input_Address_example_pumpword.bmp" alt="" style="border: none;" width="416" height="349" border="0"></p>
+<ol start="4" style="list-style: decimal;">
+<li class="p">
+<p>Set the Source and Destination properties as follows:</p>
+</li>
+<li class="p-bullet2">
+<p class="bullet2">PUMP 1 Switch: Source = <span style="font-weight: bold;">0</span>; Destination = <span style="font-weight: bold;">OffsetVar</span></p>
+</li>
+<li class="p-bullet2">
+<p class="bullet2">PUMP 2 Switch: Source = <span style="font-weight: bold;">1</span>; Destination = <span style="font-weight: bold;">OffsetVar</span></p>
+</li>
+<li class="p-bullet2">
+<p class="bullet2">PUMP 3 Switch: Source = <span style="font-weight: bold;">2</span>; Destination = <span style="font-weight: bold;">OffsetVar</span></p>
+</li>
+</ol>
+<ol start="5" style="list-style: decimal;">
+<li class="p">
+<p>On the same panel as the switches, draw a pump and add three Numeric Display parts to it.</p>
+</li>
+</ol>
+<p class="Image" style="margin-left: 40px;"><img src="Input_Address_example_NumDisplay.bmp" alt="" style="border: none;" width="331" height="271" border="0"></p>
+<ol start="6" style="list-style: decimal;">
+<li class="p">
+<p>In the Numeric Display Settings dialog box for each numeric display part, specify the appropriate variable for the part—<span style="font-weight: bold;">Pump.Energy</span>, <span style="font-weight: bold;">Pump.Pressure</span>, or <span style="font-weight: bold;">Pump.Temperature</span>.</p>
+</li>
+</ol>
+<ol start="7" style="list-style: decimal;">
+<li class="p">
+<p>For each numeric display, set the Display Digits property as follows:</p>
+</li>
+<li class="p-bullet2">
+<p class="bullet2">Pump.Energy Variable: Display Digits = <span style="font-weight: bold;">6.0</span>.</p>
+</li>
+<li class="p-bullet2">
+<p class="bullet2">Pump.Pressure Variable: Display Digits = <span style="font-weight: bold;">6.0</span>.</p>
+</li>
+<li class="p-bullet2">
+<p class="bullet2">Pump.Temperature Variable: Display Digits = <span style="font-weight: bold;">3.6</span>.</p>
+</li>
+</ol>
+<h4><a name="OperationRuntime" id="OperationRuntime"></a><img src="square.bmp" alt="" style="border: none;" width="12" height="10" border="0">Operation at Runtime</h4>
+<ol style="list-style: decimal;">
+<li class="p">
+<p>Build the application and download it to the target machine.</p>
+</li>
+<li class="p">
+<p>Press the Pump 1 switch to change the OffsetVar to <span style="font-weight: bold;">0</span>.<br>
+The numeric display parts display the values in addresses 40001 (Energy), 40006 (Pressure), and 40011 (Temperature).</p>
+</li>
+</ol>
+<p class="Image" style="margin-left: 40px;"><img src="Input_Address_example_runtimeP1.bmp" alt="" style="border: none;" width="561" height="250" border="0"></p>
+<ol start="3" style="list-style: decimal;">
+<li class="p">
+<p>Press the Pump 3 switch to change the OffsetVar to <span style="font-weight: bold;">2</span>.<br>
+The numeric display parts now display the values in addresses 40003 (Energy), 40008 (Pressure), and 40015 (Temperature).</p>
+</li>
+</ol>
+<p class="Image" style="margin-left: 40px;"><img src="Input_Address_example_runtime.bmp" alt="" style="border: none;" width="561" height="250" border="0"></p>
+<p style="margin-left: 0px;">In this example of a 3-pump station, by using indirect variables:</p>
+<ul>
+<li class="p-Bullet">
+<p class="Bullet">We used only one panel, instead of three panels (one for each pump).</p>
+</li>
+<li class="p-Bullet">
+<p class="Bullet">We used only 1 set of three variables, instead of nine variables (three different measurements for each of three pumps).</p>
+</li>
+</ul>
+<p style="margin-left: 0px;">This is just one example that demonstrates how <span style="margin-left: 0px;">indirect variables can simplify your HMI applications.</span></p>
+</body>
+</html>

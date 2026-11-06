@@ -1,0 +1,346 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+<meta name="template" content="Vijeo_template.htt">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="date" content="08 6, 2003 3:44:59 PM">
+<meta name="topic-status" content="In Progress">
+<meta name="topic-priority" content="0">
+<meta name="topic-time-estimate" content="0">
+<meta name="topic-comment" content="">
+<meta name="topic-id" content="script_variable_and_pro-designer_variable.htm">
+<meta name="window-type" content="$global_NewWindow">
+ <meta name="generator" content="Adobe RoboHelp 10">
+<title>Script and Variables</title>
+<link rel="StyleSheet" href="TIS-STYL.CSS" type="text/css">
+</head>
+
+<body>
+<script type="text/javascript" src="ehlpdhtm.js" language="JavaScript1.2"></script>
+
+<div style="width: 100%; position: relative;" id="header">
+	<table style="background-attachment: scroll; margin-left: 0px; margin-right: 4px; 
+			 background-image: url(top_banner.bmp); background-repeat: Repeat-X; 
+			 line-height: 0pt; vertical-align: top;" cellspacing="0" width="100%" 
+			 background="top_banner.bmp">
+		<col style="width: 90%;">
+		<col style="width: 5%;">
+		<col style="width: 5%;">
+		<tr style="vertical-align: center; height: 39px;">
+			<td style="width: 90%; padding-right: 10px; padding-left: 10px; 
+				 border-right-color: #000000;">
+   <p><img src="logo.bmp" style="border: none;" alt="" width="37" height="37" border="0"></p></td>
+			<td style="width: 5%; padding-right: 0px; padding-left: 10px; 
+				 border-right-color: #000000;">
+   <p style="text-align: center;"><a 
+			 title="Glossary" href="Appendix.chm::/Glossary.htm"><img src="logo_glossary.bmp" style="border: none;" alt="" width="47" height="37" border="0"></a></p></td>
+			<td style="width: 5%; padding-right: 10px; padding-left: 5px; 
+				 border-right-color: #000000;">
+   <p style="text-align: center;"><a 
+			 href="About.chm::/What_is_Vijeo-Designer.htm" title="Home"><img src="logo_home.bmp" alt="Home" title="Home" style="border: none; 
+			 margin-left: 0px; margin-right: 0px; margin-bottom: 0px; margin-top: -2px;" width="47" height="37" border="0"></a></p></td>
+		</tr>
+	</table>
+</div>
+
+<h2>18.3.2 Script and Variables</h2>
+<p>When working with Vijeo-Designer scripts, there are two types of variables:</p>
+<ul>
+	<li class="p-Bullet"><p class="Bullet">Vijeo-Designer variables</p></li>
+	<li class="p-Bullet"><p class="Bullet">Script variables</p></li>
+</ul>
+<p class="Image"><img src="vijeodesignervariable_scriptvariable.bmp" alt="" style="border: none;" width="514" height="226" border="0"></p>
+<p>Variables created in Vijeo-Designer cannot be used directly in script 
+ expressions. To use a Vijeo-Designer variable in a script, use the variable's 
+ <span style="font-style: italic;">get 
+ value</span> method and assign the result to a local script 
+ variable. You can then use the script variable in script control statements, 
+ mathematical operations, and other script expressions.</p>
+<p class="Image"><img src="Vijeo_Var_and_script_overview.bmp" alt="" style="border: none;" width="453" height="162" border="0"></p>
+<p class="NoteImage"><img src="Note_Moji.bmp" alt="" style="border: none;" width="51" height="25" border="0"></p>
+<ul>
+	<li class="p-NoteText"><p class="NoteText">When using Vijeo-Designer 
+	 variables in scripts, the value must be assigned to a local script 
+	 variable. The Vijeo-Designer variable is independent of the local 
+	 script variable, and their values could be different. This could cause 
+	 problems, especially with external variables, because the Vijeo-Designer 
+	 variable value can change in the middle of a script process, while 
+	 the script continues to work with the previous variable value.</p></li>
+</ul>
+<h3><a name="1642b3b9347ca42c9b00b820c00c373fa=1"></a><a name="1"></a>18.3.2.1 Declaring Script Variables</h3>
+<p>Once you define the data type and name of the script variable, you can 
+ use the script name in your scripting program.</p>
+<p class="Image"><img src="Script_Declaration.bmp" alt="" style="border: none;" width="214" height="82" border="0"></p>
+<h4><img src="Square.bmp" alt="" style="border: none;" width="12" height="10" border="0">Data Types</h4>
+<p>Use the following standard data types to declare variables in scripts.</p>
+<table wrapperparagraphselector="P" style="border: Solid 0px #808080; margin-top: 14pt; 
+		 margin-bottom: 14px; left: 0px; top: 823px; height: 213px; margin-left: 40px;" 
+		 cellspacing="0" width="1057">
+	<col style="width: 15.028%;">
+	<col style="width: 14.778%;">
+	<col style="width: 28.303%;">
+	<col width="443">
+	<tr>
+		<td style="border-top: Solid 3px #000000; border-right: Solid 1px #000000; 
+			 border-bottom: Solid 1px #000000; width: 15.028%; vertical-align: TOP; 
+			 padding-left: 10px; padding-right: 10px; padding-top: 10px; 
+			 padding-bottom: 10px;" bgcolor="#91AFD9"><p class="Tabletitle"><span 
+		 style="font-weight: bold;">Data Type</span></p></td>
+		<td style="border-top: Solid 3px #000000; border-right: Solid 1px #000000; 
+			 border-bottom: Solid 1px #000000; width: 14.778%; vertical-align: TOP; 
+			 padding-left: 10px; padding-right: 10px; padding-top: 10px; 
+			 padding-bottom: 10px;" bgcolor="#91AFD9"><p class="Tabletitle"><span 
+		 style="font-weight: bold;">Size</span></p></td>
+		<td style="border-top: Solid 3px #000000; border-right: Solid 1px #000000; 
+			 border-bottom: Solid 1px #000000; width: 28.303%; vertical-align: TOP; 
+			 padding-left: 10px; padding-right: 10px; padding-top: 10px; 
+			 padding-bottom: 10px;" bgcolor="#91AFD9"><p class="Tabletitle"><span 
+		 style="font-weight: bold;">Format</span></p></td>
+		<td style="border-top: Solid 3px #000000; border-bottom: Solid 1px #000000; 
+			 vertical-align: TOP; padding-left: 10px; padding-right: 10px; 
+			 padding-top: 10px; padding-bottom: 10px;" width="443" bgcolor="#91AFD9"><p 
+			 class="Tabletitle"><span style="font-weight: bold;">Data Range</span></p></td>
+	</tr>
+	<tr>
+		<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; 
+			 width: 15.028%; vertical-align: TOP; padding-left: 10px; padding-right: 10px; 
+			 padding-top: 10px; padding-bottom: 10px;" bgcolor="#CBD9ED"><p 
+			 class="TableDefinitions">byte</p></td>
+		<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; 
+			 width: 14.778%; vertical-align: TOP; padding-left: 10px; padding-right: 10px; 
+			 padding-top: 10px; padding-bottom: 10px;"><p class="tabletext" 
+															 style="text-align: center; 
+															 margin-bottom: 0;">&#160;8 
+		 bit</p></td>
+		<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; 
+			 width: 28.303%; vertical-align: TOP; padding-left: 10px; padding-right: 10px; 
+			 padding-top: 10px; padding-bottom: 10px;"><p class="tabletext" 
+															 style="text-align: left; 
+															 margin-bottom: 0;">2's 
+		 Complement</p></td>
+		<td style="border-bottom: Solid 1px #000000; vertical-align: TOP; 
+			 padding-left: 10px; padding-right: 10px; padding-top: 10px; 
+			 padding-bottom: 10px;" width="443"><p class="tabletext" style="margin-bottom: 0;">-128 
+		 ~ +127</p></td>
+	</tr>
+	<tr>
+		<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; 
+			 width: 15.028%; vertical-align: TOP; padding-left: 10px; padding-right: 10px; 
+			 padding-top: 10px; padding-bottom: 10px;" bgcolor="#CBD9ED"><p 
+			 class="TableDefinitions">short</p></td>
+		<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; 
+			 width: 14.778%; vertical-align: TOP; padding-left: 10px; padding-right: 10px; 
+			 padding-top: 10px; padding-bottom: 10px;"><p class="tabletext" 
+															 style="text-align: center; 
+															 margin-bottom: 0;">16 
+		 bit</p></td>
+		<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; 
+			 width: 28.303%; vertical-align: TOP; padding-left: 10px; padding-right: 10px; 
+			 padding-top: 10px; padding-bottom: 10px;"><p class="tabletext" 
+															 style="margin-bottom: 0;">2's 
+		 Complement</p></td>
+		<td style="border-bottom: Solid 1px #000000; vertical-align: TOP; 
+			 padding-left: 10px; padding-right: 10px; padding-top: 10px; 
+			 padding-bottom: 10px;" width="443"><p class="tabletext" style="margin-bottom: 0;">-32768 
+		 ~ +32767</p></td>
+	</tr>
+	<tr>
+		<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; 
+			 width: 15.028%; vertical-align: TOP; padding-left: 10px; padding-right: 10px; 
+			 padding-top: 10px; padding-bottom: 10px;" bgcolor="#CBD9ED"><p 
+			 class="TableDefinitions">integer</p></td>
+		<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; 
+			 width: 14.778%; vertical-align: TOP; padding-left: 10px; padding-right: 10px; 
+			 padding-top: 10px; padding-bottom: 10px;"><p class="tabletext" 
+															 style="text-align: center; 
+															 margin-bottom: 0;">32 
+		 bit</p></td>
+		<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; 
+			 width: 28.303%; vertical-align: TOP; padding-left: 10px; padding-right: 10px; 
+			 padding-top: 10px; padding-bottom: 10px;"><p class="tabletext" 
+															 style="margin-bottom: 0;">2's 
+		 Complement</p></td>
+		<td style="border-bottom: Solid 1px #000000; vertical-align: TOP; 
+			 padding-left: 10px; padding-right: 10px; padding-top: 10px; 
+			 padding-bottom: 10px;" width="443"><p class="tabletext" style="margin-bottom: 0;">-2147483648 
+		 ~ +2147483647</p></td>
+	</tr>
+	<tr>
+		<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; 
+			 width: 15.028%; vertical-align: TOP; padding-left: 10px; padding-right: 10px; 
+			 padding-top: 10px; padding-bottom: 10px;" bgcolor="#CBD9ED"><p 
+			 class="TableDefinitions">long</p></td>
+		<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; 
+			 width: 14.778%; vertical-align: TOP; padding-left: 10px; padding-right: 10px; 
+			 padding-top: 10px; padding-bottom: 10px;"><p class="tabletext" 
+															 style="text-align: center; 
+															 margin-bottom: 0;">64 
+		 bit</p></td>
+		<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; 
+			 width: 28.303%; vertical-align: TOP; padding-left: 10px; padding-right: 10px; 
+			 padding-top: 10px; padding-bottom: 10px;"><p class="tabletext" 
+															 style="margin-bottom: 0;">2's 
+		 Complement</p></td>
+		<td style="border-bottom: Solid 1px #000000; vertical-align: TOP; 
+			 padding-left: 10px; padding-right: 10px; padding-top: 10px; 
+			 padding-bottom: 10px;" width="443"><p class="tabletext" style="margin-bottom: 0;">-9223372036854775808~ 
+		 +9223372036854775807</p></td>
+	</tr>
+	<tr>
+		<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; 
+			 width: 15.028%; vertical-align: TOP; padding-left: 10px; padding-right: 10px; 
+			 padding-top: 10px; padding-bottom: 10px;" bgcolor="#CBD9ED"><p 
+			 class="TableDefinitions">float</p></td>
+		<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; 
+			 width: 14.778%; vertical-align: TOP; padding-left: 10px; padding-right: 10px; 
+			 padding-top: 10px; padding-bottom: 10px;"><p class="tabletext" 
+															 style="text-align: center; 
+															 margin-bottom: 0;">32 
+		 bit</p></td>
+		<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; 
+			 width: 28.303%; vertical-align: TOP; padding-left: 10px; padding-right: 10px; 
+			 padding-top: 10px; padding-bottom: 10px;"><p class="tabletext" 
+															 style="text-align: left; 
+															 margin-bottom: 0;">IEEE754 
+		 standard</p></td>
+		<td style="border-bottom: Solid 1px #000000; vertical-align: TOP; 
+			 padding-left: 10px; padding-right: 10px; padding-top: 10px; 
+			 padding-bottom: 10px;" width="443"><p class="tabletext" style="margin-bottom: 0;">±3.40282347E+38 
+		 ~<br>
+		±1.40239846E-45</p></td>
+	</tr>
+	<tr>
+		<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; 
+			 width: 15.028%; vertical-align: TOP; padding-left: 10px; padding-right: 10px; 
+			 padding-top: 10px; padding-bottom: 10px;" bgcolor="#CBD9ED"><p 
+			 class="TableDefinitions">double</p></td>
+		<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; 
+			 width: 14.778%; vertical-align: TOP; padding-left: 10px; padding-right: 10px; 
+			 padding-top: 10px; padding-bottom: 10px;"><p class="tabletext" 
+															 style="text-align: center; 
+															 margin-bottom: 0;">64 
+		 bit</p></td>
+		<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; 
+			 width: 28.303%; vertical-align: TOP; padding-left: 10px; padding-right: 10px; 
+			 padding-top: 10px; padding-bottom: 10px;"><p class="tabletext" 
+															 style="text-align: left; 
+															 margin-bottom: 0;">IEEE754 
+		 standard</p></td>
+		<td style="border-bottom: Solid 1px #000000; vertical-align: TOP; 
+			 padding-left: 10px; padding-right: 10px; padding-top: 10px; 
+			 padding-bottom: 10px;" width="443"><p class="tabletext" style="margin-bottom: 0;">±1.79769313486231570E+308 
+		 ~<br>
+		±4.94065645841246544E-324</p></td>
+	</tr>
+	<tr>
+		<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; 
+			 width: 15.028%; vertical-align: TOP; padding-left: 10px; padding-right: 10px; 
+			 padding-top: 10px; padding-bottom: 10px;" bgcolor="#CBD9ED"><p 
+			 class="TableDefinitions">boolean</p></td>
+		<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; 
+			 width: 14.778%; vertical-align: TOP; padding-left: 10px; padding-right: 10px; 
+			 padding-top: 10px; padding-bottom: 10px;"><p class="tabletext" 
+															 style="text-align: center; 
+															 margin-bottom: 0;">–</p></td>
+		<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; 
+			 width: 28.303%; vertical-align: TOP; padding-left: 10px; padding-right: 10px; 
+			 padding-top: 10px; padding-bottom: 10px;"><p class="tabletext" 
+															 style="text-align: center; 
+															 margin-bottom: 0;">–</p></td>
+		<td style="border-bottom: Solid 1px #000000; vertical-align: TOP; 
+			 padding-left: 10px; padding-right: 10px; padding-top: 10px; 
+			 padding-bottom: 10px;" width="443"><p class="tabletext" style="margin-bottom: 0;">true 
+		 or false</p></td>
+	</tr>
+	<tr>
+		<td style="border-right: Solid 1px #000000; border-bottom: Solid 3px #000000; 
+			 width: 15.028%; vertical-align: TOP; padding-left: 10px; padding-right: 10px; 
+			 padding-top: 10px; padding-bottom: 10px;" bgcolor="#CBD9ED"><p 
+			 class="TableDefinitions">char</p></td>
+		<td style="border-right: Solid 1px #000000; border-bottom: Solid 3px #000000; 
+			 width: 14.778%; vertical-align: TOP; padding-left: 10px; padding-right: 10px; 
+			 padding-top: 10px; padding-bottom: 10px;"><p class="tabletext" 
+															 style="text-align: center; 
+															 margin-bottom: 0;">16 
+		 bit</p></td>
+		<td style="border-right: Solid 1px #000000; border-bottom: Solid 3px #000000; 
+			 width: 28.303%; vertical-align: TOP; padding-left: 10px; padding-right: 10px; 
+			 padding-top: 10px; padding-bottom: 10px;"><p class="tabletext" 
+															 style="text-align: center; 
+															 margin-bottom: 0;">–</p></td>
+		<td style="border-bottom: Solid 3px #000000; vertical-align: TOP; 
+			 padding-left: 10px; padding-right: 10px; padding-top: 10px; 
+			 padding-bottom: 10px;" width="443"><p class="tabletext" style="margin-bottom: 0;">UNICODE 
+		 character</p></td>
+	</tr>
+</table>
+<p class="NoteImage"><img src="Note_Moji.bmp" alt="" style="border: none;" width="51" height="25" border="0"></p>
+<ul>
+	<li class="p-NoteText"><p class="NoteText">When working in scripts, 
+	 you can set up arrays to any of the above data types.</p></li>
+	<li class="p-NoteText"><p class="NoteText">When working with strings, 
+	 use <a href="String_methods.htm">String</a> 
+	 or <a href="StringBuffer_methods.htm">StringBuffer</a>.</p></li>
+</ul>
+<h4><img src="Square.bmp" alt="" style="border: none;" width="12" height="10" border="0">Script Variable Name</h4>
+<p>The following limitations apply to script variable names.</p>
+<ul>
+	<li class="p-Bullet"><p class="Bullet">Script variables are case-sensitive. 
+	 For example: <span style="font-weight: bold; 
+	 font-family: 'Courier New', monospace;">Int01</span> 
+	 and <span style="font-weight: bold; 
+															 font-family: 'Courier New', monospace;">int01</span> 
+	 are considered two different variables.</p></li>
+	<li class="p-Bullet"><p class="Bullet">Cannot use a number as the first 
+	 character in a script variable name.</p></li>
+	<li class="p-Bullet"><p class="Bullet">Cannot use Java and Vijeo-Designer 
+	 keywords as a script variable name.</p></li>
+	<li class="p-Bullet"><p class="Bullet">Cannot use the names of Vijeo-Designer 
+	 variables as a script variable name.</p></li>
+</ul>
+<h4><img src="Square.bmp" alt="" style="border: none;" width="12" height="10" border="0">Initializing Variables</h4>
+<p>After declaring the local script variable, good programming practice 
+ is to initialize its value.</p>
+<p>In particular, before you can use the script variable in a comparison, 
+ the variable must be assigned a value.</p>
+<p>String variables are also required to be initialized before use in certain 
+ Java string methods.</p>
+<p>The following example illustrates the importance of initializing script 
+ variables.</p>
+<p class="Code" style="margin-left: 40px;">int 
+ a,b=0; &#160;&#160;&#160;&#160;&#160;&#160;&#160;<span 
+	 style="color: #008000;">// Only b is initialized to 0</span></p>
+<p class="Code" style="margin-left: 40px;">if(a==0) 
+ &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<span style="color: #008000;">// 
+ CanNOT compare, a is undefined</span></p>
+<p class="Code" style="margin-left: 40px;">if(b==0) 
+ &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<span style="color: #008000;">// 
+ Compare with 0</span></p>
+<p class="Code">&#160;&#160;&#160;&#160;&#160;String 
+ str = &quot;&quot;; &#160;<span style="color: #008000;">// 
+ Initialize string before use</span></p>
+<h4>&#160;</h4>
+<h4><img src="Square.bmp" alt="" style="border: none;" width="12" height="10" border="0">End of Statement Marker, the Semicolon (;)</h4>
+<p>At the end of every statement, make sure you add a semicolon (;). Without 
+ the semicolon, the script will not pass validation and will produce syntax 
+ errors.</p>
+<p class="Image"><img src="end_of_statement.bmp" alt="" style="border: none;" width="192" height="60" border="0"></p>
+<p style="font-weight: bold;">Examples of variable declarations</p>
+<p class="Code" style="margin-left: 40px;">short 
+ a; &#160;&#160;&#160;&#160;&#160;&#160;&#160;<span style="color: #008000;">// 
+ short</span></p>
+<p class="Code" style="margin-left: 40px;">int 
+ b = 0; &#160;&#160;&#160;&#160;&#160;<span style="color: #008000;">// 
+ integer initialized to 0</span></p>
+<p class="Code" style="margin-left: 40px;">long 
+ c, d=0, e; <span style="color: #008000;">// 3 variables 
+ of type long, d initialized to 0</span></p>
+<p class="Code" style="margin-left: 40px;">char 
+ f[]; &#160;&#160;&#160;&#160;&#160;&#160;<span style="color: #008000;">// 
+ character array</span></p>
+<p class="Code" style="margin-left: 40px;">char[] 
+ f = new char[100]; <span style="color: #008000;">// character 
+ array with 100 elements</span></p>
+</body>
+</html>

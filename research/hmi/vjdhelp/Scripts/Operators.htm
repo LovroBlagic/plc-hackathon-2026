@@ -1,0 +1,764 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+<meta name="template" content="Vijeo_template.htt">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="date" content="08 8, 2003 6:28:08 PM">
+<meta name="topic-status" content="In Progress">
+<meta name="topic-priority" content="0">
+<meta name="topic-time-estimate" content="0">
+<meta name="topic-comment" content="">
+<meta name="topic-id" content="Operators.htm">
+ <meta name="generator" content="Adobe RoboHelp 10">
+<title>Operators</title>
+<link rel="StyleSheet" href="TIS-STYL.CSS" type="text/css">
+</head>
+<body>
+<script type="text/javascript" src="ehlpdhtm.js" language="JavaScript1.2"></script>
+
+<div style="width: 100%; position: relative;" id="header">
+	<table style="background-attachment: scroll; margin-left: 0px; margin-right: 4px; 
+			 background-image: url(top_banner.bmp); background-repeat: Repeat-X; 
+			 line-height: 0pt; vertical-align: top;" cellspacing="0" width="100%" 
+			 background="top_banner.bmp">
+		<col style="width: 90%;">
+		<col style="width: 5%;">
+		<col style="width: 5%;">
+		<tr style="vertical-align: center; height: 39px;">
+			<td style="width: 90%; padding-right: 10px; padding-left: 10px; 
+				 border-right-color: #000000;">
+   <p><img src="logo.bmp" style="border: none;" alt="" width="37" height="37" border="0"></p></td>
+			<td style="width: 5%; padding-right: 0px; padding-left: 10px; 
+				 border-right-color: #000000;">
+   <p style="text-align: center;"><a 
+			 title="Glossary" href="Appendix.chm::/Glossary.htm"><img src="logo_glossary.bmp" style="border: none;" alt="" width="47" height="37" border="0"></a></p></td>
+			<td style="width: 5%; padding-right: 10px; padding-left: 5px; 
+				 border-right-color: #000000;">
+   <p style="text-align: center;"><a 
+			 href="About.chm::/What_is_Vijeo-Designer.htm" title="Home"><img src="logo_home.bmp" alt="Home" title="Home" style="border: none; 
+			 margin-left: 0px; margin-right: 0px; margin-bottom: 0px; margin-top: -2px;" width="47" height="37" border="0"></a></p></td>
+		</tr>
+	</table>
+</div>
+
+<h2><a name="top" id="top"></a>18.3.5 Operators</h2>
+<p>Use the operators below to evaluate script expressions and statements.</p>
+<ul>
+<li class="p-bullet">
+<p class="bullet"><a href="#arithmetic">Arithmetic</a></p>
+</li>
+<li class="p-bullet">
+<p class="bullet"><a href="#prefix">Prefix and Postfix</a></p>
+</li>
+<li class="p-bullet">
+<p class="bullet"><a href="#relation_condition">Comparison</a></p>
+</li>
+<li class="p-bullet">
+<p class="bullet"><a href="#bin_condition">Conditional and Logical</a></p>
+</li>
+<li class="p-bullet">
+<p class="bullet"><a href="#bitwise">Bit</a></p>
+</li>
+<li class="p-bullet">
+<p class="bullet"><a href="#assign">Assignment</a></p>
+</li>
+</ul>
+<h4><a name="precedence" id="precedence"></a><img src="Square.bmp" style="border: none;" alt="" width="12" height="10" border="0">Order of Precedence</h4>
+<p>The following table lists the order of precedence for script operations.</p>
+<table wrapperparagraphselector="P" style="margin-top: 14pt; margin-bottom: 14px; vertical-align: Center; margin-left: 40px;" cellspacing="0" width="500">
+<col width="150">
+<col width="350">
+<tr style="vertical-align: center;">
+<td style="border-top: Solid 3px #000000; border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; vertical-align: TOP; padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#91AFD9" width="150">
+<p class="Tabletitle" style="text-align: center;">Precedence Level</p>
+</td>
+<td style="border-top: Solid 3px #000000; border-bottom: Solid 1px #000000; vertical-align: TOP; padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#91AFD9" width="350">
+<p class="Tabletitle">Operation</p>
+</td>
+</tr>
+<tr style="vertical-align: center;">
+<td style="border-right: Solid 1px #000000; vertical-align: TOP; padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px;" width="150">
+<p class="Tabletext" style="text-align: center;">High</p>
+</td>
+<td style="border-bottom: Solid 1px #000000; vertical-align: TOP; padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px;" width="350">
+<p class="Tabletext">[ ]<img src="blank.bmp" style="margin-top: 0px; margin-bottom: 0px; margin-left: 0px; margin-right: 0px;" alt="" width="15" height="10" border="0">.<img src="blank.bmp" style="margin-top: 0px; margin-bottom: 0px; margin-left: 0px; margin-right: 0px;" alt="" width="15" height="10" border="0">( )</p>
+</td>
+</tr>
+<tr style="vertical-align: center;">
+<td rowspan="8" style="border-right: Solid 1px #000000; vertical-align: TOP; padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px;" width="150">
+<p class="Image" style="text-align: center;"><img src="TwoHeadedArrow.bmp" style="border: none;" alt="" width="18" height="132" border="0"></p>
+</td>
+<td style="border-bottom: Solid 1px #000000; vertical-align: TOP; padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px;" width="350">
+<p class="Tabletext">++<img src="blank.bmp" style="margin-top: 0px; margin-bottom: 0px; margin-left: 0px; margin-right: 0px;" alt="" width="15" height="10" border="0">--<img src="blank.bmp" style="margin-top: 0px; margin-bottom: 0px; margin-left: 0px; margin-right: 0px;" alt="" width="15" height="10" border="0">!<img src="blank.bmp" style="margin-top: 0px; margin-bottom: 0px; margin-left: 0px; margin-right: 0px;" alt="" width="15" height="10" border="0">~<img src="blank.bmp" style="margin-top: 0px; margin-bottom: 0px; margin-left: 0px; margin-right: 0px;" alt="" width="15" height="10" border="0">new</p>
+</td>
+</tr>
+<tr style="vertical-align: center;">
+<td style="border-bottom: Solid 1px #000000; vertical-align: TOP; padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px;" width="350">
+<p class="Tabletext">*<img src="blank.bmp" style="margin-top: 0px; margin-bottom: 0px; margin-left: 0px; margin-right: 0px;" alt="" width="15" height="10" border="0">/<img src="blank.bmp" style="margin-top: 0px; margin-bottom: 0px; margin-left: 0px; margin-right: 0px;" alt="" width="15" height="10" border="0">%</p>
+</td>
+</tr>
+<tr style="vertical-align: center;">
+<td style="border-bottom: Solid 1px #000000; vertical-align: TOP; padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px;" width="350">
+<p class="Tabletext">+<img src="blank.bmp" style="margin-top: 0px; margin-bottom: 0px; margin-left: 0px; margin-right: 0px;" alt="" width="15" height="10" border="0">-</p>
+</td>
+</tr>
+<tr style="vertical-align: center;">
+<td style="border-bottom: Solid 1px #000000; vertical-align: TOP; padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px;" width="350">
+<p class="Tabletext">&lt;&lt;<img src="blank.bmp" style="margin-top: 0px; margin-bottom: 0px; margin-left: 0px; margin-right: 0px;" alt="" width="15" height="10" border="0">&gt;&gt;<img src="blank.bmp" style="margin-top: 0px; margin-bottom: 0px; margin-left: 0px; margin-right: 0px;" alt="" width="15" height="10" border="0">&gt;&gt;&gt;</p>
+</td>
+</tr>
+<tr style="vertical-align: center;">
+<td style="border-bottom: Solid 1px #000000; vertical-align: TOP; padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px;" width="350">
+<p class="Tabletext">&lt;<img src="blank.bmp" style="margin-top: 0px; margin-bottom: 0px; margin-left: 0px; margin-right: 0px;" alt="" width="15" height="10" border="0">&gt;<img src="blank.bmp" style="margin-top: 0px; margin-bottom: 0px; margin-left: 0px; margin-right: 0px;" alt="" width="15" height="10" border="0">&lt;=<img src="blank.bmp" style="margin-top: 0px; margin-bottom: 0px; margin-left: 0px; margin-right: 0px;" alt="" width="15" height="10" border="0">&gt;=</p>
+</td>
+</tr>
+<tr style="vertical-align: center;">
+<td style="border-bottom: Solid 1px #000000; vertical-align: TOP; padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px;" width="350">
+<p class="Tabletext">==<img src="blank.bmp" style="margin-top: 0px; margin-bottom: 0px; margin-left: 0px; margin-right: 0px;" alt="" width="15" height="10" border="0">!=</p>
+</td>
+</tr>
+<tr style="vertical-align: center;">
+<td style="border-bottom: Solid 1px #000000; vertical-align: TOP; padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px;" width="350">
+<p class="Tabletext">&amp;<img src="blank.bmp" style="margin-top: 0px; margin-bottom: 0px; margin-left: 0px; margin-right: 0px;" alt="" width="15" height="10" border="0">^<img src="blank.bmp" style="margin-top: 0px; margin-bottom: 0px; margin-left: 0px; margin-right: 0px;" alt="" width="15" height="10" border="0">|</p>
+</td>
+</tr>
+<tr style="vertical-align: center;">
+<td style="border-bottom: Solid 1px #000000; vertical-align: TOP; padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px;" width="350">
+<p class="Tabletext">&amp;&amp;<img src="blank.bmp" style="margin-top: 0px; margin-bottom: 0px; margin-left: 0px; margin-right: 0px;" alt="" width="15" height="10" border="0">||</p>
+</td>
+</tr>
+<tr style="vertical-align: center;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 3px #000000; vertical-align: TOP; padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px;" width="150">
+<p class="Tabletext" style="text-align: center;">Low</p>
+</td>
+<td style="border-bottom: Solid 3px #000000; vertical-align: TOP; padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px;" width="350">
+<p class="Tabletext">=<img src="blank.bmp" style="margin-top: 0px; margin-bottom: 0px; margin-left: 0px; margin-right: 0px;" alt="" width="15" height="10" border="0">+=<img src="blank.bmp" style="margin-top: 0px; margin-bottom: 0px; margin-left: 0px; margin-right: 0px;" alt="" width="15" height="10" border="0">-=<img src="blank.bmp" style="margin-top: 0px; margin-bottom: 0px; margin-left: 0px; margin-right: 0px;" alt="" width="15" height="10" border="0">*=<img src="blank.bmp" style="margin-top: 0px; margin-bottom: 0px; margin-left: 0px; margin-right: 0px;" alt="" width="15" height="10" border="0">%=<img src="blank.bmp" style="margin-top: 0px; margin-bottom: 0px; margin-left: 0px; margin-right: 0px;" alt="" width="15" height="10" border="0">^=<img src="blank.bmp" style="margin-top: 0px; margin-bottom: 0px; margin-left: 0px; margin-right: 0px;" alt="" width="15" height="10" border="0">&amp;=<img src="blank.bmp" style="margin-top: 0px; margin-bottom: 0px; margin-left: 0px; margin-right: 0px;" alt="" width="15" height="10" border="0">|=<img src="blank.bmp" style="margin-top: 0px; margin-bottom: 0px; margin-left: 0px; margin-right: 0px;" alt="" width="15" height="10" border="0">&lt;&lt;=<img src="blank.bmp" style="margin-top: 0px; margin-bottom: 0px; margin-left: 0px; margin-right: 0px;" alt="" width="15" height="10" border="0">&gt;&gt;=<img src="blank.bmp" style="margin-top: 0px; margin-bottom: 0px; margin-left: 0px; margin-right: 0px;" alt="" width="15" height="10" border="0">&gt;&gt;&gt;=</p>
+</td>
+</tr>
+</table>
+<h4><a name="arithmetic" id="arithmetic"></a><img src="Square.bmp" style="border: none;" alt="" width="12" height="10" border="0">Arithmetic Operators</h4>
+<p>Use these operators to perform simple arithmetic operations.</p>
+<table wrapperparagraphselector="P" style="margin-top: 14pt; margin-bottom: 14px; vertical-align: Center; margin-left: 40px;" cellspacing="0" width="500">
+<col width="70">
+<col width="80">
+<col width="350">
+<tr style="vertical-align: center;">
+<td style="border-top: Solid 3px #000000; border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; vertical-align: TOP; padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#91AFD9" width="70">
+<p class="Tabletitle" style="text-align: center;"><span style="font-weight: bold;">Operator</span></p>
+</td>
+<td style="border-top: Solid 3px #000000; border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; vertical-align: TOP; padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#91AFD9" width="80">
+<p class="Tabletitle" style="text-align: center;">Expression</p>
+</td>
+<td style="border-top: Solid 3px #000000; border-bottom: Solid 1px #000000; vertical-align: TOP; padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#91AFD9" width="350">
+<p class="Tabletitle"><span style="font-weight: bold;">Description</span></p>
+</td>
+</tr>
+<tr style="vertical-align: center;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; vertical-align: TOP; padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px;" width="70">
+<p class="Tabletext" style="text-align: center;">+</p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; vertical-align: TOP; padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px;" width="80">
+<p class="Tabletext" style="text-align: center;">X + Y</p>
+</td>
+<td style="border-bottom: Solid 1px #000000; vertical-align: TOP; padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px;" width="350">
+<p class="Tabletext">Add</p>
+</td>
+</tr>
+<tr style="vertical-align: center;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; vertical-align: TOP; padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px;" width="70">
+<p class="Tabletext" style="text-align: center;">-</p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; vertical-align: TOP; padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px;" width="80">
+<p class="Tabletext" style="text-align: center;">X - Y</p>
+</td>
+<td style="border-bottom: Solid 1px #000000; vertical-align: TOP; padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px;" width="350">
+<p class="Tabletext">Subtract</p>
+</td>
+</tr>
+<tr style="vertical-align: center;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; vertical-align: TOP; padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px;" width="70">
+<p class="Tabletext" style="text-align: center;">*</p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; vertical-align: TOP; padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px;" width="80">
+<p class="Tabletext" style="text-align: center;">X * Y</p>
+</td>
+<td style="border-bottom: Solid 1px #000000; vertical-align: TOP; padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px;" width="350">
+<p class="Tabletext">Multiply</p>
+</td>
+</tr>
+<tr style="vertical-align: center;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; vertical-align: TOP; padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px;" width="70">
+<p class="Tabletext" style="text-align: center;">/</p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; vertical-align: TOP; padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px;" width="80">
+<p class="Tabletext" style="text-align: center;">X / Y</p>
+</td>
+<td style="border-bottom: Solid 1px #000000; vertical-align: TOP; padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px;" width="350">
+<p class="Tabletext">Divide</p>
+</td>
+</tr>
+<tr style="vertical-align: center;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 3px #000000; vertical-align: TOP; padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px;" width="70">
+<p class="Tabletext" style="text-align: center;">%</p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 3px #000000; vertical-align: TOP; padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px;" width="80">
+<p class="Tabletext" style="text-align: center;">X % Y</p>
+</td>
+<td style="border-bottom: Solid 3px #000000; vertical-align: TOP; padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px;" width="350">
+<p class="Tabletext">Modulus; remainder of division</p>
+</td>
+</tr>
+</table>
+<p>Use the Add operator (+) to perform string concatenation. In other words, you can concatenate strings with the Add symbol, "Hello " + " " + "Billy" creates the string "Hello Billy".</p>
+<h4><a name="prefix" id="prefix"></a><img src="Square.bmp" style="border: none;" alt="" width="12" height="10" border="0">Prefix and Postfix Operators</h4>
+<table wrapperparagraphselector="P" style="margin-top: 14pt; margin-bottom: 14px; vertical-align: Center; margin-left: 40px;" cellspacing="0" width="500">
+<col width="70">
+<col width="80">
+<col width="350">
+<tr style="vertical-align: center;">
+<td style="border-top: Solid 3px #000000; border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; vertical-align: TOP; padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#91AFD9" width="70">
+<p class="Tabletitle" style="text-align: center;"><span style="font-weight: bold;">Operator</span></p>
+</td>
+<td style="border-top: Solid 3px #000000; border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; vertical-align: TOP; padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#91AFD9" width="80">
+<p class="Tabletitle" style="text-align: center;">Expression</p>
+</td>
+<td style="border-top: Solid 3px #000000; border-bottom: Solid 1px #000000; vertical-align: TOP; padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#91AFD9" width="350">
+<p class="Tabletitle"><span style="font-weight: bold;">Description</span></p>
+</td>
+</tr>
+<tr style="vertical-align: center;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; vertical-align: TOP; padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px;" width="70">
+<p class="tabletext" style="margin-bottom: 0; text-align: center;">++</p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; vertical-align: TOP; padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px;" width="80">
+<p class="tabletext" style="text-align: center;">X++</p>
+<p class="tabletext" style="text-align: center;">&#160;</p>
+<p class="tabletext" style="text-align: center;">++X</p>
+</td>
+<td style="border-bottom: Solid 1px #000000; vertical-align: TOP; padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px;" width="350">
+<p class="tabletext">Postfix increment. Evaluates value then increments X.</p>
+<p class="tabletext" style="margin-bottom: 0;">Prefix increment. Increments X then evaluates value.</p>
+</td>
+</tr>
+<tr style="vertical-align: center;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 3px #000000; vertical-align: TOP; padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px;" width="70">
+<p class="tabletext" style="margin-bottom: 0; text-align: center;">--</p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 3px #000000; vertical-align: TOP; padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px;" width="80">
+<p class="tabletext" style="text-align: center;">X--</p>
+<p class="tabletext" style="text-align: center;">&#160;</p>
+<p class="tabletext" style="text-align: center;">--X</p>
+</td>
+<td style="border-bottom: Solid 3px #000000; vertical-align: TOP; padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px;" width="350">
+<p class="tabletext">Postfix decrement. Evaluates value then decrements X.</p>
+<p class="tabletext" style="margin-bottom: 0;">Prefix decrement. Decrements X then evaluates value.</p>
+</td>
+</tr>
+</table>
+<h4><a name="relation_condition" id="relation_condition"></a><img src="Square.bmp" style="border: none;" alt="" width="12" height="10" border="0">Comparison Operators</h4>
+<p>These operators compare two values. The expression evaluates to true when the defined comparison is true. The expression evaluates to false when the defined comparison is false.</p>
+<table wrapperparagraphselector="P" style="margin-top: 14pt; margin-bottom: 14px; vertical-align: Center; margin-left: 40px;" cellspacing="0" width="500">
+<col style="width: 14%;">
+<col style="width: 16%;">
+<col style="width: 70%;">
+<tr style="vertical-align: center;">
+<td style="border-top: Solid 3px #000000; border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 14%; vertical-align: TOP; padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#91AFD9">
+<p class="Tabletitle" style="text-align: center;"><span style="font-weight: bold;">Operator</span></p>
+</td>
+<td style="border-top: Solid 3px #000000; border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 16%; vertical-align: TOP; padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#91AFD9">
+<p class="Tabletitle" style="text-align: center;">Expression</p>
+</td>
+<td style="border-top: Solid 3px #000000; border-bottom: Solid 1px #000000; width: 70%; vertical-align: TOP; padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#91AFD9">
+<p class="Tabletitle"><span style="font-weight: bold;">Description</span></p>
+</td>
+</tr>
+<tr style="vertical-align: center;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 14%; vertical-align: TOP; padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="tabletext" style="margin-bottom: 0; text-align: center;">&gt;</p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 16%; vertical-align: TOP; padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="tabletext" style="margin-bottom: 0; text-align: center;">X &gt; Y</p>
+</td>
+<td style="border-bottom: Solid 1px #000000; width: 70%; vertical-align: TOP; padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="tabletext" style="margin-bottom: 0;">Greater than.</p>
+<p class="tabletext" style="margin-bottom: 0;">Returns true when X is greater than Y.</p>
+</td>
+</tr>
+<tr style="vertical-align: center;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 14%; vertical-align: TOP; padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="tabletext" style="margin-bottom: 0; text-align: center;">&gt;=</p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 16%; vertical-align: TOP; padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="tabletext" style="margin-bottom: 0; text-align: center;">X &gt;= Y</p>
+</td>
+<td style="border-bottom: Solid 1px #000000; width: 70%; vertical-align: TOP; padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="tabletext" style="margin-bottom: 0;">Greater than or equal to.</p>
+<p class="tabletext" style="margin-bottom: 0;">Returns true when X is greater than or equal to Y.</p>
+</td>
+</tr>
+<tr style="vertical-align: center;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 14%; vertical-align: TOP; padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="tabletext" style="margin-bottom: 0; text-align: center;">&lt;</p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 16%; vertical-align: TOP; padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="tabletext" style="margin-bottom: 0; text-align: center;">X &lt; Y</p>
+</td>
+<td style="border-bottom: Solid 1px #000000; width: 70%; vertical-align: TOP; padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="tabletext" style="margin-bottom: 0;">Less than.</p>
+<p class="tabletext" style="margin-bottom: 0;">Returns true when X is less than Y.</p>
+</td>
+</tr>
+<tr style="vertical-align: center;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 14%; vertical-align: TOP; padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="tabletext" style="margin-bottom: 0; text-align: center;">&lt;=</p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 16%; vertical-align: TOP; padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="tabletext" style="margin-bottom: 0; text-align: center;">X &lt;= Y</p>
+</td>
+<td style="border-bottom: Solid 1px #000000; width: 70%; vertical-align: TOP; padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="tabletext" style="margin-bottom: 0;">Less than or equal to.</p>
+<p class="tabletext" style="margin-bottom: 0;">Returns true when X is less than or equal to Y.</p>
+</td>
+</tr>
+<tr style="vertical-align: center;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 14%; vertical-align: TOP; padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="tabletext" style="margin-bottom: 0; text-align: center;">==</p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 16%; vertical-align: TOP; padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="tabletext" style="margin-bottom: 0; text-align: center;">X == Y</p>
+</td>
+<td style="border-bottom: Solid 1px #000000; width: 70%; vertical-align: TOP; padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="tabletext" style="margin-bottom: 0;">Equal to.</p>
+<p class="tabletext" style="margin-bottom: 0;">Returns true when X is equal to Y.</p>
+</td>
+</tr>
+<tr style="vertical-align: center;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 3px #000000; width: 14%; vertical-align: TOP; padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="tabletext" style="margin-bottom: 0; text-align: center;">!=</p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 3px #000000; width: 16%; vertical-align: TOP; padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="tabletext" style="margin-bottom: 0; text-align: center;">X != Y</p>
+</td>
+<td style="border-bottom: Solid 3px #000000; width: 70%; vertical-align: TOP; padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="tabletext" style="margin-bottom: 0;">Not equal to.</p>
+<p class="tabletext" style="margin-bottom: 0;">Returns true when X is not equal to Y.</p>
+</td>
+</tr>
+</table>
+<h4><a name="bin_condition" id="bin_condition"></a><img src="Square.bmp" style="border: none;" alt="" width="12" height="10" border="0">Conditional and Logical Operators</h4>
+<table wrapperparagraphselector="P" style="margin-top: 14pt; margin-bottom: 14px; vertical-align: Center; margin-left: 40px;" cellspacing="0" width="500">
+<col style="width: 14%;">
+<col style="width: 16%;">
+<col style="width: 70%;">
+<tr style="vertical-align: center;">
+<td style="border-top: Solid 3px #000000; border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 14%; vertical-align: TOP; padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#91AFD9">
+<p class="Tabletitle" style="text-align: center;"><span style="font-weight: bold;">Operator</span></p>
+</td>
+<td style="border-top: Solid 3px #000000; border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 16%; vertical-align: TOP; padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#91AFD9">
+<p class="Tabletitle" style="text-align: center;">Expression</p>
+</td>
+<td style="border-top: Solid 3px #000000; border-bottom: Solid 1px #000000; width: 70%; vertical-align: TOP; padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#91AFD9">
+<p class="Tabletitle"><span style="font-weight: bold;">Description</span></p>
+</td>
+</tr>
+<tr style="vertical-align: center;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 14%; vertical-align: TOP; padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="tabletext" style="margin-bottom: 0; text-align: center;">&amp;&amp;</p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 16%; vertical-align: TOP; padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="tabletext" style="text-align: center;">X &amp;&amp; Y</p>
+</td>
+<td style="border-bottom: Solid 1px #000000; width: 70%; vertical-align: TOP; padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="tabletext" style="margin-bottom: 0;">Conditional AND.</p>
+<p class="tabletext" style="margin-bottom: 0;">Returns true when both X and Y are true.</p>
+<p class="tabletext" style="margin-bottom: 0;">Returns false when either X or Y is false.</p>
+<p class="tabletext" style="margin-bottom: 0;"><span style="margin-bottom: 0;">Evaluates Y when X is true.</span></p>
+</td>
+</tr>
+<tr style="vertical-align: center;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 14%; vertical-align: TOP; padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="tabletext" style="margin-bottom: 0; text-align: center;">||</p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 16%; vertical-align: TOP; padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="tabletext" style="text-align: center;">X || Y</p>
+</td>
+<td style="border-bottom: Solid 1px #000000; width: 70%; vertical-align: TOP; padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="tabletext" style="margin-bottom: 0;">Conditional OR.</p>
+<p class="tabletext" style="margin-bottom: 0;">Returns true when either X or Y is true.</p>
+<p class="tabletext" style="margin-bottom: 0;">Evaluates Y when X is false.</p>
+</td>
+</tr>
+<tr style="vertical-align: center;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 14%; vertical-align: TOP; padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="tabletext" style="margin-bottom: 0; text-align: center;">!</p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 16%; vertical-align: TOP; padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="tabletext" style="text-align: center;">!X</p>
+</td>
+<td style="border-bottom: Solid 1px #000000; width: 70%; vertical-align: TOP; padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="tabletext" style="margin-bottom: 0;">Logical NOT.</p>
+<p class="tabletext" style="margin-bottom: 0;">Returns false when X is true.<br>
+Returns true when X is false.</p>
+</td>
+</tr>
+<tr style="vertical-align: center;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 14%; vertical-align: TOP; padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="tabletext" style="margin-bottom: 0; text-align: center;">&amp;</p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 16%; vertical-align: TOP; padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="tabletext" style="text-align: center;">X &amp; Y</p>
+</td>
+<td style="border-bottom: Solid 1px #000000; width: 70%; vertical-align: TOP; padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="tabletext" style="margin-bottom: 0;">AND.<br>
+Returns true when both X and Y are true.</p>
+<p class="tabletext" style="margin-bottom: 0;">Always evaluates both.</p>
+</td>
+</tr>
+<tr style="vertical-align: center;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 3px #000000; width: 14%; vertical-align: TOP; padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="tabletext" style="margin-bottom: 0; text-align: center;">|</p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 3px #000000; width: 16%; vertical-align: TOP; padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="tabletext" style="text-align: center;">X | Y</p>
+</td>
+<td style="border-bottom: Solid 3px #000000; width: 70%; vertical-align: TOP; padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="tabletext" style="margin-bottom: 0;">OR.<br>
+Returns true when X and Y are different (one is true and the other is false.)</p>
+<p class="tabletext" style="margin-bottom: 0;">Always evaluates both.</p>
+</td>
+</tr>
+</table>
+<h4><a name="bitwise" id="bitwise"></a><img src="Square.bmp" style="border: none;" alt="" width="12" height="10" border="0">Bit Operators</h4>
+<table wrapperparagraphselector="P" style="margin-top: 14pt; margin-bottom: 14px; vertical-align: Center; margin-left: 40px;" cellspacing="0" width="500">
+<col style="width: 14%;">
+<col style="width: 16%;">
+<col style="width: 70%;">
+<tr style="vertical-align: center;">
+<td style="border-top: Solid 3px #000000; border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 14%; vertical-align: TOP; padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#91AFD9">
+<p class="Tabletitle" style="text-align: center;"><span style="font-weight: bold;">Operator</span></p>
+</td>
+<td style="border-top: Solid 3px #000000; border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 16%; vertical-align: TOP; padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#91AFD9">
+<p class="Tabletitle" style="text-align: center;">Expression</p>
+</td>
+<td style="border-top: Solid 3px #000000; border-bottom: Solid 1px #000000; width: 70%; vertical-align: TOP; padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#91AFD9">
+<p class="Tabletitle"><span style="font-weight: bold;">Description</span></p>
+</td>
+</tr>
+<tr style="vertical-align: center;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 14%; vertical-align: TOP; padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="tabletext" style="margin-bottom: 0; text-align: center;">&gt;&gt;</p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 16%; vertical-align: TOP; padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="tabletext" style="text-align: center;">X &gt;&gt; Y</p>
+</td>
+<td style="border-bottom: Solid 1px #000000; width: 70%; vertical-align: TOP; padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="tabletext" style="margin-bottom: 0;">Right shift. Shifts the bits in X, to the right, by the Y number of bit positions. Preserves the sign.</p>
+</td>
+</tr>
+<tr style="vertical-align: center;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 14%; vertical-align: TOP; padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="tabletext" style="margin-bottom: 0; text-align: center;">&lt;&lt;</p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 16%; vertical-align: TOP; padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="tabletext" style="text-align: center;">X &lt;&lt; Y</p>
+</td>
+<td style="border-bottom: Solid 1px #000000; width: 70%; vertical-align: TOP; padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="tabletext" style="margin-bottom: 0;">Left shift. Shifts the bits in X, to the left, by the Y number of bit positions. Preserves the sign.</p>
+</td>
+</tr>
+<tr style="vertical-align: center;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 14%; vertical-align: TOP; padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="tabletext" style="margin-bottom: 0; text-align: center;">&gt;&gt;&gt;</p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 16%; vertical-align: TOP; padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="tabletext" style="text-align: center;">X &gt;&gt;&gt; Y</p>
+</td>
+<td style="border-bottom: Solid 1px #000000; width: 70%; vertical-align: TOP; padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="tabletext" style="margin-bottom: 0;">Zero fill, right shift. Shifts the bits in X, to the right, by the Y number of bit positions, and fills in shifted bits on the left with 0s, thereby not preserving the sign.</p>
+</td>
+</tr>
+<tr style="vertical-align: center;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 14%; vertical-align: TOP; padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="tabletext" style="margin-bottom: 0; text-align: center;">&amp;</p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 16%; vertical-align: TOP; padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="tabletext" style="text-align: center;">X &amp; Y</p>
+</td>
+<td style="border-bottom: Solid 1px #000000; width: 70%; vertical-align: TOP; padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="tabletext" style="margin-bottom: 0;">Bitwise AND.</p>
+<p class="tabletext" style="margin-bottom: 0;">Returns result of AND operation at the bit level.</p>
+<table style="vertical-align: top;" cellspacing="0">
+<col width="86">
+<col width="86">
+<tr style="vertical-align: top;">
+<td style="border-top: Solid 3px #000000; border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#CBD9ED" width="86">
+<p class="TableDefinitions">X</p>
+</td>
+<td style="border-top: Solid 3px #000000; border-bottom: Solid 1px #000000; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" width="86">
+<p class="Tabletext">0 1 0 0</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 2px #000000; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#CBD9ED" width="86">
+<p class="TableDefinitions">Y</p>
+</td>
+<td style="border-bottom: Solid 2px #000000; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" width="86">
+<p class="Tabletext">1 1 0 1</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 3px #000000; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#CBD9ED" width="86">
+<p class="TableDefinitions">Result</p>
+</td>
+<td style="border-bottom: Solid 3px #000000; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" width="86">
+<p class="Tabletext">0 1 0 0</p>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr style="vertical-align: center;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 14%; vertical-align: TOP; padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="tabletext" style="margin-bottom: 0; text-align: center;">|</p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 16%; vertical-align: TOP; padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="tabletext" style="text-align: center;">X | Y</p>
+</td>
+<td style="border-bottom: Solid 1px #000000; width: 70%; vertical-align: TOP; padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="tabletext" style="margin-bottom: 0;">Bitwise OR.</p>
+<p class="tabletext" style="margin-bottom: 0;">Returns result of OR operation at the bit level.</p>
+<table style="vertical-align: top;" cellspacing="0">
+<col width="86">
+<col width="86">
+<tr style="vertical-align: top;">
+<td style="border-top: Solid 3px #000000; border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#CBD9ED" width="86">
+<p class="TableDefinitions">X</p>
+</td>
+<td style="border-top: Solid 3px #000000; border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" width="86">
+<p class="Tabletext">0 1 0 0</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 2px #000000; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#CBD9ED" width="86">
+<p class="TableDefinitions">Y</p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 2px #000000; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" width="86">
+<p class="Tabletext">1 1 0 1</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 3px #000000; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#CBD9ED" width="86">
+<p class="TableDefinitions">Result</p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 3px #000000; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" width="86">
+<p class="Tabletext">1 1 0 1</p>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr style="vertical-align: center;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 14%; vertical-align: TOP; padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="tabletext" style="margin-bottom: 0; text-align: center;">^</p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 16%; vertical-align: TOP; padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="tabletext" style="text-align: center;">X ^ Y</p>
+</td>
+<td style="border-bottom: Solid 1px #000000; width: 70%; vertical-align: TOP; padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="tabletext" style="margin-bottom: 0;">Bitwise XOR.</p>
+<p class="tabletext" style="margin-bottom: 0;">Returns result of XOR operation at the bit level.</p>
+<table style="vertical-align: top; left: 0px; top: 29px;" cellspacing="0">
+<col width="86">
+<col width="86">
+<tr style="vertical-align: top;">
+<td style="border-top: Solid 3px #000000; border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#CBD9ED" width="86">
+<p class="TableDefinitions">X</p>
+</td>
+<td style="border-top: Solid 3px #000000; border-bottom: Solid 1px #000000; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" width="86">
+<p class="Tabletext">0 1 0 0</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 2px #000000; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#CBD9ED" width="86">
+<p class="TableDefinitions">Y</p>
+</td>
+<td style="border-bottom: Solid 2px #000000; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" width="86">
+<p class="Tabletext">1 1 0 1</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 3px #000000; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#CBD9ED" width="86">
+<p class="TableDefinitions">Result</p>
+</td>
+<td style="border-bottom: Solid 3px #000000; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" width="86">
+<p class="Tabletext">1 0 0 1</p>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr style="vertical-align: center;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 3px #000000; width: 14%; vertical-align: TOP; padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="tabletext" style="margin-bottom: 0; text-align: center;">~</p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 3px #000000; width: 16%; vertical-align: TOP; padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="tabletext" style="text-align: center;">~X</p>
+</td>
+<td style="border-bottom: Solid 3px #000000; width: 70%; vertical-align: TOP; padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="tabletext" style="margin-bottom: 0;">Bitwise complement.</p>
+<p class="tabletext" style="margin-bottom: 0;">Flips the bits in the value X.</p>
+</td>
+</tr>
+</table>
+<h4><a name="assign" id="assign"></a><img src="Square.bmp" style="border: none;" alt="" width="12" height="10" border="0">Assignment Operators</h4>
+<table wrapperparagraphselector="P" style="margin-top: 14pt; margin-bottom: 14px; vertical-align: Center; margin-left: 40px;" cellspacing="0" width="500">
+<col width="70">
+<col width="80">
+<col width="350">
+<tr style="vertical-align: center;">
+<td style="border-top: Solid 3px #000000; border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; vertical-align: TOP; padding-left: 10px; padding-right: 10px; padding-bottom: 0px; padding-top: 10px;" bgcolor="#91AFD9" width="70">
+<p class="Tabletitle" style="text-align: center;"><span style="font-weight: bold;">Operator</span></p>
+</td>
+<td style="border-top: Solid 3px #000000; border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; vertical-align: TOP; padding-left: 10px; padding-right: 10px; padding-bottom: 0px; padding-top: 10px;" bgcolor="#91AFD9" width="80">
+<p class="Tabletitle" style="text-align: center;">Expression</p>
+</td>
+<td style="border-top: Solid 3px #000000; border-bottom: Solid 1px #000000; vertical-align: TOP; padding-left: 10px; padding-right: 10px; padding-bottom: 0px; padding-top: 10px;" bgcolor="#91AFD9" width="350">
+<p class="Tabletitle"><span style="font-weight: bold;">Description</span></p>
+</td>
+</tr>
+<tr style="vertical-align: center;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; vertical-align: TOP; padding-left: 10px; padding-right: 10px; padding-bottom: 0px; padding-top: 10px;" width="70">
+<p class="tabletext" style="margin-bottom: 0; text-align: center;">=</p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; vertical-align: TOP; padding-left: 10px; padding-right: 10px; padding-bottom: 0px; padding-top: 10px;" width="80">
+<p class="tabletext" style="text-align: center;">X = Y</p>
+</td>
+<td style="border-bottom: Solid 1px #000000; vertical-align: TOP; padding-left: 10px; padding-right: 10px; padding-bottom: 0px; padding-top: 10px;" width="350">
+<p class="tabletext" style="margin-bottom: 0;">Assign value of Y to X.</p>
+</td>
+</tr>
+<tr style="vertical-align: center;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; vertical-align: TOP; padding-left: 10px; padding-right: 10px; padding-bottom: 0px; padding-top: 10px;" width="70">
+<p class="tabletext" style="margin-bottom: 0; text-align: center;">+=</p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; vertical-align: TOP; padding-left: 10px; padding-right: 10px; padding-bottom: 0px; padding-top: 10px;" width="80">
+<p class="tabletext" style="text-align: center;">X += Y</p>
+</td>
+<td style="border-bottom: Solid 1px #000000; vertical-align: TOP; padding-left: 10px; padding-right: 10px; padding-bottom: 0px; padding-top: 10px;" width="350">
+<p class="tabletext" style="margin-bottom: 0;">Assign (X + Y) to X.</p>
+</td>
+</tr>
+<tr style="vertical-align: center;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; vertical-align: TOP; padding-left: 10px; padding-right: 10px; padding-bottom: 0px; padding-top: 10px;" width="70">
+<p class="tabletext" style="margin-bottom: 0; text-align: center;">-=</p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; vertical-align: TOP; padding-left: 10px; padding-right: 10px; padding-bottom: 0px; padding-top: 10px;" width="80">
+<p class="tabletext" style="text-align: center;">X -= Y</p>
+</td>
+<td style="border-bottom: Solid 1px #000000; vertical-align: TOP; padding-left: 10px; padding-right: 10px; padding-bottom: 0px; padding-top: 10px;" width="350">
+<p class="tabletext" style="margin-bottom: 0;">Assign (X - Y) to X.</p>
+</td>
+</tr>
+<tr style="vertical-align: center;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; vertical-align: TOP; padding-left: 10px; padding-right: 10px; padding-bottom: 0px; padding-top: 10px;" width="70">
+<p class="tabletext" style="margin-bottom: 0; text-align: center;">*=</p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; vertical-align: TOP; padding-left: 10px; padding-right: 10px; padding-bottom: 0px; padding-top: 10px;" width="80">
+<p class="tabletext" style="text-align: center;">X *= Y</p>
+</td>
+<td style="border-bottom: Solid 1px #000000; vertical-align: TOP; padding-left: 10px; padding-right: 10px; padding-bottom: 0px; padding-top: 10px;" width="350">
+<p class="tabletext" style="margin-bottom: 0;">Assign (X * Y) to X.</p>
+</td>
+</tr>
+<tr style="vertical-align: center;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; vertical-align: TOP; padding-left: 10px; padding-right: 10px; padding-bottom: 0px; padding-top: 10px;" width="70">
+<p class="tabletext" style="margin-bottom: 0; text-align: center;">/=</p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; vertical-align: TOP; padding-left: 10px; padding-right: 10px; padding-bottom: 0px; padding-top: 10px;" width="80">
+<p class="tabletext" style="text-align: center;">X /= Y</p>
+</td>
+<td style="border-bottom: Solid 1px #000000; vertical-align: TOP; padding-left: 10px; padding-right: 10px; padding-bottom: 0px; padding-top: 10px;" width="350">
+<p class="tabletext" style="margin-bottom: 0;">Assign (X / Y) to X.</p>
+</td>
+</tr>
+<tr style="vertical-align: center;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; vertical-align: TOP; padding-left: 10px; padding-right: 10px; padding-bottom: 0px; padding-top: 10px;" width="70">
+<p class="tabletext" style="margin-bottom: 0; text-align: center;">%=</p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; vertical-align: TOP; padding-left: 10px; padding-right: 10px; padding-bottom: 0px; padding-top: 10px;" width="80">
+<p class="tabletext" style="text-align: center;">X %= Y</p>
+</td>
+<td style="border-bottom: Solid 1px #000000; vertical-align: TOP; padding-left: 10px; padding-right: 10px; padding-bottom: 0px; padding-top: 10px;" width="350">
+<p class="tabletext" style="margin-bottom: 0;">Assign (X % Y) to X.</p>
+</td>
+</tr>
+<tr style="vertical-align: center;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; vertical-align: TOP; padding-left: 10px; padding-right: 10px; padding-bottom: 0px; padding-top: 10px;" width="70">
+<p class="tabletext" style="margin-bottom: 0; text-align: center;">&amp;=</p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; vertical-align: TOP; padding-left: 10px; padding-right: 10px; padding-bottom: 0px; padding-top: 10px;" width="80">
+<p class="tabletext" style="text-align: center;">X &amp;= Y</p>
+</td>
+<td style="border-bottom: Solid 1px #000000; vertical-align: TOP; padding-left: 10px; padding-right: 10px; padding-bottom: 0px; padding-top: 10px;" width="350">
+<p class="tabletext" style="margin-bottom: 0;">Assign (X &amp; Y) to X. True/false.</p>
+</td>
+</tr>
+<tr style="vertical-align: center;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; vertical-align: TOP; padding-left: 10px; padding-right: 10px; padding-bottom: 0px; padding-top: 10px;" width="70">
+<p class="tabletext" style="margin-bottom: 0; text-align: center;">|=</p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; vertical-align: TOP; padding-left: 10px; padding-right: 10px; padding-bottom: 0px; padding-top: 10px;" width="80">
+<p class="tabletext" style="text-align: center;">X |= Y</p>
+</td>
+<td style="border-bottom: Solid 1px #000000; vertical-align: TOP; padding-left: 10px; padding-right: 10px; padding-bottom: 0px; padding-top: 10px;" width="350">
+<p class="tabletext" style="margin-bottom: 0;">Assign (X | Y) to X. True/false.</p>
+</td>
+</tr>
+<tr style="vertical-align: center;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; vertical-align: TOP; padding-left: 10px; padding-right: 10px; padding-bottom: 0px; padding-top: 10px;" width="70">
+<p class="tabletext" style="margin-bottom: 0; text-align: center;">^=</p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; vertical-align: TOP; padding-left: 10px; padding-right: 10px; padding-bottom: 0px; padding-top: 10px;" width="80">
+<p class="tabletext" style="text-align: center;">X ^= Y</p>
+</td>
+<td style="border-bottom: Solid 1px #000000; vertical-align: TOP; padding-left: 10px; padding-right: 10px; padding-bottom: 0px; padding-top: 10px;" width="350">
+<p class="tabletext" style="margin-bottom: 0;">Assign (X ^ Y) to X. True/false.</p>
+</td>
+</tr>
+<tr style="vertical-align: center;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; vertical-align: TOP; padding-left: 10px; padding-right: 10px; padding-bottom: 0px; padding-top: 10px;" width="70">
+<p class="tabletext" style="margin-bottom: 0; text-align: center;">&lt;&lt;=</p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; vertical-align: TOP; padding-left: 10px; padding-right: 10px; padding-bottom: 0px; padding-top: 10px;" width="80">
+<p class="tabletext" style="text-align: center;">X &lt;&lt;= Y</p>
+</td>
+<td style="border-bottom: Solid 1px #000000; vertical-align: TOP; padding-left: 10px; padding-right: 10px; padding-bottom: 0px; padding-top: 10px;" width="350">
+<p class="tabletext" style="margin-bottom: 0;">Shift bits in X left by Y bits, and assign value to X.</p>
+</td>
+</tr>
+<tr style="vertical-align: center;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; vertical-align: TOP; padding-left: 10px; padding-right: 10px; padding-bottom: 0px; padding-top: 10px;" width="70">
+<p class="tabletext" style="margin-bottom: 0; text-align: center;">&gt;&gt;=</p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; vertical-align: TOP; padding-left: 10px; padding-right: 10px; padding-bottom: 0px; padding-top: 10px;" width="80">
+<p class="tabletext" style="text-align: center;">X &gt;&gt;= Y</p>
+</td>
+<td style="border-bottom: Solid 1px #000000; vertical-align: TOP; padding-left: 10px; padding-right: 10px; padding-bottom: 0px; padding-top: 10px;" width="350">
+<p class="tabletext" style="margin-bottom: 0;">Shift bits in X right by Y bits, and assign value to X.</p>
+</td>
+</tr>
+<tr style="vertical-align: center;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 3px #000000; vertical-align: TOP; padding-left: 10px; padding-right: 10px; padding-bottom: 0px; padding-top: 10px;" width="70">
+<p class="tabletext" style="margin-bottom: 0; text-align: center;">&gt;&gt;&gt;=</p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 3px #000000; vertical-align: TOP; padding-left: 10px; padding-right: 10px; padding-bottom: 0px; padding-top: 10px;" width="80">
+<p class="tabletext" style="text-align: center;">X &gt;&gt;&gt;= Y</p>
+</td>
+<td style="border-bottom: Solid 3px #000000; vertical-align: TOP; padding-left: 10px; padding-right: 10px; padding-bottom: 0px; padding-top: 10px;" width="350">
+<p class="tabletext" style="margin-bottom: 0;">Shift bits in X right by Y bits, fill in with 0s, and assign value to X.</p>
+</td>
+</tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,323 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+<meta name="template" content="Vijeo_template.htt">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="topic-status" content="In Progress">
+<meta name="topic-priority" content="0">
+<meta name="topic-time-estimate" content="0">
+<meta name="topic-comment" content="">
+<meta name="topic-id" content="Example of Using an IPP Connection">
+<meta name="window-type" content="$global_NewWindow">
+ <meta name="generator" content="Adobe RoboHelp 10">
+<title>Example of Using an IPP Connection</title>
+<link rel="StyleSheet" href="Tis-styl.css" type="text/css">
+</head>
+
+<body>
+<script type="text/javascript" src="ehlpdhtm.js" language="JavaScript1.2"></script>
+
+<div style="width: 100%; position: relative;" id="header">
+	<table style="background-attachment: scroll; margin-left: 0px; margin-right: 4px; 
+			 background-image: url(top_banner.bmp); background-repeat: Repeat-X; 
+			 line-height: 0pt; vertical-align: top;" cellspacing="0" width="100%" 
+			 background="top_banner.bmp">
+		<col style="width: 90%;">
+		<col style="width: 5%;">
+		<col style="width: 5%;">
+		<tr style="vertical-align: center; height: 39px;">
+			<td style="width: 90%; padding-right: 10px; padding-left: 10px; 
+				 border-right-color: #000000;">
+   <p><img src="logo.bmp" style="border: none;" alt="" width="37" height="37" border="0"></p></td>
+			<td style="width: 5%; padding-right: 0px; padding-left: 10px; 
+				 border-right-color: #000000;">
+   <p style="text-align: center;"><a 
+			 title="Glossary" href="Appendix.chm::/Glossary.htm"><img src="logo_glossary.bmp" style="border: none;" alt="" width="47" height="37" border="0"></a></p></td>
+			<td style="width: 5%; padding-right: 10px; padding-left: 5px; 
+				 border-right-color: #000000;">
+   <p style="text-align: center;"><a 
+			 href="About.chm::/What_is_Vijeo-Designer.htm" title="Home"><img src="logo_home.bmp" alt="Home" title="Home" style="border: none; 
+			 margin-left: 0px; margin-right: 0px; margin-bottom: 0px; margin-top: -2px;" width="47" height="37" border="0"></a></p></td>
+		</tr>
+	</table>
+</div>
+
+<h3>27.1.3.4 Example of Using an IPP Connection</h3>
+<p>When you want to print through the Internet or LAN, use an Internet 
+ Printing Protocol (IPP) connection. To print using IPP, you must have 
+ a print server. To install the print server software, you will need your 
+ Windows installation CD or DVD for either WinXP, Vista, Win7, or Windows 
+ Server Versions. Contact your IT department to help you install and configure 
+ the print server.</p>
+<h4><img src="Square.bmp" alt="" style="border: none;" width="12" height="10" border="0">Structure</h4>
+<p class="Image" style="margin-left: 40px;"><img src="IPP1.bmp" alt="" style="border: none;" width="441" height="298" border="0"></p>
+<h4><img src="Square.bmp" alt="" style="border: none;" width="12" height="10" border="0">Environment</h4>
+<table style="left: 0px; top: 401px; height: 191px; margin-left: 40px;" 
+		 cellspacing="0" width="90%">
+	<col style="width: 30%;">
+	<col style="width: 70%;">
+	<tr style="vertical-align: top;">
+		<td style="border-top: Solid 4px #000000; border-right: Solid 1px #000000; 
+			 border-bottom: Solid 1px #000000; width: 30%; padding-right: 10px; 
+			 padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" 
+			 bgcolor="#CBD9ED"><p class="TableDefinitions">Print server</p></td>
+		<td style="border-top: Solid 4px #000000; border-bottom: Solid 1px #000000; 
+			 width: 70%; padding-right: 10px; padding-left: 10px; padding-top: 10px; 
+			 padding-bottom: 10px;"><ul>
+			<li class="p-Bullet"><p class="Bullet">Computer with Windows 
+			 OS (WinXP, Vista, Win7, or Windows Server Version) installed</p></li>
+			<li class="p-Bullet"><p class="Bullet">IP address 192.168.1.10</p></li>
+		</ul></td>
+	</tr>
+	<tr style="vertical-align: top;">
+		<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; 
+			 width: 30%; padding-right: 10px; padding-left: 10px; padding-top: 10px; 
+			 padding-bottom: 10px;" bgcolor="#CBD9ED"><p class="TableDefinitions">Computer 
+		 to confirm connection</p></td>
+		<td style="border-bottom: Solid 1px #000000; width: 70%; padding-right: 10px; 
+			 padding-left: 10px; padding-top: 10px; padding-bottom: 10px;"><p 
+			 class="Tabletext">Use this computer to check the printer's 
+		 configuration.</p>
+		<p>This computer must be on the same network as the print server, 
+		 and Internet Explorer must be installed.</p></td>
+	</tr>
+	<tr style="vertical-align: top;">
+		<td style="border-right: Solid 1px #000000; border-bottom: Solid 4px #000000; 
+			 width: 30%; padding-right: 10px; padding-left: 10px; padding-top: 10px; 
+			 padding-bottom: 10px;" bgcolor="#CBD9ED"><p class="TableDefinitions">Printer</p></td>
+		<td style="border-bottom: Solid 4px #000000; width: 70%; padding-right: 10px; 
+			 padding-left: 10px; padding-top: 10px; padding-bottom: 10px;"><p 
+			 class="Tabletext">EPSON Stylus C61 series</p></td>
+	</tr>
+</table>
+<p class="NoteImage">&#160;</p>
+<p class="NoteImage" style="margin-left: 0px;"><img src="note_moji.bmp" alt="" style="border: none;" width="51" height="25" border="0"></p>
+<ul>
+	<li class="p-NoteText"><p class="NoteText">When connecting the print 
+	 server and target machine to the network, check the security policy.</p></li>
+</ul>
+<h4><img src="Square.bmp" alt="" style="border: none;" width="12" height="10" border="0">Steps</h4>
+&#160; 
+
+<table style="left: 0px; top: 64px; margin-left: 40px;" cellspacing="0" 
+		 width="400">
+	<col style="width: 100%;">
+	<tr style="vertical-align: top; height: 25px;">
+		<td style="border-top: Solid 3px #000000; border-bottom: Solid 1px #000000; 
+			 width: 100%; padding-right: 10px; padding-left: 10px; padding-top: 10px; 
+			 padding-bottom: 10px;" bgcolor="#91AFD9"><p class="Tabletitle" 
+														 style="text-align: center;">Steps</p></td>
+	</tr>
+	<tr style="vertical-align: top; height: 84px;">
+		<td style="width: 100%; padding-right: 10px; padding-left: 10px; 
+			 padding-top: 10px; padding-bottom: 10px;"><table style="border: Double 3px #0000ff; 
+			 left: 0px; top: 0px;" cellspacing="0" width="100%">
+			<col style="width: 100%;">
+			<tr style="vertical-align: top; height: 22px;">
+				<td style="border: Solid 1px #000000; width: 100%; padding-right: 10px; 
+					 padding-left: 10px;"><p>1. Connect the printer to 
+				 your computer.</p></td>
+			</tr>
+		</table>
+		<p style="text-align: center;"><img src="arrow.bmp" alt="" style="border: none;" width="24" height="43" border="0"></p></td>
+	</tr>
+	<tr style="vertical-align: top; height: 89px;">
+		<td style="width: 100%; padding-right: 10px; padding-left: 10px; 
+			 padding-top: 10px; padding-bottom: 10px;"><table style="border: Double 3px #0000ff; 
+			 left: 0px; top: 0px; height: 38px;" cellspacing="0" width="100%">
+			<col style="width: 100%;">
+			<tr style="vertical-align: top;">
+				<td style="border: Solid 1px #000000; width: 100%; padding-right: 10px; 
+					 padding-left: 10px;"><p>2. Install Internet Information 
+				 Service (IIS) on your computer, and set up the IP address 
+				 and port number. Change network security if necessary. 
+				 To do this, contact your IT department.</p></td>
+			</tr>
+		</table>
+		<p style="text-align: center;"><img src="arrow.bmp" alt="" style="border: none;" width="24" height="43" border="0"></p></td>
+	</tr>
+	<tr style="vertical-align: top; height: 89px;">
+		<td style="width: 100%; padding-right: 10px; padding-left: 10px; 
+			 padding-top: 10px; padding-bottom: 10px;"><table style="border: Double 3px #0000ff; 
+			 left: 0px; top: 0px; height: 38px;" cellspacing="0" width="100%">
+			<col style="width: 100%;">
+			<tr style="vertical-align: top;">
+				<td style="border: Solid 1px #000000; width: 100%; padding-right: 10px; 
+					 padding-left: 10px;"><p>3. Enable the sharing of the 
+				 printer, and start IIS on the print server</p></td>
+			</tr>
+		</table>
+		<p style="text-align: center;"><img src="arrow.bmp" alt="" style="border: none;" width="24" height="43" border="0"></p></td>
+	</tr>
+	<tr style="vertical-align: top; height: 89px;">
+		<td style="width: 100%; padding-right: 10px; padding-left: 10px; 
+			 padding-top: 10px; padding-bottom: 10px;"><table style="border: Double 3px #0000ff; 
+			 left: 0px; top: 0px;" cellspacing="0" width="100%">
+			<col style="width: 100%;">
+			<tr style="vertical-align: top; height: 5px;">
+				<td style="border: Solid 1px #000000; width: 100%; padding-right: 10px; 
+					 padding-left: 10px;"><p>4. Start Internet Explorer 
+				 (IE) on the print server.</p></td>
+			</tr>
+		</table>
+		<p class="NoteText" style="text-align: center;"><img src="arrow.bmp" alt="" style="border: none;" width="24" height="43" border="0"></p></td>
+	</tr>
+	<tr style="vertical-align: top; height: 89px;">
+		<td style="width: 100%; padding-right: 10px; padding-left: 10px; 
+			 padding-top: 10px; padding-bottom: 10px;"><table style="border: Double 3px #0000ff; 
+			 left: 0px; top: 0px;" cellspacing="0" width="100%">
+			<col style="width: 100%;">
+			<tr style="vertical-align: top; height: 5px;">
+				<td style="border: Solid 1px #000000; width: 100%; padding-right: 10px; 
+					 padding-left: 10px;"><p>5. Set up the printer in Vijeo-Designer, 
+				 and download to the target machine.</p></td>
+			</tr>
+		</table>
+		<p style="text-align: center;"><img src="arrow.bmp" alt="" style="border: none;" width="24" height="43" border="0"></p></td>
+	</tr>
+	<tr style="vertical-align: top; height: 49px;">
+		<td style="border-bottom: Solid 3px #000000; width: 100%; padding-right: 10px; 
+			 padding-left: 10px; padding-top: 10px; padding-bottom: 10px;"><table 
+			 style="border: Double 3px #0000ff;" cellspacing="0" width="100%">
+			<col style="width: 100%;">
+			<tr style="vertical-align: top;">
+				<td style="border: Solid 1px #000000; width: 100%; padding-right: 10px; 
+					 padding-left: 10px;"><p>6. Connect the target machine 
+				 to the network, and confirm the target machine and print 
+				 server connection.</p></td>
+			</tr>
+		</table></td>
+	</tr>
+</table>
+
+&#160; 
+<h4>&#160;</h4>
+<h4><img src="Square.bmp" alt="" style="border: none;" width="12" height="10" border="0">Installing IIS</h4>
+<ol style="list-style: decimal;">
+	<li class="p"><p>In the Windows Start menu, select Settings and then 
+	 Control Panel. In the Control Panel, select Add/Remove Programs.</p></li>
+	<li class="p"><p>Select Add/Remove Windows Components.</p></li>
+	<li class="p"><p>In the Windows Components Wizard, select Internet 
+	 Information Services (IIS), and click Next.</p></li>
+</ol>
+<ol start="4" style="list-style: decimal;">
+	<li class="p"><p>Install IIS from the Windows OS CD-ROM.</p></li>
+</ol>
+<h4><img src="Square.bmp" alt="" style="border: none;" width="12" height="10" border="0">Setting Up IIS</h4>
+<ol style="list-style: decimal;">
+	<li class="p"><p>In the Windows Start menu, select Settings and then 
+	 Control Panel. In the Control Panel, select Administrative Tools and 
+	 then Internet Services Manager.</p></li>
+	<li class="p"><p>In Internet Services Manager, right-click Default 
+	 Web Site and select Properties.</p></li>
+</ol>
+<ol start="3" style="list-style: decimal;">
+	<li class="p"><p>In the Web Site tab of the Default Web Site Properties 
+	 dialog box, enter the printer server's IP Address and TCP Port.</p></li>
+</ol>
+<ol start="4" style="list-style: decimal;">
+	<li class="p"><p>Configure Anonymous Access so users can connect to 
+	 the print server without using a password. Click the Directory Security 
+	 Tab. Under Anonymous access and authentication control, click the 
+	 Edit button.</p></li>
+</ol>
+<ol start="5" style="list-style: decimal;">
+	<li class="p"><p>Make sure Anonymous access is enabled. Click OK to 
+	 close the Authentication Method dialog box. Click OK again to close 
+	 the Default Web Site Properties dialog box.</p></li>
+</ol>
+<ol start="6" style="list-style: decimal;">
+	<li class="p"><p>In Internet Services Manager, right-click Default 
+	 Web Site, and click Start to begin IIS.</p></li>
+</ol>
+<h4><img src="Square.bmp" alt="" style="border: none;" width="12" height="10" border="0">Starting IE</h4>
+<p>To obtain printer information connected to the print server, start IE 
+ on a computer on the same network.</p>
+<ol style="list-style: decimal;">
+	<li class="p"><p>In the Windows Start menu, select Settings and then 
+	 Printers. In the Printers dialog box, right-click the Printer icon 
+	 on the print server and select Sharing.</p></li>
+</ol>
+<ol start="2" style="list-style: decimal;">
+	<li class="p"><p>Start IE on a computer that is on the same network 
+	 as the print server.</p></li>
+	<li class="p"><p>Type the following address in IE:<br>
+	http://&lt;print server's IP address or host name&gt;:&lt;port number&gt;/printers/<br>
+	In this example, the following address is used: http://192.168.1.10:1024/printers/</p></li>
+	<li class="p"><p>In IE, select a printer that is connected to the printer 
+	 server in the list.</p></li>
+</ol>
+<ol start="5" style="list-style: decimal;">
+	<li class="p"><p>Select Property and check the Network Name.</p></li>
+</ol>
+<h4><img src="Square.bmp" alt="" style="border: none;" width="12" height="10" border="0">Setting Up the Printer in Vijeo-Designer</h4>
+<p>After collecting the printer information, configure the printer in Vijeo-Designer's 
+ Printer Setup dialog box.</p>
+<ol style="list-style: decimal;">
+	<li class="p"><p>In the Project tab of the Navigator window, select 
+	 the target.</p></li>
+	<li class="p"><p>In the target's Property Inspector, set the Printer 
+	 property to Enable and select EPSON ESC/P for the Printer Type property.</p></li>
+</ol>
+<ol start="3" style="list-style: decimal;">
+	<li class="p"><p>In the Printer Setup property, click <img src="browse.bmp" alt="" style="border: none;" width="24" height="17" border="0">.</p></li>
+	<li class="p"><p>In the Printer Setup dialog box, select IPP as the 
+	 connection method, and set up the other properties as follows:</p></li>
+</ol>
+<table style="left: 0px; top: 2737px; margin-left: 40px;" cellspacing="0" 
+		 width="85.913%">
+	<col style="width: 29.97%;">
+	<col style="width: 70.03%;">
+	<tr style="vertical-align: top;">
+		<td style="border-top: Solid 3px #000000; border-right: Solid 1px #000000; 
+			 border-bottom: Solid 1px #000000; width: 29.97%; padding-right: 10px; 
+			 padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" 
+			 bgcolor="#91AFD9"><p class="TableDefinitions">IP Address</p></td>
+		<td style="border-top: Solid 3px #000000; border-bottom: Solid 1px #000000; 
+			 width: 70.03%; padding-right: 10px; padding-left: 10px; padding-top: 10px; 
+			 padding-bottom: 10px;"><p class="Tabletext">Enter the printer 
+		 server's IP address.</p></td>
+	</tr>
+	<tr style="vertical-align: top;">
+		<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; 
+			 width: 29.97%; padding-right: 10px; padding-left: 10px; padding-top: 10px; 
+			 padding-bottom: 10px;" bgcolor="#91AFD9"><p class="TableDefinitions">Port 
+		 No.</p></td>
+		<td style="border-bottom: Solid 1px #000000; width: 70.03%; padding-right: 10px; 
+			 padding-left: 10px; padding-top: 10px; padding-bottom: 10px;"><p 
+			 class="Tabletext">Enter the printer server's port number.</p></td>
+	</tr>
+	<tr style="vertical-align: top;">
+		<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; 
+			 width: 29.97%; padding-right: 10px; padding-left: 10px; padding-top: 10px; 
+			 padding-bottom: 10px;" bgcolor="#91AFD9"><p class="TableDefinitions">Time 
+		 Out</p></td>
+		<td style="border-bottom: Solid 1px #000000; width: 70.03%; padding-right: 10px; 
+			 padding-left: 10px; padding-top: 10px; padding-bottom: 10px;"><p 
+			 class="Tabletext">Enter the printing timeout in seconds.</p>
+		<p class="NoteImage"><img src="note_moji.bmp" alt="" style="border: none;" width="51" height="25" border="0"></p>
+		<ul>
+			<li class="p-NoteText"><p class="NoteText">There are cases 
+			 when this timeout is superceded by other timeouts, such as 
+			 a TCP/IP timeout that occurs when you are disconnected from 
+			 the network.</p></li>
+		</ul></td>
+	</tr>
+	<tr style="vertical-align: top;">
+		<td style="border-right: Solid 1px #000000; border-bottom: Solid 3px #000000; 
+			 width: 29.97%; padding-right: 10px; padding-left: 10px; padding-top: 10px; 
+			 padding-bottom: 10px;" bgcolor="#91AFD9"><p class="TableDefinitions">Printer 
+		 URI</p></td>
+		<td style="border-bottom: Solid 3px #000000; width: 70.03%; padding-right: 10px; 
+			 padding-left: 10px; padding-top: 10px; padding-bottom: 10px;"><p 
+			 class="Tabletext">Enter the network name of the printer server 
+		 set up in IIS. The network name should be in the form: http://<span 
+		 style="font-style: italic;">network_name</span><span>/printers/</span><span 
+		 style="font-style: italic;">printer_share_name</span><span>/.printer.</span></p>
+		<p class="Tabletext">For example: http://192.168.1.10/printers/StyC61/.printer</p></td>
+	</tr>
+</table>
+<p>&#160;</p>
+</body>
+</html>

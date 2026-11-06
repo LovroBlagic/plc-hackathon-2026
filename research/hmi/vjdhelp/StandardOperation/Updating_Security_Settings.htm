@@ -1,0 +1,93 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+<meta name="template" content="Vijeo_template.htt">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+ <meta name="generator" content="Adobe RoboHelp 10">
+<title>Updating Common Security Targets</title>
+<link rel="StyleSheet" href="Tis-styl.css" type="text/css">
+</head>
+<body>
+<script type="text/javascript" src="ehlpdhtm.js" language="JavaScript1.2"></script>
+
+<div style="width: 100%; position: relative;" id="header">
+	<table style="background-attachment: scroll; margin-left: 0px; margin-right: 4px; 
+			 background-image: url(top_banner.bmp); background-repeat: Repeat-X; 
+			 line-height: 0pt; vertical-align: top;" cellspacing="0" background="top_banner.bmp" 
+			 width="100%">
+		<col style="width: 90%;">
+		<col style="width: 5%;">
+		<col style="width: 5%;">
+		<tr style="vertical-align: center; height: 39px;">
+			<td style="width: 90%; padding-right: 10px; padding-left: 10px; 
+				 border-right-color: #000000;">
+   <p><img src="logo.bmp" alt="" style="border: none;" width="37" height="37" border="0"></p></td>
+			<td style="width: 5%; padding-right: 0px; padding-left: 10px; 
+				 border-right-color: #000000;">
+   <p style="text-align: center;"><a 
+			 title="Glossary" href="Appendix.chm::/Glossary.htm"><img src="logo_glossary.bmp" alt="" style="border: none;" width="47" height="37" border="0"></a></p></td>
+			<td style="width: 5%; padding-right: 10px; padding-left: 5px; 
+				 border-right-color: #000000;">
+   <p style="text-align: center;"><a 
+			 href="About.chm::/What_is_Vijeo-Designer.htm" title="Home"><img src="logo_home.bmp" alt="Home" style="border: none; margin-left: 0px; 
+			 margin-right: 0px; margin-bottom: 0px; margin-top: -2px;" width="47" height="37" border="0"></a></p></td>
+		</tr>
+	</table>
+</div>
+
+<h1>4.8.6.2 Updating Common Security Targets</h1>
+<p>After the project is configured and user applications are downloaded to the target machine, you may want to configure another target machine with Common Security or change the security server.</p>
+<h4><img src="square.bmp" style="border: none;" alt="" width="12" height="10" border="0">Adding a Client Target</h4>
+<ol style="list-style: decimal;">
+<li class="p">
+<p>For newly added Targets, configure Common Security. See Section 4.8.6.1, <a href="Setting_Up_Common_Security.htm">Setting Up Common Security</a>.<br>
+-or-<br>
+For existing Targets, from the Navigator window select the Security node and view its properties. Change Security Data from Use Local to Use Common.</p>
+</li>
+</ol>
+<p class="NoteImage" style="margin-left: 40px;"><img src="NOTE_MOJI.bmp" style="border: none;" alt="" width="49" height="23" border="0"></p>
+<ul>
+<li class="p-NoteText2">
+<p class="NoteText2">All previously configured security settings are now replaced by the common security settings.</p>
+</li>
+</ul>
+<ol start="2" style="list-style: decimal;">
+<li class="p">
+<p>Download the project to the newly added or changed target. As long as there are no changes to the common security settings or changes to the security server, downloading to other target machines is not required.</p>
+</li>
+</ol>
+<h4><img src="square.bmp" style="border: none;" alt="" width="12" height="10" border="0">Changing the Security Server</h4>
+<ol style="list-style: decimal;">
+<li class="p">
+<p>From the Navigator window's Project tab, select the Project node and view its properties.</p>
+</li>
+<li class="p">
+<p>In the Security Server property, select a target machine. This unit must be online for panel operators to run secured operations on the target machine.</p>
+</li>
+<li class="p">
+<p>Download the project to all targets in the project.</p>
+</li>
+</ol>
+<p class="NoteImage"><img src="limit.bmp" style="border: none;" alt="" width="77" height="24" border="0"></p>
+<ul>
+<li class="p-NoteText">
+<p class="NoteText">To preserve security groups and security users configured at run time, in the Target node's Download properties, set Preserve Run-Time Data to Enabled.</p>
+</li>
+<li class="p-NoteText">
+<p class="NoteText">If you change any of the following properties in the security server's Target, you need to download the project again to all target machines configured with common security:</p>
+</li>
+</ul>
+<ul>
+<li class="p-NoteText2">
+<p class="NoteText2">Target IP address</p>
+</li>
+<li class="p-NoteText2">
+<p class="NoteText2">DHCP</p>
+</li>
+<li class="p-NoteText2">
+<p class="NoteText2">Host Name</p>
+</li>
+</ul>
+</body>
+</html>

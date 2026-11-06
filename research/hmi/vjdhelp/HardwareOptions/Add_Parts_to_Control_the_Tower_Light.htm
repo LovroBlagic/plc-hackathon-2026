@@ -1,0 +1,78 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+<meta name="template" content="Vijeo_template.htt">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+ <meta name="generator" content="Adobe RoboHelp 2015">
+<title>24.7.3 Adding Parts to Control the Tower Light</title>
+<link rel="StyleSheet" href="TIS-STYL.css" type="text/css">
+</head>
+<body>
+<script type="text/javascript" src="ehlpdhtm.js" language="JavaScript1.2"></script>
+
+<div style="width: 100%; position: relative;" id="header">
+	<table style="background-attachment: scroll; margin-left: 0px; margin-right: 4px; 
+			 background-image: url(top_banner.bmp); background-repeat: Repeat-X; 
+			 line-height: 0pt; vertical-align: top;" cellspacing="0" background="top_banner.bmp" 
+			 width="100%">
+		<col style="width: 90%;">
+		<col style="width: 5%;">
+		<col style="width: 5%;">
+		<tr style="vertical-align: center; height: 39px;">
+			<td style="width: 90%; padding-right: 10px; padding-left: 10px; 
+				 border-right-color: #000000;">
+   <p><img src="logo.bmp" alt="" style="border: none;" width="37" height="37" border="0"></p></td>
+			<td style="width: 5%; padding-right: 0px; padding-left: 10px; 
+				 border-right-color: #000000;">
+   <p style="text-align: center;"><a 
+			 title="Glossary" href="Appendix.chm::/Glossary.htm"><img src="logo_glossary.bmp" alt="" style="border: none;" width="47" height="37" border="0"></a></p></td>
+			<td style="width: 5%; padding-right: 10px; padding-left: 5px; 
+				 border-right-color: #000000;">
+   <p style="text-align: center;"><a 
+			 href="About.chm::/What_is_Vijeo-Designer.htm" title="Home"><img src="logo_home.bmp" alt="Home" title="Home" style="border: none; 
+			 margin-left: 0px; margin-right: 0px; margin-bottom: 0px; margin-top: -2px;" width="47" height="37" border="0"></a></p></td>
+		</tr>
+	</table>
+</div>
+
+
+<h2>24.7.3 Adding Parts to Control the Tower Light</h2>
+<p>An operator can make changes to patterns by using parts. You can add a switch or a numeric display to an unsecured panel, so that at run time, an operator can control the current state of equipment or materials.</p>
+<p>The following example describes how to create three switches that enable an operator to change from a problem state (Pattern 1, a red-colored display) to a warning state (Pattern 2, an amber-colored display) to a normal state (Pattern 3: a green-colored display).</p>
+<ol style="list-style: decimal;">
+<li class="p">
+<p>Add a switch to your panel. For more information on how to create a switch, see Section 9.2, <a href="Switches.chm::/SW_Settings.htm">Creating Switches</a>.</p>
+</li>
+<li class="p">
+<p>In the General tab, create a Word operation. Set the Word operation properties as follows:</p>
+</li>
+</ol>
+<ul style="list-style: square;">
+<li class="p">
+<p style="margin-left: 41px;">Source: Enter the pattern number. For this switch, enter 1 to indicate Pattern 1 (problem state).</p>
+</li>
+<li class="p">
+<p style="margin-left: 41px;">Operation: Select Set.</p>
+</li>
+<li class="p">
+<p style="margin-left: 41px;">Destination: Select the _TowerLightSetCurrentPattern variable.</p>
+</li>
+</ul>
+<ol start="3" style="list-style: decimal;">
+<li class="p">
+<p>Click Add to add the operation.</p>
+</li>
+<li class="p">
+<p>In the Label tab, select Static as the Label Type, and then type “Problem” in the Label text box.</p>
+</li>
+<li class="p">
+<p>Click OK. You now have a switch that triggers the Problem state on your tower light at run time.</p>
+</li>
+<li class="p">
+<p>Repeat steps 1 to 5 to create switches to trigger a Warning state and a Normal state. In the Word operation, enter 2 in the Source property to indicate Pattern 2 (warning state), and 3 to indicate Pattern 3 (normal state). In the Label text box, type "Warning" and “Normal” for their respective switches.</p>
+</li>
+</ol>
+<p style="margin-left: 41px;">At run time, the operator can press the switches on the panel to trigger the Warning state, Problem state, and Normal state.</p>
+</body>
+</html>

@@ -1,0 +1,844 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+<meta name="template" content="Vijeo_template.htt">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+ <meta name="generator" content="Adobe RoboHelp 2015">
+<title>Dialog Table Functions</title>
+<link rel="StyleSheet" href="TIS-STYL.CSS" type="text/css">
+</head>
+<body>
+<script type="text/javascript" src="ehlpdhtm.js" language="JavaScript1.2"></script>
+
+<div style="width: 100%; position: relative;" id="header">
+	<table style="background-attachment: scroll; margin-left: 0px; margin-right: 4px; 
+			 background-image: url(top_banner.bmp); background-repeat: Repeat-X; 
+			 line-height: 0pt; vertical-align: top;" cellspacing="0" background="top_banner.bmp" 
+			 width="100%">
+		<col style="width: 90%;">
+		<col style="width: 5%;">
+		<col style="width: 5%;">
+		<tr style="vertical-align: center; height: 39px;">
+			<td style="width: 90%; padding-right: 10px; padding-left: 10px; 
+				 border-right-color: #000000;">
+   <p><img src="logo.bmp" alt="" style="border: none;" width="37" height="37" border="0"></p></td>
+			<td style="width: 5%; padding-right: 0px; padding-left: 10px; 
+				 border-right-color: #000000;">
+   <p style="text-align: center;"><a 
+			 title="Glossary" href="Appendix.chm::/Glossary.htm"><img src="logo_glossary.bmp" alt="" style="border: none;" width="47" height="37" border="0"></a></p></td>
+			<td style="width: 5%; padding-right: 10px; padding-left: 5px; 
+				 border-right-color: #000000;">
+   <p style="text-align: center;"><a 
+			 href="About.chm::/What_is_Vijeo-Designer.htm" title="Home"><img src="logo_home.bmp" alt="Home" title="Home" style="border: none; 
+			 margin-left: 0px; margin-right: 0px; margin-bottom: 0px; margin-top: -2px;" width="47" height="37" border="0"></a></p></td>
+		</tr>
+	</table>
+</div>
+
+
+<h2>5.6.2 Dialog Table Functions</h2>
+<h4><img src="square.bmp" alt="" style="border: none;" width="12" height="10" border="0">Supported Functions</h4>
+<p>The following table describes the functions supported between Vijeo-Designer and XBTL1000. Where indicated, other features can be used instead of using the Dialog Table. We recommend using these alternative features instead of the functionality in the Dialog Table.</p>
+<p class="Image"><img src="Limit.bmp" alt="" style="border: none;" width="77" height="24" border="0"></p>
+<ul>
+<li class="p-NoteText">
+<p class="NoteText">Not all target machines support all functions. Functions that are not supported on a specific target machine can still be selected in the dialog table, but the function may be ignored at run time. See Appendix 5.2.10, <a href="Appendix.chm::/Dialog_Table_Support.htm">Dialog Table Support</a>, for targets that support each function.</p>
+</li>
+<li class="p-NoteText">
+<p class="NoteText">Some functions cannot be used in more than one Dialog Table. The table below lists the functions that support being used in multiple Dialog Tables.</p>
+</li>
+<li class="p-NoteText">
+<p class="NoteText">Only one Dialog Table function can be defined at a time when using the Device Simulator. The Device Simulator will display an error when more than one function is defined. To test Dialog Table functions in Device Simulation, each function must be tested individually by removing all functions until only one is defined.</p>
+</li>
+</ul>
+<table style="vertical-align: top; margin-left: 40px;" cellspacing="0" width="200">
+<col style="width: 20%;">
+<col style="width: 80%;">
+<tr style="vertical-align: top;">
+<td style="width: 20%; padding-right: 10px; padding-left: 10px;">
+<p><img src="Check_small.bmp" alt="" style="border: none;" width="17" height="14" border="0"></p>
+</td>
+<td style="width: 80%; padding-right: 10px; padding-left: 10px;">
+<p>Supported</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="width: 20%; padding-right: 10px; padding-left: 10px;">
+<p><img src="X_small.bmp" alt="" style="border: none;" width="19" height="14" border="0"></p>
+</td>
+<td style="width: 80%; padding-right: 10px; padding-left: 10px;">
+<p>Not supported</p>
+</td>
+</tr>
+</table>
+<table style="vertical-align: top; margin-left: 40px;" cellspacing="0" width="90%">
+<col style="width: 7.946%;">
+<col style="width: 7.946%;">
+<col style="width: 4.577%;">
+<col style="width: 6.398%;">
+<col style="width: 9.873%;">
+<col style="width: 33.977%;">
+<col style="width: 24.379%;">
+<tr style="vertical-align: top; height: 0px;">
+<td style="border-top: Solid 3px #000000; border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 7.946%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#91AFD9">
+<p class="Tabletitle">Function Number</p>
+</td>
+<td style="border-top: Solid 3px #000000; border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 7.946%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#91AFD9">
+<p class="Tabletitle">Function Name</p>
+</td>
+<td style="border-top: Solid 3px #000000; border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 4.577%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#91AFD9">
+<p class="Tabletitle">Word Size</p>
+</td>
+<td style="border-top: Solid 3px #000000; border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 6.398%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#91AFD9">
+<p class="Tabletitle">Data Exchange Direction</p>
+</td>
+<td style="border-top: Solid 3px #000000; border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 9.873%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#91AFD9">
+<p class="Tabletitle">Multiple Dialog Table Support</p>
+</td>
+<td style="border-top: Solid 3px #000000; border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 33.977%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#91AFD9">
+<p class="Tabletitle">Description</p>
+</td>
+<td style="border-top: Solid 3px #000000; border-bottom: Solid 1px #000000; width: 24.379%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#91AFD9">
+<p class="Tabletitle">Alternative Feature</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 7.946%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px; background-color: Transparent;">
+<p class="Tabletext">4</p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 7.946%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext"><a href="Communication_Control.htm">Communication control</a></p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 4.577%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">1</p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 6.398%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">HMI to PLC</p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 9.873%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px; vertical-align: center;">
+<p class="Tabletext" style="text-align: center;"><img src="Check_small.bmp" alt="" style="border: none;" width="17" height="14" border="0"></p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 33.977%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">Stores the number of processing cycles the Dialog Table has made.</p>
+</td>
+<td style="border-bottom: Solid 1px #000000; width: 24.379%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">&#160;</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 7.946%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px; background-color: Transparent;">
+<p class="Tabletext">5</p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 7.946%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext"><a href="Set_PLC_Clock.htm">Set PLC clock</a></p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 4.577%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">4</p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 6.398%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">HMI to PLC</p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 9.873%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px; vertical-align: center;">
+<p class="Tabletext" style="text-align: center;"><img src="Check_small.bmp" alt="" style="border: none;" width="17" height="14" border="0"></p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 33.977%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">Stores the target machine's time and date.</p>
+</td>
+<td style="border-bottom: Solid 1px #000000; width: 24.379%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">Use an Action to update the time and date.</p>
+<p class="Tabletext">For more information, see Section 9.4.4, <a href="Switches.chm::/Example_of_Creating_an_Action.htm">Example of Creating an Action</a>.</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 7.946%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px; background-color: Transparent;">
+<p class="Tabletext">6</p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 7.946%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext"><a href="Number_of_displayed_page.htm">Number of displayed page</a></p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 4.577%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">1</p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 6.398%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">HMI to PLC</p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 9.873%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px; vertical-align: center;">
+<p class="Tabletext" style="text-align: center;"><img src="Check_small.bmp" alt="" style="border: none;" width="17" height="14" border="0"></p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 33.977%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">Stores the panel ID of the panel displayed in the target.</p>
+</td>
+<td style="border-bottom: Solid 1px #000000; width: 24.379%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">Use a system variable to change panels.</p>
+<p class="Tabletext">For more information, see Section 6.7.3, <a href="InputAddress.chm::/Using_System_Variables_on_Connected_Equipment.htm">Using System Variables on Connected Equipment</a>.</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 7.946%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px; background-color: Transparent;">
+<p class="Tabletext">7</p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 7.946%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext"><a href="Number_of_last_field_entered.htm">Number of last field entered</a></p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 4.577%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">1</p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 6.398%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">HMI to PLC</p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 9.873%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px; vertical-align: center;">
+<p class="Tabletext" style="text-align: center;"><img src="Check_small.bmp" alt="" style="border: none;" width="17" height="14" border="0"></p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 33.977%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">Stores the part Field ID when the part value is modified with the popup keypad.</p>
+</td>
+<td style="border-bottom: Solid 1px #000000; width: 24.379%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">Use a system variable to store the part Field ID value.</p>
+<p class="Tabletext">For more information, see Section 6.7.3, <a href="InputAddress.chm::/Using_System_Variables_on_Connected_Equipment.htm">Using System Variables on Connected Equipment</a>.</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 7.946%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px; background-color: Transparent;">
+<p class="Tabletext">10</p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 7.946%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext"><a href="Report.htm">Report</a></p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 4.577%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">1</p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 6.398%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">HMI to PLC</p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 9.873%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px; vertical-align: center;">
+<p class="Tabletext" style="text-align: center;"><img src="Check_small.bmp" alt="" style="border: none;" width="17" height="14" border="0"></p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 33.977%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">Reports on the Dialog Table processes.</p>
+</td>
+<td style="border-bottom: Solid 1px #000000; width: 24.379%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">&#160;</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 7.946%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px; background-color: Transparent;">
+<p class="Tabletext">11</p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 7.946%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext"><a href="Log_Filing_rate.htm">Log Filling rate</a></p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 4.577%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">1</p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 6.398%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">HMI to PLC</p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 9.873%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px; vertical-align: center;">
+<p class="Tabletext" style="text-align: center;"><img src="Check_small.bmp" alt="" style="border: none;" width="17" height="14" border="0"></p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 33.977%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">Stores a percentage for the size of the log alarm in an alarm group.</p>
+</td>
+<td style="border-bottom: Solid 1px #000000; width: 24.379%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">&#160;</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 7.946%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px; background-color: Transparent;">
+<p class="Tabletext">13</p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 7.946%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext"><a href="Application_checksum.htm">Application checksum</a></p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 4.577%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">1</p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 6.398%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">HMI to PLC</p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 9.873%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px; vertical-align: center;">
+<p class="Tabletext" style="text-align: center;"><img src="Check_small.bmp" alt="" style="border: none;" width="17" height="14" border="0"></p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 33.977%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">Stores the user application checksum calculation.</p>
+</td>
+<td style="border-bottom: Solid 1px #000000; width: 24.379%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">&#160;</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 7.946%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px; background-color: Transparent;">
+<p class="Tabletext">14</p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 7.946%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext"><a href="Advanced_state_of_the_terminal.htm">Advanced state of the terminal</a></p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 4.577%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">1</p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 6.398%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">HMI to PLC</p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 9.873%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px; vertical-align: center;">
+<p class="Tabletext" style="text-align: center;"><img src="Check_small.bmp" alt="" style="border: none;" width="17" height="14" border="0"></p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 33.977%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">Stores the security level of the security group logged on to the target machine.</p>
+</td>
+<td style="border-bottom: Solid 1px #000000; width: 24.379%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">Use a system variable to change the security level.</p>
+<p class="Tabletext">For more information, see Section 6.7.3, <a href="InputAddress.chm::/Using_System_Variables_on_Connected_Equipment.htm">Using System Variables on Connected Equipment</a>.</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 7.946%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px; background-color: Transparent;">
+<p class="Tabletext">15</p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 7.946%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext"><a href="Number_of_recipe_transferred.htm">Number of recipe transferred</a></p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 4.577%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">2</p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 6.398%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">HMI to PLC</p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 9.873%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px; vertical-align: center;">
+<p class="Tabletext" style="text-align: center;"><img src="Check_small.bmp" alt="" style="border: none;" width="17" height="14" border="0"></p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 33.977%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">Store the recipe group ID and recipe ID of last successfully transferred recipe.</p>
+</td>
+<td style="border-bottom: Solid 1px #000000; width: 24.379%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">Use Recipe Control variables to monitor recipe transfers.</p>
+<p class="Tabletext">For more information, see Section 17.3.5, <a href="Recipe.chm::/Setting_Up_Recipe_Group_Controls.htm">Setting Up Recipe Controls</a>.</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 7.946%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px; background-color: Transparent;">
+<p class="Tabletext">16</p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 7.946%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext"><a href="Number_of_page_to_be_processed.htm">Number of page to be processed</a></p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 4.577%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">1</p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 6.398%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">HMI to PLC<br>
+and<br>
+PLC to HMI</p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 9.873%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px; vertical-align: center;">
+<p class="Tabletext" style="text-align: center;"><img src="X_small.bmp" alt="" style="border: none;" width="19" height="14" border="0"></p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 33.977%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">Stores the panel ID for the panel the PLC will display on the target machine.</p>
+</td>
+<td style="border-bottom: Solid 1px #000000; width: 24.379%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">Use a system variable to change panels.</p>
+<p class="Tabletext">For more information, see Section 6.7.3, <a href="InputAddress.chm::/Using_System_Variables_on_Connected_Equipment.htm">Using System Variables on Connected Equipment</a>.</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 7.946%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px; background-color: Transparent;">
+<p class="Tabletext">17</p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 7.946%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext"><a href="Number_of_field_to_be_entered.htm">Number of field to be entered</a></p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 4.577%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">1</p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 6.398%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">HMI to PLC<br>
+and<br>
+PLC to HMI</p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 9.873%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px; vertical-align: center;">
+<p class="Tabletext" style="text-align: center;"><img src="X_small.bmp" alt="" style="border: none;" width="19" height="14" border="0"></p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 33.977%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">Stores the field ID for the part.</p>
+</td>
+<td style="border-bottom: Solid 1px #000000; width: 24.379%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">Use a system variable to initiate a field ID for the part.</p>
+<p class="Tabletext">For more information, see Section 6.7.3, <a href="InputAddress.chm::/Using_System_Variables_on_Connected_Equipment.htm">Using System Variables on Connected Equipment</a>.</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 7.946%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px; background-color: Transparent;">
+<p class="Tabletext">19</p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 7.946%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext"><a href="Recipe_to_be_transferred.htm">Recipe to be transferred</a></p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 4.577%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">2</p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 6.398%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">HMI to PLC<br>
+and<br>
+PLC to HMI</p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 9.873%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px; vertical-align: center;">
+<p class="Tabletext" style="text-align: center;"><img src="X_small.bmp" alt="" style="border: none;" width="19" height="14" border="0"></p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 33.977%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">Stores the recipe group ID and recipe ID to be transferred to the PLC.</p>
+</td>
+<td style="border-bottom: Solid 1px #000000; width: 24.379%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">Use Recipe Control variables to monitor recipe transfers.</p>
+<p class="Tabletext">For more information, see Section 17.3.5, <a href="Recipe.chm::/Setting_Up_Recipe_Group_Controls.htm">Setting Up Recipe Controls</a>.</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 7.946%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px; background-color: Transparent;">
+<p class="Tabletext">21</p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 7.946%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext"><a href="Table_write_authorization.htm">Table write authorization</a></p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 4.577%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">1</p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 6.398%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">PLC to HMI</p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 9.873%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px; vertical-align: center;">
+<p class="Tabletext" style="text-align: center;"><img src="X_small.bmp" alt="" style="border: none;" width="19" height="14" border="0"></p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 33.977%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">Stores the security hexadecimal value for the Dialog Table.</p>
+</td>
+<td style="border-bottom: Solid 1px #000000; width: 24.379%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">&#160;</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 7.946%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px; background-color: Transparent;">
+<p class="Tabletext">22</p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 7.946%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext"><a href="Recipe_transfer_not_allowed.htm">Recipe transfer not allowed</a></p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 4.577%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">1</p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 6.398%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">PLC to HMI</p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 9.873%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px; vertical-align: center;">
+<p class="Tabletext" style="text-align: center;"><img src="X_small.bmp" alt="" style="border: none;" width="19" height="14" border="0"></p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 33.977%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">Controls recipe transfers.</p>
+</td>
+<td style="border-bottom: Solid 1px #000000; width: 24.379%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">Use Recipe Control variables to monitor recipe transfers.</p>
+<p class="Tabletext">For more information, see Section 17.3.5, <a href="Recipe.chm::/Setting_Up_Recipe_Group_Controls.htm">Setting Up Recipe Controls</a>.</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 7.946%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px; background-color: Transparent;">
+<p class="Tabletext">23</p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 7.946%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext"><a href="Advanced_functions.htm">Advanced functions</a></p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 4.577%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">1</p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 6.398%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">PLC to HMI</p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 9.873%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px; vertical-align: center;">
+<p class="Tabletext" style="text-align: center;"><img src="X_small.bmp" alt="" style="border: none;" width="19" height="14" border="0"></p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 33.977%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">Controls three functions:</p>
+<ul>
+<li class="p-Bullet">
+<p class="Bullet"><a href="Advanced_functions.htm#Changing_backlight">Turning the Backlight On/Off</a></p>
+</li>
+<li class="p-Bullet">
+<p class="Bullet"><a href="Advanced_functions.htm#Changing_security">Changing the Security Level</a></p>
+</li>
+<li class="p-Bullet">
+<p class="Bullet"><a href="Advanced_functions.htm#Clearing_alarms">Clearing the Alarm Log Database</a></p>
+</li>
+</ul>
+</td>
+<td style="border-bottom: Solid 1px #000000; width: 24.379%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">Use system variables to change both the target backlight and to update the security level.</p>
+<p class="Tabletext">For more information, see Sections 6.7, <a href="InputAddress.chm::/system_var.htm">System Variables</a> and 6.7.3, <a href="InputAddress.chm::/Using_System_Variables_on_Connected_Equipment.htm">Using System Variables on Connected Equipment</a>.</p>
+<p class="Tabletext">Use a script to clear the alarm log database.</p>
+<p class="Tabletext">For more information, see Section 18.3.8.2, <a href="Scripts.chm::/Alarm_Summary_methods.htm">Alarm Summary Methods</a>.</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 7.946%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px; background-color: Transparent;">
+<p class="Tabletext">31</p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 7.946%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext"><a href="Language_of_terminal.htm">Language of terminal</a></p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 4.577%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">1</p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 6.398%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">PLC to HMI</p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 9.873%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px; vertical-align: center;">
+<p class="Tabletext" style="text-align: center;"><img src="X_small.bmp" alt="" style="border: none;" width="19" height="14" border="0"></p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 33.977%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">Stores the target machine user application language ID.</p>
+</td>
+<td style="border-bottom: Solid 1px #000000; width: 24.379%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">Use a system variable to change the target language.</p>
+<p class="Tabletext">For more information, see Section 6.7, <a href="InputAddress.chm::/system_var.htm">System Variables</a>.</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 7.946%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px; background-color: Transparent;">
+<p class="Tabletext">33</p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 7.946%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext"><a href="Set_terminal_clock.htm">Set terminal clock</a></p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 4.577%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">4</p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 6.398%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">PLC to HMI</p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 9.873%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px; vertical-align: center;">
+<p class="Tabletext" style="text-align: center;"><img src="X_small.bmp" alt="" style="border: none;" width="19" height="14" border="0"></p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 33.977%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">Stores the PLC time and date.</p>
+</td>
+<td style="border-bottom: Solid 1px #000000; width: 24.379%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">Create an Action to update the time and date.</p>
+<p class="Tabletext">For more information, see Section 9.4.4, <a href="Switches.chm::/Example_of_Creating_an_Action.htm">Example of Creating an Action</a>.</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 7.946%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px; background-color: Transparent;">
+<p class="Tabletext">34</p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 7.946%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext"><a href="Set_Terminal_Clock_Offset.htm">Set Terminal Clock Offset</a></p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 4.577%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">1</p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 6.398%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">PLC to HMI</p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 9.873%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px; vertical-align: center;">
+<p class="Tabletext" style="text-align: center;"><img src="X_small.bmp" alt="" style="border: none;" width="19" height="14" border="0"></p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 33.977%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">Synchronizes the target machine clock (without a battery backup) with the PLC clock after a DST change.</p>
+</td>
+<td style="border-bottom: Solid 1px #000000; width: 24.379%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">Create an Action to define the terminal offset variable that synchronizes the PLC/target machine clocks. For more information, see Section 9.4.4, <a href="Switches.chm::/Example_of_Creating_an_Action.htm">Example of Creating an Action</a>.</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 7.946%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px; background-color: Transparent;">
+<p class="Tabletext">1</p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 7.946%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext"><a href="Image_of_static_function_keys.htm">Image of static function keys</a></p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 4.577%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">1</p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 6.398%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">HMI to PLC</p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 9.873%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px; vertical-align: center;">
+<p class="Tabletext" style="text-align: center;"><img src="Check_small.bmp" alt="" style="border: none;" width="17" height="14" border="0"></p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 33.977%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">Maps the function keys to bit addresses on the PLC. The status of each key is stored in a corresponding bit address.</p>
+</td>
+<td style="border-bottom: Solid 1px #000000; width: 24.379%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">&#160;</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 7.946%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px; background-color: Transparent;">
+<p class="Tabletext">2</p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 7.946%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext"><a href="Image_of_system_keys.htm">Image of system keys</a></p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 4.577%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">1</p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 6.398%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">HMI to PLC</p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 9.873%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px; vertical-align: center;">
+<p class="Tabletext" style="text-align: center;"><img src="Check_small.bmp" alt="" style="border: none;" width="17" height="14" border="0"></p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 33.977%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">Maps the system keys to bit addresses on the PLC. The status of each key is stored in a corresponding bit address.</p>
+</td>
+<td style="border-bottom: Solid 1px #000000; width: 24.379%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">&#160;</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 7.946%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px; background-color: Transparent;">
+<p class="Tabletext">3</p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 7.946%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext"><a href="Image_of_numeric_keys.htm">Image of numeric keys</a></p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 4.577%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">1</p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 6.398%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">HMI to PLC</p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 9.873%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px; vertical-align: center;">
+<p class="Tabletext" style="text-align: center;"><img src="Check_small.bmp" alt="" style="border: none;" width="17" height="14" border="0"></p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 33.977%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">Maps the numeric keys to bit addresses on the PLC. The status of each key is stored in a corresponding bit address.</p>
+</td>
+<td style="border-bottom: Solid 1px #000000; width: 24.379%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">&#160;</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 7.946%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px; background-color: Transparent;">
+<p class="Tabletext">24</p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 7.946%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext"><a href="Static_function_keys_LEDs_lighting.htm">Static function keys LEDs lighting</a></p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 4.577%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">1</p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 6.398%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">PLC to HMI</p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 9.873%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px; vertical-align: center;">
+<p class="Tabletext" style="text-align: center;"><img src="X_small.bmp" alt="" style="border: none;" width="19" height="14" border="0"></p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 33.977%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">Lights up the LEDs of the static function keys on the target.</p>
+</td>
+<td style="border-bottom: Solid 1px #000000; width: 24.379%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">Use LED Control in the Function Keys property to set the behaviour of the LEDs.</p>
+<p class="Tabletext">For more information, see Section 24.5, <a href="HardwareOptions.chm::/FunctionKeysOverview.htm">Function Keys</a>.</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 7.946%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px; background-color: Transparent;">
+<p class="Tabletext">25</p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 7.946%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext"><a href="Static_function_keys_LEDs_flashing.htm">Static function keys LEDs flashing</a></p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 4.577%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">1</p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 6.398%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">PLC to HMI</p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 9.873%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px; vertical-align: center;">
+<p class="Tabletext" style="text-align: center;"><img src="X_small.bmp" alt="" style="border: none;" width="19" height="14" border="0"></p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 33.977%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">Flashes the LEDs of the static function keys on the target.</p>
+</td>
+<td style="border-bottom: Solid 1px #000000; width: 24.379%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">Use LED Control in the Function Keys property to set the behaviour of the LEDs.</p>
+<p class="Tabletext">For more information, see Section 24.5, <a href="HardwareOptions.chm::/FunctionKeysOverview.htm">Function Keys</a>.</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 7.946%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px; background-color: Transparent;">
+<p class="Tabletext">26</p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 7.946%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext"><a href="Dynamic_function_keys_LEDs_lighting.htm">Dynamic function keys LEDs lighting</a></p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 4.577%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">1</p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 6.398%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">PLC to HMI</p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 9.873%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px; vertical-align: center;">
+<p class="Tabletext" style="text-align: center;"><img src="X_small.bmp" alt="" style="border: none;" width="19" height="14" border="0"></p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 33.977%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">Lights up the LEDs of the dynamic function keys on the target.</p>
+</td>
+<td style="border-bottom: Solid 1px #000000; width: 24.379%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">Use LED Control in the Function Keys property to set the behaviour of the LEDs.</p>
+<p class="Tabletext">For more information, see Section 24.5, <a href="HardwareOptions.chm::/FunctionKeysOverview.htm">Function Keys</a>.</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 7.946%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px; background-color: Transparent;">
+<p class="Tabletext">27</p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 7.946%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext"><a href="Dynamic_function_keys_LEDs_flashing.htm">Dynamic function keys LEDs flashing</a></p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 4.577%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">1</p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 6.398%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">PLC to HMI</p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 9.873%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px; vertical-align: center;">
+<p class="Tabletext" style="text-align: center;"><img src="X_small.bmp" alt="" style="border: none;" width="19" height="14" border="0"></p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 33.977%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">Flashes the LEDs of the dynamic function keys on the target.</p>
+</td>
+<td style="border-bottom: Solid 1px #000000; width: 24.379%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">Use LED Control in the Function Keys property to set the behaviour of the LEDs.</p>
+<p class="Tabletext">For more information, see Section 24.5, <a href="HardwareOptions.chm::/FunctionKeysOverview.htm">Function Keys</a>.</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 7.946%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px; background-color: Transparent;">
+<p class="Tabletext">28</p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 7.946%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext"><a href="Static_function_keys_locking.htm">Static function keys locking</a></p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 4.577%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">1</p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 6.398%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">PLC to HMI</p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 9.873%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px; vertical-align: center;">
+<p class="Tabletext" style="text-align: center;"><img src="X_small.bmp" alt="" style="border: none;" width="19" height="14" border="0"></p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 33.977%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">Locks the function keys F1 to F12 on the target.</p>
+</td>
+<td style="border-bottom: Solid 1px #000000; width: 24.379%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">Use Interlock to lock static function keys.</p>
+<p class="Tabletext">For more information, see Section 24.5.5, <a href="HardwareOptions.chm::/Setting_Up_Interlock_for_Function_Keys.htm">Setting up Interlock for Function Keys</a>.</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 7.946%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px; background-color: Transparent;">
+<p class="Tabletext">29</p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 7.946%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext"><a href="System_keys_locking.htm">System keys locking</a></p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 4.577%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">1</p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 6.398%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">PLC to HMI</p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 9.873%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px; vertical-align: center;">
+<p class="Tabletext" style="text-align: center;"><img src="X_small.bmp" alt="" style="border: none;" width="19" height="14" border="0"></p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 33.977%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">Locks system keys like ENTER, ESC, Left arrow, Right arrow, Clear, Backspace, Up arrow, Down arrow.</p>
+</td>
+<td style="border-bottom: Solid 1px #000000; width: 24.379%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">&#160;</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 3px #000000; width: 7.946%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px; background-color: Transparent;">
+<p class="Tabletext">30</p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 3px #000000; width: 7.946%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext"><a href="Numeric_keys_locking.htm">Numeric keys locking</a></p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 3px #000000; width: 4.577%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">1</p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 3px #000000; width: 6.398%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">PLC to HMI</p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 3px #000000; width: 9.873%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px; vertical-align: center;">
+<p class="Tabletext" style="text-align: center;"><img src="X_small.bmp" alt="" style="border: none;" width="19" height="14" border="0"></p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 3px #000000; width: 33.977%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">Locks the number keys</p>
+</td>
+<td style="border-bottom: Solid 3px #000000; width: 24.379%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">&#160;</p>
+</td>
+</tr>
+</table>
+<h4>&#160;</h4>
+<h4><a name="unsupportedFunction" id="unsupportedFunction"></a><img src="square.bmp" alt="" style="border: none;" width="12" height="10" border="0">Unsupported Functions</h4>
+<p>Unsupported functions are listed in the following table.</p>
+<p><img src="Limit.bmp" alt="" style="border: none;" width="77" height="24" border="0"></p>
+<ul>
+<li class="p-NoteText">
+<p class="NoteText">Vijeo-Designer lists all XBTL1000 Dialog Table functions, even the unsupported XBTL1000 Dialog Table functions. Unsupported functions are shown in red in the Dialog Table and become available when the Include XBTL featured functions check box is selected. Vijeo Designer allows you to add these unsupported functions to your dialog table so you can match the HMI project's dialog table to the PLC's dialog table.</p>
+</li>
+</ul>
+<p>For information on the functions not supported by Vijeo-Designer, see the XBTL1000 help system.</p>
+<table style="vertical-align: top;" cellspacing="0" width="47.423%">
+<col style="width: 100%;">
+<tr style="vertical-align: top;">
+<td style="border-top: Solid 3px #000000; border-bottom: Solid 1px #000000; width: 100%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#91AFD9">
+<p class="Tabletitle"><a name="Unsupported" id="Unsupported"></a>Unsupported Functions</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-bottom: Solid 1px #000000; width: 100%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">Number of last alarm acknowledged</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-bottom: Solid 1px #000000; width: 100%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">Last Groups of alarms acknowledged</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-bottom: Solid 1px #000000; width: 100%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">Graphs plotting performed</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-bottom: Solid 1px #000000; width: 100%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">Print command</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-bottom: Solid 1px #000000; width: 100%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">Activating graphs plotting</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-bottom: Solid 1px #000000; width: 100%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">Alarm table</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-bottom: Solid 3px #000000; width: 100%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">Free format print table</p>
+</td>
+</tr>
+</table>
+<div style="width: 100%; position: relative;" id="footer">
+	<p>&#160;</p>
+</div>
+</body>
+</html>

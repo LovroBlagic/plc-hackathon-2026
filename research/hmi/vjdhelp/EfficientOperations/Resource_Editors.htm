@@ -1,0 +1,1109 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+<meta name="template" content="Vijeo_template.htt">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="topic-status" content="In Progress">
+<meta name="topic-priority" content="0">
+<meta name="topic-time-estimate" content="0">
+<meta name="topic-comment" content="">
+<meta name="topic-id" content="Resource Editors">
+<meta name="window-type" content="$global_NewWindow">
+ <meta name="generator" content="Adobe RoboHelp 10">
+<title>Resource Editors (Color, Text, Image)</title>
+<link rel="StyleSheet" href="Tis-styl.css" type="text/css">
+</head>
+<body>
+<script type="text/javascript" src="ehlpdhtm.js" language="JavaScript1.2"></script>
+
+<div style="width: 100%; position: relative;" id="header">
+	<table style="background-attachment: scroll; margin-left: 0px; margin-right: 4px; 
+			 background-image: url(top_banner.bmp); background-repeat: Repeat-X; 
+			 line-height: 0pt; vertical-align: top;" cellspacing="0" width="100%" 
+			 background="top_banner.bmp">
+		<col style="width: 90%;">
+		<col style="width: 5%;">
+		<col style="width: 5%;">
+		<tr style="vertical-align: center; height: 39px;">
+			<td style="width: 90%; padding-right: 10px; padding-left: 10px; 
+				 border-right-color: #000000;">
+   <p><img src="logo.bmp" style="border: none;" alt="" width="37" height="37" border="0"></p></td>
+			<td style="width: 5%; padding-right: 0px; padding-left: 10px; 
+				 border-right-color: #000000;">
+   <p style="text-align: center;"><a 
+			 title="Glossary" href="Appendix.chm::/Glossary.htm"><img src="logo_glossary.bmp" style="border: none;" alt="" width="47" height="37" border="0"></a></p></td>
+			<td style="width: 5%; padding-right: 10px; padding-left: 5px; 
+				 border-right-color: #000000;">
+   <p style="text-align: center;"><a 
+			 href="About.chm::/What_is_Vijeo-Designer.htm" title="Home"><img src="logo_home.bmp" alt="Home" title="Home" style="border: none; 
+			 margin-left: 0px; margin-right: 0px; margin-bottom: 0px; margin-top: -2px;" width="47" height="37" border="0"></a></p></td>
+		</tr>
+	</table>
+</div>
+
+<h2>21.1.2 Resource Editors (Color, Text, Image)</h2>
+<p>The Color, Text, and Image Resource editors display a list of the resource names (ID) in the Resource Library alongside a table that displays the states and properties of objects associated with the current resource.</p>
+<p>An example of the Color Resource editor with colors for the switch, lamp, and meter is shown below.</p>
+<p class="Image"><img src="Color_Resource_Editor.bmp" style="border: none;" alt="" width="790" height="367" border="0"></p>
+<p>Color, Text and Image resources can be used in Switches, Lamps, Message Displays, Meters, Bar Graphs, and Selectors. Additionally, Color resources can be used in Data Displays and Color Animation.</p>
+<p>When setting up:</p>
+<ul>
+<li class="p-Bullet">
+<p class="Bullet">Color resources, you can set up the text color, frame color, and other color settings for when objects are in the Invalid state, state 0, state 1, up to every state in the object.</p>
+</li>
+<li class="p-Bullet">
+<p class="Bullet">Text resources, you can define the message and font for each state. If the target is set up with multiple languages, you can define messages and fonts for each state in every language.</p>
+</li>
+<li class="p-Bullet">
+<p class="Bullet">Image resources, you can define an image for each state.</p>
+</li>
+</ul>
+<p>When drawing objects that support the use of resources, you can select any of the color, text, or image resources that are defined and listed in the Resource Library.</p>
+<p>For information on how to configure resources, see Section 21.1.5, <a href="Working_with_Resources.htm">Working with Resources</a>.</p>
+<h3><a name="Toolbar642b3b9347ca42c9b00b820c00c373fa=1"></a><a name="Toolbar" id="Toolbar"></a>21.1.2.1 Resource Toolbar</h3>
+<p>You can use the icons at the top of the resource editor to run most resource operations.</p>
+<p class="Image"><img src="Resource_Editor_Toolbar.bmp" style="border: none;" alt="" width="390" height="24" border="0"></p>
+<table style="vertical-align: top; margin-left: 40px;" cellspacing="0" width="94.749%">
+<col style="width: 5%;">
+<col style="width: 15.816%;">
+<col style="width: 77.678%;">
+<tr style="vertical-align: top;">
+<td style="border-top: Solid 3px #000000; border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 5%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#91AFD9">
+<p class="Tabletitle">Icon</p>
+</td>
+<td style="border-top: Solid 3px #000000; border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 15.816%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#91AFD9">
+<p class="Tabletitle">Name</p>
+</td>
+<td style="border-top: Solid 3px #000000; border-bottom: Solid 1px #000000; width: 77.678%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#91AFD9">
+<p class="Tabletitle">Description</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 5%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#CBD9ED">
+<p class="Tabletext"><img src="Resource_ResourceProperties_Icon.bmp" style="border: none;" alt="" width="25" height="24" border="0"></p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 15.816%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">Resource Properties</p>
+</td>
+<td style="border-bottom: Solid 1px #000000; width: 77.678%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">Displays the Resource Properties dialog box where you can change the resource settings.</p>
+<p class="Tabletext"><img src="Resource_ResourceProperties_dialogbox.bmp" style="border: none;" alt="" width="348" height="333" border="0"></p>
+<p class="Tabletext">&#160;</p>
+<p class="Tabletext"><img src="NOTE_MOJI.BMP" style="border: none;" alt="" width="51" height="25" border="0"></p>
+<ul>
+<li class="p-NoteText">
+<p class="NoteText">If a check box is disabled, then the resource does not apply for that option.</p>
+</li>
+</ul>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 5%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#CBD9ED">
+<p class="Tabletext"><img src="Resource_NewResource_Icon-parts.bmp" style="border: none;" alt="" width="25" height="24" border="0"></p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 15.816%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">New Resource</p>
+</td>
+<td style="border-bottom: Solid 1px #000000; width: 77.678%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">Adds a new resource to the resource editor and displays the New Resource dialog box.</p>
+<p class="Tabletext">For information about adding resources, see Section 21.1.5.1, <a href="Creating_Resources.htm">Creating Resources</a>.</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 5%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#CBD9ED">
+<p class="Tabletext"><img src="Resource_DeleteResource_Icon.bmp" style="border: none;" alt="" width="25" height="24" border="0"></p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 15.816%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">Delete Resource</p>
+</td>
+<td style="border-bottom: Solid 1px #000000; width: 77.678%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">Deletes the selected resource from the resource editor.</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 5%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#CBD9ED">
+<p class="Tabletext"><img src="Resource_ImportResource_Icon.bmp" style="border: none;" alt="" width="25" height="24" border="0"></p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 15.816%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">Import Resource</p>
+</td>
+<td style="border-bottom: Solid 1px #000000; width: 77.678%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">Imports the selected resource into the Resource Library.</p>
+<p class="Tabletext">&#160;</p>
+<p class="Tabletext">For information about exporting and importing resource files, see Section 21.1.5.11, <a href="Copying_Resources_Between_Targets_and_Projects.htm">Copying Resources Between Targets and Projects</a>.</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 5%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#CBD9ED">
+<p class="Tabletext"><img src="Resource_ExportResource_Icon.bmp" style="border: none;" alt="" width="25" height="24" border="0"></p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 15.816%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">Export Resource</p>
+</td>
+<td style="border-bottom: Solid 1px #000000; width: 77.678%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">Exports the selected resource to a file.</p>
+<p class="Tabletext">&#160;</p>
+<p class="Tabletext">You can import the exported resource file into other targets or other projects. For information about exporting and importing resource files, see Section 21.1.5.11, <a href="Copying_Resources_Between_Targets_and_Projects.htm">Copying Resources Between Targets and Projects</a>.</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 5%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#CBD9ED">
+<p class="Tabletext"><img src="Resource_ResourceShowAll_Icon.bmp" style="border: none;" alt="" width="25" height="24" border="0"></p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 15.816%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">Show All</p>
+</td>
+<td style="border-bottom: Solid 1px #000000; width: 77.678%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">Displays all the resources in the current resource library, and the states and properties supported by the resource.</p>
+<p class="Tabletext">For a list of states and properties for each object, see <a href="#ResourceStatesAndProperties">Resource States and Properties</a>.</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 5%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#CBD9ED">
+<p class="Tabletext"><img src="Resource_ColorAnim_Icon.bmp" style="border: none;" alt="" width="23" height="23" border="0"></p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 15.816%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">Color Animation Filter</p>
+</td>
+<td style="border-bottom: Solid 1px #000000; width: 77.678%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">This filter displays resources that support Color Animation, and the states and properties supported by Color Animation.</p>
+<p class="Tabletext">For a list of resource states and properties for Color Animation, see <a href="#ResourceStatesAndProperties">Resource States and Properties</a>.</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 5%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#CBD9ED">
+<p class="Tabletext"><img src="Resource_Switch_Icon.bmp" style="border: none;" alt="" width="23" height="23" border="0"></p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 15.816%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">Switch Filter</p>
+</td>
+<td style="border-bottom: Solid 1px #000000; width: 77.678%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">This filter displays resources that support Switches/Radios, and the states and properties supported by Switches/Radios.</p>
+<p class="Tabletext">For a list of resource states and properties for Switches/Radios, see <a href="#ResourceStatesAndProperties">Resource States and Properties</a>.</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 5%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#CBD9ED">
+<p class="Tabletext"><img src="Resource_Lamp_Icon.bmp" style="border: none;" alt="" width="23" height="23" border="0"></p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 15.816%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">Lamp Filter</p>
+</td>
+<td style="border-bottom: Solid 1px #000000; width: 77.678%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">This filter displays resources that support Lamps/N-State Lamps, and the states and properties supported by Lamps/N-State Lamps.</p>
+<p class="Tabletext">For a list of resource states and properties for Lamps/N-State Lamps, see <a href="#ResourceStatesAndProperties">Resource States and Properties</a>.</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 5%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#CBD9ED">
+<p class="Tabletext"><img src="Resource_DataDisp_Icon.bmp" style="border: none;" alt="" width="23" height="23" border="0"></p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 15.816%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">Data Display Filter</p>
+</td>
+<td style="border-bottom: Solid 1px #000000; width: 77.678%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">This filter displays resources that supports numeric, string, date, and time displays and the states and properties supported by Data Displays.</p>
+<p class="Tabletext">For a list of resource states and properties for Data Displays, see <a href="#ResourceStatesAndProperties">Resource States and Properties</a>.</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 5%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#CBD9ED">
+<p class="Tabletext"><img src="Resource_ResourceListFilter_Icon.bmp" style="border: none;" alt="" width="25" height="24" border="0"></p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 15.816%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">Message Display/Events Filter</p>
+</td>
+<td style="border-bottom: Solid 1px #000000; width: 77.678%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">This filter displays resources that support Message, Events and Image Displays, and the states and properties supported by Message, Events and Image Displays.</p>
+<p class="Tabletext">For a list of resource states and properties for Message, Events and Image Displays, see <a href="#ResourceStatesAndProperties">Resource States and Properties</a>.</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 5%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#CBD9ED">
+<p class="Tabletext"><img src="Resource_ResourceMeterFilter_Icon.bmp" style="border: none;" alt="" width="25" height="24" border="0"></p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 15.816%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">Meter Filter</p>
+</td>
+<td style="border-bottom: Solid 1px #000000; width: 77.678%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">This filter displays resources that support the Meter, and the states and properties supported by the Meter.</p>
+<p class="Tabletext">For a list of resource states and properties for the Meter, see <a href="#ResourceStatesAndProperties">Resource States and Properties</a>.</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 5%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#CBD9ED">
+<p class="Tabletext"><img src="Resource_ResourceBarFilter_Icon.bmp" style="border: none;" alt="" width="25" height="24" border="0"></p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 15.816%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">Bar Filter</p>
+</td>
+<td style="border-bottom: Solid 1px #000000; width: 77.678%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">This filter displays resources that support the Bar Graph, and the states and properties supported by the Bar Graph.</p>
+<p class="Tabletext">For a list of resource states and properties for the Bar Graph, see <a href="#ResourceStatesAndProperties">Resource States and Properties</a>.</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 5%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#CBD9ED">
+<p class="Tabletext"><img src="Resource_ResourceSelector_Icon.bmp" style="border: none;" alt="" width="25" height="24" border="0"></p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 15.816%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">Selector Filter</p>
+</td>
+<td style="border-bottom: Solid 1px #000000; width: 77.678%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">This filter displays resources that support the Selector, and the states and properties supported by the Selector.</p>
+<p class="Tabletext">For a list of resource states and properties for the Selector, see <a href="#ResourceStatesAndProperties">Resource States and Properties</a>.</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 5%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#CBD9ED">
+<p class="Tabletext"><img src="Resource_ResourceAddState_Icon.bmp" style="border: none;" alt="" width="25" height="24" border="0"></p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 15.816%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">New State</p>
+</td>
+<td style="border-bottom: Solid 1px #000000; width: 77.678%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">Adds a new state to the resource.</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 3px #000000; width: 5%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#CBD9ED">
+<p class="Tabletext"><img src="Resource_ResourceDeleteState_Icon.bmp" style="border: none;" alt="" width="25" height="24" border="0"></p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 3px #000000; width: 15.816%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">Delete State</p>
+</td>
+<td style="border-bottom: Solid 3px #000000; width: 77.678%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">Removes the current numbered state from the resource. Select the row number to remove that state.</p>
+</td>
+</tr>
+</table>
+<p>&#160;</p>
+<h3><a name="ResourceStatesAndProperties642b3b9347ca42c9b00b820c00c373fa=2"></a><a name="ResourceStatesAndProperties" id="ResourceStatesAndProperties"></a>21.1.2.2 Resource States and Properties</h3>
+<p>When configuring the states and properties for the resource, keep in mind that each resource defines different ranges of states and different sets of properties for different objects.</p>
+<p>States and properties may operate differently for different objects. Refer to the topic of the associated object for information about a particular state or property.</p>
+<h4><img src="Square.bmp" style="border: none;" alt="" width="12" height="10" border="0">States</h4>
+<p>The following table identifies the states that you can add to a resource. Numbered states can be added and deleted; named states such as Invalid and Normal are always defined for the object.</p>
+<table style="vertical-align: top; margin-bottom: 10px; margin-left: 40px;" cellspacing="0" width="500">
+<col style="width: 45%;">
+<col style="width: 15%;">
+<col style="width: 15%;">
+<col style="width: 15%;">
+<tr style="vertical-align: top;">
+<td rowspan="2" style="border-top: Solid 3px #000000; border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 45%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#91AFD9">
+<p class="Tabletitle">Object</p>
+</td>
+<td colspan="3" style="border-top: Solid 3px #000000; border-bottom: Solid 1px #000000; width: 45%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#91AFD9">
+<p class="Tabletitle" style="text-align: center;">States Supported by Resource</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 15%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#91AFD9">
+<p class="Tabletitle">Color</p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 15%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#91AFD9">
+<p class="Tabletitle">Text</p>
+</td>
+<td style="border-bottom: Solid 1px #000000; width: 15%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#91AFD9">
+<p class="Tabletitle">Image</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 45%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#CBD9ED">
+<p class="Tabletext">Message Display<br>
+Message Display/Events</p>
+<p class="Tabletext">Image Display</p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 15%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">0 to 254</p>
+<p class="Tabletext">Invalid</p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 15%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">0 to 254</p>
+<p class="Tabletext">Invalid</p>
+</td>
+<td style="border-bottom: Solid 1px #000000; width: 15%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">0 to 254</p>
+<p class="Tabletext">Invalid</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 45%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#CBD9ED">
+<p class="Tabletext">Meter</p>
+<p class="Tabletext">Bar Graph</p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 15%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">Min</p>
+<p class="Tabletext">LoLo</p>
+<p class="Tabletext">Lo</p>
+<p class="Tabletext">Normal</p>
+<p class="Tabletext">Hi</p>
+<p class="Tabletext">HiHi</p>
+<p class="Tabletext">Max</p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 15%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">0 to 31</p>
+</td>
+<td style="border-bottom: Solid 1px #000000; width: 15%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">Normal</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 45%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#CBD9ED">
+<p class="Tabletext">Selector</p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 15%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">Normal</p>
+<p class="Tabletext">Invalid</p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 15%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">0 to 32</p>
+</td>
+<td style="border-bottom: Solid 1px #000000; width: 15%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">Normal</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 45%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#CBD9ED">
+<p class="Tabletext">Data Display</p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 15%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">LoLo</p>
+<p class="Tabletext">Lo</p>
+<p class="Tabletext">Normal</p>
+<p class="Tabletext">Hi</p>
+<p class="Tabletext">HiHi</p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 15%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#808080">
+<p class="Tabletext">&#160;</p>
+</td>
+<td style="border-bottom: Solid 1px #000000; width: 15%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#808080">
+<p class="Tabletext">&#160;</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 45%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#CBD9ED">
+<p class="Tabletext">Color Animation</p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 15%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">Invalid</p>
+<p class="Tabletext">On</p>
+<p class="Tabletext">Off</p>
+<p class="Tabletext">0 to 31</p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 15%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#808080">
+<p class="Tabletext">&#160;</p>
+</td>
+<td style="border-bottom: Solid 1px #000000; width: 15%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#808080">
+<p class="Tabletext">&#160;</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 45%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#CBD9ED">
+<p class="Tabletext">Switch</p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 15%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">Off</p>
+<p class="Tabletext">On</p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 15%; padding-right: 10px; padding-left: 10px; background-color: Transparent; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">Off</p>
+<p class="Tabletext">On</p>
+</td>
+<td style="border-bottom: Solid 1px #000000; width: 15%; padding-right: 10px; padding-left: 10px; background-color: Transparent; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">Off/Up</p>
+<p class="Tabletext">Off/Down</p>
+<p class="Tabletext">On/Up</p>
+<p class="Tabletext">On/Down</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 3px #000000; width: 45%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#CBD9ED">
+<p class="Tabletext">Lamp</p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 3px #000000; width: 15%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">Invalid</p>
+<p class="Tabletext">Off</p>
+<p class="Tabletext">On</p>
+<p class="Tabletext">0 to 31</p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 3px #000000; width: 15%; padding-right: 10px; padding-left: 10px; background-color: Transparent; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">Invalid</p>
+<p class="Tabletext">Off</p>
+<p class="Tabletext">On</p>
+<p class="Tabletext">0 to 31</p>
+</td>
+<td style="border-bottom: Solid 3px #000000; width: 15%; padding-right: 10px; padding-left: 10px; background-color: Transparent; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">Invalid</p>
+<p class="Tabletext">Off</p>
+<p class="Tabletext">On</p>
+<p class="Tabletext">0 to 31</p>
+</td>
+</tr>
+</table>
+<p>Message Display/Image Display: Resources can define values for states 0 to 254, in addition to the invalid state.</p>
+<p>Meter/Bar Graph: Color resources can define values for the Min, LoLo, Lo, Normal, Hi, HiHi, and Max states; Text Resources can define values for positions (states) 0 to 31; Image resource defines the value for the Normal state.</p>
+<p>Selector: Color resources can define values for a Selector's Invalid and Normal states; Text resources can define values for positions (states) 0 to 31; Image resource defines the value for the Normal state.</p>
+<p>Data Display: Color resources can define values for the LoLo, Lo, Normal, Hi, and HiHi states.</p>
+<p>Color Animation: Color resources can define values for Invalid, On, Off, and 0-255.</p>
+<h4><img src="Square.bmp" style="border: none;" alt="" width="12" height="10" border="0">Properties</h4>
+<p>When a property is defined in a resource, it's shared with objects supported by that resource.</p>
+<p>The following tables show which properties are shared between objects.</p>
+<p><img src="Check_small.bmp" style="border: none;" alt="" width="17" height="14" border="0"> Used by the object &#160;<img src="X_small.bmp" style="border: none;" alt="" width="19" height="14" border="0"> Not used</p>
+<h5>Color Resource</h5>
+<table style="vertical-align: top; margin-bottom: 10px; margin-left: 40px;" cellspacing="0" width="99.649%">
+<col style="width: 18.505%;">
+<col style="width: 17.078%;">
+<col style="width: 9.985%;">
+<col style="width: 8.821%;">
+<col style="width: 8.487%;">
+<col style="width: 7.217%;">
+<col style="width: 9.745%;">
+<col style="width: 10.082%;">
+<col style="width: 10.082%;">
+<tr style="vertical-align: top;">
+<td rowspan="2" style="border-top: Solid 3px #000000; border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 18.505%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#91AFD9">
+<p class="Tabletitle">Properties Supported by Color Resource</p>
+</td>
+<td colspan="8" style="border-top: Solid 3px #000000; border-bottom: Solid 1px #000000; width: 81.497%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#91AFD9">
+<p class="Tabletitle" style="text-align: center;">Objects</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 17.078%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletitle" style="text-align: center;">Message Display<span style="text-align: center;"><br>
+(Message and Image)</span></p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 9.985%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletitle" style="text-align: center;">Meter or Bar Graph</p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 8.821%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletitle" style="text-align: center;">Selector</p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 8.487%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletitle" style="text-align: center;">Data Display</p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 7.217%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletitle" style="text-align: center;">Switch</p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 9.745%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletitle" style="text-align: center;">Lamp</p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 10.082%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletitle" style="text-align: center;">Text</p>
+</td>
+<td style="border-bottom: Solid 1px #000000; width: 10.082%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletitle" style="text-align: center;">Color Animation</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 18.505%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#CBD9ED">
+<p class="TableDefinitions">Text</p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 17.078%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext" style="text-align: center;"><img src="Check_small.bmp" style="border: none;" alt="" width="17" height="14" border="0"></p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 9.985%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext" style="text-align: center;"><img src="Check_small.bmp" style="border: none;" alt="" width="17" height="14" border="0"></p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 8.821%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext" style="text-align: center;"><img src="Check_small.bmp" style="border: none;" alt="" width="17" height="14" border="0"></p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 8.487%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext" style="text-align: center;"><img src="Check_small.bmp" style="border: none;" alt="" width="17" height="14" border="0"></p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 7.217%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext" style="text-align: center;"><img src="Check_small.bmp" style="border: none;" alt="" width="17" height="14" border="0"></p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 9.745%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext" style="text-align: center;"><img src="Check_small.bmp" style="border: none;" alt="" width="17" height="14" border="0"></p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 10.082%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext" style="text-align: center;"><img src="X_small.bmp" style="border: none;" alt="" width="19" height="14" border="0"></p>
+</td>
+<td style="border-bottom: Solid 1px #000000; width: 10.082%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext" style="text-align: center;"><img src="X_small.bmp" style="border: none;" alt="" width="19" height="14" border="0"></p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 18.505%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#CBD9ED">
+<p class="TableDefinitions">3D</p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 17.078%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext" style="text-align: center;"><img src="Check_small.bmp" style="border: none;" alt="" width="17" height="14" border="0"></p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 9.985%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext" style="text-align: center;"><img src="Check_small.bmp" style="border: none;" alt="" width="17" height="14" border="0"></p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 8.821%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext" style="text-align: center;"><img src="Check_small.bmp" style="border: none;" alt="" width="17" height="14" border="0"></p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 8.487%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext" style="text-align: center;"><img src="Check_small.bmp" style="border: none;" alt="" width="17" height="14" border="0"></p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 7.217%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext" style="text-align: center;"><img src="Check_small.bmp" style="border: none;" alt="" width="17" height="14" border="0"></p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 9.745%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext" style="text-align: center;"><img src="Check_small.bmp" style="border: none;" alt="" width="17" height="14" border="0"></p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 10.082%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext" style="text-align: center;"><img src="X_small.bmp" style="border: none;" alt="" width="19" height="14" border="0"></p>
+</td>
+<td style="border-bottom: Solid 1px #000000; width: 10.082%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext" style="text-align: center;"><img src="X_small.bmp" style="border: none;" alt="" width="19" height="14" border="0"></p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 18.505%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#CBD9ED">
+<p class="TableDefinitions">Blink</p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 17.078%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext" style="text-align: center;"><img src="Check_small.bmp" style="border: none;" alt="" width="17" height="14" border="0"></p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 9.985%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext" style="text-align: center;"><img src="Check_small.bmp" style="border: none;" alt="" width="17" height="14" border="0"></p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 8.821%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext" style="text-align: center;"><img src="Check_small.bmp" style="border: none;" alt="" width="17" height="14" border="0"></p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 8.487%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext" style="text-align: center;"><img src="Check_small.bmp" style="border: none;" alt="" width="17" height="14" border="0"></p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 7.217%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext" style="text-align: center;"><img src="X_small.bmp" style="border: none;" alt="" width="19" height="14" border="0"></p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 9.745%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext" style="text-align: center;"><img src="Check_small.bmp" style="border: none;" alt="" width="17" height="14" border="0"></p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 10.082%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext" style="text-align: center;"><img src="X_small.bmp" style="border: none;" alt="" width="19" height="14" border="0"></p>
+</td>
+<td style="border-bottom: Solid 1px #000000; width: 10.082%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext" style="text-align: center;"><img src="X_small.bmp" style="border: none;" alt="" width="19" height="14" border="0"></p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 18.505%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#CBD9ED">
+<p class="TableDefinitions">Indicator</p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 17.078%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext" style="text-align: center;"><img src="X_small.bmp" style="border: none;" alt="" width="19" height="14" border="0"></p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 9.985%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext" style="text-align: center;"><img src="Check_small.bmp" style="border: none;" alt="" width="17" height="14" border="0"></p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 8.821%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext" style="text-align: center;"><img src="Check_small.bmp" style="border: none;" alt="" width="17" height="14" border="0"></p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 8.487%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext" style="text-align: center;"><img src="X_small.bmp" style="border: none;" alt="" width="19" height="14" border="0"></p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 7.217%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext" style="text-align: center;"><img src="X_small.bmp" style="border: none;" alt="" width="19" height="14" border="0"></p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 9.745%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext" style="text-align: center;"><img src="X_small.bmp" style="border: none;" alt="" width="19" height="14" border="0"></p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 10.082%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext" style="text-align: center;"><img src="X_small.bmp" style="border: none;" alt="" width="19" height="14" border="0"></p>
+</td>
+<td style="border-bottom: Solid 1px #000000; width: 10.082%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext" style="text-align: center;"><img src="X_small.bmp" style="border: none;" alt="" width="19" height="14" border="0"></p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 18.505%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#CBD9ED">
+<p class="TableDefinitions">Indicator Background</p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 17.078%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext" style="text-align: center;"><img src="X_small.bmp" style="border: none;" alt="" width="19" height="14" border="0"></p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 9.985%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext" style="text-align: center;"><img src="X_small.bmp" style="border: none;" alt="" width="19" height="14" border="0"></p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 8.821%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext" style="text-align: center;"><img src="Check_small.bmp" style="border: none;" alt="" width="17" height="14" border="0"></p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 8.487%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext" style="text-align: center;"><img src="X_small.bmp" style="border: none;" alt="" width="19" height="14" border="0"></p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 7.217%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext" style="text-align: center;"><img src="X_small.bmp" style="border: none;" alt="" width="19" height="14" border="0"></p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 9.745%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext" style="text-align: center;"><img src="X_small.bmp" style="border: none;" alt="" width="19" height="14" border="0"></p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 10.082%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext" style="text-align: center;"><img src="X_small.bmp" style="border: none;" alt="" width="19" height="14" border="0"></p>
+</td>
+<td style="border-bottom: Solid 1px #000000; width: 10.082%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext" style="text-align: center;"><img src="X_small.bmp" style="border: none;" alt="" width="19" height="14" border="0"></p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 18.505%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#CBD9ED">
+<p class="TableDefinitions">Scale</p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 17.078%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext" style="text-align: center;"><img src="X_small.bmp" style="border: none;" alt="" width="19" height="14" border="0"></p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 9.985%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext" style="text-align: center;"><img src="Check_small.bmp" style="border: none;" alt="" width="17" height="14" border="0"></p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 8.821%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext" style="text-align: center;"><img src="Check_small.bmp" style="border: none;" alt="" width="17" height="14" border="0"></p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 8.487%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext" style="text-align: center;"><img src="X_small.bmp" style="border: none;" alt="" width="19" height="14" border="0"></p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 7.217%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext" style="text-align: center;"><img src="X_small.bmp" style="border: none;" alt="" width="19" height="14" border="0"></p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 9.745%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext" style="text-align: center;"><img src="X_small.bmp" style="border: none;" alt="" width="19" height="14" border="0"></p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 10.082%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext" style="text-align: center;"><img src="X_small.bmp" style="border: none;" alt="" width="19" height="14" border="0"></p>
+</td>
+<td style="border-bottom: Solid 1px #000000; width: 10.082%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext" style="text-align: center;"><img src="X_small.bmp" style="border: none;" alt="" width="19" height="14" border="0"></p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 18.505%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#CBD9ED">
+<p class="TableDefinitions">Warning</p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 17.078%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext" style="text-align: center;"><img src="X_small.bmp" style="border: none;" alt="" width="19" height="14" border="0"></p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 9.985%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext" style="text-align: center;"><img src="Check_small.bmp" style="border: none;" alt="" width="17" height="14" border="0"></p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 8.821%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext" style="text-align: center;"><img src="X_small.bmp" style="border: none;" alt="" width="19" height="14" border="0"></p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 8.487%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext" style="text-align: center;"><img src="X_small.bmp" style="border: none;" alt="" width="19" height="14" border="0"></p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 7.217%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext" style="text-align: center;"><img src="X_small.bmp" style="border: none;" alt="" width="19" height="14" border="0"></p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 9.745%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext" style="text-align: center;"><img src="X_small.bmp" style="border: none;" alt="" width="19" height="14" border="0"></p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 10.082%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext" style="text-align: center;"><img src="X_small.bmp" style="border: none;" alt="" width="19" height="14" border="0"></p>
+</td>
+<td style="border-bottom: Solid 1px #000000; width: 10.082%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext" style="text-align: center;"><img src="X_small.bmp" style="border: none;" alt="" width="19" height="14" border="0"></p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 18.505%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#CBD9ED">
+<p class="TableDefinitions">Frame</p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 17.078%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext" style="text-align: center;"><img src="Check_small.bmp" style="border: none;" alt="" width="17" height="14" border="0"></p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 9.985%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext" style="text-align: center;"><img src="Check_small.bmp" style="border: none;" alt="" width="17" height="14" border="0"></p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 8.821%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext" style="text-align: center;"><img src="Check_small.bmp" style="border: none;" alt="" width="17" height="14" border="0"></p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 8.487%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext" style="text-align: center;"><img src="Check_small.bmp" style="border: none;" alt="" width="17" height="14" border="0"></p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 7.217%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext" style="text-align: center;"><img src="Check_small.bmp" style="border: none;" alt="" width="17" height="14" border="0"></p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 9.745%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext" style="text-align: center;"><img src="Check_small.bmp" style="border: none;" alt="" width="17" height="14" border="0"></p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 10.082%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext" style="text-align: center;"><img src="Check_small.bmp" style="border: none;" alt="" width="17" height="14" border="0"></p>
+</td>
+<td style="border-bottom: Solid 1px #000000; width: 10.082%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext" style="text-align: center;"><img src="Check_small.bmp" style="border: none;" alt="" width="17" height="14" border="0"></p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 18.505%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#CBD9ED">
+<p class="TableDefinitions">Plate</p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 17.078%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext" style="text-align: center;"><img src="Check_small.bmp" style="border: none;" alt="" width="17" height="14" border="0"></p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 9.985%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext" style="text-align: center;"><img src="Check_small.bmp" style="border: none;" alt="" width="17" height="14" border="0"></p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 8.821%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext" style="text-align: center;"><img src="Check_small.bmp" style="border: none;" alt="" width="17" height="14" border="0"></p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 8.487%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext" style="text-align: center;"><img src="Check_small.bmp" style="border: none;" alt="" width="17" height="14" border="0"></p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 7.217%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext" style="text-align: center;"><img src="X_small.bmp" style="border: none;" alt="" width="19" height="14" border="0"></p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 9.745%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext" style="text-align: center;"><img src="X_small.bmp" style="border: none;" alt="" width="19" height="14" border="0"></p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 10.082%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext" style="text-align: center;"><img src="X_small.bmp" style="border: none;" alt="" width="19" height="14" border="0"></p>
+</td>
+<td style="border-bottom: Solid 1px #000000; width: 10.082%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext" style="text-align: center;"><img src="X_small.bmp" style="border: none;" alt="" width="19" height="14" border="0"></p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 18.505%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#CBD9ED">
+<p class="TableDefinitions">Fore</p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 17.078%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext" style="text-align: center;"><img src="X_small.bmp" style="border: none;" alt="" width="19" height="14" border="0"></p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 9.985%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext" style="text-align: center;"><img src="X_small.bmp" style="border: none;" alt="" width="19" height="14" border="0"></p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 8.821%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext" style="text-align: center;"><img src="X_small.bmp" style="border: none;" alt="" width="19" height="14" border="0"></p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 8.487%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext" style="text-align: center;"><img src="X_small.bmp" style="border: none;" alt="" width="19" height="14" border="0"></p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 7.217%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext" style="text-align: center;"><img src="Check_small.bmp" style="border: none;" alt="" width="17" height="14" border="0"></p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 9.745%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext" style="text-align: center;"><img src="Check_small.bmp" style="border: none;" alt="" width="17" height="14" border="0"></p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 10.082%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext" style="text-align: center;"><img src="Check_small.bmp" style="border: none;" alt="" width="17" height="14" border="0"></p>
+</td>
+<td style="border-bottom: Solid 1px #000000; width: 10.082%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext" style="text-align: center;"><img src="Check_small.bmp" style="border: none;" alt="" width="17" height="14" border="0"></p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 18.505%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#CBD9ED">
+<p class="TableDefinitions">Back</p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 17.078%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext" style="text-align: center;"><img src="X_small.bmp" style="border: none;" alt="" width="19" height="14" border="0"></p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 9.985%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext" style="text-align: center;"><img src="X_small.bmp" style="border: none;" alt="" width="19" height="14" border="0"></p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 8.821%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext" style="text-align: center;"><img src="X_small.bmp" style="border: none;" alt="" width="19" height="14" border="0"></p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 8.487%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext" style="text-align: center;"><img src="X_small.bmp" style="border: none;" alt="" width="19" height="14" border="0"></p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 7.217%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext" style="text-align: center;"><img src="Check_small.bmp" style="border: none;" alt="" width="17" height="14" border="0"></p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 9.745%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext" style="text-align: center;"><img src="Check_small.bmp" style="border: none;" alt="" width="17" height="14" border="0"></p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 10.082%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext" style="text-align: center;"><img src="Check_small.bmp" style="border: none;" alt="" width="17" height="14" border="0"></p>
+</td>
+<td style="border-bottom: Solid 1px #000000; width: 10.082%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext" style="text-align: center;"><img src="Check_small.bmp" style="border: none;" alt="" width="17" height="14" border="0"></p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 3px #000000; width: 18.505%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#CBD9ED">
+<p class="TableDefinitions">Pattern</p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 3px #000000; width: 17.078%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext" style="text-align: center;"><img src="X_small.bmp" style="border: none;" alt="" width="19" height="14" border="0"></p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 3px #000000; width: 9.985%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext" style="text-align: center;"><img src="X_small.bmp" style="border: none;" alt="" width="19" height="14" border="0"></p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 3px #000000; width: 8.821%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext" style="text-align: center;"><img src="X_small.bmp" style="border: none;" alt="" width="19" height="14" border="0"></p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 3px #000000; width: 8.487%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext" style="text-align: center;"><img src="X_small.bmp" style="border: none;" alt="" width="19" height="14" border="0"></p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 3px #000000; width: 7.217%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext" style="text-align: center;"><img src="Check_small.bmp" style="border: none;" alt="" width="17" height="14" border="0"></p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 3px #000000; width: 9.745%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext" style="text-align: center;"><img src="Check_small.bmp" style="border: none;" alt="" width="17" height="14" border="0"></p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 3px #000000; width: 10.082%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext" style="text-align: center;"><img src="X_small.bmp" style="border: none;" alt="" width="19" height="14" border="0"></p>
+</td>
+<td style="border-bottom: Solid 3px #000000; width: 10.082%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext" style="text-align: center;"><img src="Check_small.bmp" style="border: none;" alt="" width="17" height="14" border="0"></p>
+</td>
+</tr>
+</table>
+<h5>Text Resource</h5>
+<table style="vertical-align: top; margin-bottom: 10px; margin-left: 40px;" cellspacing="0" width="74.086%">
+<col style="width: 25.008%;">
+<col style="width: 23.268%;">
+<col style="width: 12.635%;">
+<col style="width: 12.871%;">
+<col style="width: 12.975%;">
+<col style="width: 13.243%;">
+<tr style="vertical-align: top;">
+<td rowspan="2" style="border-top: Solid 3px #000000; border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 25.008%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#91AFD9">
+<p class="Tabletitle">Properties Supported by Text Resource</p>
+</td>
+<td colspan="5" style="border-top: Solid 3px #000000; border-bottom: Solid 1px #000000; width: 74.992%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#91AFD9">
+<p class="Tabletitle" style="text-align: center;">Objects</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 23.268%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletitle" style="text-align: center;">Message Display/Events</p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 12.635%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletitle" style="text-align: center;">Meter or Bar Graph</p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 12.871%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletitle" style="text-align: center;">Switch</p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 12.975%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletitle" style="text-align: center;">Lamp</p>
+</td>
+<td style="border-bottom: Solid 1px #000000; width: 13.243%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletitle" style="text-align: center;">Selector</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 25.008%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#CBD9ED">
+<p class="TableDefinitions">Integer Value<span style="vertical-align: Super; font-size: xx-small;">*1</span></p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 23.268%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext" style="text-align: center;"><img src="Check_small.bmp" style="border: none;" alt="" width="17" height="14" border="0"></p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 12.635%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext" style="text-align: center;"><img src="X_small.bmp" style="border: none;" alt="" width="19" height="14" border="0"></p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 12.871%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext" style="text-align: center;"><img src="X_small.bmp" style="border: none;" alt="" width="19" height="14" border="0"></p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 12.975%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext" style="text-align: center;"><img src="X_small.bmp" style="border: none;" alt="" width="19" height="14" border="0"></p>
+</td>
+<td style="border-bottom: Solid 1px #000000; width: 13.243%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext" style="text-align: center;"><img src="X_small.bmp" style="border: none;" alt="" width="19" height="14" border="0"></p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 25.008%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#CBD9ED">
+<p class="TableDefinitions">String Value<span style="vertical-align: Super; font-size: xx-small;">*1</span></p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 23.268%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext" style="text-align: center;"><img src="Check_small.bmp" style="border: none;" alt="" width="17" height="14" border="0"></p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 12.635%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext" style="text-align: center;"><img src="X_small.bmp" style="border: none;" alt="" width="19" height="14" border="0"></p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 12.871%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext" style="text-align: center;"><img src="X_small.bmp" style="border: none;" alt="" width="19" height="14" border="0"></p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 12.975%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext" style="text-align: center;"><img src="X_small.bmp" style="border: none;" alt="" width="19" height="14" border="0"></p>
+</td>
+<td style="border-bottom: Solid 1px #000000; width: 13.243%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext" style="text-align: center;"><img src="X_small.bmp" style="border: none;" alt="" width="19" height="14" border="0"></p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 25.008%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#CBD9ED">
+<p class="TableDefinitions">Label<span style="vertical-align: Super; font-size: xx-small;">*2</span></p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 23.268%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext" style="text-align: center;"><img src="Check_small.bmp" style="border: none;" alt="" width="17" height="14" border="0"></p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 12.635%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext" style="text-align: center;"><img src="Check_small.bmp" style="border: none;" alt="" width="17" height="14" border="0"></p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 12.871%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext" style="text-align: center;"><img src="Check_small.bmp" style="border: none;" alt="" width="17" height="14" border="0"></p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 12.975%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext" style="text-align: center;"><img src="Check_small.bmp" style="border: none;" alt="" width="17" height="14" border="0"></p>
+</td>
+<td style="border-bottom: Solid 1px #000000; width: 13.243%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext" style="text-align: center;"><img src="Check_small.bmp" style="border: none;" alt="" width="17" height="14" border="0"></p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 3px #000000; width: 25.008%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#CBD9ED">
+<p class="TableDefinitions">Font Name<span style="vertical-align: Super; font-size: xx-small;">*3</span></p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 3px #000000; width: 23.268%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext" style="text-align: center;"><img src="Check_small.bmp" style="border: none;" alt="" width="17" height="14" border="0"></p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 3px #000000; width: 12.635%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext" style="text-align: center;"><img src="Check_small.bmp" style="border: none;" alt="" width="17" height="14" border="0"></p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 3px #000000; width: 12.871%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext" style="text-align: center;"><img src="Check_small.bmp" style="border: none;" alt="" width="17" height="14" border="0"></p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 3px #000000; width: 12.975%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext" style="text-align: center;"><img src="Check_small.bmp" style="border: none;" alt="" width="17" height="14" border="0"></p>
+</td>
+<td style="border-bottom: Solid 3px #000000; width: 13.243%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext" style="text-align: center;"><img src="Check_small.bmp" style="border: none;" alt="" width="17" height="14" border="0"></p>
+</td>
+</tr>
+</table>
+<p style="line-height: Normal;"><span style="font-size: xx-small; vertical-align: Super;">*1</span> When the Text Resource is associated with the Message Display part, the Data Type defines whether to use integer types or string variables. If you want a Boolean variable to control the animation:</p>
+<ul>
+<li class="p-Bullet">
+<p class="Bullet">In the Message Display/Events properties, select the Boolean variable and two states.</p>
+</li>
+<li class="p-Bullet">
+<p class="Bullet">In the Resource properties, set Index Type to Integer Types.</p>
+</li>
+</ul>
+<p style="line-height: Normal;"><span style="font-size: xx-small; vertical-align: Super;">*2</span> When the user application is set up with multiple languages, Label is replaced by the user language name.</p>
+<p style="line-height: Normal; vertical-align: Super; font-size: xx-small;">*3 <span style="font-size: 10pt;">When using the Text Resource for Events, the Font Name property is not applicable.</span></p>
+<h5>Image Resource</h5>
+<table style="vertical-align: top; margin-bottom: 10px; margin-left: 40px;" cellspacing="0" width="74.842%">
+<col style="width: 24.558%;">
+<col style="width: 23.245%;">
+<col style="width: 13.331%;">
+<col style="width: 12.721%;">
+<col style="width: 12.722%;">
+<col style="width: 13.422%;">
+<tr style="vertical-align: top;">
+<td rowspan="2" style="border-top: Solid 3px #000000; border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 24.558%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#91AFD9">
+<p class="Tabletitle">Properties Supported by Image Resource</p>
+</td>
+<td colspan="5" style="border-top: Solid 3px #000000; border-bottom: Solid 1px #000000; width: 75.441%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#91AFD9">
+<p class="Tabletitle" style="text-align: center;">Objects</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 23.245%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletitle" style="text-align: center;">List (Message and Image)</p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 13.331%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletitle" style="text-align: center;">Meter or Bar Graph</p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 12.721%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletitle" style="text-align: center;">Switch</p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 12.722%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletitle" style="text-align: center;">Lamp</p>
+</td>
+<td style="border-bottom: Solid 1px #000000; width: 13.422%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletitle" style="text-align: center;">Selector</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 24.558%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#CBD9ED">
+<p class="TableDefinitions">Integer Value<span style="vertical-align: Super; font-size: xx-small;">*1</span></p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 23.245%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext" style="text-align: center;"><img src="Check_small.bmp" style="border: none;" alt="" width="17" height="14" border="0"></p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 13.331%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext" style="text-align: center;"><img src="X_small.bmp" style="border: none;" alt="" width="19" height="14" border="0"></p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 12.721%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext" style="text-align: center;"><img src="X_small.bmp" style="border: none;" alt="" width="19" height="14" border="0"></p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 12.722%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext" style="text-align: center;"><img src="X_small.bmp" style="border: none;" alt="" width="19" height="14" border="0"></p>
+</td>
+<td style="border-bottom: Solid 1px #000000; width: 13.422%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext" style="text-align: center;"><img src="X_small.bmp" style="border: none;" alt="" width="19" height="14" border="0"></p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 24.558%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#CBD9ED">
+<p class="TableDefinitions">String Value<span style="vertical-align: Super; font-size: xx-small;">*1</span></p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 23.245%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext" style="text-align: center;"><img src="Check_small.bmp" style="border: none;" alt="" width="17" height="14" border="0"></p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 13.331%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext" style="text-align: center;"><img src="X_small.bmp" style="border: none;" alt="" width="19" height="14" border="0"></p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 12.721%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext" style="text-align: center;"><img src="X_small.bmp" style="border: none;" alt="" width="19" height="14" border="0"></p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 12.722%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext" style="text-align: center;"><img src="X_small.bmp" style="border: none;" alt="" width="19" height="14" border="0"></p>
+</td>
+<td style="border-bottom: Solid 1px #000000; width: 13.422%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext" style="text-align: center;"><img src="X_small.bmp" style="border: none;" alt="" width="19" height="14" border="0"></p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 24.558%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#CBD9ED">
+<p class="TableDefinitions">Image</p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 23.245%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext" style="text-align: center;"><img src="Check_small.bmp" style="border: none;" alt="" width="17" height="14" border="0"></p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 13.331%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext" style="text-align: center;"><img src="Check_small.bmp" style="border: none;" alt="" width="17" height="14" border="0"></p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 12.721%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext" style="text-align: center;"><img src="Check_small.bmp" style="border: none;" alt="" width="17" height="14" border="0"></p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 12.722%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext" style="text-align: center;"><img src="Check_small.bmp" style="border: none;" alt="" width="17" height="14" border="0"></p>
+</td>
+<td style="border-bottom: Solid 1px #000000; width: 13.422%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext" style="text-align: center;"><img src="Check_small.bmp" style="border: none;" alt="" width="17" height="14" border="0"></p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 24.558%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#CBD9ED">
+<p class="TableDefinitions">Blink</p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 23.245%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext" style="text-align: center;"><img src="Check_small.bmp" style="border: none;" alt="" width="17" height="14" border="0"></p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 13.331%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext" style="text-align: center;"><img src="X_small.bmp" style="border: none;" alt="" width="19" height="14" border="0"></p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 12.721%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext" style="text-align: center;"><img src="X_small.bmp" style="border: none;" alt="" width="19" height="14" border="0"></p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 12.722%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext" style="text-align: center;"><img src="X_small.bmp" style="border: none;" alt="" width="19" height="14" border="0"></p>
+</td>
+<td style="border-bottom: Solid 1px #000000; width: 13.422%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext" style="text-align: center;"><img src="X_small.bmp" style="border: none;" alt="" width="19" height="14" border="0"></p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 3px #000000; width: 24.558%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#CBD9ED">
+<p class="TableDefinitions">Transparent Color</p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 3px #000000; width: 23.245%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext" style="text-align: center;"><img src="Check_small.bmp" style="border: none;" alt="" width="17" height="14" border="0"></p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 3px #000000; width: 13.331%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext" style="text-align: center;"><img src="Check_small.bmp" style="border: none;" alt="" width="17" height="14" border="0"></p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 3px #000000; width: 12.721%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext" style="text-align: center;"><img src="Check_small.bmp" style="border: none;" alt="" width="17" height="14" border="0"></p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 3px #000000; width: 12.722%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext" style="text-align: center;"><img src="Check_small.bmp" style="border: none;" alt="" width="17" height="14" border="0"></p>
+</td>
+<td style="border-bottom: Solid 3px #000000; width: 13.422%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext" style="text-align: center;"><img src="Check_small.bmp" style="border: none;" alt="" width="17" height="14" border="0"></p>
+</td>
+</tr>
+</table>
+<p style="line-height: Normal;"><span style="vertical-align: Super; font-size: xx-small;">*1</span> When the Image Resource is associated with the Image Display part, the Data Type defines whether to use integer or string variables.</p>
+</body>
+</html>

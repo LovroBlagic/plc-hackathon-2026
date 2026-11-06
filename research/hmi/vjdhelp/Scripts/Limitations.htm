@@ -1,0 +1,277 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+<meta name="template" content="Vijeo_template.htt">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="date" content="08 9, 2003 11:54:23 AM">
+<meta name="topic-status" content="In Progress">
+<meta name="topic-priority" content="0">
+<meta name="topic-time-estimate" content="0">
+<meta name="topic-comment" content="">
+<meta name="topic-id" content="Limitations.htm">
+<meta name="window-type" content="$global_NewWindow">
+ <meta name="generator" content="Adobe RoboHelp 10">
+<title>Key Points</title>
+<link rel="StyleSheet" href="TIS-STYL.CSS" type="text/css">
+</head>
+<body>
+<script type="text/javascript" src="ehlpdhtm.js" language="JavaScript1.2"></script>
+
+<div style="width: 100%; position: relative;" id="header">
+	<table style="background-attachment: scroll; margin-left: 0px; margin-right: 4px; 
+			 background-image: url(top_banner.bmp); background-repeat: Repeat-X; 
+			 line-height: 0pt; vertical-align: top;" cellspacing="0" width="100%" 
+			 background="top_banner.bmp">
+		<col style="width: 90%;">
+		<col style="width: 5%;">
+		<col style="width: 5%;">
+		<tr style="vertical-align: center; height: 39px;">
+			<td style="width: 90%; padding-right: 10px; padding-left: 10px; 
+				 border-right-color: #000000;">
+   <p><img src="logo.bmp" style="border: none;" alt="" width="37" height="37" border="0"></p></td>
+			<td style="width: 5%; padding-right: 0px; padding-left: 10px; 
+				 border-right-color: #000000;">
+   <p style="text-align: center;"><a 
+			 title="Glossary" href="Appendix.chm::/Glossary.htm"><img src="logo_glossary.bmp" style="border: none;" alt="" width="47" height="37" border="0"></a></p></td>
+			<td style="width: 5%; padding-right: 10px; padding-left: 5px; 
+				 border-right-color: #000000;">
+   <p style="text-align: center;"><a 
+			 href="About.chm::/What_is_Vijeo-Designer.htm" title="Home"><img src="logo_home.bmp" alt="Home" title="Home" style="border: none; 
+			 margin-left: 0px; margin-right: 0px; margin-bottom: 0px; margin-top: -2px;" width="47" height="37" border="0"></a></p></td>
+		</tr>
+	</table>
+</div>
+
+<h2>18.3.4 Key Points</h2>
+<p>Keep in mind the following key points when writing scripts:</p>
+<p>&#160;</p>
+<h3>Dangerous Situations</h3>
+<ul>
+<li class="p-Bullet">
+<p class="Bullet">Do not use scripts in applications that may affect human life or in other scenarios that may be considered dangerous.</p>
+</li>
+</ul>
+<h3>&#160;</h3>
+<h3>String, StringBuffer, and Java Primitive Arrays</h3>
+<ul>
+<li class="p-Bullet">
+<p class="Bullet">Do not create String or StringBuffer objects or Java primitive arrays that occupy huge amounts of space in memory. For example, if you write the following script, a lot of space in memory will become occupied and could cause Vijeo-Designer Runtime to halt operations.</p>
+</li>
+</ul>
+<p class="Code" style="margin-left: 80px;">int a[] = new int[30000]; <span style="color: #008000;">// Occupies 120K in memory</span></p>
+<p class="Bullet">&#160;</p>
+<h3>Accessing elements in Arrays</h3>
+<ul>
+<li class="p-Bullet">
+<p class="Bullet">Avoid indirectly accessing elements in Vijeo Designer array variables.</p>
+</li>
+</ul>
+
+<p class="Code" style="margin-left: 80px;">int a = 10;</p>
+
+<p class="code" style="margin-left: 80px;">Array01[a].getIntValue(); <span style="color: #008000;">// Avoid indirect array elements</span></p>
+<p class="code" style="margin-left: 80px; color: #008000;">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;// This call loads into memory the entire</p>
+<p class="code" style="margin-left: 80px; color: #008000;">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;// Vijeo-Designer variable array</p>
+<p class="code" style="margin-left: 80px;">&#160;</p>
+<p class="Bullet" style="margin-left: 40px;">When indirectly accessing elements in Vijeo-Designer array variables, the entire array is loaded into memory. If the array is very large (e.g. 1000 elements), the array will occupy huge amounts of memory and force the target machine to slow down.</p>
+<p class="Bullet" style="margin-left: 40px;">To avoid this memory problem, use a constant to define the array element.</p>
+<p class="code" style="margin-left: 80px;">Array01[10].getIntValue();<span style="color: #008000;">// Constant value for array element</span></p>
+<p class="Bullet">&#160;</p>
+<h3>Action Frequency and Scheduling</h3>
+<ul>
+<li class="p-Bullet">
+<p class="Bullet">Actions set up with the same Frequency and same Scheduling run in the same thread.</p>
+</li>
+</ul>
+<p class="Bullet" style="margin-left: 40px;">For example, if a project contains 5 actions with these properties:</p>
+<table style="vertical-align: top; margin-left: 40px;" cellspacing="0">
+<col width="145">
+<col width="145">
+<col width="145">
+<col width="145">
+<col width="145">
+<col width="145">
+<tr style="vertical-align: top;">
+<td style="border-top: Solid 3px #000000; border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#91AFD9" width="145">
+<p class="Tabletitle">Name</p>
+</td>
+<td style="border-top: Solid 3px #000000; border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#91AFD9" width="145">
+<p class="Tabletitle">Action01</p>
+</td>
+<td style="border-top: Solid 3px #000000; border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#91AFD9" width="145">
+<p class="Tabletitle">Action02</p>
+</td>
+<td style="border-top: Solid 3px #000000; border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#91AFD9" width="145">
+<p class="Tabletitle">Action03</p>
+</td>
+<td style="border-top: Solid 3px #000000; border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#91AFD9" width="145">
+<p class="Tabletitle">Action04</p>
+</td>
+<td style="border-top: Solid 3px #000000; border-bottom: Solid 1px #000000; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#91AFD9" width="145">
+<p class="Tabletitle">Action05</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#CBD9ED" width="145">
+<p class="TableDefinitions">Trigger</p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" width="145">
+<p class="Tabletext">Periodic</p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" width="145">
+<p class="Tabletext">Periodic</p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" width="145">
+<p class="Tabletext">Periodic</p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" width="145">
+<p class="Tabletext">Periodic</p>
+</td>
+<td style="border-bottom: Solid 1px #000000; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" width="145">
+<p class="Tabletext">Periodic</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#CBD9ED" width="145">
+<p class="TableDefinitions">Frequency</p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" width="145">
+<p class="Tabletext">1.0</p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" width="145">
+<p class="Tabletext">1.0</p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" width="145">
+<p class="Tabletext">1.0</p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" width="145">
+<p class="Tabletext">2.0</p>
+</td>
+<td style="border-bottom: Solid 1px #000000; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" width="145">
+<p class="Tabletext">2.0</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 3px #000000; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#CBD9ED" width="145">
+<p class="TableDefinitions">Scheduling</p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 3px #000000; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" width="145">
+<p class="Tabletext">Monitored</p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 3px #000000; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" width="145">
+<p class="Tabletext">Monitored</p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 3px #000000; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" width="145">
+<p class="Tabletext">Normal</p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 3px #000000; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" width="145">
+<p class="Tabletext">Normal</p>
+</td>
+<td style="border-bottom: Solid 3px #000000; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" width="145">
+<p class="Tabletext">Normal</p>
+</td>
+</tr>
+</table>
+<p class="Bullet" style="margin-left: 40px; margin-top: 9pt;">A total of 3 threads are created at runtime.</p>
+<p class="Bullet" style="margin-left: 40px; margin-top: 0pt;">1. Action01 and Action02 run in the same thread because their Frequency and Scheduling are the same.<br>
+2. Action03 runs in a separate thread because its Scheduling is different from scripts in Thread 1, and Frequency is different from scripts in Thread 3.<br>
+3. Action04 and Action05 run in the same thread because their Frequency and Scheduling are the same.</p>
+<p class="NoteImage" style="margin-left: 40px;"><img src="Limit.bmp" style="border: none;" alt="" width="77" height="24" border="0"></p>
+<ul>
+<li class="p-NoteText2">
+<p class="NoteText2">When multiple actions &#160;run in the same thread, a delay in one can cause a delay in others.</p>
+</li>
+</ul>
+<ul>
+<li class="p-Bullet">
+<p class="Bullet">When using scripts in actions, be careful to not set a trigger type that makes the script run repeatedly like an infinite loop. For example, a script that is triggered to run immediately after it executes may cause some target machines to stop responding.</p>
+</li>
+</ul>
+<h3>&#160;</h3>
+<h3>Loops</h3>
+<ul>
+<li class="p-Bullet">
+<p class="Bullet">When using loops (do-while, for, while), do not create infinite loops. Infinite loops cannot be caught at validation and cause the target machine to crash or stop responding as more and more memory is used by the script.</p>
+</li>
+<li class="p-Bullet">
+<p class="Bullet">When using loops (do-while, for, while), and the script takes too long to complete, the system will abruptly terminate the script. Touch type scripts, such as Touch animation and Touch Action scripts, terminate after two seconds. Event type scripts, such as On Startup and Conditional scripts, terminate after five seconds.</p>
+</li>
+</ul>
+<h3>&#160;</h3>
+<h3>NULL Return Values</h3>
+<ul>
+<li class="p-Bullet">
+<p class="Bullet">Some Vijeo Designer script methods and Java methods may return NULL. You must account for this possibility. In your scripts, include code to check your return values for NULL and to account for NULL return values.</p>
+</li>
+</ul>
+<h3>&#160;</h3>
+<h3>Java Language Compatibility with Vijeo Designer Scripts</h3>
+<ul>
+<li class="p-Bullet">
+<p class="Bullet">The Vijeo-Designer scripting language is based on Java™. As a result, you cannot use Java keywords as object or script names. Other Java syntax rules also apply.</p>
+</li>
+</ul>
+<ul>
+<li class="p-bullet2">
+<p class="bullet2">The Vijeo-Designer scripting language is case-sensitive. This includes: Vijeo-Designer object names, variable names, method calls, keywords, and so on. That means <span style="font-weight: bold; font-family: 'Courier New', monospace;">Int01</span> is not the same as <span style="font-weight: bold; font-family: 'Courier New', monospace;">int01</span>. And <span style="font-weight: bold; font-family: 'Courier New', monospace;">Int01.getIntValue()</span> is not the same as <span style="font-weight: bold; font-family: 'Courier New', monospace;">Int01.getintvalue()</span>.</p>
+</li>
+</ul>
+<ol>
+<li style="list-style:none;display: inline">
+<ul>
+<li class="p-Bullet">
+<p class="Bullet">When working with decimal numbers, type <span style="font-weight: bold;">0.1234</span> (not <span style="font-weight: bold;">.1234</span>).</p>
+</li>
+<li class="p-Bullet">
+<p class="Bullet">When working with decimal numbers, type a period [ <span style="font-weight: bold;">.</span> ] to denote a decimal point <span style="font-weight: bold;">0.1234</span>. Other methods of denoting the decimal point, such as the comma [ <span style="font-weight: bold;">,</span> ] used in many European countries, are not accepted. In other words, the value <span style="font-weight: bold;">0,1234</span> will not pass validation.</p>
+</li>
+<li class="p-Bullet">
+<p class="Bullet">Local script variables must be initialized before they're used in the script, especially when used in a comparison. Even if the variable is assumed to be 0, you must assign a 0 value to the variable before it can be used, otherwise building of the user application may fail.</p>
+</li>
+</ul>
+</li>
+</ol>
+<p class="Code" style="margin-left: 120px;">integer a, b=0; <span style="color: #008000;">// a is not initialized</span></p>
+<p class="Code" style="margin-left: 120px;">if ( a==0 ) &#160;&#160;&#160;&#160;<span style="color: #008000;">// cannot build</span></p>
+<p class="Code" style="margin-left: 120px;">if ( b==0 ) &#160;&#160;&#160;&#160;<span style="color: #008000;">// build successful</span></p>
+<ul>
+<li style="list-style:none;display: inline">
+<ul>
+<li class="p-Bullet">
+<p class="Bullet">Semi-colons mark the end of statements. Enclose expressions in parentheses.</p>
+</li>
+<li class="p-Bullet">
+<p class="Bullet">Assigning values from one data type to another may cause loss of data. Vijeo-Designer scripts will prevent you from doing this unless you typecast the values.</p>
+</li>
+</ul>
+</li>
+</ul>
+
+<p class="Code" style="margin-left: 120px;">int c = 0; double d = 0.0;</p>
+
+<p class="Code" style="margin-left: 120px;">c = d; &#160;&#160;&#160;&#160;&#160;<span style="color: #008000;">// will not validate</span></p>
+<p class="Code" style="margin-left: 120px;">c = (int)d; <span style="color: #008000;">// validate successful</span></p>
+<p class="Code" style="margin-left: 120px;">&#160;</p>
+<p style="margin-left: 80px;">In scripts, fractional values are of type double. As a result, if you are using floats, typecast fractional values assigned to a float.</p>
+<p class="Code" style="margin-left: 120px;">float a = 0.0; &#160;&#160;&#160;&#160;&#160;&#160;&#160;<span style="color: #008000;">// will not validate</span></p>
+<p class="Code" style="margin-left: 120px;">float b = (float)0.0; <span style="color: #008000;">// validate successful</span></p>
+<ul>
+<li class="p-bullet2">
+<p class="bullet2">Fractional values in scripts support double precision; Vijeo-Designer variables support single precision. When writing a double to a Vijeo-Designer REAL variable, behind the scenes the script typecasts the value to a float, which may cause loss of data and precision.</p>
+</li>
+</ul>
+
+<p class="Code" style="margin-left: 120px;">double d = Math.sin(90);</p>
+
+<p class="Code" style="margin-left: 120px;">Float01.write( d );</p>
+
+<p class="Code" style="margin-left: 120px; color: #008000;">// d is typecasted</p>
+<p class="Code" style="margin-left: 120px;"><span style="color: #008000;">// REAL01.write( float(d) );</span></p>
+<ul>
+<li class="p-bullet2">
+<p class="bullet2">The maximum size of Java objects is 64KB. As a result, huge scripts (such as 1000+ lines) overflow the stack and cause the application to fail.</p>
+</li>
+</ul>
+</body>
+</html>

@@ -1,0 +1,487 @@
+<html>
+<!-- Sitemap 1.0 -->
+<object type="text/site properties">
+  <param name="SiteType" value="index">
+</object>
+<ul>
+  <li><object type="text/sitemap">
+    <param name="Name" value="@prevstat">
+    <param name="Name" value="Viewing Communication Statistics">
+    <param name="Local" value="Viewing_Communication_Statistics.htm">
+    <param name="Name" value="Setting Up the Network#Setting_Up_the_Network_for_Dual_LAN_Usage">
+    <param name="Local" value="network.htm#Setting_Up_the_Network_for_Dual_LAN_Usage">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="@stat">
+    <param name="Name" value="Viewing Communication Statistics">
+    <param name="Local" value="Viewing_Communication_Statistics.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Statistics">
+    <param name="Name" value="Viewing Communication Statistics">
+    <param name="Local" value="Viewing_Communication_Statistics.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Communication Statistics">
+    <param name="Name" value="Viewing Communication Statistics">
+    <param name="Local" value="Viewing_Communication_Statistics.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Runtime Configuration Menu">
+    <param name="See Also" value="Runtime Configuration Menu">
+  </object>
+  <ul>
+    <li><object type="text/sitemap">
+      <param name="Name" value="Offline">
+      <param name="Name" value="Runtime Configuration Menu Items">
+      <param name="Local" value="Configuration_Menu_Settings.htm">
+    </object>
+    </ul>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Black/White">
+    <param name="Name" value="Setting Black/White Invert for Monochrome, Grayscale, and Amber Displays (Optional)">
+    <param name="Local" value="options.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Brightness At Run Time">
+    <param name="Name" value="Setting Up Brightness and Contrast">
+    <param name="Local" value="brightcontrast.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Contrast At Run Time">
+    <param name="Name" value="Setting Up Brightness and Contrast">
+    <param name="Local" value="brightcontrast.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Buzzer At Run Time">
+    <param name="Name" value="Setting Up the Buzzer">
+    <param name="Local" value="buzzer.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Changing Languages At Run Time">
+    <param name="Name" value="Setting Up Languages">
+    <param name="Local" value="lang.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Configuration Menu">
+    <param name="Name" value="Configuration Menu">
+    <param name="Local" value="Configuration_Menu.htm">
+  </object>
+  <ul>
+    <li><object type="text/sitemap">
+      <param name="Name" value="Diagnostics">
+      <param name="Name" value="Diagnostics Menu Items">
+      <param name="Local" value="Diagnostics_Menu_Items.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="System">
+      <param name="Name" value="System Configuration Menu Items">
+      <param name="Local" value="System_Configuration_Menu_Items.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="Offline">
+      <param name="Name" value="Runtime Configuration Menu Items">
+      <param name="Local" value="Configuration_Menu_Settings.htm">
+    </object>
+    </ul>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Configuration Menu Items">
+    <param name="Name" value="Runtime Configuration Menu Items">
+    <param name="Local" value="Configuration_Menu_Settings.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Configuration Switch (Display Configuration Menu)">
+    <param name="Name" value="Displaying the Runtime Configuration Menu#Switch">
+    <param name="Local" value="Displaying_the_Configuration_Menu.htm#Switch">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Date At Run Time">
+    <param name="Name" value="Setting Up the Date/Time">
+    <param name="Local" value="DateTime.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Displaying Memory Usage At Run Time">
+    <param name="Name" value="Displaying Memory">
+    <param name="Local" value="memory.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Displaying the Configuration Menu">
+    <param name="Name" value="Displaying the Runtime Configuration Menu">
+    <param name="Local" value="Displaying_the_Configuration_Menu.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Hardware Test">
+    <param name="Name" value="Setting Up Self-Test">
+    <param name="Local" value="test.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Languages At Run Time">
+    <param name="Name" value="Setting Up Languages">
+    <param name="Local" value="lang.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Memory Usage At Run Time">
+    <param name="Name" value="Displaying Memory">
+    <param name="Local" value="memory.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Monochrome">
+    <param name="Name" value="Setting Black/White Invert for Monochrome, Grayscale, and Amber Displays (Optional)">
+    <param name="Local" value="options.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Offline Menu">
+    <param name="Name" value="Configuration Menu">
+    <param name="Local" value="Configuration_Menu.htm">
+  </object>
+  <ul>
+    <li><object type="text/sitemap">
+      <param name="Name" value="System">
+      <param name="Name" value="System Configuration Menu Items">
+      <param name="Local" value="System_Configuration_Menu_Items.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="Diagnostics">
+      <param name="Name" value="Diagnostics Menu Items">
+      <param name="Local" value="Diagnostics_Menu_Items.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="Offline">
+      <param name="Name" value="Runtime Configuration Menu Items">
+      <param name="Local" value="Configuration_Menu_Settings.htm">
+    </object>
+    </ul>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Restarting Runtime">
+    <param name="Name" value="Restarting the System">
+    <param name="Local" value="restart.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Self-Test">
+    <param name="Name" value="Setting Up Self-Test">
+    <param name="Local" value="test.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Setting Brightness At Run Time">
+    <param name="Name" value="Setting Up Brightness and Contrast">
+    <param name="Local" value="brightcontrast.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Setting IP Address At Run Time">
+    <param name="Name" value="Setting Up the Network">
+    <param name="Local" value="network.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="System Language At Run Time">
+    <param name="Name" value="Setting Up Languages">
+    <param name="Local" value="lang.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Test Hardware">
+    <param name="Name" value="Setting UP the Power Supply for COM1 Port (Optional)">
+    <param name="Local" value="COM.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Top-Left Corner (Display Configuration Menu)">
+    <param name="Name" value="Displaying the Runtime Configuration Menu#Top_Left_Corner_of_the_Panel">
+    <param name="Local" value="Displaying_the_Configuration_Menu.htm#Top_Left_Corner_of_the_Panel">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Version Information At Run Time">
+    <param name="Name" value="Displaying Version Information">
+    <param name="Local" value="verinfo.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Backlight">
+    <param name="Name" value="Setting Up Backlight Control">
+    <param name="Local" value="backlight.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="XBTGT, Runtime Configuration Menu">
+    <param name="Name" value="Configuration Menu">
+    <param name="Local" value="Configuration_Menu.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Restarting the Target Machine">
+    <param name="Name" value="Restarting the System">
+    <param name="Local" value="restart.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Target Machine, Restarting">
+    <param name="Name" value="Restarting the System">
+    <param name="Local" value="restart.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="XBTGT, Restarting the Target Machine">
+    <param name="Name" value="Restarting the System">
+    <param name="Local" value="restart.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Version">
+    <param name="Name" value="Displaying Version Information">
+    <param name="Local" value="verinfo.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="XBTGT, Run-time Version">
+    <param name="Name" value="Displaying Version Information">
+    <param name="Local" value="verinfo.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Languages">
+    <param name="Name" value="Setting Up Languages">
+    <param name="Local" value="lang.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Serial Port, COM1 Port As Power Supply">
+    <param name="Name" value="Setting UP the Power Supply for COM1 Port (Optional)">
+    <param name="Local" value="COM.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="User Application Language">
+    <param name="Name" value="Setting Up Languages">
+    <param name="Local" value="lang.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="System Language">
+    <param name="Name" value="Setting Up Languages">
+    <param name="Local" value="lang.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Displaying Memory">
+    <param name="Name" value="Displaying Memory">
+    <param name="Local" value="memory.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="XBTGT, Memory">
+    <param name="Name" value="Displaying Memory">
+    <param name="Local" value="memory.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="DRAM Memory">
+    <param name="Name" value="Displaying Memory">
+    <param name="Local" value="memory.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Invert Black/White">
+    <param name="Name" value="Setting Black/White Invert for Monochrome, Grayscale, and Amber Displays (Optional)">
+    <param name="Local" value="options.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Monochrome Display, Invert Black/White">
+    <param name="Name" value="Setting Black/White Invert for Monochrome, Grayscale, and Amber Displays (Optional)">
+    <param name="Local" value="options.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Reverse">
+    <param name="Name" value="Setting Black/White Invert for Monochrome, Grayscale, and Amber Displays (Optional)">
+    <param name="Local" value="options.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Grayscale Display, Invert Black/White">
+    <param name="Name" value="Setting Black/White Invert for Monochrome, Grayscale, and Amber Displays (Optional)">
+    <param name="Local" value="options.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Amber Display, Invert Black/White">
+    <param name="Name" value="Setting Black/White Invert for Monochrome, Grayscale, and Amber Displays (Optional)">
+    <param name="Local" value="options.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Changing the Brightness">
+    <param name="Name" value="Setting Up Brightness and Contrast">
+    <param name="Local" value="brightcontrast.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="COM1 Port As Power Supply">
+    <param name="Name" value="Setting UP the Power Supply for COM1 Port (Optional)">
+    <param name="Local" value="COM.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Power Supply, COM1 Port">
+    <param name="Name" value="Setting UP the Power Supply for COM1 Port (Optional)">
+    <param name="Local" value="COM.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="XBTGT, COM1 Port As Power Supply">
+    <param name="Name" value="Setting UP the Power Supply for COM1 Port (Optional)">
+    <param name="Local" value="COM.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Stylus">
+    <param name="Name" value="Adjusting the Stylus">
+    <param name="Local" value="stylus.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Adjusting the Stylus">
+    <param name="Name" value="Adjusting the Stylus">
+    <param name="Local" value="stylus.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Touch, Stylus">
+    <param name="Name" value="Adjusting the Stylus">
+    <param name="Local" value="stylus.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Pointer, Stylus">
+    <param name="Name" value="Adjusting the Stylus">
+    <param name="Local" value="stylus.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Testing Equipment Variables">
+    <param name="Name" value="Testing Variables Assigned to Equipment">
+    <param name="Local" value="Testing_Variables_Equipment.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Equipment, Testing Variables Assigned To">
+    <param name="Name" value="Testing Variables Assigned to Equipment">
+    <param name="Local" value="Testing_Variables_Equipment.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Device, Testing Variables Assigned To">
+    <param name="Name" value="Testing Variables Assigned to Equipment">
+    <param name="Local" value="Testing_Variables_Equipment.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Web Gate, Configuration">
+    <param name="Name" value="Changing Web Gate Access">
+    <param name="Local" value="Web_Gate_Access.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Sound Configuration">
+    <param name="Name" value="Changing Sound and Video Settings">
+    <param name="Local" value="Multimedia_Sound_and_Video_Settings.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Video Configuration">
+    <param name="Name" value="Changing Sound and Video Settings">
+    <param name="Local" value="Multimedia_Sound_and_Video_Settings.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Diagnostics">
+    <param name="Name" value="Diagnostics Menu Items">
+    <param name="Local" value="Diagnostics_Menu_Items.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="System Configuration Menu">
+    <param name="Name" value="System Configuration Menu Items">
+    <param name="Local" value="System_Configuration_Menu_Items.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="iPC, Runtime Configuration Menu">
+    <param name="See Also" value="iPC, Runtime Configuration Menu">
+  </object>
+  <ul>
+    <li><object type="text/sitemap">
+      <param name="Name" value="Offline">
+      <param name="Name" value="Runtime Configuration Menu Items">
+      <param name="Local" value="Configuration_Menu_Settings.htm">
+    </object>
+    </ul>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Changing communication settings at run time">
+    <param name="Name" value="Changing I/O Manager Communication Settings">
+    <param name="Local" value="IO_Mgr_Com_Settings.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Communication, Changing settings at run time">
+    <param name="Name" value="Changing I/O Manager Communication Settings">
+    <param name="Local" value="IO_Mgr_Com_Settings.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Equipment, Changing communication settings at run time">
+    <param name="Name" value="Changing I/O Manager Communication Settings">
+    <param name="Local" value="IO_Mgr_Com_Settings.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Device Drivers, Changing communication settings at run time">
+    <param name="Name" value="Changing I/O Manager Communication Settings">
+    <param name="Local" value="IO_Mgr_Com_Settings.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="PLC, Changing communication settings at run time">
+    <param name="Name" value="Changing I/O Manager Communication Settings">
+    <param name="Local" value="IO_Mgr_Com_Settings.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Driver Configuration">
+    <param name="See Also" value="Driver Configuration">
+  </object>
+  <ul>
+    <li><object type="text/sitemap">
+      <param name="Name" value="Changing at run time">
+      <param name="Name" value="Changing I/O Manager Communication Settings">
+      <param name="Local" value="IO_Mgr_Com_Settings.htm">
+    </object>
+    </ul>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Equipment Configuration">
+    <param name="See Also" value="Equipment Configuration">
+  </object>
+  <ul>
+    <li><object type="text/sitemap">
+      <param name="Name" value="Changing at run time">
+      <param name="Name" value="Changing I/O Manager Communication Settings">
+      <param name="Local" value="IO_Mgr_Com_Settings.htm">
+    </object>
+    </ul>
+  <li><object type="text/sitemap">
+    <param name="Name" value="I/O Manager, Changing settings at run time">
+    <param name="Name" value="Changing I/O Manager Communication Settings">
+    <param name="Local" value="IO_Mgr_Com_Settings.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="DHCP">
+    <param name="Name" value="Setting Up the Network#DHCP">
+    <param name="Local" value="network.htm#DHCP">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="DNS">
+    <param name="Name" value="Setting Up the Network#DNS_Settings">
+    <param name="Local" value="network.htm#DNS_Settings">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="MAC Address">
+    <param name="Name" value="Setting Up the Network#MAC_Address">
+    <param name="Local" value="network.htm#MAC_Address">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Time Zone">
+    <param name="Name" value="Setting Up the Date/Time">
+    <param name="Local" value="DateTime.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Daylight Saving Time">
+    <param name="Name" value="Setting Up the Date/Time">
+    <param name="Local" value="DateTime.htm">
+    <param name="WindowName" value="$global_NewWindow">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Time Adjustment (Daylight Saving Time)">
+    <param name="Name" value="Setting Up the Date/Time">
+    <param name="Local" value="DateTime.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Host Name">
+    <param name="See Also" value="Host Name">
+  </object>
+  <ul>
+    <li><object type="text/sitemap">
+      <param name="Name" value="Configuring at Run Time">
+      <param name="Name" value="Setting Up the Network#DHCP">
+      <param name="Local" value="network.htm#DHCP">
+    </object>
+    </ul>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Dual LAN Usage">
+    <param name="Name" value="Setting Up the Network">
+    <param name="Local" value="network.htm">
+  </object>
+  <ul>
+    <li><object type="text/sitemap">
+      <param name="Name" value="Setting Up in the Network Configuration Menu">
+      <param name="Name" value="Setting Up the Network#Setting_Up_the_Network_for_Dual_LAN_Usage">
+      <param name="Local" value="network.htm#Setting_Up_the_Network_for_Dual_LAN_Usage">
+    </object>
+    </ul>
+</ul>
+</html>

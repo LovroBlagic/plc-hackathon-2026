@@ -1,0 +1,176 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="template" content="Vijeo_template.htt">
+ <meta name="generator" content="Adobe RoboHelp 2015">
+<title>Changing Equipment IP Address</title>
+<link rel="StyleSheet" href="TIS-STYL.CSS" type="text/css">
+</head>
+<body>
+<script type="text/javascript" src="ehlpdhtm.js" language="JavaScript1.2"></script>
+
+<div style="width: 100%; position: relative;" id="header">
+	<table style="background-attachment: scroll; margin-left: 0px; margin-right: 4px; 
+			 background-image: url(top_banner.bmp); background-repeat: Repeat-X; 
+			 line-height: 0pt; vertical-align: top;" cellspacing="0" background="top_banner.bmp" 
+			 width="100%">
+		<col style="width: 90%;">
+		<col style="width: 5%;">
+		<col style="width: 5%;">
+		<tr style="vertical-align: center; height: 39px;">
+			<td style="width: 90%; padding-right: 10px; padding-left: 10px; 
+				 border-right-color: #000000;">
+   <p><img src="logo.bmp" alt="" style="border: none;" width="37" height="37" border="0"></p></td>
+			<td style="width: 5%; padding-right: 0px; padding-left: 10px; 
+				 border-right-color: #000000;">
+   <p style="text-align: center;"><a 
+			 title="Glossary" href="Appendix.chm::/Glossary.htm"><img src="logo_glossary.bmp" alt="" style="border: none;" width="47" height="37" border="0"></a></p></td>
+			<td style="width: 5%; padding-right: 10px; padding-left: 5px; 
+				 border-right-color: #000000;">
+   <p style="text-align: center;"><a 
+			 href="About.chm::/What_is_Vijeo-Designer.htm" title="Home"><img src="logo_home.bmp" alt="Home" title="Home" style="border: none; 
+			 margin-left: 0px; margin-right: 0px; margin-bottom: 0px; margin-top: -2px;" width="47" height="37" border="0"></a></p></td>
+		</tr>
+	</table>
+</div>
+
+
+<h2>5.2.6 Changing Equipment IP address at Run Time</h2>
+<p>You can dynamically change your equipment's IP address during run time using a block variable. For more information on block variables, see Section 6.9, <a href="InputAddress.chm::/Block_Variables.htm">Block Variables</a>.</p>
+<p>Store the equipment's IP address, Subnet Mask, and Default Gateway in a block variable. Set the block variable's start address to the appropriate device address on the equipment and use a sendData operation (see <a href="Scripts.chm::/Variable_BlocksendData.htm">sendData</a> ) to send the block variable to the equipment. The equipment resets its IP address to the newly written block variable values. IP address data must be stored in a specific order in the block variable and written to specific device addresses on the equipment. See your equipment's manual for the proper device addresses and see the example below for the IP address data order in the block variable.</p>
+<p>Changing the Equipment's IP address using a block variable is supported by the following equipment:</p>
+<ul>
+<li class="p-Bullet">
+<p class="Bullet">Ethernet Supported Twido</p>
+</li>
+</ul>
+<p><img src="Limit.bmp" alt="" style="border: none;" width="77" height="24" border="0"></p>
+<ul>
+<li class="p-NoteText">
+<p class="NoteText">You must activate this function on the equipment. See the equipment's manual for information on activating this function.</p>
+</li>
+<li class="p-NoteText">
+<p class="NoteText">The block variables used to hold the IP address, Subnet Mask, and Default Gateway must be of UINT type. This prevents the values from changing signs during run time.</p>
+</li>
+<li class="p-NoteText">
+<p class="NoteText">You must write the whole block variable that contains the IP address, Subnet Mask, and Default Gateway to the equipment using one sendData operation. The equipment IP address settings may not be set properly if you send the IP Address, Subnet Mask and Default Gateway individually.</p>
+</li>
+</ul>
+<p><img src="NOTE_MOJI.BMP" alt="" style="border: none;" width="51" height="25" border="0"></p>
+<ul>
+<li class="p-NoteText">
+<p class="NoteText">You can also use script equipment methods to change the equipment's IP address. For more information, see Section 18.3.8.10, <a href="Scripts.chm::/Equipment_Methods.htm">Equipment Methods</a>.</p>
+</li>
+</ul>
+<p>Example:</p>
+<p>The following script example shows how to change the IP address on an ethernet supported Twido equipment using a block variable.</p>
+<table style="vertical-align: top; margin-left: 40px;" cellspacing="0" width="94.072%">
+<col style="width: 45.373%;">
+<col style="width: 54.627%;">
+<tr style="vertical-align: top;">
+<td style="border-top: Solid 3px #000000; border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 45.373%; vertical-align: top; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#91AFD9">
+<p class="Tabletitle" style="font-size: 11pt;">IP Address Data</p>
+</td>
+<td style="border-top: Solid 3px #000000; border-bottom: Solid 1px #000000; width: 54.627%; vertical-align: top; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#91AFD9">
+<p class="Tabletitle" style="font-size: 11pt;">Device Address Data</p>
+</td>
+</tr>
+<tr style="vertical-align: top; height: 0px;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 45.373%; vertical-align: top; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p>IP: 10.187.225.219 (0A.BB.E1.DB)</p>
+<p>Subnet Mask: 255.255.248.0 (FF.FF.F8.00)</p>
+<p>Default Gateway: 10.187.224.2 (0A.BB.E0.02)</p>
+</td>
+<td style="border-bottom: Solid 1px #000000; width: 54.627%; vertical-align: top; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p>%SW33 – E1DB (IP 3rd &amp; 4th)</p>
+<p>%SW34 – 0ABB (IP 1st &amp; 2nd)</p>
+<p>%SW35 – F800 (Subnet 3rd &amp; 4th)</p>
+<p>%SW36 – FFFF (Subnet 1st &amp; 2nd)</p>
+<p>%SW37 – E002 (Gateway 3rd &amp; 4th)</p>
+<p>%SW38 – 0ABB (Gateway 1st &amp; 2nd)</p>
+</td>
+</tr>
+</table>
+<p class="Code" style="margin-left: 40px;">&#160;</p>
+<p class="Code" style="margin-left: 40px; color: #008000;">//-------------------------------------</p>
+<p class="Code" style="margin-left: 40px; color: #008000;">//Script Created: Jun 23, 2009</p>
+<p class="Code" style="margin-left: 40px; color: #008000;">//</p>
+<p class="Code" style="margin-left: 40px; color: #008000;">// Description:</p>
+<p class="Code" style="margin-left: 40px; color: #008000;">// This script is to change IP address on the connected Twido PLC</p>
+<p class="Code" style="margin-left: 40px; color: #008000;">// &amp; re-configure Vijeo Designer with the new IP</p>
+<p class="Code" style="margin-left: 40px; color: #008000;">//</p>
+<p class="Code" style="margin-left: 40px; color: #008000;">//</p>
+<p class="Code" style="margin-left: 40px; color: #008000;">// It is assumed that a UINT structured variable "IP_Data" already contains new IP address as follows;</p>
+<p class="Code" style="margin-left: 40px; color: #008000;">//</p>
+<p class="Code" style="margin-left: 40px; color: #008000;">// IP_Data[0] = 010 // Ex. IP: 010.187.225.219</p>
+<p class="Code" style="margin-left: 40px; color: #008000;">// IP_Data[1] = 187</p>
+<p class="Code" style="margin-left: 40px; color: #008000;">// IP_Data[2] = 225</p>
+<p class="Code" style="margin-left: 40px; color: #008000;">// IP_Data[3] = 219</p>
+<p class="Code" style="margin-left: 40px; color: #008000;">//</p>
+<p class="Code" style="margin-left: 40px; color: #008000;">// IP_Data[4] = 255 // Ex. Subnet Mask: 255.255.248.000</p>
+<p class="Code" style="margin-left: 40px; color: #008000;">// IP_Data[5] = 255</p>
+<p class="Code" style="margin-left: 40px; color: #008000;">// IP_Data[6] = 248</p>
+<p class="Code" style="margin-left: 40px; color: #008000;">// IP_Data[7] = 000</p>
+<p class="Code" style="margin-left: 40px; color: #008000;">//</p>
+<p class="Code" style="margin-left: 40px; color: #008000;">// IP_Data[8] = 010 // Ex. Gateway: 010.187.224.002</p>
+<p class="Code" style="margin-left: 40px; color: #008000;">// IP_Data[9] = 187</p>
+<p class="Code" style="margin-left: 40px; color: #008000;">// IP_Data[10] = 224</p>
+<p class="Code" style="margin-left: 40px; color: #008000;">// IP_Data[11] = 002</p>
+<p class="Code" style="margin-left: 40px; color: #008000;">//</p>
+<p class="Code" style="margin-left: 40px; color: #008000;">//-------------------------------------</p>
+<p class="Code" style="margin-left: 40px; color: #008000;">// Load all new data to one array</p>
+<p class="Code" style="margin-left: 40px;">int [] IP_Data_VJD = new int[4]; <span style="color: #008000;">// holds new IP value to configure Vijeo Designer configuration</span></p>
+<p class="Code" style="margin-left: 40px;">int [] IP_Data_Temp = new int[12]; <span style="color: #008000;">// Temporary data storage for address data conversion</span></p>
+<p class="Code" style="margin-left: 40px; color: #008000;">// Load IP values to temporary storage to send it to PLC</p>
+<p class="Code" style="margin-left: 40px;">for( int elementNo = 0; &#160;elementNo &lt; 12; &#160;elementNo++){</p>
+<p class="Code" style="margin-left: 40px;">IP_Data_Temp[elementNo] = IP_Data[elementNo].getIntValue();</p>
+<p class="Code" style="margin-left: 40px;">}</p>
+<p class="Code" style="margin-left: 40px; color: #008000;">// Load IP address to temporary storage for configuring Vijeo Designer</p>
+<p class="Code" style="margin-left: 40px;">for( int elementNo = 0; &#160;elementNo &lt; 4; &#160;elementNo++){</p>
+<p class="Code" style="margin-left: 40px;">IP_Data_VJD[elementNo] = IP_Data[elementNo].getIntValue();</p>
+<p class="Code" style="margin-left: 40px;">}</p>
+<p class="Code" style="margin-left: 40px; color: #008000;">//---------------------------------------</p>
+<p class="Code" style="margin-left: 40px; color: #008000;">//</p>
+<p class="Code" style="margin-left: 40px; color: #008000;">// Take all of the numbers entered and put them into blocktowrite. &#160;Send this package</p>
+<p class="Code" style="margin-left: 40px; color: #008000;">// to the proper PLC.</p>
+<p class="Code" style="margin-left: 40px; color: #008000;">//</p>
+<p class="Code" style="margin-left: 40px;">int [] blocktowrite = new int[6];</p>
+<p class="Code" style="margin-left: 40px; color: #008000;">// Set IP 1st &amp; 2nd data to 2nd element in block variable</p>
+<p class="Code" style="margin-left: 40px;">long temp =(((IP_Data_Temp[1]&amp;0xFF)&lt;&lt;0)&amp;0x00FF)+ (((IP_Data_Temp[0]&amp;0xFF)&lt;&lt;8)&amp;0xFF00);</p>
+<p class="Code" style="margin-left: 40px;">temp = temp &amp; 0xffff; <span style="color: #008000;">// clear out upper half</span></p>
+<p class="Code" style="margin-left: 40px;">blocktowrite[1]=(int)temp;</p>
+<p class="Code" style="margin-left: 40px; color: #008000;">// Set IP 3rd &amp; 4th data to 1st element in block variable</p>
+<p class="Code" style="margin-left: 40px;">temp =(((IP_Data_Temp[3]&amp;0xFF)&lt;&lt;0)&amp;0x00FF)+ (((IP_Data_Temp[2]&amp;0xFF)&lt;&lt;8)&amp;0xFF00);</p>
+<p class="Code" style="margin-left: 40px;">temp = temp &amp; 0xffff; <span style="color: #008000;">// clear out upper half</span></p>
+<p class="Code" style="margin-left: 40px;">blocktowrite[0]=(int)temp;</p>
+<p class="Code" style="margin-left: 40px; color: #008000;">// Set Subnet Mask 1st &amp; 2nd data to 4th element in block variable</p>
+<p class="Code" style="margin-left: 40px;">temp =(((IP_Data_Temp[5]&amp;0xFF)&lt;&lt;0)&amp;0x00FF)+ (((IP_Data_Temp[4]&amp;0xFF)&lt;&lt;8)&amp;0xFF00);</p>
+<p class="Code" style="margin-left: 40px;">temp = temp &amp; 0xffff; <span style="color: #008000;">// clear out upper half</span></p>
+<p class="Code" style="margin-left: 40px;">blocktowrite[3]=(int)temp;</p>
+<p class="Code" style="margin-left: 40px; color: #008000;">// Set Subnet Mask 3rd &amp; 4th data to 3rd element in block variable</p>
+<p class="Code" style="margin-left: 40px;">temp =(((IP_Data_Temp[7]&amp;0xFF)&lt;&lt;0)&amp;0x00FF)+ (((IP_Data_Temp[6]&amp;0xFF)&lt;&lt;8)&amp;0xFF00);</p>
+<p class="Code" style="margin-left: 40px;">temp = temp &amp; 0xffff; <span style="color: #008000;">// clear out upper half</span></p>
+<p class="Code" style="margin-left: 40px;">blocktowrite[2]=(int)temp;</p>
+<p class="Code" style="margin-left: 40px; color: #008000;">// Set Default Gateway 1st &amp; 2nd data to 6th element in block variable</p>
+<p class="Code" style="margin-left: 40px;">temp =(((IP_Data_Temp[9]&amp;0xFF)&lt;&lt;0)&amp;0x00FF)+ (((IP_Data_Temp[8]&amp;0xFF)&lt;&lt;8)&amp;0xFF00);</p>
+<p class="Code" style="margin-left: 40px;">temp = temp &amp; 0xffff; <span style="color: #008000;">// clear out upper half</span></p>
+<p class="Code" style="margin-left: 40px;">blocktowrite[5]=(int)temp;</p>
+<p class="Code" style="margin-left: 40px; color: #008000;">// Set Default Gateway 3rd &amp; 4th data to 5th element in block variable</p>
+<p class="Code" style="margin-left: 40px;">temp =(((IP_Data_Temp[11]&amp;0xFF)&lt;&lt;0)&amp;0x00FF)+ (((IP_Data_Temp[10]&amp;0xFF)&lt;&lt;8)&amp;0xFF00);</p>
+<p class="Code" style="margin-left: 40px;">temp = temp &amp; 0xffff; <span style="color: #008000;">// clear out upper half</span></p>
+<p class="Code" style="margin-left: 40px;">blocktowrite[4]=(int)temp;</p>
+<p class="Code" style="margin-left: 40px; color: #008000;">//----------------------------------------</p>
+<p class="Code" style="margin-left: 40px; color: #008000;">// Send new IP data, using a UINT block variable, to let the PLC change its own IP to new one.</p>
+<p class="Code" style="margin-left: 40px;">BlockInt_PLC01.write( blocktowrite );</p>
+<p class="Code" style="margin-left: 40px;">BlockInt_PLC01.sendData(true);</p>
+<p class="Code" style="margin-left: 40px; color: #008000;">// Re-configure Vijeo Designer with new IP and restart the driver.</p>
+<p class="Code" style="margin-left: 40px;">ModbusEquipment01.openConfig();</p>
+<p class="Code" style="margin-left: 40px;">ModbusEquipment01.setProperty( "Con_IPAddress", IP_Data_VJD );</p>
+<p class="Code" style="margin-left: 40px;">ModbusEquipment01.commitConfig();</p>
+<div style="width: 100%; position: relative;" id="footer">
+	<p>&#160;</p>
+</div>
+</body>
+</html>

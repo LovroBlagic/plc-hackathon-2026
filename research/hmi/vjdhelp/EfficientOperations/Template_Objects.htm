@@ -1,0 +1,100 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+<meta name="template" content="Vijeo_template.htt">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+ <meta name="generator" content="Adobe RoboHelp 10">
+<title>Working with Variable Placeholders</title>
+<link rel="StyleSheet" href="Tis-styl.css" type="text/css">
+</head>
+<body>
+<script type="text/javascript" src="ehlpdhtm.js" language="JavaScript1.2"></script>
+
+<div style="width: 100%; position: relative;" id="header">
+	<table style="background-attachment: scroll; margin-left: 0px; margin-right: 4px; 
+			 background-image: url(top_banner.bmp); background-repeat: Repeat-X; 
+			 line-height: 0pt; vertical-align: top;" cellspacing="0" width="100%" 
+			 background="top_banner.bmp">
+		<col style="width: 90%;">
+		<col style="width: 5%;">
+		<col style="width: 5%;">
+		<tr style="vertical-align: center; height: 39px;">
+			<td style="width: 90%; padding-right: 10px; padding-left: 10px; 
+				 border-right-color: #000000;">
+   <p><img src="logo.bmp" style="border: none;" alt="" width="37" height="37" border="0"></p></td>
+			<td style="width: 5%; padding-right: 0px; padding-left: 10px; 
+				 border-right-color: #000000;">
+   <p style="text-align: center;"><a 
+			 title="Glossary" href="Appendix.chm::/Glossary.htm"><img src="logo_glossary.bmp" style="border: none;" alt="" width="47" height="37" border="0"></a></p></td>
+			<td style="width: 5%; padding-right: 10px; padding-left: 5px; 
+				 border-right-color: #000000;">
+   <p style="text-align: center;"><a 
+			 href="About.chm::/What_is_Vijeo-Designer.htm" title="Home"><img src="logo_home.bmp" alt="Home" title="Home" style="border: none; 
+			 margin-left: 0px; margin-right: 0px; margin-bottom: 0px; margin-top: -2px;" width="47" height="37" border="0"></a></p></td>
+		</tr>
+	</table>
+</div>
+
+<h2>21.2.4 Working with Variable Placeholders</h2>
+<p>In Vijeo Designer, you can create a single object or a grouped collection of objects and assign a variable placeholder for each object. You can place the single or grouped object in the Toolchest, where it can be later used as a template object. You can reuse or replicate the template object for all instances you need the common functions and components in the template object.</p>
+<p>For example, you can set up a group of objects that include numeric displays and switches to create a template object. You can assign placeholders in the variable definitions of the numeric displays and switches, group the parts, and then add the newly created template object into the Toolchest. This enables simple and efficient reuse of objects in project design. When you are ready to use the template object, you can drag and drop it on your panel, and replace each placeholder with another variable in your project.</p>
+<p>In setting up template objects, there are two roles:</p>
+<ul>
+<li class="p-Bullet">
+<p class="Bullet">Template Object Creator: A person who designs and builds the group of objects, creates the Structure variable and adds elements to the structure, and assigns the placeholder in the variable definition for each object.</p>
+</li>
+<li class="p-Bullet">
+<p class="Bullet">Designer: A person who uses the template object by dragging and dropping the object into the panel and replaces the placeholder with another variable as needed.</p>
+</li>
+</ul>
+<h4><img src="Square.bmp" style="border: none;" alt="" width="12" height="10" border="0"> Where Variable Placeholders are Supported</h4>
+<p>The following Vijeo Designer components support variable placeholders:</p>
+<ul>
+<li class="p-Bullet">
+<p class="Bullet">All graphics objects, single or a grouped collection</p>
+</li>
+<li class="p-Bullet">
+<p class="Bullet">All Toolchest objects</p>
+</li>
+<li class="p-Bullet">
+<p class="Bullet">Animation on graphic objects</p>
+</li>
+<li class="p-Bullet">
+<p class="Bullet">Animation on alarm summaries</p>
+</li>
+<li class="p-Bullet">
+<p class="Bullet">Panels with panel actions</p>
+</li>
+<li class="p-Bullet">
+<p class="Bullet">Master panels and popup panels</p>
+</li>
+</ul>
+<p>If you use an object that does not support variable placeholders, the Make Placeholder option is disabled when you create the template object. For more information on how to create the template object and the Make Placeholder option, see <a href="Creating_Objects_with_Variable_Placeholders.htm#Example_of_How_to_Build_the_Template_Object">How to Build a Template Object</a>.</p>
+<p>&#160;</p>
+<h4><img src="Square.bmp" style="border: none;" alt="" width="12" height="10" border="0"> How Variable Placeholders are Used</h4>
+<p>In Vijeo Designer, placeholders can be assigned in the variable expression for parts, graphical objects, and panel actions. The placeholder is defined based on an existing variable. The Template Object Creator adds placeholders, and the Designer assigns a different variable to replace the placeholder. A placeholder is defined based on existing variables in the project and is enclosed by the $ character. For example, Motor is a structure variable and can be defined as a placeholder in the variable definition as: <span style="font-weight: bold;">$Motor$.Speed</span></p>
+<p>You can use as a placeholder:</p>
+<ul>
+<li class="p-Bullet">
+<p class="Bullet">A variable, for example: <span style="font-weight: bold;">$Integer01$</span></p>
+</li>
+<li class="p-Bullet">
+<p class="Bullet" style="font-weight: normal;"><span>A structure or array variable:</span> <span style="font-weight: bold;">$Motor$.Speed</span></p>
+</li>
+<li class="p-Bullet">
+<p class="Bullet">One or more elements in a structure variable, for example: <span style="font-weight: bold;">$Motor$.Status.Speed</span> or <span style="font-weight: bold;">$Motor$.Speed</span></p>
+</li>
+<li class="p-Bullet">
+<p class="Bullet">Any variables in a folder, for example: <span style="font-weight: bold;">$Folder1$.Motor01.Speed</span></p>
+</li>
+<li class="p-Bullet">
+<p class="Bullet">One or more elements in an array variable, for example: <span style="font-weight: bold;">$Motor.Array$[3][4]</span>, <span style="font-weight: bold;">$Motor.Array[3]$[4]</span>, or <span style="font-weight: bold;">$Motor.Array[3][4]$</span></p>
+</li>
+<li class="p-Bullet">
+<p class="Bullet">For one variable field in an expression. A valid integer data expression is, for example: <span style="font-weight: bold;">$DINT01$ + DINT02 + DINT03</span></p>
+</li>
+</ul>
+<p>&#160;</p>
+</body>
+</html>

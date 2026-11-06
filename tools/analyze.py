@@ -1,7 +1,9 @@
 import sys, twin, strategies as S
 mode=int(sys.argv[1]) if len(sys.argv)>1 else 0
 dbg=[]
-c=S.dp_strategy(dbg=dbg)
+import json
+kw=json.loads(sys.argv[2]) if len(sys.argv)>2 else {}
+c=S.dp_strategy(dbg=dbg, **kw)
 log=[]
 def wrap(o):
     r=c(o); log.append((o['k'],o['t'],o['fec'],o['fne'],o['soc'],r['pb'],dbg[-1][1], o['fec']+sum(r['ev'])-(r['curt'] if r['curt'] is not None else o['fne'])-r['pb']))

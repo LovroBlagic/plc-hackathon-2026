@@ -1,0 +1,75 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+<meta name="template" content="Vijeo_template.htt">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="date" content="07 16, 2003 7:00:53 PM">
+<meta name="topic-status" content="In Progress">
+<meta name="topic-priority" content="0">
+<meta name="topic-time-estimate" content="0">
+<meta name="topic-comment" content="">
+<meta name="topic-id" content="11.7 ??????????????????">
+<meta name="window-type" content="$global_NewWindow">
+ <meta name="generator" content="Adobe RoboHelp 10">
+<title>Real-time Trend Graphs</title>
+<link rel="StyleSheet" href="TIS-STYL.CSS" type="text/css">
+</head>
+<body>
+<script type="text/javascript" src="ehlpdhtm.js" language="JavaScript1.2"></script>
+
+<div style="width: 100%; position: relative;" id="header">
+	<table style="background-attachment: scroll; margin-left: 0px; margin-right: 4px; 
+			 background-image: url(top_banner.bmp); background-repeat: Repeat-X; 
+			 line-height: 0pt; vertical-align: top;" cellspacing="0" width="100%" 
+			 background="top_banner.bmp">
+		<col style="width: 90%;">
+		<col style="width: 5%;">
+		<col style="width: 5%;">
+		<tr style="vertical-align: center; height: 39px;">
+			<td style="width: 90%; padding-right: 10px; padding-left: 10px; 
+				 border-right-color: #000000;">
+   <p><img src="logo.bmp" style="border: none;" alt="" width="37" height="37" border="0"></p></td>
+			<td style="width: 5%; padding-right: 0px; padding-left: 10px; 
+				 border-right-color: #000000;">
+   <p style="text-align: center;"><a 
+			 title="Glossary" href="Appendix.chm::/Glossary.htm"><img src="logo_glossary.bmp" style="border: none;" alt="" width="47" height="37" border="0"></a></p></td>
+			<td style="width: 5%; padding-right: 10px; padding-left: 5px; 
+				 border-right-color: #000000;">
+   <p style="text-align: center;"><a 
+			 href="About.chm::/What_is_Vijeo-Designer.htm" title="Home"><img src="logo_home.bmp" alt="Home" title="Home" style="border: none; 
+			 margin-left: 0px; margin-right: 0px; margin-bottom: 0px; margin-top: -2px;" width="47" height="37" border="0"></a></p></td>
+		</tr>
+	</table>
+</div>
+
+<h2>13.1.2 Types of Trend Graphs</h2>
+<p>This section describes the different types of trend graphs (real-time, historical, or plot) that you can create to display your logged data.</p>
+<p class="NoteImage">If you find target machine performance to be slow when using trend graphs, check for the following:</p>
+<ul>
+<li class="p-Bullet">
+<p class="Bullet">The number of data samples specified to display on a trend graph is higher than the number of records specified to store in RAM. This means that besides displaying current records, the system needs to access the data file to obtain older records for display on the trend graph. To minimize the problem, reduce the NumofSamples value in the Trend Graph Property Inspector, or increase the No. of Records in RAM value in the Logging Group Settings dialog box.</p>
+</li>
+<li class="p-Bullet">
+<p class="Bullet">The number of days to store data records and maximum data size values are too high and a lot of data is collected. The slower performance may be due to the amount of variable values being logged over an increased period of time and having a larger file to access. To solve this problem, reduce the No. of Days and Maximum Data Size values in the Logging Group Settings dialog box. We recommend a maximum of 90 days' history. If you want to keep permanent records of your variable data, regularly move the data from the target machine to your database, and then delete the data on the target machine.</p>
+</li>
+</ul>
+<h3><a name="Creating_Real_Time_Trend_Graphs642b3b9347ca42c9b00b820c00c373fa=1"></a><a name="Creating_Real_Time_Trend_Graphs" id="Creating_Real_Time_Trend_Graphs"></a>13.1.2.1 Real-Time Trend Graphs</h3>
+<p>You can use the Trend Graph function to create a line graph that shows the current values of one or more specified variables. Trend graphs are updated at a regular interval when new data samples from the variable are added. When the data area on the graph fills up, the graph scrolls by the number of intervals you specify to make room for new data samples. You can specify 1 second or more for the interval.</p>
+<p class="Image"><img src="graph%20display_outline.bmp" style="border: none;" alt="" width="599" height="164" border="0"></p>
+<p>&#160;</p>
+<p class="NoteImage"><img src="Limit.bmp" style="border: none;" alt="" width="77" height="24" border="0"></p>
+<ul>
+<li class="p-NoteText">
+<p class="NoteText">You can display data for up to eight different variables, each set up as a channel, in a trend graph.</p>
+</li>
+<li class="p-NoteText">
+<p class="NoteText">When you download the user application a second time, the data will clear and the trend graph display will reset. Always be sure to back up your projects.</p>
+</li>
+<li class="p-NoteText">
+<p class="NoteText">When displaying several variables with different Logging Interval settings in the same trend graph, the trend graph will always display the data using the shortest logging interval.<br>
+For details about Logging Intervals, see Section 13.3.2, <a href="Setting_up_Trend_Graph.htm">Setting Up Trend Graphs</a>.</p>
+</li>
+</ul>
+</body>
+</html>

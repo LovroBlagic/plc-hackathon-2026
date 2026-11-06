@@ -1,0 +1,326 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+<meta name="template" content="Vijeo_template.htt">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+ <meta name="generator" content="Adobe RoboHelp 10">
+<title>23.1.1.3 Working in Vijeo Design'Air Plus</title>
+<link rel="StyleSheet" href="TIS-STYL.CSS" type="text/css">
+</head>
+
+<body>
+<script type="text/javascript" src="ehlpdhtm.js" language="JavaScript1.2"></script>
+
+<div style="width: 100%; position: relative;" id="header">
+	<table style="background-attachment: scroll; margin-left: 0px; margin-right: 4px; 
+			 background-image: url(top_banner.bmp); background-repeat: Repeat-X; 
+			 line-height: 0pt; vertical-align: top;" cellspacing="0" background="top_banner.bmp" 
+			 width="100%">
+		<col style="width: 90%;">
+		<col style="width: 5%;">
+		<col style="width: 5%;">
+		<tr style="vertical-align: center; height: 39px;">
+			<td style="width: 90%; padding-right: 10px; padding-left: 10px; 
+				 border-right-color: #000000;">
+   <p><img src="logo.bmp" alt="" style="border: none;" width="37" height="37" border="0"></p></td>
+			<td style="width: 5%; padding-right: 0px; padding-left: 10px; 
+				 border-right-color: #000000;">
+   <p style="text-align: center;"><a 
+			 title="Glossary" href="Appendix.chm::/Glossary.htm"><img src="logo_glossary.bmp" alt="" style="border: none;" width="47" height="37" border="0"></a></p></td>
+			<td style="width: 5%; padding-right: 10px; padding-left: 5px; 
+				 border-right-color: #000000;">
+   <p style="text-align: center;"><a 
+			 href="About.chm::/What_is_Vijeo-Designer.htm" title="Home"><img src="logo_home.bmp" alt="Home" title="Home" style="border: none; 
+			 margin-left: 0px; margin-right: 0px; margin-bottom: 0px; margin-top: -2px;" width="47" height="37" border="0"></a></p></td>
+		</tr>
+	</table>
+</div>
+
+<h3>23.1.1.3 Working in Vijeo Design'Air Plus</h3>
+<p>You must first download the Vijeo Design'Air Plus application from the 
+ application marketplace (for example, Google Play or App Store), and launch 
+ the App. When the App starts up, it runs the Discovery mechanism that 
+ performs the following functions:</p>
+<ul>
+	<li class="p-Bullet"><p class="Bullet">Broadcasts a UDP query to a 
+	 local area network. If a target machine that hosts a tablet/smartphone 
+	 application and has Target Discovery enabled receives this query, 
+	 the target machine will send a response to the tablet/smartphone.</p></li>
+	<li class="p-Bullet"><p class="Bullet">Refreshes the list of target 
+	 machines that respond from the network.</p></li>
+	<li class="p-Bullet"><p class="Bullet">Maintains a list of all the 
+	 target machines that respond to the UDP query.</p></li>
+</ul>
+<p>This section describes how to:</p>
+<ul style="list-style: square;">
+	<li class="p"><p><a href="#Log_In_to_the_Tablet_Smartphone_Application">Log 
+	 in to the tablet/smartphone application</a></p></li>
+	<li class="p"><p><a href="#Open_a_Tablet_Smartphone_Application">Open 
+	 a tablet/smartphone application</a></p></li>
+	<li class="p"><p style="font-weight: normal;"><a href="#Add_a_Tablet_Smartphone_Application_to_the_Favorite_List">Add 
+	 a tablet/smartphone application to the Favorite list</a></p></li>
+	<li class="p"><p style="font-weight: normal;"><a href="#Remove_a_Tablet_Smartphone_Application_from_the_Favorite_List">Remove 
+	 a tablet/smartphone application from the Favorite list</a></p></li>
+	<li class="p"><p style="font-weight: normal;"><a href="#Add_a_Connection">Add 
+	 a connection</a></p></li>
+	<li class="p"><p style="font-weight: normal;"><a href="#Obtain_Information_on_the_Tablet_Smartphone_Application_and_on_the_Target_Machine">Obtain 
+	 information on the Tablet application and on the target machine</a></p></li>
+	<li class="p"><p style="font-weight: normal;"><a href="#Configure_Settings">Configure 
+	 Settings</a></p></li>
+	<li class="p"><p style="font-weight: normal;"><a href="#Purge_Cache">Purge 
+	 cache</a></p></li>
+	<li class="p"><p style="font-weight: normal;"><a href="#Configure_Device">Configure 
+	 devices</a></p></li>
+	<li class="p"><p style="font-weight: normal;"><a href="#Accessing_the_Alarm_Panel_from_Email_or_SMS_message">Accessing 
+	 the Alarm Panel from Email or SMS message</a></p></li>
+</ul>
+<h4><a name="Log_In_to_the_Tablet_Smartphone_Application"></a><img src="Square.bmp" alt="" style="border: none;" width="12" height="10" border="0"> 
+ Log In to the Tablet/Smartphone Application</h4>
+<p>When setting up the tablet/smartphone project in Vijeo Designer, the 
+ project designer can opt to enable or disable security. If security is 
+ enabled, at run time operators must log in successfully before they can 
+ download and open the tablet/smartphone application.</p>
+<p>To make sure that only a valid user can open a tablet/smartphone application, 
+ the Login window displays in the following instances:</p>
+<ul>
+	<li class="p-Bullet"><p class="Bullet">Before the tablet/smartphone 
+	 can download a selected application. The operator must enter a valid 
+	 username and password in order to download the application from the 
+	 host target machine.</p></li>
+	<li class="p-Bullet"><p class="Bullet">After the tablet/smartphone 
+	 is switched off and then is switched back on. When the operator wants 
+	 to open a downloaded application on a tablet/smartphone that had just 
+	 been powered back on, the operator must enter a valid username and 
+	 password.</p></li>
+	<li class="p-Bullet"><p class="Bullet">After you close the App. When 
+	 the operator wants to enter the App again, the operator must enter 
+	 a valid username and password.</p></li>
+</ul>
+<p>If the operator enters an invalid username or password, or does not 
+ have rights to download the tablet/smartphone application, the following 
+ error message displays:</p>
+<p class="Code">Connection refused by server.</p>
+<p style="margin-top: 4.5pt;">The operator can try again by entering a 
+ valid username and password. If the username and password are valid, then 
+ the operator has insufficient rights. For more information on how to set 
+ up the rights to download a tablet/smartphone application, see step 4 
+ in Section 23.1.1.1, <a href="Creating_Tablet_Projects.htm">Setting Up 
+ a Tablet/Smartphone Project</a>.</p>
+<p class="Bullet">&#160;</p>
+<h4><a name="Open_a_Tablet_Smartphone_Application" id="Open_a_Tablet_Smartphone_Application"></a><img src="Square.bmp" alt="" style="border: none;" width="12" height="10" border="0"> Open a Tablet/Smartphone Application</h4>
+<ol style="list-style: decimal;">
+	<li class="p"><p>Select the Vijeo Design'Air Plus application on your 
+	 tablet/smartphone.</p></li>
+	<li class="p"><p>Select a tablet/smartphone application on a target 
+	 machine.</p></li>
+</ol>
+<p style="margin-left: 40px;">On an Android device, the Main View displays 
+ the Project List, which lists all the applications on the network, and 
+ the Favorites List.</p>
+<p style="margin-left: 40px;">On an iOS device, only the Favorites list 
+ displays on the main window. Tap <img src="Search_iOS.bmp" alt="" style="border: none;" width="25" height="25" border="0"> 
+ to open Search Results to display all the applications on the network.</p>
+<p style="margin-left: 40px;">Notice that the application thumbnail icon 
+ displays the base panel you selected in Vijeo Designer Editor. If you 
+ have not selected a thumbnail icon for the application, the Schneider 
+ Electric logo is used instead. For more information, see Section 4.5.1.1, 
+ <a href="StandardOperation.chm::/targetProperties_general.htm">General</a>.</p>
+<p style="margin-left: 40px;">Also notice that the tablet/smartphone application 
+ state is indicated on the right side of the application's thumbnail:</p>
+<ul style="list-style: square;">
+	<li class="p"><p style="margin-left: 40px;"><img src="DiscoveryScreen2.bmp" alt="" style="border: none;" width="26" height="26" border="0"> - &#160;Indicates 
+	 a tablet/smartphone application has no local cache copy. The application 
+	 is not downloaded.</p></li>
+</ul>
+<ul style="list-style: square;">
+	<li class="p"><p style="margin-left: 40px;">No icon - Indicates a tablet/smartphone 
+	 application with a local cache copy is available, and it has an identical 
+	 timestamp with the application on the server. The application is downloaded 
+	 and is ready to run.</p></li>
+</ul>
+<ul style="list-style: square;">
+	<li class="p"><p style="margin-left: 40px;"><img src="DiscoveryScreen5.bmp" alt="" style="border: none;" width="26" height="24" border="0"> - Indicates 
+	 a tablet/smartphone application with the local cache copy is available, 
+	 but it has a different timestamp from the application on the server. 
+	 A copy of the application has been downloaded but it does not match 
+	 the one on the server.</p></li>
+</ul>
+<ul style="list-style: square;">
+	<li class="p"><p style="margin-left: 40px;"><img src="DiscoveryScreen6.bmp" alt="" style="border: none;" width="24" height="26" border="0"> - Alerts 
+	 that you cannot run the tablet/smartphone application on this version 
+	 of the Vijeo Design'Air Plus App. Update the App to the current version.</p></li>
+</ul>
+<p style="margin-left: 40px;">To update the list of applications shown 
+ in the project and Favorite lists, tap <img src="Refresh_iOS.bmp" alt="" style="border: none;" width="29" height="27" border="0">.</p>
+<ol start="3" style="list-style: decimal;">
+	<li class="p"><p>Tap the tablet/smartphone application thumbnail to 
+	 launch the application.</p></li>
+</ol>
+<h4><a name="Add_a_Tablet_Smartphone_Application_to_the_Favorite_List" 
+		 id="Add_a_Tablet_Smartphone_Application_to_the_Favorite_List"></a><img src="Square.bmp" alt="" style="border: none;" width="12" height="10" border="0"> Add a Tablet/Smartphone Application to the Favorite 
+ List</h4>
+<ol style="list-style: decimal;">
+	<li class="p"><p><span style="font-style: italic;">(Android device)</span> 
+	 Long-press a tablet/smartphone application thumbnail.</p></li>
+</ol>
+<p style="margin-left: 40px;">-OR-</p>
+&#160; 
+<p style="margin-left: 40px;"><span style="font-style: italic;">(iOS device)</span> 
+ Tap <img src="Android_Info_icon.bmp" alt="" style="border: none;" width="21" height="22" border="0">on the application thumbnail.</p>
+<ol start="2" style="list-style: decimal;">
+	<li class="p"><p>In the menu that displays, tap <span style="font-weight: bold;">Add 
+	 to Favorites</span>.</p></li>
+</ol>
+<p style="margin-left: 40px;"><span>The tablet/smartphone application on 
+ the target machine you selected moves from the project list to the Favorites 
+ list. There are no duplicate copies made of a tablet/smartphone application; 
+ it is either in the project list or in the Favorites list.</span></p>
+<p>&#160;</p>
+<h4><a name="Remove_a_Tablet_Smartphone_Application_from_the_Favorite_List" 
+		 id="Remove_a_Tablet_Smartphone_Application_from_the_Favorite_List"></a><img src="Square.bmp" alt="" style="border: none;" width="12" height="10" border="0"> Remove a Tablet/Smartphone Application from the Favorites 
+ List</h4>
+<ol style="list-style: decimal;">
+	<li class="p"><p><span style="font-style: italic;">(Android device)</span> 
+	 In the Favorites List, long-press a tablet/smartphone application 
+	 thumbnail.</p></li>
+</ol>
+<p style="margin-left: 40px;">-OR-</p>
+&#160; 
+<p style="margin-left: 40px;"><span style="font-style: italic;">(iOS device)</span> 
+ On the tablet/smartphone application thumbnail in the Favorites List, 
+ tap <img src="Android_Info_icon.bmp" alt="" style="border: none;" width="21" height="22" border="0">.</p>
+<ol start="2" style="list-style: decimal;">
+	<li class="p"><p>In the menu that displays, tap <span style="font-weight: bold;">Remove 
+	 from Favorites</span>.</p></li>
+</ol>
+<h4><a name="Add_a_Connection" id="Add_a_Connection"></a><img src="Square.bmp" alt="" style="border: none;" width="12" height="10" border="0"> 
+ Add a Connection</h4>
+<p style="font-weight: normal;">Add a connection when:</p>
+<ul style="list-style: square;">
+	<li class="p"><p style="font-weight: normal;">You want to download 
+	 a tablet/smartphone application on a target machine that is not in 
+	 your current network.</p></li>
+	<li class="p"><p style="font-weight: normal;">In Vijeo Designer, the 
+	 Target Discovery property in the Target properties is set to disabled.</p></li>
+</ul>
+<ol style="list-style: decimal;">
+	<li class="p"><p>Tap <span style="font-weight: bold;"><img src="Add_IP_Android.bmp" alt="" style="border: none;" width="25" height="26" border="0"></span> 
+	 &#160;to open the Add Connection dialog box.</p></li>
+	<li class="p"><p>In the Address field, enter the IP address.</p></li>
+	<li class="p"><p>In the Port field, enter the HTTP server port number.</p></li>
+	<li class="p"><p><span>Tap</span> <span style="font-weight: bold;">OK</span>.</p></li>
+</ol>
+<p>If the information you entered is valid, the connection is added, and 
+ the tablet/smartphone application is added to the project list. If it 
+ is invalid, an error displays.</p>
+<p style="margin-left: 40px;">&#160;</p>
+<h4><a name="Obtain_Information_on_the_Tablet_Smartphone_Application_and_on_the_Target_Machine" 
+		 id="Obtain_Information_on_the_Tablet_Smartphone_Application_and_on_the_Target_Machine"></a><img src="Square.bmp" alt="" style="border: none;" width="12" height="10" border="0"> Obtain Information on the Tablet/Smartphone Application 
+ and on the Target Machine</h4>
+<ol style="list-style: decimal;">
+	<li class="p"><p><span style="font-style: italic;">(Android device)</span> 
+	 Long-press a tablet/smartphone application thumbnail to open the menu.</p></li>
+</ol>
+<p style="margin-left: 40px;"><span>-</span>OR-</p>
+&#160; 
+<p style="margin-left: 40px;"><span style="font-style: italic;">(iOS device)</span> 
+ Tap <img src="Android_Info_icon.bmp" alt="" style="border: none;" width="21" height="22" border="0">on the application thumbnail.</p>
+<ol start="2" style="list-style: decimal;">
+	<li class="p"><p>Tap <span style="font-weight: bold;">More Info</span>.</p></li>
+</ol>
+<h4><a name="Configure_Settings" id="Configure_Settings"></a><img src="Square.bmp" alt="" style="border: none;" width="12" height="10" border="0"> 
+ Configure Settings</h4>
+<p>You can use the Settings menu to set up beep on touch and the wake-lock 
+ function. Beep on touch enables the tablet/smartphone to beep when the 
+ display is touched. The wake-lock function prevents the tablet from going 
+ into sleep mode.</p>
+<ol style="list-style: decimal;">
+	<li class="p"><p>Tap <span style="font-weight: bold;"><img src="Android_settings.bmp" alt="" style="border: none;" width="26" height="26" border="0"></span> 
+	 to open the Settings menu.</p></li>
+	<li class="p"><p>Tap Touch Audio Feedback to set up beep on touch.</p></li>
+	<li class="p"><p>Tap Keep Device Awake During Connection to set up 
+	 the wake-lock function.</p></li>
+</ol>
+<h4><a name="Purge_Cache" id="Purge_Cache"></a><img src="Square.bmp" alt="" style="border: none;" width="12" height="10" border="0"> Purge 
+ Cache</h4>
+<p style="font-weight: bold;"><span style="font-weight: normal;">The Purge 
+ Cache function removes the local copy of the tablet/smartphone application, 
+ but it still displays on the project list or Favorite list. You may want 
+ to purge a tablet/smartphone application if you do not plan on using it 
+ for a while.</span></p>
+<ol style="list-style: decimal;">
+	<li class="p"><p><span style="font-style: italic;">(Android device)</span> 
+	 Long-press a tablet/smartphone application thumbnail to open the menu.</p></li>
+</ol>
+<p style="margin-left: 40px;">-OR-</p>
+&#160; 
+<p style="margin-left: 40px;"><span style="font-style: italic;">(iOS device)</span> 
+ Tap <img src="Android_Info_icon.bmp" alt="" style="border: none;" width="21" height="22" border="0">on the application thumbnail. Or 
+ tap &#160;<img src="Android_settings.bmp" alt="" style="border: none;" width="26" height="26" border="0">, select View Cache 
+ Manager, and purge cache from the Cache Manager window.</p>
+<ol start="2" style="list-style: decimal;">
+	<li class="p"><p>Select <span style="font-weight: bold;">Purge Cache</span>.</p></li>
+</ol>
+<p style="margin-left: 40px;"><span>The local copy of the tablet/smartphone 
+ application is removed, but the thumbnail still displays on the list of 
+ tablet/smartphone applications with a different icon on the thumbnail. 
+ The icon indicates that the tablet/smartphone application is not in your 
+ cache, but it is detected in your network. Tap the application to download.</span></p>
+<h4><a name="Configure_Device" id="Configure_Device"></a><img src="Square.bmp" alt="" style="border: none;" width="12" height="10" border="0"> 
+ Configure Devices</h4>
+<p>The Configure Devices function allows an operator to view a list of 
+ devices that a project shares variables with. If there is data sharing, 
+ the list displays device references for downloaded projects to the tablet/smartphone. 
+ Tap the device name to change the connection information.</p>
+<ol style="list-style: decimal;">
+	<li class="p"><p><span style="font-style: italic;">(Android device)</span> 
+	 Long-press a tablet/smartphone application thumbnail to open the menu.</p></li>
+</ol>
+<p style="margin-left: 40px;"><span>-</span>OR-</p>
+&#160; 
+<p style="margin-left: 40px;"><span style="font-style: italic;">(iOS device)</span> 
+ Tap <img src="Android_Info_icon.bmp" alt="" style="border: none;" width="21" height="22" border="0">on the application thumbnail.</p>
+<ol start="2" style="list-style: decimal;">
+	<li class="p"><p>Tap <span style="font-weight: bold;">Configure Device</span>.</p></li>
+	<li class="p"><p>In the Devices window that opens, select a target 
+	 machine.</p></li>
+	<li class="p"><p>In the next window, modify the data sharing connection 
+	 by entering the IP address and port number.</p></li>
+	<li class="p"><p>Tap OK.</p></li>
+</ol>
+<p><img src="NOTE_MOJI.BMP" alt="" style="border: none;" width="51" height="25" border="0"></p>
+<ul>
+	<li class="p-NoteText"><p class="NoteText">The IP address in Configure 
+	 Device is set to the target machine's IP address by default. This 
+	 creates problems for data sharing if a project is downloaded from 
+	 the target machine via a remote connection (e.g., VPN) using an IP 
+	 address that is different from the target machine's IP address. To 
+	 resolve data sharing problems, manually set the IP address in Configure 
+	 Device to the IP address used to download the project.</p></li>
+</ul>
+<h4 class="NoteText"><a name="Accessing_the_Alarm_Panel_from_Email_or_SMS_message"></a><img src="Square.bmp" alt="" style="border: none;" width="12" height="10" border="0"> Accessing the Alarm Panel from Email or SMS message</h4>
+<p><img src="Sending_email.bmp" alt="" style="border: none;" border="0"></p>
+<p>You can access the alarm page via an URL link.</p>
+<p>For example: The Email or SMS message contains &lt;airplus://192.168.1.1:8080/alarms&gt;. 
+ On the tablet/smartphone, the user clicks the link to launch the project 
+ and open the corresponding alarm page.</p>
+<p>For more information on sending an alarm link for Vijeo Design’Air Plus 
+ by Email or SMS, see 21.1.5.12 <u style="text-decoration: none; "><a href="EfficientOperations.chm::/Setting_Up_Embedded_Content.htm">Setting 
+ Up Messages with Dynamic Content</a>.</u> </p>
+<ol style="list-style: decimal;">
+	<li style="font-family: Arial, sans-serif; font-size: 10pt;"><p style="font-size: 10pt;">Mobile 
+	 device receives Email or SMS message with alarm link.</p></li>
+	<li style="font-family: Arial, sans-serif; font-size: 10pt;"><p style="font-size: 10pt;">User 
+	 clicks on the link.</p></li>
+	<li style="font-family: Arial, sans-serif; font-size: 10pt;"><p style="font-size: 10pt;">Vijeo 
+	 Design'Air Plus opens and adds the project to Favorites if it has 
+	 not already been added.</p></li>
+	<li style="font-family: Arial, sans-serif; font-size: 10pt;"><p style="font-size: 10pt;">Project 
+	 begins to update or download. &#160;<br>
+	Project is launched and then immediately opens the alarm page to display 
+	 the associated alarms in the project.</p></li>
+</ol>
+<p>&#160;</p>
+</body>
+</html>

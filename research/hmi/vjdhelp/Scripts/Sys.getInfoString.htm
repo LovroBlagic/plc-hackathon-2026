@@ -1,0 +1,128 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+<meta name="template" content="Vijeo_template.htt">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+ <meta name="generator" content="Adobe RoboHelp 10">
+<title>Sys.getInfoString</title>
+<link rel="StyleSheet" href="TIS-STYL.CSS" type="text/css">
+</head>
+
+<body>
+<script type="text/javascript" src="ehlpdhtm.js" language="JavaScript1.2"></script>
+
+<div style="width: 100%; position: relative;" id="header">
+	<table style="background-attachment: scroll; margin-left: 0px; margin-right: 4px; 
+			 background-image: url(top_banner.bmp); background-repeat: Repeat-X; 
+			 line-height: 0pt; vertical-align: top;" cellspacing="0" width="100%" 
+			 background="top_banner.bmp">
+		<col style="width: 90%;">
+		<col style="width: 5%;">
+		<col style="width: 5%;">
+		<tr style="vertical-align: center; height: 39px;">
+			<td style="width: 90%; padding-right: 10px; padding-left: 10px; 
+				 border-right-color: #000000;">
+   <p><img src="logo.bmp" style="border: none;" alt="" width="37" height="37" border="0"></p></td>
+			<td style="width: 5%; padding-right: 0px; padding-left: 10px; 
+				 border-right-color: #000000;">
+   <p style="text-align: center;"><a 
+			 title="Glossary" href="Appendix.chm::/Glossary.htm"><img src="logo_glossary.bmp" style="border: none;" alt="" width="47" height="37" border="0"></a></p></td>
+			<td style="width: 5%; padding-right: 10px; padding-left: 5px; 
+				 border-right-color: #000000;">
+   <p style="text-align: center;"><a 
+			 href="About.chm::/What_is_Vijeo-Designer.htm" title="Home"><img src="logo_home.bmp" alt="Home" title="Home" style="border: none; 
+			 margin-left: 0px; margin-right: 0px; margin-bottom: 0px; margin-top: -2px;" width="47" height="37" border="0"></a></p></td>
+		</tr>
+	</table>
+</div>
+
+<h4>Sys.getInfoString</h4>
+<p style="font-weight: bold;"><span style="font-weight: bold;">Function</span></p>
+<p>The getInfoString() 
+ system method returns a string representing system information. getInfoString() 
+ will not continuously scan for data changes in the system information. 
+ You must request new values each time they are needed.</p>
+<p style="font-weight: bold;">Format</p>
+<p class="code" style="margin-left: 40px; 
+												 margin-bottom: 12pt;">String 
+ Sys.getInfoString(int param);</p>
+<p style="font-weight: bold;">Parameters</p>
+<table style="vertical-align: top; margin-left: 40px;" cellspacing="0" 
+		 width="90%">
+	<col style="width: 21.947%;">
+	<col style="width: 78.053%;">
+	<tr style="vertical-align: top;">
+		<td style="border-top: Solid 3px #000000; border-right: Solid 1px #000000; 
+			 border-bottom: Solid 1px #000000; padding-right: 10px; padding-left: 10px; 
+			 padding-top: 10px; padding-bottom: 10px; " bgcolor="#91AFD9"><p 
+			 class="Tabletitle">Parameter</p></td>
+		<td style="border-top: Solid 3px #000000; border-bottom: Solid 1px #000000; 
+			 padding-right: 10px; padding-left: 10px; padding-top: 10px; 
+			 padding-bottom: 10px; " bgcolor="#91AFD9"><p class="Tabletitle">Description</p></td>
+	</tr>
+	<tr style="vertical-align: top;">
+		<td style="border-right: Solid 1px #000000; border-bottom: Solid 3px #000000; 
+			 padding-right: 10px; padding-left: 10px; padding-top: 10px; 
+			 padding-bottom: 10px; " bgcolor="#CBD9ED"><p 
+			 class="TableDefinitions">int param</p></td>
+		<td style="border-bottom: Solid 3px #000000; padding-right: 10px; 
+			 padding-left: 10px; padding-top: 10px; padding-bottom: 10px; 
+			 "><p class="Tabletext">An integer variable or value that represents 
+		 the information being requested.</p>
+		<ul>
+			<li class="p-Bullet"><p class="Bullet">APPLICATION_BUILD_DATE</p></li>
+			<li class="p-Bullet"><p class="Bullet">APPLICATION_BUILD_TIME</p></li>
+			<li class="p-Bullet"><p class="Bullet">BUILD_NUM</p></li>
+			<li class="p-Bullet"><p class="Bullet">DEFAULT_GTWY</p></li>
+			<li class="p-Bullet"><p class="Bullet">DEFAULT_GTWY_1</p></li>
+			<li class="p-Bullet"><p class="Bullet">DEFAULT_GTWY_2</p></li>
+			<li class="p-Bullet"><p class="Bullet">DNS_ADDRESS_1</p></li>
+			<li class="p-Bullet"><p class="Bullet">DNS_ADDRESS_2</p></li>
+			<li class="p-Bullet"><p class="Bullet">IP_ADDRESS_1</p></li>
+			<li class="p-Bullet"><p class="Bullet">IP_ADDRESS_2</p></li>
+			<li class="p-Bullet"><p class="Bullet">MAC_ADDRESS_1</p></li>
+			<li class="p-Bullet"><p class="Bullet">MAC_ADDRESS_2</p></li>
+			<li class="p-Bullet"><p class="Bullet">PROJECT_NAME</p></li>
+			<li class="p-Bullet"><p class="Bullet">SUBNET_MASK</p></li>
+			<li class="p-Bullet"><p class="Bullet">SUBNET_MASK_1</p></li>
+			<li class="p-Bullet"><p class="Bullet">SUBNET_MASK_2</p></li>
+			<li class="p-Bullet"><p class="Bullet">TARGET_NAME</p></li>
+			<li class="p-Bullet"><p class="Bullet">TARGET_TYPE</p></li>
+			<li class="p-Bullet"><p class="Bullet">VERSION_NUM</p></li>
+		</ul></td>
+	</tr>
+</table>
+<p style="margin-top: 6pt;">Examples (Ethernet 1 IP Address):</p>
+<p class="Code" style="margin-left: 40px; 
+												 margin-bottom: 12pt;">Sys.getInfoString(IP_ADDRESS_1)</p>
+<p class="Code" style="margin-left: 40px; 
+												 margin-bottom: 12pt;">Sys.getInfoString(IP_ADDRESS)</p>
+<p>Examples (Ethernet 2 MAC Address):</p>
+<p class="Code" style="margin-left: 40px; 
+												 margin-bottom: 12pt;">Sys.getInfoString(MAC_ADDRESS_2)</p>
+<p style="font-weight: bold;">Return Value</p>
+<p>Returns a string with the requested system information.</p>
+<p>Returns an empty string if the requested system information is unavailable 
+ or unsupported.</p>
+<p class="Image"><img src="Note_Moji.bmp" alt="" style="border: none;" width="51" height="25" border="0"></p>
+<ul>
+	<li class="p-NoteText"><p class="NoteText">The value displayed by the 
+	 getInfoString() 
+	 method is the system information at Startup. That information will 
+	 not be updated once the program is running.</p></li>
+	<li class="p-NoteText"><p class="NoteText">getInfoString() 
+	 is available in the expression editor for String Display, Action, 
+	 and Switch.</p></li>
+	<li class="p-NoteText"><p class="NoteText">When using the return value, 
+	 for example in a String display part, make sure the part's Display 
+	 Length is set to 100 to display all the characters. For return strings 
+	 longer than 100 characters, only the first 100 characters are displayed.</p></li>
+	<li class="p-NoteText"><p class="NoteText">getInfoString() 
+	 always returns an empty string when used in Web Gate.</p></li>
+</ul>
+<p style="font-weight: bold;">See Also</p>
+<p><a 
+	 href="Sys.getInfoInt.htm">Sys.getInfoInt</a></p>
+</body>
+</html>

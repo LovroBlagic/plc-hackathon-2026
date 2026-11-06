@@ -1,0 +1,136 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+<meta name="template" content="Vijeo_template.htt">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="date" content="11 10, 2003 2:09:05 PM">
+<meta name="topic-status" content="In Progress">
+<meta name="topic-priority" content="0">
+<meta name="topic-time-estimate" content="0">
+<meta name="topic-comment" content="">
+<meta name="topic-id" content="">
+<meta name="window-type" content="$global_NewWindow">
+ <meta name="generator" content="Adobe RoboHelp 10">
+<title>Storing Your Collected Data</title>
+<link rel="StyleSheet" href="TIS-STYL.CSS" type="text/css">
+</head>
+<body>
+<script type="text/javascript" src="ehlpdhtm.js" language="JavaScript1.2"></script>
+
+<div style="width: 100%; position: relative;" id="header">
+	<table style="background-attachment: scroll; margin-left: 0px; margin-right: 4px; 
+			 background-image: url(top_banner.bmp); background-repeat: Repeat-X; 
+			 line-height: 0pt; vertical-align: top;" cellspacing="0" width="100%" 
+			 background="top_banner.bmp">
+		<col style="width: 90%;">
+		<col style="width: 5%;">
+		<col style="width: 5%;">
+		<tr style="vertical-align: center; height: 39px;">
+			<td style="width: 90%; padding-right: 10px; padding-left: 10px; 
+				 border-right-color: #000000;">
+   <p><img src="logo.bmp" style="border: none;" alt="" width="37" height="37" border="0"></p></td>
+			<td style="width: 5%; padding-right: 0px; padding-left: 10px; 
+				 border-right-color: #000000;">
+   <p style="text-align: center;"><a 
+			 title="Glossary" href="Appendix.chm::/Glossary.htm"><img src="logo_glossary.bmp" style="border: none;" alt="" width="47" height="37" border="0"></a></p></td>
+			<td style="width: 5%; padding-right: 10px; padding-left: 5px; 
+				 border-right-color: #000000;">
+   <p style="text-align: center;"><a 
+			 href="About.chm::/What_is_Vijeo-Designer.htm" title="Home"><img src="logo_home.bmp" alt="Home" title="Home" style="border: none; 
+			 margin-left: 0px; margin-right: 0px; margin-bottom: 0px; margin-top: -2px;" width="47" height="37" border="0"></a></p></td>
+		</tr>
+	</table>
+</div>
+
+<h3>13.1.1.3 Storing Your Collected Data</h3>
+<p>You can manage how much variable data is being stored and where the data will be stored, using one of these storage options:</p>
+<ul>
+<li class="p-Bullet">
+<p class="Bullet">DRAM – preserves the most recent data samples in the system's DRAM</p>
+</li>
+<li class="p-Bullet">
+<p class="Bullet">SRAM – preserves a specified number of data samples in the system's SRAM</p>
+</li>
+<li class="p-Bullet">
+<p class="Bullet">SRAM and File – uses the SRAM until its capacity is reached, in which case, the data is written to file.</p>
+</li>
+</ul>
+<p>To obtain a summary for all data logging groups, you can view the Property Inspector for the Data Logging node. The summary displays the estimated space used in DRAM and SRAM, the estimated File size, and the estimated number of days to reach the file size limit.</p>
+<p><img src="DataLoggingProps.bmp" style="border: none;" alt="" width="256" height="177" border="0"></p>
+<p class="NoteImage"><img src="Limit.bmp" style="border: none;" alt="" width="77" height="24" border="0"></p>
+<ul>
+<li class="p-NoteText">
+<p class="NoteText">Before you download a new project or an updated project to a target that has data logging, make sure you have a method in place to flush the data in the SRAM to the secondary storage (typically the CF Card/SD Card). If you do not have a method in place, data that is stored in the SRAM before its scheduled flush to storage will be lost.</p>
+</li>
+</ul>
+<h4><a name="DRAM_Storage" id="DRAM_Storage"></a><img src="Square.bmp" style="border: none;" alt="" width="12" height="10" border="0">DRAM Storage</h4>
+<p>You can store variable values in the target machine's DRAM. This storage option allows you to control the amount of memory being used to store each data sample. You can define the number of data samples you want to store in the RAM. If the number exceeds what is specified, the oldest data samples are removed so that the most current data samples can be stored. In the following example, data samples 1 to 10 are stored in DRAM. When data samples 11 and 12 are logged, the oldest data samples 1 and 2 are removed.</p>
+<p><img src="DRAM_Example.bmp" style="border: none;" alt="" width="423" height="203" border="0"></p>
+<p>If your target machine shuts down and restarts for any reason, your stored data in DRAM will be erased. You should not use DRAM as a storage option if you want your data preserved for the long term.</p>
+<h4><a name="SRAM_Storage" id="SRAM_Storage"></a><img src="Square.bmp" style="border: none;" alt="" width="12" height="10" border="0">SRAM Storage</h4>
+<p>You can use the SRAM storage option to preserve a specified number of data samples for a variable. This option allows you to define the number of data samples for SRAM storage. If the number exceeds what is specified, the oldest variable data is removed so that the most current data can be added and retained. The following example shows how SRAM storage works.</p>
+<p><img src="SRAM_Example.bmp" style="border: none;" alt="" width="423" height="203" border="0"></p>
+<p>If your target machine shuts down and restarts for any reason, your stored data in SRAM is saved.</p>
+<h4><a name="File_Storage" id="File_Storage"></a><img src="Square.bmp" style="border: none;" alt="" width="12" height="10" border="0">SRAM and File Storage</h4>
+<p style="margin-left: 0px;">Once the SRAM is full, the variable data is logged to a data file (*.dat) on the Secondary or Optional Drive.</p>
+<p class="Bullet" style="margin-left: 0px;">Two events trigger the variable values in the SRAM to be logged to file: Data samples exceed the number of samples specified to store in the SRAM, or the flushToStorage script is executed.</p>
+<ul>
+<li style="font-weight: bold;" class="p-Bullet">
+<p class="Bullet" style="font-weight: normal; margin-left: 0px;"><span style="font-weight: bold;">Variable Data Entries Exceed the User-Defined Number</span><br>
+The SRAM can store up to the user-defined number of variable values.&#160;If the number of data records exceeds the specified number, the data is logged to a data file.&#160;As new data is added to the SRAM, the old data is removed.</p>
+</li>
+</ul>
+<p class="NoteImage" style="margin-left: 40px;"><img src="Limit.bmp" style="border: none;" alt="" width="77" height="24" border="0"></p>
+<ul>
+<li class="p-NoteText2">
+<p class="NoteText2">If the Data Manager tool is getting the data logging files from the target machine, and then the SRAM flushes its data, because the transfer tool locks the data logging files, data from the SRAM will be cached until access to the file is re-established. For information about the Data Manager and the Command Line, see 20.5, <a href="FrequentOperations.chm::/Managing_Run-time_Data.htm">Managing Run-time Data</a>.</p>
+</li>
+</ul>
+<ul>
+<li style="font-weight: bold;" class="p-Bullet">
+<p class="Bullet">flushToStorage Script is Executed<span style="font-weight: normal;"><br>
+By using this script, you can write to file the saved data that has been stored in SRAM, regardless of the time or number of entries. For more information, see <a href="Scripts.chm::/Variable_FlushToStorage.htm" style="font-weight: normal;">flushToStorage</a> in Chapter 18, <a href="Scripts.chm::/Scripts_Overview.htm" style="font-weight: normal;">Scripts</a>.</span></p>
+</li>
+</ul>
+<p style="margin-left: 0px;"><img src="LoggingMethod.bmp" style="border: none;" alt="" width="390" height="230" border="0"></p>
+<p style="margin-left: 0px;">Data files are saved on the CF Card/SD Card or other storage devices.</p>
+<table style="vertical-align: top; margin-bottom: 10px; margin-left: 40px;" cellspacing="0" width="80%">
+<col style="width: 100%;">
+<tr style="vertical-align: top;">
+<td style="border-top: Solid 3px #000000; border-bottom: Solid 1px #000000; width: 100%; padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#91AFD9">
+<p class="tabletitle" style="margin-left: 0px;">Data files are saved in:</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-bottom: Solid 3px #000000; width: 100%; padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="tabletext" style="margin-left: 0px;">On the Secondary Drive (CF Card/SD Card):</p>
+<p class="tabletext" style="margin-left: 0px;">\public\projects\target_name\Data\Log\variable_name</p>
+<p class="tabletext" style="margin-left: 0px;">&#160;</p>
+<p class="tabletext" style="margin-left: 0px;">On the Optional Drive:</p>
+<p class="tabletext" style="margin-left: 0px;">..\target_name\Data\Log\variable_name</p>
+</td>
+</tr>
+</table>
+<p style="margin-left: 0px;">Data files occupy the target machine's Secondary Drive (CF Card/SD Card) or Removable Drive.&#160;If there is not enough disk space on the storage device, variable data cannot be recorded and the following error message appears:</p>
+<p class="Code" style="margin-left: 40px;">Variables are being logged to the CF Card/SD Card or Hard Disk. The volume is now either unavailable or full.</p>
+<p style="margin-left: 0px;">To determine how much storage space is required to store your sampled data, refer to the Estimated Group File Size property in the Variable Storage tab of the Logging Group Settings dialog box.</p>
+<p>If you find target machine performance to be slow, the most likely problems are:</p>
+<ul>
+<li class="p-Bullet">
+<p class="Bullet">The number of data records specified for storage in SRAM is too low, requiring the target machine to write data to the file more often. To solve this problem, increase the No. of Records in RAM value in the Logging Group Settings dialog box.</p>
+</li>
+<li class="p-Bullet">
+<p class="Bullet">The number of days to store data records and maximum data size values are too high and a lot of data is collected, resulting in slower performance due to the amount of variable values being logged over an increased period of time and having a larger file to access. To solve this problem, reduce the No. of Days and Maximum Data Size values in the Logging Group Settings dialog box. We recommend a maximum of 90 days' history. If you want to keep permanent records of your variable data, regularly move the data from the target machine to your database, and then delete the data on the target machine.</p>
+</li>
+</ul>
+<h5><a name="Deleting_Logged_Data_Files" id="Deleting_Logged_Data_Files"></a>Deleting Data Logging Files</h5>
+<p>Data logging files are automatically deleted when the number of days that you specified have passed or you have exceeded the amount of available disk space. The oldest data files are removed.</p>
+<p class="NoteImage"><img src="note_moji.bmp" style="border: none;" alt="" width="51" height="25" border="0"></p>
+<ul>
+<li class="p-NoteText">
+<p class="NoteText">You can use the Data Manager and the Command Line tool to copy data files from the target machine to a folder on the editor PC. See Section 20.5, <a href="FrequentOperations.chm::/Managing_Run-time_Data.htm">Managing Run-time Data</a>.</p>
+</li>
+</ul>
+</body>
+</html>

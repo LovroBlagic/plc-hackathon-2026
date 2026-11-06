@@ -1,0 +1,91 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+<meta name="template" content="Vijeo_template.htt">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+ <meta name="generator" content="Adobe RoboHelp 10">
+<title>21.1.4 Definition Objects</title>
+<link rel="StyleSheet" href="Tis-styl.css" type="text/css">
+</head>
+<body>
+<script type="text/javascript" src="ehlpdhtm.js" language="JavaScript1.2"></script>
+
+<div style="width: 100%; position: relative;" id="header">
+	<table style="background-attachment: scroll; margin-left: 0px; margin-right: 4px; 
+			 background-image: url(top_banner.bmp); background-repeat: Repeat-X; 
+			 line-height: 0pt; vertical-align: top;" cellspacing="0" width="100%" 
+			 background="top_banner.bmp">
+		<col style="width: 90%;">
+		<col style="width: 5%;">
+		<col style="width: 5%;">
+		<tr style="vertical-align: center; height: 39px;">
+			<td style="width: 90%; padding-right: 10px; padding-left: 10px; 
+				 border-right-color: #000000;">
+   <p><img src="logo.bmp" style="border: none;" alt="" width="37" height="37" border="0"></p></td>
+			<td style="width: 5%; padding-right: 0px; padding-left: 10px; 
+				 border-right-color: #000000;">
+   <p style="text-align: center;"><a 
+			 title="Glossary" href="Appendix.chm::/Glossary.htm"><img src="logo_glossary.bmp" style="border: none;" alt="" width="47" height="37" border="0"></a></p></td>
+			<td style="width: 5%; padding-right: 10px; padding-left: 5px; 
+				 border-right-color: #000000;">
+   <p style="text-align: center;"><a 
+			 href="About.chm::/What_is_Vijeo-Designer.htm" title="Home"><img src="logo_home.bmp" alt="Home" title="Home" style="border: none; 
+			 margin-left: 0px; margin-right: 0px; margin-bottom: 0px; margin-top: -2px;" width="47" height="37" border="0"></a></p></td>
+		</tr>
+	</table>
+</div>
+
+<h2>21.1.4 Link Objects</h2>
+<p>The Link Objects node in the Resource Library are also known as definition objects. The link objects feature allows you to create and update definition objects in panels more efficiently. A definition object is a grouped collection of objects you can create once, and place it into your panels to create multiple instances of the definition object. This feature enables you to design your panels, not only more efficiently, but also consistently. &#160;</p>
+<p>You can design and create a library of definition objects in the <a href="#Drawing_Area">drawing area</a> using one or a combination of the following:</p>
+<ul>
+<li class="p-Bullet">
+<p class="Bullet">Shapes (such as rectangles and arcs) and parts (such as numeric displays and switches) from Graphical Tools</p>
+</li>
+<li class="p-Bullet">
+<p class="Bullet">Toolchest parts</p>
+</li>
+<li class="p-Bullet">
+<p class="Bullet">A Group object of shapes, parts and Toolchest parts</p>
+</li>
+<li class="p-Bullet">
+<p class="Bullet">A nested Group object (that is, a Group object containing Group objects).</p>
+</li>
+</ul>
+<p>Configure each shape, part and Toolchest part in the definition object, by defining <a href="#Common_Properties">common properties</a> and <a href="#Instance_Properties">instance properties</a>.</p>
+<p>You can place one or several instances of the definition object on the graphical panels in your project. Each instance is linked to the definition object. If you make any changes to the definition object, all instances of that definition object will be updated.</p>
+<p>The Link Objects node is located in the Navigator window’s Resource Library. The Link Objects node contains folders and a sub-node for each definition object created in the target. You can organize definition objects into a folder structure. For more information, see Section 21.1.4.3, <a href="Setting_Up_Folders_for_Def_Obj.htm">Managing Folders for Definition Objects</a>.</p>
+<p>For more information on working with definition objects, see:</p>
+<ul>
+<li class="p-Bullet">
+<p class="Bullet">Section 21.1.4.1, <a href="Creating_a_Definition_Object.htm">Creating a Definition Object</a></p>
+</li>
+<li class="p-Bullet">
+<p class="Bullet">Section 21.1.4.2, <a href="Setting_Up_Folders_for_Def_Obj.htm">Managing Folders for Definition Objects</a></p>
+</li>
+</ul>
+<h4><a name="Common_Properties" id="Common_Properties"></a><img src="Square.bmp" style="border: none;" alt="" width="12" height="10" border="0"> Common Properties</h4>
+<p>Common properties contain values that are defined in the definition object and shared by all the instances of the definition object. You can change values in the common properties only in the definition object. After you change the value, all instances of the definition object are updated.</p>
+<p>All properties for an object are common properties, with the exception of the properties that are specific to an instance – the object's Name, Top, and Left – and can only be configured in each instance.</p>
+<p>&#160;</p>
+<h4><a name="Instance_Properties" id="Instance_Properties"></a><img src="Square.bmp" style="border: none;" alt="" width="12" height="10" border="0"> Instance Properties</h4>
+<p>Instance properties have variable or constant values that are defined in the definition object and are not shared by all the instances of the definition object. Precede the variable value with the "@" symbol to indicate that the Variable property is an instance property and that you should modify the value in each instance of a definition object. For example, in NumericDisplay01 of a definition object, enter <span style="font-weight: bold;">@DINT01</span> in the numeric display's Variable property to indicate that this field is an instance property.</p>
+<p>You can define any property that accepts an expression as an instance property. For instance, switches, numeric displays, lamps, actions, and animation have properties that accepts expressions. Properties that are specific to an instance, such as the object's name and its position, are also instance properties.</p>
+<p>&#160;</p>
+<h4><a name="Drawing_Area" id="Drawing_Area"></a><img src="Square.bmp" style="border: none;" alt="" width="12" height="10" border="0"> Drawing Area</h4>
+<p>When creating a new definition object, use the drawing area to design and build the definition object. The size of the drawing area is the same as the target panel size. The drawing area does not limit the size (width and height) of the definition object. The definition object can be bigger or smaller than the drawing area.</p>
+<p>In the drawing area, you can:</p>
+<ul>
+<li class="p-Bullet">
+<p class="Bullet">Add Toolchest parts</p>
+</li>
+<li class="p-Bullet">
+<p class="Bullet">Add shapes and parts (such as rectangle, switch, and alarm summary)</p>
+</li>
+<li class="p-Bullet">
+<p class="Bullet">Define common and instance properties for each object.</p>
+</li>
+</ul>
+</body>
+</html>

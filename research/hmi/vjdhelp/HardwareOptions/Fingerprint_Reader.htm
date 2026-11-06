@@ -1,0 +1,86 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+<meta name="template" content="Vijeo_template.htt">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+ <meta name="generator" content="Adobe RoboHelp 2015">
+<title>Biometric Switch</title>
+<link rel="StyleSheet" href="TIS-STYL.css" type="text/css">
+</head>
+<body>
+<script type="text/javascript" src="ehlpdhtm.js" language="JavaScript1.2"></script>
+
+<div style="width: 100%; position: relative;" id="header">
+	<table style="background-attachment: scroll; margin-left: 0px; margin-right: 4px; 
+			 background-image: url(top_banner.bmp); background-repeat: Repeat-X; 
+			 line-height: 0pt; vertical-align: top;" cellspacing="0" background="top_banner.bmp" 
+			 width="100%">
+		<col style="width: 90%;">
+		<col style="width: 5%;">
+		<col style="width: 5%;">
+		<tr style="vertical-align: center; height: 39px;">
+			<td style="width: 90%; padding-right: 10px; padding-left: 10px; 
+				 border-right-color: #000000;">
+   <p><img src="logo.bmp" alt="" style="border: none;" width="37" height="37" border="0"></p></td>
+			<td style="width: 5%; padding-right: 0px; padding-left: 10px; 
+				 border-right-color: #000000;">
+   <p style="text-align: center;"><a 
+			 title="Glossary" href="Appendix.chm::/Glossary.htm"><img src="logo_glossary.bmp" alt="" style="border: none;" width="47" height="37" border="0"></a></p></td>
+			<td style="width: 5%; padding-right: 10px; padding-left: 5px; 
+				 border-right-color: #000000;">
+   <p style="text-align: center;"><a 
+			 href="About.chm::/What_is_Vijeo-Designer.htm" title="Home"><img src="logo_home.bmp" alt="Home" title="Home" style="border: none; 
+			 margin-left: 0px; margin-right: 0px; margin-bottom: 0px; margin-top: -2px;" width="47" height="37" border="0"></a></p></td>
+		</tr>
+	</table>
+</div>
+
+
+<h1>24.9 Biometric Switch</h1>
+<p>The Biometric Switch is Schneider Electric's XB5S external hardware device that provides the security and convenience of logging users into a target machine by scanning their fingerprints, with or without providing user names and passwords. For example, at build time you can set a security user group authentication to either password or fingerprint. To log in to the target machine at run time, members of this security user group can use the System Login Panel and provide their user names and passwords, or they can just scan their fingers on the biometric switch.</p>
+<p><img src="Fingerprint_Reader.bmp" alt="" style="border: none;" width="290" height="148" border="0"></p>
+<p>For information on how to enable security groups with fingerprint authentication, see Section 4.8.2.5, <a href="StandardOperation.chm::/Authentication_for_Security_Groups.htm">Setting Up Security Group Authentication</a>.</p>
+<p>&#160;</p>
+<h4><img src="Square.bmp" alt="" style="border: none;" width="12" height="10" border="0"> Project User List</h4>
+<p>In Vijeo Designer 6.1 SP2 or later, when you create a new project, a central Project User List is generated that stores user names, passwords, and fingerprint data for all the users in that project. The users in the Project User List are accessible across all targets in the project.</p>
+<p>To capture and store fingerprint information for projects created in previous versions of Vijeo Designer, you need to upgrade the project to have the Project User List. For more information, see Section 24.9.3, <a href="HardwareOptions.chm::/Upgrading_Existing_Projects_to_Include_Fingerprints.htm">Upgrading Existing Projects to Include Fingerprints</a>.</p>
+<p>&#160;</p>
+<h4><img src="Square.bmp" alt="" style="border: none;" width="12" height="10" border="0"> Connecting to Biometric Switch</h4>
+<p>Connect the biometric switch cable to the target machine or the editor PC's USB port.</p>
+<p class="NoteImage"><img src="Note_Moji.bmp" alt="" style="border: none;" width="51" height="25" border="0"></p>
+<ul>
+<li class="p-NoteText">
+<p class="NoteText">You can only connect one biometric switch to the target machine and to the editor PC.</p>
+</li>
+<li class="p-NoteText">
+<p class="NoteText">Vijeo Designer build time supports both Schneider Electric Biometric Switch XB5S and MorphoSmart™ MSO1300. At run time, only Schneider Electric Biometric Switch XB5S is supported.</p>
+</li>
+<li class="p-NoteText">
+<p class="NoteText">You must manually install the Biometric Switch USB driver to iPC target machines, Vijeo Designer does not check if the Biometric Switch USB driver is present on the iPC. To install the driver, use Runtime Installer for Windows on the Vijeo Designer DVD.</p>
+</li>
+<li class="p-NoteText">
+<p class="NoteText">Not all target machines support the biometric switch. For a list of supported target machines, see Appendix 5, <a href="appendix.chm::/Hardware_Specifications.htm">Hardware Specifications</a>.</p>
+</li>
+</ul>
+<h4 class="NoteText"><a name="Clearing the Biometric Switch at Build Time"></a><img src="Square.bmp" alt="" style="border: none;" width="12" height="10" border="0"> Clearing the Biometric Switch at Build Time</h4>
+<p>To erase the content of the biometric switch:</p>
+<ol style="list-style: inside decimal;">
+<li class="p">
+<p>Connect the biometric switch to the editor PC.</p>
+</li>
+<li class="p">
+<p>In the Navigator window's Project tab, click the Project node.</p>
+</li>
+<li class="p">
+<p>From the Tools menu, click Clear Biometric Switch.</p>
+</li>
+<li class="p">
+<p>Click Identify Device. The red LEDs on the biometric switch flashes, identifying the device you are about to delete.</p>
+</li>
+<li class="p">
+<p>Click Delete.</p>
+</li>
+</ol>
+</body>
+</html>

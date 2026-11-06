@@ -1,0 +1,160 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+ <meta name="generator" content="Adobe RoboHelp 10">
+<title>Copy Data From Operations</title>
+<link rel="StyleSheet" href="Tis-styl.css" type="text/css">
+</head>
+
+<body>
+<script type="text/javascript" src="ehlpdhtm.js" language="JavaScript1.2"></script>
+
+<div style="width: 100%; position: relative;" id="header">
+	<table style="background-attachment: scroll; margin-left: 0px; margin-right: 4px; 
+			 background-image: url(top_banner.bmp); background-repeat: Repeat-X; 
+			 line-height: 0pt; vertical-align: top;" cellspacing="0" background="top_banner.bmp" 
+			 width="100%">
+		<col style="width: 90%;">
+		<col style="width: 5%;">
+		<col style="width: 5%;">
+		<tr style="vertical-align: center; height: 39px;">
+			<td style="width: 90%; padding-right: 10px; padding-left: 10px; 
+				 border-right-color: #000000;">
+   <p><img src="logo.bmp" alt="" style="border: none;" width="37" height="37" border="0"></p></td>
+			<td style="width: 5%; padding-right: 0px; padding-left: 10px; 
+				 border-right-color: #000000;">
+   <p style="text-align: center;"><a 
+			 title="Glossary" href="Appendix.chm::/Glossary.htm"><img src="logo_glossary.bmp" alt="" style="border: none;" width="47" height="37" border="0"></a></p></td>
+			<td style="width: 5%; padding-right: 10px; padding-left: 5px; 
+				 border-right-color: #000000;">
+   <p style="text-align: center;"><a 
+			 href="About.chm::/What_is_Vijeo-Designer.htm" title="Home"><img src="logo_home.bmp" alt="Home" title="Home" style="border: none; 
+			 margin-left: 0px; margin-right: 0px; margin-bottom: 0px; margin-top: -2px;" width="47" height="37" border="0"></a></p></td>
+		</tr>
+	</table>
+</div>
+<h3>9.5.15.2 Copy Data From Drive Operation</h3>
+<p>Use the dialog to set up Copy Data From Drive operations. This feature 
+ imports recipes in CSV format from a removable drive to the target machine. 
+ For information on setting the source data location, see Appendix 5.11.1, 
+ <a href="Appendix.chm::/manage_runtime_data.htm">Types of Data Locations</a>.</p>
+<p>When using this operation to copy data from a drive in CSV format, the 
+ RCP files must exist on the target. The Copy Data From Drive operation 
+ does not create new recipe groups. The CSV format files must contain all 
+ the recipes you want. Any recipes left out will be lost during the copy 
+ operation.</p>
+<p><img src="NOTE_MOJI.bmp" alt="" style="border: none;" width="51" height="25" border="0"></p>
+<ul>
+	<li class="p-NoteText"><p class="NoteText">The status of the copy operation 
+	 is monitored by the system variable: _FileTransferStatus. For more 
+	 information, see Section 6.7.1, <a href="InputAddress.chm::/FileTransferStatus.htm">System 
+	 Variables: _FileTransferStatus</a>.</p></li>
+</ul>
+<p class="NoteImage"><img src="Limit.bmp" alt="" style="border: none;" width="77" height="24" border="0"></p>
+<ul>
+	<li class="p-NoteText"><p class="NoteText">The Copy Data From Drive 
+	 operation copies a recipe group file or a collection of them.</p></li>
+	<li class="p-NoteText"><p class="NoteText">The Copy Data From Drive 
+	 operations can only be used with switches and panel function keys.</p></li>
+	<li class="p-NoteText"><p class="NoteText">You can only set Copy Data 
+	 From Drive operations in the When Touch tab.</p></li>
+	<li class="p-NoteText"><p class="NoteText">The Copy Data From Drive 
+	 operation will not work correctly if a custom folder name is specified 
+	 for the Copy Data To Drive operation. Keep the Custom Folder option 
+	 disabled in the Copy Data To Drive dialog if you are using the Copy 
+	 Data From Drive feature.</p></li>
+</ul>
+<p class="Image"><img src="copy_data_operations_from.bmp" alt="" style="border: none;" width="322" height="339" border="0"></p>
+<p>&#160;</p>
+<table style="vertical-align: top; margin-left: 40px;" cellspacing="0" 
+		 width="94.072%">
+	<col style="width: 25.55%;">
+	<col style="width: 74.45%;">
+	<tr style="vertical-align: top;">
+		<td style="border-top: Solid 3px #000000; border-right: Solid 1px #000000; 
+			 border-bottom: Solid 1px #000000; width: 25.55%; vertical-align: top; 
+			 padding-right: 10px; padding-left: 10px; padding-top: 10px; 
+			 padding-bottom: 10px;" bgcolor="#91AFD9"><p class="Tabletitle" 
+														 style="font-size: 11pt;">Operation</p></td>
+		<td style="border-top: Solid 3px #000000; border-bottom: Solid 1px #000000; 
+			 width: 74.45%; vertical-align: top; padding-right: 10px; padding-left: 10px; 
+			 padding-top: 10px; padding-bottom: 10px;" bgcolor="#91AFD9"><p 
+			 class="Tabletitle" style="font-size: 11pt;">Description</p></td>
+	</tr>
+	<tr style="vertical-align: top;">
+		<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; 
+			 width: 25.55%; vertical-align: top; padding-right: 10px; padding-left: 10px; 
+			 padding-top: 10px; padding-bottom: 10px;" bgcolor="#CBD9ED"><p 
+			 class="TableDefinitions">Source Drive</p></td>
+		<td style="border-bottom: Solid 1px #000000; width: 74.45%; vertical-align: top; 
+			 padding-right: 10px; padding-left: 10px; padding-top: 10px; 
+			 padding-bottom: 10px;"><p>Select the drive where the data 
+		 files you want copied are located: Secondary Drive or Optional 
+		 Drive. For more information, see Appendix 5.11.3, <a href="Appendix.chm::/Supported_Data_for_each_Drive.htm">Supported 
+		 Data for Each Drive</a>.</p></td>
+	</tr>
+	<tr style="vertical-align: top;">
+		<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; 
+			 width: 25.55%; vertical-align: top; padding-right: 10px; padding-left: 10px; 
+			 padding-top: 10px; padding-bottom: 10px;" bgcolor="#CBD9ED"><p 
+			 class="TableDefinitions">Recipe</p></td>
+		<td style="border-bottom: Solid 1px #000000; width: 74.45%; vertical-align: top; 
+			 padding-right: 10px; padding-left: 10px; padding-top: 10px; 
+			 padding-bottom: 10px;"><p>Enable to copy recipes. Then select 
+		 the format of the recipe files (RCP or CSV) you want to copy to 
+		 the target. For more information on recipes, see Section, 17.1, 
+		 <a href="recipe.chm::/About_Recipe.htm">About Recipe</a>.</p></td>
+	</tr>
+	<tr style="vertical-align: top;">
+		<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; 
+			 width: 25.55%; vertical-align: top; padding-right: 10px; padding-left: 10px; 
+			 padding-top: 10px; padding-bottom: 10px;" bgcolor="#CBD9ED"><p 
+			 class="TableDefinitions">Copy All Files</p></td>
+		<td style="border-bottom: Solid 1px #000000; width: 74.45%; vertical-align: top; 
+			 padding-right: 10px; padding-left: 10px; padding-top: 10px; 
+			 padding-bottom: 10px;"><p>Enable to copy all the recipes found 
+		 in the source drive.</p></td>
+	</tr>
+	<tr style="vertical-align: top;">
+		<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; 
+			 width: 25.55%; vertical-align: top; padding-right: 10px; padding-left: 10px; 
+			 padding-top: 10px; padding-bottom: 10px;" bgcolor="#CBD9ED"><p 
+			 class="TableDefinitions">Copy Selected Group</p></td>
+		<td style="border-bottom: Solid 1px #000000; width: 74.45%; vertical-align: top; 
+			 padding-right: 10px; padding-left: 10px; padding-top: 10px; 
+			 padding-bottom: 10px;"><p>Enable to copy only the selected 
+		 recipe group file. The _RecipeControlDefault.RecipeGroupNumber 
+		 variable determines the recipe group that will be used during 
+		 the operation. For more information on this recipe control variable, 
+		 see Section 17.3.5, <a href="Recipe.chm::/Setting_Up_Recipe_Group_Controls.htm">Setting 
+		 Up Recipe Controls</a>.</p></td>
+	</tr>
+	<tr style="vertical-align: top;">
+		<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; 
+			 width: 25.55%; vertical-align: top; padding-right: 10px; padding-left: 10px; 
+			 padding-top: 10px; padding-bottom: 10px;" bgcolor="#CBD9ED"><p 
+			 class="TableDefinitions">Delete selected data files after 
+		 copying</p></td>
+		<td style="border-bottom: Solid 1px #000000; width: 74.45%; vertical-align: top; 
+			 padding-right: 10px; padding-left: 10px; padding-top: 10px; 
+			 padding-bottom: 10px;"><p>Enable to delete the files in the 
+		 source location after copying. This is equivalent to a cut and 
+		 paste operation. When disabled, the source files are copied over 
+		 without being deleted.</p></td>
+	</tr>
+	<tr style="vertical-align: top;">
+		<td style="border-right: Solid 1px #000000; border-bottom: Solid 3px #000000; 
+			 width: 25.55%; vertical-align: top; padding-right: 10px; padding-left: 10px; 
+			 padding-top: 10px; padding-bottom: 10px;" bgcolor="#CBD9ED"><p 
+			 class="TableDefinitions">Source Path</p></td>
+		<td style="border-bottom: Solid 3px #000000; width: 74.45%; vertical-align: top; 
+			 padding-right: 10px; padding-left: 10px; padding-top: 10px; 
+			 padding-bottom: 10px;"><p>Displays the path where the data 
+		 files are copied from.</p></td>
+	</tr>
+</table>
+<p class="NoteText">&#160;</p>
+</body>
+</html>

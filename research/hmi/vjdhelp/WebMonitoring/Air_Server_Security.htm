@@ -1,0 +1,74 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="template" content="Vijeo_template.htt">
+ <meta name="generator" content="Adobe RoboHelp 10">
+<title>Air_Server_Security</title>
+<link rel="StyleSheet" href="TIS-STYL.CSS" type="text/css">
+</head>
+
+<body>
+<script type="text/javascript" src="ehlpdhtm.js" language="JavaScript1.2"></script>
+
+<div style="width: 100%; position: relative;" id="header">
+	<table style="background-attachment: scroll; margin-left: 0px; margin-right: 4px; 
+			 background-image: url(top_banner.bmp); background-repeat: Repeat-X; 
+			 line-height: 0pt; vertical-align: top;" cellspacing="0" background="top_banner.bmp" 
+			 width="100%">
+		<col style="width: 90%;">
+		<col style="width: 5%;">
+		<col style="width: 5%;">
+		<tr style="vertical-align: center; height: 39px;">
+			<td style="width: 90%; padding-right: 10px; padding-left: 10px; 
+				 border-right-color: #000000;">
+   <p><img src="logo.bmp" alt="" style="border: none;" width="37" height="37" border="0"></p></td>
+			<td style="width: 5%; padding-right: 0px; padding-left: 10px; 
+				 border-right-color: #000000;">
+   <p style="text-align: center;"><a 
+			 title="Glossary" href="Appendix.chm::/Glossary.htm"><img src="logo_glossary.bmp" alt="" style="border: none;" width="47" height="37" border="0"></a></p></td>
+			<td style="width: 5%; padding-right: 10px; padding-left: 5px; 
+				 border-right-color: #000000;">
+   <p style="text-align: center;"><a 
+			 href="About.chm::/What_is_Vijeo-Designer.htm" title="Home"><img src="logo_home.bmp" alt="Home" title="Home" style="border: none; 
+			 margin-left: 0px; margin-right: 0px; margin-bottom: 0px; margin-top: -2px;" width="47" height="37" border="0"></a></p></td>
+		</tr>
+	</table>
+</div>
+
+<h3>Vijeo Design'Air Server Security</h3>
+<p>You can control access to the Vijeo Design'Air servers by requiring 
+ Vijeo Design'Air clients to provide authentication at login.</p>
+<p>You must secure the target machine and the objects that run operations 
+ from unauthorized or unintended access. You can control access to the 
+ target machine with the Login Toolchest part, and protect objects that 
+ run operations by using Security Levels. For more information, see Section 
+ 4.8.2.1, <a href="StandardOperation.chm::/protect_panel_switch.htm">Protecting 
+ Panels and Switches from Unauthorized Users</a>, and Section 9.6, <a href="Switches.chm::/Use_Interlock_function.htm">Using 
+ Interlock to Prevent Accidental Touch Input</a>.</p>
+<ol style="list-style: inside decimal;">
+	<li class="p"><p>Expand the Environment node and click Security.</p></li>
+	<li class="p"><p>In the Property Inspector, for <span style="background-color: #ffffff;">Vijeo 
+	 Design'Air Security,</span> select Use Security. T<span style="background-color: #ffffff;">he 
+	 default value of the system variable</span> _RemoteViewer.DisableConnections 
+	 changes to 1, disabling any remote connections to the target machine. 
+	 To re-enable the remote access at run time, you can use a method, 
+	 such as a switch or an action. For more information, see <a href="Air_System_Variables.htm">Vijeo 
+	 Design'Air System Variables</a>.</p></li>
+	<li class="p"><p>In the Security editor, in the Vijeo Design'Air column 
+	 for the specific user group, select Denied, Read Only or Read/Write. 
+	 Select Denied when you want to deny any communication with remote 
+	 users. Select Read Only when you want to ignore touch request from 
+	 remote users and display information or a dashboard for remote users. 
+	 Select Read/Write to enable touch operations for remote users.</p></li>
+	<li class="p"><p>In the Property Inspector, for Target Security, select 
+	 Use Security. Expand the Target Security node and define Security 
+	 Mode, Logout Behavior, Secured Object Behavior, and Password Management.</p></li>
+</ol>
+<p>At run time, the Vijeo Design'Air client operator must provide a valid 
+ user name and password to connect to the Vijeo Design'Air server. Once 
+ connected, the user must then login to the target machine, using a Login 
+ Toolchest part, to access the secured panels and objects.</p>
+</body>
+</html>

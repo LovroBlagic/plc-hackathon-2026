@@ -1,0 +1,85 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+<meta name="template" content="Vijeo_template.htt">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="date" content="07 24, 2003 10:37:25 AM">
+ <meta name="generator" content="Adobe RoboHelp 2015">
+<title>Bar Code Scanners</title>
+<link rel="StyleSheet" href="TIS-STYL.css" type="text/css">
+</head>
+<body page-style="x-size: Letter; x-orientation: portrait;" page-frame-style="margin-left: 0.5in; margin-right: 0.5in;">
+<script type="text/javascript" src="ehlpdhtm.js" language="JavaScript1.2"></script>
+
+<div style="width: 100%; position: relative;" id="header">
+	<table style="background-attachment: scroll; margin-left: 0px; margin-right: 4px; 
+			 background-image: url(top_banner.bmp); background-repeat: Repeat-X; 
+			 line-height: 0pt; vertical-align: top;" cellspacing="0" background="top_banner.bmp" 
+			 width="100%">
+		<col style="width: 90%;">
+		<col style="width: 5%;">
+		<col style="width: 5%;">
+		<tr style="vertical-align: center; height: 39px;">
+			<td style="width: 90%; padding-right: 10px; padding-left: 10px; 
+				 border-right-color: #000000;">
+   <p><img src="logo.bmp" alt="" style="border: none;" width="37" height="37" border="0"></p></td>
+			<td style="width: 5%; padding-right: 0px; padding-left: 10px; 
+				 border-right-color: #000000;">
+   <p style="text-align: center;"><a 
+			 title="Glossary" href="Appendix.chm::/Glossary.htm"><img src="logo_glossary.bmp" alt="" style="border: none;" width="47" height="37" border="0"></a></p></td>
+			<td style="width: 5%; padding-right: 10px; padding-left: 5px; 
+				 border-right-color: #000000;">
+   <p style="text-align: center;"><a 
+			 href="About.chm::/What_is_Vijeo-Designer.htm" title="Home"><img src="logo_home.bmp" alt="Home" title="Home" style="border: none; 
+			 margin-left: 0px; margin-right: 0px; margin-bottom: 0px; margin-top: -2px;" width="47" height="37" border="0"></a></p></td>
+		</tr>
+	</table>
+</div>
+
+
+<h1>24.1 Bar Code Scanners</h1>
+<p>When connected to a target machine's serial or USB port, bar code scanners capture product information from bar code symbols. You can then copy the scanned information to other variables for storage or display.</p>
+<p class="Image" style="margin-left: 0px;"><img src="Barcode_Overview.bmp" alt="" style="border: none;" width="420" height="189" border="0"></p>
+<p class="NoteImage"><img src="Note_Moji.bmp" alt="" style="border: none;" width="51" height="25" border="0"></p>
+<ul>
+<li class="p-NoteText">
+<p class="NoteText">Which bar code scanner driver to use depends on the bar code scanner that is being connected. For more information, see Section 24.1.2, <a href="HardwareOptions.chm::/BarcodeDriverSetup.htm">Setting Up the Bar Code Scanner Driver</a>.</p>
+</li>
+<li class="p-NoteText">
+<p class="NoteText">For recommended bar code scanners, see Appendix 5, <a href="Appendix.chm::/Hardware_Specifications.htm">Hardware Specifications</a>.</p>
+</li>
+<li class="p-NoteText">
+<p class="NoteText">See Appendix 5, <a href="Appendix.chm::/Hardware_Specifications.htm">Hardware Specifications</a> for which target machines support bar code scanners.</p>
+</li>
+<li class="p-NoteText">
+<p class="NoteText">USB bar code scanner emulates a USB version 1.1 keyboard; therefore, data transfer speeds are limited to the speed of this protocol. Test your application thoroughly to ensure your target machine's data transfer speed is sufficient for your requirements.</p>
+</li>
+<li class="p-NoteText">
+<p class="NoteText">Windows based targets (iPC, XBTGTW) support USB Bar code scanners, but they do not support the Vijeo Designer USB Barcode Scanner Driver. Windows based targets us their operating system's built-in USB Bar Code Scanner driver to communicate with USB Bar Code scanners.</p>
+</li>
+</ul>
+<p><img src="limit.bmp" alt="" style="border: none;" width="77" height="24" border="0"></p>
+<ul>
+<li class="p-NoteText">
+<p class="NoteText">No more than one serial barcode scanner and one USB barcode scanner can be used at the same time in a single project. If your project uses more than one serial barcode scanner and more than one USB barcode scanner, the scanners may not function properly.</p>
+</li>
+</ul>
+<h4><img src="Square.bmp" alt="" style="border: none;" width="12" height="10" border="0"> Procedure</h4>
+<p>Follow the steps below to set up the bar code scanner on the target machine:</p>
+<ol style="list-style: decimal;">
+<li class="p">
+<p><a href="Barcode-TargetConnection.htm">Connect the bar code scanner to the target machine.</a></p>
+</li>
+<li class="p">
+<p><a href="BarcodeDriverSetup.htm">Set up the bar code scanner driver.</a></p>
+</li>
+<li class="p">
+<p><a href="BarcodeValueAnimation.htm">Configure the Data Display for the bar code scanner.</a></p>
+</li>
+<li class="p">
+<p><a href="BarcodeScanning.htm">Scan the data.</a></p>
+</li>
+</ol>
+</body>
+</html>

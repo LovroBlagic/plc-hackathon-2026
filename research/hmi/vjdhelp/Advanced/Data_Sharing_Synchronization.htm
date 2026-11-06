@@ -1,0 +1,101 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+<meta name="template" content="Vijeo_template.htt">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="topic-status" content="In Progress">
+<meta name="topic-priority" content="0">
+<meta name="topic-time-estimate" content="0">
+<meta name="topic-comment" content="">
+<meta name="topic-id" content="">
+<meta name="window-type" content="$global_NewWindow">
+ <meta name="generator" content="Adobe RoboHelp 10">
+<title>Setting Up Exclusive Input Relationships</title>
+<link rel="StyleSheet" href="TIS-STYL.CSS" type="text/css">
+</head>
+<body>
+<script type="text/javascript" src="ehlpdhtm.js" language="JavaScript1.2"></script>
+
+<div style="width: 100%; position: relative;" id="header">
+	<table style="background-attachment: scroll; margin-left: 0px; margin-right: 4px; 
+			 background-image: url(top_banner.bmp); background-repeat: Repeat-X; 
+			 line-height: 0pt; vertical-align: top;" cellspacing="0" width="100%" 
+			 background="top_banner.bmp">
+		<col style="width: 90%;">
+		<col style="width: 5%;">
+		<col style="width: 5%;">
+		<tr style="vertical-align: center; height: 39px;">
+			<td style="width: 90%; padding-right: 10px; padding-left: 10px; 
+				 border-right-color: #000000;">
+   <p><img src="logo.bmp" style="border: none;" alt="" width="37" height="37" border="0"></p></td>
+			<td style="width: 5%; padding-right: 0px; padding-left: 10px; 
+				 border-right-color: #000000;">
+   <p style="text-align: center;"><a 
+			 title="Glossary" href="Appendix.chm::/Glossary.htm"><img src="logo_glossary.bmp" style="border: none;" alt="" width="47" height="37" border="0"></a></p></td>
+			<td style="width: 5%; padding-right: 10px; padding-left: 5px; 
+				 border-right-color: #000000;">
+   <p style="text-align: center;"><a 
+			 href="About.chm::/What_is_Vijeo-Designer.htm" title="Home"><img src="logo_home.bmp" alt="Home" title="Home" style="border: none; 
+			 margin-left: 0px; margin-right: 0px; margin-bottom: 0px; margin-top: -2px;" width="47" height="37" border="0"></a></p></td>
+		</tr>
+	</table>
+</div>
+
+<h1>22.2 Setting Up Exclusive Input Relationships</h1>
+<p>Data sharing is a useful feature that enables one target machine to view and change data on another target machine, or access the same PLC from two different physical locations. But this could also produce uncertain situations where two different operators might begin working with the same equipment without being aware of each other's actions.</p>
+<p>To prevent simultaneous inputs to the same variable, you can set up exclusive input relationships between target to target and target to Web Gate client. With this feature you can stop other target machines from changing the value of variables you're working on.</p>
+<h4><img src="Square.bmp" style="border: none;" alt="" width="12" height="10" border="0">Exclusive Input Permission</h4>
+<p style="margin-left: 0px;">At run time, when you try to change to a panel set up with exclusive input, the target requests permission from the target set up as the Input Manager. This target either grants the request (if none of the other targets is in exclusive input mode) or refuses the request (if one of the other targets is in exclusive input mode).</p>
+<p style="margin-left: 0px;">If the request is granted, you can begin working with the exclusive input panel. If the request is refused, the target remains on the same panel and displays a message.</p>
+<h4><img src="Square.bmp" style="border: none;" alt="" width="12" height="10" border="0">Inactivity Timeout</h4>
+<p style="margin-left: 0px;">At run time, when a target displays an exclusive input panel, and the amount of time defined in the Inactivity Timeout property elapses without any user input operations (touch panel or touch function key), then the Input Manager forces the target to display its initial panel. If the target was displaying the exclusive input panel in a popup window, then that popup window will close.</p>
+<h2><a name="ExclusiveInputRelationship642b3b9347ca42c9b00b820c00c373fa=1"></a><a name="ExclusiveInputRelationship" id="ExclusiveInputRelationship"></a>22.2.1 Creating an Exclusive Input Relationship</h2>
+<ol style="list-style: decimal;">
+<li class="p">
+<p>After creating two or more targets, in the Project properties enable Input Synchronization.</p>
+</li>
+</ol>
+<ol start="2" style="list-style: decimal;">
+<li class="p">
+<p>In the Input Manager property, select the target that will control exclusive input rights.</p>
+</li>
+<li class="p">
+<p>To limit the amount of time a panel can remain in exclusive input, select the Inactivity Timeout checkbox and specify the time in minutes.</p>
+</li>
+<li class="p">
+<p><span style="margin-left: 0px;">The target that you select as the Input Manager must be set up with data sharing. In the Input Manager target properties, set Data Sharing = Enabled.</span></p>
+</li>
+</ol>
+<p class="NoteImage" style="margin-left: 40px;"><img src="limit.bmp" style="border: none;" alt="" width="77" height="24" border="0"></p>
+<ul>
+<li class="p-NoteText2">
+<p class="NoteText2">If you change the Input Manager, or if you change the IP address of the Input Manager target, you must download again to all the targets in the project.</p>
+</li>
+</ul>
+<h5 style="margin-left: 40px;">Panel Properties</h5>
+<p style="margin-left: 40px;">After setting up Input Sychronization in the Project properties, in the Panel properties the Exclusive Input property becomes available.</p>
+<p style="margin-left: 40px;">This property defines which panels are part of the exclusive input pool. Only one panel out of this pool can display at any time. In other words, at run time if an exclusive input panel is displayed, other targets in the project cannot display an exclusive input panel, which could include popup window panels.</p>
+<p style="margin-left: 40px;"><img src="exclusive_input_Stop.bmp" style="border: none;" alt="" width="493" height="156" border="0"></p>
+<p style="margin-left: 40px;">Other targets can display panels that are not part of the exclusive input pool.</p>
+<p style="margin-left: 40px;">If you want to set Exclusive Input to all the panels except for the initial panel, in the Target properties enable Exclusive Input. This property enables Exclusive Input for all panels, including popup window panels.</p>
+<p class="NoteImage" style="margin-left: 40px;"><img src="limit.bmp" style="border: none;" alt="" width="77" height="24" border="0"></p>
+<ul>
+<li class="p-NoteText2">
+<p class="NoteText2">Do not use the Target's Exclusive Input property if your application uses the popup window for a menu that navigates panels. Instead, apply Exclusive Input to panels individually.</p>
+</li>
+</ul>
+<p><img src="NOTE_MOJI.bmp" style="border: none;" alt="" width="51" height="25" border="0"></p>
+<ul>
+<li class="p-NoteText">
+<p class="NoteText">If a change panel operation to display exclusive input panels occurs on two or more target machines within a very short time of each other (approximately 1 second), each target will display the exclusive input panel for a fraction of a second. However, only one of the panels is granted exclusive input and continues displaying the panel. Exclusive input is denied on the other targets at which time they revert to the initial panel, instead of returning to the previous panel.</p>
+</li>
+<li class="p-NoteText">
+<p class="NoteText">You cannot set up the initial panel with exclusive input. The initial panel is the default panel that displays when exclusive input fails. Every other panel in a target can be set up with exclusive input.</p>
+</li>
+<li class="p-NoteText">
+<p class="NoteText">The difference between the Input Manager target machine and other target machines is only noticeable when communication between targets machines fails (see Section 22.2.3, <a href="Exclusive_Input_Comm_Errors.htm">Exclusive Input and Communication at Run Time</a>); otherwise, all the target machines in an exclusive input relationship behave identically.</p>
+</li>
+</ul>
+</body>
+</html>

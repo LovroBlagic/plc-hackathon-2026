@@ -1,0 +1,151 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+<meta name="template" content="Vijeo_template.htt">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+ <meta name="generator" content="Adobe RoboHelp 2015">
+<title>24.10 USB Keyboard</title>
+<link rel="StyleSheet" href="TIS-STYL.css" type="text/css">
+</head>
+<body>
+<script type="text/javascript" src="ehlpdhtm.js" language="JavaScript1.2"></script>
+
+<div style="width: 100%; position: relative;" id="header">
+	<table style="background-attachment: scroll; margin-left: 0px; margin-right: 4px; 
+			 background-image: url(top_banner.bmp); background-repeat: Repeat-X; 
+			 line-height: 0pt; vertical-align: top;" cellspacing="0" background="top_banner.bmp" 
+			 width="100%">
+		<col style="width: 90%;">
+		<col style="width: 5%;">
+		<col style="width: 5%;">
+		<tr style="vertical-align: center; height: 39px;">
+			<td style="width: 90%; padding-right: 10px; padding-left: 10px; 
+				 border-right-color: #000000;">
+   <p><img src="logo.bmp" alt="" style="border: none;" width="37" height="37" border="0"></p></td>
+			<td style="width: 5%; padding-right: 0px; padding-left: 10px; 
+				 border-right-color: #000000;">
+   <p style="text-align: center;"><a 
+			 title="Glossary" href="Appendix.chm::/Glossary.htm"><img src="logo_glossary.bmp" alt="" style="border: none;" width="47" height="37" border="0"></a></p></td>
+			<td style="width: 5%; padding-right: 10px; padding-left: 5px; 
+				 border-right-color: #000000;">
+   <p style="text-align: center;"><a 
+			 href="About.chm::/What_is_Vijeo-Designer.htm" title="Home"><img src="logo_home.bmp" alt="Home" title="Home" style="border: none; 
+			 margin-left: 0px; margin-right: 0px; margin-bottom: 0px; margin-top: -2px;" width="47" height="37" border="0"></a></p></td>
+		</tr>
+	</table>
+</div>
+
+
+<h1>24.10 Harmony USB Keyboard</h1>
+<p>The Harmony USB keyboard provides physical function keys for repetitive operations and an alphanumeric keypad for quick data input. The keyboard is rugged, portable and compact, and is a practical solution for entering data and for operating in harsh environments. Unlike using a built-in keyboard available on some target machines, the Harmony USB keyboard does not take up panel display space when entering data. For a list of target machines that support the Harmony USB keyboard, see Appendix 5, <a href="Appendix.chm::/Hardware_Specifications.htm">Hardware Specifications</a>.</p>
+<p>The Harmony USB keyboard connects to the target machine, using a USB cable that connects to the keyboard's M22 port and the target machine's USB port.</p>
+<p><img src="Magelis_USB_Keyboard_Connection.bmp" alt="" style="border: none;" border="0"></p>
+<p>When you connect the Harmony USB keyboard to the target machine, it interacts only with the target machine it is connected to. For example, when the Harmony USB keyboard is connected to a target machine which also has a Web Gate connection, the keyboard will only interact with the target machine and will have no effect on the Web Gate display or entry of values.</p>
+<p>The Harmony USB keyboard can work in parallel with a built-in keypad, a system popup keypad or toolchest keypad, or the USB standard keyboard. You can press keys on either keypads and be able to enter data.</p>
+<p>The Harmony USB keyboard has two modes: Function Key Mode and Entry Mode. The Entry Mode is used when you are using numeric displays or string displays. For more information on how to define function keys, see Section 24.5.1, <a href="Target_Function_Key.htm">Target Function Key</a> and Section 24.5.2, <a href="Panel_Function_Keys.htm">Panel Function Key</a>.</p>
+<p>&#160;</p>
+<h4><img src="Square.bmp" alt="" style="border: none;" border="0"> USB Keyboard Layout</h4>
+<p>The following image displays the layout of the Harmony USB keyboard.</p>
+<p><img src="Magelis_USB_Keyboard.bmp" alt="" style="border: none;" border="0"></p>
+<p>The keyboard provides:</p>
+<ul>
+<li class="p-Bullet">
+<p class="Bullet">12 function (F1-F12) and alphanumeric keys</p>
+</li>
+<li class="p-Bullet">
+<p class="Bullet">System keys (ESC, CLR/DEL, Shift, Enter, Left/Right Arrows, Up/Down Arrows)</p>
+</li>
+</ul>
+<h4><a name="Setting_Up_the_Target_Machine_to_Use_the_USB_Keyboard" id="Setting_Up_the_Target_Machine_to_Use_the_USB_Keyboard"></a><img src="Square.bmp" alt="" style="border: none;" border="0"> Setting Up the Target Machine to Use the USB Keyboard</h4>
+<p>For a target machine to communicate with the keyboard, add the Harmony USB keyboard driver to your project.</p>
+<ol style="list-style: decimal;">
+<li style="font-size: 10pt; font-family: Arial, sans-serif;">
+<p style="margin-bottom: 6px;">In the Navigator window's Project tab, right-click the IO Manager node and select New Driver.</p>
+</li>
+<li style="font-size: 10pt; font-family: Arial, sans-serif;">
+<p style="margin-bottom: 6px;">In the New Driver dialog box, select Schneider Electric USB Accessories.</p>
+</li>
+<li style="font-size: 10pt; font-family: Arial, sans-serif;">
+<p style="margin-bottom: 6px;">Select USB Keyboard, and click OK.</p>
+</li>
+<li style="font-size: 10pt; font-family: Arial, sans-serif;">
+<p style="margin-bottom: 6px;"><span style="font-style: italic;">(Optional)</span> If you want to create customized labels, in the Driver Configuration dialog box, click the ellipsis button in the Print Label property to find the labels file, and print labels for the keyboard.</p>
+</li>
+<li style="font-size: 10pt; font-family: Arial, sans-serif;">
+<p style="margin-bottom: 6px;"><span style="font-style: italic;">(Optional)</span> If you want to configure function keys, set up the USB keyboard for <a href="#Setting_Up_Static_Function_Keys">static function key capability</a> or <a href="#Setting_Up_Dynamic_Function_Keys">dynamic function key capability</a>.</p>
+</li>
+</ol>
+<h4><a name="Setting_Up_Static_Function_Keys" id="Setting_Up_Static_Function_Keys"></a><img src="Square.bmp" alt="" style="border: none;" border="0"> Setting Up Static Function Keys</h4>
+<ol style="list-style: decimal;">
+<li style="font-size: 10pt; font-family: Arial, sans-serif;">
+<p style="margin-bottom: 6px;">In the Target properties, click the ellipsis in the Function Keys property to open the Target Function Key Setting dialog box.</p>
+</li>
+<li style="font-size: 10pt; font-family: Arial, sans-serif;">
+<p style="margin-bottom: 6px;">Add the function key and define the operation. For more information on target function key configuration, see Section 24.5.1, <a href="Target_Function_Key.htm">Target Function Key</a>.</p>
+</li>
+<li style="font-size: 10pt; font-family: Arial, sans-serif;">
+<p style="margin-bottom: 6px;">Define the Control Mode, Buzzer On Touch, and LED Control properties. For more information on the Function Keys properties in the Target properties, see Section 4.5.1.7, <a href="StandardOperation.chm::/targetProperties_keys.htm">Keys</a>.</p>
+</li>
+<li style="font-size: 10pt; font-family: Arial, sans-serif;">
+<p style="margin-bottom: 6px;">Set up the Dialog Table to link the function keys to PLC variables. For more information, see <a href="#Setting_Up_Dialog_Table">Setting Up the Dialog Table</a>.</p>
+</li>
+</ol>
+<h4><a name="Setting_Up_Dynamic_Function_Keys" id="Setting_Up_Dynamic_Function_Keys"></a><img src="Square.bmp" alt="" style="border: none;" border="0"> Setting Up Dynamic Function Keys</h4>
+<ol style="list-style: decimal;">
+<li style="font-size: 10pt; font-family: Arial, sans-serif;">
+<p style="margin-bottom: 6px;">Create a panel and select the panel.</p>
+</li>
+<li style="font-size: 10pt; font-family: Arial, sans-serif;">
+<p style="margin-bottom: 6px;">In the Panel properties, click the ellipsis in the Function Keys property to open the Panel Function Key Setting dialog box.</p>
+</li>
+<li style="font-size: 10pt; font-family: Arial, sans-serif;">
+<p style="margin-bottom: 6px;">Add the function key and define the operation. For more information on panel function key configuration, see Section 24.5.2, <a href="Panel_Function_Keys.htm">Panel Function Key</a>.</p>
+</li>
+</ol>
+<h4><a name="Setting_Up_Dialog_Table" id="Setting_Up_Dialog_Table"></a><img src="Square.bmp" alt="" style="border: none;" border="0"> Setting Up the Dialog Table</h4>
+<p>You can set up the Dialog Table to link the function keys to PLC variables in order for the PLC to control operations.</p>
+<ol style="list-style: decimal;">
+<li style="font-size: 10pt; font-family: Arial, sans-serif;">
+<p style="margin-bottom: 6px;">In the Target properties, make sure the Control Mode property is set to Dialog Table.</p>
+</li>
+<li style="font-size: 10pt; font-family: Arial, sans-serif;">
+<p style="margin-bottom: 6px;">Add a device driver to your project.</p>
+</li>
+<li style="font-size: 10pt; font-family: Arial, sans-serif;">
+<p style="margin-bottom: 6px;">In the Equipment properties, click the ellipsis in the Dialog Table property to open the Dialog Table Settings dialog box.</p>
+</li>
+<li style="font-size: 10pt; font-family: Arial, sans-serif;">
+<p style="margin-bottom: 6px;">Set up Dialog Table functions. The following Dialog Table functions are supported by the Harmony USB keyboard:</p>
+</li>
+</ol>
+<ul>
+<li class="p-bullet2">
+<p class="bullet2">Image of Static Function Keys</p>
+</li>
+<li class="p-bullet2">
+<p class="bullet2">Image of System Keys</p>
+</li>
+<li class="p-bullet2">
+<p class="bullet2">Image of Numeric Keys</p>
+</li>
+<li class="p-bullet2">
+<p class="bullet2">Static Function Keys LEDs Lighting</p>
+</li>
+<li class="p-bullet2">
+<p class="bullet2">Static Function Keys LEDs Flashing</p>
+</li>
+<li class="p-bullet2">
+<p class="bullet2">Static Function Keys Locking</p>
+</li>
+<li class="p-bullet2">
+<p class="bullet2">System Keys Locking</p>
+</li>
+<li class="p-bullet2">
+<p class="bullet2">Numeric Keys Locking</p>
+</li>
+</ul>
+<p style="margin-left: 41px;">For more information, see Section 5.6.2, <a href="ExternalDevice.chm::/Dialog_table_list.htm">Dialog Table Functions</a>.</p>
+<p>&#160;</p>
+</body>
+</html>

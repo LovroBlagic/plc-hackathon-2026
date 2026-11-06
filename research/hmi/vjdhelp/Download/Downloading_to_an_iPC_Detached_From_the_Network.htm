@@ -1,0 +1,129 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+<meta name="template" content="Vijeo_template.htt">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="topic-status" content="In Progress">
+<meta name="topic-priority" content="0">
+<meta name="topic-time-estimate" content="0">
+<meta name="topic-id" content="Downloading to an iPC Detached From the Network">
+<meta name="window-type" content="$global_NewWindow">
+ <meta name="generator" content="Adobe RoboHelp 2015">
+<title>Downloading to an iPC or XBTGTW Detached From the Network</title>
+<link rel="StyleSheet" href="Tis-styl.css" type="text/css">
+</head>
+<body>
+<script type="text/javascript" src="ehlpdhtm.js" language="JavaScript1.2"></script>
+
+<div style="width: 100%; position: relative;" id="header">
+	<table style="background-attachment: scroll; margin-left: 0px; margin-right: 4px; 
+			 background-image: url(top_banner.bmp); background-repeat: Repeat-X; 
+			 line-height: 0pt; vertical-align: top;" cellspacing="0" background="top_banner.bmp" 
+			 width="100%">
+		<col style="width: 90%;">
+		<col style="width: 5%;">
+		<col style="width: 5%;">
+		<tr style="vertical-align: center; height: 39px;">
+			<td style="width: 90%; padding-right: 10px; padding-left: 10px; 
+				 border-right-color: #000000;">
+   <p><img src="logo.bmp" alt="" style="border: none;" width="37" height="37" border="0"></p></td>
+			<td style="width: 5%; padding-right: 0px; padding-left: 10px; 
+				 border-right-color: #000000;">
+   <p style="text-align: center;"><a 
+			 title="Glossary" href="Appendix.chm::/Glossary.htm"><img src="logo_glossary.bmp" alt="" style="border: none;" width="47" height="37" border="0"></a></p></td>
+			<td style="width: 5%; padding-right: 10px; padding-left: 5px; 
+				 border-right-color: #000000;">
+   <p style="text-align: center;"><a 
+			 href="About.chm::/What_is_Vijeo-Designer.htm" title="Home"><img src="logo_home.bmp" alt="Home" title="Home" style="border: none; 
+			 margin-left: 0px; margin-right: 0px; margin-bottom: 0px; margin-top: -2px;" width="47" height="37" border="0"></a></p></td>
+		</tr>
+	</table>
+</div>
+
+
+<h2>25.6.5 Downloading to a Network Folder</h2>
+<p>Use the Network Folder download method when the target machine is an iPC/XBTGTW.</p>
+<p>Use File System to download the user application to either a network folder, CF Card/SD Card, or USB drive. For a list of supported target machines, see Appendix 5, <a href="Appendix.chm::/Hardware_Specifications.htm">Hardware Specifications</a>.</p>
+<p>For iPC/XBTGTW, once the download is complete, take the file to the target machine and use the Vijeo Designer Application Installer to install the user application into Vijeo-Designer Runtime. For other target machines, place the optional drive into the target and reboot to install the application.</p>
+<p>If your PC has only one drive partition (that is, only a C:\ drive), you will not be able install your Vijeo Designer application as a .vda file. You must download using a USB cable or the Ethernet.</p>
+<h4><img src="Square.bmp" alt="" style="border: none;" width="12" height="10" border="0">Before Download</h4>
+<p>Make sure the version number of Vijeo-Designer Runtime matches the Vijeo-Designer editor. If the versions do not match, update the editor or runtime. For information on displaying version numbers, see Section 26.4.4, <a href="Runtime.chm::/verinfo.htm">Displaying Version Information</a>.</p>
+<h4><img src="Square.bmp" alt="" style="border: none;" width="12" height="10" border="0">Downloading</h4>
+<ol style="list-style: decimal;">
+<li class="p">
+<p>In Vijeo-Designer, right-click the Target node and click Properties to open the Property Inspector. Set Download to File System.</p>
+</li>
+<li class="p">
+<p>In the Path, type the drive letter of the destination (e.g. F:\), which can be either a network folder (for iPCs) or an optional drive.</p>
+</li>
+</ol>
+<p class="NoteImage" style="margin-left: 40px;"><img src="Limit.bmp" alt="" style="border: none;" width="77" height="24" border="0"></p>
+<ul>
+<li class="p-NoteText2">
+<p class="NoteText2">Only local path names are supported for download. To download to a network drive, first map the network drive to your local drive and then define this path for download.</p>
+</li>
+<li class="p-NoteText2">
+<p class="NoteText2">In the download path, use ASCII characters only.</p>
+</li>
+</ul>
+<ol start="3" style="list-style: decimal;">
+<li class="p">
+<p>Right-click the Target node, and click Download. The user application is downloaded to the defined location as a .vda file.</p>
+</li>
+<li class="p">
+<p>Move the downloaded file (.vda) to a drive visible from the target.</p>
+</li>
+<li class="p">
+<p>On the target, click the Windows Start button, point to Programs, Schneider Electric, Vijeo-Designer, Tools, then click the Vijeo-Designer Application Installer.</p>
+</li>
+<li class="p">
+<p>In the Application Installer, use one of the following methods to select the compressed project file:</p>
+</li>
+</ol>
+<ul style="list-style: decimal;">
+<li class="p-bullet2">
+<p class="bullet2">Type the path of the .vda file.</p>
+</li>
+<li class="p-bullet2">
+<p class="bullet2">Click Browse and locate the .vda file.</p>
+</li>
+<li class="p-bullet2">
+<p class="bullet2">Drag and drop the .vda file from Explorer.</p>
+</li>
+</ul>
+<ol start="7" style="list-style: decimal;">
+<li class="p" style="list-style: decimal;">
+<p>If you are using a Smart iPC or XBTGTW to download the user application, you have to unlock the Main drive.</p>
+</li>
+</ol>
+<ul style="list-style: decimal;">
+<li class="p-bullet2">
+<p class="bullet2">If the Main drive is locked, in the message box that displays, click Unlock and Restart to shut down and restart Windows.</p>
+</li>
+<li class="p-bullet2">
+<p class="bullet2">After Windows starts up, if a run-time message box displays, click Quit.</p>
+</li>
+<li class="p-bullet2">
+<p class="bullet2">Next, run the Vijeo-Designer Application Installer to continue installation.</p>
+</li>
+<li class="p-bullet2">
+<p class="bullet2">When installation is complete, click Lock And Restart to protect the Main drive.</p>
+</li>
+</ul>
+<ol start="8" style="list-style: decimal;">
+<li class="p">
+<p>Start Vijeo-Designer Runtime to run the user application.</p>
+</li>
+</ol>
+<p class="NoteImage"><img src="Limit.bmp" alt="" style="border: none;" width="77" height="24" border="0"></p>
+<ul>
+<li class="p-NoteText">
+<p class="NoteText">During download, do not forcibly exit Vijeo-Designer, or turn off either the PC or target machine during download. Trying to cancel or interrupt the download process can make the target machine inoperable. If you have trouble starting the target machine, see Section 25.6.6, <a href="Recovering_the_System_on_a_Target_Machine.htm">Recovering the System on a Target Machine</a>.</p>
+</li>
+<li class="p-NoteText">
+<p class="NoteText">If the editor (Vijeo-Designer) and runtime (Vijeo-Designer Runtime) versions don't match, download will proceed after you confirm a version update when prompted. Update either the editor or the runtime.</p>
+</li>
+</ul>
+</body>
+</html>

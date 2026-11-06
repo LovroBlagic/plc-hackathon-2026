@@ -1,0 +1,178 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+<meta name="template" content="Vijeo_template.htt">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="date" content="07 17, 2003 4:16:37 PM">
+ <meta name="generator" content="Adobe RoboHelp 10">
+<title>Switching Between Multiple Text Files</title>
+<link rel="StyleSheet" href="TIS-STYL.CSS" type="text/css">
+</head>
+<body>
+<script type="text/javascript" src="ehlpdhtm.js" language="JavaScript1.2"></script>
+
+<div style="width: 100%; position: relative;" id="header">
+	<table style="background-attachment: scroll; margin-left: 0px; margin-right: 4px; 
+			 background-image: url(top_banner.bmp); background-repeat: Repeat-X; 
+			 line-height: 0pt; vertical-align: top;" cellspacing="0" width="100%" 
+			 background="top_banner.bmp">
+		<col style="width: 90%;">
+		<col style="width: 5%;">
+		<col style="width: 5%;">
+		<tr style="vertical-align: center; height: 39px;">
+			<td style="width: 90%; padding-right: 10px; padding-left: 10px; 
+				 border-right-color: #000000;">
+   <p><img src="logo.bmp" style="border: none;" alt="" width="37" height="37" border="0"></p></td>
+			<td style="width: 5%; padding-right: 0px; padding-left: 10px; 
+				 border-right-color: #000000;">
+   <p style="text-align: center;"><a 
+			 title="Glossary" href="Appendix.chm::/Glossary.htm"><img src="logo_glossary.bmp" style="border: none;" alt="" width="47" height="37" border="0"></a></p></td>
+			<td style="width: 5%; padding-right: 10px; padding-left: 5px; 
+				 border-right-color: #000000;">
+   <p style="text-align: center;"><a 
+			 href="About.chm::/What_is_Vijeo-Designer.htm" title="Home"><img src="logo_home.bmp" alt="Home" title="Home" style="border: none; 
+			 margin-left: 0px; margin-right: 0px; margin-bottom: 0px; margin-top: -2px;" width="47" height="37" border="0"></a></p></td>
+		</tr>
+	</table>
+</div>
+
+<h3>11.7.2.2 Switching Between Multiple Text Files</h3>
+<p>This section explains how to switch between text files that have different instructions to the user.</p>
+<p class="Image"><img src="text%20display_file.bmp" style="border: none;" alt="" width="452" height="316" border="0"></p>
+<ol style="list-style: decimal;">
+<li class="p">
+<p>Create several files in text format (*.txt) using any text editor.</p>
+</li>
+</ol>
+<p style="margin-left: 40px;">Select Unicode as the character encoding when you save the file.</p>
+<p class="Image" style="margin-left: 40px;"><img src="text%20display_unicode.bmp" style="border: none;" alt="" width="404" height="79" border="0"></p>
+<ol start="2" style="list-style: decimal;">
+<li class="p">
+<p>In the Navigator window's Project tab, double-click Environment under the Target node, double-click Data Files, and then select the Text node to open the Text File Editor.</p>
+</li>
+</ol>
+<ol start="3" style="list-style: decimal;">
+<li class="p">
+<p>Define a text file in the File Name field. When the location of a text file is specified, the Alias field fills in the name of the file without the extension. You can change the alias to a different name.</p>
+</li>
+</ol>
+<p class="Image" style="margin-left: 40px;"><img src="test%20display_alias.bmp" style="border: none;" alt="" width="400" height="38" border="0"></p>
+<p class="NoteImage" style="margin-left: 40px;"><img src="NOTE_MOJI.bmp" style="border: none;" alt="" width="51" height="25" border="0"></p>
+<ul>
+<li class="p-NoteText2">
+<p class="NoteText2">You can set up a maximum of 200 files.</p>
+</li>
+</ul>
+<ol start="4">
+<li style="list-style: decimal;" class="p">
+<p>Click Add. Repeat steps 1 to 3 &#160;to add all the text files, and use the same alias for all files.</p>
+</li>
+</ol>
+<p class="Image" style="margin-left: 40px;"><img src="Vijeo_text_display_add_alias.bmp" style="border: none;" alt="" width="382" height="259" border="0"></p>
+<ol start="5" style="list-style: decimal;">
+<li class="p">
+<p>To each alias, append three digits to identify the text file number and two digits for the language number. The file ID must be between 000 and 999.</p>
+</li>
+</ol>
+<p class="Image" style="margin-left: 40px;">&#160;&#160;<img src="fileNO%20variable.bmp" style="border: none;" alt="" width="212" height="47" border="0"></p>
+<p style="margin-left: 40px;">Example:<br>
+Specify the ID 000 to 002 for the following three text files. The language number is 01, English.</p>
+<p class="Code" style="margin-left: 80px;">Alias: Error<br>
+File ID: 000 Language ID: 01 = Error1_E.txt<br>
+File ID: 001 Language ID: 01 = Error2_E.txt<br>
+File ID: 002 Language ID: 01 = Error3_E.txt</p>
+<p style="margin-left: 40px;"><span style="margin-left: 80px;">The entries in the text file editor will look like this:</span></p>
+<p class="Image" style="margin-left: 40px;"><img src="fileNO_alias.bmp" style="border: none;" alt="" width="365" height="66" border="0"></p>
+<p style="margin-left: 40px;">You can change languages by assigning the defined Language ID.<br>
+See Section 11.7.2.3, <a href="Changing_text_display_object_language.htm">Switching Text Files by Language</a>.</p>
+<p style="margin-left: 40px;">Example:<br>
+Specify the ID 000 to 002 for the following three text files:</p>
+<p class="Code" style="margin-left: 80px;">Alias: Error<br>
+File ID: 000 (using Language 1) = Error.txt<br>
+File ID: 001 (using Language 2) = Error_T.txt<br>
+File ID: 002 (using Language 1) = Readme.txt</p>
+<p style="margin-left: 40px;"><span style="margin-left: 80px;">The entries in the text file editor will look like this:</span></p>
+<p class="Image" style="margin-left: 40px;"><img src="fileNO_alias2.bmp" style="border: none;" alt="" width="363" height="68" border="0"></p>
+<ol start="6" style="list-style: decimal;">
+<li class="p">
+<p>Select the location the text files are stored.</p>
+</li>
+</ol>
+<p class="Image" style="margin-left: 40px;"><img src="StorageOptions.bmp" style="border: none;" alt="" width="347" height="405" border="0"></p>
+<p class="Image" style="margin-left: 40px;">&#160;</p>
+<table style="vertical-align: top; margin-left: 40px;" cellspacing="0" width="94.68%">
+<col style="width: 20.496%;">
+<col style="width: 79.504%;">
+<tr style="vertical-align: top;">
+<td style="border-top: Solid 3px #000000; border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 20.496%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#CBD9ED">
+<p class="TableDefinitions">Main Drive</p>
+</td>
+<td style="border-top: Solid 3px #000000; border-bottom: Solid 1px #000000; width: 79.504%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">You can store the text file in internal memory (flash memory).</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 20.496%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#CBD9ED">
+<p class="TableDefinitions">Secondary Drive</p>
+</td>
+<td style="border-bottom: Solid 1px #000000; width: 79.504%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">You can store the text file on the Secondary Drive.</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 3px #000000; width: 20.496%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#CBD9ED">
+<p class="TableDefinitions">Optional Drive</p>
+</td>
+<td style="border-bottom: Solid 3px #000000; width: 79.504%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">You can store the text file on the Optional Drive.</p>
+</td>
+</tr>
+</table>
+<p class="Image" style="margin-left: 40px;">&#160;</p>
+<ol start="7" style="list-style: decimal;">
+<li class="p">
+<p>Click the Toolchest icon <img src="toolchest_icon.bmp" style="border: none;" alt="" width="22" height="22" border="0"> in the menu bar to open the Toolchest window, and select the Text Display folder.</p>
+</li>
+</ol>
+<ol start="8" style="list-style: decimal;">
+<li class="p">
+<p>Select the Text Display, and drag and drop it onto the panel.</p>
+</li>
+</ol>
+<ol start="9" style="list-style: decimal;">
+<li class="p">
+<p>In the Property Inspector, edit the following Text Display properties.</p>
+</li>
+</ol>
+<ol start="7" style="list-style: decimal;">
+<li style="list-style:none;display: inline">
+<ul>
+<li class="p-Bullet">
+<p class="Bullet">In Alias Name, enter the text file alias, without the three-digit file number and the two-digit language number.</p>
+</li>
+<li class="p-Bullet">
+<p class="Bullet">Set File Number to True, and set up an integer variable that stores the File Number.</p>
+</li>
+</ul>
+</li>
+</ol>
+<p style="margin-left: 80px;">At runtime, when you change the value in the File Number Variable, the file displayed in the Text Display changes.</p>
+<p class="Image" style="margin-left: 80px;"><img src="minisize_change%20text%20files.bmp" style="border: none;" alt="" width="244" height="135" border="0"></p>
+<ul start="6" style="list-style: decimal;">
+<li style="list-style:none;display: inline">
+<ul>
+<li class="p-Bullet">
+<p class="Bullet">You can combine the File Number, Block Number, and Line Number together in the same Text Display.</p>
+</li>
+<li class="p-Bullet">
+<p class="Bullet">The default font is Vijeo Sans Serif. You can select a different font as needed.</p>
+</li>
+<li class="p-Bullet">
+<p class="Bullet">Change other properties as necessary. For more information on each field, see Section 11.7.2.1, <a href="Setting_Up_a_Text_Display.htm">Setting Up a Text Display</a>.</p>
+</li>
+</ul>
+</li>
+</ul>
+</body>
+</html>

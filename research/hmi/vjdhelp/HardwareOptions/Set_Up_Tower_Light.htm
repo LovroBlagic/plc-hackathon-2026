@@ -1,0 +1,330 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+<meta name="template" content="Vijeo_template.htt">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+ <meta name="generator" content="Adobe RoboHelp 2015">
+<title>24.7 Setting Up a Tower Light</title>
+<link rel="StyleSheet" href="TIS-STYL.css" type="text/css">
+</head>
+<body>
+<script type="text/javascript" src="ehlpdhtm.js" language="JavaScript1.2"></script>
+
+<div style="width: 100%; position: relative;" id="header">
+	<table style="background-attachment: scroll; margin-left: 0px; margin-right: 4px; 
+			 background-image: url(top_banner.bmp); background-repeat: Repeat-X; 
+			 line-height: 0pt; vertical-align: top;" cellspacing="0" background="top_banner.bmp" 
+			 width="100%">
+		<col style="width: 90%;">
+		<col style="width: 5%;">
+		<col style="width: 5%;">
+		<tr style="vertical-align: center; height: 39px;">
+			<td style="width: 90%; padding-right: 10px; padding-left: 10px; 
+				 border-right-color: #000000;">
+   <p><img src="logo.bmp" alt="" style="border: none;" width="37" height="37" border="0"></p></td>
+			<td style="width: 5%; padding-right: 0px; padding-left: 10px; 
+				 border-right-color: #000000;">
+   <p style="text-align: center;"><a 
+			 title="Glossary" href="Appendix.chm::/Glossary.htm"><img src="logo_glossary.bmp" alt="" style="border: none;" width="47" height="37" border="0"></a></p></td>
+			<td style="width: 5%; padding-right: 10px; padding-left: 5px; 
+				 border-right-color: #000000;">
+   <p style="text-align: center;"><a 
+			 href="About.chm::/What_is_Vijeo-Designer.htm" title="Home"><img src="logo_home.bmp" alt="Home" title="Home" style="border: none; 
+			 margin-left: 0px; margin-right: 0px; margin-bottom: 0px; margin-top: -2px;" width="47" height="37" border="0"></a></p></td>
+		</tr>
+	</table>
+</div>
+
+
+<h1>24.7 Setting Up a Tower Light</h1>
+<p>The Tower Light is an external hardware device that you can connect to your target machine to indicate the current state based on the color that displays on the tower light. You can set up one tower light for each target machine.</p>
+<p>On the Editor, for the three-layer tower light you can set up many patterns using the Pattern Configuration dialog box. Use a Tower Light Toolchest part on a secured panel to allow authorized operators to modify or test pattern configurations at run time. You can create parts, such as a numeric display or a switch, and assign a tower light variable to the part.</p>
+<p>Changes made to pattern configurations at run time will create discrepancies with the build-time application. When downloading the project to the target machine, the run-time settings are preserved if you select Preserve Run-Time Data in the Target properties. If this option is not selected, the pattern configurations in build time will overwrite the modified pattern configurations in run time.</p>
+<p class="NoteImage"><img src="Note_Moji.bmp" alt="" style="border: none;" width="51" height="25" border="0"></p>
+<ul>
+<li class="p-NoteText">
+<p class="NoteText">Not all target machines support the tower light. For a list of which target machines support the tower light, see Appendix 5, <a href="appendix.chm::/Hardware_Specifications.htm">Hardware Specifications</a>.</p>
+</li>
+</ul>
+<p>To set up the tower light in your project, follow these steps:</p>
+<ol style="list-style: decimal;">
+<li class="p">
+<p>Connect the tower light to the target machine. For more information, see <a href="#Connecting_the_Tower_Light_to_the_Target_Machine">Connecting the Tower Light to the Target Machine</a>.</p>
+</li>
+<li class="p">
+<p>Add the tower light to your project. For more information, see Section 24.7.1, <a href="Add_Tower_Light.htm">Adding the Tower Light</a>.</p>
+</li>
+<li class="p">
+<p>To enable the operator to make pattern configuration changes at run time:</p>
+<ul>
+<li class="p" style="list-style: square;">
+<p>Draw the Tower Light Toolchest part onto your panel. For more information, see Section 24.7.2, <a href="Draw_Tower_Light_Part.htm">Drawing the Tower Light Toolchest Part</a>.</p>
+</li>
+</ul>
+</li>
+</ol>
+<p style="margin-left: 81px;">–or–</p>
+<ol style="list-style: decimal;">
+<li style="list-style: none; display: inline;">
+<ul>
+<li class="p" style="list-style: square;">
+<p>Add parts to your panel. For more information, see Section 24.7.3, <a href="Add_Parts_to_Control_the_Tower_Light.htm">Adding Parts to Control the Tower Light</a>.</p>
+</li>
+</ul>
+</li>
+</ol>
+<h4><img src="Square.bmp" alt="" style="border: none;" width="12" height="10" border="0"> Tower Light Variables</h4>
+<p>Once you add the tower light to the project, the variables for configuring the tower light are automatically created.</p>
+<p><img src="TowerLightVariables.bmp" alt="" style="border: none;" width="294" height="498" border="0"></p>
+<p>The tower light structure variables are:</p>
+<ul style="list-style: square;">
+<li class="p">
+<p><span style="font-weight: bold;">_TowerLightDirectAccess</span> - A structure variable to change the layer properties and buzzer properties for the tower light. When an operator writes to an element in the _TowerLightDirectAccess structure, for example, _TowerLightDirectAccess.Layer1.Color or _TowerLightDirectAccess.Buzzer.Pitch, the tower light is immediately updated. However, any changes made to the properties here do not affect the pattern configuration.</p>
+</li>
+<li class="p">
+<p><span style="font-weight: bold;">_TowerLightPatterns</span> - An array variable to change the various tower light pattern configurations. The size of the array is fixed to 10. When an operator writes to an element in the _TowerLightPatterns structure, for example, _TowerLightPatterns.2.Layer1.Blinking, the change is made to the pattern configuration.</p>
+</li>
+<li class="p">
+<p><span style="font-weight: bold;">_TowerLightSetCurrentPattern</span> - An external integer variable that specifies the pattern for the tower light to display. When an operator writes a value ([0] - [9]) to the _TowerLightSetCurrentPattern variable, that specific tower pattern is set, and the tower light displays the new colors and sound. All the values in the _TowerLightDirectAccess structure are updated accordingly.</p>
+</li>
+</ul>
+<p class="NoteImage"><img src="Note_Moji.bmp" alt="" style="border: none;" width="51" height="25" border="0"></p>
+<ul>
+<li class="p-NoteText">
+<p class="NoteText">If you delete the TowerLight driver, variables that were created when the driver was added are also deleted. However, their data type definitions (TowerLight, TowerLightLayer, TowerLightBuzzer) will remain. As a result, you cannot use the names <span style="font-weight: bold;">TowerLight</span>, <span style="font-weight: bold;">TowerLightLayer</span>, or <span style="font-weight: bold;">TowerLightBuzzer</span> for any objects in your application. To resolve this, delete the data type definitions in the User Data Types dialog box.</p>
+</li>
+</ul>
+<p>The following table describes the values for the:</p>
+<ul style="list-style: square;">
+<li class="p">
+<p>_TowerLightSetCurrentPattern variable, and</p>
+</li>
+<li class="p">
+<p>Each element in the _TowerLightPatterns and _TowerLightDirectAccess structures.</p>
+</li>
+</ul>
+<table style="vertical-align: top; left: 0px; top: 224px;" cellspacing="0" width="90%">
+<col style="width: 14.324%;">
+<col style="width: 14.324%;">
+<col style="width: 15.261%;">
+<col style="width: 56.09%;">
+<tr style="vertical-align: top; height: 41px;">
+<td colspan="3" style="border-top: Solid 3px #000000; border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 43.909%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px; vertical-align: center;" bgcolor="#91AFD9">
+<p class="TableDefinitions">Variable</p>
+</td>
+<td style="border-top: Solid 3px #000000; border-bottom: Solid 1px #000000; width: 56.09%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#91AFD9">
+<p class="Tabletitle" style="margin-top: 0pt;">Value</p>
+</td>
+</tr>
+<tr style="vertical-align: top; height: 38px;">
+<td colspan="3" style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 43.909%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px; vertical-align: center;" bgcolor="#CBD9ED">
+<p class="TableDefinitions">_TowerLightSetCurrentPattern</p>
+
+<p class="TableDefinitions"><img src="TowerLightSetCurrentPattern.bmp" alt="" style="border: none;" width="187" height="21" border="0"></p>
+</td>
+<td style="border-bottom: Solid 1px #000000; width: 56.09%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#FFFFFF">
+<p>0 to 9</p>
+</td>
+</tr>
+<tr style="vertical-align: top; height: 38px;">
+<td colspan="2" style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 28.648%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px; vertical-align: center;" bgcolor="#91AFD9">
+<p class="TableDefinitions">Structures</p>
+</td>
+<th style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 15.261%; vertical-align: center;" bgcolor="#91AFD9">
+<p class="TableDefinitions" style="text-indent: 8px; margin-top: 0pt;">Element</p>
+</th>
+<td style="border-bottom: Solid 1px #000000; width: 56.09%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#91AFD9">
+<p class="Tabletitle" style="margin-top: 0pt;">Value</p>
+</td>
+</tr>
+<tr style="vertical-align: top; height: 192px;">
+<td rowspan="5" style="border-right: Solid 1px #000000; border-bottom: Solid 3px #000000; width: 14.324%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#CBD9ED">
+<p class="TableDefinitions">_TowerLightPatterns</p>
+
+<p class="TableDefinitions"><img src="TowerLightPatterns.bmp" alt="" style="border: none;" width="131" height="352" border="0"></p>
+<p class="TableDefinitions">&#160;</p>
+</td>
+<td rowspan="5" style="border-right: Solid 1px #000000; border-bottom: Solid 3px #000000; width: 14.324%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#CBD9ED">
+<p class="TableDefinitions">_TowerLightDirectAccess</p>
+
+<p class="TableDefinitions"><img src="TowerLightDirectAccess.bmp" alt="" style="border: none;" width="146" height="178" border="0"></p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 15.261%; vertical-align: center;" bgcolor="#CBD9ED">
+<p class="TableDefinitions" style="text-indent: 10px;">Color</p>
+</td>
+<td style="border-bottom: Solid 1px #000000; width: 56.09%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<ul style="list-style: square;">
+<li class="p">
+<p>0: OFF</p>
+</li>
+<li class="p">
+<p>1: Red</p>
+</li>
+<li class="p">
+<p>2: Amber</p>
+</li>
+<li class="p">
+<p>3: Green</p>
+</li>
+<li class="p">
+<p>4: Blue</p>
+</li>
+<li class="p">
+<p>5: Cyan</p>
+</li>
+<li class="p">
+<p>6: Magenta</p>
+</li>
+</ul>
+</td>
+</tr>
+<tr style="vertical-align: top; height: 102px;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 15.261%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#CBD9ED">
+<p class="TableDefinitions">Blinking</p>
+</td>
+<td style="border-bottom: Solid 1px #000000; width: 56.09%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<ul style="list-style: square;">
+<li class="p">
+<p>0: None</p>
+</li>
+<li class="p">
+<p>1: Slow</p>
+</li>
+<li class="p">
+<p>2: Fast</p>
+</li>
+</ul>
+</td>
+</tr>
+<tr style="vertical-align: top; height: 102px;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 15.261%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#CBD9ED">
+<p class="TableDefinitions">Volume</p>
+</td>
+<td style="border-bottom: Solid 1px #000000; width: 56.09%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<ul style="list-style: square;">
+<li class="p">
+<p>0: OFF</p>
+</li>
+<li class="p">
+<p>1: Low</p>
+</li>
+<li class="p">
+<p>2: Medium</p>
+</li>
+<li class="p">
+<p>3: High</p>
+</li>
+</ul>
+</td>
+</tr>
+<tr style="vertical-align: top; height: 38px;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 15.261%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#CBD9ED">
+<p class="TableDefinitions">Pitch</p>
+</td>
+<td style="border-bottom: Solid 1px #000000; width: 56.09%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<ul style="list-style: square;">
+<li class="p">
+<p>0: Low</p>
+</li>
+<li class="p">
+<p>1: High</p>
+</li>
+</ul>
+</td>
+</tr>
+<tr style="vertical-align: top; height: 38px;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 3px #000000; width: 15.261%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#CBD9ED">
+<p class="TableDefinitions">BeepPattern</p>
+</td>
+<td style="border-bottom: Solid 3px #000000; width: 56.09%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<ul style="list-style: square;">
+<li class="p">
+<p>0: Solid On</p>
+</li>
+<li class="p">
+<p>1: Slow Interval</p>
+</li>
+<li class="p">
+<p>2: Fast Interval</p>
+</li>
+<li class="p">
+<p>3: 5-Pulse Pattern</p>
+</li>
+</ul>
+</td>
+</tr>
+</table>
+<p>&#160;</p>
+<h4><a name="Connecting_the_Tower_Light_to_the_Target_Machine" id="Connecting_the_Tower_Light_to_the_Target_Machine"></a><img src="Square.bmp" alt="" style="border: none;" width="12" height="10" border="0"> Connecting the Tower Light to the Target Machine</h4>
+<table style="vertical-align: top;" cellspacing="0" width="100%">
+<col style="width: 100%;">
+<tr style="vertical-align: top;">
+<td style="border: Solid 2px #000000; width: 100%; padding-right: 10px; padding-left: 10px; vertical-align: center;">
+<p style="text-align: center;"><img src="Text_warning.bmp" alt="" style="border: none;" width="431" height="31" border="0"></p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-left: Solid 2px #000000; border-right: Solid 2px #000000; border-bottom: Solid 2px #000000; width: 100%; padding-right: 10px; padding-left: 10px;">
+<p style="font-weight: bold;">UNINTENDED EQUIPMENT OPERATION</p>
+<p class="Bullet">When you connect one or more USB devices to a target machine via a USB hub, you must use a USB hub with external power supply.</p>
+<p style="font-weight: bold;">Failure to follow these instructions can result in death, serious injury, or equipment damage.</p>
+</td>
+</tr>
+</table>
+<p>&#160;</p>
+<p>Connect the target machine to the tower light via a USB cable, Type A to mini-B. You can use a commercial-type USB cable (Type A/mini-B).</p>
+<h4>&#160;</h4>
+<h4><img src="Square.bmp" alt="" style="border: none;" width="12" height="10" border="0"> Example of Tower Light Use</h4>
+<p>You can use a tower light for many purposes in your environment. For example, you can set up a tower light to display a green color if an operator in a factory is working in a normal state, an amber color to indicate a warning that the operator is about to run out of materials, and a red color to indicate a problem state because the operator has run out of materials. In this case, three switches have been created at build time to enable the operator to control and manage the current state.</p>
+<p>The operator's tower light is indicating a problem state (Pattern 0, red, Fast interval beep), which needs to be changed to a normal state (Pattern 1, green, Slow interval beep), since the operator has received more materials. To do this, the operator presses a switch that writes a value to the _TowerLightSetCurrentPattern variable to change from Pattern 0 to Pattern 1.</p>
+<p>&#160;</p>
+<h4><a name="Tower_Light_Watchdog" id="Tower_Light_Watchdog"></a><img src="Square.bmp" alt="" style="border: none;" width="12" height="10" border="0"> Tower Light Watchdog</h4>
+<p>The tower light watchdog monitors the tower light and the target machine for activity. Every 1 second, the target machine sends a heartbeat to the tower light to indicate it is active, regardless of whether it has any settings to communicate. The following tower light states (HMI Down State and Initialized State) describe the two patterns with special meaning to the tower light. The system designer is responsible to ensure that there is no confusion for operators if these states are used for other purposes.</p>
+<p><span style="font-weight: bold;">HMI Down State</span></p>
+<p>If the tower light does not receive a heartbeat after 3 seconds, the tower light enters the state to indicate the target machine is no longer active due to, for example, communication or connection issues. In this state, the tower light displays as follows:</p>
+<ul>
+<li class="p-Bullet">
+<p class="Bullet">Three layers red</p>
+</li>
+<li class="p-Bullet">
+<p class="Bullet">Slow blinking</p>
+</li>
+<li class="p-Bullet">
+<p class="Bullet">High volume</p>
+</li>
+<li class="p-Bullet">
+<p class="Bullet">Slow interval beeping</p>
+</li>
+<li class="p-Bullet">
+<p class="Bullet">Low pitch</p>
+</li>
+</ul>
+<p>The tower light continues in this state until it detects a heartbeat from the target machine again.</p>
+<p><img src="Note_Moji.bmp" alt="" style="border: none;" border="0"></p>
+<ul>
+<li class="p-NoteText">
+<p class="NoteText">The HMI Down State is an indication of a target machine's connectivity or communication status, not its power status. A tower light that is directly connected to a target machine with a USB cable uses the target machine as its power source, and will shut down if the target machine powers down or goes through a power cycle. Use a powered USB hub when testing the tower light to ensure that powering down of the target machine does not affect tower light operations.</p>
+</li>
+</ul>
+<p style="font-weight: bold;">Initialized State</p>
+<p style="font-weight: normal;">When the tower light recovers from a power cycle, the tower light will indicate an initialized state. In this state, the tower light displays as follows:</p>
+<ul>
+<li class="p-Bullet" style="font-weight: normal;">
+<p class="Bullet">Off</p>
+</li>
+<li class="p-Bullet" style="font-weight: normal;">
+<p class="Bullet">Amber</p>
+</li>
+<li class="p-Bullet" style="font-weight: normal;">
+<p class="Bullet">Off</p>
+</li>
+</ul>
+<p class="NoteImage"><img src="Note_Moji.bmp" alt="" style="border: none;" width="51" height="25" border="0"></p>
+<ul>
+<li class="p-NoteText">
+<p class="NoteText">The Tower Light Watchdog starts after receiving the first heartbeat from the target machine. If the target machine does not send the first heartbeat for any reason (such as the Tower Light is not configured), the Tower Light continues to display its Initialized State. There is no other indication that the target machine and tower light are not communicating.</p>
+</li>
+</ul>
+</body>
+</html>

@@ -1,0 +1,149 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+<meta name="template" content="Vijeo_template.htt">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+ <meta name="generator" content="Adobe RoboHelp 10">
+<title>setProperty</title>
+<link rel="StyleSheet" href="TIS-STYL.CSS" type="text/css">
+</head>
+
+<body>
+<script type="text/javascript" src="ehlpdhtm.js" language="JavaScript1.2"></script>
+
+<div style="width: 100%; position: relative;" id="header">
+	<table style="background-attachment: scroll; margin-left: 0px; margin-right: 4px; 
+			 background-image: url(top_banner.bmp); background-repeat: Repeat-X; 
+			 line-height: 0pt; vertical-align: top;" cellspacing="0" width="100%" 
+			 background="top_banner.bmp">
+		<col style="width: 90%;">
+		<col style="width: 5%;">
+		<col style="width: 5%;">
+		<tr style="vertical-align: center; height: 39px;">
+			<td style="width: 90%; padding-right: 10px; padding-left: 10px; 
+				 border-right-color: #000000;">
+   <p><img src="logo.bmp" style="border: none;" alt="" width="37" height="37" border="0"></p></td>
+			<td style="width: 5%; padding-right: 0px; padding-left: 10px; 
+				 border-right-color: #000000;">
+   <p style="text-align: center;"><a 
+			 title="Glossary" href="Appendix.chm::/Glossary.htm"><img src="logo_glossary.bmp" style="border: none;" alt="" width="47" height="37" border="0"></a></p></td>
+			<td style="width: 5%; padding-right: 10px; padding-left: 5px; 
+				 border-right-color: #000000;">
+   <p style="text-align: center;"><a 
+			 href="About.chm::/What_is_Vijeo-Designer.htm" title="Home"><img src="logo_home.bmp" alt="Home" title="Home" style="border: none; 
+			 margin-left: 0px; margin-right: 0px; margin-bottom: 0px; margin-top: -2px;" width="47" height="37" border="0"></a></p></td>
+		</tr>
+	</table>
+</div>
+
+<h4>setProperty</h4>
+<p style="font-weight: bold;"><span><span><span><span><span style="font-weight: bold;">Function</span></span></span></span></span></p>
+<p>Writes the specified property setting to the equipment's SRAM. The new 
+ setting comes to effect once you restart the equipment or use the commitConfig 
+ method.</p>
+<p class="NoteImage"><img src="Note_Moji.bmp" alt="" style="border: none;" width="51" height="25" border="0"></p>
+<ul>
+	<li class="p-NoteText"><p class="NoteText">This script method does 
+	 not validate the parameter values written to the equipment. We recommend 
+	 that you use the getProperty() 
+	 method to make sure that the correct values are written.</p></li>
+</ul>
+<p style="font-weight: bold;">Format</p>
+<p class="code" style="margin-left: 40px;">boolean 
+ EquipmentName.setProperty(String param, int[] value);</p>
+<p style="font-weight: bold; margin-top: 6pt;">Parameter</p>
+<table wrapperparagraphselector="P" style="margin-top: 14pt; margin-bottom: 14px; 
+		 margin-left: 40px;" cellspacing="0" width="887">
+	<col width="102">
+	<col style="width: 75.535%;">
+	<tr style="height: 47px;">
+		<td style="border-top: Solid 3px #000000; border-right: Solid 1px #000000; 
+			 border-bottom: Solid 1px #000000; vertical-align: TOP; padding-left: 10px; 
+			 padding-right: 10px; padding-top: 10px; padding-bottom: 10px;" 
+			 width="102" bgcolor="#91AFD9"><p class="Tabletitle"><span 
+		 style="font-weight: bold;">Parameter</span></p></td>
+		<th style="border-top: Solid 3px #000000; border-bottom: Solid 1px #000000; 
+			 width: 75.535%; vertical-align: TOP; padding-left: 10px; padding-right: 10px; 
+			 padding-top: 10px; padding-bottom: 10px;" bgcolor="#91AFD9"><p 
+			 class="Tabletitle">Description</p></th>
+	</tr>
+	<tr style="height: 187px;">
+		<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; 
+			 vertical-align: TOP; padding-left: 10px; padding-right: 10px; 
+			 padding-top: 10px; padding-bottom: 10px;" width="102" bgcolor="#CBD9ED"><p 
+			 class="TableDefinitions"><span>String param</span></p></td>
+		<td style="border-bottom: Solid 1px #000000; width: 75.535%; vertical-align: TOP; 
+			 padding-left: 10px; padding-right: 10px; padding-top: 10px; 
+			 padding-bottom: 10px;"><p>This parameter identifies what part 
+		 of the equipment you are setting up.</p>
+		<p>This parameter must be defined with one of the following strings:</p>
+		<ul>
+			<li class="p-Bullet"><p 
+				 class="Bullet">&quot;Con_IPAddress&quot;</p></li>
+			<li class="p-Bullet"><p 
+				 class="Bullet">&quot;Con_SlaveEquipmentAddress&quot;</p></li>
+			<li class="p-Bullet"><p 
+				 class="Bullet">&quot;Con_UnitNumber&quot;</p></li>
+			<li class="p-Bullet"><p 
+				 class="Bullet">&quot;Con_DualRedundantIPAddress&quot;</p></li>
+			<li class="p-Bullet"><p 
+				 class="Bullet">&quot;Con_EquipmentAddress&quot;</p></li>
+		</ul>
+		<p><span>Use</span> &quot;Con_IPAddress&quot; 
+		 <span>to define the equipment's IP address.</span></p>
+		<p><span>Use</span> &quot;Con_SlaveEquipmentAddress&quot; 
+		 <span>to define the equipment's slave address. (Modbus RTU only)</span></p>
+		<p>Use &quot;Con_UnitNumber&quot; 
+		 to define the equipment's Unit Number. (Modbus TCP/IP only)</p>
+		<p>Use &quot;Con_DualRedundantIPAddress&quot; 
+		 to define the equipment's backup IP address.</p>
+		<p>Use &quot;Con_EquipmentAddress&quot; 
+		 to define the equipment's address for Modbus Slave.</p>
+		<p><img src="Note_Moji.bmp" alt="" style="border: none;" width="51" height="25" border="0"></p>
+		<ul>
+			<li class="p-NoteText"><p class="NoteText">Setting the equipment's 
+			 IP address to 1.1.1.1 puts the equipment into Offscan mode. 
+			 For more information on Offscan, see Section 5.3, <a href="ExternalDevice.chm::/Communication_Statistics.htm">Collecting 
+			 Driver Statistics</a>.</p></li>
+		</ul></td>
+	</tr>
+	<tr style="height: 154px;">
+		<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; 
+			 vertical-align: TOP; padding-left: 10px; padding-right: 10px; 
+			 padding-top: 10px; padding-bottom: 10px;" width="102" bgcolor="#CBD9ED"><p 
+			 class="TableDefinitions">int [ ] value</p></td>
+		<td style="border-bottom: Solid 1px #000000; width: 75.535%; vertical-align: TOP; 
+			 padding-left: 10px; padding-right: 10px; padding-top: 10px; 
+			 padding-bottom: 10px;"><p>Integer array with four elements 
+		 used to define the equipment's IP address or slave address.</p>
+		<p><img src="Note_Moji.bmp" alt="" style="border: none;" width="51" height="25" border="0"></p>
+		<ul>
+			<li class="p-NoteText"><p class="NoteText">When the IP address 
+			 is 192.168.1.10, the IP address values in the array are as 
+			 follows: array[0]=192, array[1]=168, array[2]=1, array[3]=10.</p></li>
+			<li class="p-NoteText"><p class="NoteText">In the Con_EquipmentAddress 
+			 string array, the first element is the Equipment ID.</p></li>
+		</ul>
+		<p><img src="Limit.bmp" alt="" style="border: none;" width="77" height="24" border="0"></p>
+		<ul>
+			<li class="p-NoteText"><p class="NoteText">The Con_SlaveEquipmentAddress 
+			 parameter is only available for Modbus RTU.</p></li>
+		</ul></td>
+	</tr>
+</table>
+<p style="font-weight: bold;">&#160;</p>
+<p style="font-weight: bold;">Example</p>
+<p style="font-weight: normal;">See the example scripts in <a href="Scripts.chm::/Equipment_Methods.htm" 
+	 style="font-weight: normal;">18.9.1.10 Equipment Methods</a>.</p>
+<p style="font-weight: bold;">Return Value</p>
+<p>Returns true if the setting exists and if the value can be written to 
+ SRAM.</p>
+<p>Returns false if the setting does not exist or if the value cannot be 
+ written to SRAM.</p>
+<p style="font-weight: bold;">See Also</p>
+<p><a href="EquipmentFinalizeCommEquipmentChanges.htm">commitConfig</a>, 
+ <a href="Equipment_getcommequipmentproperty.htm">getProperty</a>, <a href="getStingProperty.htm">getStringProperty</a>, 
+ <a href="Equipmentopencommequipment.htm">openConfig</a></p>
+</body>
+</html>

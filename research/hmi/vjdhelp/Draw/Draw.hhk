@@ -1,0 +1,600 @@
+<html>
+<!-- Sitemap 1.0 -->
+<object type="text/site properties">
+  <param name="WindowName" value="$global_NewWindow">
+  <param name="SiteType" value="index">
+</object>
+<ul>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Blink Speed">
+    <param name="Name" value="Blink Feature">
+    <param name="Local" value="Blink.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Filter">
+    <param name="Name" value="Displaying Image Objects">
+    <param name="Local" value="DrawImage.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Dithering">
+    <param name="Name" value="Displaying Image Objects">
+    <param name="Local" value="DrawImage.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Gravity Control Points, Bezier Curve">
+    <param name="Name" value="Drawing Bezier Curves">
+    <param name="Local" value="DrawBezierCurves.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Increment Device Address">
+    <param name="Name" value="Duplicating Objects">
+    <param name="Local" value="Duplicate.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Duplicate">
+    <param name="Name" value="Duplicating Objects">
+    <param name="Local" value="Duplicate.htm">
+  </object>
+  <ul>
+    <li><object type="text/sitemap">
+      <param name="Name" value="Animated Graphical Objects">
+      <param name="Name" value="Duplicating Objects">
+      <param name="Local" value="Duplicate.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="Y-direction">
+      <param name="Name" value="Duplicating Objects">
+      <param name="Local" value="Duplicate.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="X-direction">
+      <param name="Name" value="Duplicating Objects">
+      <param name="Local" value="Duplicate.htm">
+    </object>
+    </ul>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Duplicating Objects">
+    <param name="Name" value="Duplicating Objects">
+    <param name="Local" value="Duplicate.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Duplicate dialog box">
+    <param name="Name" value="Duplicating Objects">
+    <param name="Local" value="Duplicate.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Actual Size of Graphical Objects">
+    <param name="Name" value="Actual Size of Graphical Objects">
+    <param name="Local" value="ActualSize.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="TargetColor">
+    <param name="Name" value="Supported Color Palettes">
+    <param name="Local" value="ColorPalette.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Colors Gray Scale">
+    <param name="Name" value="Supported Color Palettes">
+    <param name="Local" value="ColorPalette.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Gray Scale Colors">
+    <param name="Name" value="Supported Color Palettes">
+    <param name="Local" value="ColorPalette.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Supported Colors">
+    <param name="Name" value="Supported Color Palettes">
+    <param name="Local" value="ColorPalette.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Color Palette">
+    <param name="Name" value="Supported Color Palettes">
+    <param name="Local" value="ColorPalette.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Colors">
+    <param name="Name" value="Supported Color Palettes">
+    <param name="Local" value="ColorPalette.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Grouping Objects">
+    <param name="Name" value="Grouping/Ungrouping Objects">
+    <param name="Local" value="Group.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Group">
+    <param name="Name" value="Grouping/Upgrouping Objects">
+    <param name="Local" value="Group.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Copy">
+    <param name="Name" value="Cutting/Copying/Pasting/Deleting Objects">
+    <param name="Local" value="CurCopyPaste.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Cutting/Copying/Pasting Graphical Objects">
+    <param name="Name" value="Cutting/Copying/Pasting/Deleting Objects">
+    <param name="Local" value="CurCopyPaste.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Paste">
+    <param name="Name" value="Cutting/Copying/Pasting/Deleting Objects">
+    <param name="Local" value="CurCopyPaste.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Cut">
+    <param name="Name" value="Cutting/Copying/Pasting/Deleting Objects">
+    <param name="Local" value="CurCopyPaste.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Drawing Bezier Curves">
+    <param name="Name" value="Drawing Bezier Curves">
+    <param name="Local" value="DrawBezierCurves.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Bezier Curve">
+    <param name="Name" value="Drawing Bezier Curves">
+    <param name="Local" value="DrawBezierCurves.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Draw">
+    <param name="Name" value="Editing Graphical Objects">
+    <param name="Local" value="How_to_edit_objects.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Graphical Objects">
+    <param name="Name" value="Editing Graphical Objects">
+    <param name="Local" value="How_to_edit_objects.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Polygon, Editing Nodes">
+    <param name="Name" value="Drawing Polygons">
+    <param name="Local" value="DrawPolygon.htm">
+  </object>
+  <ul>
+    <li><object type="text/sitemap">
+      <param name="Name" value="Tab key">
+      <param name="Name" value="Drawing Polygons">
+      <param name="Local" value="DrawPolygon.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="CTRL key">
+      <param name="Name" value="Drawing Polygons">
+      <param name="Local" value="DrawPolygon.htm">
+    </object>
+    </ul>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Node, Polygon">
+    <param name="Name" value="Drawing Polygons">
+    <param name="Local" value="DrawPolygon.htm">
+  </object>
+  <ul>
+    <li><object type="text/sitemap">
+      <param name="Name" value="Moving">
+      <param name="Name" value="Drawing Polygons">
+      <param name="Local" value="DrawPolygon.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="Adding">
+      <param name="Name" value="Drawing Polygons">
+      <param name="Local" value="DrawPolygon.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="Deleting">
+      <param name="Name" value="Drawing Polygons">
+      <param name="Local" value="DrawPolygon.htm">
+    </object>
+    </ul>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Drawing Polygons">
+    <param name="Name" value="Drawing Polygons">
+    <param name="Local" value="DrawPolygon.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Polygon">
+    <param name="Name" value="Drawing Polygons">
+    <param name="Local" value="DrawPolygon.htm">
+    <param name="Name" value="Actual Size of Graphical Objects">
+    <param name="Local" value="ActualSize.htm">
+  </object>
+  <ul>
+    <li><object type="text/sitemap">
+      <param name="Name" value="Symmetric Polygon">
+      <param name="Name" value="Drawing Symmetric Polygons">
+      <param name="Local" value="DrawSymmetricPolygon.htm">
+    </object>
+    </ul>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Pie, Circle">
+    <param name="Name" value="Drawing Pie Shapes">
+    <param name="Local" value="DrawPie.htm">
+  </object>
+  <ul>
+    <li><object type="text/sitemap">
+      <param name="Name" value="CTRL key">
+      <param name="Name" value="Drawing Pie Shapes">
+      <param name="Local" value="DrawPie.htm">
+    </object>
+    </ul>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Pie">
+    <param name="Name" value="Drawing Pie Shapes">
+    <param name="Local" value="DrawPie.htm">
+    <param name="Name" value="Actual Size of Graphical Objects">
+    <param name="Local" value="ActualSize.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Drawing Pie Shapes">
+    <param name="Name" value="Drawing Pie Shapes">
+    <param name="Local" value="DrawPie.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Dot">
+    <param name="Name" value="Drawing Dots">
+    <param name="Local" value="DrawDot.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Drawing Dots">
+    <param name="Name" value="Drawing Dots">
+    <param name="Local" value="DrawDot.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="RGB Values">
+    <param name="Name" value="RGB Values">
+    <param name="Local" value="RGB.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Moving Objects">
+    <param name="Name" value="Rotating/Flipping Objects">
+    <param name="Local" value="RotateFlip.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Moving Objects, SHIFT key">
+    <param name="Name" value="Rotating/Flipping Objects">
+    <param name="Local" value="RotateFlip.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Select tool">
+    <param name="Name" value="Rotating/Flipping Objects">
+    <param name="Local" value="RotateFlip.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="To Grid">
+    <param name="Name" value="Aligning Objects">
+    <param name="Local" value="Align.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Grid">
+    <param name="Name" value="Aligning Objects">
+    <param name="Local" value="Align.htm">
+  </object>
+  <ul>
+    <li><object type="text/sitemap">
+      <param name="Name" value="Aligning Objects">
+      <param name="Name" value="Aligning Objects">
+      <param name="Local" value="Align.htm">
+    </object>
+    </ul>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Arrange menu">
+    <param name="Name" value="Aligning Objects">
+    <param name="Local" value="Align.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Matrix, Align To">
+    <param name="Name" value="Aligning Objects">
+    <param name="Local" value="Align.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Aligning Objects">
+    <param name="Name" value="Aligning Objects">
+    <param name="Local" value="Align.htm">
+  </object>
+  <ul>
+    <li><object type="text/sitemap">
+      <param name="Name" value="To Grid">
+      <param name="Name" value="Aligning Objects">
+      <param name="Local" value="Align.htm">
+    </object>
+    </ul>
+  <li><object type="text/sitemap">
+    <param name="Name" value="CTRL key, Scaling Objects Up or Down">
+    <param name="Name" value="Resizing Objects">
+    <param name="Local" value="ScaleUpDown.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Scaling Objects, Maintain Width-to-Height Ratio">
+    <param name="Name" value="Resizing Objects">
+    <param name="Local" value="ScaleUpDown.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Selection Handles">
+    <param name="Name" value="Resizing Objects">
+    <param name="Local" value="ScaleUpDown.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Proportionally Scaling Objects">
+    <param name="Name" value="Resizing Objects">
+    <param name="Local" value="ScaleUpDown.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Resizing Objects">
+    <param name="Name" value="Resizing Objects">
+    <param name="Local" value="ScaleUpDown.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Ellipse">
+    <param name="Name" value="Drawing Ellipses">
+    <param name="Local" value="DrawCircle.htm">
+    <param name="Name" value="Actual Size of Graphical Objects">
+    <param name="Local" value="ActualSize.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Circle">
+    <param name="Name" value="Drawing Ellipses">
+    <param name="Local" value="DrawCircle.htm">
+  </object>
+  <ul>
+    <li><object type="text/sitemap">
+      <param name="Name" value="Arc">
+      <param name="Name" value="Drawing Arcs">
+      <param name="Local" value="DrawArc.htm">
+    </object>
+    </ul>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Drawing Ellipses">
+    <param name="Name" value="Drawing Ellipses">
+    <param name="Local" value="DrawCircle.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Blink">
+    <param name="Name" value="Blink Feature">
+    <param name="Local" value="Blink.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Arc">
+    <param name="Name" value="Drawing Arcs">
+    <param name="Local" value="DrawArc.htm">
+    <param name="Name" value="Actual Size of Graphical Objects">
+    <param name="Local" value="ActualSize.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Drawing Arcs">
+    <param name="Name" value="Drawing Arcs">
+    <param name="Local" value="DrawArc.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Semi-circle">
+    <param name="Name" value="Drawing Arcs">
+    <param name="Local" value="DrawArc.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Displaying Images">
+    <param name="Name" value="Displaying Image Objects">
+    <param name="Local" value="DrawImage.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Bitmaps">
+    <param name="Name" value="Displaying Image Objects">
+    <param name="Local" value="DrawImage.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Graphics">
+    <param name="Name" value="Displaying Image Objects">
+    <param name="Local" value="DrawImage.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="JPEGs">
+    <param name="Name" value="Displaying Image Objects">
+    <param name="Local" value="DrawImage.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Enhanced Meta Files">
+    <param name="Name" value="Displaying Image Objects">
+    <param name="Local" value="DrawImage.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Drawing Lines">
+    <param name="Name" value="Drawing Lines">
+    <param name="Local" value="DrawLine.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Line">
+    <param name="Name" value="Drawing Lines">
+    <param name="Local" value="DrawLine.htm">
+  </object>
+  <ul>
+    <li><object type="text/sitemap">
+      <param name="Name" value="Polyline">
+      <param name="Name" value="Drawing Polylines">
+      <param name="Local" value="DrawPolyline.htm">
+    </object>
+    </ul>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Drawing Polylines">
+    <param name="Name" value="Drawing Polylines">
+    <param name="Local" value="DrawPolyline.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Polyline">
+    <param name="Name" value="Drawing Polylines">
+    <param name="Local" value="DrawPolyline.htm">
+    <param name="Name" value="Actual Size of Graphical Objects">
+    <param name="Local" value="ActualSize.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Drawing Rectangles">
+    <param name="Name" value="Drawing Rectangles">
+    <param name="Local" value="DrawRectangle.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Rectangle">
+    <param name="Name" value="Drawing Rectangles">
+    <param name="Local" value="DrawRectangle.htm">
+    <param name="Name" value="Actual Size of Graphical Objects">
+    <param name="Local" value="ActualSize.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Square">
+    <param name="Name" value="Drawing Rectangles">
+    <param name="Local" value="DrawRectangle.htm">
+    <param name="Name" value="Actual Size of Graphical Objects">
+    <param name="Local" value="ActualSize.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Drawing Scales">
+    <param name="Name" value="Drawing Scales">
+    <param name="Local" value="DrawScale.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Scale">
+    <param name="Name" value="Drawing Scales">
+    <param name="Local" value="DrawScale.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Measurement Markers">
+    <param name="Name" value="Drawing Scales">
+    <param name="Local" value="DrawScale.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Markers, Measurement">
+    <param name="Name" value="Drawing Scales">
+    <param name="Local" value="DrawScale.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Drawing Symmetric Polygons">
+    <param name="Name" value="Drawing Symmetric Polygons">
+    <param name="Local" value="DrawSymmetricPolygon.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Symmetric Polygon">
+    <param name="Name" value="Drawing Symmetric Polygons">
+    <param name="Local" value="DrawSymmetricPolygon.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Drawing Text Objects">
+    <param name="Name" value="Drawing Text Objects">
+    <param name="Local" value="DrawText.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Text">
+    <param name="Name" value="Drawing Text Objects">
+    <param name="Local" value="DrawText.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Strings">
+    <param name="Name" value="Drawing Text Objects">
+    <param name="Local" value="DrawText.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Labels">
+    <param name="Name" value="Drawing Text Objects">
+    <param name="Local" value="DrawText.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Selecting Graphical Objects">
+    <param name="Name" value="Selecting Graphical Objects">
+    <param name="Local" value="HowtoSelectObjects.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Monochrome Displays">
+    <param name="Name" value="Monochrome Displays">
+    <param name="Local" value="Monochrome.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Selecting Multiple Objects">
+    <param name="Name" value="Refining Selections">
+    <param name="Local" value="SelectTogether.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Multiple Objects, Selecting">
+    <param name="Name" value="Refining Selections">
+    <param name="Local" value="SelectTogether.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Node, Polyline">
+    <param name="Name" value="Drawing Polylines">
+    <param name="Local" value="DrawPolyline.htm">
+  </object>
+  <ul>
+    <li><object type="text/sitemap">
+      <param name="Name" value="Adding">
+      <param name="Name" value="Drawing Polylines">
+      <param name="Local" value="DrawPolyline.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="Deleting">
+      <param name="Name" value="Drawing Polylines">
+      <param name="Local" value="DrawPolyline.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="Moving">
+      <param name="Name" value="Drawing Polylines">
+      <param name="Local" value="DrawPolyline.htm">
+    </object>
+    </ul>
+  <li><object type="text/sitemap">
+    <param name="Name" value="64 Color Palette">
+    <param name="Name" value="RGB Values">
+    <param name="Local" value="RGB.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Black/White">
+    <param name="Name" value="Monochrome Displays">
+    <param name="Local" value="Monochrome.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Multiple Copies">
+    <param name="Name" value="Duplicating Objects">
+    <param name="Local" value="Duplicate.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Graphics, Actual Size">
+    <param name="Name" value="Actual Size of Graphical Objects">
+    <param name="Local" value="ActualSize.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Color Depth">
+    <param name="Name" value="Displaying Image Objects">
+    <param name="Local" value="DrawImage.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Brightness">
+    <param name="Name" value="Displaying Image Objects">
+    <param name="Local" value="DrawImage.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Transparent Color">
+    <param name="Name" value="Displaying Image Objects">
+    <param name="Local" value="DrawImage.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Inserting Images">
+    <param name="Name" value="Displaying Image Objects">
+    <param name="Local" value="DrawImage.htm">
+    <param name="Name" value="Displaying Image Objects#Reverting_Size">
+    <param name="Local" value="DrawImage.htm#Reverting_Size">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Drawing Images">
+    <param name="Name" value="Displaying Image Objects">
+    <param name="Local" value="DrawImage.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="BMPs">
+    <param name="Name" value="Displaying Image Objects">
+    <param name="Local" value="DrawImage.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="EMFs">
+    <param name="Name" value="Displaying Image Objects">
+    <param name="Local" value="DrawImage.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="PNGs">
+    <param name="Name" value="Displaying Image Objects">
+    <param name="Local" value="DrawImage.htm">
+  </object>
+</ul>
+</html>

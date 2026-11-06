@@ -1,0 +1,101 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+<meta name="template" content="Vijeo_template.htt">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+ <meta name="generator" content="Adobe RoboHelp 2015">
+<title>Downloading through a router</title>
+<link rel="StyleSheet" href="Tis-styl.css" type="text/css">
+</head>
+<body>
+<script type="text/javascript" src="ehlpdhtm.js" language="JavaScript1.2"></script>
+
+<div style="width: 100%; position: relative;" id="header">
+	<table style="background-attachment: scroll; margin-left: 0px; margin-right: 4px; 
+			 background-image: url(top_banner.bmp); background-repeat: Repeat-X; 
+			 line-height: 0pt; vertical-align: top;" cellspacing="0" background="top_banner.bmp" 
+			 width="100%">
+		<col style="width: 90%;">
+		<col style="width: 5%;">
+		<col style="width: 5%;">
+		<tr style="vertical-align: center; height: 39px;">
+			<td style="width: 90%; padding-right: 10px; padding-left: 10px; 
+				 border-right-color: #000000;">
+   <p><img src="logo.bmp" alt="" style="border: none;" width="37" height="37" border="0"></p></td>
+			<td style="width: 5%; padding-right: 0px; padding-left: 10px; 
+				 border-right-color: #000000;">
+   <p style="text-align: center;"><a 
+			 title="Glossary" href="Appendix.chm::/Glossary.htm"><img src="logo_glossary.bmp" alt="" style="border: none;" width="47" height="37" border="0"></a></p></td>
+			<td style="width: 5%; padding-right: 10px; padding-left: 5px; 
+				 border-right-color: #000000;">
+   <p style="text-align: center;"><a 
+			 href="About.chm::/What_is_Vijeo-Designer.htm" title="Home"><img src="logo_home.bmp" alt="Home" title="Home" style="border: none; 
+			 margin-left: 0px; margin-right: 0px; margin-bottom: 0px; margin-top: -2px;" width="47" height="37" border="0"></a></p></td>
+		</tr>
+	</table>
+</div>
+
+
+<h3>25.6.1.2 Downloading through a Router</h3>
+<p>Vijeo Designer can download projects through a router. Vijeo Designer Runtime Installer can download Vijeo Designer Runtime through a router. This section describes an example of downloading a Vijeo Designer project through a router. The example below can also apply to downloading Vijeo Designer Runtime to a target machine using the Vijeo Designer Runtime Installer. For procedures on downloading Vijeo Designer projects, see Section 25.6.1.1, <a href="Download_to_Ethernet.htm">Downloading over Ethernet</a>. For procedures on downloading Vijeo Designer Runtime using the Vijeo Designer Runtime Installer, see section 25.5, <a href="Installing_Runtime.htm">Installing Vijeo Designer Runtime</a>.</p>
+<p>&#160;</p>
+<p><img src="Limit.bmp" alt="" style="border: none;" width="77" height="24" border="0"></p>
+<ul>
+<li class="p-NoteText">
+<p class="NoteText">The Router must have the following port forwarding rules:</p>
+</li>
+<li style="list-style: none; display: inline;">
+<ul>
+<li class="p-NoteText">
+<p class="NoteText">The port on the router configured for the Control Port must forward to target machine port <span style="font-weight: bold;">6001</span>.</p>
+</li>
+<li class="p-NoteText">
+<p class="NoteText">The port on the router configured for the Data Port must forward to target machine port <span style="font-weight: bold;">13777</span>.</p>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="p-NoteText">
+<p class="NoteText">No filters or firewalls can be in place to prevent network traffic between the Vijeo Designer PC and the target machine.</p>
+</li>
+<li class="p-NoteText">
+<p class="NoteText">For security, we recommend using an VPN router rather than a port forwarding router.</p>
+</li>
+<li class="p-NoteText">
+<p class="NoteText">This feature should not be used over an unsecured network; however, If this feature is used over an unsecured network, leave the port forwarding active for as short as time as possible so that unauthorized users cannot gain access to the target.</p>
+</li>
+</ul>
+<p>The example below shows a project downloaded through a router to a Target (Target A):</p>
+<table style="vertical-align: top; margin-bottom: 10px; margin-left: 40px;" cellspacing="0" width="615">
+<col style="width: 42.276%;">
+<col style="width: 57.724%;">
+<tr style="vertical-align: top;">
+<td style="border-top: Solid 3px #000000; border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 42.276%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#91AFD9">
+<p class="Tabletitle">Download Property Settings</p>
+</td>
+<td style="border-top: Solid 3px #000000; border-bottom: Solid 1px #000000; width: 57.724%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#91AFD9">
+<p class="Tabletitle">Router Port Forwarding Rules</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 3px #000000; width: 42.276%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">Download: Ethernet</p>
+<p class="Tabletext" style="margin-left: 40px;">IPAddress: 192.168.0.20</p>
+<p class="Tabletext" style="margin-left: 40px;">SubnetMask: 255.255.248.0</p>
+<p class="Tabletext" style="margin-left: 40px;">DefaultGateway: 192.168.0.1</p>
+<p class="Tabletext" style="margin-left: 40px;">Use NAT: Enabled</p>
+<p class="Tabletext" style="margin-left: 40px;">Connect Via: 78.188.1.11</p>
+<p class="Tabletext" style="margin-left: 40px;">Control Port: 6021</p>
+<p class="Tabletext" style="margin-left: 40px;">Data Port: 15797</p>
+</td>
+<td style="border-bottom: Solid 3px #000000; width: 57.724%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">78.188.1.11:6021 =&gt; 192.168.0.20:6001</p>
+<p class="Tabletext">78.188.1.11:15797 =&gt; 192.168.0.20:1377</p>
+</td>
+</tr>
+</table>
+<p style="margin-left: 40px;"><img src="download_router.bmp" alt="" style="border: none;" width="408" height="382" border="0"></p>
+</body>
+</html>

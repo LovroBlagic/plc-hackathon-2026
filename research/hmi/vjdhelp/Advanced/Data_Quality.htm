@@ -1,0 +1,93 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+<meta name="template" content="Vijeo_template.htt">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="topic-status" content="In Progress">
+<meta name="topic-priority" content="0">
+<meta name="topic-time-estimate" content="0">
+<meta name="topic-comment" content="">
+<meta name="topic-id" content="">
+<meta name="window-type" content="$global_NewWindow">
+ <meta name="generator" content="Adobe RoboHelp 10">
+<title>Data Quality for Shared Variables</title>
+<link rel="StyleSheet" href="TIS-STYL.CSS" type="text/css">
+</head>
+<body>
+<script type="text/javascript" src="ehlpdhtm.js" language="JavaScript1.2"></script>
+
+<div style="width: 100%; position: relative;" id="header">
+	<table style="background-attachment: scroll; margin-left: 0px; margin-right: 4px; 
+			 background-image: url(top_banner.bmp); background-repeat: Repeat-X; 
+			 line-height: 0pt; vertical-align: top;" cellspacing="0" width="100%" 
+			 background="top_banner.bmp">
+		<col style="width: 90%;">
+		<col style="width: 5%;">
+		<col style="width: 5%;">
+		<tr style="vertical-align: center; height: 39px;">
+			<td style="width: 90%; padding-right: 10px; padding-left: 10px; 
+				 border-right-color: #000000;">
+   <p><img src="logo.bmp" style="border: none;" alt="" width="37" height="37" border="0"></p></td>
+			<td style="width: 5%; padding-right: 0px; padding-left: 10px; 
+				 border-right-color: #000000;">
+   <p style="text-align: center;"><a 
+			 title="Glossary" href="Appendix.chm::/Glossary.htm"><img src="logo_glossary.bmp" style="border: none;" alt="" width="47" height="37" border="0"></a></p></td>
+			<td style="width: 5%; padding-right: 10px; padding-left: 5px; 
+				 border-right-color: #000000;">
+   <p style="text-align: center;"><a 
+			 href="About.chm::/What_is_Vijeo-Designer.htm" title="Home"><img src="logo_home.bmp" alt="Home" title="Home" style="border: none; 
+			 margin-left: 0px; margin-right: 0px; margin-bottom: 0px; margin-top: -2px;" width="47" height="37" border="0"></a></p></td>
+		</tr>
+	</table>
+</div>
+
+<h2>22.1.2 Data Quality for Shared Variables</h2>
+<h4><img src="Square.bmp" style="border: none;" alt="" width="12" height="10" border="0">Data Quality on Target Machines</h4>
+<p>When communication errors occur, the data quality icon <img src="Quality_Icon.bmp" style="border: none;" alt="" width="15" height="14" border="0"> appears on objects that display values from other target machines. The icon <img src="Quality_Icon.bmp" style="border: none;" alt="" width="15" height="14" border="0"> indicates unreliable data.</p>
+<p class="Image" style="margin-left: 40px;"><img src="sample_dataquality.bmp" style="border: none;" alt="" width="284" height="75" border="0"></p>
+<p>In the following scenario, Target A is displaying variables from Target B.</p>
+<p class="Image" style="margin-left: 40px;"><img src="Quality.bmp" style="border: none;" alt="" width="326" height="193" border="0"></p>
+<p>If the data quality icon appears on Target A, there are two reasons why the data might be unreliable:</p>
+<ul>
+<li class="p-Bullet">
+<p class="Bullet"><span style="font-weight: bold;">Connection between Target Machines</span>. The data quality icon <img src="Quality_Icon.bmp" style="border: none;" alt="" width="15" height="14" border="0"> displays on Target A if there is a network problem or other connection error. Target B will not respond to data requests from Target A. The data may be valid on Target B, but not visible on Target A.</p>
+</li>
+<li class="p-Bullet">
+<p class="Bullet"><span style="font-weight: bold;">Connection between Target B and equipment</span>. The data quality icon <img src="Quality_Icon.bmp" style="border: none;" alt="" width="15" height="14" border="0"> displays on Target A as well as Target B if there is a problem with the connection between the target machine and equipment. The data may be valid on the equipment, but not visible on either target machine.</p>
+</li>
+</ul>
+<p>If communication resumes and Target A can successfully display variables from Target B, the data quality icon disappears from the display.</p>
+<p>For more information about Data Quality, see Section 25.8, <a href="Download.chm::/Checking_Communication.htm">Checking the Integrity of Variable Values</a>.</p>
+<h4><img src="Square.bmp" style="border: none;" alt="" width="12" height="10" border="0">Data Quality Icon appears right after startup</h4>
+<p>In a Data Sharing environment, there are three reasons why the Data Quality icon <img src="Quality_Icon.bmp" style="border: none;" alt="" width="15" height="14" border="0"> may appear on the target right after startup.</p>
+<ol style="list-style: decimal;">
+<li class="p">
+<p><span style="font-weight: bold;">Problem</span>: The connection between target machines is faulty. The other target machine might be turned off, the network cable might be unplugged or damaged, or the network may be down.</p>
+</li>
+</ol>
+<p style="margin-left: 40px;"><span style="font-weight: bold;">Solution</span>: Make sure the target machines and PLC equipment are on and working properly. Make sure the equipment’s Ethernet connection is securely fastened. Check that the network servers and other network devices are on and working properly.</p>
+<ol start="2" style="list-style: decimal;">
+<li class="p">
+<p><span style="font-weight: bold;">Problem</span>: The target machine cannot locate remote targets that use the IP addresses as defined in the editor.</p>
+</li>
+</ol>
+<p style="margin-left: 40px;"><span style="font-weight: bold;">Solution</span>: In most instances, this occurs when someone changes the IP address of the remote target machine at run time without updating the user-applications on other targets.</p>
+<p style="margin-left: 40px;">In the editor, when you reference remote variables you type the target name, followed by a dot, and then the variable name. At run time, the target name is converted to the IP address of the remote target machine. If you change the IP address of the remote target machine, then other targets cannot locate it and cannot work with its data-shared variables.</p>
+<p style="margin-left: 40px;">To resolve this problem, you must define the IP address in the Vijeo-Designer editor, then download the application to all the targets in the project to make sure all the data-sharing references are correct.</p>
+<ol start="3" style="list-style: decimal;">
+<li class="p">
+<p><span style="font-weight: bold;">Problem</span>: The target is denied access to variables on the remote target machine.</p>
+</li>
+</ol>
+<p style="margin-left: 40px;"><span style="font-weight: bold;">Solution</span>: Either the target is not set up to share its variables or the variables being accessed are not shared (Sharing = None).</p>
+<p style="margin-left: 40px;">In the editor, make sure the target whose variables are viewed and edited by other targets is set up with DataSharing = Enabled. For example, if Target A's variables are used by Target B, make sure DataSharing = Enabled on Target A. DataSharing on Target B could remain disabled.</p>
+<p style="margin-left: 40px;">Variables that are referenced by other targets should be set to either Read-only or Read/Write.</p>
+<p class="NoteImage"><img src="limit.bmp" style="border: none;" alt="" width="77" height="24" border="0"></p>
+<ul>
+<li class="p-NoteText">
+<p class="NoteText">Data Sharing uses IP addresses set up in the editor whenever referencing remote variables. If your system uses data-shared variables, make sure you do not change IP addresses at run time. Any change to IP addresses should occur in the editor only, then downloaded to all the target machines in the project.</p>
+</li>
+</ul>
+</body>
+</html>

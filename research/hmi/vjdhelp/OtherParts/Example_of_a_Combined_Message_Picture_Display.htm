@@ -1,0 +1,168 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+<meta name="template" content="Vijeo_template.htt">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="topic-status" content="In Progress">
+<meta name="topic-priority" content="0">
+<meta name="topic-time-estimate" content="0">
+<meta name="topic-comment" content="">
+<meta name="topic-id" content="Example of a Combined Message/Picture Display">
+<meta name="window-type" content="$global_NewWindow">
+ <meta name="generator" content="Adobe RoboHelp 10">
+<title>Example of a Combined Message/Image Display</title>
+<link rel="StyleSheet" href="Tis-styl.css" type="text/css">
+</head>
+<body>
+<script type="text/javascript" src="ehlpdhtm.js" language="JavaScript1.2"></script>
+
+<div style="width: 100%; position: relative;" id="header">
+	<table style="background-attachment: scroll; margin-left: 0px; margin-right: 4px; 
+			 background-image: url(top_banner.bmp); background-repeat: Repeat-X; 
+			 line-height: 0pt; vertical-align: top;" cellspacing="0" width="100%" 
+			 background="top_banner.bmp">
+		<col style="width: 90%;">
+		<col style="width: 5%;">
+		<col style="width: 5%;">
+		<tr style="vertical-align: center; height: 39px;">
+			<td style="width: 90%; padding-right: 10px; padding-left: 10px; 
+				 border-right-color: #000000;">
+   <p><img src="logo.bmp" style="border: none;" alt="" width="37" height="37" border="0"></p></td>
+			<td style="width: 5%; padding-right: 0px; padding-left: 10px; 
+				 border-right-color: #000000;">
+   <p style="text-align: center;"><a 
+			 title="Glossary" href="Appendix.chm::/Glossary.htm"><img src="logo_glossary.bmp" style="border: none;" alt="" width="47" height="37" border="0"></a></p></td>
+			<td style="width: 5%; padding-right: 10px; padding-left: 5px; 
+				 border-right-color: #000000;">
+   <p style="text-align: center;"><a 
+			 href="About.chm::/What_is_Vijeo-Designer.htm" title="Home"><img src="logo_home.bmp" alt="Home" title="Home" style="border: none; 
+			 margin-left: 0px; margin-right: 0px; margin-bottom: 0px; margin-top: -2px;" width="47" height="37" border="0"></a></p></td>
+		</tr>
+	</table>
+</div>
+
+<h1>14.5 Example: Combined Message/Image Display</h1>
+<p>In many applications, you may want to display both a message and an image to convey information to the user. For example, the <a href="List_Creating_a_Picture_Display.htm">previous section</a> used just an Image Display to show the current state of the conveyor belt. If we wanted our application to also display instructions to the panel operator, then we would add a Message Display with the same state conditions.</p>
+<p>This example builds on the example from Section 14.4 by adding a Message Display. The following table lists the image and message to display to the user when the conveyor belt is in the defined state.</p>
+<table style="vertical-align: top; margin-left: 40px;" cellspacing="0" width="701">
+<col style="width: 14.336%;">
+<col style="width: 18.905%;">
+<col style="width: 41.062%;">
+<col style="width: 25.697%;">
+<tr style="vertical-align: top;">
+<td style="border-top: Solid 3px #000000; border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 14.336%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#91AFD9">
+<p class="Tabletitle" style="text-align: center;">Image</p>
+</td>
+<td style="border-top: Solid 3px #000000; border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 18.905%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#91AFD9">
+<p class="Tabletitle">Description</p>
+</td>
+<td style="border-top: Solid 3px #000000; border-bottom: Solid 1px #000000; width: 41.062%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#91AFD9">
+<p class="Tabletitle">Message</p>
+</td>
+<td style="border-top: Solid 3px #000000; border-bottom: Solid 1px #000000; width: 25.697%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#91AFD9">
+<p class="Tabletitle" style="text-align: center;">State Value</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 14.336%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext" style="text-align: center;"><img src="Icon_Stopped.bmp" style="border: none;" alt="" width="13" height="15" border="0"></p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 18.905%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">Stopped</p>
+</td>
+<td style="border-bottom: Solid 1px #000000; width: 41.062%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">Safe. Turn conveyor belt power OFF if working near the equipment.</p>
+</td>
+<td style="border-bottom: Solid 1px #000000; width: 25.697%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext" style="text-align: center;">0</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 14.336%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext" style="text-align: center;"><img src="Icon_Forward.bmp" style="border: none;" alt="" width="13" height="15" border="0"></p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 18.905%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">Moving Forward</p>
+</td>
+<td style="border-bottom: Solid 1px #000000; width: 41.062%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">Caution, conveyor belt is moving.</p>
+</td>
+<td style="border-bottom: Solid 1px #000000; width: 25.697%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext" style="text-align: center;">1</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 14.336%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext" style="text-align: center;"><img src="Icon_Backward.bmp" style="border: none;" alt="" width="13" height="15" border="0"></p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 18.905%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">Moving Backward</p>
+</td>
+<td style="border-bottom: Solid 1px #000000; width: 41.062%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">Caution, conveyor belt is moving.</p>
+</td>
+<td style="border-bottom: Solid 1px #000000; width: 25.697%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext" style="text-align: center;">2</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 14.336%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext" style="text-align: center;"><img src="Icon_Paused.bmp" style="border: none;" alt="" width="13" height="15" border="0"></p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 18.905%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">Paused</p>
+</td>
+<td style="border-bottom: Solid 1px #000000; width: 41.062%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">Caution, conveyor belt is paused.</p>
+</td>
+<td style="border-bottom: Solid 1px #000000; width: 25.697%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext" style="text-align: center;">3</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 3px #000000; width: 14.336%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext" style="text-align: center;"><img src="Icon_Error.bmp" style="border: none;" alt="" width="13" height="15" border="0"></p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 3px #000000; width: 18.905%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">Error</p>
+</td>
+<td style="border-bottom: Solid 3px #000000; width: 41.062%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">Turn the conveyor belt power OFF and contact your supervisor.</p>
+</td>
+<td style="border-bottom: Solid 3px #000000; width: 25.697%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext" style="text-align: center;">255</p>
+</td>
+</tr>
+</table>
+<p>&#160;</p>
+<h4><img src="square.bmp" style="border: none;" alt="" width="12" height="10" border="0">Editor</h4>
+<ol style="list-style: decimal;">
+<li class="p">
+<p>Create the variable and draw the Image Display. Follow the instructions in Section 14.4, <a href="List_Creating_a_Picture_Display.htm">Example of Creating an Image Display</a>.</p>
+</li>
+<li class="p">
+<p>Draw the Message Display beside the Image Display and define the same Variable and States as the Image Display.</p>
+</li>
+<li class="p">
+<p>Define the Text, Color, and Image Resources used by the Message and Image Displays.</p>
+</li>
+</ol>
+<h5>Text Resource, Color Resource</h5>
+<p class="Image"><img src="ImageMsg_Example_TextColor_Editors.bmp" style="border: none;" alt="" width="668" height="188" border="0"></p>
+<h5>Image Resource</h5>
+<p class="Image"><img src="Image_Example_ResourceEditor.bmp" style="border: none;" alt="" width="448" height="163" border="0"></p>
+<h4><img src="square.bmp" style="border: none;" alt="" width="12" height="10" border="0">Run Time</h4>
+<p>With the added Message Display, the application now provides the panel operator with instructions that are especially important when there is a problem.</p>
+<p>0 = Conveyor belt is stopped (safe).</p>
+<p class="Image"><img src="ImageMsgList_Conveyor_Stopped.bmp" style="border: none;" alt="" width="339" height="130" border="0"></p>
+<p>1 = Conveyor belt is in operation, moving forward (unsafe).</p>
+<p class="Image"><img src="ImageMsgList_Conveyor_Forward.bmp" style="border: none;" alt="" width="339" height="130" border="0"></p>
+<p>2 = Conveyor belt is in operation, moving backward (unsafe).</p>
+<p class="Image"><img src="ImageMsgList_Conveyor_Backward.bmp" style="border: none;" alt="" width="339" height="130" border="0"></p>
+<p>3 = Conveyor belt is paused (neutral).</p>
+<p class="Image"><img src="ImageMsgList_Conveyor_Paused.bmp" style="border: none;" alt="" width="339" height="130" border="0"></p>
+<p>255 = Conveyor belt has a problem or error (danger).</p>
+<p class="Image"><img src="ImageMsgList_Conveyor_Error.bmp" style="border: none;" alt="" width="339" height="130" border="0"></p>
+</body>
+</html>

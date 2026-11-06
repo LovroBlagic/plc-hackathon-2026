@@ -1,0 +1,194 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+<meta name="template" content="Vijeo_template.htt">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="date" content="08 26, 2003 3:22:32 PM">
+<meta name="topic-status" content="In Progress">
+<meta name="topic-priority" content="0">
+<meta name="topic-time-estimate" content="0">
+<meta name="topic-id" content="Download Process Overview">
+<meta name="window-type" content="$global_NewWindow">
+ <meta name="generator" content="Adobe RoboHelp 2015">
+<title>Downloading the Project</title>
+<link rel="StyleSheet" href="Tis-styl.css" type="text/css">
+</head>
+
+<body>
+<script type="text/javascript" src="ehlpdhtm.js" language="JavaScript1.2"></script>
+
+<div style="width: 100%; position: relative;" id="header">
+	<table style="background-attachment: scroll; margin-left: 0px; margin-right: 4px; 
+			 background-image: url(top_banner.bmp); background-repeat: Repeat-X; 
+			 line-height: 0pt; vertical-align: top;" cellspacing="0" background="top_banner.bmp" 
+			 width="100%">
+		<col style="width: 90%;">
+		<col style="width: 5%;">
+		<col style="width: 5%;">
+		<tr style="vertical-align: center; height: 39px;">
+			<td style="width: 90%; padding-right: 10px; padding-left: 10px; 
+				 border-right-color: #000000;">
+   <p><img src="logo.bmp" alt="" style="border: none;" width="37" height="37" border="0"></p></td>
+			<td style="width: 5%; padding-right: 0px; padding-left: 10px; 
+				 border-right-color: #000000;">
+   <p style="text-align: center;"><a 
+			 title="Glossary" href="Appendix.chm::/Glossary.htm"><img src="logo_glossary.bmp" alt="" style="border: none;" width="47" height="37" border="0"></a></p></td>
+			<td style="width: 5%; padding-right: 10px; padding-left: 5px; 
+				 border-right-color: #000000;">
+   <p style="text-align: center;"><a 
+			 href="About.chm::/What_is_Vijeo-Designer.htm" title="Home"><img src="logo_home.bmp" alt="Home" title="Home" style="border: none; 
+			 margin-left: 0px; margin-right: 0px; margin-bottom: 0px; margin-top: -2px;" width="47" height="37" border="0"></a></p></td>
+		</tr>
+	</table>
+</div>
+
+
+<h1>25.6 Downloading the Project</h1>
+<p>Before you can download a project, it must validate and build successfully. 
+ The download operation transfers all the necessary files to the target 
+ machine in order to run the user application.</p>
+<p class="Image"><img src="Vijeo_Download_To_Target.bmp" alt="" style="border: none;" width="433" height="181" border="0"></p>
+<ul>
+	<li class="p-NoteText"><p class="NoteText">We recommend you back up 
+	 your projects after making changes. See Section 21.5, <a href="EfficientOperations.chm::/backup_methods.htm">Backing 
+	 Up Projects</a>.</p></li>
+	<li class="p-NoteText"><p class="NoteText">If you cannot download a 
+	 project from Vijeo-Designer to the target machine, run the build operation 
+	 again, and ensure you did not get errors during the validation or 
+	 build.</p></li>
+	<li class="p-NoteText"><p class="NoteText">New target machines (HMIGTU, 
+	 HMIGTUX, HMIGTO, HMIGK, HMIPEP, HMIPSP, HMIPSO, HMIBMU and HMIBMP) 
+	 are supported by new versions of Vijeo Designer only. Your applications 
+	 and files will not download to new targets if your version of Vijeo 
+	 Designer is too old. Ensure your version of Vijeo Designer editor 
+	 (build time) is up-to-date.</p></li>
+</ul>
+<p>There are various methods for downloading your project. Select the method 
+ best suited for your needs and your development environment. Ethernet, 
+ USB, and Serial download require connecting the development PC and target 
+ machine together. File System download (CF Card/SD Card, network folder, 
+ or removable media) is best suited when downloading to a remote target 
+ machine without a network available.</p>
+<p>You can protect your target machines from unauthorized users. Secured 
+ target machines require users to enter in a user name and password before 
+ project download and installation can continue. For more information on 
+ download security, see Section 4.8.2.2, <a href="StandardOperation.chm::/Protect_targets.htm">Protecting 
+ Targets from Unauthorized Project Downloads</a>.</p>
+<h4><img src="Square.bmp" alt="" style="border: none;" width="12" height="10" border="0">Download Methods</h4>
+<p><a href="Download_to_Ethernet.htm" style="font-weight: bold;">Ethernet</a> 
+ downloads files to the target machine using the Ethernet port. After the 
+ user application is successfully downloaded over the network to the target 
+ machine, Vijeo-Designer Runtime loads and runs the user application.</p>
+<p><a href="Download_to_CF_Card_Reader.htm"><span style="font-weight: bold;">File 
+ System</span> (CF Card/SD Card or USB Drive)</a> downloads the user application 
+ and runtime system files to the CF Card/SD Card reader or USB drive. At 
+ startup, the target machine copies the runtime system files into memory 
+ and runs the user application. This download method is available for all 
+ target machines, except for iPC and XBTGTW target machines.</p>
+<p><a href="Downloading_to_an_iPC_Detached_From_the_Network.htm"><span 
+	 style="font-weight: bold;">File System</span> (Network Folder)</a> 
+ downloads the user application to a network folder. For iPC target machines, 
+ once the download is complete, use the Vijeo-Designer Application Installer 
+ on the supported target machine to install the user application into Vijeo-Designer 
+ Runtime.</p>
+<p><a href="Download_to_Serial.htm" style="font-weight: bold;">Serial</a> 
+ downloads files to the target machine connected to the serial port. After 
+ the user application is successfully downloaded to the target machine, 
+ Vijeo-Designer Runtime loads and then runs the user application.</p>
+<p><a href="Downloading_via_USB_Port.htm" style="font-weight: bold;">USB</a> 
+ downloads files to the target machine through a USB cable to the target's 
+ USB port. After the user application is successfully downloaded to the 
+ target machine, Vijeo-Designer Runtime loads and then runs the user application.</p>
+<p class="NoteImage"><img src="Limit.bmp" alt="" style="border: none;" width="77" height="24" border="0"></p>
+<ul>
+	<li class="p-NoteText"><p class="NoteText">Run-time data such as recipes 
+	 and security, stored on secondary or optional storage devices, is 
+	 overwritten during download, unless you specify otherwise. You can 
+	 preserve recipe and security data, as well as system settings, if 
+	 in the Target properties you enable Preserve Runtime Data, and select 
+	 to preserve recipe, security, or target settings in the Preserve Runtime 
+	 Data dialog box. For more information, see Section 4.5.1.1, <a href="StandardOperation.chm::/targetProperties_general.htm">Target 
+	 Properties: General</a>.</p></li>
+	<li class="p-NoteText"><p class="NoteText">Run-time generated data 
+	 that is preserved at download include data logging, alarms (.csv), 
+	 videos, and screen snapshots.</p></li>
+	<li class="p-NoteText"><p class="NoteText">Data stored on SRAM and 
+	 Secondary or Optional Drive, such as data logging, alarm backups, 
+	 retentive variables, and event log, are deleted at download if you 
+	 select the Delete All Run-time Data check box during download.</p></li>
+	<li class="p-NoteText"><p class="NoteText">Runtime configuration settings 
+	 are overwritten after project download, except for Network, Brightness, 
+	 Contrast, Backlight and Multimedia settings.</p></li>
+	<li class="p-NoteText"><p class="NoteText">HMIG5U, HMIG5U2, and HMIG5U22 
+	 operate on Windows Embedded Standard 7, which supports EWF (Enhanced 
+	 Write Filter) and HORM (Hibernate Once Resume Many). EWF and HORM 
+	 will automatically be disabled when a project is being downloaded 
+	 to the target machine. After the download is complete, EWF will be 
+	 enabled automatically, but the user will need to manually re-enable 
+	 HORM in the EWF Configuration dialog box, accessible from the Windows 
+	 system tray.</p></li>
+	<li class="p-NoteText"><p class="NoteText">When EWF is enabled on the 
+	 target machine, all data stored on the Main Drive is lost when the 
+	 target machine is rebooted.</p></li>
+</ul>
+<p>For the download methods available for each target machine, see Appendix 
+ 5, <a href="Appendix.chm::/Hardware_Specifications.htm">Hardware Specifications</a>.</p>
+<p>The following sections describe the procedure for the various download 
+ methods.</p>
+<table style="vertical-align: top; margin-left: 40px;" cellspacing="0" 
+		 width="584">
+	<col style="width: 25.685%;">
+	<col style="width: 74.315%;">
+	<tr style="vertical-align: top;">
+		<td style="border-top: Solid 3px #000000; border-right: Solid 1px #000000; 
+			 border-bottom: Solid 1px #000000; width: 25.685%; padding-right: 10px; 
+			 padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" 
+			 bgcolor="#91AFD9"><p class="Tabletitle">Download Method</p></td>
+		<td style="border-top: Solid 3px #000000; border-bottom: Solid 1px #000000; 
+			 width: 74.315%; padding-right: 10px; padding-left: 10px; padding-top: 10px; 
+			 padding-bottom: 10px;" bgcolor="#91AFD9"><p class="Tabletitle">Reference</p></td>
+	</tr>
+	<tr style="vertical-align: top;">
+		<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; 
+			 width: 25.685%; padding-right: 10px; padding-left: 10px; padding-top: 10px; 
+			 padding-bottom: 10px;" bgcolor="#CBD9ED"><p class="TableDefinitions">Ethernet</p></td>
+		<td style="border-bottom: Solid 1px #000000; width: 74.315%; padding-right: 10px; 
+			 padding-left: 10px; padding-top: 10px; padding-bottom: 10px;"><p 
+			 class="Tabletext">25.6.1 <a href="Ethernet_Downloads.htm">Ethernet 
+		 Project Downloads</a></p></td>
+	</tr>
+	<tr style="vertical-align: top;">
+		<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; 
+			 width: 25.685%; padding-right: 10px; padding-left: 10px; padding-top: 10px; 
+			 padding-bottom: 10px;" bgcolor="#CBD9ED"><p class="TableDefinitions">Serial</p></td>
+		<td style="border-bottom: Solid 1px #000000; width: 74.315%; padding-right: 10px; 
+			 padding-left: 10px; padding-top: 10px; padding-bottom: 10px;"><p 
+			 class="Tabletext">25.6.2 <a href="Download_to_Serial.htm">Downloading 
+		 over the Serial Port</a></p></td>
+	</tr>
+	<tr style="vertical-align: top;">
+		<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; 
+			 width: 25.685%; padding-right: 10px; padding-left: 10px; padding-top: 10px; 
+			 padding-bottom: 10px;" bgcolor="#CBD9ED"><p class="TableDefinitions">USB</p></td>
+		<td style="border-bottom: Solid 1px #000000; width: 74.315%; padding-right: 10px; 
+			 padding-left: 10px; padding-top: 10px; padding-bottom: 10px;"><p 
+			 class="Tabletext">25.6.3 <a href="Downloading_via_USB_Port.htm">Downloading 
+		 over the USB Port</a></p></td>
+	</tr>
+	<tr style="vertical-align: top;">
+		<td style="border-right: Solid 1px #000000; border-bottom: Solid 3px #000000; 
+			 width: 25.685%; padding-right: 10px; padding-left: 10px; padding-top: 10px; 
+			 padding-bottom: 10px;" bgcolor="#CBD9ED"><p class="TableDefinitions">File 
+		 System<br>
+		(CF Card/SD Card, USB Drive, or Network Folder)</p></td>
+		<td style="border-bottom: Solid 3px #000000; width: 74.315%; padding-right: 10px; 
+			 padding-left: 10px; padding-top: 10px; padding-bottom: 10px;"><p 
+			 class="Tabletext">25.6.4 <a href="Download_to_CF_Card_Reader.htm">Downloading 
+		 to a CF Card/SD Card Reader or USB Drive</a><br>
+		25.6.5 <a href="Downloading_to_an_iPC_Detached_From_the_Network.htm">Downloading 
+		 to a Network Folder</a></p></td>
+	</tr>
+</table>
+</body>
+</html>

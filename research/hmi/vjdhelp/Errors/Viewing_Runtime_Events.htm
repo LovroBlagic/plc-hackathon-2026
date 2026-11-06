@@ -1,0 +1,96 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="topic-status" content="In Progress">
+<meta name="topic-priority" content="0">
+<meta name="topic-time-estimate" content="0">
+<meta name="topic-id" content="Viewing Runtime Events">
+<meta name="window-type" content="$global_NewWindow">
+<meta name="template" content="Vijeo_template.htt">
+ <meta name="generator" content="Adobe RoboHelp 2015">
+<title>Viewing Runtime Events</title>
+<link rel="StyleSheet" href="TIS-STYL.CSS" type="text/css">
+</head>
+<body>
+<script type="text/javascript" src="ehlpdhtm.js" language="JavaScript1.2"></script>
+
+<div style="width: 100%; position: relative;" id="header">
+	<table style="background-attachment: scroll; margin-left: 0px; margin-right: 4px; 
+			 background-image: url(top_banner.bmp); background-repeat: Repeat-X; 
+			 line-height: 0pt; vertical-align: top;" cellspacing="0" background="top_banner.bmp" 
+			 width="100%">
+		<col style="width: 90%;">
+		<col style="width: 5%;">
+		<col style="width: 5%;">
+		<tr style="vertical-align: center; height: 39px;">
+			<td style="width: 90%; padding-right: 10px; padding-left: 10px; 
+				 border-right-color: #000000;">
+   <p><img src="logo.bmp" alt="" style="border: none;" width="37" height="37" border="0"></p></td>
+			<td style="width: 5%; padding-right: 0px; padding-left: 10px; 
+				 border-right-color: #000000;">
+   <p style="text-align: center;"><a 
+			 title="Glossary" href="Appendix.chm::/Glossary.htm"><img src="logo_glossary.bmp" alt="" style="border: none;" width="47" height="37" border="0"></a></p></td>
+			<td style="width: 5%; padding-right: 10px; padding-left: 5px; 
+				 border-right-color: #000000;">
+   <p style="text-align: center;"><a 
+			 href="About.chm::/What_is_Vijeo-Designer.htm" title="Home"><img src="logo_home.bmp" alt="Home" title="Home" style="border: none; 
+			 margin-left: 0px; margin-right: 0px; margin-bottom: 0px; margin-top: -2px;" width="47" height="37" border="0"></a></p></td>
+		</tr>
+	</table>
+</div>
+
+
+<h2>28.1.1 Active Error Viewer</h2>
+<p>When a system error occurs at run-time, the Active Error Viewer appears and displays a message that describes the error.</p>
+<p>In regular conditions, the Active Error Viewer appears at the base of the panel on top of all objects and all popup windows, and continues displaying even after a panel change operation. The Active Error Viewer closes when the user acknowledges the error by pressing the close button. If the system error returns to normal while the Active Error Viewer is displaying it, the Active Error Viewer will automatically close.</p>
+<p>Be aware that in special conditions the Active Error Viewer behaves differently. See the Section below, <a href="#special_condition">Active Error Viewer's Conditional Behavior</a>, for a list of the Active Error Viewer's behavior during special conditions.</p>
+<h4><img src="Square.bmp" alt="" style="border: none;" width="12" height="10" border="0">Active Error Viewer Features</h4>
+<p><img src="small-active.bmp" alt="" style="border: none;" width="554" height="133" border="0"></p>
+<ul>
+<li class="p-Bullet">
+<p class="Bullet"><span style="font-weight: bold;">Date, Time:</span> The date and time the system error occurred. The time displayed is based on Greenwich Mean Time (GMT) offset by the Time Zone and Time Adjustment (Daylight Saving Time) settings of the target machine. You must set the Time Zone and Time Adjustment properly to log errors at the correct time. For more information, see Section 4.5.3, <a href="StandardOperation.chm::/Configuring_Time_Zone_and_Daylight_Saving_Time.htm">Displaying Data Using Time Zone and Configuring Daylight Saving Time</a>.</p>
+</li>
+<li class="p-Bullet">
+<p class="Bullet"><span style="font-weight: bold;"><a href="Displaying_the_Event_Log.htm">Show System Error Log Viewer</a>:</span> Displays the System Error Log Viewer.</p>
+</li>
+<li class="p-Bullet">
+<p class="Bullet"><span style="font-weight: bold;">Close:</span> Closes the Active Error Viewer if there is only one error message. If there is more than one error message, when you click Close the next error message displays in the Active Error Viewer.</p>
+</li>
+<li class="p-Bullet">
+<p class="Bullet"><span style="font-weight: bold;">Move Top/Bottom:</span> Moves the Active Error Viewer to either the top or the bottom of the panel. This button does not display on targets with a 200x80 panel size.</p>
+</li>
+<li class="p-Bullet">
+<p class="Bullet"><span style="font-weight: bold;">Error Message:</span> The system error message. See Section 28.2.4.1, <a href="Runtime_Errors.htm">Run-time Event Messages</a>, for a list of system error messages, descriptions on each message, and information on how to resolve the system error.</p>
+</li>
+</ul>
+<h4><a name="special_condition" id="special_condition"></a><img src="Square.bmp" alt="" style="border: none;" width="12" height="10" border="0"> Active Error Viewer's Conditional Behavior</h4>
+<p>The list below describes the Active Error Viewer's behavior during special conditions.</p>
+<ul>
+<li class="p-Bullet">
+<p class="Bullet"><span style="font-weight: bold;">Error Log Viewer and Active Error Viewer display at the same time:</span><br>
+If a system error occurs while the Error Log Viewer is displaying, the Active Error Viewer does not appear. In this case, the error message appears as the top message in the Error Log Viewer.</p>
+</li>
+<li class="p-Bullet">
+<p class="Bullet"><span style="font-weight: bold;">Popup Keypad and the Active Error Viewer display at the same time</span>:<br>
+If a popup keypad appears while the Active Error Viewer is displaying, the Show Error Log Viewer icon is disabled. The Move Top/Bottom icon and the Close icon are still enabled. Once the popup keypad closes, icon operations return to normal.</p>
+</li>
+</ul>
+<ul>
+<li class="p-Bullet">
+<p class="Bullet"><a name="Global_Alarm_Banner_and_Active_Event_Viewer" id="Global_Alarm_Banner_and_Active_Event_Viewer"></a><span style="font-weight: bold;">Global Alarm Banner and the Active Error Viewer display at the same time:</span><br>
+If the Global Alarm Banner and the Active Error Viewer display at the same time, no matter where the Global Alarm Banner is positioned (top, middle, or bottom), the Global Alarm Banner appends to the base of the Active Error Viewer. This ensures that both the system error message and the alarm message are always visible to the user.</p>
+</li>
+</ul>
+<p style="margin-left: 40px;"><img src="small-active-withbanner.bmp" alt="" style="border: none;" width="354" height="344" border="0"></p>
+<p style="margin-left: 40px;">When the Global Alarm Banner appends to the Active Error Viewer, the Global Alarm Banner's font size converts to 16 points. This is a fixed value, so if the Alarm Banner's font size is originally smaller or larger than 16 points, the font still converts to 16 points. The Alarm Banner's font type, style, color, and scroll rate remain the same.</p>
+<p style="margin-left: 40px;">Once the Active Error Viewer closes, the Global Alarm Banner returns to displaying as defined in the Target properties.</p>
+<ul>
+<li class="p-Bullet">
+<p class="Bullet"><a name="When Multiple Runtime Events Occur"></a><span style="font-weight: bold;">System errors occur while the Active Error Viewer is displaying:</span><br>
+When multiple system errors occur, the error with the highest priority displays in the Active Error Viewer. When you click the Close button, the next error message with the highest priority displays. If error messages with the same priority occur, the most recent error message displays. See Section 28.2.4.1, <a href="Runtime_Errors.htm">Run-time Event Messages</a>, for a list of messages and their priorities.</p>
+</li>
+</ul>
+</body>
+</html>

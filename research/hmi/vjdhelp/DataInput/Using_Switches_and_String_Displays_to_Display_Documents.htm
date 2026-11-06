@@ -1,0 +1,129 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+<meta name="template" content="Vijeo_template.htt">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+ <meta name="generator" content="Adobe RoboHelp 10">
+<title>Using Switches and String Displays to Display Documents</title>
+<link rel="StyleSheet" href="TIS-STYL.CSS" type="text/css">
+</head>
+<body>
+<script type="text/javascript" src="ehlpdhtm.js" language="JavaScript1.2"></script>
+
+<div style="width: 100%; position: relative;" id="header">
+	<table style="background-attachment: scroll; margin-left: 0px; margin-right: 4px; 
+			 background-image: url(top_banner.bmp); background-repeat: Repeat-X; 
+			 line-height: 0pt; vertical-align: top;" cellspacing="0" width="100%" 
+			 background="top_banner.bmp">
+		<col style="width: 90%;">
+		<col style="width: 5%;">
+		<col style="width: 5%;">
+		<tr style="vertical-align: center; height: 39px;">
+			<td style="width: 90%; padding-right: 10px; padding-left: 10px; 
+				 border-right-color: #000000;">
+   <p><img src="logo.bmp" style="border: none;" alt="" width="37" height="37" border="0"></p></td>
+			<td style="width: 5%; padding-right: 0px; padding-left: 10px; 
+				 border-right-color: #000000;">
+   <p style="text-align: center;"><a 
+			 title="Glossary" href="Appendix.chm::/Glossary.htm"><img src="logo_glossary.bmp" style="border: none;" alt="" width="47" height="37" border="0"></a></p></td>
+			<td style="width: 5%; padding-right: 10px; padding-left: 5px; 
+				 border-right-color: #000000;">
+   <p style="text-align: center;"><a 
+			 href="About.chm::/What_is_Vijeo-Designer.htm" title="Home"><img src="logo_home.bmp" alt="Home" title="Home" style="border: none; 
+			 margin-left: 0px; margin-right: 0px; margin-bottom: 0px; margin-top: -2px;" width="47" height="37" border="0"></a></p></td>
+		</tr>
+	</table>
+</div>
+
+<h3>11.8.6 Using Switches and String Displays to Display Documents</h3>
+<p>After you add and configure the Internet Explorer Browser or Multi-Platform Browser part in the editor, the document (applicable for both Browser parts) or URL (only applicable for the Internet Explorer Browser part) will display in the Browser during run time. Use the following methods to display or change documents in the Browser:</p>
+<ol start="2">
+<li class="p-Bullet">
+<p class="Bullet"><a href="#switch">Create a switch</a> to display the document or URL in the Browser.</p>
+</li>
+<li class="p-Bullet">
+<p class="Bullet"><a href="#switch_Browser_control_operations">Create a switch</a> to add Browser operations to a Browser part.</p>
+</li>
+<li class="p-Bullet">
+<p class="Bullet"><a href="#string_display">Create a string display</a> to type in the document file name or URL address you want to display.</p>
+</li>
+</ol>
+<h4><a name="switch" id="switch"></a><img src="square.bmp" style="border: none;" alt="" width="12" height="10" border="0">Display the Document or URL in the Browser Using a Switch</h4>
+<ol style="list-style: decimal;">
+<li class="p">
+<p>Create a switch.</p>
+</li>
+<li class="p">
+<p>In the Switch Settings dialog box, define the following properties:</p>
+</li>
+<li class="p-bullet2">
+<p class="bullet2">Operation: String.</p>
+</li>
+<li class="p-bullet2">
+<p class="bullet2">Source: Document's file name or URL in double quotes.</p>
+</li>
+<li class="p-bullet2">
+<p class="bullet2">Operation: Overwrite.</p>
+</li>
+<li class="p-bullet2">
+<p class="bullet2">Destination: Select the string variable.</p>
+</li>
+</ol>
+<ol start="3" style="list-style: decimal;">
+<li style="list-style: decimal;" class="p">
+<p>Click Add.</p>
+</li>
+</ol>
+<h4><a name="switch_Browser_control_operations" id="switch_Browser_control_operations"></a><img src="square.bmp" style="border: none;" alt="" width="12" height="10" border="0">Add Browser Operations Using a Switch</h4>
+<ol style="list-style: decimal;">
+<li class="p">
+<p>Create a switch.</p>
+</li>
+<li class="p">
+<p>In the Switch Settings dialog box, define the following properties:</p>
+</li>
+</ol>
+<ul>
+<li class="p-bullet2">
+<p class="bullet2">Operation: Browser.</p>
+</li>
+<li class="p-bullet2">
+<p class="bullet2">Browser Object Name: Select the Browser object you are using.</p>
+</li>
+<li class="p-bullet2">
+<p class="bullet2"><a href="Switches.chm::/Browser_Operations.htm">Navigation Controls</a>: Forward, Back, Reload, or Stop.</p>
+</li>
+</ul>
+<ol start="3" style="list-style: decimal;">
+<li class="p">
+<p>Click Add.</p>
+</li>
+</ol>
+<h4><a name="string_display" id="string_display"></a><img src="square.bmp" style="border: none;" alt="" width="12" height="10" border="0">Display a Document in the Browser Using a String Display</h4>
+<ol style="list-style: decimal;">
+<li class="p">
+<p>Create a string display.</p>
+</li>
+<li class="p">
+<p>In the String Display Settings dialog box, define the following properties:</p>
+</li>
+</ol>
+<ul>
+<li class="p-bullet2">
+<p class="bullet2">Variable: Select the string variable.</p>
+</li>
+<li class="p-bullet2">
+<p class="bullet2">Display Length: Set the length that would accommodate the number of characters in your document file name or URL address.</p>
+</li>
+<li class="p-bullet2">
+<p class="bullet2">Enable Input Mode: Select the check box.</p>
+</li>
+</ul>
+<ol start="3" style="list-style: decimal;">
+<li class="p">
+<p>Click OK.</p>
+</li>
+</ol>
+</body>
+</html>

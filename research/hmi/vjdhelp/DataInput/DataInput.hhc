@@ -1,0 +1,261 @@
+<html>
+<!-- Sitemap 1.0 -->
+<object type="text/site properties">
+  <param name="SiteType" value="toc">
+  <param name="Image Width" value="16">
+  <param name="Window Styles" value="0x800027">
+  <param name="ExWindow Styles" value="0x100">
+</object>
+<ul>
+  <li><object type="text/sitemap">
+    <param name="Name" value="11.1 Overview">
+    <param name="Local" value="Numeric_Display.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="11.2 Data Display Settings">
+    <param name="Local" value="Setting_up.htm">
+  </object>
+  <ul>
+    <li><object type="text/sitemap">
+      <param name="Name" value="11.2.1 General Tab">
+      <param name="Local" value="Basic_tab.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="11.2.2 Input Mode Tab">
+      <param name="Local" value="Extension_tab.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="11.2.3 Color Tab">
+      <param name="Local" value="Color_tab.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="11.2.4 Visibility Tab">
+      <param name="Local" value="Datainput_Visibility_Tab.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="11.2.5 Advanced Tab">
+      <param name="Local" value="Datainput_Advanced_Tab.htm">
+    </object>
+    </ul>
+  <li><object type="text/sitemap">
+    <param name="Name" value="11.3 Displaying Values Using Numeric Display">
+    <param name="Local" value="Displaying_values.htm">
+  </object>
+  <ul>
+    <li><object type="text/sitemap">
+      <param name="Name" value="11.3.1 Setting Up Numeric Display">
+      <param name="Local" value="Displaying_values_using_parts.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="11.3.2 Creating Your Own Numeric Displays">
+      <param name="Local" value="Creating_your_own_numeric_display.htm">
+    </object>
+    <ul>
+      <li><object type="text/sitemap">
+        <param name="Name" value="11.3.2.1 Working with Value Animation">
+        <param name="Local" value="Animation_for_data.htm">
+      </object>
+      </ul>
+    </ul>
+  <li><object type="text/sitemap">
+    <param name="Name" value="11.4 Displaying Dates Using Date Display">
+    <param name="Local" value="Displaying_date.htm">
+  </object>
+  <ul>
+    <li><object type="text/sitemap">
+      <param name="Name" value="11.4.1 Setting Up Date Display">
+      <param name="Local" value="Setting_Up_Date_Display_for_Dates.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="11.4.2 Creating Your Own Date Displays">
+      <param name="Local" value="creating_your_own_date_display.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="11.4.3 Setting Up a Date Toolchest Part">
+      <param name="Local" value="Setting_Up_a_Date_Toolchest_Part.htm">
+    </object>
+    </ul>
+  <li><object type="text/sitemap">
+    <param name="Name" value="11.5 Displaying Time Using Time Display">
+    <param name="Local" value="Displaying_Time.htm">
+  </object>
+  <ul>
+    <li><object type="text/sitemap">
+      <param name="Name" value="11.5.1 Setting Up Time Display">
+      <param name="Local" value="Displaying_time_using_parts.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="11.5.2 Creating Your Own Time Displays">
+      <param name="Local" value="Creating_a_clock_display.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="11.5.3 Setting Up a Time Toolchest Part">
+      <param name="Local" value="Setting_Up_a_Time_Toolchest_Part.htm">
+    </object>
+    </ul>
+  <li><object type="text/sitemap">
+    <param name="Name" value="11.6 Displaying Text Using String Display">
+    <param name="Local" value="Displaying_text.htm">
+  </object>
+  <ul>
+    <li><object type="text/sitemap">
+      <param name="Name" value="11.6.1 Setting Up String Display">
+      <param name="Local" value="Displaying_String_variable.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="11.6.2 Displaying Text with Character Codes">
+      <param name="Local" value="Displaying_Character_Codes.htm">
+    </object>
+    </ul>
+  <li><object type="text/sitemap">
+    <param name="Name" value="11.7 Displaying Text Files">
+    <param name="Local" value="Displaying_text_files.htm">
+  </object>
+  <ul>
+    <li><object type="text/sitemap">
+      <param name="Name" value="11.7.1 Steps to Set Up a Text Display Part">
+      <param name="Local" value="Text_display_overview.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="11.7.2 Using a Text Display Part">
+      <param name="Local" value="Setting_up_text_display.htm">
+    </object>
+    <ul>
+      <li><object type="text/sitemap">
+        <param name="Name" value="11.7.2.1 Setting Up a Text Display">
+        <param name="Local" value="Setting_Up_a_Text_Display.htm">
+      </object>
+      <li><object type="text/sitemap">
+        <param name="Name" value="11.7.2.2 Switching Between Multiple Text Files">
+        <param name="Local" value="Changing_files_in_text_display_object.htm">
+      </object>
+      <li><object type="text/sitemap">
+        <param name="Name" value="11.7.2.3 Switching Text Files by Language">
+        <param name="Local" value="Changing_text_display_object_language.htm">
+      </object>
+      </ul>
+    <li><object type="text/sitemap">
+      <param name="Name" value="11.7.3 Using a Text Block Display Part">
+      <param name="Local" value="Using_a_Text_Block_Display_Part.htm">
+    </object>
+    <ul>
+      <li><object type="text/sitemap">
+        <param name="Name" value="11.7.3.1 Setting Up a Text Block Display">
+        <param name="Local" value="Setting_Up_a_Text_Block_Display.htm">
+      </object>
+      </ul>
+    <li><object type="text/sitemap">
+      <param name="Name" value="11.7.4 Adding Text Files to the Target">
+      <param name="Local" value="AddingTextFilesToTarget.htm">
+    </object>
+    </ul>
+  <li><object type="text/sitemap">
+    <param name="Name" value="11.8 Displaying Documents Using Browser">
+    <param name="Local" value="display_doc_IPC.htm">
+  </object>
+  <ul>
+    <li><object type="text/sitemap">
+      <param name="Name" value="11.8.1 Displaying Local Documents">
+      <param name="Local" value="add_files_IPC.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="11.8.2 Displaying Remote Documents">
+      <param name="Local" value="remote.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="11.8.3 Adding the Browser Part to Your Project">
+      <param name="Local" value="set_viewer.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="11.8.4 Opening Documents in the Browser">
+      <param name="Local" value="toggle_files.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="11.8.5 Inputting Data">
+      <param name="Local" value="input_browser.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="11.8.6 Using Switches and String Displays to Display Documents">
+      <param name="Local" value="Using_Switches_and_String_Displays_to_Display_Documents.htm">
+    </object>
+    </ul>
+  <li><object type="text/sitemap">
+    <param name="Name" value="11.9 Inputting Data with Keypads">
+    <param name="Local" value="Create_keypads.htm">
+  </object>
+  <ul>
+    <li><object type="text/sitemap">
+      <param name="Name" value="11.9.1 Keypad Input Methods">
+      <param name="Local" value="Keypad_Types_and_Input_Methods.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="11.9.2 Types of System Keypads">
+      <param name="Local" value="Keyboard.htm">
+    </object>
+    <ul>
+      <li><object type="text/sitemap">
+        <param name="Name" value="11.9.2.1 String Keypads">
+        <param name="Local" value="String_Keypads.htm">
+      </object>
+      <li><object type="text/sitemap">
+        <param name="Name" value="11.9.2.2 Numeric Keypads">
+        <param name="Local" value="Numeric_Keypads.htm">
+      </object>
+      <li><object type="text/sitemap">
+        <param name="Name" value="11.9.2.3 Discrete Keypads">
+        <param name="Local" value="Discrete_Keypads.htm">
+      </object>
+      <li><object type="text/sitemap">
+        <param name="Name" value="11.9.2.4 Change-Immediate Keypad">
+        <param name="Local" value="Change_Immediate_Keypad.htm">
+      </object>
+      <li><object type="text/sitemap">
+        <param name="Name" value="11.9.2.5 Change-on-Enter Keypad">
+        <param name="Local" value="Change-on-Enter_Keypad.htm">
+      </object>
+      </ul>
+    <li><object type="text/sitemap">
+      <param name="Name" value="11.9.3 Using a Popup Keypad">
+      <param name="Local" value="Smart_parts.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="11.9.4 Setting Up Data Inputs">
+      <param name="Local" value="Setting_up_conditions.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="11.9.5 Using Custom Keypads">
+      <param name="Local" value="make_original_keypad.htm">
+    </object>
+    <ul>
+      <li><object type="text/sitemap">
+        <param name="Name" value="11.9.5.1 Modifying a Keypad Part">
+        <param name="Local" value="The_creation_method_of_a_keypad.htm">
+      </object>
+      <li><object type="text/sitemap">
+        <param name="Name" value="11.9.5.2 Using Blank and Special Keys">
+        <param name="Local" value="Creating_special_keys.htm">
+      </object>
+      <li><object type="text/sitemap">
+        <param name="Name" value="11.9.5.3 Creating a Popup Window Panel for a Custom Keypad">
+        <param name="Local" value="Creating_your_own_popup.htm">
+      </object>
+      <li><object type="text/sitemap">
+        <param name="Name" value="11.9.5.4 Creating an Action to Display the Popup Window">
+        <param name="Local" value="Creating_script_for_your_own_popup.htm">
+      </object>
+      </ul>
+    <li><object type="text/sitemap">
+      <param name="Name" value="11.9.6 Continuous Input to Multiple Data Displays">
+      <param name="Local" value="Continuation_input.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="11.9.7 Entering Text with the Keypad">
+      <param name="Local" value="Input_character_by_the_keypad.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="11.9.8 Monitoring Input Status from Connected Equipment">
+      <param name="Local" value="monitoring_input_status.htm">
+    </object>
+    </ul>
+</ul>
+</html>

@@ -1,0 +1,299 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+<meta name="template" content="Vijeo_template.htt">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="topic-status" content="In Progress">
+<meta name="topic-priority" content="0">
+<meta name="topic-time-estimate" content="0">
+<meta name="topic-id" content="Linking the Equipments's PLC Symbol File">
+<meta name="window-type" content="$global_NewWindow">
+ <meta name="generator" content="Adobe RoboHelp 2015">
+<title>Linking the Equipments's PLC Symbol File</title>
+<link rel="StyleSheet" href="Tis-styl.css" type="text/css">
+</head>
+<body>
+<script type="text/javascript" src="ehlpdhtm.js" language="JavaScript1.2"></script>
+
+<div style="width: 100%; position: relative;" id="header">
+	<table style="background-attachment: scroll; margin-left: 0px; margin-right: 4px; 
+			 background-image: url(top_banner.bmp); background-repeat: Repeat-X; 
+			 line-height: 0pt; vertical-align: top;" cellspacing="0" background="top_banner.bmp" 
+			 width="100%">
+		<col style="width: 90%;">
+		<col style="width: 5%;">
+		<col style="width: 5%;">
+		<tr style="vertical-align: center; height: 39px;">
+			<td style="width: 90%; padding-right: 10px; padding-left: 10px; 
+				 border-right-color: #000000;">
+   <p><img src="logo.bmp" alt="" style="border: none;" width="37" height="37" border="0"></p></td>
+			<td style="width: 5%; padding-right: 0px; padding-left: 10px; 
+				 border-right-color: #000000;">
+   <p style="text-align: center;"><a 
+			 title="Glossary" href="Appendix.chm::/Glossary.htm"><img src="logo_glossary.bmp" alt="" style="border: none;" width="47" height="37" border="0"></a></p></td>
+			<td style="width: 5%; padding-right: 10px; padding-left: 5px; 
+				 border-right-color: #000000;">
+   <p style="text-align: center;"><a 
+			 href="About.chm::/What_is_Vijeo-Designer.htm" title="Home"><img src="logo_home.bmp" alt="Home" title="Home" style="border: none; 
+			 margin-left: 0px; margin-right: 0px; margin-bottom: 0px; margin-top: -2px;" width="47" height="37" border="0"></a></p></td>
+		</tr>
+	</table>
+</div>
+
+
+<h4><img src="square.bmp" alt="" style="border: none;" width="12" height="10" border="0">Linking the Equipment's PLC Symbol File</h4>
+<p>The Section below describes how to link an PLC Symbol File to Vijeo Designer. For information on how to add the symbols to Vijeo Designer once the file is linked, see <a href="Adding_Symbols_to_the_Variable_List.htm">Adding Symbols to the Variable List</a>.</p>
+<ol style="list-style: decimal;">
+<li class="p">
+<p>From your equipment configuration software, export the list of names and device addresses.</p>
+</li>
+</ol>
+<p style="margin-left: 40px;">Vijeo Designer supports the following configuration tools and file types.</p>
+<table style="vertical-align: top; margin-bottom: 10px; margin-left: 40px;" cellspacing="0" width="255">
+<col style="width: 61.568%;">
+<col style="width: 38.432%;">
+<tr style="vertical-align: top;">
+<td style="border-top: Solid 3px #000000; border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 61.568%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#91AFD9">
+<p class="Tabletitle">Configuration Tool</p>
+</td>
+<td style="border-top: Solid 3px #000000; border-bottom: Solid 1px #000000; width: 38.432%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#91AFD9">
+<p class="Tabletitle">File Type</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 61.568%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">Concept</p>
+</td>
+<td style="border-bottom: Solid 1px #000000; width: 38.432%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">.ccn</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 61.568%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">EPAS-4</p>
+</td>
+<td style="border-bottom: Solid 1px #000000; width: 38.432%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">.sym_xml</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 61.568%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">SoMachine Motion</p>
+</td>
+<td style="border-bottom: Solid 1px #000000; width: 38.432%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">.xml</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 61.568%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">SoMachine Basic</p>
+</td>
+<td style="border-bottom: Solid 1px #000000; width: 38.432%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">.smbp</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 61.568%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">ModSoft Workbench</p>
+</td>
+<td style="border-bottom: Solid 1px #000000; width: 38.432%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">.txt</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 61.568%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">PL7</p>
+</td>
+<td style="border-bottom: Solid 1px #000000; width: 38.432%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">.scy</p>
+<p class="Tabletext">.fef</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 61.568%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">ProWORX Plus</p>
+</td>
+<td style="border-bottom: Solid 1px #000000; width: 38.432%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">.fis</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 61.568%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">RSLogix5000</p>
+</td>
+<td style="border-bottom: Solid 1px #000000; width: 38.432%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">.l5k</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 61.568%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">Siemens</p>
+</td>
+<td style="border-bottom: Solid 1px #000000; width: 38.432%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">.asc</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 61.568%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">TwidoSoft</p>
+</td>
+<td style="border-bottom: Solid 1px #000000; width: 38.432%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">.twd</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 61.568%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">TwidoSuite</p>
+</td>
+<td style="border-bottom: Solid 1px #000000; width: 38.432%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">.xtwd</p>
+<p class="Tabletext">.xpr</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 61.568%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">UnityPro</p>
+</td>
+<td style="border-bottom: Solid 1px #000000; width: 38.432%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">.stu</p>
+<p class="Tabletext">.xvm</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 3px #000000; width: 61.568%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p>Rockwell</p>
+</td>
+<td style="border-bottom: Solid 3px #000000; width: 38.432%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">.l5k</p>
+</td>
+</tr>
+</table>
+<p class="NoteImage" style="margin-left: 40px;"><img src="Limit.bmp" alt="" style="border: none;" width="77" height="24" border="0"></p>
+<ul>
+<li class="p-NoteText2">
+<p class="NoteText2">To link a *.txt symbol file from Concept, you must change the file name extension to *.ccn before importing the symbol file into Vijeo Designer.</p>
+</li>
+<li class="p-NoteText2">
+<p class="NoteText2">Some file types require you to install the configuration software on the same PC as the Vijeo Designer editor.</p>
+</li>
+<li class="p-NoteText2">
+<p class="NoteText2">Vijeo Designer also supports simple CSV files (file type .csv). The format supported for these files is: Address, SymbolName, Comment.</p>
+</li>
+<li class="p-NoteText2">
+<p class="NoteText2">If you are importing large numbers of variables from UnityPro and the *.stu file becomes very large, consider using .xvm files for better performance.</p>
+</li>
+</ul>
+<ol start="2">
+<li class="p">
+<p>Copy the exported PLC symbol file to the Vijeo Designer editor PC, or to a network folder visible from the PC.</p>
+</li>
+<li class="p">
+<p>In the Navigator window's Project tab, below the I/O Manager node, add and configure the PLC equipment.</p>
+</li>
+<li class="p">
+<p>Right-click the Variables node and click Link Variables.</p>
+</li>
+<li class="p">
+<p>In the Link Variables dialog box's Files of Type field, select the type of file exported from the equipment configuration software.</p>
+</li>
+</ol>
+<p class="Image" style="margin-left: 40px;"><img src="Link_Variables_dialogbox.bmp" alt="" style="border: none;" width="563" height="457" border="0"></p>
+<p>&#160;</p>
+<table style="vertical-align: top; margin-left: 40px;" cellspacing="0" width="95.03%">
+<col style="width: 23.677%;">
+<col style="width: 76.323%;">
+<tr style="vertical-align: top; height: 47px;">
+<td style="border-top: Solid 3px #000000; border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 23.677%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#91AFD9">
+<p class="Tabletitle">Dialog Item</p>
+</td>
+<td style="border-top: Solid 3px #000000; border-bottom: Solid 1px #000000; width: 76.323%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#91AFD9">
+<p class="Tabletitle">Description</p>
+</td>
+</tr>
+<tr style="vertical-align: top; height: 119px;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 23.677%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#CBD9ED">
+<p class="TableDefinitions">File name</p>
+</td>
+<td style="border-bottom: Solid 1px #000000; width: 76.323%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p>Specifies the name of the file you selected.</p>
+<p>For best results, the filename should use only ASCII characters. If you are working on an operating system based on Simplified Chinese, you can link symbol files that use Simplified Chinese characters in the filename, but you may not be able to link symbol files that use Japanese characters. Avoid operating system dependencies by using only ASCII characters in filenames.</p>
+</td>
+</tr>
+<tr style="vertical-align: top; height: 139px;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 23.677%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#CBD9ED">
+<p class="TableDefinitions">Files of type</p>
+</td>
+<td style="border-bottom: Solid 1px #000000; width: 76.323%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p>Select the file type.</p>
+<p class="NoteImage"><img src="NOTE_MOJI.BMP" alt="" style="border: none;" width="51" height="25" border="0"></p>
+<ul>
+<li class="p-NoteText">
+<p class="NoteText">The UnityPro symbol export files (*.XVM) and UnityPro STU database files (*.STU) options are specifically for Unity Quantum PLC users who want to communicate with local and remote I/O devices.</p>
+</li>
+</ul>
+</td>
+</tr>
+<tr style="vertical-align: top; height: 67px;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 23.677%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#CBD9ED">
+<p class="TableDefinitions">Equipment</p>
+</td>
+<td style="border-bottom: Solid 1px #000000; width: 76.323%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p>Select the equipment you want to associate with the PLC symbol file. The Equipment field lists equipment that is not yet associated with a PLC configuration file.</p>
+</td>
+</tr>
+<tr style="vertical-align: top; height: 338px;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 3px #000000; width: 23.677%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#CBD9ED">
+<p class="TableDefinitions">Force I/O device addresses to be unlocated addresses</p>
+</td>
+<td style="border-bottom: Solid 3px #000000; width: 76.323%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p style="margin-left: 2px;">Displays only if you select a Unity Pro file type. When this check box is selected, the PLC symbol import feature will convert symbols with the following device addresses into symbols with unlocated device addresses in the equipment (for example, %UVxxxxx):</p>
+<ol start="6">
+<li class="p-bullet2">
+<p class="bullet2" style="margin-left: 2px;">%la.b.c</p>
+</li>
+<li class="p-bullet2">
+<p class="bullet2" style="margin-left: 2px;">%Qa.b.c</p>
+</li>
+<li class="p-bullet2">
+<p class="bullet2" style="margin-left: 2px;">%Ia.b/c.d.e</p>
+</li>
+<li class="p-bullet2">
+<p class="bullet2" style="margin-left: 2px;">%Qa.b/c.d.e</p>
+</li>
+<li class="p-bullet2">
+<p class="bullet2" style="margin-left: 2px;">%IWa.b.c</p>
+</li>
+<li class="p-bullet2">
+<p class="bullet2" style="margin-left: 2px;">%QWa.b.c</p>
+</li>
+<li class="p-bullet2">
+<p class="bullet2" style="margin-left: 2px;">%IW\a.b\c.d.e</p>
+</li>
+<li class="p-bullet2">
+<p class="bullet2" style="margin-left: 2px;">%QW\a.b\c.d.e</p>
+</li>
+</ol>
+<p style="margin-left: 1px;">When symbols with device addresses are converted into symbols with unlocated variable addresses, Runtime will be able to communicate with the I/O device through the supported set of function codes.</p>
+<p style="margin-left: 1px;">This feature is available for some drivers. For more information, see Section 5.8.1, <a href="ExternalDevice.chm::/Device_Driver_Troubleshooting.htm">Driver Access Errors for Direct I/O, System Device, Constant Device</a>.</p>
+</td>
+</tr>
+</table>
+<p style="margin-left: 40px;">&#160;</p>
+<ol start="6">
+<li class="p">
+<p>When the file becomes visible, select the file then select the equipment node defined in step 3, and click Open.</p>
+</li>
+</ol>
+<p>The equipment configuration file is now linked, and displays the <a href="Adding_Symbols_to_the_Variable_List.htm">New Variables From Equipment dialog box</a>.</p>
+<p class="NoteImage"><img src="NOTE_MOJI.BMP" alt="" style="border: none;" width="51" height="25" border="0"></p>
+<ul>
+<li class="p-NoteText">
+<p class="NoteText">Make sure the equipment configured in the I/O Manager matches the equipment used by the exported file. It is possible to link variables to the wrong equipment.</p>
+</li>
+<li class="p-NoteText">
+<p class="NoteText">Only one configuration file can be linked to one equipment node.</p>
+</li>
+</ul>
+</body>
+</html>

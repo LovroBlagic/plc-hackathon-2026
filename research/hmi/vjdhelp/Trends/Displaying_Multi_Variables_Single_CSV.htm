@@ -1,0 +1,64 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+<meta name="template" content="Vijeo_template.htt">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+ <meta name="generator" content="Adobe RoboHelp 10">
+<title>Displaying Multiple Variables in a Single CSV File</title>
+<link rel="StyleSheet" href="TIS-STYL.CSS" type="text/css">
+</head>
+<body>
+<script type="text/javascript" src="ehlpdhtm.js" language="JavaScript1.2"></script>
+
+<div style="width: 100%; position: relative;" id="header">
+	<table style="background-attachment: scroll; margin-left: 0px; margin-right: 4px; 
+			 background-image: url(top_banner.bmp); background-repeat: Repeat-X; 
+			 line-height: 0pt; vertical-align: top;" cellspacing="0" width="100%" 
+			 background="top_banner.bmp">
+		<col style="width: 90%;">
+		<col style="width: 5%;">
+		<col style="width: 5%;">
+		<tr style="vertical-align: center; height: 39px;">
+			<td style="width: 90%; padding-right: 10px; padding-left: 10px; 
+				 border-right-color: #000000;">
+   <p><img src="logo.bmp" style="border: none;" alt="" width="37" height="37" border="0"></p></td>
+			<td style="width: 5%; padding-right: 0px; padding-left: 10px; 
+				 border-right-color: #000000;">
+   <p style="text-align: center;"><a 
+			 title="Glossary" href="Appendix.chm::/Glossary.htm"><img src="logo_glossary.bmp" style="border: none;" alt="" width="47" height="37" border="0"></a></p></td>
+			<td style="width: 5%; padding-right: 10px; padding-left: 5px; 
+				 border-right-color: #000000;">
+   <p style="text-align: center;"><a 
+			 href="About.chm::/What_is_Vijeo-Designer.htm" title="Home"><img src="logo_home.bmp" alt="Home" title="Home" style="border: none; 
+			 margin-left: 0px; margin-right: 0px; margin-bottom: 0px; margin-top: -2px;" width="47" height="37" border="0"></a></p></td>
+		</tr>
+	</table>
+</div>
+
+<h3>13.1.1.5 Saving Multiple Variable Values to a Single CSV File</h3>
+<p class="Bullet">You can save a collection of variable values into a single CSV file using custom event messages. This process works by logging a custom event message that contains multiple variable names and variable values to an event group. Then outputting the event group messages to a single CSV file.</p>
+<p class="Bullet">&#160;</p>
+<p class="Bullet">The following instructions describe how to create an event group and a custom event message so you can save multiple variable values to a single CSV file:</p>
+<ol style="list-style: decimal;">
+<li class="p">
+<p>In the Navigator window, add an event group under the Alarms and Events node. For more information, see Section 16.3.1, <a href="Alarms.chm::/Alarm_Goups_in_alarm_summary.htm">Alarm and Event Groups</a>.</p>
+</li>
+<li class="p">
+<p>In the event group properties, select the Save to File check box, and click the Configure button.</p>
+</li>
+<li class="p">
+<p>In the Save to File dialog box, click the Format tab and put Date, Time, and Message columns into the Columns to Save list. For more information, see Section 16.2.4.2, <a href="Alarms.chm::/Event_Group_Settings.htm">Event Group Settings</a>.</p>
+</li>
+<li class="p">
+<p>Create a new text resource and create a custom event message with dynamic content to log your variables values. For example, the following custom event message would log the values of 3 variables: "Variable1: &lt;var:variable1&gt;, Variable2: &lt;var:variable2&gt;, Variable3: &lt;var:variable3&gt;". For more information on dynamic text content, see Section 21.1.5.12, <a href="EfficientOperations.chm::/Setting_Up_Embedded_Content.htm">Setting Up Messages with Dynamic Content</a>.</p>
+</li>
+<li class="p">
+<p>Create an action with an Event Message operation to periodically trigger the custom event message to log to the event group. For more information, see Section 9.5 22, <a href="Switches.chm::/Event_Message_Operations.htm">Event Message Operations</a>.</p>
+</li>
+<li class="p">
+<p>Create a switch to trigger the event group's Save to File operation to save the event messages to a CSV file. For more information, see Section 16.3.6, <a href="Alarms.chm::/Alarms_in_CSV_file.htm">Outputting Alarms and Events to a CSV File</a>.</p>
+</li>
+</ol>
+</body>
+</html>

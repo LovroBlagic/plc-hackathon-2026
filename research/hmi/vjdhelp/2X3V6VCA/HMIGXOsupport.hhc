@@ -1,0 +1,95 @@
+<html>
+<!-- Sitemap 1.0 -->
+<object type="text/site properties">
+  <param name="WindowName" value="$global_NewWindow">
+  <param name="SiteType" value="toc">
+  <param name="Image Width" value="16">
+  <param name="Window Styles" value="0x800027">
+  <param name="ExWindow Styles" value="0x100">
+</object>
+<ul>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Introduction">
+    <param name="Local" value="HMIGXO_Introduction.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="HMIGXO Hardware Specifications">
+    <param name="Local" value="HMIGXO_Hardware_Specifications.htm">
+  </object>
+  <ul>
+    <li><object type="text/sitemap">
+      <param name="Name" value="HMIGXO Hardware Attributes">
+      <param name="Local" value="HMIGXO_Hardware_Platforms.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="HMIGXO Supported Features">
+      <param name="Local" value="Features_Supported_by_HMIGXO_Series.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="HMIGXO Cable Connections">
+    </object>
+    <ul>
+      <li><object type="text/sitemap">
+        <param name="Name" value="HMIGXO Cable Connections">
+        <param name="Local" value="HMIGXO_Cable_Connections.htm">
+      </object>
+      <li><object type="text/sitemap">
+        <param name="Name" value="Script Driver Cable Connections">
+        <param name="Local" value="Script_Driver_Cable_Connections.htm">
+      </object>
+      </ul>
+    <li><object type="text/sitemap">
+      <param name="Name" value="HMIGXO Configuration Menu Items">
+      <param name="Local" value="HMIGXO_Configuration_Menu_Items.htm">
+    </object>
+    <ul>
+      <li><object type="text/sitemap">
+        <param name="Name" value="Offline Configuration Menu Items">
+        <param name="Local" value="HMIGXO_Offline_Configuration_Menu_Items.htm">
+      </object>
+      <li><object type="text/sitemap">
+        <param name="Name" value="System Configuration Menu Items">
+        <param name="Local" value="HMIGXO_System_Configuration_menu_Items.htm">
+      </object>
+      </ul>
+    <li><object type="text/sitemap">
+      <param name="Name" value="HMIGXO Supported Fonts">
+      <param name="Local" value="HMIGXO_Supported_Fonts.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="HMIGXO Supported Printers">
+      <param name="Local" value="HMIGXO_Printers.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="HMIGXO Data Locations and Memory Capacity">
+      <param name="Local" value="HMIGXO_Data_Locations.htm">
+    </object>
+    </ul>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Installing Vijeo-Designer Runtime to HMIGXO Series">
+    <param name="Local" value="Installing_Vijeo-Designer_Runtime_to_HMIGXO.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Downloading the Project to HMIGXO">
+    <param name="Local" value="Downloading_the_Project.htm">
+  </object>
+  <ul>
+    <li><object type="text/sitemap">
+      <param name="Name" value="Downloading the Project to HMIGXO over USB Port">
+      <param name="Local" value="Downloading_the_Project_over_USB.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="Downloading the Project to HMIGXO using File System">
+      <param name="Local" value="Downloading_the_Project_using_File_System.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="Recovering the System on HMIGXO Targets">
+      <param name="Local" value="Recovering_the_System_on_HMIGXO_Targets.htm">
+    </object>
+    </ul>
+  <li><object type="text/sitemap">
+    <param name="Name" value="User Manuals">
+    <param name="Local" value="User_Manuals.htm">
+  </object>
+</ul>
+</html>

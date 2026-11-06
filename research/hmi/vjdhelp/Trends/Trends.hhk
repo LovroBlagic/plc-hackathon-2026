@@ -1,0 +1,314 @@
+<html>
+<!-- Sitemap 1.0 -->
+<object type="text/site properties">
+  <param name="WindowName" value="$global_NewWindow">
+  <param name="SiteType" value="index">
+</object>
+<ul>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Data Logging Group">
+    <param name="Name" value="Working with Data Logging#Determining_What_Data_to_Log">
+    <param name="Local" value="About_logged_data.htm#Determining_What_Data_to_Log">
+  </object>
+  <ul>
+    <li><object type="text/sitemap">
+      <param name="Name" value="Assign Data Logging Group to a Variable">
+      <param name="Name" value="Assign a Data Logging Group to a Variable">
+      <param name="Local" value="Assign_Data_Logging_Group_to_Variable.htm">
+      <param name="Name" value="Setting Up a Variable for Data Logging">
+      <param name="Local" value="Setting_Up_a_Variable_for_Data_Logging.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="Create a Data Logging Group">
+      <param name="Name" value="Creating a Data Logging Group">
+      <param name="Local" value="Creating_a_Data_Logging_Group.htm">
+      <param name="Name" value="Setting Up a Variable for Data Logging">
+      <param name="Local" value="Setting_Up_a_Variable_for_Data_Logging.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="Check Variables at Project Validation">
+      <param name="Name" value="Assign a Data Logging Group to a Variable#Project_Validation">
+      <param name="Local" value="Assign_Data_Logging_Group_to_Variable.htm#Project_Validation">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="Delete a Data Logging Group">
+      <param name="Name" value="Deleting a Data Logging Group">
+      <param name="Local" value="Deleting_a_Data_Logging_Group.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="Prepare System for Data Logging">
+      <param name="Name" value="When to Collect Data#Preparing_the_System_for_Data_Logging">
+      <param name="Local" value="When_to_Collect_Data.htm#Preparing_the_System_for_Data_Logging">
+    </object>
+    </ul>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Save to CSV File">
+    <param name="Name" value="Displaying Multiple Variables in a Single CSV File">
+    <param name="Local" value="Displaying_Multi_Variables_Single_CSV.htm">
+    <param name="Name" value="Displaying Your Data#Converting_a_Data_Logging_File_into_a__csv_or__txt_File_for_Display">
+    <param name="Local" value="Displaying_Your_Data.htm#Converting_a_Data_Logging_File_into_a__csv_or__txt_File_for_Display">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Assign Data Logging Group to a Variable">
+    <param name="Name" value="Assign a Data Logging Group to a Variable">
+    <param name="Local" value="Assign_Data_Logging_Group_to_Variable.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Periodic Sampling">
+    <param name="Name" value="Creating a Data Logging Group">
+    <param name="Local" value="Creating_a_Data_Logging_Group.htm">
+    <param name="Name" value="When to Collect Data#Periodic_Sampling">
+    <param name="Local" value="When_to_Collect_Data.htm#Periodic_Sampling">
+  </object>
+  <ul>
+    <li><object type="text/sitemap">
+      <param name="Name" value="Logging Intervals">
+      <param name="Name" value="When to Collect Data#Logging_Intervals">
+      <param name="Local" value="When_to_Collect_Data.htm#Logging_Intervals">
+    </object>
+    </ul>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Trigger Sampling">
+    <param name="Name" value="Creating a Data Logging Group">
+    <param name="Local" value="Creating_a_Data_Logging_Group.htm">
+    <param name="Name" value="When to Collect Data#Trigger_Sampling">
+    <param name="Local" value="When_to_Collect_Data.htm#Trigger_Sampling">
+  </object>
+  <ul>
+    <li><object type="text/sitemap">
+      <param name="Name" value="Trigger Condition">
+      <param name="Name" value="When to Collect Data#Trigger_Sampling">
+      <param name="Local" value="When_to_Collect_Data.htm#Trigger_Sampling">
+      <param name="Name" value="Creating a Data Logging Group">
+      <param name="Local" value="Creating_a_Data_Logging_Group.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="Trigger Variable">
+      <param name="Name" value="When to Collect Data#Trigger_Sampling">
+      <param name="Local" value="When_to_Collect_Data.htm#Trigger_Sampling">
+      <param name="Name" value="Creating a Data Logging Group">
+      <param name="Local" value="Creating_a_Data_Logging_Group.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="Status Variable">
+      <param name="Name" value="When to Collect Data#Trigger_Sampling">
+      <param name="Local" value="When_to_Collect_Data.htm#Trigger_Sampling">
+      <param name="Name" value="Creating a Data Logging Group">
+      <param name="Local" value="Creating_a_Data_Logging_Group.htm">
+    </object>
+    </ul>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Logging Group Settings Dialog Box">
+    <param name="Name" value="Creating a Data Logging Group">
+    <param name="Local" value="Creating_a_Data_Logging_Group.htm">
+  </object>
+  <ul>
+    <li><object type="text/sitemap">
+      <param name="Name" value="Sampling Tab">
+      <param name="Name" value="Creating a Data Logging Group">
+      <param name="Local" value="Creating_a_Data_Logging_Group.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="Variable Storage Tab">
+      <param name="Name" value="Creating a Data Logging Group">
+      <param name="Local" value="Creating_a_Data_Logging_Group.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="Advanced Tab">
+      <param name="Name" value="Creating a Data Logging Group">
+      <param name="Local" value="Creating_a_Data_Logging_Group.htm">
+    </object>
+    </ul>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Trend Graphs">
+    <param name="Name" value="Displaying Your Data">
+    <param name="Local" value="Displaying_Your_Data.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Real-Time Trend Graph">
+    <param name="Name" value="Displaying Your Data#Using_Trend_Graphs_to_Display_Logged_Data">
+    <param name="Local" value="Displaying_Your_Data.htm#Using_Trend_Graphs_to_Display_Logged_Data">
+    <param name="Name" value="Real-time Trend Graphs#Creating_Real_Time_Trend_Graphs">
+    <param name="Local" value="Using_Trend_Graph.htm#Creating_Real_Time_Trend_Graphs">
+  </object>
+  <ul>
+    <li><object type="text/sitemap">
+      <param name="Name" value="Set Up Trend Graphs">
+      <param name="Name" value="Creating Trend Graphs">
+      <param name="Local" value="Setting_up_Trend_Graph.htm">
+    </object>
+    </ul>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Historical Trend Graph">
+    <param name="Name" value="Displaying Your Data#Using_Trend_Graphs_to_Display_Logged_Data">
+    <param name="Local" value="Displaying_Your_Data.htm#Using_Trend_Graphs_to_Display_Logged_Data">
+    <param name="Name" value="Historical Trend Graphs">
+    <param name="Local" value="Historical_Trend_Create.htm">
+  </object>
+  <ul>
+    <li><object type="text/sitemap">
+      <param name="Name" value="About">
+      <param name="Name" value="Historical Trend Graphs">
+      <param name="Local" value="Historical_Trend_Create.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="Buttons">
+      <param name="Name" value="Historical Trend Graphs#Buttons">
+      <param name="Local" value="Historical_Trend_Create.htm#Buttons">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="Calendar">
+      <param name="Name" value="Historical Trend Graphs#Calendar">
+      <param name="Local" value="Historical_Trend_Create.htm#Calendar">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="Set Up Historical Trend Graphs">
+      <param name="Name" value="Creating Historical Trend Graphs">
+      <param name="Local" value="Historical_Trend_Settings.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="Toolchest part">
+      <param name="Name" value="Creating Historical Trend Graphs">
+      <param name="Local" value="Historical_Trend_Settings.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="Zoom view">
+      <param name="Name" value="Historical Trend Graphs#Zoom">
+      <param name="Local" value="Historical_Trend_Create.htm#Zoom">
+    </object>
+    </ul>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Convert a Data Logging File to a .csv or .txt File">
+    <param name="Name" value="Displaying Your Data#Converting_a_Data_Logging_File_into_a__csv_or__txt_File_for_Display">
+    <param name="Local" value="Displaying_Your_Data.htm#Converting_a_Data_Logging_File_into_a__csv_or__txt_File_for_Display">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Storage Options for Data">
+    <param name="Name" value="Storing Your Collected Data">
+    <param name="Local" value="logged_data_details.htm">
+  </object>
+  <ul>
+    <li><object type="text/sitemap">
+      <param name="Name" value="DRAM">
+      <param name="Name" value="Storing Your Collected Data#DRAM_Storage">
+      <param name="Local" value="logged_data_details.htm#DRAM_Storage">
+      <param name="Name" value="Setting Up Data Logging">
+      <param name="Local" value="Setting_Up_Data_Logging.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="SRAM">
+      <param name="Name" value="Storing Your Collected Data#SRAM_Storage">
+      <param name="Local" value="logged_data_details.htm#SRAM_Storage">
+      <param name="Name" value="Setting Up Data Logging">
+      <param name="Local" value="Setting_Up_Data_Logging.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="SRAM and File">
+      <param name="Name" value="Storing Your Collected Data#File_Storage">
+      <param name="Local" value="logged_data_details.htm#File_Storage">
+      <param name="Name" value="Setting Up Data Logging">
+      <param name="Local" value="Setting_Up_Data_Logging.htm">
+    </object>
+    </ul>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Data Logging Files">
+    <param name="Name" value="Storing Your Collected Data#File_Storage">
+    <param name="Local" value="logged_data_details.htm#File_Storage">
+  </object>
+  <ul>
+    <li><object type="text/sitemap">
+      <param name="Name" value="Delete Data Files">
+      <param name="Name" value="Storing Your Collected Data#Deleting_Logged_Data_Files">
+      <param name="Local" value="logged_data_details.htm#Deleting_Logged_Data_Files">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="Convert to a .csv or .txt File">
+      <param name="Name" value="Displaying Your Data#Converting_a_Data_Logging_File_into_a__csv_or__txt_File_for_Display">
+      <param name="Local" value="Displaying_Your_Data.htm#Converting_a_Data_Logging_File_into_a__csv_or__txt_File_for_Display">
+    </object>
+    </ul>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Data Logging">
+    <param name="Name" value="Working with Data Logging">
+    <param name="Local" value="About_logged_data.htm">
+  </object>
+  <ul>
+    <li><object type="text/sitemap">
+      <param name="Name" value="Key Features">
+      <param name="Name" value="About Data Logging#Key_Features">
+      <param name="Local" value="logging_data.htm#Key_Features">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="About">
+      <param name="Name" value="About Data Logging">
+      <param name="Local" value="logging_data.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="Variable Setup">
+      <param name="Name" value="Setting Up a Variable for Data Logging">
+      <param name="Local" value="Setting_Up_a_Variable_for_Data_Logging.htm">
+      <param name="Name" value="Assign a Data Logging Group to a Variable">
+      <param name="Local" value="Assign_Data_Logging_Group_to_Variable.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="Data Logging Node">
+      <param name="Name" value="Setting Up Data Logging">
+      <param name="Local" value="Setting_Up_Data_Logging.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="Changes in Date/Time">
+      <param name="Name" value="Working with Data Logging">
+      <param name="Local" value="About_logged_data.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="Save Variables to a Single CSV File">
+      <param name="Name" value="Displaying Multiple Variables in a Single CSV File">
+      <param name="Local" value="Displaying_Multi_Variables_Single_CSV.htm">
+    </object>
+    </ul>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Plot Trend Graphs">
+    <param name="Name" value="Sample-Based Graphs">
+    <param name="Local" value="Sample-Based_Graphs.htm">
+  </object>
+  <ul>
+    <li><object type="text/sitemap">
+      <param name="Name" value="Zoom view">
+      <param name="Name" value="Sample-Based Graphs#Zoom">
+      <param name="Local" value="Sample-Based_Graphs.htm#Zoom">
+    </object>
+    </ul>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Maintenance Mode in Plot Trend Graphs">
+    <param name="Name" value="Sample-Based Graphs#Maintenance_Mode_in_Plot_Trend_Graphs">
+    <param name="Local" value="Sample-Based_Graphs.htm#Maintenance_Mode_in_Plot_Trend_Graphs">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Data Quality in Plot Trend Graphs">
+    <param name="Name" value="Sample-Based Graphs#Data_Quality_in_Plot_Trend_Graphs">
+    <param name="Local" value="Sample-Based_Graphs.htm#Data_Quality_in_Plot_Trend_Graphs">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Block Trend Graph">
+    <param name="Name" value="Block Trend Graphs">
+    <param name="Local" value="Block_Trend_Graphs.htm">
+  </object>
+  <ul>
+    <li><object type="text/sitemap">
+      <param name="Name" value="About">
+      <param name="Name" value="Block Trend Graphs">
+      <param name="Local" value="Block_Trend_Graphs.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="Creating">
+      <param name="Name" value="Setting Up Block Trend Graphs">
+      <param name="Local" value="Setting_Up_Block_Trend_Graphs.htm">
+    </object>
+    </ul>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Logged Data, Save to a Single CSV File">
+    <param name="Name" value="Displaying Multiple Variables in a Single CSV File">
+    <param name="Local" value="Displaying_Multi_Variables_Single_CSV.htm">
+  </object>
+</ul>
+</html>

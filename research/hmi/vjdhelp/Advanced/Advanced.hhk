@@ -1,0 +1,349 @@
+<html>
+<!-- Sitemap 1.0 -->
+<object type="text/site properties">
+  <param name="SiteType" value="index">
+</object>
+<ul>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Setting Up Exclusive Input">
+    <param name="Name" value="Setting Up Exclusive Input Relationships">
+    <param name="Local" value="Data_Sharing_Synchronization.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Data Sharing">
+    <param name="Name" value="Sharing Data Between Target Machines">
+    <param name="Local" value="DataSharing_Overview.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Variables, Sharing">
+    <param name="Name" value="Sharing Data Between Target Machines">
+    <param name="Local" value="DataSharing_Overview.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Targets, Sharing">
+    <param name="Name" value="Sharing Data Between Target Machines">
+    <param name="Local" value="DataSharing_Overview.htm">
+    <param name="Name" value="Setting Up Shared Variables">
+    <param name="Local" value="Sharing_Variables.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Data Sharing, Number of Variables">
+    <param name="Name" value="Sharing Data Between Target Machines">
+    <param name="Local" value="DataSharing_Overview.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Data Sharing, Number of Connections">
+    <param name="Name" value="Sharing Data Between Target Machines">
+    <param name="Local" value="DataSharing_Overview.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Number of Variables, Data Sharing">
+    <param name="Name" value="Sharing Data Between Target Machines">
+    <param name="Local" value="DataSharing_Overview.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Number of Connections, Data Sharing">
+    <param name="Name" value="Sharing Data Between Target Machines">
+    <param name="Local" value="DataSharing_Overview.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Equipment, Sharing Data">
+    <param name="Name" value="Sharing Data Between Target Machines">
+    <param name="Local" value="DataSharing_Overview.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Device, Sharing Data">
+    <param name="Name" value="Sharing Data Between Target Machines">
+    <param name="Local" value="DataSharing_Overview.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Register Address, Sharing Data">
+    <param name="Name" value="Sharing Data Between Target Machines">
+    <param name="Local" value="DataSharing_Overview.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="PLC, Sharing Data">
+    <param name="Name" value="Sharing Data Between Target Machines">
+    <param name="Local" value="DataSharing_Overview.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Address, Sharing Data">
+    <param name="Name" value="Sharing Data Between Target Machines">
+    <param name="Local" value="DataSharing_Overview.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Data Sharing, Setting Up">
+    <param name="Name" value="Setting Up Shared Variables">
+    <param name="Local" value="Sharing_Variables.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Sharing Variables, Setting Up">
+    <param name="Name" value="Setting Up Shared Variables">
+    <param name="Local" value="Sharing_Variables.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Data Sharing, Data Quality">
+    <param name="Name" value="Data Quality for Shared Variables">
+    <param name="Local" value="Data_Quality.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Data Quality, Data Sharing">
+    <param name="Name" value="Data Quality for Shared Variables">
+    <param name="Local" value="Data_Quality.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Communication, Data Sharing">
+    <param name="Name" value="Data Quality for Shared Variables">
+    <param name="Local" value="Data_Quality.htm">
+    <param name="Name" value="Sharing Data Between Target Machines">
+    <param name="Local" value="DataSharing_Overview.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Troubleshooting Data Sharing">
+    <param name="Name" value="Data Quality for Shared Variables">
+    <param name="Local" value="Data_Quality.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Variables, Data Quality">
+    <param name="Name" value="Data Quality for Shared Variables">
+    <param name="Local" value="Data_Quality.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Data Quality Icon Appears Right Away">
+    <param name="Name" value="Data Quality for Shared Variables">
+    <param name="Local" value="Data_Quality.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Data Sharing, Firewall">
+    <param name="Name" value="Sharing Variables Through a Firewall">
+    <param name="Local" value="Data_Sharing_Firewall.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Firewall, Data Sharing">
+    <param name="Name" value="Sharing Variables Through a Firewall">
+    <param name="Local" value="Data_Sharing_Firewall.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Preventing Simultaneous Changes to the Same Variable">
+    <param name="Name" value="Setting Up Exclusive Input Relationships">
+    <param name="Local" value="Data_Sharing_Synchronization.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Variables, Preventing Simultaneous Changes">
+    <param name="Name" value="Setting Up Exclusive Input Relationships">
+    <param name="Local" value="Data_Sharing_Synchronization.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Multiple Target System">
+    <param name="Name" value="Sharing Data Between Target Machines">
+    <param name="Local" value="DataSharing_Overview.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="System, Multiple Target Communication">
+    <param name="Name" value="Sharing Data Between Target Machines">
+    <param name="Local" value="DataSharing_Overview.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Exclusive Input, Safety">
+    <param name="Name" value="Example of When to Use Exclusive Input">
+    <param name="Local" value="Exclusive_Input_Example_Non-Variable.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Safety, Exclusive Input">
+    <param name="Name" value="Example of When to Use Exclusive Input">
+    <param name="Local" value="Exclusive_Input_Example_Non-Variable.htm">
+    <param name="Name" value="Setting Up Exclusive Input Relationships">
+    <param name="Local" value="Data_Sharing_Synchronization.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Example, Exclusive Input">
+    <param name="Name" value="Example of When to Use Exclusive Input">
+    <param name="Local" value="Exclusive_Input_Example_Non-Variable.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Exclusive Input, Setting Up">
+    <param name="Name" value="Setting Up Exclusive Input Relationships">
+    <param name="Local" value="Data_Sharing_Synchronization.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Communication Error, Exclusive Input">
+    <param name="Name" value="Exclusive Input and Communication at Run Time">
+    <param name="Local" value="Exclusive_Input_Comm_Errors.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Exclusive Input, Communication Error">
+    <param name="Name" value="Exclusive Input and Communication at Run Time">
+    <param name="Local" value="Exclusive_Input_Comm_Errors.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Return Exclusive Input">
+    <param name="Name" value="Exclusive Input and Communication at Run Time">
+    <param name="Local" value="Exclusive_Input_Comm_Errors.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Exclusive Input, Initial Panel">
+    <param name="Name" value="Exclusive Input and Communication at Run Time">
+    <param name="Local" value="Exclusive_Input_Comm_Errors.htm">
+    <param name="Name" value="Setting Up Exclusive Input Relationships">
+    <param name="Local" value="Data_Sharing_Synchronization.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Exclusive Input, Inactivity Timeout">
+    <param name="Name" value="Exclusive Input and Communication at Run Time">
+    <param name="Local" value="Exclusive_Input_Comm_Errors.htm">
+    <param name="Name" value="Setting Up Exclusive Input Relationships">
+    <param name="Local" value="Data_Sharing_Synchronization.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Input Synchronization">
+    <param name="Name" value="Exclusive Input and Communication at Run Time">
+    <param name="Local" value="Exclusive_Input_Comm_Errors.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Variables, Data Sharing">
+    <param name="Name" value="Setting Up Shared Variables">
+    <param name="Local" value="Sharing_Variables.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Target, Data Sharing">
+    <param name="Name" value="Setting Up Shared Variables">
+    <param name="Local" value="Sharing_Variables.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Data Sharing, Parts That Do Not Support">
+    <param name="Name" value="Setting Up Shared Variables">
+    <param name="Local" value="Sharing_Variables.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Parts That Do Not Support Data Sharing">
+    <param name="Name" value="Setting Up Shared Variables">
+    <param name="Local" value="Sharing_Variables.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Variables That Do Not Support Data Sharing">
+    <param name="Name" value="Setting Up Shared Variables">
+    <param name="Local" value="Sharing_Variables.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Logging, Remote Variables Not Supported">
+    <param name="Name" value="Setting Up Shared Variables">
+    <param name="Local" value="Sharing_Variables.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Remote Variables Do Not Support Logging">
+    <param name="Name" value="Setting Up Shared Variables">
+    <param name="Local" value="Sharing_Variables.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Communication, Data Sharing Through a Firewall">
+    <param name="Name" value="Sharing Variables Through a Firewall">
+    <param name="Local" value="Data_Sharing_Firewall.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Client/Server, Data Sharing">
+    <param name="Name" value="Sharing Variables Through a Firewall">
+    <param name="Local" value="Data_Sharing_Firewall.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Server, Data Sharing">
+    <param name="Name" value="Sharing Variables Through a Firewall">
+    <param name="Local" value="Data_Sharing_Firewall.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Inactivity, Exclusive Input">
+    <param name="Name" value="Setting Up Exclusive Input Relationships">
+    <param name="Local" value="Data_Sharing_Synchronization.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Data Sharing, Exclusive Input">
+    <param name="Name" value="Example of When to Use Exclusive Input">
+    <param name="Local" value="Exclusive_Input_Example_Non-Variable.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Data Sharing, Preventing Simultaneous Inputs">
+    <param name="Name" value="Example of When to Use Exclusive Input">
+    <param name="Local" value="Exclusive_Input_Example_Non-Variable.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Equipment Maintenance, Safety">
+    <param name="Name" value="Example of When to Use Exclusive Input">
+    <param name="Local" value="Exclusive_Input_Example_Non-Variable.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Maintenance, Safety">
+    <param name="Name" value="Example of When to Use Exclusive Input">
+    <param name="Local" value="Exclusive_Input_Example_Non-Variable.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Accidents, Preventing">
+    <param name="Name" value="Example of When to Use Exclusive Input">
+    <param name="Local" value="Exclusive_Input_Example_Non-Variable.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Mistakes, Preventing">
+    <param name="Name" value="Example of When to Use Exclusive Input">
+    <param name="Local" value="Exclusive_Input_Example_Non-Variable.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Preventing Inputs">
+    <param name="Name" value="Example of When to Use Exclusive Input">
+    <param name="Local" value="Exclusive_Input_Example_Non-Variable.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Stopping Simultaneous Inputs">
+    <param name="Name" value="Example of When to Use Exclusive Input">
+    <param name="Local" value="Exclusive_Input_Example_Non-Variable.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Injury, Preventing">
+    <param name="Name" value="Example of When to Use Exclusive Input">
+    <param name="Local" value="Exclusive_Input_Example_Non-Variable.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Input Synchronization, Input Manager">
+    <param name="Name" value="Setting Up Exclusive Input Relationships">
+    <param name="Local" value="Data_Sharing_Synchronization.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Exclusive Input, Input Manager">
+    <param name="Name" value="Setting Up Exclusive Input Relationships">
+    <param name="Local" value="Data_Sharing_Synchronization.htm">
+    <param name="Name" value="Exclusive Input and Communication at Run Time">
+    <param name="Local" value="Exclusive_Input_Comm_Errors.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Input Manager, Exclusive Input">
+    <param name="Name" value="Setting Up Exclusive Input Relationships">
+    <param name="Local" value="Data_Sharing_Synchronization.htm">
+    <param name="Name" value="Exclusive Input and Communication at Run Time">
+    <param name="Local" value="Exclusive_Input_Comm_Errors.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Manager, Exclusive Input">
+    <param name="Name" value="Setting Up Exclusive Input Relationships">
+    <param name="Local" value="Data_Sharing_Synchronization.htm">
+    <param name="Name" value="Exclusive Input and Communication at Run Time">
+    <param name="Local" value="Exclusive_Input_Comm_Errors.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Simultaneous Inputs, Handling Of">
+    <param name="Name" value="Setting Up Exclusive Input Relationships">
+    <param name="Local" value="Data_Sharing_Synchronization.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Synchronizing Inputs">
+    <param name="Name" value="Exclusive Input and Communication at Run Time">
+    <param name="Local" value="Exclusive_Input_Comm_Errors.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Exclusive Input, Returning Exclusive Input">
+    <param name="Name" value="Exclusive Input and Communication at Run Time">
+    <param name="Local" value="Exclusive_Input_Comm_Errors.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Data Sharing, Alarm and Events">
+    <param name="Name" value="Sharing Data Between Target Machines">
+    <param name="Local" value="DataSharing_Overview.htm">
+  </object>
+</ul>
+</html>

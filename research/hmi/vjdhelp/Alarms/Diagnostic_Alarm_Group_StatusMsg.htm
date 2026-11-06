@@ -1,0 +1,132 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+<meta name="template" content="Vijeo_template.htt">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="topic-status" content="In Progress">
+<meta name="topic-priority" content="0">
+<meta name="topic-time-estimate" content="0">
+<meta name="topic-comment" content="">
+<meta name="topic-id" content="Diagnostic_Alarm_Group_StatusMsg.htm">
+ <meta name="generator" content="Adobe RoboHelp 10">
+<title>Displaying Derived Function Block Status Messages (Adding STO Files)</title>
+<link rel="StyleSheet" href="Tis-styl.css" type="text/css">
+</head>
+<body>
+<script type="text/javascript" src="ehlpdhtm.js" language="JavaScript1.2"></script>
+
+<div style="width: 100%; position: relative;" id="header">
+	<table style="background-attachment: scroll; margin-left: 0px; margin-right: 4px; 
+			 background-image: url(top_banner.bmp); background-repeat: Repeat-X; 
+			 line-height: 0pt; vertical-align: top;" cellspacing="0" width="100%" 
+			 background="top_banner.bmp">
+		<col style="width: 90%;">
+		<col style="width: 5%;">
+		<col style="width: 5%;">
+		<tr style="vertical-align: center; height: 39px;">
+			<td style="width: 90%; padding-right: 10px; padding-left: 10px; 
+				 border-right-color: #000000;">
+   <p><img src="logo.bmp" style="border: none;" alt="" width="37" height="37" border="0"></p></td>
+			<td style="width: 5%; padding-right: 0px; padding-left: 10px; 
+				 border-right-color: #000000;">
+   <p style="text-align: center;"><a 
+			 title="Glossary" href="Appendix.chm::/Glossary.htm"><img src="logo_glossary.bmp" style="border: none;" alt="" width="47" height="37" border="0"></a></p></td>
+			<td style="width: 5%; padding-right: 10px; padding-left: 5px; 
+				 border-right-color: #000000;">
+   <p style="text-align: center;"><a 
+			 href="About.chm::/What_is_Vijeo-Designer.htm" title="Home"><img src="logo_home.bmp" alt="Home" title="Home" style="border: none; 
+			 margin-left: 0px; margin-right: 0px; margin-bottom: 0px; margin-top: -2px;" width="47" height="37" border="0"></a></p></td>
+		</tr>
+	</table>
+</div>
+
+<h3>16.3.2.3 Displaying Derived Function Block Status Messages</h3>
+<p>When Derived Function Blocks (DFB) generate alarms, you can display the DFB's status and status messages on the target machine. The messages, which are stored in either default (system) or custom .sto files, cannot display in the alarm summary but can display in a String Display.</p>
+<p class="NoteImage"><img src="LIMIT.bmp" style="border: none;" alt="" width="77" height="24" border="0"></p>
+<ul>
+<li class="p-NoteText">
+<p class="NoteText">Custom .sto files are not saved with the project and cannot be exported with the project. To save .sto files in the project, you need to assign a valid path where the .sto files are located.</p>
+</li>
+</ul>
+<p>The following example shows how to use a switch to display the .sto message of the current alarm.</p>
+<h4><a name="Adding_STO_Files" id="Adding_STO_Files"></a><img src="Square.bmp" style="border: none;" alt="" width="12" height="10" border="0">Adding .sto Files</h4>
+<ol style="list-style: decimal;">
+<li class="p">
+<p>Double-click the diagnostic alarm group node to display the Alarm Group Settings dialog box, and click the Messages tab.</p>
+</li>
+<li class="p">
+<p>Select the Enable STO File Decoding check box.</p>
+</li>
+<li class="p">
+<p>If you are using custom derived function blocks, then select Use Custom Path and define the location of the custom .sto files.</p>
+</li>
+</ol>
+<p class="NoteImage" style="margin-left: 40px;"><img src="LIMIT.bmp" style="border: none;" alt="" width="77" height="24" border="0"></p>
+<ul>
+<li class="p-NoteText2">
+<p class="NoteText2">The .sto file uses the locale of the current user language to determine which language file to use.</p>
+</li>
+<li class="p-NoteText2">
+<p class="NoteText2">Custom .sto files must include language folders as part of the path: <span style="font-weight: bold;">ENU</span> for English, <span style="font-weight: bold;">FRA</span> for French, <span style="font-weight: bold;">DEU</span> for German, <span style="font-weight: bold;">ITA</span> for Italian, <span style="font-weight: bold;">ESP</span> for Spanish, <span style="font-weight: bold;">POR</span> for Portuguese, <span style="font-weight: bold;">CHN</span> for Simplified Chinese, <span style="font-weight: bold;">CHT</span> for Traditional Chinese.<br>
+For example, type C:\STOFiles when .sto files are located in C:\STOFiles\ENU\DFBFilename.sto.</p>
+</li>
+</ul>
+<ol start="4" style="list-style: decimal;">
+<li class="p">
+<p>Click OK.</p>
+</li>
+</ol>
+<h4><img src="Square.bmp" style="border: none;" alt="" width="12" height="10" border="0">Adding script</h4>
+<ol style="list-style: decimal;">
+<li class="p">
+<p>In the Navigator window's Variables tab, create a String variable to store the DFB status message.</p>
+</li>
+<li class="p">
+<p>On the panel draw a switch and add a script operation.</p>
+</li>
+<li class="p">
+<p>In the script editor, write the following script to copy the DFB status message to the String variable DFB_StatusMsg.</p>
+</li>
+</ol>
+<p class="Code" style="color: #008000; margin-left: 40px;">// Get status message for diagnostic alarm</p>
+
+<p class="Code" style="margin-left: 40px;">String tempDFBName = DiagBuffer.getDfbName(AlarmSummary01);</p>
+
+<p class="Code" style="margin-left: 40px;">String tempMsg = DiagBuffer.decodeStatusWords(AlarmSummary01);</p>
+
+<p class="Code" style="margin-left: 40px;">DFB_StatusMsg.write("DFB: " + tempDFBName + ": " + tempMsg);</p>
+
+<p class="Code">&#160;</p>
+<h4><img src="Square.bmp" style="border: none;" alt="" width="12" height="10" border="0">Displaying the Status Message</h4>
+<ol style="list-style: decimal;">
+<li class="p">
+<p>On the same panel as the switch, draw an alarm summary object and set its Alarm Group to the diagnostic alarm group, and enable Direct Selection.</p>
+</li>
+<li class="p">
+<p>Draw a String Display object beside the alarm summary and set its Variable to the status message variable. Make sure the Display Length is long enough to handle the entire string.</p>
+</li>
+<li class="p">
+<p style="margin-left: 0px;">At runtime, when a DFB alarm appears in the alarm summary, touch the alarm message.</p>
+</li>
+<li class="p">
+<p style="margin-left: 0px;">When the alarm message is selected, touch the switch set up with the DiagBuffer script. The .sto file's status message appears in the String Display object.</p>
+</li>
+</ol>
+<p class="NoteImage" style="margin-left: 0px;"><img src="LIMIT.bmp" style="border: none;" alt="" width="77" height="24" border="0"></p>
+<ul>
+<li class="p-NoteText">
+<p class="NoteText">The maximum number of characters you can display is 100 characters, which is the maximum number of characters the String variable can store. As a result, long .sto messages may get truncated.</p>
+</li>
+<li class="p-NoteText">
+<p class="NoteText">Status messages and STO messages can change without the Diagnostic Buffer generating a new diagnostic alarm record. To ensure the String Display always shows the most current message, change the script that retrieves the message to a periodic script.</p>
+</li>
+<li class="p-NoteText">
+<p class="NoteText">Status Words must be declared as public variables in order to read the corresponding DFB status messages in Vijeo Designer.</p>
+</li>
+</ul>
+<div style="width: 100%; position: relative;" id="footer">
+	<p>&#160;</p>
+</div>
+</body>
+</html>

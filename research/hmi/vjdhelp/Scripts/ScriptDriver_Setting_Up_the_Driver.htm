@@ -1,0 +1,164 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+<meta name="template" content="Vijeo_template.htt">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="topic-status" content="In Progress">
+<meta name="topic-priority" content="0">
+<meta name="topic-time-estimate" content="0">
+<meta name="topic-comment" content="">
+<meta name="topic-id" content="ScriptDriver_Setting Up the Driver">
+<meta name="window-type" content="$global_NewWindow">
+ <meta name="generator" content="Adobe RoboHelp 10">
+<title>Setting Up the Script Driver</title>
+<link rel="StyleSheet" href="TIS-STYL.CSS" type="text/css">
+</head>
+
+<body>
+<script type="text/javascript" src="ehlpdhtm.js" language="JavaScript1.2"></script>
+
+<div style="width: 100%; position: relative;" id="header">
+	<table style="background-attachment: scroll; margin-left: 0px; margin-right: 4px; 
+			 background-image: url(top_banner.bmp); background-repeat: Repeat-X; 
+			 line-height: 0pt; vertical-align: top;" cellspacing="0" width="100%" 
+			 background="top_banner.bmp">
+		<col style="width: 90%;">
+		<col style="width: 5%;">
+		<col style="width: 5%;">
+		<tr style="vertical-align: center; height: 39px;">
+			<td style="width: 90%; padding-right: 10px; padding-left: 10px; 
+				 border-right-color: #000000;">
+   <p><img src="logo.bmp" style="border: none;" alt="" width="37" height="37" border="0"></p></td>
+			<td style="width: 5%; padding-right: 0px; padding-left: 10px; 
+				 border-right-color: #000000;">
+   <p style="text-align: center;"><a 
+			 title="Glossary" href="Appendix.chm::/Glossary.htm"><img src="logo_glossary.bmp" style="border: none;" alt="" width="47" height="37" border="0"></a></p></td>
+			<td style="width: 5%; padding-right: 10px; padding-left: 5px; 
+				 border-right-color: #000000;">
+   <p style="text-align: center;"><a 
+			 href="About.chm::/What_is_Vijeo-Designer.htm" title="Home"><img src="logo_home.bmp" alt="Home" title="Home" style="border: none; 
+			 margin-left: 0px; margin-right: 0px; margin-bottom: 0px; margin-top: -2px;" width="47" height="37" border="0"></a></p></td>
+		</tr>
+	</table>
+</div>
+
+<h2>18.8.3 Setting Up the Script Driver</h2>
+<p>In the Vijeo-Designer application, add the script driver to the I/O 
+ Manager node.</p>
+<ol style="list-style: decimal;">
+	<li class="p" style="font-weight: normal;"><p style="font-weight: normal;">Right-click 
+	 the I/O Manager node, and click New Driver.</p></li>
+</ol>
+<ol start="2" style="list-style: decimal;">
+	<li class="p"><p>Select Generic Drivers as the Manufacturer, select 
+	 Script Driver, then click OK.</p></li>
+	<li class="p" style="font-weight: normal;"><p style="font-weight: normal;">Right-click 
+	 the newly added driver node and click Configuration to access the 
+	 Driver Configuration dialog box.</p></li>
+</ol>
+<ol start="4" style="list-style: decimal;">
+	<li class="p"><p>In the Driver Configuration dialog box, define the 
+	 driver communication settings.</p></li>
+</ol>
+<p style="margin-left: 40px;">Make sure these settings match the serial 
+ communication settings on the equipment.</p>
+<table style="vertical-align: top; margin-left: 40px; left: 0px; top: 759px;" 
+		 cellspacing="0" width="90%">
+	<col style="width: 20.597%;">
+	<col style="width: 79.403%;">
+	<tr style="vertical-align: top;">
+		<td style="border-top: Solid 3px #000000; border-right: Solid 1px #000000; 
+			 border-bottom: Solid 1px #000000; width: 20.597%; padding-right: 10px; 
+			 padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" 
+			 bgcolor="#91AFD9"><p class="Tabletitle">Field</p></td>
+		<td style="border-top: Solid 3px #000000; border-bottom: Solid 1px #000000; 
+			 width: 79.403%; padding-right: 10px; padding-left: 10px; padding-top: 10px; 
+			 padding-bottom: 10px;" bgcolor="#91AFD9"><p class="Tabletitle">Description</p></td>
+	</tr>
+	<tr style="vertical-align: top;">
+		<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; 
+			 width: 20.597%; padding-right: 10px; padding-left: 10px; padding-top: 10px; 
+			 padding-bottom: 10px;" bgcolor="#CBD9ED"><p class="TableDefinitions">COM 
+		 Port</p></td>
+		<td style="border-bottom: Solid 1px #000000; width: 79.403%; padding-right: 10px; 
+			 padding-left: 10px; padding-top: 10px; padding-bottom: 10px;"><p 
+			 class="Tabletext">On the target machine, select the COM port 
+		 for serial communications.</p></td>
+	</tr>
+	<tr style="vertical-align: top;">
+		<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; 
+			 width: 20.597%; padding-right: 10px; padding-left: 10px; padding-top: 10px; 
+			 padding-bottom: 10px;" bgcolor="#CBD9ED"><p class="TableDefinitions">Serial 
+		 Interface</p></td>
+		<td style="border-bottom: Solid 1px #000000; width: 79.403%; padding-right: 10px; 
+			 padding-left: 10px; padding-top: 10px; padding-bottom: 10px;"><p 
+			 class="Tabletext">Select the serial connection used on the 
+		 target machine: RS-232C, RS-422 (2-wire) or RS-422 (4-wire).</p>
+		<p class="Tabletext">For information about connecting the serial 
+		 equipment, see Section 18.8.4, <a href="ScriptDriver_Cable_Connections.htm">Cable 
+		 Connections</a>.</p></td>
+	</tr>
+	<tr style="vertical-align: top;">
+		<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; 
+			 width: 20.597%; padding-right: 10px; padding-left: 10px; padding-top: 10px; 
+			 padding-bottom: 10px;" bgcolor="#CBD9ED"><p class="TableDefinitions">Flow 
+		 Control</p></td>
+		<td style="border-bottom: Solid 1px #000000; width: 79.403%; padding-right: 10px; 
+			 padding-left: 10px; padding-top: 10px; padding-bottom: 10px;"><p 
+			 class="Tabletext">None.</p></td>
+	</tr>
+	<tr style="vertical-align: top;">
+		<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; 
+			 width: 20.597%; padding-right: 10px; padding-left: 10px; padding-top: 10px; 
+			 padding-bottom: 10px;" bgcolor="#CBD9ED"><p class="TableDefinitions">Transmission 
+		 Speed</p></td>
+		<td style="border-bottom: Solid 1px #000000; width: 79.403%; padding-right: 10px; 
+			 padding-left: 10px; padding-top: 10px; padding-bottom: 10px;"><p 
+			 class="Tabletext">Defines the communication speed, which corresponds 
+		 to the equipment's baud rate.</p>
+		<p class="Tabletext">The script driver supports speeds as slow 
+		 as 2400bps and speeds as fast as 115200.</p></td>
+	</tr>
+	<tr style="vertical-align: top;">
+		<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; 
+			 width: 20.597%; padding-right: 10px; padding-left: 10px; padding-top: 10px; 
+			 padding-bottom: 10px;" bgcolor="#CBD9ED"><p class="TableDefinitions">Parity 
+		 Bit</p></td>
+		<td style="border-bottom: Solid 1px #000000; width: 79.403%; padding-right: 10px; 
+			 padding-left: 10px; padding-top: 10px; padding-bottom: 10px;"><p 
+			 class="Tabletext">Defines the parity bit used to validate 
+		 communication packets. Even, Odd, or None.</p></td>
+	</tr>
+	<tr style="vertical-align: top;">
+		<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; 
+			 width: 20.597%; padding-right: 10px; padding-left: 10px; padding-top: 10px; 
+			 padding-bottom: 10px;" bgcolor="#CBD9ED"><p class="TableDefinitions">Stop 
+		 Bit</p></td>
+		<td style="border-bottom: Solid 1px #000000; width: 79.403%; padding-right: 10px; 
+			 padding-left: 10px; padding-top: 10px; padding-bottom: 10px;"><p 
+			 class="Tabletext">Defines the stop bit (1 or 2) for communication 
+		 packets.</p></td>
+	</tr>
+	<tr style="vertical-align: top;">
+		<td style="border-right: Solid 1px #000000; border-bottom: Solid 3px #000000; 
+			 width: 20.597%; padding-right: 10px; padding-left: 10px; padding-top: 10px; 
+			 padding-bottom: 10px;" bgcolor="#CBD9ED"><p class="TableDefinitions">Data 
+		 Length</p></td>
+		<td style="border-bottom: Solid 3px #000000; width: 79.403%; padding-right: 10px; 
+			 padding-left: 10px; padding-top: 10px; padding-bottom: 10px;"><p 
+			 class="Tabletext">Defines the data length (7 or 8 bits) of 
+		 communication packets.</p></td>
+	</tr>
+</table>
+<ol start="5" style="list-style: decimal;">
+	<li class="p"><p>Click OK to complete setting up the script driver.</p></li>
+	<li class="p"><p>Rename the driver appropriately.<br>
+	This name is used in scripts when we send/receive communications with 
+	 the <a href="Serial_write.htm">write</a> 
+	 and <a href="Serial_read.htm">read</a> 
+	 methods.</p></li>
+</ol>
+<p class="Image" style="margin-left: 40px;"><img src="change_script_driver_nameText.bmp" alt="" style="border: none;" width="206" height="251" border="0"></p>
+</body>
+</html>

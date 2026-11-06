@@ -1,0 +1,131 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+<meta name="template" content="Vijeo_template.htt">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="date" content="08 26, 2003 4:04:53 PM">
+<meta name="topic-status" content="In Progress">
+<meta name="topic-priority" content="0">
+<meta name="topic-time-estimate" content="0">
+<meta name="topic-id" content="Building a Project Before Downloading">
+ <meta name="generator" content="Adobe RoboHelp 2015">
+<title>Building the Project</title>
+<link rel="StyleSheet" href="Tis-styl.css" type="text/css">
+</head>
+<body>
+<script type="text/javascript" src="ehlpdhtm.js" language="JavaScript1.2"></script>
+
+<div style="width: 100%; position: relative;" id="header">
+	<table style="background-attachment: scroll; margin-left: 0px; margin-right: 4px; 
+			 background-image: url(top_banner.bmp); background-repeat: Repeat-X; 
+			 line-height: 0pt; vertical-align: top;" cellspacing="0" background="top_banner.bmp" 
+			 width="100%">
+		<col style="width: 90%;">
+		<col style="width: 5%;">
+		<col style="width: 5%;">
+		<tr style="vertical-align: center; height: 39px;">
+			<td style="width: 90%; padding-right: 10px; padding-left: 10px; 
+				 border-right-color: #000000;">
+   <p><img src="logo.bmp" alt="" style="border: none;" width="37" height="37" border="0"></p></td>
+			<td style="width: 5%; padding-right: 0px; padding-left: 10px; 
+				 border-right-color: #000000;">
+   <p style="text-align: center;"><a 
+			 title="Glossary" href="Appendix.chm::/Glossary.htm"><img src="logo_glossary.bmp" alt="" style="border: none;" width="47" height="37" border="0"></a></p></td>
+			<td style="width: 5%; padding-right: 10px; padding-left: 5px; 
+				 border-right-color: #000000;">
+   <p style="text-align: center;"><a 
+			 href="About.chm::/What_is_Vijeo-Designer.htm" title="Home"><img src="logo_home.bmp" alt="Home" title="Home" style="border: none; 
+			 margin-left: 0px; margin-right: 0px; margin-bottom: 0px; margin-top: -2px;" width="47" height="37" border="0"></a></p></td>
+		</tr>
+	</table>
+</div>
+
+
+<h1>25.4 Building the Project</h1>
+<p>After you validate the project and fix any errors, you can build the user application that will run in Vijeo-Designer Runtime. The Build process checks the project for errors in addition to reporting any Java compile errors.</p>
+<p>The user application must be built before it can run in simulation or run on the target machine.</p>
+<ol start="1">
+<li class="p">
+<p>In the Navigator window's Project tab, right-click the target node and click Build.</p>
+</li>
+</ol>
+<ol start="2" style="list-style: decimal;">
+<li class="p">
+<p>Check the progress of the build process in the Building window as well as the Feedback Zone.</p>
+</li>
+</ol>
+<p class="Image" style="margin-left: 40px;"><img src="Vijeo_Build_progress.bmp" alt="" style="border: none;" width="534" height="181" border="0"></p>
+<p style="margin-left: 40px;">If there are any errors in the project, the build fails. All errors must be resolved before you can build the project. Warnings also appear in the Feedback Zone but do not prevent you from building.</p>
+<ol start="3" style="list-style: decimal;">
+<li class="p">
+<p>If the build is successful, download and run the user application on the target machine.</p>
+</li>
+</ol>
+<p class="NoteImage"><img src="Limit.bmp" alt="" style="border: none;" width="77" height="24" border="0"></p>
+<ul>
+<li class="p-NoteText">
+<p class="NoteText">After you complete the Build, the Feedback Zone displays memory statistics for the application. Be aware these statistics are approximations, not actual calculations. Actual memory statistics can be viewed on the target at run time through the configuration menu. For more information, see Section 26.4.6, <a href="Runtime.chm::/memory.htm">Displaying Memory</a>.<br>
+<img src="Build_Size.bmp" alt="" style="border: none;" width="476" height="176" border="0"></p>
+</li>
+</ul>
+<p class="NoteImage"><img src="NOTE_MOJI.bmp" alt="" style="border: none;" width="51" height="25" border="0"></p>
+<ul>
+<li class="p-NoteText">
+<p class="NoteText">You can build all the targets in your project in one step by right-clicking the Project node and selecting Build All.</p>
+</li>
+</ul>
+<ul>
+<li class="p-NoteText">
+<p class="NoteText">You can output a buzzer with the build operation. From the Build menu, select Options. In the Build Options dialog box, select the Play sound on Build checkbox.</p>
+</li>
+</ul>
+<ul>
+<li class="p-NoteText">
+<p class="NoteText">You can display detailed steps in the build process.</p>
+</li>
+</ul>
+<p class="Image" style="margin-left: 40px;"><img src="Build_Details.bmp" alt="" style="border: none;" width="476" height="188" border="0"></p>
+<p class="NoteText" style="margin-left: 40px;">In the Build Options dialog box, select the Display details during Build checkbox.</p>
+<h4><a name="buildFails" id="buildFails"></a><img src="Square.bmp" alt="" style="border: none;" width="12" height="10" border="0">When Build Fails</h4>
+<p>If the Build operation fails, then a problem occurred while trying to generate the Java byte code. There might be unnecessary files in the build directory.</p>
+<ol style="list-style: decimal;">
+<li class="p">
+<p>To delete unnecessary files, right-click the Target node and click Clean.</p>
+</li>
+</ol>
+<ol start="2" style="list-style: decimal;">
+<li class="p">
+<p>Try the build operation again.</p>
+</li>
+</ol>
+<p style="margin-left: 40px;">Continue with the following steps if Build is unsuccessful.</p>
+<ol start="3" style="list-style: decimal;">
+<li class="p">
+<p>From the Build menu, click Options to open the Build Options dialog box, then select the Display details during Build checkbox.</p>
+</li>
+</ol>
+<p style="margin-left: 40px;">The next time you run build, the Feedback Zone displays details about each step in the validation and build processes. Messages stop generating when the build operation fails.</p>
+<ol start="4" style="list-style: decimal;">
+<li class="p" style="font-weight: normal;">
+<p style="font-weight: normal;">Use the final messages in the Feedback Zone as hints to locate what part of the project caused the Build to fail.</p>
+</li>
+</ol>
+<p style="margin-left: 40px;">For example, if the Feedback Zone displays the compile messages below, the problem is in Panel1 because that is where the build operation stops.</p>
+
+<p class="Code" style="margin-left: 40px;">-------------------------Compile----------------------------------------</p>
+
+<p class="Code" style="margin-left: 40px;">KoohiMaker(0.14.2), Copyright (c) 2008 Schneider-Electric, all rights reserved</p>
+
+<p class="Code" style="margin-left: 40px;">Compiling P Panel0.java</p>
+
+<p class="Code" style="margin-left: 40px;">Compiling P Panel1.java</p>
+
+<p class="Code" style="margin-left: 40px;">19. {gpclasses.system.CgpSystem.myMethod();}</p>
+
+<p class="Code" style="margin-left: 40px;">&lt;---------------------------------------&gt;</p>
+
+<p class="Code" style="margin-left: 40px;">*** Error: No method named "myMethod" was found in type "gpclasses/system/CgpSystem".</p>
+
+</body>
+</html>

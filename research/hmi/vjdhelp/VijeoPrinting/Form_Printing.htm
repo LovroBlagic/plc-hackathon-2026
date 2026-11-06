@@ -1,0 +1,93 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+<meta name="template" content="Vijeo_template.htt">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="topic-status" content="In Progress">
+<meta name="topic-priority" content="0">
+<meta name="topic-time-estimate" content="0">
+<meta name="topic-comment" content="">
+<meta name="topic-id" content="Form Printing">
+<meta name="window-type" content="$global_NewWindow">
+ <meta name="generator" content="Adobe RoboHelp 10">
+<title>Form Printing</title>
+<link rel="StyleSheet" href="Tis-styl.css" type="text/css">
+</head>
+<body>
+<script type="text/javascript" src="ehlpdhtm.js" language="JavaScript1.2"></script>
+
+<div style="width: 100%; position: relative;" id="header">
+	<table style="background-attachment: scroll; margin-left: 0px; margin-right: 4px; 
+			 background-image: url(top_banner.bmp); background-repeat: Repeat-X; 
+			 line-height: 0pt; vertical-align: top;" cellspacing="0" width="100%" 
+			 background="top_banner.bmp">
+		<col style="width: 90%;">
+		<col style="width: 5%;">
+		<col style="width: 5%;">
+		<tr style="vertical-align: center; height: 39px;">
+			<td style="width: 90%; padding-right: 10px; padding-left: 10px; 
+				 border-right-color: #000000;">
+   <p><img src="logo.bmp" style="border: none;" alt="" width="37" height="37" border="0"></p></td>
+			<td style="width: 5%; padding-right: 0px; padding-left: 10px; 
+				 border-right-color: #000000;">
+   <p style="text-align: center;"><a 
+			 title="Glossary" href="Appendix.chm::/Glossary.htm"><img src="logo_glossary.bmp" style="border: none;" alt="" width="47" height="37" border="0"></a></p></td>
+			<td style="width: 5%; padding-right: 10px; padding-left: 5px; 
+				 border-right-color: #000000;">
+   <p style="text-align: center;"><a 
+			 href="About.chm::/What_is_Vijeo-Designer.htm" title="Home"><img src="logo_home.bmp" alt="Home" title="Home" style="border: none; 
+			 margin-left: 0px; margin-right: 0px; margin-bottom: 0px; margin-top: -2px;" width="47" height="37" border="0"></a></p></td>
+		</tr>
+	</table>
+</div>
+
+<h1>27.3 Working with Forms</h1>
+<p>Vijeo Designer Form feature allows you to create reports, receipts, and forms that you may want to print or e-mail to recipients at runtime.</p>
+<p>On a form, you can use the set of fonts available for each system language you selected. You can type in all the available fonts, but you can only print the selected system language. For example, if you selected English as the system language and Hebrew is an available font, you can type in Hebrew but you can only print English.</p>
+<p>&#160;</p>
+<p>To set up form printing, you will need to:</p>
+<ol style="list-style: decimal;">
+<li class="p">
+<p><a href="print_settings.htm">Set up the text printer</a>, and <a href="Printer_Control_Codes.htm">enter printer control codes</a>.</p>
+</li>
+</ol>
+<p class="NoteImage" style="margin-left: 40px;"><img src="note_moji.bmp" style="border: none;" alt="" width="51" height="25" border="0"></p>
+<ul>
+<li class="p-NoteText2">
+<p class="NoteText2">You can set up other printers besides the text printer. However, if you use a printer that is not a text printer, certain formatting features will be disabled, such as bold, italics, and underline.</p>
+</li>
+<li class="p-NoteText2">
+<p class="NoteText2">If you want to enable formatting features in forms, you must enter printer control codes, such as bold, italics, and user custom codes.</p>
+</li>
+</ul>
+<ol start="2">
+<li class="p">
+<p><a href="Creating_a_Form.htm">Create a form or report</a>.</p>
+</li>
+<li class="p">
+<p><a href="Triggering_Form_Printing.htm">Trigger form printing</a>.</p>
+</li>
+</ol>
+<p>&#160;</p>
+<p>To set up form e-mailing, you will need to:</p>
+<ol style="list-style: decimal;">
+<li class="p">
+<p>Set up the E-mail server and define e-mail recipients - see Section 4.14.1, <a href="StandardOperation.chm::/Setting_up_Email.htm">Setting up E-mail</a>.</p>
+</li>
+<li class="p">
+<p><a href="Creating_a_Form.htm">Create a form or report</a>.</p>
+</li>
+<li class="p">
+<p>Trigger form e-mailing - see Section 4.14.3, <a href="StandardOperation.chm::/Triggering_Emails.htm">Triggering E-mails</a>.</p>
+</li>
+</ol>
+<p>&#160;</p>
+<p>For more information on how to delete, copy, or move forms, see Section 27.3.3, <a href="Deleting_and_Copying_a_Form.htm">Cutting, Copying, and Pasting Forms</a>.</p>
+<p>For more information on how to add a data display or message display to a form, see Section 27.3.4, <a href="Adding_a_Data_Display_to_the_Form_Editor.htm">Adding a Data Display or Message Display</a>.</p>
+<p>&#160;</p>
+<h4><a name="Data_Quality_Form_Printing" id="Data_Quality_Form_Printing"></a><img src="Square.bmp" style="border: none;" alt="" width="12" height="10" border="0"> Data Quality Handling in Form</h4>
+<p>At runtime, if data quality is unreliable or unknown, the data display objects on the form will display the data quality character you defined in the printer settings. If the variable width is not defined for the variable with bad quality, the user-defined data quality characters will be displayed once. If the variable width is defined for the variable with bad quality, the user-defined data quality characters will be repeated to fill up the width of the variable.</p>
+<p>When form printing on a non-text printer and data quality is bad, a data quality character that displays is a question mark (?). For example, if a numeric display object is set with six digits and the data quality is bad, the form will display six question marks for the object.</p>
+</body>
+</html>

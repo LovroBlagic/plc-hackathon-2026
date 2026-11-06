@@ -1,0 +1,161 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+<meta name="template" content="Vijeo_template.htt">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="topic-status" content="In Progress">
+<meta name="topic-priority" content="0">
+<meta name="topic-time-estimate" content="0">
+<meta name="topic-id" content="Project Optimization">
+<meta name="window-type" content="$global_NewWindow">
+ <meta name="generator" content="Adobe RoboHelp 2015">
+<title>Project Optimization</title>
+<link rel="StyleSheet" href="Tis-styl.css" type="text/css">
+</head>
+<body>
+<script type="text/javascript" src="ehlpdhtm.js" language="JavaScript1.2"></script>
+
+<div style="width: 100%; position: relative;" id="header">
+	<table style="background-attachment: scroll; margin-left: 0px; margin-right: 4px; 
+			 background-image: url(top_banner.bmp); background-repeat: Repeat-X; 
+			 line-height: 0pt; vertical-align: top;" cellspacing="0" background="top_banner.bmp" 
+			 width="100%">
+		<col style="width: 90%;">
+		<col style="width: 5%;">
+		<col style="width: 5%;">
+		<tr style="vertical-align: center; height: 39px;">
+			<td style="width: 90%; padding-right: 10px; padding-left: 10px; 
+				 border-right-color: #000000;">
+   <p><img src="logo.bmp" alt="" style="border: none;" width="37" height="37" border="0"></p></td>
+			<td style="width: 5%; padding-right: 0px; padding-left: 10px; 
+				 border-right-color: #000000;">
+   <p style="text-align: center;"><a 
+			 title="Glossary" href="Glossary.htm"><img src="logo_glossary.bmp" alt="" style="border: none;" width="47" height="37" border="0"></a></p></td>
+			<td style="width: 5%; padding-right: 10px; padding-left: 5px; 
+				 border-right-color: #000000;">
+   <p style="text-align: center;"><a 
+			 href="About.chm::/What_is_Vijeo-Designer.htm" title="Home"><img src="logo_home.bmp" alt="Home" title="Home" style="border: none; 
+			 margin-left: 0px; margin-right: 0px; margin-bottom: 0px; margin-top: -2px;" width="47" height="37" border="0"></a></p></td>
+		</tr>
+	</table>
+</div>
+
+
+<h1>7. Project Optimization</h1>
+<p>If a user application's memory requirements are nearing the memory limits for the target machine, application performance can deteriorate. For good performance, you should allocate a buffer of 10% to 20% of memory and disk space—more if you plan to upgrade the application in the future. To test your application's SRAM and DRAM memory requirements, see Section 25.3.3, <a href="Download.chm::/DRAM_Usage_Indicator.htm">Checking Memory Usage</a>.</p>
+<p>Here are a few ways you can reduce the memory requirements for your project.</p>
+<ul>
+<li class="p-Bullet">
+<p class="Bullet"><a href="#unusedVariables">Delete unused variables</a></p>
+</li>
+<li class="p-Bullet">
+<p class="Bullet"><a href="#IndirectAddresses">Use indirect addresses and delete duplicate panels or popup window panels</a></p>
+</li>
+<li class="p-Bullet">
+<p class="Bullet"><a href="#Bitmaps">Reduce the size of large bitmaps</a></p>
+</li>
+<li class="p-Bullet">
+<p class="Bullet"><a href="#Bitmapsame">Use the exact same image object for bitmaps</a></p>
+</li>
+<li class="p-Bullet">
+<p class="Bullet"><a href="#TextDisplay">Use Text Block Display for large text files</a></p>
+</li>
+<li class="p-Bullet">
+<p class="Bullet"><a href="#NumOfAlarms">Reduce the number of alarms stored in memory</a></p>
+</li>
+<li class="p-Bullet">
+<p class="Bullet"><a href="#Scripts">Optimize memory usage in scripts</a></p>
+</li>
+<li class="p-Bullet">
+<p class="Bullet"><a href="#ColorDepth">Reduce the color depth of bitmaps</a></p>
+</li>
+<li class="p-Bullet">
+<p class="Bullet"><a href="#Limit_the_duration_and_frequency_of_video_recordings_at_runtime">Limit the duration and frequency of video recordings at runtime</a></p>
+</li>
+</ul>
+<h4><a name="unusedVariables" id="unusedVariables"></a><img src="square.bmp" alt="" style="border: none;" width="12" height="10" border="0">Delete unused variables</h4>
+<p>Objects that are not required by the application occupy valuable space in memory. The most-often abused object is the variable.</p>
+<p>To delete unused variables:</p>
+<ol style="list-style: decimal;">
+<li class="p">
+<p>Validate or build the user application.</p>
+</li>
+<li class="p">
+<p>In the Variable Editor, click the Filter Icon, point to Filter by, and select Unreferenced Variables.</p>
+</li>
+<li class="p">
+<p>Delete these variables.</p>
+</li>
+</ol>
+<h4><a name="IndirectAddresses" id="IndirectAddresses"></a><img src="square.bmp" alt="" style="border: none;" width="12" height="10" border="0">Use indirect addresses and delete duplicate panels or popup window panels</h4>
+<p>You can use indirect addresses if the user application is set up with:</p>
+<ul>
+<li class="p-Bullet">
+<p class="Bullet">Multiple panels or popup window panels with the exact same parts and drawings—only the PLC device addresses are different between panels.</p>
+</li>
+<li class="p-Bullet">
+<p class="Bullet">PLC device addresses that are consecutive or follow a pattern.</p>
+</li>
+</ul>
+<p>On a single panel, set up parts with external variables that use an indirect address, and define an offset value of 0. By simply changing the value of the offset you can display a whole different set of device addresses. For more information on indirect addressing, see Section 6.3.3, <a href="InputAddress.chm::/Dynamically_Referencing_Device_Addresses.htm">Dynamically Referencing Device Addresses</a>.</p>
+<p>This method allows you to reduce the number of panels, popup window panels, and the number of variables in your application.</p>
+<h4><a name="Bitmaps" id="Bitmaps"></a><img src="square.bmp" alt="" style="border: none;" width="12" height="10" border="0">Reduce the size of large bitmaps</h4>
+<p>You can save valuable memory space by reducing the size and number of bitmap images in your application.</p>
+<p>If you are using bitmaps as a background to cover the whole panel or a large portion of the panel, you should use one of the drawing tools (rectangle, ellipse, and so on) available in Vijeo-Designer. To make sure the object color matches the background color in the bitmap, see Section 7.3.1.2, <a href="Draw.chm::/ColorPalette.htm#7-3-1-2">Copying Colors on your PC</a>.</p>
+<p>If the bitmap includes a section that contains an image and the rest is a background, then you should replace the bitmap with two objects: a smaller bitmap with only the image, placed on top of a rectangle for the background.</p>
+<h4><a name="Bitmapsame" id="Bitmapsame"></a><img src="square.bmp" alt="" style="border: none;" width="12" height="10" border="0">Use the exact same image object for bitmaps</h4>
+<p>When you use the same bitmap image in multiple locations, the dimensions of the image objects drawn on the panel should be exactly the same in each instance. Even though the image object may be referencing the same bitmap, if the width or height of the image object varies by even a single pixel, Vijeo-Designer will generate a different bitmap.</p>
+<p>Wherever possible, use the Copy and Paste commands to make sure you use the exact same image throughout your project.</p>
+<h4><a name="TextDisplay" id="TextDisplay"></a><img src="square.bmp" alt="" style="border: none;" width="12" height="10" border="0">Use Text Block Display for large text files</h4>
+<p>There are two Toolchest parts for displaying text files:</p>
+<ul>
+<li class="p-Bullet">
+<p class="Bullet"><a href="DataInput.chm::/Setting_up_text_display.htm">Text Display</a></p>
+</li>
+<li class="p-Bullet">
+<p class="Bullet"><a href="DataInput.chm::/Using_a_Text_Block_Display_Part.htm">Text Block Display</a></p>
+</li>
+</ul>
+<p>When working with large text files, you should use the Text Block Display. The main difference with the Text Display is that the Text Display loads the entire text file into memory when it needs to be displayed, and a Text Block Display loads only the block currently displayed.</p>
+<p>When a text file is large, such as 500KB, then the Text Display becomes cumbersome and slow to use. Whereas, the Text Block Display consumes only the memory required to display a single block within the text file.</p>
+<p class="NoteImage"><img src="note_moji.bmp" alt="" style="border: none;" width="51" height="25" border="0"></p>
+<ul>
+<li class="p-NoteText">
+<p class="NoteText">When you change from a text display to a text block display, you may have to change the format of your original text file. See Section 11.7.3.1, <a href="DataInput.chm::/Setting_Up_a_Text_Block_Display.htm">Setting Up a Text Block Display</a>.</p>
+</li>
+</ul>
+<h4><a name="NumOfAlarms" id="NumOfAlarms"></a><img src="square.bmp" alt="" style="border: none;" width="12" height="10" border="0">Reduce the number of alarms stored in memory</h4>
+<p>Each alarm group has two properties (Num Of History Alarms and Num Of Log Alarms) that define how many history and log alarms to store in memory.</p>
+<p>You can reduce this value to reduce the amount of memory required by your application.</p>
+<h4><a name="Scripts" id="Scripts"></a><img src="square.bmp" alt="" style="border: none;" width="12" height="10" border="0">Optimize memory usage in scripts</h4>
+<h5>Java primitive arrays</h5>
+<p>Do not create Java primitive arrays that occupy huge amounts of space in memory.</p>
+<p>For example, if you write the following script, a lot of space in memory will become occupied and could cause Vijeo-Designer Runtime to halt operations.</p>
+<table style="vertical-align: top; left: 0px; top: 1309px;" cellspacing="0" width="1052">
+<col style="width: 100%;">
+<tr style="vertical-align: top;">
+<td style="border: Solid 1px #000000; width: 100%; padding-top: 10px; padding-bottom: 10px; padding-right: 10px; padding-left: 10px;">
+<p class="Code">int a[] = new int[30000]; <span style="color: Green;">// Allocates 120K in DRAM</span></p>
+</td>
+</tr>
+</table>
+<h5>String or StringBuffer objects</h5>
+<p>String and StringBuffer objects are character arrays. Similar to other Java arrays, be careful when using them.</p>
+<p class="NoteImage"><img src="Limit.bmp" alt="" style="border: none;" width="77" height="24" border="0"></p>
+<ul>
+<li class="p-NoteText">
+<p class="NoteText">Vijeo-Designer takes advantage of Java's String and StringBuffer classes. When using these objects, use the same memory optimization techniques as you would with any Java program.</p>
+</li>
+</ul>
+<h5>Script frequency and how memory is used</h5>
+<p>When the application includes periodic scripts with a fast frequency rate (less than 1 second), consider whether the script needs to run that fast. If possible, reduce the frequency of scripts.</p>
+<p>In addition to its frequency, be careful on how much memory is allocated inside the script.</p>
+<h4><a name="ColorDepth" id="ColorDepth"></a><img src="square.bmp" alt="" style="border: none;" width="12" height="10" border="0">Reduce the color depth of bitmaps</h4>
+<p>When working with XBTGT Series target machines that support color, you can use graphical application tools to reduce the color depth of images to 256 colors. If the image is more than 256 colors, then 2 bytes are used to store color information for each pixel. If the image is 256 colors or less, then 8 bytes are used to store color information.</p>
+<p>If color depth is not required in your application, then you can save some minor amounts of memory by reducing the number of colors in your images.</p>
+<h4><a name="Limit_the_duration_and_frequency_of_video_recordings_at_runtime" id="Limit_the_duration_and_frequency_of_video_recordings_at_runtime"></a><img src="square.bmp" alt="" style="border: none;" width="12" height="10" border="0">Limit the duration and frequency of video recordings at runtime</h4>
+<p>When working with XBTGT Series target machines that support the Video feature, limit the duration and frequency of your video recordings. Recording long videos too frequently, for example longer than 20 seconds recorded every 40 seconds, results in the target machine's high CPU usage and causes poor performance. As the number of recorded videos increases, the target machine's performance diminishes, which may affect other operations.</p>
+<p>To avoid performance issues, reduce or limit the number of videos you store in the storage device and reduce the length of videos you record at runtime. You should always validate the performance of your runtime applications when using the Video feature and use the recommendations above as you see fit. &#160;</p>
+</body>
+</html>

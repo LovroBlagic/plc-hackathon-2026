@@ -1,0 +1,194 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+<meta name="template" content="Vijeo_template.htt">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="topic-status" content="In Progress">
+<meta name="topic-priority" content="0">
+<meta name="topic-time-estimate" content="0">
+<meta name="topic-comment" content="">
+<meta name="topic-id" content="16.2.3 Backup Settings">
+<meta name="window-type" content="$global_NewWindow">
+ <meta name="generator" content="Adobe RoboHelp 10">
+<title>Alarm and Event Node Properties</title>
+<link rel="StyleSheet" href="Tis-styl.css" type="text/css">
+</head>
+<body>
+<script type="text/javascript" src="ehlpdhtm.js" language="JavaScript1.2"></script>
+
+<div style="width: 100%; position: relative;" id="header">
+	<table style="background-attachment: scroll; margin-left: 0px; margin-right: 4px; 
+			 background-image: url(top_banner.bmp); background-repeat: Repeat-X; 
+			 line-height: 0pt; vertical-align: top;" cellspacing="0" width="100%" 
+			 background="top_banner.bmp">
+		<col style="width: 90%;">
+		<col style="width: 5%;">
+		<col style="width: 5%;">
+		<tr style="vertical-align: center; height: 39px;">
+			<td style="width: 90%; padding-right: 10px; padding-left: 10px; 
+				 border-right-color: #000000;">
+   <p><img src="logo.bmp" style="border: none;" alt="" width="37" height="37" border="0"></p></td>
+			<td style="width: 5%; padding-right: 0px; padding-left: 10px; 
+				 border-right-color: #000000;">
+   <p style="text-align: center;"><a 
+			 title="Glossary" href="Appendix.chm::/Glossary.htm"><img src="logo_glossary.bmp" style="border: none;" alt="" width="47" height="37" border="0"></a></p></td>
+			<td style="width: 5%; padding-right: 10px; padding-left: 5px; 
+				 border-right-color: #000000;">
+   <p style="text-align: center;"><a 
+			 href="About.chm::/What_is_Vijeo-Designer.htm" title="Home"><img src="logo_home.bmp" alt="Home" title="Home" style="border: none; 
+			 margin-left: 0px; margin-right: 0px; margin-bottom: 0px; margin-top: -2px;" width="47" height="37" border="0"></a></p></td>
+		</tr>
+	</table>
+</div>
+
+<h2>16.2.3 Setting up the Alarms and Events Node</h2>
+<p>In the Alarms and Events node, you can set configurations for:</p>
+<ul style="list-style: decimal;">
+<li class="p-Bullet">
+<p class="Bullet">Backing up alarms to a target machine's SRAM</p>
+</li>
+<li class="p-Bullet">
+<p class="Bullet">Clearing the Print and Save control variables after printing or saving</p>
+</li>
+<li class="p-Bullet">
+<p class="Bullet">Printing selected alarm and event groups and alarm categories in real time</p>
+</li>
+<li class="p-Bullet">
+<p class="Bullet">Setting an alarm group or an alarm category to output to the DIO ALM pin (Alarm pin)</p>
+</li>
+<li class="p-Bullet">
+<p class="Bullet">Setting the Alarm behavior for acknowledging alarms</p>
+</li>
+</ul>
+<p>Right-click the Alarms and Events node in the Navigator window's Project tab, and select Properties to display the Alarms and Events properties in the Property Inspector.</p>
+<p>The following table lists the properties for the Alarms and Events node.</p>
+<table style="vertical-align: top; margin-left: 40px;" cellspacing="0" width="90%">
+<col style="width: 22.258%;">
+<col style="width: 77.742%;">
+<tr style="vertical-align: top;">
+<td style="border-top: Solid 3px #000000; border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 22.258%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#91AFD9">
+<p class="Tabletitle">Property</p>
+</td>
+<td style="border-top: Solid 3px #000000; border-bottom: Solid 1px #000000; width: 77.742%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#91AFD9">
+<p class="Tabletitle">Description</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 22.258%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#CBDAED">
+<p class="TableDefinitions">Backup Alarm Group</p>
+</td>
+<td style="border-bottom: Solid 1px #000000; width: 77.742%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">This property is only for alarm groups. This function backs up the alarm messages on the target machine's SRAM so that when Runtime is shut down and restarted, the alarm messages still display in the alarm summary.</p>
+<ul>
+<li class="p-Bullet">
+<p class="Bullet">When set to Yes, the alarm messages are backed up.</p>
+</li>
+<li class="p-Bullet">
+<p class="Bullet">When set to No, the alarm messages are cleared when Runtime shuts down.</p>
+</li>
+</ul>
+<p class="Tabletext">Each target machine has different amounts of SRAM available. When you use this alarm backup feature, it limits the number of alarms you can set up for each alarm group.</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 22.258%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#CBDAED">
+<p class="TableDefinitions">Print/Save Clear Option</p>
+</td>
+<td style="border-bottom: Solid 1px #000000; width: 77.742%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">Use this field to set up how the print or save variable's value is cleared once the alarm message is printed or saved.</p>
+<p class="Tabletext">See Sections 16.3.5.4, <a href="clear_option_print.htm">Clear Option When Printing</a> and 16.3.6.6 <a href="clear_option_file_save.htm">Clear Option When Saving</a>.</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 22.258%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#CBDAED">
+<p class="TableDefinitions">Real-time Printing</p>
+</td>
+<td style="border-bottom: Solid 1px #000000; width: 77.742%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">Enable to print alarm messages whenever alarms change state between Active, Acknowledged, Not Acknowledged, or Return to Normal. See Section 16.3.5.2, <a href="Real-time_printing.htm">Configuring Real-Time Printing</a>.</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 22.258%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#CBDAED">
+<p class="TableDefinitions">Alarm output on DIOPort.Sys1</p>
+</td>
+<td style="border-bottom: Solid 1px #000000; width: 77.742%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">This property is only for alarm groups. This function sets the selected alarm group or alarm category to output to the DIO ALM pin.</p>
+<ul>
+<li class="p-Bullet">
+<p class="Bullet">When an alarm in the specified alarm group or alarm category becomes active, the DIO ALM pin turns on.</p>
+</li>
+<li class="p-Bullet">
+<p class="Bullet">When all the alarms in the specified alarm group or alarm category become Returned to Normal (RTN), Acknowledged (ACK), or Not Acknowledged (UNACK), the DIO ALM pin turns Off.</p>
+</li>
+</ul>
+<p class="Tabletext">See Section 24.6, <a href="HardwareOptions.chm::/aux_ports.htm">DIO Ports</a> for information about the DIO port.</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 22.258%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#CBDAED">
+<p class="TableDefinitions"><a name="trackUsersInAlarms" id="trackUsersInAlarms"></a>Track Users in Alarms</p>
+</td>
+<td style="border-bottom: Solid 1px #000000; width: 77.742%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">This feature records the user name of the operator who acknowledged the alarm and displays it in the User Name column in the alarm summary. If this feature is disabled, the User Name column displays nothing. For more information on the User Name column, see Section 16.2.6.3, <a href="Columns_Tab.htm">Columns Tab</a>.</p>
+<p class="Tabletext">&#160;</p>
+<p class="Tabletext">To track users in a data sharing scenario, all targets must have Track Users in Alarms enabled. Unexpected results occur when this feature is not enabled for all data sharing targets. For example, if the client is tracking but the server is not tracking, the server does not record user names associated with alarm operations. In another example, if the server is tracking but the client is not tracking, the server does not receive any user names from the client to record. For more information on alarm data sharing, see Section 22.1, <a href="Advanced.chm::/DataSharing_Overview.htm">Sharing Data Between Tablets, Smartphones, and Target Machines</a> and Section 16.3.1.4, <a href="Creating_Remote_Categories.htm">Remote Categories</a>.</p>
+<p class="Tabletext">&#160;</p>
+<p class="Tabletext"><img src="NOTE_MOJI.BMP" style="border: none;" alt="" width="51" height="25" border="0"></p>
+<ul>
+<li class="p-NoteText">
+<p class="NoteText">Events always record user names and display them in the User Name column in the event summary.</p>
+</li>
+</ul>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 22.258%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#CBDAED">
+<p class="TableDefinitions">E-mail Attachment</p>
+</td>
+<td style="border-bottom: Solid 1px #000000; width: 77.742%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">Click the ellipsis to open the E-mail Attachment dialog box. In the dialog box, you can configure the format of alarm records that will be embedded in the outgoing e-mail.</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 22.258%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#CBDAED">
+<p class="TableDefinitions">Bring Runtime to Front</p>
+</td>
+<td style="border-bottom: Solid 1px #000000; width: 77.742%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">This property is only for alarm groups. Targets that use the Windows operating system can have other windows open besides the Vijeo-Designer Runtime, which may be minimized or hidden by another window. This function brings the Runtime window on top when an alarm is triggered. For a list of targets that support this feature, see Appendix 5, <a href="Appendix.chm::/Hardware_Specifications.htm">Hardware Specifications</a>.</p>
+<p class="Tabletext">Bring Runtime to Front supports the following settings:</p>
+<ul>
+<li class="p-Bullet">
+<p class="Bullet">Disabled: No action is taken when an alarm is triggered.</p>
+</li>
+<li class="p-Bullet">
+<p class="Bullet">Any Alarm: The Vijeo-Designer Runtime window is brought to the top when an alarm is triggered. Other windows open on the target machine remain unaffected.</p>
+</li>
+<li class="p-Bullet">
+<p class="Bullet">An alarm group or alarm category: The Vijeo-Designer Runtime window is brought to the top when an alarm in that alarm group or alarm category is triggered. Other windows open on the target machine remain unaffected.</p>
+</li>
+</ul>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 3px #000000; width: 22.258%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#CBDAED">
+<p class="TableDefinitions">Show System Error Window</p>
+</td>
+<td style="border-bottom: Solid 3px #000000; width: 77.742%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Bullet">This setting gives you the option to turn system error message windows on or off. The system error message window displays error messages for runtime errors that occur, such as PLC communication timeouts or insufficient space on the CF Card/SD Card. If you are using a small-sized target, you may want to use this feature to turn off the system error message window, because it takes up a lot of space on the panel.</p>
+<p class="Bullet">Select Yes to show system error message windows on the panel at runtime. If you select No, the panel will hide the windows.</p>
+<p class="Bullet">This property does not affect the generation or logging of system error messages, which can still be viewed using <a href="Alarms.chm::/Event_Logging.htm">event summaries</a> and the <a href="Errors.chm::/Displaying_the_Event_Log.htm">system error log viewer</a>.</p>
+<p class="NoteImage"><img src="NOTE_MOJI.BMP" style="border: none;" alt="" width="51" height="25" border="0"></p>
+<ul>
+<li class="p-NoteText">
+<p class="NoteText">The Show System Error Window setting does not control the system error window in the Offline Configuration menu.</p>
+</li>
+</ul>
+</td>
+</tr>
+</table>
+<div style="width: 100%; position: relative;" id="footer">
+	<p>&#160;</p>
+</div>
+</body>
+</html>

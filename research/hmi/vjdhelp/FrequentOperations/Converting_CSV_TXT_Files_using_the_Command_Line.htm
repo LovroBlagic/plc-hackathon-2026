@@ -1,0 +1,99 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+<meta name="template" content="Vijeo_template.htt">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="topic-status" content="In Progress">
+<meta name="topic-priority" content="0">
+<meta name="topic-time-estimate" content="0">
+<meta name="topic-comment" content="">
+<meta name="topic-id" content="Converting CSV/TXT Files using the Command Line">
+<meta name="window-type" content="$global_NewWindow">
+ <meta name="generator" content="Adobe RoboHelp 10">
+<title>Converting CSV/TXT Files using the Command Line</title>
+<link rel="StyleSheet" href="Tis-styl.css" type="text/css">
+</head>
+<body>
+<script type="text/javascript" src="ehlpdhtm.js" language="JavaScript1.2"></script>
+
+<div style="width: 100%; position: relative;" id="header">
+	<table style="background-attachment: scroll; 
+														 margin-right: 4px; 
+														 background-image: url(top_banner.bmp); 
+														 background-repeat: Repeat-X; 
+														 line-height: 0pt; 
+														 vertical-align: top;" 
+														 cellspacing="0" 
+														 width="100%" background="top_banner.bmp">
+		<col style="width: 90%;">
+		<col style="width: 5%;">
+		<col style="width: 5%;">
+		<tr style="vertical-align: center; height: 39px;">
+			<td style="width: 90%; padding-right: 10px; padding-left: 10px; 
+				 border-right-color: #000000;">
+   <p><img src="logo.bmp" style="border: none;" alt="" width="37" height="37" border="0"></p></td>
+			<td style="width: 5%; padding-right: 0px; padding-left: 10px; 
+				 border-right-color: #000000;">
+   <p 
+				 style="text-align: center;"><a 
+			 title="Glossary" href="Appendix.chm::/Glossary.htm"><img src="logo_glossary.bmp" style="border: none;" alt="" width="47" height="37" border="0"></a></p></td>
+			<td style="width: 5%; padding-right: 10px; padding-left: 5px; 
+				 border-right-color: #000000;">
+   <p 
+				 style="text-align: center;"><a 
+			 href="About.chm::/What_is_Vijeo-Designer.htm" title="Home"><img src="logo_home.bmp" alt="Home" title="Home" style="border: none; 
+			 margin-top: -2px;" width="47" height="37" border="0"></a></p></td>
+		</tr>
+	</table>
+</div>
+
+<h3>20.5.3.3 Converting CSV/TXT Files using the Command Line</h3>
+<p>You can convert .csv and .txt files into recipe files (.rcp) using the command line as well as the Data Manager. For information on converting .csv and .txt files using the Data Manager, see Section 20.5.2.3, <a href="sending_files.htm#Send__CSV_or__TXT_Files">Sending Files to a Target</a>.</p>
+<p>When converting a .csv or .txt file to a .rcp file, only the following recipe information is converted: Recipe Name, Recipe ID, Access Right, Recipe Labels (language IDs and label text), Ingredient Name, and Recipe Value.</p>
+<h4><img src="Square.bmp" style="border: none;" alt="" width="12" height="10" border="0"> Converting CSV/TXT Files</h4>
+<ol style="list-style: decimal;">
+<li class="p">
+<p>Launch the command prompt.</p>
+</li>
+<li class="p">
+<p>Use the Get command to download the recipe file (*.rcp) or files from the target machine. The recipe files will be used to validate the data in the .csv or .txt file. For information on the Get command, see Section 20.5.3.1, <a href="Uploading_Alarm_Recipe_Variable_History_Files.htm">Transferring Data using the Command Line</a>.</p>
+</li>
+<li class="p">
+<p>Use the DataConverter with the -rp and -ccr options to convert the .csv or .txt file to a recipe file. The -rp option specifies the folder of the recipes downloaded in the previous step. The -ccr option tells the DataConverter that you are converting a .csv or .txt file to a .rcp file. For more information on the options, see Section 20.5.3.2, <a href="convert_logged_data_from_command_line.htm">Converting Data using the Command Line</a>. DataConverter validates the .csv or .txt data against the recipe data in the recipe file. If the ingredient data in the .csv or .txt file matches that in the recipe file, DataConverter updates the recipe file with the .csv or .txt data. If there is no match, the conversion fails and an error message displays.</p>
+</li>
+<li class="p">
+<p>Use the Put command to upload the new recipe files to the target machine. The updated recipe files overwrites the recipe files in the target machine. For more information on the Put command, see Section 20.5.3.1, <a href="Uploading_Alarm_Recipe_Variable_History_Files.htm">Transferring Data using the Command Line</a>.</p>
+</li>
+</ol>
+<p>A complete example from downloading the recipe file, and then converting the .csv file, to uploading the updated recipe file:</p>
+<ol style="list-style: decimal;">
+<li class="p">
+<p>C:\Program Files\Schneider Electric\Vijeo-Designer\Vijeo-Frame&gt;DataTransferTool\DataTransferTool -ip 10.187.225.12 -user MyUserName -pwd MyPassword -get -Secondary -rdf Recipe -localfolder "C:\temp\recipedownload" -r *.rcp</p>
+</li>
+<li class="p">
+<p>C:\Program Files\Schneider Electric\Vijeo-Designer\Vijeo-Frame&gt;DataConverter &#160;-i "C:\temp\recipeCSV" -o "C:\temp\recipeCSV" -rp "C:\temp\recipedownload" -s -ccr -v</p>
+</li>
+<li class="p">
+<p>C:\Program Files\Schneider Electric\Vijeo-Designer\Vijeo-Frame&gt;DataTransferTool -ip 10.187.225.12 -user MyUserName -pwd MyPassword -put -localfolder "C:\temp\recipeCSV" -secondary -rdf Recipe -r *.rcp</p>
+</li>
+</ol>
+<ol style="list-style: decimal;">
+<li class="p">
+<p></p>
+</li>
+</ol>
+<p class="Image"><img src="NOTE_MOJI.bmp" style="border: none;" alt="" width="51" height="25" border="0"></p>
+<ul>
+<li class="p-NoteText">
+<p class="NoteText">When input is a file, you must provide the full path for the output file and the recipe file. For example, if you want to convert the file, r00001.csv, in the subfolder "recipegroup1" in "C:\temp\recipeCSV", you would type: DataConverter -i "C:\temp\recipeCSV\recipegroup1\r00001.csv" -o "C:\temp\recipeCSV\recipegroup1" -rp "C:\temp\recipedownload\recipegroup1" -ccr -v.</p>
+</li>
+<li class="p-NoteText">
+<p class="NoteText">When input is a folder, DataConverter automatically adds the subfolder names to the output folder and the recipe folder. For example, if you want to use the folder name instead of the file name in the previous example, you would type: DataConverter -i "C:\temp\recipeCSV" -o "C:\temp\recipeCSV" -rp "C:\temp\recipedownload" -s -ccr -v.</p>
+</li>
+<li class="p-NoteText">
+<p class="NoteText">The input folder and the output folder can be the same. However, the recipe folder must be different from the output folder since you are validating the recipe folder against the output folder.</p>
+</li>
+</ul>
+</body>
+</html>

@@ -1,0 +1,622 @@
+<html>
+<!-- Sitemap 1.0 -->
+<object type="text/site properties">
+  <param name="WindowName" value="$global_NewWindow">
+  <param name="SiteType" value="index">
+</object>
+<ul>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Korean">
+    <param name="Name" value="About User Application Language Switches">
+    <param name="Local" value="About_user_Languages.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Japanese">
+    <param name="Name" value="About User Application Language Switches">
+    <param name="Local" value="About_user_Languages.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Traditional Chinese">
+    <param name="Name" value="About User Application Language Switches">
+    <param name="Local" value="About_user_Languages.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Simplified Chinese">
+    <param name="Name" value="About User Application Language Switches">
+    <param name="Local" value="About_user_Languages.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Switching Panels">
+    <param name="Name" value="Switching Panels">
+    <param name="Local" value="change_panels.htm">
+  </object>
+  <ul>
+    <li><object type="text/sitemap">
+      <param name="Name" value="Use Device Address to Change Panel">
+      <param name="Name" value="Switching Panels">
+      <param name="Local" value="change_panels.htm#3">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="How to Change Panels">
+      <param name="Name" value="Switching Panels">
+      <param name="Local" value="change_panels.htm#1">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="Panel Change Structure">
+      <param name="Name" value="Switching Panels">
+      <param name="Local" value="change_panels.htm#2">
+    </object>
+    </ul>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Changing Panels">
+    <param name="Name" value="Switching Panels">
+    <param name="Local" value="change_panels.htm">
+  </object>
+  <ul>
+    <li><object type="text/sitemap">
+      <param name="Name" value="Use Device Address to Change Panel">
+      <param name="Name" value="Switching Panels">
+      <param name="Local" value="change_panels.htm#3">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="How to Change Panels">
+      <param name="Name" value="Switching Panels">
+      <param name="Local" value="change_panels.htm#1">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="Panel Change Structure">
+      <param name="Name" value="Switching Panels">
+      <param name="Local" value="change_panels.htm#2">
+    </object>
+    </ul>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Using External Device to Change Panel">
+    <param name="Name" value="Switching Panels">
+    <param name="Local" value="change_panels.htm#3">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Device Address Causes Change Panel Operation">
+    <param name="Name" value="Switching Panels">
+    <param name="Local" value="change_panels.htm#3">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="History of Variable Values">
+    <param name="Name" value="Using Data Converter Tool from the Command Prompt">
+    <param name="Local" value="convert_logged_data_from_command_line.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Logging Variable Values">
+    <param name="Name" value="Using Data Converter Tool from the Command Prompt">
+    <param name="Local" value="convert_logged_data_from_command_line.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Variables, Logging Values">
+    <param name="Name" value="Using Data Converter Tool from the Command Prompt">
+    <param name="Local" value="convert_logged_data_from_command_line.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Command Line, Data Converter Tool">
+    <param name="Name" value="Using Data Converter Tool from the Command Prompt">
+    <param name="Local" value="convert_logged_data_from_command_line.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Switching to a Different Language">
+    <param name="Name" value="Switch to a Different Language">
+    <param name="Local" value="Changing_Languages.htm">
+    <param name="Name" value="Configure the System Language">
+    <param name="Local" value="System_Languages.htm">
+    <param name="Name" value="Switch to a Different System Language">
+    <param name="Local" value="Changing_System_Language.htm">
+    <param name="Name" value="About User Application Language Switches">
+    <param name="Local" value="About_user_Languages.htm">
+    <param name="Name" value="Add a User Application Language">
+    <param name="Local" value="adding_user_language.htm">
+    <param name="Name" value="Associate a Language with a Text Object">
+    <param name="Local" value="working_with_user_languages.htm">
+    <param name="Name" value="Switch to a Different User Application Language">
+    <param name="Local" value="changing_user_language.htm">
+    <param name="Name" value="Useful Features when Adding Languages">
+    <param name="Local" value="Importing_Exporting_Language_Strings.htm">
+    <param name="Name" value="Switch to a Different User Application Language: Steps">
+    <param name="Local" value="Changing_User_Language_Steps.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Multiple Language Projects">
+    <param name="Name" value="Switch to a Different Language">
+    <param name="Local" value="Changing_Languages.htm">
+    <param name="Name" value="Configure the System Language">
+    <param name="Local" value="System_Languages.htm">
+    <param name="Name" value="Switch to a Different System Language">
+    <param name="Local" value="Changing_System_Language.htm">
+    <param name="Name" value="About User Application Language Switches">
+    <param name="Local" value="About_user_Languages.htm">
+    <param name="Name" value="Add a User Application Language">
+    <param name="Local" value="adding_user_language.htm">
+    <param name="Name" value="Associate a Language with a Text Object">
+    <param name="Local" value="working_with_user_languages.htm">
+    <param name="Name" value="Switch to a Different User Application Language">
+    <param name="Local" value="changing_user_language.htm">
+    <param name="Name" value="Useful Features when Adding Languages">
+    <param name="Local" value="Importing_Exporting_Language_Strings.htm">
+    <param name="Name" value="Switch to a Different User Application Language: Steps">
+    <param name="Local" value="Changing_User_Language_Steps.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Foreign Languages">
+    <param name="Name" value="Switch to a Different Language">
+    <param name="Local" value="Changing_Languages.htm">
+    <param name="Name" value="Configure the System Language">
+    <param name="Local" value="System_Languages.htm">
+    <param name="Name" value="Switch to a Different System Language">
+    <param name="Local" value="Changing_System_Language.htm">
+    <param name="Name" value="About User Application Language Switches">
+    <param name="Local" value="About_user_Languages.htm">
+    <param name="Name" value="Add a User Application Language">
+    <param name="Local" value="adding_user_language.htm">
+    <param name="Name" value="Associate a Language with a Text Object">
+    <param name="Local" value="working_with_user_languages.htm">
+    <param name="Name" value="Switch to a Different User Application Language">
+    <param name="Local" value="changing_user_language.htm">
+    <param name="Name" value="Useful Features when Adding Languages">
+    <param name="Local" value="Importing_Exporting_Language_Strings.htm">
+    <param name="Name" value="Switch to a Different User Application Language: Steps">
+    <param name="Local" value="Changing_User_Language_Steps.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="System Language">
+    <param name="Name" value="Configure the System Language">
+    <param name="Local" value="System_Languages.htm">
+    <param name="Name" value="Switch to a Different System Language">
+    <param name="Local" value="Changing_System_Language.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="User-Defined Languages">
+    <param name="Name" value="About User Application Language Switches">
+    <param name="Local" value="About_user_Languages.htm">
+    <param name="Name" value="Switch to a Different User Application Language: Steps">
+    <param name="Local" value="Changing_User_Language_Steps.htm">
+    <param name="Name" value="Add a User Application Language">
+    <param name="Local" value="adding_user_language.htm">
+    <param name="Name" value="Associate a Language with a Text Object">
+    <param name="Local" value="working_with_user_languages.htm">
+    <param name="Name" value="Switch to a Different User Application Language">
+    <param name="Local" value="changing_user_language.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Switching User Application Languages">
+    <param name="Name" value="Switch to a Different User Application Language">
+    <param name="Local" value="changing_user_language.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Changing User Application Languages">
+    <param name="Name" value="Switch to a Different User Application Language">
+    <param name="Local" value="changing_user_language.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Switching System Languages">
+    <param name="Name" value="Switch to a Different System Language">
+    <param name="Local" value="Changing_System_Language.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Changing System Languages">
+    <param name="Name" value="Switch to a Different System Language">
+    <param name="Local" value="Changing_System_Language.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Setting Up the Startup Panel">
+    <param name="Name" value="Setting the Startup Panel for Runtime">
+    <param name="Local" value="changing_initial_panel.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Initial Panel">
+    <param name="Name" value="Setting the Startup Panel for Runtime">
+    <param name="Local" value="changing_initial_panel.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="First Panel">
+    <param name="Name" value="Setting the Startup Panel for Runtime">
+    <param name="Local" value="changing_initial_panel.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Panel, Initial Panel">
+    <param name="Name" value="Setting the Startup Panel for Runtime">
+    <param name="Local" value="changing_initial_panel.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Panel Change Structure">
+    <param name="Name" value="Switching Panels">
+    <param name="Local" value="change_panels.htm#2">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="External Device, Switching a Panel from">
+    <param name="Name" value="Switching Panels">
+    <param name="Local" value="change_panels.htm#3">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Import Language">
+    <param name="Name" value="Importing and Exporting Language Strings">
+    <param name="Local" value="Importing_Exporting_Language_Strings.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Export Language">
+    <param name="Name" value="Importing and Exporting Language Strings">
+    <param name="Local" value="Importing_Exporting_Language_Strings.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value=".csv File, Languages">
+    <param name="Name" value="Useful Features when Adding Languages">
+    <param name="Local" value="Importing_Exporting_Language_Strings.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Language, Export and Import">
+    <param name="Name" value="Useful Features when Adding Languages">
+    <param name="Local" value="Importing_Exporting_Language_Strings.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Chinese (Simplified)">
+    <param name="Name" value="About User Application Language Switches">
+    <param name="Local" value="About_user_Languages.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Chinese (Traditional)">
+    <param name="Name" value="About User Application Language Switches">
+    <param name="Local" value="About_user_Languages.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Fonts, Foreign Languages">
+    <param name="Name" value="About User Application Language Switches">
+    <param name="Local" value="About_user_Languages.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Displaying Foreign Text">
+    <param name="Name" value="About User Application Language Switches">
+    <param name="Local" value="About_user_Languages.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Text, Foreign Languages">
+    <param name="Name" value="About User Application Language Switches">
+    <param name="Local" value="About_user_Languages.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Brightness, display">
+    <param name="Name" value="Brightness_contrast">
+    <param name="Local" value="Brightness_contrast.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Contrast, display">
+    <param name="Name" value="Brightness_contrast">
+    <param name="Local" value="Brightness_contrast.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Setting the Panel to Maintenance Mode">
+    <param name="Name" value="Performing Maintenance on the Panel#Creating_a_Switch_to_Set_the_Panel_to_Maintenance_Mode">
+    <param name="Local" value="Performing_Maintenance_on_the_Panel.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Maintenance Mode">
+    <param name="Name" value="Performing Maintenance on the Panel">
+    <param name="Local" value="Performing_Maintenance_on_the_Panel.htm">
+  </object>
+  <ul>
+    <li><object type="text/sitemap">
+      <param name="Name" value="Alarms">
+      <param name="Name" value="Alarm Summary Display in Maintenance Mode">
+      <param name="Local" value="Alarm_Summary_Display_in_Maintenance_Mode.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="Variables">
+      <param name="Name" value="Trend Graph Display in Maintenance Mode">
+      <param name="Local" value="Trend_Graph_Display_in_Maintenance_Mode.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="Errors">
+      <param name="Name" value="Event Log Display in Maintenance Mode">
+      <param name="Local" value="Event_Log_Display_in_Maintenance_Mode.htm">
+    </object>
+    </ul>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Data Manager">
+    <param name="Name" value="Data Manager">
+    <param name="Local" value="Data_Manager.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Command Line">
+    <param name="Name" value="Transferring Data using the Command Line">
+    <param name="Local" value="command_line.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Data Manager Operations">
+    <param name="Name" value="Data Manager">
+    <param name="Local" value="Data_Manager.htm">
+  </object>
+  <ul>
+    <li><object type="text/sitemap">
+      <param name="Name" value="Retrieve">
+      <param name="Name" value="Retrieving Files from a Target">
+      <param name="Local" value="retrieving_files.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="Send">
+      <param name="Name" value="Sending Files to a Target">
+      <param name="Local" value="sending_files.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="Convert">
+      <param name="Name" value="Converting Recipe and Variable History Files">
+      <param name="Local" value="converting_files.htm">
+    </object>
+    </ul>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Command Line Operations">
+    <param name="Name" value="Transferring Data using the Command Line">
+    <param name="Local" value="command_line.htm">
+  </object>
+  <ul>
+    <li><object type="text/sitemap">
+      <param name="Name" value="Get">
+      <param name="Name" value="Using Data Transfer Tool from the Command Prompt">
+      <param name="Local" value="Uploading_Alarm_Recipe_Variable_History_Files.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="Put">
+      <param name="Name" value="Using Data Transfer Tool from the Command Prompt">
+      <param name="Local" value="Uploading_Alarm_Recipe_Variable_History_Files.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="Convert">
+      <param name="Name" value="Using Data Converter Tool from the Command Prompt">
+      <param name="Local" value="convert_logged_data_from_command_line.htm">
+    </object>
+    </ul>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Language">
+    <param name="Name" value="Switch to a Different Language">
+    <param name="Local" value="Changing_Languages.htm">
+    <param name="Name" value="Configure the System Language">
+    <param name="Local" value="System_Languages.htm">
+    <param name="Name" value="Switch to a Different User Application Language">
+    <param name="Local" value="changing_user_language.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Runtime Data">
+    <param name="Name" value="Managing Run-time Data">
+    <param name="Local" value="Managing_Run-time_Data.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Data, Generated at Run Time">
+    <param name="Name" value="Managing Run-time Data">
+    <param name="Local" value="Managing_Run-time_Data.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Installing Data Manager Tool">
+    <param name="Name" value="Installing the Data Manager">
+    <param name="Local" value="install_data_manager.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Data Manager Tool, Installing">
+    <param name="Name" value="Installing the Data Manager">
+    <param name="Local" value="install_data_manager.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Transferring Data from Target Machine to PC">
+    <param name="Name" value="Data Manager">
+    <param name="Local" value="Data_Manager.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Getting Data on Target Machine">
+    <param name="Name" value="Retrieving Files from a Target">
+    <param name="Local" value="retrieving_files.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Retrieving Data on Target Machine">
+    <param name="Name" value="Retrieving Files from a Target">
+    <param name="Local" value="retrieving_files.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Runtime Data, Getting">
+    <param name="Name" value="Retrieving Files from a Target">
+    <param name="Local" value="retrieving_files.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Sending Data to Target Machine">
+    <param name="Name" value="Sending Files to a Target">
+    <param name="Local" value="sending_files.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Putting Data onto Target Machine">
+    <param name="Name" value="Sending Files to a Target">
+    <param name="Local" value="sending_files.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Runtime Data, Sending">
+    <param name="Name" value="Sending Files to a Target">
+    <param name="Local" value="sending_files.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Converting Recipe Files">
+    <param name="Name" value="Converting Recipe and Variable History Files">
+    <param name="Local" value="converting_files.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Recipes, Converting Files">
+    <param name="Name" value="Converting Recipe and Variable History Files">
+    <param name="Local" value="converting_files.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Converting Variable History Files">
+    <param name="Name" value="Converting Recipe and Variable History Files">
+    <param name="Local" value="converting_files.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Data Logging Files, Converting">
+    <param name="Name" value="Converting Recipe and Variable History Files">
+    <param name="Local" value="converting_files.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Log (Variable History), Converting">
+    <param name="Name" value="Converting Recipe and Variable History Files">
+    <param name="Local" value="converting_files.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Runtime Data, Converting">
+    <param name="Name" value="Converting Recipe and Variable History Files">
+    <param name="Local" value="converting_files.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Data Manager, Creating a Target Connection">
+    <param name="Name" value="Connecting Data Manager to a Target">
+    <param name="Local" value="connect_dataManager_target.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Creating a Target Connection, Data Manager">
+    <param name="Name" value="Connecting Data Manager to a Target">
+    <param name="Local" value="connect_dataManager_target.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Target Connection, Creating from Data Manager">
+    <param name="Name" value="Connecting Data Manager to a Target">
+    <param name="Local" value="connect_dataManager_target.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Data Manager, Options">
+    <param name="Name" value="Retrieving and Converting Options">
+    <param name="Local" value="options_retrieve_convert.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Options, Data Manager">
+    <param name="Name" value="Retrieving and Converting Options">
+    <param name="Local" value="options_retrieve_convert.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Converting, Data Manager Options">
+    <param name="Name" value="Retrieving and Converting Options">
+    <param name="Local" value="options_retrieve_convert.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Retrieving, Data Manager Options">
+    <param name="Name" value="Retrieving and Converting Options">
+    <param name="Local" value="options_retrieve_convert.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Deleting, Data Manager Options">
+    <param name="Name" value="Retrieving and Converting Options">
+    <param name="Local" value="options_retrieve_convert.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Recipes, Data Manager Options">
+    <param name="Name" value="Retrieving and Converting Options">
+    <param name="Local" value="options_retrieve_convert.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Variable Data Logging, Data Manager Options">
+    <param name="Name" value="Retrieving and Converting Options">
+    <param name="Local" value="options_retrieve_convert.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Log, Data Manager Options">
+    <param name="Name" value="Retrieving and Converting Options">
+    <param name="Local" value="options_retrieve_convert.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Password Security, Data Manager">
+    <param name="Name" value="Setting up Data Transfer Security">
+    <param name="Local" value="data_transfer_security.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Data Manager, Security">
+    <param name="Name" value="Setting up Data Transfer Security">
+    <param name="Local" value="data_transfer_security.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Security, Data Manager">
+    <param name="Name" value="Setting up Data Transfer Security">
+    <param name="Local" value="data_transfer_security.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Recipe Project Identifier, Data Manager">
+    <param name="Name" value="Setting up Data Transfer Security">
+    <param name="Local" value="data_transfer_security.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Target Security, Data Manager">
+    <param name="Name" value="Setting up Data Transfer Security">
+    <param name="Local" value="data_transfer_security.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Data Manager, Command Line">
+    <param name="Name" value="Transferring Data using the Command Line">
+    <param name="Local" value="command_line.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Batch Process, Data Manager">
+    <param name="Name" value="Transferring Data using the Command Line">
+    <param name="Local" value="command_line.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Sending Data, Command Line">
+    <param name="Name" value="Transferring Data using the Command Line">
+    <param name="Local" value="command_line.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Getting Data, Command Line">
+    <param name="Name" value="Transferring Data using the Command Line">
+    <param name="Local" value="command_line.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Runtime Data, Command Line">
+    <param name="Name" value="Transferring Data using the Command Line">
+    <param name="Local" value="command_line.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Digit Grouping Symbol">
+    <param name="Name" value="Add a User Application Language">
+    <param name="Local" value="adding_user_language.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="USB Storage">
+    <param name="Name" value="Managing Run-time Data">
+    <param name="Local" value="Managing_Run-time_Data.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Options, Data Manager Command Line">
+    <param name="Name" value="Using Data Transfer Tool from the Command Prompt">
+    <param name="Local" value="Uploading_Alarm_Recipe_Variable_History_Files.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="nobuildtree">
+    <param name="Name" value="Using Data Transfer Tool from the Command Prompt">
+    <param name="Local" value="Uploading_Alarm_Recipe_Variable_History_Files.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Anonymous Connection">
+    <param name="Name" value="Connecting Data Manager to a Target">
+    <param name="Local" value="connect_dataManager_target.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Data Manager Version">
+    <param name="Name" value="Data Manager Version">
+    <param name="Local" value="Data_Manager_Version.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Version, Data Manager">
+    <param name="Name" value="Data Manager Version">
+    <param name="Local" value="Data_Manager_Version.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="CF Card">
+    <param name="Name" value="Performing Maintenance on the Panel">
+    <param name="Local" value="Performing_Maintenance_on_the_Panel.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="Host Name">
+    <param name="See Also" value="Host Name">
+  </object>
+  <ul>
+    <li><object type="text/sitemap">
+      <param name="Name" value="Data Manager">
+      <param name="Name" value="Connecting Data Manager to a Target#ipAddressHostName">
+      <param name="Local" value="connect_dataManager_target.htm#ipAddressHostName">
+    </object>
+    </ul>
+</ul>
+</html>

@@ -1,0 +1,102 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+<meta name="template" content="Vijeo_template.htt">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="date" content="08 9, 2003 11:53:53 AM">
+<meta name="topic-status" content="In Progress">
+<meta name="topic-priority" content="0">
+<meta name="topic-time-estimate" content="0">
+<meta name="topic-comment" content="">
+<meta name="topic-id" content="17.4 Checking for Errors">
+ <meta name="generator" content="Adobe RoboHelp 10">
+<title>Checking for Errors</title>
+<link rel="StyleSheet" href="TIS-STYL.CSS" type="text/css">
+</head>
+
+<body>
+<script type="text/javascript" src="ehlpdhtm.js" language="JavaScript1.2"></script>
+
+<div style="width: 100%; position: relative;" id="header">
+	<table style="background-attachment: scroll; margin-left: 0px; margin-right: 4px; 
+			 background-image: url(top_banner.bmp); background-repeat: Repeat-X; 
+			 line-height: 0pt; vertical-align: top;" cellspacing="0" width="100%" 
+			 background="top_banner.bmp">
+		<col style="width: 90%;">
+		<col style="width: 5%;">
+		<col style="width: 5%;">
+		<tr style="vertical-align: center; height: 39px;">
+			<td style="width: 90%; padding-right: 10px; padding-left: 10px; 
+				 border-right-color: #000000;">
+   <p><img src="logo.bmp" style="border: none;" alt="" width="37" height="37" border="0"></p></td>
+			<td style="width: 5%; padding-right: 0px; padding-left: 10px; 
+				 border-right-color: #000000;">
+   <p style="text-align: center;"><a 
+			 title="Glossary" href="Appendix.chm::/Glossary.htm"><img src="logo_glossary.bmp" style="border: none;" alt="" width="47" height="37" border="0"></a></p></td>
+			<td style="width: 5%; padding-right: 10px; padding-left: 5px; 
+				 border-right-color: #000000;">
+   <p style="text-align: center;"><a 
+			 href="About.chm::/What_is_Vijeo-Designer.htm" title="Home"><img src="logo_home.bmp" alt="Home" title="Home" style="border: none; 
+			 margin-left: 0px; margin-right: 0px; margin-bottom: 0px; margin-top: -2px;" width="47" height="37" border="0"></a></p></td>
+		</tr>
+	</table>
+</div>
+
+<h1>18.4 Checking for Errors</h1>
+<p>You should check your scripts for errors as you write. Debugging your 
+ scripts gets more difficult if you delay this task until the end, especially 
+ if your scripts contain complex logic.</p>
+<p>To check your script for errors, right-click inside the script editor 
+ and click Validate.</p>
+<p>The Feedback Zone displays the results of the validation.</p>
+<p class="Image"><img src="validate_script_feedback.bmp" alt="" style="border: none;" width="490" height="187" border="0"></p>
+<p>Double-click the error message in the Feedback Zone. The script opens 
+ up, and the pointer arrow becomes an insertion point within the line of 
+ script that generated the error. In many cases, the insertion point appears 
+ below the line of script that generated the error.</p>
+<p><img src="Note_Moji.bmp" alt="" style="border: none;" width="51" height="25" border="0"></p>
+<ul>
+	<li class="p-NoteText"><p class="NoteText">The editor is able to find 
+	 syntax-related issues only. Issues related to programming logic may 
+	 result in NullPointerException errors or other Java run time errors, 
+	 but they will not display as errors in the Feedback Zone.</p></li>
+</ul>
+<p>&#160;</p>
+<h4><img src="Square.bmp" alt="" style="border: none;" width="12" height="10" border="0">Common Scripting Errors</h4>
+<ul>
+	<li class="p-Bullet"><p class="Bullet"><span style="font-weight: bold;">Syntax 
+	 error</span>. Indicates a problem with the formatting of your script.<br>
+	If the following items are missing, a syntax error can occur:</p></li>
+</ul>
+<p class="Image" style="margin-left: 40px;"><img src="SyntaxErrors.bmp" alt="" style="border: none;" width="330" height="97" border="0"></p>
+<ul>
+	<li class="p-Bullet"><p class="Bullet"><span style="font-weight: bold;">Undeclared 
+	 local variable.</span> You may be trying to use a Vijeo-Designer variable 
+	 or another object directly in the script. Use methods to interact 
+	 with Vijeo-Designer objects.</p></li>
+	<li class="p-Bullet"><p class="Bullet"><span style="font-weight: bold;">Void 
+	 type is used only as a function return type.</span> One of the expressions 
+	 has evaluated into a void value and cannot be processed, which could 
+	 indicate you've added a parameter to a method that does not take any 
+	 parameters.</p></li>
+	<li class="p-Bullet"><p class="Bullet"><span style="font-weight: bold;">Conversion 
+	 from type &quot;&quot; to type &quot;&quot; may lose data.</span> 
+	 A value is being assigned to a variable where the data types don't 
+	 match. In some cases this operation is acceptable; however, this time 
+	 it may result in a loss of data. If you want to continue with this 
+	 assign operation, typecast the value.</p></li>
+</ul>
+<p style="margin-left: 40px;">Example:</p>
+<p class="Code" style="margin-left: 80px;">int 
+ a = 0;</p>
+<p class="Code" style="margin-left: 80px;">double 
+ b = 0.0;</p>
+<p class="Code" style="margin-left: 80px;">a 
+ = b; &#160;&#160;&#160;&#160;&#160;<span style="color: #008000;">// 
+ Fails at validation</span></p>
+<p class="Code" style="margin-left: 80px;">a 
+ = (int)b; <span style="color: #008000;">// Typecast to 
+ succeed</span></p>
+</body>
+</html>

@@ -1,0 +1,154 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+<meta name="template" content="Vijeo_template.htt">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+ <meta name="generator" content="Adobe RoboHelp 10">
+<title>Setting Up Authorization for User Actions</title>
+<link rel="StyleSheet" href="Tis-styl.css" type="text/css">
+</head>
+<body>
+<script type="text/javascript" src="ehlpdhtm.js" language="JavaScript1.2"></script>
+
+<div style="width: 100%; position: relative;" id="header">
+	<table style="background-attachment: scroll; margin-left: 0px; margin-right: 4px; 
+			 background-image: url(top_banner.bmp); background-repeat: Repeat-X; 
+			 line-height: 0pt; vertical-align: top;" cellspacing="0" background="top_banner.bmp" 
+			 width="100%">
+		<col style="width: 90%;">
+		<col style="width: 5%;">
+		<col style="width: 5%;">
+		<tr style="vertical-align: center; height: 39px;">
+			<td style="width: 90%; padding-right: 10px; padding-left: 10px; 
+				 border-right-color: #000000;">
+   <p><img src="logo.bmp" alt="" style="border: none;" width="37" height="37" border="0"></p></td>
+			<td style="width: 5%; padding-right: 0px; padding-left: 10px; 
+				 border-right-color: #000000;">
+   <p style="text-align: center;"><a 
+			 title="Glossary" href="Appendix.chm::/Glossary.htm"><img src="logo_glossary.bmp" alt="" style="border: none;" width="47" height="37" border="0"></a></p></td>
+			<td style="width: 5%; padding-right: 10px; padding-left: 5px; 
+				 border-right-color: #000000;">
+   <p style="text-align: center;"><a 
+			 href="About.chm::/What_is_Vijeo-Designer.htm" title="Home"><img src="logo_home.bmp" alt="Home" style="border: none; margin-left: 0px; 
+			 margin-right: 0px; margin-bottom: 0px; margin-top: -2px;" width="47" height="37" border="0"></a></p></td>
+		</tr>
+	</table>
+</div>
+
+<h2>4.8.9 Setting Up Authorization for User Actions</h2>
+<p>Vijeo Designer enables you to protect a critical operation or process and make it accessible to authorized personnel only. Typical cases where the authorization feature can be useful are in changing recipes or overriding a normal value for an operation. The authorization feature obtains operator's information before any action or operation can be performed. The operator must provide valid user name and password and must have the required security level.</p>
+<p>You can set up the authorization feature using either of these methods:</p>
+<ul>
+<li class="p-Bullet">
+<p class="Bullet">The Authorization Toolchest part. For more information, see <a href="#Example_of_Example_of_How_to_Set_Up_an_Authorization_Session">Example of How to Set Up an Authorization Session</a>.</p>
+</li>
+<li class="p-Bullet">
+<p class="Bullet">The Validate User system script method. For more information, see Section 18.9.1.5, <a href="Scripts.chm::/Sys.validateUser.htm">System Method: Sys.validateUser</a>.</p>
+</li>
+</ul>
+<p>To set up the authorization feature:</p>
+<ol style="list-style: decimal;">
+<li class="p">
+<p>Click the Toolchest icon to open the Toolchest window and select the Security folder.</p>
+</li>
+<li class="p">
+<p>Drag and drop the Authorization Toolchest part onto the panel.</p>
+</li>
+<li class="p">
+<p>Do one of the following:</p>
+</li>
+</ol>
+<ul>
+<li class="p-bullet2">
+<p class="bullet2">Draw a Switch (example: for changing recipes). The Switch Settings dialog box opens.</p>
+</li>
+</ul>
+<ul>
+<li class="p-bullet2">
+<p class="bullet2">Draw a Numeric Display (example: for overriding a normal value for an operation). The Numeric Display dialog box opens.</p>
+</li>
+</ul>
+<ol start="4" style="list-style: decimal;">
+<li style="margin-left: -20px;" class="p">
+<p style="margin-left: 24px;">In the Advanced tab, select Enable Interlock</p>
+</li>
+<li style="margin-left: -20px;" class="p">
+<p style="margin-left: 24px;">In the Interlock Variable field, assign the desired security level to the authorization result integer variable (example, Authorization01.Result &gt; 50) .</p>
+</li>
+</ol>
+<p style="margin-left: 0px;">For information on how to reset an authorization session, see <a href="#Example_of_How_to_Reset_an_Authorization_Session">Example of How to Reset an Authorization Session</a>.</p>
+<p>For more information on setting up user names, passwords, and security levels in the Security node, see Section 4.8, <a href="StandardOperation.chm::/security_overview.htm">Setting Up Security Protection for Targets and Projects</a>.</p>
+<h4><a name="Example_of_Example_of_How_to_Set_Up_an_Authorization_Session" id="Example_of_Example_of_How_to_Set_Up_an_Authorization_Session"></a><img src="square.bmp" style="border: none;" alt="" width="12" height="10" border="0">Example of How to Set Up an Authorization Session</h4>
+<p>In this example you want to set up an authorization session to the Add Detergent operation using a switch, such that operators with security level greater than 3 can run this operation. The following steps describe how to achieve this:</p>
+<ol style="list-style: decimal;">
+<li class="p">
+<p>Draw a switch on the panel (Add Detergent), the Switch Settings dialog box opens. Define the general settings for this switch. For information on how to create switches, see Section 9.2, <a href="Switches.chm::/SW_Settings.htm">Creating Switches</a>.</p>
+</li>
+</ol>
+<p><img src="Authorization1.bmp" style="border: none; margin-left: 40px; margin-right: 0px; margin-top: 0px; margin-bottom: 0px;" alt="" width="440" height="213" border="0"></p>
+<ol start="2" style="list-style: decimal;">
+<li class="p">
+<p>In the Advanced tab, select Enable Interlock and open the Interlock Variable List.</p>
+</li>
+</ol>
+<p><img src="Authorization3.bmp" style="border: none; margin-left: 40px; margin-right: 0px; margin-top: 0px; margin-bottom: 0px;" alt="" width="279" height="352" border="0"></p>
+<ol start="3" style="list-style: decimal;">
+<li class="p">
+<p>Select the Authorization01.Result integer variable and enter the desired expression with the specified security level. This expression also displays in Interlock Variable field.</p>
+</li>
+</ol>
+<p><img src="Authorization2.bmp" style="border: none; margin-left: 40px; margin-right: 0px; margin-top: 0px; margin-bottom: 0px;" alt="" width="536" height="101" border="0"></p>
+<p>At run time, the following sequence of events occur:</p>
+<ul>
+<li class="p-Bullet">
+<p class="Bullet">The Add Detergent switch is inactive and hash-marked.</p>
+</li>
+<li class="p-Bullet">
+<p class="Bullet">To activate the switch, the operator must enter a valid user name and password and press the Record Signature button.</p>
+</li>
+<li class="p-Bullet">
+<p class="Bullet">The operator's security level is written into Authorization.Result integer variable.</p>
+</li>
+<li class="p-Bullet">
+<p class="Bullet">If the operator's security level is greater than 3, the Add Detergent switch becomes active and accessible to the operator.</p>
+</li>
+</ul>
+<h4><a name="Example_of_How_to_Reset_an_Authorization_Session" id="Example_of_How_to_Reset_an_Authorization_Session"></a><img src="square.bmp" style="border: none;" alt="" width="12" height="10" border="0">Example of How to Reset an Authorization Session</h4>
+<p>This example illustrates how to reset an authorization session using a switch.</p>
+<ol style="list-style: decimal;">
+<li class="p">
+<p>Draw a switch on the panel. The Switch Settings dialog box opens. For information on how to create switches, see Section 9.2, <a href="Switches.chm::/SW_Settings.htm">Creating Switches</a>.</p>
+</li>
+<li class="p">
+<p>In the General tab, select one of the When Touch, While Touch, or When Release tabs.</p>
+</li>
+<li class="p">
+<p>In the Operation list, select Word.</p>
+</li>
+<li class="p">
+<p>In the Destination field, choose Authorization01.Result integer variable.</p>
+</li>
+<li class="p">
+<p>In the Source field, enter '0' and click Add. Ensure that Set is selected.</p>
+</li>
+</ol>
+<p><img src="Authorization_Reset1.bmp" style="border: none; margin-right: 0px; margin-top: 0px; margin-bottom: 0px; margin-left: 40px;" alt="" width="489" height="346" border="0"></p>
+<ol start="6" style="list-style: decimal;">
+<li class="p">
+<p>Select String as the Operation.</p>
+</li>
+<li class="p">
+<p>In the Destination field, choose Authorization01.UserName string variable.</p>
+</li>
+<li class="p">
+<p>Enter empty string "" in the Source field and click Add. Ensure that Overwrite is selected.</p>
+</li>
+<li class="p">
+<p>Repeat steps 6 to 8 for Authorization01.UserPW string variable.</p>
+</li>
+</ol>
+<p><img src="Authorization_Reset2.bmp" style="border: none; margin-right: 0px; margin-top: 0px; margin-bottom: 0px; margin-left: 40px;" alt="" width="488" height="345" border="0"></p>
+<p>At run time, when the reset switch is pressed, the above values are written into their corresponding variables. This process resets the authorization session.</p>
+</body>
+</html>

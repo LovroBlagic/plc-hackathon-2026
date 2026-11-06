@@ -1,0 +1,343 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+<meta name="template" content="Vijeo_template.htt">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="topic-status" content="In Progress">
+<meta name="topic-priority" content="0">
+<meta name="topic-time-estimate" content="0">
+<meta name="topic-comment" content="">
+<meta name="topic-id" content="13.3.2.1 ??????????">
+<meta name="window-type" content="$global_NewWindow">
+ <meta name="generator" content="Adobe RoboHelp 10">
+<title>Trigger Actions</title>
+<link rel="StyleSheet" href="Tis-styl.css" type="text/css">
+</head>
+<body>
+<script type="text/javascript" src="ehlpdhtm.js" language="JavaScript1.2"></script>
+
+<div style="width: 100%; position: relative;" id="header">
+	<table style="background-attachment: scroll; margin-left: 0px; margin-right: 4px; 
+			 background-image: url(top_banner.bmp); background-repeat: Repeat-X; 
+			 line-height: 0pt; vertical-align: top;" cellspacing="0" width="100%" 
+			 background="top_banner.bmp">
+		<col style="width: 90%;">
+		<col style="width: 5%;">
+		<col style="width: 5%;">
+		<tr style="vertical-align: center; height: 39px;">
+			<td style="width: 90%; padding-right: 10px; padding-left: 10px; 
+				 border-right-color: #000000;">
+   <p><img src="logo.bmp" style="border: none;" alt="" width="37" height="37" border="0"></p></td>
+			<td style="width: 5%; padding-right: 0px; padding-left: 10px; 
+				 border-right-color: #000000;">
+   <p style="text-align: center;"><a 
+			 title="Glossary" href="Appendix.chm::/Glossary.htm"><img src="logo_glossary.bmp" style="border: none;" alt="" width="47" height="37" border="0"></a></p></td>
+			<td style="width: 5%; padding-right: 10px; padding-left: 5px; 
+				 border-right-color: #000000;">
+   <p style="text-align: center;"><a 
+			 href="About.chm::/What_is_Vijeo-Designer.htm" title="Home"><img src="logo_home.bmp" alt="Home" title="Home" style="border: none; 
+			 margin-left: 0px; margin-right: 0px; margin-bottom: 0px; margin-top: -2px;" width="47" height="37" border="0"></a></p></td>
+		</tr>
+	</table>
+</div>
+
+<h3>16.3.4.1 Trigger Actions</h3>
+<p>The following describes how to set up operations that run when the alarm becomes active.</p>
+<ol style="list-style: decimal;">
+<li class="p">
+<p>In the Variable Editor, double-click the variable's row number to display the Variable Properties dialog box.</p>
+</li>
+<li class="p">
+<p>Click the Alarm tab and select the Alarm checkbox.</p>
+</li>
+<li class="p">
+<p>Click the Trigger Action button to display the Alarm Trigger Actions dialog box.</p>
+</li>
+<li class="p">
+<p>Click Add, to add an action.</p>
+</li>
+<li class="p">
+<p>Click the Function column's cell and select the type of function from the drop down list.</p>
+</li>
+</ol>
+<p class="Image" style="margin-left: 40px;"><img src="VD_selecting_alarm_type2.bmp" style="border: none;" alt="" width="464" height="212" border="0"></p>
+<ol start="6" style="list-style: decimal;">
+<li class="p">
+<p>Click the operation cell and define the operation details.<br>
+Depending on the selected function, a dialog box appears allowing you to configure the operation.</p>
+</li>
+</ol>
+<p class="Image" style="margin-left: 40px;"><img src="select_operation_ellipse.bmp" style="border: none;" alt="" width="493" height="240" border="0"></p>
+<h4 style="margin-left: 40px;"><img src="Square.bmp" style="border: none;" alt="" width="12" height="10" border="0">Operations</h4>
+<table style="vertical-align: top; margin-left: 40px; left: 0px; top: 690px;" cellspacing="0" width="90%">
+<col style="width: 20%;">
+<col style="width: 80%;">
+<tr style="vertical-align: top;">
+<td style="border-top: Solid 3px #000000; border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 20%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#CBD9ED">
+<p class="TableDefinitions">Bit</p>
+</td>
+<td style="border-top: Solid 3px #000000; border-bottom: Solid 1px #000000; width: 80%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p><img src="bit_operation.bmp" style="border: none;" alt="" width="328" height="140" border="0"></p>
+<ul>
+<li class="p-Bullet">
+<p class="Bullet">Bit Operation<span style="margin-left: 40px;"><br>
+Select how you want to change the Destination Variable, Set, Reset, or Toggle.</span></p>
+</li>
+<li class="p-Bullet">
+<p class="Bullet">Destination Variable<br>
+Define the variable that is turned ON/OFF by the action.</p>
+</li>
+</ul>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 20%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#CBD9ED">
+<p class="TableDefinitions">Word</p>
+</td>
+<td style="border-bottom: Solid 1px #000000; width: 80%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p><img src="word_variable.bmp" style="border: none;" alt="" width="328" height="182" border="0"></p>
+<p class="Tabletext">Source: Select whether you want to write a constant or variable value to the destination variable.</p>
+<ul>
+<li class="p-Bullet">
+<p class="Bullet">Constant<br>
+When you select Constant, the value defined in the Constant area is written to the Destination variable when the alarm occurs.</p>
+</li>
+<li class="p-Bullet">
+<p class="Bullet">Variable<br>
+When you select Variable, the variable value is written to the Destination variable when the alarm occurs.</p>
+</li>
+</ul>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 20%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#CBD9ED">
+<p class="TableDefinitions">Script</p>
+</td>
+<td style="border-bottom: Solid 1px #000000; width: 80%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p><img src="script_dialog.bmp" style="border: none;" alt="" width="329" height="204" border="0"></p>
+<p class="Tabletext">The script written in this dialog window will execute once the alarm is triggered. For more information on scripts, see Chapter 18, <a href="Scripts.chm::/Scripts_Overview.htm">Scripts</a>.</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 20%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#CBD9ED">
+<p class="TableDefinitions">Special</p>
+</td>
+<td style="border-bottom: Solid 1px #000000; width: 80%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p><img src="special.bmp" style="border: none;" alt="" width="328" height="182" border="0"></p>
+<p class="Tabletext">Run one of these operations:<br>
+Restart Runtime, Exit Runtime, Configuration, Play Sound, Stop Sound, Change Panel, Change Panel, Previous Panel, Change Language (Runtime System), Change Language (User Application).</p>
+<p><img src="NOTE_MOJI.BMP" style="border: none;" alt="" width="51" height="25" border="0"></p>
+<ul>
+<li class="p-NoteText">
+<p class="NoteText">Special actions execute after all other actions have been executed.</p>
+</li>
+<li class="p-NoteText">
+<p class="NoteText">Except for Sound and Language operations, you can set only one Special operation for each Touch action.</p>
+</li>
+</ul>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 20%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#CBD9ED">
+<p class="TableDefinitions">Popup Panel</p>
+</td>
+<td style="border-bottom: Solid 1px #000000; width: 80%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p><img src="popup_panel_display.bmp" style="border: none;" alt="" width="400" height="207" border="0"></p>
+<p>Define the popup window settings. For more information on popup windows, see Chapter 15, <a href="PopupWindows.chm::/PopupWindow_Create.htm">Popup Windows</a>.</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td rowspan="4" style="border-right: Solid 1px #000000; border-bottom: Solid 3px #000000; width: 20%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#CBD9ED">
+<p class="TableDefinitions">Text Display</p>
+</td>
+<td style="border-bottom: Solid 1px #000000; width: 80%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">The Text Display function displays a text file, part of a text file, or a line from a text file when an alarm is triggered. If you want to use the Text Display operation for an alarm, specify a variable for File Number, Block Number, and Row Number, as required.</p>
+<p class="Bullet"><img src="textdisplay_dialog.bmp" style="border: none;" alt="" width="384" height="152" border="0"></p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-bottom: Solid 1px #000000; width: 80%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">File Number</p>
+<p class="Tabletext">Selects the text file that is displayed in the Text Display part.</p>
+<p class="Tabletext">In the Source Data field, define the 3-digit number that you have specified in the text file's Alias name.</p>
+<p class="Tabletext">In the Variable field, define the variable that is assigned to the File Number Variable property in the Text Display part.</p>
+<p class="Bullet"><img src="filenumber.bmp" style="border: none;" alt="" width="241" height="184" border="0"></p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-bottom: Solid 1px #000000; width: 80%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">Block Number</p>
+<p class="Tabletext">You can specify which block in a text file to display.</p>
+<p class="Tabletext">In the Source Data field, define the block number you want to display. Block numbers are counted from 0.</p>
+<p class="Tabletext">In the Variable field, define the variable that is assigned to the Block Number property in Text Display part.</p>
+<p class="Bullet"><img src="block_number.bmp" style="border: none;" alt="" width="433" height="279" border="0"></p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-bottom: Solid 3px #000000; width: 80%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">Row Number</p>
+<p class="Tabletext">You can specify which line in a text file to display.</p>
+<p class="Tabletext">In the Source Data field, define line number you want to display. Line number is counted from 0.</p>
+<p class="Tabletext">In the Variable field, define the variable assigned to the Line Number property in the Text Display part.</p>
+<p class="Bullet"><img src="line_number.bmp" style="border: none;" alt="" width="368" height="213" border="0"></p>
+</td>
+</tr>
+</table>
+<ol start="7" style="list-style: decimal;">
+<li class="p">
+<p>Double-click the Condition cell to display the Condition dialog box, and set the condition settings as required.</p>
+</li>
+</ol>
+<p class="Image" style="margin-left: 40px;"><img src="condition_operation.bmp" style="border: none;" alt="" width="398" height="302" border="0"></p>
+<h4 style="margin-left: 40px;"><a name="custom_condition" id="custom_condition"></a><img src="Square.bmp" style="border: none;" alt="" width="12" height="10" border="0">Condition Settings</h4>
+<table style="vertical-align: top; margin-left: 40px; left: 0px; top: 3678px; height: 1259px;" cellspacing="0" width="90%">
+<col style="width: 26.152%;">
+<col style="width: 73.848%;">
+<tr style="vertical-align: top;">
+<td style="border-top: Solid 3px #000000; border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 26.152%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#CBD9ED">
+<p class="TableDefinitions">When alarm is active</p>
+</td>
+<td style="border-top: Solid 3px #000000; border-bottom: Solid 1px #000000; width: 73.848%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">The operation runs whenever the alarm is triggered</p>
+<p class="Tabletext">Select Include all alarm changes to run the operation whenever the alarm's state changes. For example, when using Limit Alarms and the variable enters the Lo alarm state, the alarm action is triggered. If the alarm condition changes, for example, from Lo to LoLo, the alarm action is triggered again.</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 26.152%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#CBD9ED">
+<p class="TableDefinitions">When alarm is acknowledged</p>
+</td>
+<td style="border-bottom: Solid 1px #000000; width: 73.848%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">The operation runs whenever the alarm is acknowledged.</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 26.152%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#CBD9ED">
+<p class="TableDefinitions">When alarm returns to normal</p>
+</td>
+<td style="border-bottom: Solid 1px #000000; width: 73.848%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">The operation runs whenever the alarm returns to normal.</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 26.152%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#CBD9ED">
+<p class="TableDefinitions">Custom Condition</p>
+</td>
+<td style="border-bottom: Solid 1px #000000; width: 73.848%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p>When selected, the Configure button is enabled. Click Configure to open the Custom Condition dialog box.</p>
+<p><img src="CustomCondition.bmp" style="border: none;" alt="" width="250" height="203" border="0"></p>
+<p class="Tabletext">Select a Transition and define the conditions. The selected Transition defines which alarm state changes will trigger this action.</p>
+<p class="Tabletext">To place a custom condition in the Summary, click Add. To remove a custom condition from the Summary, highlight it and click <img src="CustomCondition_RemoveIcon.bmp" style="border: none;" alt="" width="24" height="23" border="0">.</p>
+<p class="Tabletext">The available Condition settings depend on these property definitions:</p>
+<ul>
+<li class="p-Bullet">
+<p class="Bullet">If Alarm Type in Variable Properties is set to Limit Alarms:</p>
+</li>
+</ul>
+<p style="margin-left: 36px;"><img src="CustomCondition2.bmp" style="border: none;" alt="" width="250" height="114" border="0"></p>
+<ul>
+<li class="p-Bullet">
+<p class="Bullet">If Alarm Type in Variable Properties is set to Deviation (Percent) or Deviation (Fixed):</p>
+</li>
+</ul>
+<p class="Tabletext" style="margin-left: 36px;"><img src="CustomCondition3.bmp" style="border: none;" alt="" width="252" height="112" border="0"></p>
+<ul>
+<li class="p-Bullet">
+<p class="Bullet">If the variable is BOOL, the Condition settings are hidden.</p>
+</li>
+</ul>
+<p class="Tabletext" style="margin-left: 36px;"><img src="CustomCondition4.bmp" style="border: none;" alt="" width="250" height="114" border="0"></p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 3px #000000; width: 26.152%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#CBD9ED">
+<p class="TableDefinitions">IF</p>
+</td>
+<td style="border-bottom: Solid 3px #000000; width: 73.848%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">The operation runs only if the specified BOOL or integer variable or expression is True.</p>
+<p class="Tabletext" style="margin-left: 0px;">The following table shows each data type and their True and False values.</p>
+<table style="height: 67px; vertical-align: top; left: 0px; top: 29px;" cellspacing="0" width="85%">
+<col style="width: 32.319%;">
+<col style="width: 32.913%;">
+<col style="width: 34.768%;">
+<tr style="vertical-align: top;">
+<td style="border-top: Solid 3px #000000; border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 32.319%; padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#91AFD9">
+<p class="Tabletitle">Data Type</p>
+</td>
+<td style="border-top: Solid 3px #000000; border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 32.913%; padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#91AFD9">
+<p class="Tabletitle">True/ON</p>
+</td>
+<td style="border-top: Solid 3px #000000; border-bottom: Solid 1px #000000; width: 34.768%; padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#91AFD9">
+<p class="Tabletitle">False/OFF</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 32.319%; padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p>BOOL</p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 32.913%; padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">1</p>
+</td>
+<td style="border-bottom: Solid 1px #000000; width: 34.768%; padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">0</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 3px #000000; width: 32.319%; padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">Integer</p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 3px #000000; width: 32.913%; padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">Other than 0</p>
+</td>
+<td style="border-bottom: Solid 3px #000000; width: 34.768%; padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">0</p>
+</td>
+</tr>
+</table>
+<p class="Tabletext" style="margin-left: 0px;">&#160;</p>
+<p class="Tabletext">The AND OR option is only available for Integer and BOOL variables and when the Alarm Condition and If check boxes are selected. By using this setting, you can set whether both the Alarm and If conditions have to be true, or if just one of the conditions have to be true, before the alarm operation is run.</p>
+<p class="Tabletext">When selected, the AND/OR options and expression field are enabled. When not selected, the AND/OR options and the expression field are grayed out.</p>
+<ul style="list-style: disc;">
+<li class="p-Bullet">
+<p class="Bullet"><span style="font-weight: bold;">AND</span>: Both the Alarm Condition and the If condition have to be met before the alarm operation runs.</p>
+</li>
+<li class="p-Bullet">
+<p class="Bullet"><span style="font-weight: bold;">OR</span>: The alarm operation runs when either the Alarm Condition or the If condition is met.</p>
+</li>
+</ul>
+</td>
+</tr>
+</table>
+<ol start="8" style="list-style: decimal;">
+<li class="p">
+<p>Repeat these steps to add more operations to the Alarm Trigger Action as required.</p>
+</li>
+</ol>
+<p class="NoteImage" style="margin-left: 40px;"><img src="LIMIT.bmp" style="border: none;" alt="" width="77" height="24" border="0"></p>
+<ul>
+<li class="p-NoteText2">
+<p class="NoteText2">You can add up to 32 actions</p>
+</li>
+</ul>
+<p class="NoteImage" style="margin-left: 40px;"><img src="NOTE_MOJI.BMP" style="border: none;" alt="" width="51" height="25" border="0"></p>
+<ol start="9" style="list-style: decimal;">
+<li class="p-NoteText2">
+<p class="NoteText2">When you add multiple alarm operations they run in the order they appear in the dialog box. But because operations don't wait for the previous operation to complete before starting, it may seem as if operations do not run in sequence.</p>
+</li>
+<li class="p-NoteText2">
+<p class="NoteText2">Previous Panel, Restart Runtime, Exit Runtime, Configuration, and Change Panel operations execute after all other actions have executed.</p>
+</li>
+</ol>
+<ol start="9" style="list-style: decimal;">
+<li class="p">
+<p>Reset the order or operations by using the up and down arrows in the Alarm Trigger Actions dialog box.</p>
+</li>
+<li class="p">
+<p>Click <span style="font-weight: bold;">OK</span> to close the Alarm Trigger Action dialog box.</p>
+</li>
+</ol>
+<div style="width: 100%; position: relative;" id="footer">
+	<p>&#160;</p>
+</div>
+</body>
+</html>

@@ -1,0 +1,152 @@
+<html>
+<!-- Sitemap 1.0 -->
+<object type="text/site properties">
+  <param name="WindowName" value="$global_NewWindow">
+  <param name="SiteType" value="toc">
+  <param name="Image Width" value="16">
+  <param name="Window Styles" value="0x800022">
+  <param name="ExWindow Styles" value="0x100">
+</object>
+<ul>
+  <li><object type="text/sitemap">
+    <param name="Name" value="12.1 Types of Graphs">
+    <param name="Local" value="Create_graph.htm">
+  </object>
+  <li><object type="text/sitemap">
+    <param name="Name" value="12.2 Meter">
+    <param name="Local" value="meter_graph.htm">
+  </object>
+  <ul>
+    <li><object type="text/sitemap">
+      <param name="Name" value="12.2.1 Setting Up a Meter">
+      <param name="Local" value="create_meter_fraph.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="12.2.2 Meter Settings">
+      <param name="Local" value="meter_graph_settings.htm">
+    </object>
+    <ul>
+      <li><object type="text/sitemap">
+        <param name="Name" value="12.2.2.1 General Tab">
+        <param name="Local" value="meter_general_tab.htm">
+      </object>
+      <li><object type="text/sitemap">
+        <param name="Name" value="12.2.2.2 Color Tab">
+        <param name="Local" value="meter_color_tab.htm">
+      </object>
+      <li><object type="text/sitemap">
+        <param name="Name" value="12.2.2.3 Label Tab">
+        <param name="Local" value="meter_label_tab.htm">
+      </object>
+      <li><object type="text/sitemap">
+        <param name="Name" value="12.2.2.4 Input Mode Tab">
+        <param name="Local" value="meter_input_mode.htm">
+      </object>
+      <li><object type="text/sitemap">
+        <param name="Name" value="12.2.2.5 Numeric Display Tab">
+        <param name="Local" value="meter_numeric_display.htm">
+      </object>
+      <li><object type="text/sitemap">
+        <param name="Name" value="12.2.2.6 Visibility Tab">
+        <param name="Local" value="meter_visibility_tab.htm">
+      </object>
+      <li><object type="text/sitemap">
+        <param name="Name" value="12.2.2.7 Advanced Tab">
+        <param name="Local" value="meter_advanced_tab.htm">
+      </object>
+      </ul>
+    </ul>
+  <li><object type="text/sitemap">
+    <param name="Name" value="12.3 Bar Graph">
+    <param name="Local" value="bar_graph.htm">
+  </object>
+  <ul>
+    <li><object type="text/sitemap">
+      <param name="Name" value="12.3.1 Setting Up a Bar Graph">
+      <param name="Local" value="creating_bar_graph.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="12.3.2 Bar Graph Settings">
+      <param name="Local" value="bar_graph_settings.htm">
+    </object>
+    <ul>
+      <li><object type="text/sitemap">
+        <param name="Name" value="12.3.2.1 General Tab">
+        <param name="Local" value="bar_general_tab.htm">
+      </object>
+      <li><object type="text/sitemap">
+        <param name="Name" value="12.3.2.2 Color Tab">
+        <param name="Local" value="bar_color_tab.htm">
+      </object>
+      <li><object type="text/sitemap">
+        <param name="Name" value="12.3.2.3 Label Tab">
+        <param name="Local" value="bar_label_tab.htm">
+      </object>
+      <li><object type="text/sitemap">
+        <param name="Name" value="12.3.2.4 Input Mode Tab">
+        <param name="Local" value="bar_input_mode.htm">
+      </object>
+      <li><object type="text/sitemap">
+        <param name="Name" value="12.3.2.5 Visibility Tab">
+        <param name="Local" value="bar_visibility_tab.htm">
+      </object>
+      <li><object type="text/sitemap">
+        <param name="Name" value="12.3.2.6 Advanced Tab">
+        <param name="Local" value="bar_advanced_tab.htm">
+      </object>
+      </ul>
+    </ul>
+  <li><object type="text/sitemap">
+    <param name="Name" value="12.4 Toolchest Graphs">
+    <param name="Local" value="toochest_graphs.htm">
+  </object>
+  <ul>
+    <li><object type="text/sitemap">
+      <param name="Name" value="12.4.1 Adding Toolchest Graphs to a Project">
+      <param name="Local" value="adding_toolchest_graphs.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="12.4.2 Bar Graphs">
+      <param name="Local" value="toolchest_bargraph.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="12.4.3 Circle Graphs">
+      <param name="Local" value="toolchest_circlegraph.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="12.4.4 Tank Graphs">
+      <param name="Local" value="toolchest_tankgraph.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="12.4.5 Meter Graphs">
+      <param name="Local" value="Create_meter_graph.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="12.4.6 Pie Graphs">
+      <param name="Local" value="Create_statistic_graph.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="12.4.7 Data Graphs">
+      <param name="Local" value="Data_Graph.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="12.4.8 Parison Graphs">
+      <param name="Local" value="Parison_Graphs.htm">
+    </object>
+    <li><object type="text/sitemap">
+      <param name="Name" value="12.4.9 XY Graphs">
+      <param name="Local" value="XY_Graphs.htm">
+    </object>
+    </ul>
+  <li><object type="text/sitemap">
+    <param name="Name" value="12.5 Creating Your Own Graphs">
+    <param name="Local" value="Create_original_graph.htm">
+  </object>
+  <ul>
+    <li><object type="text/sitemap">
+      <param name="Name" value="12.5.1 Working with Fill Animation">
+      <param name="Local" value="Set_up_fill_animation.htm">
+    </object>
+    </ul>
+</ul>
+</html>

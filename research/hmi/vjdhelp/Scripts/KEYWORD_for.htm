@@ -1,0 +1,101 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+<meta name="template" content="Vijeo_template.htt">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="date" content="08 6, 2003 4:15:10 PM">
+<meta name="topic-status" content="In Progress">
+<meta name="topic-priority" content="0">
+<meta name="topic-time-estimate" content="0">
+<meta name="topic-comment" content="">
+<meta name="topic-id" content="KEYWORD_for.htm">
+ <meta name="generator" content="Adobe RoboHelp 10">
+<title>for</title>
+<link rel="StyleSheet" href="TIS-STYL.CSS" type="text/css">
+</head>
+<body>
+<script type="text/javascript" src="ehlpdhtm.js" language="JavaScript1.2"></script>
+
+<div style="width: 100%; position: relative;" id="header">
+	<table style="background-attachment: scroll; margin-left: 0px; margin-right: 4px; 
+			 background-image: url(top_banner.bmp); background-repeat: Repeat-X; 
+			 line-height: 0pt; vertical-align: top;" cellspacing="0" width="100%" 
+			 background="top_banner.bmp">
+		<col style="width: 90%;">
+		<col style="width: 5%;">
+		<col style="width: 5%;">
+		<tr style="vertical-align: center; height: 39px;">
+			<td style="width: 90%; padding-right: 10px; padding-left: 10px; 
+				 border-right-color: #000000;">
+   <p><img src="logo.bmp" style="border: none;" alt="" width="37" height="37" border="0"></p></td>
+			<td style="width: 5%; padding-right: 0px; padding-left: 10px; 
+				 border-right-color: #000000;">
+   <p style="text-align: center;"><a 
+			 title="Glossary" href="Appendix.chm::/Glossary.htm"><img src="logo_glossary.bmp" style="border: none;" alt="" width="47" height="37" border="0"></a></p></td>
+			<td style="width: 5%; padding-right: 10px; padding-left: 5px; 
+				 border-right-color: #000000;">
+   <p style="text-align: center;"><a 
+			 href="About.chm::/What_is_Vijeo-Designer.htm" title="Home"><img src="logo_home.bmp" alt="Home" title="Home" style="border: none; 
+			 margin-left: 0px; margin-right: 0px; margin-bottom: 0px; margin-top: -2px;" width="47" height="37" border="0"></a></p></td>
+		</tr>
+	</table>
+</div>
+
+<h4><a name="top" id="top"></a>for</h4>
+<table style="vertical-align: top; margin-top: 14px; margin-bottom: 14px;" cellspacing="0" width="400">
+<col style="width: 100%;">
+<tr style="vertical-align: top;">
+<td style="border: Solid 1px #000000;width: 100%; padding-right: 10px; padding-left: 10px;">
+<p class="code" style="font-weight: bold;">for (initialize; conditional_expr; expression)</p>
+
+<p class="code"><span style="font-weight: normal;">{</span></p>
+<p class="code" style="margin-left: 40px;">[statements<span>];</span></p>
+<p class="code" style="margin-left: 0px;">}</p>
+</td>
+</tr>
+</table>
+<p>Brackets [ ] indicate optional items. Keywords are <span style="font-weight: bold;">bolded.</span></p>
+<p style="font-weight: bold;">Comments</p>
+<p class="tabletext"><span style="font-weight: bold;">initialize</span> Evaluated once to initialize variables.</p>
+<p class="tabletext"><span style="font-weight: bold;">conditional_expr</span> Conditional expression that controls when to exit the loop. As long as this conditional expression is true, the <span style="font-weight: bold;">for</span> statements are repeated.</p>
+<p><span style="font-weight: bold;">expression</span> Evaluated after the <span style="font-weight: bold;">for</span> statements, and usually used to change the value of variables in the conditional_expr.</p>
+<p>Use the break keyword to exit the loop prematurely, passing control to the statement after the <span style="font-weight: bold;">for</span> loop.</p>
+<p class="NoteImage" style="font-weight: bold;"><img src="Note_Moji.bmp" style="border: none;" alt="" width="51" height="25" border="0"></p>
+<ul style="list-style: disc;">
+<li class="p-NoteText">
+<p class="NoteText">When using loops (do-while, for, while), be careful not to create an infinite loop. Infinite loops, which cannot be caught at validation, will cause the target machine to crash as more and more memory is used by the script.</p>
+</li>
+<li class="p-NoteText">
+<p class="NoteText">If you use <span style="font-weight: bold;">for</span> loops in On Startup, On Panel Open, On Panel Close, Trigger Action, or Conditional scripts, and the script takes more than five seconds to complete, the script will be terminated so panel operations can continue.</p>
+</li>
+<li class="p-NoteText">
+<p class="NoteText">If you use <span style="font-weight: bold;">for</span> loops in touch scripts, which include Touch animation, switches, On Touch Panel application scripts, and alarm touch actions, and the script takes more than five seconds to complete, the script will be terminated so touch panel operations can continue.</p>
+</li>
+</ul>
+<p style="font-weight: bold;">Example</p>
+<p>Message repeats until the expression <span style="font-weight: bold;">c &lt;= 10</span> is false.</p>
+<table style="vertical-align: top; margin-top: 14px; margin-bottom: 14px;" cellspacing="0" width="400">
+<col style="width: 100%;">
+<tr style="vertical-align: top;">
+<td style="border: Solid 1px #000000;width: 100%; padding-right: 10px; padding-left: 10px;">
+<p class="code">String msg;</p>
+
+<p class="code">&#160;</p>
+
+<p class="code">for (int c=1; c &lt;= 10; c++)</p>
+
+<p class="code">{</p>
+
+<p class="code" style="margin-left: 40px;">msg = "Current count is " + c;</p>
+
+<p class="code">}</p>
+</td>
+</tr>
+</table>
+<p style="font-weight: bold;">See Also</p>
+
+<p><a href="KEYWORD_break.htm">break</a>, <a href="KEYWORD_dowhile.htm">do-while</a>, <a href="KEYWORD_if-else.htm">if-else</a>, <a href="KEYWORD_return.htm">return</a>, <a href="KEYWORD_switch.htm">switch-case-default</a>, <a href="KEYWORD_while.htm">while</a></p>
+
+</body>
+</html>

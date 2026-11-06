@@ -1,0 +1,72 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+<meta name="template" content="Vijeo_template.htt">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="topic-status" content="In Progress">
+<meta name="topic-priority" content="0">
+<meta name="topic-time-estimate" content="0">
+<meta name="topic-id" content="Script Driver Cable Connections">
+<meta name="window-type" content="$global_NewWindow">
+ <meta name="generator" content="Adobe RoboHelp 2015">
+<title>Script Driver Cable Connections</title>
+<link rel="StyleSheet" href="Tis-styl.css" type="text/css">
+</head>
+<body>
+<script type="text/javascript" src="ehlpdhtm.js" language="JavaScript1.2"></script>
+
+<div style="width: 100%; position: relative;" id="header">
+	<table style="background-attachment: scroll; margin-left: 0px; margin-right: 4px; 
+			 background-image: url(top_banner.bmp); background-repeat: Repeat-X; 
+			 line-height: 0pt; vertical-align: top;" cellspacing="0" background="top_banner.bmp" 
+			 width="100%">
+		<col style="width: 90%;">
+		<col style="width: 5%;">
+		<col style="width: 5%;">
+		<tr style="vertical-align: center; height: 39px;">
+			<td style="width: 90%; padding-right: 10px; padding-left: 10px; 
+				 border-right-color: #000000;">
+   <p><img src="logo.bmp" alt="" style="border: none;" width="37" height="37" border="0"></p></td>
+			<td style="width: 5%; padding-right: 0px; padding-left: 10px; 
+				 border-right-color: #000000;">
+   <p style="text-align: center;"><a 
+			 title="Glossary" href="Glossary.htm"><img src="logo_glossary.bmp" alt="" style="border: none;" width="47" height="37" border="0"></a></p></td>
+			<td style="width: 5%; padding-right: 10px; padding-left: 5px; 
+				 border-right-color: #000000;">
+   <p style="text-align: center;"><a 
+			 href="About.chm::/What_is_Vijeo-Designer.htm" title="Home"><img src="logo_home.bmp" alt="Home" title="Home" style="border: none; 
+			 margin-left: 0px; margin-right: 0px; margin-bottom: 0px; margin-top: -2px;" width="47" height="37" border="0"></a></p></td>
+		</tr>
+	</table>
+</div>
+
+
+<h2>5.4.1 Script Driver Cable Connections</h2>
+<p>The script driver is a generic serial communication driver that allows you to communicate with simple serial equipment.</p>
+<p>For information on how to connect a script driver cable to your target machine see the following sections:</p>
+<ul>
+<li class="p-Bullet">
+<p class="Bullet">5.4.1.1 <a href="XBTgt200_Series_or_higher.htm">XBTGT2000 Series or Higher, XBTGC2000 Series, XBTGK Series, iPC/XBTGTW Series, HMIGTO Series, HMIGTU Series, HMIGTUX Series, HMISCU Series, HMISTO Series, HMISTU Series, HMIGK Series, and XBTGH Series</a></p>
+</li>
+</ul>
+<p><img src="Limit.bmp" alt="" style="border: none;" width="77" height="24" border="0"></p>
+<ul>
+<li class="p-NoteText">
+<p class="NoteText">On all target machines, it is not possible to use COM1 port for both the script driver and the target printer. If you do have both set to COM1, both will fail to print in runtime.</p>
+</li>
+<li class="p-NoteText">
+<p class="NoteText">To use the script driver to send messages to a printer, the printer must have at least two communication ports: one for the script driver, one for the target printer. The script driver must use a serial port. The target printer can use any of the following:</p>
+</li>
+<li class="p-NoteText2">
+<p class="NoteText2">A parallel port: XBTGT, XBTGC, XBTGK, HMIGK, and HMIGTO targets can use "USB-PIO."</p>
+</li>
+<li class="p-NoteText2">
+<p class="NoteText2">A USB port: Only available for XBTGT, XBGTC, XBTGK, HMIGK, and HMIGTO targets. Must select the "USB" connection method.</p>
+</li>
+<li class="p-NoteText2">
+<p class="NoteText2">An Ethernet port: Only available for XBTGT, XBTGC, XBTGK, HMIGK, and HMIGTO targets that support Ethernet; see Appendix 5, <a href="Hardware_Specifications.htm">Hardware Specifications</a>. Can select either the "IPP" or the "LPR" connection method.</p>
+</li>
+</ul>
+</body>
+</html>

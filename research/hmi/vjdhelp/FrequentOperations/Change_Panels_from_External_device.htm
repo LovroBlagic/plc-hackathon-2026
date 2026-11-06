@@ -1,0 +1,60 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+<meta name="template" content="Vijeo_template.htt">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="topic-status" content="In Progress">
+<meta name="topic-priority" content="0">
+<meta name="topic-time-estimate" content="0">
+<meta name="topic-comment" content="">
+<meta name="topic-id" content="">
+<meta name="window-type" content="$global_NewWindow">
+ <meta name="generator" content="Adobe RoboHelp 10">
+<title>Changing the Panel</title>
+<link rel="StyleSheet" href="Tis-styl.css" type="text/css">
+</head>
+<body>
+<script type="text/javascript" src="ehlpdhtm.js" language="JavaScript1.2"></script>
+
+<div style="width: 100%; position: relative;" id="header">
+	<table style="background-attachment: scroll; 
+														 margin-right: 4px; 
+														 background-image: url(top_banner.bmp); 
+														 background-repeat: Repeat-X; 
+														 line-height: 0pt; 
+														 vertical-align: top;" 
+														 cellspacing="0" 
+														 width="100%" background="top_banner.bmp">
+		<col style="width: 90%;">
+		<col style="width: 5%;">
+		<col style="width: 5%;">
+		<tr style="vertical-align: center; height: 39px;">
+			<td style="width: 90%; padding-right: 10px; padding-left: 10px; 
+				 border-right-color: #000000;">
+   <p><img src="logo.bmp" style="border: none;" alt="" width="37" height="37" border="0"></p></td>
+			<td style="width: 5%; padding-right: 0px; padding-left: 10px; 
+				 border-right-color: #000000;">
+   <p 
+				 style="text-align: center;"><a 
+			 title="Glossary" href="Appendix.chm::/Glossary.htm"><img src="logo_glossary.bmp" style="border: none;" alt="" width="47" height="37" border="0"></a></p></td>
+			<td style="width: 5%; padding-right: 10px; padding-left: 5px; 
+				 border-right-color: #000000;">
+   <p 
+				 style="text-align: center;"><a 
+			 href="About.chm::/What_is_Vijeo-Designer.htm" title="Home"><img src="logo_home.bmp" alt="Home" title="Home" style="border: none; 
+			 margin-top: -2px;" width="47" height="37" border="0"></a></p></td>
+		</tr>
+	</table>
+</div>
+
+<h2>20.1.2 Changing the Panel</h2>
+<p style="margin-left: 0px;">You cannot access the _CurPanelID system variable directly from the equipment. If you want to change a panel from the equipment, assign Read From and Write To variables to the _CurPanelID system variable. The Read From and Write To variables should be integer variables with device addresses to the equipment.</p>
+<p class="Image"><img src="image50.bmp" style="border: none;" alt="" width="536" height="186" border="0"></p>
+<h4><img src="Square.bmp" style="border: none;" alt="" width="12" height="10" border="0">Panel Change Structure</h4>
+<p style="margin-left: 0px;">To change panels from the equipment, store the new panel ID in the Read From variable's device address. When the value changes, the value is copied from the Read From variable to the _CurPanelID system variable, which initiates the change panel operation.</p>
+<p class="Image"><img src="image68.bmp" style="border: none;" alt="" width="580" height="231" border="0"></p>
+<p style="margin-left: 0px;">Since the _CurPanelID and Write To variables are synchronized, if a panel change occurs, the value of the _CurPanelID system variable gets copied to the Write To variable. On the equipment, if you require the ID of the target machine's current panel, you should monitor the value in the device address associated with the Write To variable.</p>
+<p class="Image"><img src="image169.bmp" style="border: none;" alt="" width="611" height="215" border="0"></p>
+</body>
+</html>

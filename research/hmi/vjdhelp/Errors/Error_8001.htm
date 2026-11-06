@@ -1,0 +1,33 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="date" content="11 15, 2001 1:32:04 PM">
+<meta name="topic-status" content="In Progress">
+<meta name="topic-priority" content="0">
+<meta name="topic-time-estimate" content="0">
+<meta name="topic-id" content="">
+ <meta name="generator" content="Adobe RoboHelp 2015">
+<title>Error 8001</title>
+<link rel="StyleSheet" href="error-styl.css" type="text/css">
+</head>
+<body>
+<script type="text/javascript" src="ehlpdhtm.js" language="JavaScript1.2"></script>
+
+<p class="Error1">Error 8001: [<span style="font-style: normal;">script type</span>] [<span style="font-style: normal;">script name</span>] [<span style="font-style: normal;">line number</span>] conditional expression must be a boolean type.</p>
+<p>The specified conditional expression could not be evaluated into a boolean value.</p>
+<p class="Error2">Solution:</p>
+<ul>
+<li class="p-bullet">
+<p class="bullet">Check if you're using numeric values. The script is expecting a conditional expression that returns true or false. Java does not evaluate numeric values as true or false.</p>
+</li>
+<li class="p-bullet">
+<p class="bullet">Check if you're using a string type variable. String variables cannot be converted into a boolean.</p>
+</li>
+<li class="p-bullet">
+<p class="bullet">Check <font color="#000000">if the expression returns void. Void cannot be converted into a bool</font>ean.</p>
+</li>
+</ul>
+</body>
+</html>

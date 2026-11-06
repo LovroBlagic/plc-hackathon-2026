@@ -1,0 +1,379 @@
+
+<!doctype HTML public "-//W3C//DTD HTML 4.0 Frameset//EN">
+<html>
+<head>
+<meta name="template" content="Vijeo_template.htt">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="topic-status" content="In Progress">
+<meta name="topic-priority" content="0">
+<meta name="topic-time-estimate" content="0">
+<meta name="topic-comment" content="">
+<meta name="topic-id" content="Setting Up Access Rights">
+<meta name="window-type" content="$global_NewWindow">
+ <meta name="generator" content="Adobe RoboHelp 10">
+<title>Setting Up Access Rights</title>
+<link rel="StyleSheet" href="Tis-styl.css" type="text/css">
+</head>
+<body>
+<script type="text/javascript" src="ehlpdhtm.js" language="JavaScript1.2"></script>
+
+<div style="width: 100%; position: relative;" id="header">
+	<table style="background-attachment: scroll; margin-left: 0px; margin-right: 4px; 
+			 background-image: url(top_banner.bmp); background-repeat: Repeat-X; 
+			 line-height: 0pt; vertical-align: top;" cellspacing="0" width="100%" 
+			 background="top_banner.bmp">
+		<col style="width: 90%;">
+		<col style="width: 5%;">
+		<col style="width: 5%;">
+		<tr style="vertical-align: center; height: 39px;">
+			<td style="width: 90%; padding-right: 10px; padding-left: 10px; 
+				 border-right-color: #000000;">
+   <p><img src="logo.bmp" style="border: none;" alt="" width="37" height="37" border="0"></p></td>
+			<td style="width: 5%; padding-right: 0px; padding-left: 10px; 
+				 border-right-color: #000000;">
+   <p style="text-align: center;"><a 
+			 title="Glossary" href="Appendix.chm::/Glossary.htm"><img src="logo_glossary.bmp" style="border: none;" alt="" width="47" height="37" border="0"></a></p></td>
+			<td style="width: 5%; padding-right: 10px; padding-left: 5px; 
+				 border-right-color: #000000;">
+   <p style="text-align: center;"><a 
+			 href="About.chm::/What_is_Vijeo-Designer.htm" title="Home"><img src="logo_home.bmp" alt="Home" title="Home" style="border: none; 
+			 margin-left: 0px; margin-right: 0px; margin-bottom: 0px; margin-top: -2px;" width="47" height="37" border="0"></a></p></td>
+		</tr>
+	</table>
+</div>
+
+<h2>17.8.1 Setting the User Access Right</h2>
+<p>The following instructions provide two different methods of setting up the current access right for the user:</p>
+<ul>
+<li class="p-Bullet">
+<p class="Bullet">PLC Key</p>
+</li>
+<li class="p-Bullet">
+<p class="Bullet">Script (User name and password)</p>
+</li>
+</ul>
+<p>There are a multitude of other ways you can define the current User access right; however, do not use a data input where the user simply types the number of their access right.</p>
+<h3><a name="1642b3b9347ca42c9b00b820c00c373fa=1"></a><a name="1"></a>17.8.1.1 Defining the User Access Right Variable</h3>
+<p>When you add a new access group, the RecipeControlDefault structure variable is created. Use this variable to control the current User access right.</p>
+<ol style="list-style: decimal;">
+<li class="p">
+<p>Expand the RecipeControlDefault variable to view its elements.</p>
+</li>
+</ol>
+<p class="Image" style="margin-left: 40px;"><img src="Expand_RecipeControlDefault.bmp" style="border: none;" alt="" width="177" height="175" border="0"></p>
+<ol start="2" style="list-style: decimal;">
+<li class="p">
+<p>Select the AccessRight variable element and define the Read From Variable or Write To Variable.<br>
+Use these variables to define the device address with the access right of the current user. Use Read From when the User access right is defined on the equipment and needs to be copied into the AccessRight variable. Use Write To when the User access right is defined on the target machine and needs to be copied from the AccessRight variable to the equipment.</p>
+</li>
+</ol>
+<p style="margin-left: 40px;"><img src="AccessRight_Properties.bmp" style="border: none;" alt="" width="252" height="169" border="0"></p>
+<p>There are various ways you can set up the User access right, such as the ladder program, combinations of switches, or secure panel interfaces. This topic describes two methods: PLC key and scripts.</p>
+<h3><a name="2642b3b9347ca42c9b00b820c00c373fa=2"></a><a name="2"></a>17.8.1.2 Setting Up the PLC Key</h3>
+<p>If your equipment uses a key to control user access, you can use the key to define the current User access right. Connect the I/O lines from the lock to control the bit values in the device address associated with the Recipe Control Group's AccessRight variable.</p>
+<p class="Image"><img src="PLC_Key_Access.bmp" style="border: none;" alt="" width="409" height="329" border="0"></p>
+<p>The above Lock has three settings: Run, Monitor, and Program. Setup the lock so that different bits in the device address turn on depending on the current setting.</p>
+<ol style="list-style: decimal;">
+<li class="p">
+<p>Use the Lock to set the User access right as shown.</p>
+</li>
+</ol>
+<table style="vertical-align: top; margin-left: 40px;" cellspacing="0" width="550">
+<col style="width: 10%;">
+<col style="width: 10%;">
+<col style="width: 25%;">
+<col style="width: 40%;">
+<tr style="vertical-align: top;">
+<td style="border-top: Solid 3px #000000; border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 10%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#91AFD9">
+<p class="Tabletitle">Setting</p>
+</td>
+<td style="border-top: Solid 3px #000000; border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 10%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#91AFD9">
+<p class="Tabletitle" style="text-align: center;">Access Right</p>
+</td>
+<td style="border-top: Solid 3px #000000; border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 25%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#91AFD9">
+<p class="Tabletitle" style="text-align: center;">in binary format</p>
+</td>
+<td style="border-top: Solid 3px #000000; border-bottom: Solid 1px #000000; width: 40%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#91AFD9">
+<p class="Tabletitle" style="text-align: center;">Description</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 10%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">Run</p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 10%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext" style="text-align: center;">0</p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 25%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext" style="text-align: center;">0000 0000 0000 0000</p>
+</td>
+<td style="border-bottom: Solid 1px #000000; width: 40%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">Operation Level</p>
+<p class="Tabletext">- Enables normal panel operations</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 10%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">Monitor</p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 10%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext" style="text-align: center;">1</p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 25%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext" style="text-align: center;">0000 0000 0000 000<span style="font-weight: bold;">1</span></p>
+</td>
+<td style="border-bottom: Solid 1px #000000; width: 40%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">Supervisory Level</p>
+<p class="Tabletext">- Some security: hides recipes from panel operator and prevents operator from running recipe operations</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 3px #000000; width: 10%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">Program</p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 3px #000000; width: 10%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext" style="text-align: center;">3</p>
+</td>
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 3px #000000; width: 25%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext" style="text-align: center;">0000 0000 0000 00<span style="font-weight: bold;">11</span></p>
+</td>
+<td style="border-bottom: Solid 3px #000000; width: 40%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">Programming Level</p>
+<p class="Tabletext">- Security: hides <span style="font-style: italic;">secret</span> recipe information from panel operators and supervisors</p>
+</td>
+</tr>
+</table>
+<ol start="2" style="list-style: decimal;">
+<li class="p">
+<p>For each Recipe Group and Recipe, assign the appropriate access right.</p>
+</li>
+</ol>
+<p>Any Recipe Groups or Recipes with an access right of 0 will be visible to the panel operator.</p>
+<p>To add security, the minimum access right should be 1.</p>
+<p>If you want to hide <span style="font-style: italic;">secret</span> recipes from supervisors who have a key that can change the PLC to the Monitor setting, assign an access right of 3 to the Recipe or Recipe Group. Only approved maintenance staff are provided with a key to change the PLC to the Program setting.</p>
+<h3><a name="3642b3b9347ca42c9b00b820c00c373fa=3"></a><a name="3"></a>17.8.1.3 Setting Up User Names and Passwords in Scripts</h3>
+<p>If you want to implement user names and passwords, you can do so by using scripts. The following is only an example of how you can use scripts to set up user name and password security. You can devise other methods if you want. The administrator user name and password are fixed in this script. You can change them to suit your needs.</p>
+<p>To be able to define user names and passwords as runtime, you can set up a panel that only administrators can use to define user names, passwords, and access rights. The initial panel should be a login screen that forces users to enter their user name and password, which directs them to either the initial panel or to the system administration panel.</p>
+<p class="Image"><img src="RecipeLoginScreen.bmp" style="border: none;" alt="" width="491" height="397" border="0"></p>
+<p>Create the following variables and parts to implement the user login and password setup panels.</p>
+<h4><img src="Square.bmp" style="border: none;" alt="" width="12" height="10" border="0">Variables</h4>
+<table style="vertical-align: top; left: 0px; top: 2099px; height: 113px; margin-left: 40px;" cellspacing="0" width="1043">
+<col style="width: 25%;">
+<col style="width: 75%;">
+<tr style="vertical-align: top;">
+<td style="border-top: Solid 3px #000000; border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 25%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#91AFD9">
+<p class="Tabletitle">Name</p>
+</td>
+<td style="border-top: Solid 3px #000000; border-bottom: Solid 1px #000000; width: 75%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;" bgcolor="#91AFD9">
+<p class="Tabletitle">Description</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 25%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">PasswordLogin</p>
+</td>
+<td rowspan="2" style="border-bottom: Solid 1px #000000; width: 75%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">Internal string variable records the name and password entered by the user.</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 25%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">UserLogin</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 25%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">Password</p>
+</td>
+<td rowspan="2" style="border-bottom: Solid 1px #000000; width: 75%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">Internal string array variables with 5 elements (five users).</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 1px #000000; width: 25%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">Username</p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-right: Solid 1px #000000; border-bottom: Solid 3px #000000; width: 25%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p class="Tabletext">UserAccess</p>
+</td>
+<td style="border-bottom: Solid 3px #000000; width: 75%; padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px;">
+<p>Internal integer array with 5 elements.</p>
+</td>
+</tr>
+</table>
+<p>&#160;</p>
+<h4><img src="Square.bmp" style="border: none;" alt="" width="12" height="10" border="0">Panel for Defining User Names, Passwords, and Access Rights (Panel ID:8999)</h4>
+<p><img src="RecipeSecuritySetupUsers.bmp" style="border: none;" alt="" width="450" height="343" border="0"></p>
+<ol style="list-style: decimal;">
+<li style="color: #000000;" class="p">
+<p style="color: #000000;">Create a panel and assign a PanelID of 8999.</p>
+</li>
+<li style="color: #000000;" class="p">
+<p style="color: #000000;">On the panel, create String Displays for the user names and passwords.</p>
+</li>
+</ol>
+<p class="Image" style="margin-left: 40px;"><img src="UserNameStringDisplay.bmp" style="border: none;" alt="" width="549" height="210" border="0"></p>
+<p style="margin-left: 40px;">Each String Display should be set to a different element in the UserName or Password string array variable. Enable Input Mode so the system administrator can define the user name and password.</p>
+<ol start="3" style="list-style: decimal;">
+<li class="p">
+<p>Create Numeric Displays for defining the access right for the corresponding user.</p>
+</li>
+</ol>
+<p class="Image" style="margin-left: 40px;"><img src="AccessRightNumericDisplay.bmp" style="border: none;" alt="" width="478" height="247" border="0"></p>
+<p style="margin-left: 40px;">Each Numeric Display should be set to a different element in the Access integer array variable. Enable Input Mode so the system administrator can define the access right value.</p>
+<ol start="4" style="list-style: decimal;">
+<li class="p">
+<p>Create a switch to exit the panel and return to the initial login panel.</p>
+</li>
+</ol>
+<p style="margin-left: 40px;"><img src="SwitchSettings_PreviousPanel.bmp" style="border: none;" alt="" width="450" height="313" border="0"></p>
+<h4><img src="Square.bmp" style="border: none;" alt="" width="12" height="10" border="0">Login Panel (Panel ID:1)</h4>
+<p>Set up the Login Panel. Use this as the initial panel in your system so operators identify themselves before they begin.</p>
+<p><img src="RecipeSecurityLoginPanel.bmp" style="border: none;" alt="" width="408" height="246" border="0"></p>
+<ol style="list-style: decimal;">
+<li style="color: #000000;" class="p">
+<p style="color: #000000;">Create a panel and assign a PanelID of 1.</p>
+</li>
+<li class="p">
+<p>Use String Displays so the panel operator can input their name and password.</p>
+</li>
+</ol>
+<p style="margin-left: 40px;"><img src="LoginUserNamePassword.bmp" style="border: none;" alt="" width="549" height="210" border="0"></p>
+<ol start="3" style="list-style: decimal;">
+<li class="p">
+<p>Create a switch with the following script.</p>
+</li>
+</ol>
+
+<p class="Code" style="margin-left: 40px;">String user, login,</p>
+
+<p class="Code" style="margin-left: 80px;">SystemAdminName = "Admin",</p>
+
+<p class="Code" style="margin-left: 80px;">SystemAdminPassword = "abcdefghij";</p>
+
+<p class="Code" style="margin-left: 40px;">int MainMenuPanel = 10, UserPasswordPanel = 8999;</p>
+
+<p class="Code" style="margin-left: 40px;">&#160;</p>
+<p class="Code" style="margin-left: 40px; color: #008000;">// 1. Get entered user name and password then reset</p>
+
+<p class="Code" style="margin-left: 40px;">user = UserLogin.getStringValue();</p>
+
+<p class="Code" style="margin-left: 40px;">login = PasswordLogin.getStringValue();</p>
+
+<p class="Code" style="margin-left: 40px;">UserLogin.write("");</p>
+
+<p class="Code" style="margin-left: 40px;">PasswordLogin.write("");</p>
+
+<p class="Code" style="margin-left: 40px;">&#160;</p>
+<p class="Code" style="margin-left: 40px; color: #008000;">// 2. If either user or password is empty exit script</p>
+
+<p class="Code" style="margin-left: 40px;">if (user.length() == 0)</p>
+
+<p class="Code" style="margin-left: 40px;">return;</p>
+
+<p class="Code" style="margin-left: 40px;">if (login.length() == 0)</p>
+
+<p class="Code" style="margin-left: 40px;">return;</p>
+
+<p class="Code" style="margin-left: 40px;">&#160;</p>
+<p class="Code" style="margin-left: 40px; color: #008000;">// 3. Check login user name/password with</p>
+<p class="Code" style="margin-left: 40px; color: #008000;">// &#160;&#160;&#160;registered passwords and users</p>
+
+<p class="Code" style="margin-left: 40px;">for (int i = 0; i &lt; 5; i++)</p>
+
+<p class="Code" style="margin-left: 40px;">{</p>
+
+<p class="Code" style="margin-left: 80px;">String user1, login1;</p>
+
+<p class="Code" style="margin-left: 80px;">user1 = UserName[i].getStringValue();</p>
+
+<p class="Code" style="margin-left: 80px;">if (user1.equals(user))</p>
+
+<p class="Code" style="margin-left: 80px;">{</p>
+
+<p class="Code" style="margin-left: 120px;">login1 = Password[i].getStringValue();</p>
+
+<p class="Code" style="margin-left: 120px;">if (login1.equals(login))</p>
+
+<p class="Code" style="margin-left: 120px;">{</p>
+
+<p class="Code" style="margin-left: 160px; color: #008000;">// 4. Matching user name and password</p>
+
+<p class="Code" style="margin-left: 160px;">int ar = UserAccess[i].getIntValue();</p>
+
+<p class="Code" style="margin-left: 160px;">_RecipeControlDefault.AccessRight.write(ar);</p>
+
+<p class="Code" style="margin-left: 160px;">_CurPanelID.write(MainMenuPanel);</p>
+
+<p class="Code" style="margin-left: 160px;">return;</p>
+
+<p class="Code" style="margin-left: 120px;">}</p>
+
+<p class="Code" style="margin-left: 80px;">}</p>
+
+<p class="Code" style="margin-left: 40px;">}</p>
+
+<p class="Code" style="margin-left: 40px;">&#160;</p>
+<p class="Code" style="margin-left: 40px; color: #008000;">// 5. Check for System Administrator</p>
+
+<p class="Code" style="margin-left: 40px;">if (SystemAdminName.equals(user))</p>
+
+<p class="Code" style="margin-left: 40px;">{</p>
+
+<p class="Code" style="margin-left: 80px;">if (SystemAdminPassword.equals(login))</p>
+
+<p class="Code" style="margin-left: 80px;">{</p>
+
+<p class="Code" style="margin-left: 120px;">_CurPanelID.write(UserPasswordPanel);</p>
+
+<p class="Code" style="margin-left: 80px;">}</p>
+
+<p class="Code" style="margin-left: 40px;">}</p>
+
+<p>&#160;</p>
+<p style="font-weight: bold; color: #000000;">1. Get entered user name and password</p>
+<p style="color: #000000;">Copy into local variables the user name and password entered into the String Display parts on the panel. The script compares these values with the registered user names and passwords.</p>
+<p style="color: #000000;">Reset the user name and password fields.</p>
+<p style="color: #000000; font-weight: bold;">2. If either user or password is empty exit script</p>
+<p style="color: #000000; font-weight: normal;">The script exits if nothing has been entered as the user or password name.</p>
+<p style="color: #000000; font-weight: bold;">3. Check login user name/password with registered passwords and users</p>
+<p style="color: #000000; font-weight: normal;">The script compares the login user name and password with the list of registered user names and passwords.</p>
+<p style="color: #000000; font-weight: bold;">4. Matching user name and password</p>
+<p>If the login user name and password matches one of the accepted user names and passwords, the user's access right is assigned to the recipe control's AccessRight variable, then continues to the Main Menu. Recipe operations are accepted or denied depending on the value in the AccessRight variable.</p>
+<p style="color: #000000; font-weight: bold;">5. Check for System Administrator</p>
+<p>If the login user name and password doesn't match any registered user names and passwords, check if it's the administrator. If administrator, then go to the user name and password administration panel.</p>
+<p class="Image"><img src="limit.bmp" style="border: none;" alt="" width="77" height="24" border="0"></p>
+<ul>
+<li class="p-NoteText">
+<p class="NoteText">If you want to save user names and passwords so they're available when the target machine is powered down then up again, then they should be saved to equipment.</p>
+</li>
+</ul>
+<h4><img src="Square.bmp" style="border: none;" alt="" width="12" height="10" border="0">Running the Application</h4>
+<p>In this example, the Main Menu (Panel ID:10) is the actual start point for panel operations. Although the Login panel is the initial panel, it's only purpose is to identify the user and the user access right. And the User/Password/Access Right panel is used only to define users, passwords, and access rights.</p>
+<ol style="list-style: decimal;">
+<li class="p">
+<p>The system administrator should first login and enter <span style="font-weight: bold;">Admin</span> as the user name and <span style="font-weight: bold;">abcdefghij</span> for the password (or name and password you defined in the script), then touch the OK button.</p>
+</li>
+</ol>
+<p class="Image" style="margin-left: 40px;"><img src="Security_Login_Admin.bmp" style="border: none;" alt="" width="538" height="297" border="0"></p>
+<ol start="2" style="list-style: decimal;">
+<li class="p">
+<p>Define the users, passwords and their access right then touch Back to return to the Login panel.</p>
+</li>
+</ol>
+<p class="Image" style="margin-left: 40px;"><img src="RecipeUserPasswordPanel.bmp" style="border: none;" alt="" width="329" height="252" border="0"></p>
+<ol start="3" style="list-style: decimal;">
+<li class="p">
+<p>Once users and passwords are set up, the user can log in and begin operations from the main menu.</p>
+</li>
+</ol>
+<p class="Image" style="margin-left: 40px;"><img src="RecipeMainMenuPanel.bmp" style="border: none;" alt="" width="329" height="252" border="0"></p>
+<ol start="4" style="list-style: decimal;">
+<li class="p">
+<p>When the user runs recipe operations, the value in the AccessRight control variable, which stores the current logged in user's Access, is checked against the Recipe Access Right and access is accepted or denied.</p>
+</li>
+</ol>
+</body>
+</html>
