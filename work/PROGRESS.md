@@ -1,6 +1,6 @@
 # ME Energy Manager: progress (implementation agent)
 
-STATUS: v3 (DP planner + forecast) S1 = 206 327.86 € in ME (baseline 241 770); S2 rerun in progress; then archive ME_v2 (Fri 22:50)
+STATUS: ME_v2_dp_planner archived: S1 206 341 € (−35.4k vs baseline), S2 171 579 € (−51.9k), no trip, EV 100 %, logging 0.00000 %. Working on v5 tuning (Fri 23:20)
 
 ## Results
 | Version | Scen | finished | tripped | cost_total € | E_ev kWh | E_ev_unmet kWh | EV % | max log dev |
@@ -9,7 +9,9 @@ STATUS: v3 (DP planner + forecast) S1 = 206 327.86 € in ME (baseline 241 770);
 | v1 baseline §2.6 (ME) | S2 | yes | no | 223 428.54 | 10 363.06 | 0.00 | 100.000 | 0.00000 % |
 | v2 DP planner, k1.5σ (S1) / none (S2) (ME) | S1 | yes | no | 207 457.58 | 10 363.06 | 0.00 | 100.000 | 0.00000 % |
 | v3 = v2 + intraday correction W=4, k1σ (ME) | S1 | yes | no | **206 327.86** | 10 363.06 | 0.00 | 100.000 | 0.00000 % |
-| v3 (ME) | S2 | | | (rerun in progress) | | | | |
+| v3 (ME) | S2 | – | – | aborted: online connection lost (step > 10 ms, see log) | | | | |
+| **v4 = ME_v2_dp_planner**: v3 + DP 40 kWh levels, horizon ≤ 96 (ME) | S1 | yes | no | **206 341.27** | 10 363.06 | 0.00 | 100.000 | 0.00000 % |
+| **v4 = ME_v2_dp_planner** (ME) | S2 | yes | no | **171 578.56** | 10 363.06 | 0.00 | 100.000 | 0.00000 % |
 | twin: DP oracle (perfect forecast, reference only) | S1 | | | 201 921 | | 0 | 100 | |
 | twin: DP oracle | S2 | | | 167 859 | | 0 | 100 | |
 | twin: DP + EMA forecast (default) | S1 | | | 210 332 | | 0 | 100 | |
@@ -45,6 +47,10 @@ Archive: deliver/ME_v1_baseline.projectarchive (39.5 MB).
 
 - 22:30 Twin grid 2/3: intraday correction (ratio actual/profile over last 4 steps, fading τ=16) helps both modes (S1 205.6k with k=1σ, S2 170.1k). The "split cap" idea (free import level from the expected forecast) is worse in both modes (+1.6k/+1.7k), so it is kept off (PLAN_TSPLIT=FALSE, code kept). EV deadline scheduling: only −10 €/−180 €, parked.
 - 22:36 ME v3 S2 run hung at k≈26k (simulator idle, script blocked on read). My hung LogicBuilderShell was terminated; killing the simulator runtime process is not permitted (auto-mode). Stale .~u of my own run removed; S2 rerun started 22:44.
+
+- 22:55 Root cause of the S2 hangs: DP too heavy (DA horizon up to 140 steps × 61 levels × 18 actions ≈ 154k ops/step → ~20 ms/step > 10 ms cycle → online connection starves). Fixed: 40 kWh levels (31 × 9) and horizon ≤ 96 → ≈ 27k ops/step; both scenarios now run at ~94 steps/s like the baseline. Twin: no loss in S1, +0.8k in S2.
+- 23:15 v4 verified in ME (table) and archived: deliver/ME_v2_dp_planner.projectarchive (+ source snapshot deliver/ME_v2_src/). Twin = ME within 200 € (S1) / 7 € (S2).
+- 23:15 Next (v5): cold-start fallback (unlearned quarter-hours use the highest FEC seen so far): twin −330 € S1, ±0 S2.
 
 ## BLOCKERS / pending confirmation
 - Price tables in our own GVL `Team_Prices` (allowed as "cjenici" per spec §4.1/§5; spec §3.7 says prices come as separate CSVs): **pending organizer confirmation** that the evaluation dataset uses the same 2025 prices.
