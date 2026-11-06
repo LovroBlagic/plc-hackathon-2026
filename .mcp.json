@@ -1,0 +1,14 @@
+{
+  "mcpServers": {
+    "tia-portal": {
+      "type": "stdio",
+      "command": "tia-mcp",
+      "args": ["--access-mode", "read-write"]
+    },
+    "windows-mcp": {
+      "type": "stdio",
+      "command": "uvx",
+      "args": ["windows-mcp", "serve"]
+    }
+  }
+}

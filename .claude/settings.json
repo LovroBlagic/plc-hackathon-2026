@@ -1,0 +1,13 @@
+{
+  "extraKnownMarketplaces": {
+    "totally-integrated-claude": {
+      "source": {
+        "source": "github",
+        "repo": "Czarnak/totally-integrated-claude"
+      }
+    }
+  },
+  "enabledPlugins": {
+    "totally-integrated-claude@totally-integrated-claude": true
+  }
+}
