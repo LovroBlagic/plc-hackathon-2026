@@ -42,3 +42,6 @@ last_run.log
 # ME build maps / symbol exports
 *.Application.map
 work/*.Application.xml
+
+# Research scratch (may contain extracted vendor docs - never commit)
+research/
