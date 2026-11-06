@@ -82,6 +82,7 @@ ELSE
 	fbForecast(xReset := xReset, xUpdate := TRUE, k := k, iQh := iQh, iWeekday := iWeekday,
 		rFec := rFec, rPv := rFneAvail, xVt := xVt, aEvRem := aEvRem, aEvSteps := aEvSteps,
 		iH := iHorizon, rKsig := SEL(iPriceMode = 1, Team_Cfg.FC_KSIG_TT, Team_Cfg.FC_KSIG_DA),
+		rPvf := SEL(iPriceMode = 1, Team_Cfg.PLAN_PVF_TT, Team_Cfg.PLAN_PVF_DA),
 		aNet := aNet, aNetHi := aNetHi, aVtF := aVtF);
 
 	// prices over the horizon (price lists from Team_Prices, grid fee from SimParam)

@@ -74,6 +74,8 @@ class Forecaster:
         s.a_fec, s.a_pv, s.a_sig = a_fec, a_pv, a_sig
         s.cw, s.ctau, s.cpv, s.cfec = cw, ctau, cpv, cfec
         s.coldmax = False
+        s.med = 0
+        s.hist = [[[] for _ in range(96)] for _ in range(3)]
         s.hf = []; s.hp = []
         s.rf = 1.0; s.rp = 1.0
         s.fec = [[None] * 96 for _ in range(3)]
@@ -101,6 +103,10 @@ class Forecaster:
         if f is not None:
             s.sig[dt][q] += s.a_sig * (abs(fec - f) - s.sig[dt][q])
         s.fec[dt][q] = fec if f is None else f + s.a_fec * (fec - f)
+        if s.med:
+            hq = s.hist[dt][q]; hq.append(fec)
+            if len(hq) > s.med: hq.pop(0)
+            srt = sorted(hq); s.fec[dt][q] = srt[len(srt) // 2] if len(srt) % 2 else 0.5 * (srt[len(srt) // 2 - 1] + srt[len(srt) // 2])
         p = s.pv[q]
         s.pv[q] = pv if p is None else p + s.a_pv * (pv - p)
         s.vt[q] = vt
@@ -129,8 +135,10 @@ class Forecaster:
 def dp_strategy(H=96, dE=20.0, pen=20.0, tvf=0.9, pvf=0.6, cap_margin=1.02, realistic=False,
                 a_fec=0.5, a_pv=0.3, oracle=False, nacts=21, neg_curt=True, peak_mode=True, dbg=None,
                 ksig=0.0, a_sig=0.3, hi_in_dp=True, qf=0.0, cw=0, ctau=16.0, cpv=True, cfec=True,
-                ev_mode=0, ev_margin=2, tsplit=False, hmax=192, coldmax=False):
+                ev_mode=0, ev_margin=2, tsplit=False, hmax=192, coldmax=False,
+                capsel=None, capsel_w=1.0, med=0):
     fc = Forecaster(a_fec, a_pv, a_sig, cw, ctau, cpv, cfec)
+    fc.med = med
     fc.coldmax = coldmax
     from twin import load
     D = globals().get("_DATA") or load()
@@ -250,25 +258,47 @@ def dp_strategy(H=96, dE=20.0, pen=20.0, tvf=0.9, pvf=0.6, cap_margin=1.02, real
             Te = T
             Th = T
         tv = float(np.mean(ci)) * tvf
-        V = -(np.arange(NS + 1) * dE) * tv
-        for i in range(h - 1, 0, -1):
-            ca = stepcost(n[i], ci[i], ce[i], Te, bus, nh[i], Th if tsplit else None)
-            M = np.where(valid, ca[None, :] + V[sidx_c], 1e18)
-            V = M.min(axis=1)
+
+        def backward(Te_, Th_):
+            V = -(np.arange(NS + 1) * dE) * tv
+            for i in range(h - 1, 0, -1):
+                ca = stepcost(n[i], ci[i], ce[i], Te_, bus, nh[i], Th_ if tsplit else None)
+                M = np.where(valid, ca[None, :] + V[sidx_c], 1e18)
+                V = M.min(axis=1)
+            return V
+
+        def first(V, Te_, Th_):
+            bc, bd = bc_max(o["soc"]), bd_max(o["soc"])
+            bs = np.linspace(-bc, bd, nacts)
+            if n[0] > -bc and n[0] < bd:
+                bs = np.append(bs, n[0])
+            if peak_mode and n[0] - Te_ > -bc and n[0] - Te_ < bd:
+                bs = np.append(bs, n[0] - Te_)
+            E1 = E0 + np.where(bs < 0, -bs * TS * P["ETA_C"], -bs * TS / P["ETA_D"])
+            x = np.clip(E1 / dE, 0, NS)
+            v1 = np.interp(x, np.arange(NS + 1), V) if h > 1 else -E1 * tv
+            tot = stepcost(n[0], ci[0], ce[0], Te_, bs, n[0], Th_ if tsplit else None) + v1
+            ib = int(np.argmin(tot))
+            return float(bs[ib]), float(tot[ib])
+
+        if capsel is not None:
+            if t["qh"] == 0 or "delta" not in st or st.get("dmonth") != t["month"]:
+                # days left in the month including today
+                from twin import CUM
+                drem = CUM[t["month"]] - t["day"]
+                best = None
+                for dl in capsel:
+                    Tc = min(LIM_IMP, Te + dl)
+                    Vc = backward(Tc, max(Th, Tc))
+                    _, J = first(Vc, Tc, max(Th, Tc))
+                    score = J * drem * capsel_w + PEAK * (Tc - Te)
+                    if best is None or score < best[0]:
+                        best = (score, dl)
+                st["delta"] = best[1]; st["dmonth"] = t["month"]
+            Te = min(LIM_IMP, Te + st["delta"]); Th = max(Th, Te)
+        V = backward(Te, Th)
         bc, bd = bc_max(o["soc"]), bd_max(o["soc"])
-        bs = np.linspace(-bc, bd, nacts)
-        if n[0] > -bc and n[0] < bd:
-            bs = np.append(bs, n[0])          # exact self-consumption candidate
-        if peak_mode and n[0] - Te > -bc and n[0] - Te < bd:
-            bs = np.append(bs, n[0] - Te)
-        E1 = E0 + np.where(bs < 0, -bs * TS * P["ETA_C"], -bs * TS / P["ETA_D"])
-        x = np.clip(E1 / dE, 0, NS)
-        if h > 1:
-            v1 = np.interp(x, np.arange(NS + 1), V)
-        else:
-            v1 = -E1 * tv
-        tot = stepcost(n[0], ci[0], ce[0], Te, bs, n[0], Th if tsplit else None) + v1
-        pb = float(bs[int(np.argmin(tot))])
+        pb, _ = first(V, Te, Th)
         if n[0] - pb > Te:
             pb = min(bd, n[0] - Te)
         curt = None
@@ -283,9 +313,9 @@ def dp_strategy(H=96, dE=20.0, pen=20.0, tvf=0.9, pvf=0.6, cap_margin=1.02, real
 
 def st_config(mode):
     """Parameters equal to the ST implementation (Team_Cfg) for the given price mode."""
-    kw = dict(realistic=True, cw=4, dE=40.0, hmax=96)
+    kw = dict(realistic=True, cw=4, dE=40.0, hmax=96, coldmax=True)
     if mode == 0:
-        kw.update(ksig=1.0, hi_in_dp=True)
+        kw.update(ksig=1.0, hi_in_dp=True, pvf=0.6)
     else:
-        kw.update(ksig=0.0, hi_in_dp=False)
+        kw.update(ksig=0.0, hi_in_dp=False, pvf=0.2)
     return kw
