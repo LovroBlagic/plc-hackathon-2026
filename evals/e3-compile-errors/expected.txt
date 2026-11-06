@@ -1,0 +1,5 @@
+BUILD must FAIL with errors located in SR_Main (Impl) covering:
+- unqualified enum value AUTO (must be E_Mode.AUTO)
+- missing ';' after iCount + 1
+- INT assigned to BOOL
+- undeclared rTemp

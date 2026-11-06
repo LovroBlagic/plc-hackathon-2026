@@ -1,0 +1,7 @@
+[
+ {"name": "idle",          "set": {"SR_Main.xStartPB": false, "SR_Main.xStopPB": true, "SR_Main.xOverload": false}, "expect": {"SR_Main.fbConveyor.xMotor": false, "SR_Main.fbConveyor.xHorn": false}},
+ {"name": "press start",   "set": {"SR_Main.xStartPB": true},  "expect": {"SR_Main.fbConveyor.xHorn": true, "SR_Main.fbConveyor.xMotor": false}},
+ {"name": "after 2s motor","set": {"SR_Main.xStartPB": false}, "timeout_ms": 3000, "expect": {"SR_Main.fbConveyor.xMotor": true, "SR_Main.fbConveyor.xHorn": false}},
+ {"name": "press stop",    "set": {"SR_Main.xStopPB": false},  "expect": {"SR_Main.fbConveyor.xMotor": false}},
+ {"name": "fault blocks",  "set": {"SR_Main.xStopPB": true, "SR_Main.xOverload": true, "SR_Main.xStartPB": true}, "wait_ms": 500, "expect": {"SR_Main.fbConveyor.xMotor": false, "SR_Main.fbConveyor.xHorn": false, "SR_Main.fbConveyor.xFaultLamp": true}}
+]

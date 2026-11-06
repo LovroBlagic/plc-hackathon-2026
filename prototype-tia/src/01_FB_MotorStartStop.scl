@@ -1,0 +1,26 @@
+FUNCTION_BLOCK "FB_MotorStartStop"
+{ S7_Optimized_Access := 'TRUE' }
+VERSION : 0.1
+   VAR_INPUT
+      xStart : Bool;        // NO push button
+      xStop : Bool;         // NC push button (TRUE = not pressed)
+      xFault : Bool;        // motor protection tripped
+      tStartDelay : Time := T#2S;
+   END_VAR
+   VAR_OUTPUT
+      xHorn : Bool;
+      xMotor : Bool;
+      xFaultLamp : Bool;
+   END_VAR
+   VAR
+      xRunReq : Bool;
+      tonDelay : TON_TIME;
+   END_VAR
+
+BEGIN
+	#xRunReq := (#xStart OR #xRunReq) AND #xStop AND NOT #xFault;
+	#tonDelay(IN := #xRunReq, PT := #tStartDelay);
+	#xHorn := #xRunReq AND NOT #tonDelay.Q;
+	#xMotor := #tonDelay.Q;
+	#xFaultLamp := #xFault;
+END_FUNCTION_BLOCK

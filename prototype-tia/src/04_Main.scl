@@ -1,0 +1,10 @@
+ORGANIZATION_BLOCK "Main"
+TITLE = "Main Program Sweep (Cycle)"
+{ S7_Optimized_Access := 'TRUE' }
+VERSION : 0.1
+
+BEGIN
+	"DB_Conveyor"(xStart := "DB_IO".xStartPB,
+	              xStop := "DB_IO".xStopPB,
+	              xFault := "DB_IO".xOverload);
+END_ORGANIZATION_BLOCK

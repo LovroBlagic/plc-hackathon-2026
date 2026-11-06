@@ -1,0 +1,9 @@
+DATA_BLOCK "DB_Conveyor"
+{ S7_Optimized_Access := 'TRUE' }
+VERSION : 0.1
+NON_RETAIN
+"FB_MotorStartStop"
+
+BEGIN
+
+END_DATA_BLOCK

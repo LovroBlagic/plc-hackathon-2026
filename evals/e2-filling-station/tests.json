@@ -1,0 +1,10 @@
+[
+ {"name": "idle after boot",   "expect": {"SR_Main.fbStation.eState": "IDLE", "GVL_IO.xConveyor": false}},
+ {"name": "start -> conveyor", "set": {"GVL_IO.xStart": true}, "expect": {"SR_Main.fbStation.eState": "WAIT_BOTTLE", "GVL_IO.xConveyor": true}},
+ {"name": "bottle -> filling", "set": {"GVL_IO.xStart": false, "GVL_IO.xBottlePresent": true}, "expect": {"GVL_IO.xValve": true, "GVL_IO.xConveyor": false}},
+ {"name": "level -> capping",  "set": {"GVL_IO.xLevelReached": true}, "expect": {"GVL_IO.xCapper": true, "GVL_IO.xValve": false}},
+ {"name": "cap done -> next",  "set": {"GVL_IO.xLevelReached": false, "GVL_IO.xBottlePresent": false}, "timeout_ms": 1500, "expect": {"SR_Main.fbStation.iCount": 1, "SR_Main.fbStation.eState": "WAIT_BOTTLE"}},
+ {"name": "2nd bottle filling","set": {"GVL_IO.xBottlePresent": true}, "expect": {"GVL_IO.xValve": true}},
+ {"name": "overfill timeout",  "timeout_ms": 3500, "expect": {"SR_Main.fbStation.eState": "FAULT", "GVL_IO.xLampFault": true, "GVL_IO.xValve": false}},
+ {"name": "reset -> idle",     "set": {"GVL_IO.xReset": true, "GVL_IO.xBottlePresent": false}, "expect": {"SR_Main.fbStation.eState": "IDLE", "GVL_IO.xLampFault": false}}
+]

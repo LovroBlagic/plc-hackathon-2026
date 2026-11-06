@@ -1,0 +1,74 @@
+- Project Information
+- Project Settings
+- MyController  [device]
+  - Plc Logic
+    - Application  [app]
+      - Init  [folder]
+        - Init_All  [text]
+        - Init_Prof_FEC  [text]
+        - Init_Prof_EV  [text]
+        - Init_Prof_PriceDA  [text]
+        - Init_Prof_FNE  [text]
+        - Init_Prof_PriceTT  [text]
+        - Init_Prof_VT  [text]
+        - Init_SimCal  [text]
+        - Init_SimParam  [text]
+        - Init_SimCtrl  [text]
+      - Task Configuration
+        - MAST
+          - SR_Main_Sim
+      - CustomTypes  [folder]
+        - typeEVCmd  [text]
+        - typeSimOut  [text]
+        - typeSimTime  [text]
+        - typeAgg  [text]
+        - typeSimCmd  [text]
+        - typeEVOut  [text]
+      - Profiles  [folder]
+        - Prof_VT  [text]
+        - Prof_PriceDA  [text]
+        - Prof_FNE  [text]
+        - Prof_FEC  [text]
+        - Prof_EV  [text]
+        - Prof_PriceTT  [text]
+      - Library Manager
+      - SR_Main_Sim  [text]
+      - Simulation  [folder]
+        - Sim_TimeFromK  [text]
+        - Sim_Core  [text]
+        - Sim_Accumulate  [text]
+      - SimCal  [text]
+      - SimParam  [text]
+      - SimCtrl  [text]
+      - SimIO  [text]
+      - SimScore  [text]
+      - Team_Main  [text]
+      - Date_and_Time  [folder]
+        - GVL_HMI  [text]
+        - Datum_Vrijeme_Get  [text]
+        - Datum_Vrijeme_Set  [text]
+      - Symbols
+  - CAN_1  [device]
+  - Pulse_Generators  [device]
+  - DI  [device]
+  - DQ  [device]
+  - Serial_Line_1  [device]
+  - Counters  [device]
+  - IO_Bus  [device]
+  - Serial_Line_2  [device]
+  - Cartridge_1  [device]
+  - Ethernet_1  [device]
+  - COM_Bus  [device]
+- HMIG2U_HMIDT351  [device]
+  - HMI Application
+  - COM1
+    - Machine_Expert_Network_Manager  [device]
+  - COM2
+    - Machine_Expert_Network_Manager1  [device]
+  - Ethernet
+    - Machine_Expert_Network_Manager2  [device]
+  - USB
+    - Machine_Expert_Network_Manager3  [device]
+- Vijeo Designer Project Container Data
+- Vijeo Designer Project Container
+- __VisualizationStyle

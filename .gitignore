@@ -3,3 +3,42 @@
 siemens-tia-portal/Siemens_Automation_License_Manager_V6.2_SP5.exe
 schneider-machine-expert/ESEMACS10_INSTALLER.zip
 ESEMACS10_INSTALLER.zip
+
+# --- Task archives: canonical copies live in schneider-machine-expert/ and siemens-tia-portal/ ---
+task/**/*.zip
+task/**/*.zap21
+
+# --- Machine Expert build/simulation artifacts and locks ---
+*.~u
+*.opt
+*.bootinfo
+*.bootinfo_guids
+*.compileinfo
+*.precompilecache
+*.project.bak
+*.backup
+# Live binary projects are rebuilt from sources (work/src) — share milestone archives via deliver/ instead
+*.project
+work-gui/
+
+# --- TIA Portal project folders (retrieved/working copies; share .zap21 archives via deliver/) ---
+*.ap21
+prototype-tia/ProtoTIA/
+tia-work/
+**/IM/
+**/System/
+**/XRef/
+**/Logs/
+**/UserFiles/
+**/AdditionalFiles/
+**/TMP/
+
+# --- Misc ---
+__pycache__/
+*.pyc
+*.log
+last_run.log
+
+# ME build maps / symbol exports
+*.Application.map
+work/*.Application.xml
