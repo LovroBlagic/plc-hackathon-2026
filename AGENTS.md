@@ -332,3 +332,9 @@ Notes:
     - Findings: trip uses strict `>`; exact clamps; the **EV departure quirk** (P_charge_act = 0 in the departure interval); the DA price is hourly until 30 Sep and 15-min after that.
   - Team git repo set up; sync.ps1; push works as AnalenaS (write access granted).
   - Organizer clarification: the TIA crane task has only one yard bay (no Bay 2).
+- **2026-11-06 (ME implementation agent, 20:50–):**
+  - `me_run.py` gained `--folder`, `--year 0,1`, `--extra`, `--save-archive`. A full year at 10 ms takes about 6.5 min per scenario.
+  - Team code lives in app folder `Team`; sources are in `work/src`. Progress is tracked in `work/PROGRESS.md` and the HMI variable list in `work/HMI_VARIABLES.md`.
+  - The v1 baseline (§2.6 + FB_GridGuard + loggers) finishes S1/S2 with no trip and 100 % EV. Team_Results matches SimScore to 0.00000 %. Costs: S1 241,770.34 €, S2 223,428.54 €. Archive: `deliver/ME_v1_baseline.projectarchive`.
+  - Sim_Core quirk: an EV departing at step k reports P_charge_act = 0 for interval k−1, but SimScore still counts that energy. The logger substitutes our clamped command for that interval.
+  - Python twin `tools/twin.py` reproduces ME exactly. Strategy prototypes are in `tools/strategies.py`, and `tools/tune.py` runs them in parallel.

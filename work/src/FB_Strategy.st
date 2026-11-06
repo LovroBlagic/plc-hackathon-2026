@@ -37,7 +37,7 @@ VAR
 	fbForecast : FB_Forecast;
 	fbPlanner : FB_Planner;
 	aNet : ARRAY[0..191] OF REAL;       // forecast net load
-	aPvF : ARRAY[0..191] OF REAL;       // forecast PV
+	aNetHi : ARRAY[0..191] OF REAL;     // pessimistic net load
 	aVtF : ARRAY[0..191] OF BOOL;       // forecast VT
 	aCi : ARRAY[0..191] OF REAL;        // import price + fee
 	aCe : ARRAY[0..191] OF REAL;        // export value
@@ -80,8 +80,7 @@ ELSE
 
 	fbForecast(xReset := xReset, xUpdate := TRUE, k := k, iQh := iQh, iWeekday := iWeekday,
 		rFec := rFec, rPv := rFneAvail, xVt := xVt, aEvRem := aEvRem, aEvSteps := aEvSteps,
-		iH := iHorizon, rAlphaFec := Team_Cfg.FC_ALPHA_FEC, rAlphaPv := Team_Cfg.FC_ALPHA_PV,
-		aNet := aNet, aPvF := aPvF, aVtF := aVtF);
+		iH := iHorizon, aNet := aNet, aNetHi := aNetHi, aVtF := aVtF);
 
 	// prices over the horizon (price lists from Team_Prices, grid fee from SimParam)
 	FOR i := 0 TO iHorizon - 1 DO
@@ -101,7 +100,7 @@ ELSE
 	END_FOR;
 
 	fbPlanner(iH := iHorizon, rSoc := rSoc, rBcMax := rBcMax, rBdMax := rBdMax, rPeakSoFar := rPeakSoFar,
-		aNet := aNet, aPvF := aPvF, aCi := aCi, aCe := aCe);
+		aNet := aNet, aNetHi := aNetHi, aCi := aCi, aCe := aCe);
 	rPbReq := fbPlanner.rPb;
 	rPeakTarget := fbPlanner.rT;
 

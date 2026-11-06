@@ -1,10 +1,10 @@
 FUNCTION_BLOCK FB_Planner
 // Rolling-horizon battery planner, re-solved every step (model predictive control).
 //  1. Monthly peak cap T: the peak of the month so far is already paid, so T >= that peak.
-//     A bisection finds the lowest cap the battery can hold over the forecast horizon
-//     (PV de-rated for safety); T = max(peak so far, that cap * margin).
+//     A bisection finds the lowest cap the battery can hold over the PESSIMISTIC forecast
+//     (aNetHi); T = max(peak so far, that cap * margin).
 //  2. Dynamic programming over the stored battery energy (0..1200 kWh in PLAN_DE steps):
-//     cost(i) = import*TS*(price+fee) - export*TS*0.9*price(>=0) + PEN*(import above T),
+//     cost(i) = import*TS*(price+fee) - export*TS*0.9*price(>=0) + PEN*(pessimistic import above T),
 //     terminal value of stored energy = mean import price * PLAN_TVF.
 //  3. The first interval is optimised with continuous candidates and the exact current values.
 // Output rPb: requested BESS power for interval k (+ discharge / - charge); FB_GridGuard checks it.
@@ -17,7 +17,7 @@ VAR_INPUT
 END_VAR
 VAR_IN_OUT
 	aNet : ARRAY[0..191] OF REAL;       // forecast net load without battery [kW] (i = 0 is exact)
-	aPvF : ARRAY[0..191] OF REAL;       // forecast PV [kW]
+	aNetHi : ARRAY[0..191] OF REAL;     // pessimistic net load for the peak cap [kW]
 	aCi : ARRAY[0..191] OF REAL;        // import cost price + grid fee [EUR/kWh]
 	aCe : ARRAY[0..191] OF REAL;        // export value 0.9*price, >= 0 [EUR/kWh]
 END_VAR
@@ -29,7 +29,7 @@ VAR CONSTANT
 	NS : INT := 60;                     // energy levels 0..NS (EUSE / PLAN_DE)
 	AMIN : INT := -9;                   // max discharge levels per step (750*0.25/0.95/20 = 9.9)
 	AMAX : INT := 8;                    // max charge levels per step (750*0.25*0.95/20 = 8.9)
-	NCAND : INT := 21;                  // first-step candidates
+	N_FIRST : INT := 21;                  // first-step candidates
 END_VAR
 VAR
 	V : ARRAY[0..60] OF REAL;           // value function at i+1
@@ -38,7 +38,7 @@ VAR
 	aCa : ARRAY[-9..8] OF REAL;         // stage cost of each action
 	h : INT;
 	i : INT;
-	s : INT;
+	iE : INT;
 	a : INT;
 	m : INT;
 	n : INT;
@@ -92,10 +92,7 @@ FOR n := 0 TO 13 DO
 	xOk := TRUE;
 	rE := rE0;
 	FOR i := 0 TO h - 1 DO
-		rG := aNet[i];
-		IF i > 0 THEN
-			rG := rG + (1.0 - Team_Cfg.PLAN_PVF) * aPvF[i];   // pessimistic PV for the peak check
-		END_IF;
+		rG := aNetHi[i];                // pessimistic load / PV for the peak check
 		IF rG > rMid THEN
 			rNeed := rG - rMid;
 			rE := rE - rNeed * ts / etaD;
@@ -130,8 +127,8 @@ FOR i := 0 TO h - 1 DO
 	rTv := rTv + aCi[i];
 END_FOR;
 rTv := rTv / INT_TO_REAL(h) * Team_Cfg.PLAN_TVF;
-FOR s := 0 TO NS DO
-	V[s] := -INT_TO_REAL(s) * rDE * rTv;
+FOR iE := 0 TO NS DO
+	V[iE] := -INT_TO_REAL(iE) * rDE * rTv;
 END_FOR;
 FOR a := AMIN TO AMAX DO
 	IF a > 0 THEN
@@ -142,25 +139,30 @@ FOR a := AMIN TO AMAX DO
 END_FOR;
 FOR i := h - 1 TO 1 BY -1 DO
 	FOR a := AMIN TO AMAX DO
-		aCa[a] := F_StageCost(aNet[i] - aBus[a], aCi[i], aCe[i], rT, limExp);
+		IF Team_Cfg.PLAN_HI_IN_DP THEN
+			rG := aNetHi[i] - aBus[a];
+		ELSE
+			rG := aNet[i] - aBus[a];
+		END_IF;
+		aCa[a] := F_StageCost(aNet[i] - aBus[a], rG, aCi[i], aCe[i], rT, limExp);
 	END_FOR;
-	FOR s := 0 TO NS DO
+	FOR iE := 0 TO NS DO
 		rBest := 3.0E38;
-		FOR a := MAX(AMIN, -s) TO MIN(AMAX, NS - s) DO
-			rV := aCa[a] + V[s + a];
+		FOR a := MAX(AMIN, -iE) TO MIN(AMAX, NS - iE) DO
+			rV := aCa[a] + V[iE + a];
 			IF rV < rBest THEN
 				rBest := rV;
 			END_IF;
 		END_FOR;
-		Vn[s] := rBest;
+		Vn[iE] := rBest;
 	END_FOR;
 	V := Vn;
 END_FOR;
 
 // ---------------- 3. first interval: continuous candidates ----------------
 nCand := 0;
-FOR m := 0 TO NCAND - 1 DO
-	aCand[nCand] := -rBcMax + (rBcMax + rBdMax) * INT_TO_REAL(m) / INT_TO_REAL(NCAND - 1);
+FOR m := 0 TO N_FIRST - 1 DO
+	aCand[nCand] := -rBcMax + (rBcMax + rBdMax) * INT_TO_REAL(m) / INT_TO_REAL(N_FIRST - 1);
 	nCand := nCand + 1;
 END_FOR;
 IF aNet[0] > -rBcMax AND aNet[0] < rBdMax THEN
@@ -192,7 +194,7 @@ FOR m := 0 TO nCand - 1 DO
 	ELSE
 		rV := -rE * rTv;
 	END_IF;
-	rC := F_StageCost(aNet[0] - rB, aCi[0], aCe[0], rT, limExp) + rV;
+	rC := F_StageCost(aNet[0] - rB, aNet[0] - rB, aCi[0], aCe[0], rT, limExp) + rV;
 	IF rC < rBest THEN
 		rBest := rC;
 		rPb := rB;

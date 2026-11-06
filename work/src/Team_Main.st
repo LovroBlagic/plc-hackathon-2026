@@ -45,7 +45,7 @@ VAR
 	fbStrategy : FB_Strategy;           // task 1: what we would like to do
 	fbGuard : FB_GridGuard;             // task 1: grid-limit protection (always last)
 	fbHmi : FB_HmiUpdate;               // task 4 support data
-	iStrategy : INT := 0;               // 0 = baseline (spec 2.6)
+	iStrategy : INT := 1;               // 0 = baseline (spec 2.6), 1 = forecast + planner
 	// ---- command ----
 	stCmd : typeSimCmd;                 // command for the current interval (held between steps)
 	stCmdZero : typeSimCmd;             // never written -> all FALSE / 0

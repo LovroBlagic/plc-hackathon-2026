@@ -131,3 +131,31 @@ if __name__ == "__main__":
         r = simulate(c, m)
         print("TWIN %s mode=%d %s" % (name, m, fmt(r)))
         print("   peaks", [round(x) for x in r["mpeak"]])
+
+
+VARIANTS = {0: (0, 0, 0), 1: (7, 3, 7), 2: (-14, 11, -7), 3: (28, -20, 14), 4: (-35, 40, -14), 5: (14, -9, 21)}
+
+
+def variant(vid):
+    """Synthetic dataset with the same statistics: FEC shifted by whole weeks (keeps weekday pattern),
+    PV shifted by days, EV sessions shifted by whole weeks. Prices unchanged (fixed in the evaluation)."""
+    base = load()
+    if vid == 0:
+        return base
+    df, dp, de = VARIANTS[vid]
+    def rot(a, d):
+        s = (d * 96) % N
+        return a[-s:] + a[:-s] if s else a[:]
+    v = dict(base)
+    v["fec"] = rot(base["fec"], df)
+    v["fne"] = rot(base["fne"], dp)
+    ev = []
+    for j in range(4):
+        ss = []
+        for (a, d, e) in base["ev"][j]:
+            a2, d2 = a + de * 96, d + de * 96
+            if a2 >= 0 and a2 < N:
+                ss.append((a2, min(d2, N), e))
+        ev.append(ss)
+    v["ev"] = ev
+    return v

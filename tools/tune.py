@@ -5,9 +5,14 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
 def run(job):
     import twin, strategies
-    label, kw, mode = job
-    r = twin.simulate(strategies.dp_strategy(**kw), mode)
-    return "%-28s m%d %s peaks=%s" % (label, mode, twin.fmt(r), [round(x) for x in r["mpeak"]])
+    label, kw, mode = job[:3]
+    vid = job[3] if len(job) > 3 else 0
+    d = twin.variant(vid)
+    import strategies as S
+    S._DATA = d
+    fn = kw.pop("_fn", "dp_strategy")
+    r = twin.simulate(getattr(strategies, fn)(**kw), mode, data=d)
+    return "%-22s v%d m%d %s peaks=%s" % (label, vid, mode, twin.fmt(r), [round(x) for x in r["mpeak"]])
 
 if __name__ == "__main__":
     jobs = json.loads(open(sys.argv[1]).read()) if os.path.exists(sys.argv[1]) else json.loads(sys.argv[1])
