@@ -3,7 +3,7 @@ FUNCTION_BLOCK FB_Planner
 //  1. Monthly peak cap T: the peak of the month so far is already paid, so T >= that peak.
 //     A bisection finds the lowest cap the battery can hold over the PESSIMISTIC forecast
 //     (aNetHi); T = max(peak so far, that cap * margin).
-//  2. Dynamic programming over the stored battery energy (0..1200 kWh in PLAN_DE steps):
+//  2. Dynamic programming over the stored battery energy (0..1200 kWh in 40 kWh levels):
 //     cost(i) = import*TS*(price+fee) - export*TS*0.9*price(>=0) + PEN*(pessimistic import above T),
 //     terminal value of stored energy = mean import price * PLAN_TVF.
 //  3. The first interval is optimised with continuous candidates and the exact current values.
@@ -24,25 +24,25 @@ VAR_IN_OUT
 END_VAR
 VAR_OUTPUT
 	rPb : REAL;                         // requested battery power, + discharge / - charge
-	rT : REAL;                          // import cap used [kW]
+	rT : REAL;                          // free import level (cap) used [kW]
+	rTh : REAL;                         // cap under the pessimistic forecast [kW]
 END_VAR
 VAR CONSTANT
-	NS : INT := 60;                     // energy levels 0..NS (EUSE / PLAN_DE)
-	AMIN : INT := -9;                   // max discharge levels per step (750*0.25/0.95/20 = 9.9)
-	AMAX : INT := 8;                    // max charge levels per step (750*0.25*0.95/20 = 8.9)
+	NS : INT := 30;                     // energy levels 0..NS: 1200 kWh / 30 = 40 kWh per level
+	AMIN : INT := -4;                   // max discharge levels per step (750*0.25/0.95/40 = 4.9)
+	AMAX : INT := 4;                    // max charge levels per step (750*0.25*0.95/40 = 4.5)
 	N_FIRST : INT := 21;                  // first-step candidates
 END_VAR
 VAR
-	V : ARRAY[0..60] OF REAL;           // value function at i+1
-	Vn : ARRAY[0..60] OF REAL;          // value function at i
-	aBus : ARRAY[-9..8] OF REAL;        // bus power of each action, + discharge
-	aCa : ARRAY[-9..8] OF REAL;         // stage cost of each action
+	V : ARRAY[0..30] OF REAL;           // value function at i+1
+	Vn : ARRAY[0..30] OF REAL;          // value function at i
+	aBus : ARRAY[-4..4] OF REAL;        // bus power of each action, + discharge
+	aCa : ARRAY[-4..4] OF REAL;         // stage cost of each action
 	h : INT;
 	i : INT;
 	iE : INT;
 	a : INT;
 	m : INT;
-	n : INT;
 	rDE : REAL;
 	rEuse : REAL;
 	rE0 : REAL;
@@ -52,15 +52,9 @@ VAR
 	rC : REAL;
 	rBest : REAL;
 	rV : REAL;
-	rLo : REAL;
-	rHi : REAL;
-	rMid : REAL;
-	rTp : REAL;
 	rB : REAL;
 	rX : REAL;
 	rFr : REAL;
-	rNeed : REAL;
-	xOk : BOOL;
 	iS0 : INT;
 	aCand : ARRAY[0..22] OF REAL;
 	nCand : INT;
@@ -81,46 +75,16 @@ rDE := rEuse / INT_TO_REAL(NS);
 h := LIMIT(1, iH, 192);
 rE0 := (rSoc - SimParam.BESS_SOC_MIN) / 100.0 * SimParam.BESS_CAPACITY;
 
-// ---------------- 1. monthly import cap ----------------
-// feasibility of cap rMid: battery covers net load above the cap, recharges below it
-rTp := rPeakSoFar;
-FOR n := 0 TO 13 DO
-	IF n = 0 THEN
-		rMid := rPeakSoFar;
-	ELSE
-		rMid := 0.5 * (rLo + rHi);
-	END_IF;
-	xOk := TRUE;
-	rE := rE0;
-	FOR i := 0 TO h - 1 DO
-		rG := aNetHi[i];                // pessimistic load / PV for the peak check
-		IF rG > rMid THEN
-			rNeed := rG - rMid;
-			rE := rE - rNeed * ts / etaD;
-			IF rNeed > SimParam.BESS_MAX_DCH OR rE < 0.0 THEN
-				xOk := FALSE;
-				EXIT;
-			END_IF;
-		ELSE
-			rE := rE + MIN(MIN(rMid - rG, SimParam.BESS_MAX_CHG), (rEuse - rE) / (ts * etaC)) * ts * etaC;
-		END_IF;
-	END_FOR;
-	IF n = 0 THEN
-		IF xOk THEN
-			EXIT;                       // the already-paid peak is enough
-		END_IF;
-		rLo := rPeakSoFar;
-		rHi := limImp;
-	ELSIF xOk THEN
-		rHi := rMid;
-	ELSE
-		rLo := rMid;
-	END_IF;
-	IF n = 13 THEN
-		rTp := MIN(limImp, rHi * Team_Cfg.PLAN_CAPM);
-	END_IF;
-END_FOR;
-rT := MAX(rPeakSoFar, rTp);
+// ---------------- 1. monthly import caps ----------------
+// rTh: cap the battery can hold under the PESSIMISTIC forecast (reserve)
+// rT : free import level. Without PLAN_TSPLIT rT = rTh; with it rT is the cap needed under the
+//      EXPECTED forecast, so the DP never plans grid charging above what the load needs anyway.
+rTh := F_PeakCap(h := h, rE0 := rE0, rFloor := rPeakSoFar, rLimImp := limImp, aLoad := aNetHi);
+IF Team_Cfg.PLAN_TSPLIT THEN
+	rT := F_PeakCap(h := h, rE0 := rE0, rFloor := rPeakSoFar, rLimImp := limImp, aLoad := aNet);
+ELSE
+	rT := rTh;
+END_IF;
 
 // ---------------- 2. DP backward over stored energy ----------------
 rTv := 0.0;
@@ -140,12 +104,19 @@ FOR a := AMIN TO AMAX DO
 END_FOR;
 FOR i := h - 1 TO 1 BY -1 DO
 	FOR a := AMIN TO AMAX DO
-		IF xHiInDp THEN
-			rG := aNetHi[i] - aBus[a];
+		IF NOT Team_Cfg.PLAN_TSPLIT THEN
+			IF xHiInDp THEN
+				rG := aNetHi[i] - aBus[a];
+			ELSE
+				rG := aNet[i] - aBus[a];
+			END_IF;
+			aCa[a] := F_StageCost(aNet[i] - aBus[a], rG, aCi[i], aCe[i], rT, limExp);
 		ELSE
-			rG := aNet[i] - aBus[a];
+			aCa[a] := F_StageCost(aNet[i] - aBus[a], aNet[i] - aBus[a], aCi[i], aCe[i], rT, limExp);
+			IF xHiInDp AND aNetHi[i] - aBus[a] > rTh THEN
+				aCa[a] := aCa[a] + Team_Cfg.PLAN_PEN * (aNetHi[i] - aBus[a] - rTh);
+			END_IF;
 		END_IF;
-		aCa[a] := F_StageCost(aNet[i] - aBus[a], rG, aCi[i], aCe[i], rT, limExp);
 	END_FOR;
 	FOR iE := 0 TO NS DO
 		rBest := 3.0E38;

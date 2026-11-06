@@ -1,12 +1,15 @@
 # ME Energy Manager: progress (implementation agent)
 
-STATUS: M1–M4 done (baseline archived). M5: DP planner v2 (per-mode reserve) running full-year in ME; twin says ≈ −35k€ (S1) / −51k€ (S2) vs baseline (Fri 22:00)
+STATUS: v3 (DP planner + forecast) S1 = 206 327.86 € in ME (baseline 241 770); S2 rerun in progress; then archive ME_v2 (Fri 22:50)
 
 ## Results
 | Version | Scen | finished | tripped | cost_total € | E_ev kWh | E_ev_unmet kWh | EV % | max log dev |
 |---|---|---|---|---|---|---|---|---|
 | v1 baseline §2.6 (ME) | S1 | yes | no | 241 770.34 | 10 363.06 | 0.00 | 100.000 | 0.00000 % |
 | v1 baseline §2.6 (ME) | S2 | yes | no | 223 428.54 | 10 363.06 | 0.00 | 100.000 | 0.00000 % |
+| v2 DP planner, k1.5σ (S1) / none (S2) (ME) | S1 | yes | no | 207 457.58 | 10 363.06 | 0.00 | 100.000 | 0.00000 % |
+| v3 = v2 + intraday correction W=4, k1σ (ME) | S1 | yes | no | **206 327.86** | 10 363.06 | 0.00 | 100.000 | 0.00000 % |
+| v3 (ME) | S2 | | | (rerun in progress) | | | | |
 | twin: DP oracle (perfect forecast, reference only) | S1 | | | 201 921 | | 0 | 100 | |
 | twin: DP oracle | S2 | | | 167 859 | | 0 | 100 | |
 | twin: DP + EMA forecast (default) | S1 | | | 210 332 | | 0 | 100 | |
@@ -39,6 +42,9 @@ Archive: deliver/ME_v1_baseline.projectarchive (39.5 MB).
 
 - 21:45 ME login failed once ("No connection to the gateway") while 15 CPU-bound twin processes were running; retry with ≤10 twin workers worked. DP planner in ST runs ~94 steps/s at 10 ms (same as baseline) → fits the cycle.
 - 21:55 ST: reserved word `s` and case-insensitive name clash (NCAND vs nCand) fixed. Per-mode reserve settings ported. ME S1/S2 run of v2 in progress; twin grid 2 (intraday forecast correction) and EV deadline scheduling test running.
+
+- 22:30 Twin grid 2/3: intraday correction (ratio actual/profile over last 4 steps, fading τ=16) helps both modes (S1 205.6k with k=1σ, S2 170.1k). The "split cap" idea (free import level from the expected forecast) is worse in both modes (+1.6k/+1.7k), so it is kept off (PLAN_TSPLIT=FALSE, code kept). EV deadline scheduling: only −10 €/−180 €, parked.
+- 22:36 ME v3 S2 run hung at k≈26k (simulator idle, script blocked on read). My hung LogicBuilderShell was terminated; killing the simulator runtime process is not permitted (auto-mode). Stale .~u of my own run removed; S2 rerun started 22:44.
 
 ## BLOCKERS / pending confirmation
 - Price tables in our own GVL `Team_Prices` (allowed as "cjenici" per spec §4.1/§5; spec §3.7 says prices come as separate CSVs): **pending organizer confirmation** that the evaluation dataset uses the same 2025 prices.

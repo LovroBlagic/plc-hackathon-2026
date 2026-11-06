@@ -73,6 +73,7 @@ class Forecaster:
     def __init__(s, a_fec=0.5, a_pv=0.3, a_sig=0.3, cw=0, ctau=16.0, cpv=True, cfec=True):
         s.a_fec, s.a_pv, s.a_sig = a_fec, a_pv, a_sig
         s.cw, s.ctau, s.cpv, s.cfec = cw, ctau, cpv, cfec
+        s.coldmax = False
         s.hf = []; s.hp = []
         s.rf = 1.0; s.rp = 1.0
         s.fec = [[None] * 96 for _ in range(3)]
@@ -86,6 +87,7 @@ class Forecaster:
 
     def update(s, t, fec, pv, vt):
         s.cur = fec
+        s.fmax = max(getattr(s, "fmax", 0.0), fec)
         dt = s.dtype(t["weekday"]); q = t["qh"]
         f = s.fec[dt][q]
         p0 = s.pv[q]
@@ -111,7 +113,7 @@ class Forecaster:
         wd = ((2 + day) % 7) + 1
         v = s.fec[s.dtype(wd)][q]
         if v is None:
-            v = s.fec[0][q] if s.fec[0][q] is not None else s.cur
+            v = s.fec[0][q] if s.fec[0][q] is not None else (s.fmax if s.coldmax else s.cur)
         return v
 
     def sig_at(s, k):
@@ -127,8 +129,9 @@ class Forecaster:
 def dp_strategy(H=96, dE=20.0, pen=20.0, tvf=0.9, pvf=0.6, cap_margin=1.02, realistic=False,
                 a_fec=0.5, a_pv=0.3, oracle=False, nacts=21, neg_curt=True, peak_mode=True, dbg=None,
                 ksig=0.0, a_sig=0.3, hi_in_dp=True, qf=0.0, cw=0, ctau=16.0, cpv=True, cfec=True,
-                ev_mode=0, ev_margin=2):
+                ev_mode=0, ev_margin=2, tsplit=False, hmax=192, coldmax=False):
     fc = Forecaster(a_fec, a_pv, a_sig, cw, ctau, cpv, cfec)
+    fc.coldmax = coldmax
     from twin import load
     D = globals().get("_DATA") or load()
     NS = int(round(EUSE / dE))
@@ -143,12 +146,17 @@ def dp_strategy(H=96, dE=20.0, pen=20.0, tvf=0.9, pvf=0.6, cap_margin=1.02, real
     sidx_c = np.clip(sidx, 0, NS)
     st = dict(month=0, T=0.0)
 
-    def stepcost(n, ci, ce, T, b, nh):
+    def stepcost(n, ci, ce, T, b, nh, Th=None):
         g = n - b
         imp = np.maximum(g, 0.0); ex = np.minimum(np.maximum(-g, 0.0), LIM_EXP)
         c = imp * TS * ci - ex * TS * ce + qf * imp * imp * TS / 1000.0
         if peak_mode:
-            c = c + pen * np.maximum(nh - b - T, 0.0)
+            if Th is None:
+                c = c + pen * np.maximum(nh - b - T, 0.0)
+            else:   # split: expected import above the free level T, pessimistic import above Th
+                c = c + pen * np.maximum(g - T, 0.0)
+                if hi_in_dp:
+                    c = c + pen * np.maximum(nh - b - Th, 0.0)
         return c
 
     def c(o):
@@ -156,7 +164,7 @@ def dp_strategy(H=96, dE=20.0, pen=20.0, tvf=0.9, pvf=0.6, cap_margin=1.02, real
         fc.update(t, o["fec"], o["fne"], o["vt"])
         evm = [ev_max(e) for e in o["ev"]]
         if realistic and o["mode"] == 1:
-            h = (96 - t["qh"]) + (96 if t["qh"] >= 52 else 0)
+            h = min(hmax, (96 - t["qh"]) + (96 if t["qh"] >= 52 else 0))
         else:
             h = H
         h = max(1, min(h, 35040 - k))
@@ -212,10 +220,10 @@ def dp_strategy(H=96, dE=20.0, pen=20.0, tvf=0.9, pvf=0.6, cap_margin=1.02, real
                 npk[i] += ksig * fc.sig_at(k + i)
         nh = npk if hi_in_dp else n
 
-        def feasible(T):
+        def feasible(T, arr):
             E = E0
             for i in range(h):
-                g = npk[i]
+                g = arr[i]
                 if g > T:
                     need = g - T
                     if need > P["BDC"]: return False
@@ -224,43 +232,60 @@ def dp_strategy(H=96, dE=20.0, pen=20.0, tvf=0.9, pvf=0.6, cap_margin=1.02, real
                 else:
                     E += min(T - g, P["BCH"], (EUSE - E) / (TS * P["ETA_C"])) * TS * P["ETA_C"]
             return True
-        if feasible(st["T"]):
-            Tp = st["T"]
-        else:
+
+        def cap(arr):
+            if feasible(st["T"], arr):
+                return st["T"]
             lo, hi = st["T"], LIM_IMP
             for _ in range(12):
                 mid = 0.5 * (lo + hi)
-                if feasible(mid): hi = mid
+                if feasible(mid, arr): hi = mid
                 else: lo = mid
-            Tp = min(LIM_IMP, hi * cap_margin)
-        T = max(st["T"], Tp)
+            return max(st["T"], min(LIM_IMP, hi * cap_margin))
+        T = cap(npk)
+        if tsplit:
+            Te = cap(n)
+            Th = T
+        else:
+            Te = T
+            Th = T
         tv = float(np.mean(ci)) * tvf
         V = -(np.arange(NS + 1) * dE) * tv
         for i in range(h - 1, 0, -1):
-            ca = stepcost(n[i], ci[i], ce[i], T, bus, nh[i])
+            ca = stepcost(n[i], ci[i], ce[i], Te, bus, nh[i], Th if tsplit else None)
             M = np.where(valid, ca[None, :] + V[sidx_c], 1e18)
             V = M.min(axis=1)
         bc, bd = bc_max(o["soc"]), bd_max(o["soc"])
         bs = np.linspace(-bc, bd, nacts)
         if n[0] > -bc and n[0] < bd:
             bs = np.append(bs, n[0])          # exact self-consumption candidate
-        if peak_mode and n[0] - T > -bc and n[0] - T < bd:
-            bs = np.append(bs, n[0] - T)
+        if peak_mode and n[0] - Te > -bc and n[0] - Te < bd:
+            bs = np.append(bs, n[0] - Te)
         E1 = E0 + np.where(bs < 0, -bs * TS * P["ETA_C"], -bs * TS / P["ETA_D"])
         x = np.clip(E1 / dE, 0, NS)
         if h > 1:
             v1 = np.interp(x, np.arange(NS + 1), V)
         else:
             v1 = -E1 * tv
-        tot = stepcost(n[0], ci[0], ce[0], T, bs, n[0]) + v1
+        tot = stepcost(n[0], ci[0], ce[0], Te, bs, n[0], Th if tsplit else None) + v1
         pb = float(bs[int(np.argmin(tot))])
-        if n[0] - pb > T:
-            pb = min(bd, n[0] - T)
+        if n[0] - pb > Te:
+            pb = min(bd, n[0] - Te)
         curt = None
         p0 = o["price"][k]
         if neg_curt and p0 < 0 and o["fec"] + sum(evreq) - pb - o["fne"] < 0:
             curt = max(0.0, o["fec"] + sum(evreq) - pb)
         if dbg is not None:
-            dbg.append((k, T, pb, o["soc"]))
+            dbg.append((k, Te, pb, o["soc"]))
         return guard(o, pb, evreq, curt)
     return c
+
+
+def st_config(mode):
+    """Parameters equal to the ST implementation (Team_Cfg) for the given price mode."""
+    kw = dict(realistic=True, cw=4, dE=40.0, hmax=96)
+    if mode == 0:
+        kw.update(ksig=1.0, hi_in_dp=True)
+    else:
+        kw.update(ksig=0.0, hi_in_dp=False)
+    return kw

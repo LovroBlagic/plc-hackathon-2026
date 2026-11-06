@@ -45,6 +45,7 @@ VAR
 	iHead : INT;                        // next write index
 	rCorrF : REAL := 1.0;               // FEC intraday ratio
 	rCorrP : REAL := 1.0;               // PV intraday ratio
+	rFecMax : REAL;                     // highest FEC seen since reset (cold-start fallback)
 	aEvR : ARRAY[0..3] OF REAL;
 	i : INT;
 	j : INT;
@@ -79,6 +80,7 @@ IF xReset THEN
 	END_FOR;
 	nHist := 0;
 	iHead := 0;
+	rFecMax := 0.0;
 	rCorrF := 1.0;
 	rCorrP := 1.0;
 END_IF;
@@ -87,6 +89,7 @@ END_IF;
 IF xUpdate THEN
 	q := LIMIT(0, iQh, 95);
 	dtp := F_DayType(iWeekday);
+	rFecMax := MAX(rFecMax, rFec);
 	// profile values before the update (for the intraday ratio)
 	IF aFecOk[dtp, q] THEN rPrevF := aFec[dtp, q]; ELSE rPrevF := rFec; END_IF;
 	IF aPvOk[q] THEN rPrevP := aPv[q]; ELSE rPrevP := rPv; END_IF;
@@ -154,7 +157,7 @@ FOR i := 0 TO LIMIT(1, iH, 192) - 1 DO
 		ELSIF aFecOk[0, q] THEN
 			rF := aFec[0, q];
 		ELSE
-			rF := rFec;                 // nothing learned yet: persistence
+			rF := rFecMax;              // nothing learned yet (first day): assume the highest load seen so far
 		END_IF;
 		rP := aPv[q];
 		IF Team_Cfg.FC_CORR_W > 0 THEN

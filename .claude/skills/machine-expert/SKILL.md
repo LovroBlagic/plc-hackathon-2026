@@ -91,6 +91,9 @@ Call LogicBuilderShell.exe directly (me.ps1 mangles `--out`/`--o*` args):
 - Build log prints device memory usage; TM241 sim: "Data, Code and Nonsafe data" area 10.4 MB.
 - A GVL with a 35040-entry REAL array initialiser (IEC repeat syntax `4(0.135)` to compress) compiles fine; `4.32E-05` literals are accepted.
 - Graphical POUs (LD/CFC, e.g. SR_Main_Sim) have no textual implementation: the dump shows only their declaration.
+- **ST gotchas (compiler V2.3):** `S` and `R` are reserved (IL set/reset), so a variable named `s` gives "Unexpected token 's'". Identifiers are case-insensitive, so a constant `NCAND` clashes with a variable `nCand`. `SEL(G, IN0, IN1)` returns IN1 when G is TRUE. FUNCTIONs may take arrays as `VAR_IN_OUT` (by reference). `REAL_TO_INT` rounds and does not truncate.
+- **Simulator login fails under CPU load:** with ~15 CPU-bound processes running, `oa.login` failed with "No connection to the gateway", and a year run died mid-way with "No connection to the device" / "operation has timed out". Keep other heavy jobs to ≤ 8 processes while a simulator run is active.
+- A rolling DP of ~100k inner iterations per PLC cycle still runs at the full 10 ms rate in the PC simulator.
 
 ## Limits
 - Graphical languages (LD/FBD/SFC) can't be authored via script. Write ST, or import PLCopenXML.

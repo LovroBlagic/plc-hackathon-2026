@@ -72,6 +72,7 @@ ELSE
 		IF iQh >= 52 THEN
 			iHorizon := iHorizon + 96;
 		END_IF;
+		iHorizon := MIN(iHorizon, Team_Cfg.PLAN_H);   // cap the computing load (no measurable gain beyond 24 h)
 	ELSE
 		iHorizon := Team_Cfg.PLAN_H;
 	END_IF;
