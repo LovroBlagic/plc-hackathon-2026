@@ -1,0 +1,113 @@
+{
+  "observed_at": "2026-11-07 18:28:21.783098",
+  "auto_two_transfer_demo": {
+    "method": "Loaded input DBs online; INIT/AUTO/START clicked in WinCC runtime",
+    "readback": {
+      "State": "6",
+      "Mode": "1",
+      "N": "2",
+      "TrDone": "2",
+      "TrTotal": "2",
+      "MSpec": "7",
+      "T": "146",
+      "J": "0.9177631",
+      "AlarmWord": "32768",
+      "UDone": "1",
+      "LDone": "1"
+    },
+    "completion_information_bit": 32768
+  },
+  "navigation_verified": [
+    "Screen_1",
+    "Manual",
+    "Lists",
+    "Alarms",
+    "AlarmLog",
+    "Score"
+  ],
+  "not_yet_verified": [
+    "Physical hardware deployment",
+    "Unseen organizer judging dataset"
+  ],
+  "resolution": "1920x1080",
+  "semi_stop_resume": {
+    "method": "All buttons clicked in runtime",
+    "after_start": {
+      "State": 3,
+      "Mode": 2,
+      "StepWaiting": 1,
+      "MSpec": 0
+    },
+    "after_next_step_then_stop": {
+      "State": 4,
+      "Mode": 2,
+      "MSpec": 1
+    },
+    "after_resume": {
+      "State": 3,
+      "Mode": 2,
+      "StepWaiting": 1,
+      "MSpec": 1
+    }
+  },
+  "manual_put": {
+    "method": "Select 2 SPUSTI in native dropdown, click IZVRSI",
+    "before": {
+      "Carried": 201,
+      "MSpec": 1
+    },
+    "after": {
+      "Carried": 0,
+      "MSpec": 2,
+      "State": 4
+    }
+  },
+  "native_alarm_ack": {
+    "method": "Second empty-hook manual PUT, navigate Alarms, click table toolbar ACK",
+    "before": {
+      "State": 5,
+      "AlarmWord": 4096
+    },
+    "after": {
+      "State": 4,
+      "AlarmWord": 0,
+      "AlarmHmiAck": 0
+    },
+    "history": "Observed arrival, acknowledgement and clearance rows"
+  },
+  "visual_checks": [
+    "1920x1080 runtime displayed",
+    "Header/nav labels fit",
+    "Coloured container ID fields visible",
+    "Alarm tables moved below header"
+  ],
+  "larger_grid_test": {
+    "dataset": "tools/crane_data/rand_01.json",
+    "kind": "synthetic regression dataset, NOT organizer hidden data",
+    "trigger": "INIT/AUTO/START clicked in native WinCC HMI",
+    "last": {
+      "State": "6",
+      "Mode": "1",
+      "TrDone": "27",
+      "TrTotal": "27",
+      "MSpec": "130",
+      "T": "2503.2002",
+      "AlarmWord": "32768",
+      "CraneBusy": "0",
+      "Carried": "0",
+      "OB30Ticks": "2194",
+      "elapsed": 150.66
+    },
+    "checks": {
+      "done": true,
+      "transfer_count": true,
+      "MSpec": true,
+      "T": true,
+      "bay0": true,
+      "bay1": true
+    },
+    "pass": true
+  },
+  "auto_stop_resume": "Passed during rand_01 HMI run; State4 captured mid-command, then START and full final-state match",
+  "latest_archive": "C:/Users/sajic/Downloads/solutions/TIA_HMI_large_text_v2.zap21"
+}

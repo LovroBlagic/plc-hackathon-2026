@@ -1,0 +1,1779 @@
+{
+  "_doc": "Crane HMI layout (WinCC RT Advanced, 1920x1080). Source of truth for gen_hmi.py. Edit here, then regenerate; never hand-edit generated screens. Coordinates are px. Tag refs are HMI_IF member names; array elements as Member[i] (mapped to HMI tag names by tag_mode).",
+  "canvas": {
+    "w": 1920,
+    "h": 1080,
+    "scale": 1.0,
+    "device_w": 1920,
+    "device_h": 1080,
+    "_doc": "Runtime resolution 1920x1080, configured in TIA GUI. Local isolated HMI layout."
+  },
+  "tag_mode": "element",
+  "elem_name_fmt": "{m}_{i:02d}",
+  "array_ref_fmt": "{m}[{i}]",
+  "tag_table": "HMI_IF_gen",
+  "plc_db": "HMI_IF",
+  "hmi_if_source": "../../tia-src/03_HMI_IF.db",
+  "proto_nav_target": "Screen_1",
+  "header_in": "auto",
+  "template_name": "Tpl",
+  "font": {
+    "min_size": 8,
+    "size": 14,
+    "header_size": 15,
+    "title_size": 22
+  },
+  "palette": {
+    "_doc": "ISA-101 style: grey background, colour only for state/alarm. RGB strings exactly as TIA exports them.",
+    "screen_bg": "235, 241, 247",
+    "panel_bg": "208, 223, 237",
+    "frame": "100, 126, 151",
+    "text": "20, 39, 58",
+    "text_dim": "61, 85, 107",
+    "field_bg": "249, 252, 255",
+    "ship_frame": "60, 60, 60",
+    "yard_frame": "140, 140, 140",
+    "lamp_on": "40, 160, 60",
+    "lamp_off": "170, 170, 170",
+    "alarm_on": "220, 0, 0",
+    "cellst": {
+      "0": [
+        "222, 222, 222",
+        "prazno"
+      ],
+      "1": [
+        "146, 168, 188",
+        "zauzeto"
+      ],
+      "2": [
+        "94, 165, 226",
+        "za istovar"
+      ],
+      "3": [
+        "177, 135, 217",
+        "za ukrcaj"
+      ],
+      "4": [
+        "110, 195, 150",
+        "prebačeno"
+      ],
+      "5": [
+        "70, 140, 230",
+        "trenutni izvor"
+      ],
+      "6": [
+        "205, 235, 255",
+        "trenutni cilj"
+      ],
+      "7": [
+        "255, 215, 0",
+        "neispravan ID"
+      ]
+    }
+  },
+  "textlists": {
+    "TL_State": [
+      [
+        0,
+        "ISKLJUČENO"
+      ],
+      [
+        1,
+        "INICIJALIZACIJA"
+      ],
+      [
+        2,
+        "SPREMAN"
+      ],
+      [
+        3,
+        "RADI"
+      ],
+      [
+        4,
+        "PAUZA"
+      ],
+      [
+        5,
+        "ALARM"
+      ],
+      [
+        6,
+        "ZAVRŠENO"
+      ],
+      [
+        7,
+        "PLANIRANJE"
+      ]
+    ],
+    "TL_Mode": [
+      [
+        0,
+        "-"
+      ],
+      [
+        1,
+        "AUTOMATSKI"
+      ],
+      [
+        2,
+        "POLUAUTOMATSKI"
+      ],
+      [
+        3,
+        "RUČNO"
+      ]
+    ],
+    "TL_Cmd": [
+      [
+        0,
+        "-"
+      ],
+      [
+        1,
+        "1 PODIGNI"
+      ],
+      [
+        2,
+        "2 SPUSTI"
+      ],
+      [
+        3,
+        "3 POMAKNI"
+      ],
+      [
+        10,
+        "10 RESET"
+      ]
+    ],
+    "TL_Kind": [
+      [
+        0,
+        "-"
+      ],
+      [
+        1,
+        "ISTOVAR Bay0->Bay1"
+      ],
+      [
+        2,
+        "UKRCAJ Bay1->Bay0"
+      ]
+    ],
+    "TL_Phase": [
+      [
+        0,
+        "vožnja do izvora"
+      ],
+      [
+        1,
+        "podizanje"
+      ],
+      [
+        2,
+        "vožnja do odredišta"
+      ],
+      [
+        3,
+        "spuštanje"
+      ]
+    ],
+    "TL_Bay": [
+      [
+        0,
+        "0 BROD"
+      ],
+      [
+        1,
+        "1 SKLADIŠTE"
+      ]
+    ],
+    "TL_ListSt": [
+      [
+        0,
+        "čeka"
+      ],
+      [
+        1,
+        "gotovo"
+      ],
+      [
+        2,
+        "preskočeno"
+      ],
+      [
+        3,
+        "u tijeku"
+      ]
+    ],
+    "TL_Order": [
+      [
+        0,
+        "0 slobodan redoslijed"
+      ],
+      [
+        1,
+        "1 redoslijed po listi"
+      ],
+      [
+        2,
+        "2 strogo: istovar pa ukrcaj"
+      ]
+    ],
+    "TL_YesNo": [
+      [
+        0,
+        "NE"
+      ],
+      [
+        1,
+        "DA"
+      ]
+    ],
+    "TL_BalMode": [
+      [
+        0,
+        "0 lijevo/desno"
+      ],
+      [
+        1,
+        "1 + pramac/krma"
+      ]
+    ],
+    "TL_Alarm": [
+      [
+        -1,
+        "-"
+      ],
+      [
+        0,
+        "0 Neuravnoteženost broda |L-R| > 5"
+      ],
+      [
+        1,
+        "1 Lokacija podizanja prazna"
+      ],
+      [
+        2,
+        "2 Lokacija spuštanja zauzeta"
+      ],
+      [
+        3,
+        "3 ID u listi za istovar, nije u Bay 0"
+      ],
+      [
+        4,
+        "4 ID u listi za ukrcaj, nije u Bay 1"
+      ],
+      [
+        5,
+        "5 Neispravan ID (100-999)"
+      ],
+      [
+        6,
+        "6 Dvostruki ID"
+      ],
+      [
+        7,
+        "7 Nema slobodnog mjesta"
+      ],
+      [
+        8,
+        "8 Plan nije izvediv"
+      ],
+      [
+        9,
+        "9 Neispravna ručna naredba"
+      ],
+      [
+        10,
+        "10 Dizalica: timeout naredbe"
+      ],
+      [
+        11,
+        "11 Dizalica već nosi kontejner"
+      ],
+      [
+        12,
+        "12 Dizalica ne nosi kontejner"
+      ],
+      [
+        13,
+        "13 Nije inicijalizirano"
+      ],
+      [
+        14,
+        "14 Položaj dizalice ne odgovara"
+      ],
+      [
+        15,
+        "15 Istovar i ukrcaj završeni"
+      ]
+    ]
+  },
+  "header": [
+    {
+      "k": "frame",
+      "x": 0,
+      "y": 0,
+      "w": 1920,
+      "h": 148,
+      "bg": "panel_bg",
+      "border": 0
+    },
+    {
+      "k": "text",
+      "x": 16,
+      "y": 10,
+      "w": 270,
+      "h": 34,
+      "t": "LUČKA DIZALICA",
+      "size": 22,
+      "bold": true
+    },
+    {
+      "k": "text",
+      "x": 16,
+      "y": 44,
+      "w": 270,
+      "h": 22,
+      "t": "PLC Challenge 2026 - EESTEC",
+      "size": 12,
+      "fg": "text_dim"
+    },
+    {
+      "k": "lamp",
+      "x": 290,
+      "y": 14,
+      "w": 14,
+      "h": 14,
+      "tag": "Heartbeat"
+    },
+    {
+      "k": "btn",
+      "x": 320,
+      "y": 10,
+      "w": 160,
+      "h": 58,
+      "t": "UKLJ. / ISKLJ.",
+      "tag": "SwOn",
+      "fn": "InvertBit"
+    },
+    {
+      "k": "lamp",
+      "x": 490,
+      "y": 12,
+      "w": 22,
+      "h": 22,
+      "tag": "LampReady"
+    },
+    {
+      "k": "text",
+      "x": 516,
+      "y": 12,
+      "w": 110,
+      "h": 22,
+      "t": "SPREMAN"
+    },
+    {
+      "k": "lamp",
+      "x": 490,
+      "y": 44,
+      "w": 22,
+      "h": 22,
+      "tag": "LampOff"
+    },
+    {
+      "k": "text",
+      "x": 516,
+      "y": 44,
+      "w": 110,
+      "h": 22,
+      "t": "ISKLJ."
+    },
+    {
+      "k": "btn",
+      "x": 640,
+      "y": 10,
+      "w": 180,
+      "h": 58,
+      "t": "INIT",
+      "tag": "BtnInit"
+    },
+    {
+      "k": "btn",
+      "x": 840,
+      "y": 10,
+      "w": 160,
+      "h": 58,
+      "t": "AUTO",
+      "tag": "BtnAuto"
+    },
+    {
+      "k": "lamp",
+      "x": 840,
+      "y": 70,
+      "w": 160,
+      "h": 8,
+      "tag": "LampAuto"
+    },
+    {
+      "k": "btn",
+      "x": 1006,
+      "y": 10,
+      "w": 180,
+      "h": 58,
+      "t": "SEMI",
+      "tag": "BtnSemi"
+    },
+    {
+      "k": "lamp",
+      "x": 1006,
+      "y": 70,
+      "w": 180,
+      "h": 8,
+      "tag": "LampSemi"
+    },
+    {
+      "k": "btn",
+      "x": 1192,
+      "y": 10,
+      "w": 140,
+      "h": 58,
+      "t": "RUČNO",
+      "tag": "BtnManual"
+    },
+    {
+      "k": "lamp",
+      "x": 1192,
+      "y": 70,
+      "w": 140,
+      "h": 8,
+      "tag": "LampManual"
+    },
+    {
+      "k": "btn",
+      "x": 1352,
+      "y": 10,
+      "w": 120,
+      "h": 58,
+      "t": "START",
+      "tag": "BtnStart"
+    },
+    {
+      "k": "lamp",
+      "x": 1352,
+      "y": 70,
+      "w": 120,
+      "h": 8,
+      "tag": "LampRunning"
+    },
+    {
+      "k": "btn",
+      "x": 1478,
+      "y": 10,
+      "w": 120,
+      "h": 58,
+      "t": "STOP",
+      "tag": "BtnStop"
+    },
+    {
+      "k": "btn",
+      "x": 1604,
+      "y": 10,
+      "w": 120,
+      "h": 58,
+      "t": "POTVRDA",
+      "tag": "BtnAck"
+    },
+    {
+      "k": "btn",
+      "x": 1730,
+      "y": 10,
+      "w": 176,
+      "h": 58,
+      "t": "KORAK",
+      "tag": "BtnStep"
+    },
+    {
+      "k": "lamp",
+      "x": 1730,
+      "y": 70,
+      "w": 176,
+      "h": 8,
+      "tag": "StepWaiting"
+    },
+    {
+      "k": "text",
+      "x": 16,
+      "y": 92,
+      "w": 80,
+      "h": 34,
+      "t": "ST."
+    },
+    {
+      "k": "sym",
+      "x": 96,
+      "y": 92,
+      "w": 200,
+      "h": 34,
+      "tag": "State",
+      "tl": "TL_State"
+    },
+    {
+      "k": "sym",
+      "x": 302,
+      "y": 92,
+      "w": 178,
+      "h": 34,
+      "tag": "Mode",
+      "tl": "TL_Mode"
+    },
+    {
+      "k": "kv",
+      "x": 490,
+      "y": 92,
+      "lw": 36,
+      "w": 90,
+      "h": 34,
+      "label": "M",
+      "tag": "M",
+      "fmt": "99999"
+    },
+    {
+      "k": "kv",
+      "x": 622,
+      "y": 92,
+      "lw": 50,
+      "w": 110,
+      "h": 34,
+      "label": "T/s",
+      "tag": "T",
+      "fmt": "999999.9"
+    },
+    {
+      "k": "kv",
+      "x": 790,
+      "y": 92,
+      "lw": 26,
+      "w": 90,
+      "h": 34,
+      "label": "J",
+      "tag": "J",
+      "fmt": "9.9999"
+    },
+    {
+      "k": "text",
+      "x": 914,
+      "y": 92,
+      "w": 112,
+      "h": 34,
+      "t": "Plan",
+      "fg": "text_dim"
+    },
+    {
+      "k": "io",
+      "x": 1026,
+      "y": 92,
+      "w": 80,
+      "h": 34,
+      "tag": "PredM",
+      "fmt": "99999"
+    },
+    {
+      "k": "io",
+      "x": 1110,
+      "y": 92,
+      "w": 104,
+      "h": 34,
+      "tag": "PredT",
+      "fmt": "999999.9"
+    },
+    {
+      "k": "io",
+      "x": 1218,
+      "y": 92,
+      "w": 84,
+      "h": 34,
+      "tag": "PredJ",
+      "fmt": "9.9999"
+    },
+    {
+      "k": "text",
+      "x": 1312,
+      "y": 92,
+      "w": 54,
+      "h": 34,
+      "t": "Pr."
+    },
+    {
+      "k": "io",
+      "x": 1366,
+      "y": 92,
+      "w": 52,
+      "h": 34,
+      "tag": "TrDone",
+      "fmt": "999"
+    },
+    {
+      "k": "text",
+      "x": 1418,
+      "y": 92,
+      "w": 12,
+      "h": 34,
+      "t": "/"
+    },
+    {
+      "k": "io",
+      "x": 1430,
+      "y": 92,
+      "w": 52,
+      "h": 34,
+      "tag": "TrTotal",
+      "fmt": "999"
+    },
+    {
+      "k": "lampA",
+      "x": 1494,
+      "y": 98,
+      "w": 22,
+      "h": 22,
+      "tag": "LampAlarm"
+    },
+    {
+      "k": "sym",
+      "x": 1520,
+      "y": 92,
+      "w": 386,
+      "h": 34,
+      "tag": "AlarmHist[0]",
+      "tl": "TL_Alarm"
+    },
+    {
+      "k": "frame",
+      "x": 0,
+      "y": 1024,
+      "w": 1920,
+      "h": 56,
+      "bg": "panel_bg",
+      "border": 0
+    },
+    {
+      "k": "nav",
+      "x": 16,
+      "y": 1030,
+      "w": 200,
+      "h": 44,
+      "t": "PRIKAZ",
+      "screen": "Screen_1"
+    },
+    {
+      "k": "nav",
+      "x": 226,
+      "y": 1030,
+      "w": 200,
+      "h": 44,
+      "t": "RUČNO",
+      "screen": "Manual"
+    },
+    {
+      "k": "nav",
+      "x": 436,
+      "y": 1030,
+      "w": 200,
+      "h": 44,
+      "t": "POSTAVKE",
+      "screen": "Lists"
+    },
+    {
+      "k": "nav",
+      "x": 646,
+      "y": 1030,
+      "w": 200,
+      "h": 44,
+      "t": "ALARMI",
+      "screen": "Alarms"
+    },
+    {
+      "k": "nav",
+      "x": 856,
+      "y": 1030,
+      "w": 200,
+      "h": 44,
+      "t": "POVIJEST",
+      "screen": "AlarmLog"
+    },
+    {
+      "k": "nav",
+      "x": 1066,
+      "y": 1030,
+      "w": 220,
+      "h": 44,
+      "t": "REZULTATI",
+      "screen": "Score"
+    },
+    {
+      "k": "kv",
+      "x": 1300,
+      "y": 1034,
+      "lw": 110,
+      "w": 110,
+      "h": 34,
+      "label": "PLC takt",
+      "tag": "OB30Ticks",
+      "fmt": "9999999"
+    },
+    {
+      "k": "datetime",
+      "x": 1560,
+      "y": 1032,
+      "w": 346,
+      "h": 40
+    }
+  ],
+  "grid": {
+    "_doc": "Global column G: Bay1 x -> G=x, Bay0 x -> G=x+6 (= HMI_IF.CraneGX). Cell index i = x*12 + y.",
+    "x0": 60,
+    "y0": 228,
+    "cw": 104,
+    "ch": 54,
+    "px": 114,
+    "py": 60,
+    "bay1_g": 0,
+    "bay0_g": 6,
+    "title_y": 154,
+    "rail_y": 186,
+    "rail_h": 36,
+    "label_size": 12,
+    "id_size": 16,
+    "id_fmt": "999",
+    "id_w": 90,
+    "id_h": 40,
+    "crane_y_rail_x": 556,
+    "crane_y_rail_w": 140
+  },
+  "screens": {
+    "Screen_1": {
+      "number": 10,
+      "body": [
+        "grid",
+        "panel_main",
+        "legend"
+      ]
+    },
+    "Manual": {
+      "number": 11,
+      "body": [
+        "grid",
+        "panel_manual",
+        "legend"
+      ]
+    },
+    "Lists": {
+      "number": 12,
+      "body": [
+        "lists"
+      ]
+    },
+    "AlarmLog": {
+      "number": 13,
+      "body": [
+        "alarmlog"
+      ]
+    },
+    "Score": {
+      "number": 14,
+      "body": [
+        "panel_score"
+      ]
+    }
+  },
+  "panels": {
+    "panel_score": [
+      {
+        "k": "frame",
+        "x": 16,
+        "y": 154,
+        "w": 900,
+        "h": 420,
+        "bg": "panel_bg",
+        "border": 1
+      },
+      {
+        "k": "text",
+        "x": 28,
+        "y": 160,
+        "w": 860,
+        "h": 28,
+        "t": "FUNKCIJA CILJA  J = 0.5*T/(N*76 s) + 0.5*M/(4N)",
+        "bold": true
+      },
+      {
+        "k": "text",
+        "x": 330,
+        "y": 196,
+        "w": 170,
+        "h": 30,
+        "t": "M",
+        "bold": true
+      },
+      {
+        "k": "text",
+        "x": 510,
+        "y": 196,
+        "w": 170,
+        "h": 30,
+        "t": "T [s]",
+        "bold": true
+      },
+      {
+        "k": "text",
+        "x": 690,
+        "y": 196,
+        "w": 170,
+        "h": 30,
+        "t": "J",
+        "bold": true
+      },
+      {
+        "k": "text",
+        "x": 28,
+        "y": 234,
+        "w": 300,
+        "h": 34,
+        "t": "M (pravilo zadatka), stvarno"
+      },
+      {
+        "k": "io",
+        "x": 330,
+        "y": 234,
+        "w": 150,
+        "h": 34,
+        "tag": "M",
+        "fmt": "99999"
+      },
+      {
+        "k": "io",
+        "x": 510,
+        "y": 234,
+        "w": 150,
+        "h": 34,
+        "tag": "T",
+        "fmt": "99999.9"
+      },
+      {
+        "k": "io",
+        "x": 690,
+        "y": 234,
+        "w": 150,
+        "h": 34,
+        "tag": "J",
+        "fmt": "9.9999"
+      },
+      {
+        "k": "text",
+        "x": 28,
+        "y": 276,
+        "w": 300,
+        "h": 34,
+        "t": "M (FB1 brojač, MD107)"
+      },
+      {
+        "k": "io",
+        "x": 330,
+        "y": 276,
+        "w": 150,
+        "h": 34,
+        "tag": "MFb1",
+        "fmt": "99999"
+      },
+      {
+        "k": "io",
+        "x": 690,
+        "y": 276,
+        "w": 150,
+        "h": 34,
+        "tag": "JFb1",
+        "fmt": "9.9999"
+      },
+      {
+        "k": "text",
+        "x": 28,
+        "y": 318,
+        "w": 300,
+        "h": 34,
+        "t": "Planirani rezultat"
+      },
+      {
+        "k": "io",
+        "x": 330,
+        "y": 318,
+        "w": 150,
+        "h": 34,
+        "tag": "PredM",
+        "fmt": "99999"
+      },
+      {
+        "k": "io",
+        "x": 510,
+        "y": 318,
+        "w": 150,
+        "h": 34,
+        "tag": "PredT",
+        "fmt": "99999.9"
+      },
+      {
+        "k": "io",
+        "x": 690,
+        "y": 318,
+        "w": 150,
+        "h": 34,
+        "tag": "PredJ",
+        "fmt": "9.9999"
+      },
+      {
+        "k": "text",
+        "x": 28,
+        "y": 372,
+        "w": 860,
+        "h": 28,
+        "t": "OPTIMIZACIJA PLANA (FB11: pohlepni plan, zatim lokalno pretraživanje)",
+        "bold": true
+      },
+      {
+        "k": "kv",
+        "x": 28,
+        "y": 408,
+        "lw": 300,
+        "w": 150,
+        "h": 34,
+        "label": "J pohlepnog plana",
+        "tag": "PredJ0",
+        "fmt": "9.9999"
+      },
+      {
+        "k": "kv",
+        "x": 490,
+        "y": 408,
+        "lw": 200,
+        "w": 150,
+        "h": 34,
+        "label": "Poboljšanje [%]",
+        "tag": "ImpGainPct",
+        "fmt": "99.99"
+      },
+      {
+        "k": "kv",
+        "x": 28,
+        "y": 450,
+        "lw": 300,
+        "w": 150,
+        "h": 34,
+        "label": "J optimiziranog plana",
+        "tag": "PredJ",
+        "fmt": "9.9999"
+      },
+      {
+        "k": "kv",
+        "x": 490,
+        "y": 450,
+        "lw": 200,
+        "w": 150,
+        "h": 34,
+        "label": "Evaluacije",
+        "tag": "ImpEvals",
+        "fmt": "99999"
+      },
+      {
+        "k": "kv",
+        "x": 28,
+        "y": 492,
+        "lw": 300,
+        "w": 150,
+        "h": 34,
+        "label": "Donja granica J (dokazana)",
+        "tag": "LbJ",
+        "fmt": "9.9999"
+      },
+      {
+        "k": "kv",
+        "x": 490,
+        "y": 492,
+        "lw": 200,
+        "w": 150,
+        "h": 34,
+        "label": "Udaljenost [%]",
+        "tag": "GapPct",
+        "fmt": "99.99"
+      },
+      {
+        "k": "text",
+        "x": 28,
+        "y": 534,
+        "w": 300,
+        "h": 30,
+        "t": "Napredak planiranja [%]"
+      },
+      {
+        "k": "bar",
+        "x": 330,
+        "y": 536,
+        "w": 360,
+        "h": 26,
+        "tag": "PlanProgress",
+        "min": 0,
+        "max": 100
+      },
+      {
+        "k": "io",
+        "x": 700,
+        "y": 532,
+        "w": 80,
+        "h": 34,
+        "tag": "PlanProgress",
+        "fmt": "999"
+      },
+      {
+        "k": "frame",
+        "x": 932,
+        "y": 154,
+        "w": 972,
+        "h": 420,
+        "bg": "panel_bg",
+        "border": 1
+      },
+      {
+        "k": "text",
+        "x": 944,
+        "y": 160,
+        "w": 940,
+        "h": 28,
+        "t": "POSTAVKE PLANERA",
+        "bold": true
+      },
+      {
+        "k": "ks",
+        "x": 944,
+        "y": 200,
+        "lw": 260,
+        "w": 380,
+        "h": 34,
+        "label": "Redoslijed (korišten)",
+        "tag": "OrderModeAct",
+        "tl": "TL_Order"
+      },
+      {
+        "k": "kv",
+        "x": 944,
+        "y": 242,
+        "lw": 260,
+        "w": 60,
+        "h": 34,
+        "label": "Pobjednička varijanta",
+        "tag": "PlanVariant",
+        "fmt": "9"
+      },
+      {
+        "k": "kv",
+        "x": 944,
+        "y": 284,
+        "lw": 260,
+        "w": 80,
+        "h": 34,
+        "label": "N (liste)",
+        "tag": "N",
+        "fmt": "99"
+      },
+      {
+        "k": "lamp",
+        "x": 944,
+        "y": 333,
+        "w": 22,
+        "h": 22,
+        "tag": "Planning"
+      },
+      {
+        "k": "text",
+        "x": 972,
+        "y": 326,
+        "w": 300,
+        "h": 34,
+        "t": "planiranje u tijeku"
+      },
+      {
+        "k": "text",
+        "x": 944,
+        "y": 380,
+        "w": 940,
+        "h": 26,
+        "t": "Donja granica: T >= 40 s po kontejneru + 6 s po stupcu minimalnog x-puta (zatvorena formula),",
+        "size": 12,
+        "fg": "text_dim"
+      },
+      {
+        "k": "text",
+        "x": 944,
+        "y": 406,
+        "w": 940,
+        "h": 26,
+        "t": "M >= 4 po kontejneru. Nijedan plan ne može biti bolji od te vrijednosti.",
+        "size": 12,
+        "fg": "text_dim"
+      },
+      {
+        "k": "text",
+        "x": 944,
+        "y": 442,
+        "w": 940,
+        "h": 26,
+        "t": "Lokalno pretraživanje: premještanje, zamjena i premještanje para transfera; fiksni broj evaluacija,",
+        "size": 12,
+        "fg": "text_dim"
+      },
+      {
+        "k": "text",
+        "x": 944,
+        "y": 468,
+        "w": 940,
+        "h": 26,
+        "t": "deterministički, uz pravilo ravnoteže |L-R| <= 5 u svakom koraku. Plan nikad nije lošiji od pohlepnog.",
+        "size": 12,
+        "fg": "text_dim"
+      }
+    ],
+    "panel_main": [
+      {
+        "k": "frame",
+        "x": 1220,
+        "y": 154,
+        "w": 684,
+        "h": 300,
+        "bg": "panel_bg",
+        "border": 1
+      },
+      {
+        "k": "text",
+        "x": 1232,
+        "y": 160,
+        "w": 400,
+        "h": 28,
+        "t": "TRENUTNA NAREDBA",
+        "bold": true
+      },
+      {
+        "k": "ks",
+        "x": 1232,
+        "y": 196,
+        "lw": 120,
+        "w": 220,
+        "h": 32,
+        "label": "Naredba",
+        "tag": "CurCmd",
+        "tl": "TL_Cmd"
+      },
+      {
+        "k": "ks",
+        "x": 1580,
+        "y": 196,
+        "lw": 70,
+        "w": 240,
+        "h": 32,
+        "label": "Vrsta",
+        "tag": "CurKind",
+        "tl": "TL_Kind"
+      },
+      {
+        "k": "kv",
+        "x": 1232,
+        "y": 236,
+        "lw": 120,
+        "w": 80,
+        "h": 32,
+        "label": "Kontejner",
+        "tag": "CurId",
+        "fmt": "999"
+      },
+      {
+        "k": "ks",
+        "x": 1580,
+        "y": 236,
+        "lw": 70,
+        "w": 240,
+        "h": 32,
+        "label": "Faza",
+        "tag": "CurPhase",
+        "tl": "TL_Phase"
+      },
+      {
+        "k": "kv",
+        "x": 1232,
+        "y": 276,
+        "lw": 120,
+        "w": 50,
+        "h": 32,
+        "label": "Cilj x",
+        "tag": "CurX",
+        "fmt": "9"
+      },
+      {
+        "k": "kv",
+        "x": 1412,
+        "y": 276,
+        "lw": 30,
+        "w": 50,
+        "h": 32,
+        "label": "y",
+        "tag": "CurY",
+        "fmt": "99"
+      },
+      {
+        "k": "ks",
+        "x": 1580,
+        "y": 276,
+        "lw": 70,
+        "w": 240,
+        "h": 32,
+        "label": "Bay",
+        "tag": "CurBay",
+        "tl": "TL_Bay"
+      },
+      {
+        "k": "text",
+        "x": 1232,
+        "y": 324,
+        "w": 400,
+        "h": 28,
+        "t": "DIZALICA",
+        "bold": true
+      },
+      {
+        "k": "kv",
+        "x": 1232,
+        "y": 360,
+        "lw": 120,
+        "w": 50,
+        "h": 32,
+        "label": "Položaj x",
+        "tag": "CraneX",
+        "fmt": "9"
+      },
+      {
+        "k": "kv",
+        "x": 1412,
+        "y": 360,
+        "lw": 30,
+        "w": 50,
+        "h": 32,
+        "label": "y",
+        "tag": "CraneY",
+        "fmt": "99"
+      },
+      {
+        "k": "ks",
+        "x": 1580,
+        "y": 360,
+        "lw": 70,
+        "w": 240,
+        "h": 32,
+        "label": "Bay",
+        "tag": "CraneBay",
+        "tl": "TL_Bay"
+      },
+      {
+        "k": "kv",
+        "x": 1232,
+        "y": 400,
+        "lw": 120,
+        "w": 80,
+        "h": 32,
+        "label": "Teret (ID)",
+        "tag": "Carried",
+        "fmt": "999"
+      },
+      {
+        "k": "lamp",
+        "x": 1580,
+        "y": 405,
+        "w": 22,
+        "h": 22,
+        "tag": "CraneBusy"
+      },
+      {
+        "k": "text",
+        "x": 1606,
+        "y": 400,
+        "w": 110,
+        "h": 32,
+        "t": "zauzeta"
+      },
+      {
+        "k": "lamp",
+        "x": 1720,
+        "y": 405,
+        "w": 22,
+        "h": 22,
+        "tag": "Planning"
+      },
+      {
+        "k": "text",
+        "x": 1746,
+        "y": 400,
+        "w": 150,
+        "h": 32,
+        "t": "planiranje"
+      },
+      {
+        "k": "@balance"
+      },
+      {
+        "k": "@progress"
+      }
+    ],
+    "panel_manual": [
+      {
+        "k": "frame",
+        "x": 1220,
+        "y": 154,
+        "w": 684,
+        "h": 300,
+        "bg": "panel_bg",
+        "border": 1
+      },
+      {
+        "k": "text",
+        "x": 1232,
+        "y": 160,
+        "w": 640,
+        "h": 28,
+        "t": "RUČNA NAREDBA",
+        "bold": true
+      },
+      {
+        "k": "text",
+        "x": 1232,
+        "y": 200,
+        "w": 120,
+        "h": 34,
+        "t": "Naredba"
+      },
+      {
+        "k": "sym",
+        "x": 1352,
+        "y": 200,
+        "w": 240,
+        "h": 34,
+        "tag": "ManCmd",
+        "tl": "TL_Cmd",
+        "mode": "InOutput"
+      },
+      {
+        "k": "text",
+        "x": 1232,
+        "y": 244,
+        "w": 120,
+        "h": 34,
+        "t": "x (0-3)"
+      },
+      {
+        "k": "io",
+        "x": 1352,
+        "y": 244,
+        "w": 70,
+        "h": 34,
+        "tag": "ManX",
+        "fmt": "9",
+        "mode": "InOutput"
+      },
+      {
+        "k": "text",
+        "x": 1440,
+        "y": 244,
+        "w": 90,
+        "h": 34,
+        "t": "y (0-11)"
+      },
+      {
+        "k": "io",
+        "x": 1530,
+        "y": 244,
+        "w": 70,
+        "h": 34,
+        "tag": "ManY",
+        "fmt": "99",
+        "mode": "InOutput"
+      },
+      {
+        "k": "text",
+        "x": 1232,
+        "y": 288,
+        "w": 120,
+        "h": 34,
+        "t": "Bay"
+      },
+      {
+        "k": "sym",
+        "x": 1352,
+        "y": 288,
+        "w": 240,
+        "h": 34,
+        "tag": "ManBay",
+        "tl": "TL_Bay",
+        "mode": "InOutput"
+      },
+      {
+        "k": "btn",
+        "x": 1640,
+        "y": 200,
+        "w": 240,
+        "h": 122,
+        "t": "IZVRŠI",
+        "tag": "BtnManExec"
+      },
+      {
+        "k": "text",
+        "x": 1232,
+        "y": 330,
+        "w": 660,
+        "h": 22,
+        "t": "PODIGNI/SPUSTI: lokacija dizalice. x/y/Bay: cilj pomaka.",
+        "size": 12,
+        "fg": "text_dim"
+      },
+      {
+        "k": "kv",
+        "x": 1232,
+        "y": 364,
+        "lw": 120,
+        "w": 50,
+        "h": 32,
+        "label": "Dizalica x",
+        "tag": "CraneX",
+        "fmt": "9"
+      },
+      {
+        "k": "kv",
+        "x": 1412,
+        "y": 364,
+        "lw": 30,
+        "w": 50,
+        "h": 32,
+        "label": "y",
+        "tag": "CraneY",
+        "fmt": "99"
+      },
+      {
+        "k": "ks",
+        "x": 1580,
+        "y": 364,
+        "lw": 70,
+        "w": 240,
+        "h": 32,
+        "label": "Bay",
+        "tag": "CraneBay",
+        "tl": "TL_Bay"
+      },
+      {
+        "k": "kv",
+        "x": 1232,
+        "y": 404,
+        "lw": 120,
+        "w": 80,
+        "h": 32,
+        "label": "Teret (ID)",
+        "tag": "Carried",
+        "fmt": "999"
+      },
+      {
+        "k": "lamp",
+        "x": 1580,
+        "y": 409,
+        "w": 22,
+        "h": 22,
+        "tag": "CraneBusy"
+      },
+      {
+        "k": "text",
+        "x": 1606,
+        "y": 404,
+        "w": 110,
+        "h": 32,
+        "t": "zauzeta"
+      },
+      {
+        "k": "@balance"
+      },
+      {
+        "k": "@progress"
+      }
+    ],
+    "@balance": [
+      {
+        "k": "frame",
+        "x": 1220,
+        "y": 462,
+        "w": 684,
+        "h": 196,
+        "bg": "panel_bg",
+        "border": 1
+      },
+      {
+        "k": "text",
+        "x": 1232,
+        "y": 468,
+        "w": 400,
+        "h": 28,
+        "t": "RAVNOTEŽA BRODA (Bay 0)",
+        "bold": true
+      },
+      {
+        "k": "lamp",
+        "x": 1650,
+        "y": 472,
+        "w": 22,
+        "h": 22,
+        "tag": "BalOk"
+      },
+      {
+        "k": "text",
+        "x": 1676,
+        "y": 468,
+        "w": 220,
+        "h": 28,
+        "t": "|L - R| <= 5"
+      },
+      {
+        "k": "text",
+        "x": 1232,
+        "y": 506,
+        "w": 150,
+        "h": 32,
+        "t": "Lijevo x0-1"
+      },
+      {
+        "k": "bar",
+        "x": 1382,
+        "y": 508,
+        "w": 400,
+        "h": 28,
+        "tag": "BalL",
+        "min": 0,
+        "max": 24
+      },
+      {
+        "k": "io",
+        "x": 1790,
+        "y": 506,
+        "w": 60,
+        "h": 32,
+        "tag": "BalL",
+        "fmt": "99"
+      },
+      {
+        "k": "text",
+        "x": 1232,
+        "y": 546,
+        "w": 150,
+        "h": 32,
+        "t": "Desno x2-3"
+      },
+      {
+        "k": "bar",
+        "x": 1382,
+        "y": 548,
+        "w": 400,
+        "h": 28,
+        "tag": "BalR",
+        "min": 0,
+        "max": 24
+      },
+      {
+        "k": "io",
+        "x": 1790,
+        "y": 546,
+        "w": 60,
+        "h": 32,
+        "tag": "BalR",
+        "fmt": "99"
+      },
+      {
+        "k": "kv",
+        "x": 1232,
+        "y": 590,
+        "lw": 150,
+        "w": 70,
+        "h": 32,
+        "label": "Razlika L-R",
+        "tag": "BalDiff",
+        "fmt": "s99"
+      },
+      {
+        "k": "kv",
+        "x": 1480,
+        "y": 590,
+        "lw": 110,
+        "w": 60,
+        "h": 32,
+        "label": "Pramac",
+        "tag": "BalF",
+        "fmt": "99"
+      },
+      {
+        "k": "kv",
+        "x": 1680,
+        "y": 590,
+        "lw": 100,
+        "w": 60,
+        "h": 32,
+        "label": "Krma",
+        "tag": "BalA",
+        "fmt": "99"
+      }
+    ],
+    "@progress": [
+      {
+        "k": "frame",
+        "x": 1220,
+        "y": 666,
+        "w": 684,
+        "h": 124,
+        "bg": "panel_bg",
+        "border": 1
+      },
+      {
+        "k": "text",
+        "x": 1232,
+        "y": 672,
+        "w": 400,
+        "h": 28,
+        "t": "NAPREDAK",
+        "bold": true
+      },
+      {
+        "k": "kv",
+        "x": 1232,
+        "y": 706,
+        "lw": 90,
+        "w": 52,
+        "h": 32,
+        "label": "Istovar",
+        "tag": "UDone",
+        "fmt": "99"
+      },
+      {
+        "k": "io",
+        "x": 1380,
+        "y": 706,
+        "w": 52,
+        "h": 32,
+        "tag": "UTotal",
+        "fmt": "99"
+      },
+      {
+        "k": "kv",
+        "x": 1460,
+        "y": 706,
+        "lw": 90,
+        "w": 52,
+        "h": 32,
+        "label": "Ukrcaj",
+        "tag": "LDone",
+        "fmt": "99"
+      },
+      {
+        "k": "io",
+        "x": 1608,
+        "y": 706,
+        "w": 52,
+        "h": 32,
+        "tag": "LTotal",
+        "fmt": "99"
+      },
+      {
+        "k": "kv",
+        "x": 1690,
+        "y": 706,
+        "lw": 40,
+        "w": 60,
+        "h": 32,
+        "label": "N",
+        "tag": "N",
+        "fmt": "99"
+      },
+      {
+        "k": "kv",
+        "x": 1232,
+        "y": 748,
+        "lw": 90,
+        "w": 40,
+        "h": 32,
+        "label": "Plan #",
+        "tag": "PlanVariant",
+        "fmt": "9"
+      },
+      {
+        "k": "lamp",
+        "x": 1400,
+        "y": 753,
+        "w": 22,
+        "h": 22,
+        "tag": "Initialized"
+      },
+      {
+        "k": "text",
+        "x": 1426,
+        "y": 748,
+        "w": 150,
+        "h": 32,
+        "t": "inicijalizirano"
+      },
+      {
+        "k": "lamp",
+        "x": 1590,
+        "y": 753,
+        "w": 22,
+        "h": 22,
+        "tag": "LampDone"
+      },
+      {
+        "k": "text",
+        "x": 1616,
+        "y": 748,
+        "w": 150,
+        "h": 32,
+        "t": "završeno"
+      }
+    ],
+    "legend": {
+      "x": 1220,
+      "y": 798,
+      "w": 684,
+      "h": 218,
+      "sw": 28,
+      "row": 26
+    }
+  },
+  "lists": {
+    "_doc": "4 blocks: unload 1-24, unload 25-48, load 1-24, load 25-48.",
+    "settings_y": 154,
+    "y0": 286,
+    "row": 30,
+    "rows": 24,
+    "block_x": [
+      16,
+      490,
+      964,
+      1438
+    ],
+    "block_w": 466,
+    "col_idx": 46,
+    "col_id": 90,
+    "col_st": 150,
+    "col_cell": 0
+  },
+  "alarmlog": {
+    "x": 16,
+    "y": 200,
+    "row": 46,
+    "w": 1100
+  }
+}

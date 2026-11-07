@@ -1,0 +1,21 @@
+﻿DATA_BLOCK "From_Bay0_to_Bay1"
+{ S7_Optimized_Access := 'TRUE' }
+VERSION : 0.1
+NON_RETAIN
+   VAR
+      IDs_of_the_containers : Array[1..48] of UInt;
+   END_VAR
+
+
+BEGIN
+   IDs_of_the_containers[1] := 111;
+   IDs_of_the_containers[2] := 222;
+   IDs_of_the_containers[3] := 333;
+   IDs_of_the_containers[4] := 444;
+   IDs_of_the_containers[5] := 555;
+   IDs_of_the_containers[6] := 666;
+   IDs_of_the_containers[7] := 777;
+   IDs_of_the_containers[12] := 0;
+   IDs_of_the_containers[18] := 0;
+
+END_DATA_BLOCK

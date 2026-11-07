@@ -1,0 +1,54 @@
+--- exported FB10 before (whitespace normalized)
++++ isolated FB10 after
+@@ -61,0 +62,2 @@
++      visSt0 : Array[0..47] of USInt; // display colours built privately
++      visSt1 : Array[0..47] of USInt;
+@@ -1657 +1659 @@
+-	                "HMI_IF".CellSt0[#k] := 0;
++	                #visSt0[#k] := 0;
+@@ -1659 +1661 @@
+-	                "HMI_IF".CellSt0[#k] := 7;
++	                #visSt0[#k] := 7;
+@@ -1661 +1663 @@
+-	                "HMI_IF".CellSt0[#k] := 1;
++	                #visSt0[#k] := 1;
+@@ -1665 +1667 @@
+-	                "HMI_IF".CellSt1[#k] := 0;
++	                #visSt1[#k] := 0;
+@@ -1667 +1669 @@
+-	                "HMI_IF".CellSt1[#k] := 7;
++	                #visSt1[#k] := 7;
+@@ -1669 +1671 @@
+-	                "HMI_IF".CellSt1[#k] := 1;
++	                #visSt1[#k] := 1;
+@@ -1680 +1682 @@
+-	                        "HMI_IF".CellSt0[#k] := 2;
++	                        #visSt0[#k] := 2;
+@@ -1682 +1684 @@
+-	                        "HMI_IF".CellSt1[#k] := 4;
++	                        #visSt1[#k] := 4;
+@@ -1690 +1692 @@
+-	                        "HMI_IF".CellSt1[#k] := 3;
++	                        #visSt1[#k] := 3;
+@@ -1692 +1694 @@
+-	                        "HMI_IF".CellSt0[#k] := 4;
++	                        #visSt0[#k] := 4;
+@@ -1702 +1704 @@
+-	                    "HMI_IF".CellSt0[#k] := 5;
++	                    #visSt0[#k] := 5;
+@@ -1704 +1706 @@
+-	                    "HMI_IF".CellSt1[#k] := 5;
++	                    #visSt1[#k] := 5;
+@@ -1710 +1712 @@
+-	                    "HMI_IF".CellSt0[#k] := 6;
++	                    #visSt0[#k] := 6;
+@@ -1712 +1714 @@
+-	                    "HMI_IF".CellSt1[#k] := 6;
++	                    #visSt1[#k] := 6;
+@@ -1716,0 +1719,6 @@
++        // Publish completed cell colours once, after all overlays.
++        FOR #k := 0 TO 47 DO
++            "HMI_IF".CellSt0[#k] := #visSt0[#k];
++            "HMI_IF".CellSt1[#k] := #visSt1[#k];
++        END_FOR;
++

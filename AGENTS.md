@@ -437,3 +437,34 @@ Notes:
 - User requested fixing the unconnected pipe above SABIRNICA and removing the two pictured footer lines. Shortened the vertical bus stem to y=294,height=110, beginning at the horizontal bus; removed shared English footer on all seven pages and Overview interval/sign footer. 521 native elements remain.
 - Reimport/build passed 0 errors (known CheckBounds warning); frozen-source parity 26/26. Updated project saved. New archive deliver/ME_v7_WebVisu_dashboard_v2.projectarchive, 81,501,782 bytes; original archive retained. Archive integrity checked. STATUS/SHORTCUTS updated. These are geometry/text-only edits, so S1/S2 full-year results remain recorded separately; no redundant year rerun.
 - Archive saved with simulation mode off; desktop editor shows updated layout offline. No git sync/commit/push.
+
+### 7 Nov 18:33 - Isolated TIA HMI readability and runtime validation
+- Worked only in tia-work/hmi-side plus requested TIA_HMI_SHORTCUTS.md. Shared hmi-tia/tia-src/deliver unchanged; no git operations.
+- Runtime 1920x1080, corrected font scaling, panel/legend colours and ID state animations. Preserved native Excel tag bindings and GUI alarm controls.
+- Live two-transfer AUTO complete (M7,T146,J0.9177631), SEMI step/STOP/resume, manual PUT, native alarm ACK/history and all navigation verified. See tia-work/hmi-side/STATUS.md and runtime_checks.json for limits.
+- PLC+HMI final compile both0/0. Archive tia-work/hmi-side/TIA_HMI_readable_final.zap21, identical CRC-checked copy Downloads/solutions/TIA_HMI_readable_final.zap21. Runtime + dedicated simulator left for user review, TIA GUI project open, lock hmi-side-gui.
+
+### 7 Nov 18:47 - TIA HMI larger text v2 and fuller runtime test
+- Fonts <=16pt increased28%, taller/wider ID fields and shorter labels; no measured static label exceeds its box. Local isolated generator/layout only.
+- HMI-triggered rand_01 synthetic dataset (35 ship,24 yard,27 transfers) PASS:MSpec130,T2503.2002,both final grids exactly match model; AUTO STOP/resume during motion included. Official hidden input unavailable. See tia-work/hmi-side/rand01_runtime_result.json and DATA_SOURCES.md.
+- Latest archive tia-work/hmi-side/TIA_HMI_large_text_v2.zap21, CRC-checked identical copy Downloads/solutions. HMI compile0/0 and PLC compile0/0. Earlier archives retained. No git actions.
+
+### 7 Nov - TIA original dataset comparison and blinking fix
+- Exact exported original DB10/11/20/21 checked against fresh simulator download. HMI test matches Python:N10,zero valid transfers,M0,T0,J0;7 unload+3 load IDs missing source bay.
+- Only isolated FB10 source changed: private temporary colour arrays,final publication once per cell.240 samples of96 cells stable,including27 coloured cells. Full rand_01 post-fix HMI run matches Python and pre-fix totals (M130,T2503.2002,27 transfers,both final grids).
+- New archive tia-work/hmi-side/TIA_HMI_flicker_fixed_v3.zap21 copied/verified in Downloads/solutions. Shared PLC sources unchanged; no git actions. User requests larger fullscreen layout next.
+
+### 7 Nov 19:33 - Final packaging coordinated with main thread
+- Checked main task via codex_tui thread read/message at user's explicit request. Main advised retaining portable v3 in submission,keeping DPI-specific fullscreen v4 separately.
+- Verified Downloads/ME_Energetski_menadzer.zip and Downloads/TIA_Container_Crane.zip CRC,sole archive entry,and content SHA-256 against saved sources. TIA submission contains flicker-fixed v3; unchanged.
+- Local fullscreen v4 compiled PLC/HMI0/0; larger text and all six pages visually checked. Saved Downloads/solutions/TIA_Fullscreen_Demo_v4.zip with native project archive,project-based DPI-scoped launcher,README,tests. No unreliable standalone runtime payload included. FINAL_FILES.txt distinguishes submission vs demo.
+- Latest working project is v4 under tia-work/hmi-side; shared tia-src/hmi-tia unchanged. Backend fix source and exact original-data/Python comparisons in that folder. No git operations.
+
+### 7 Nov19:43 - Submission v3 restored for user comparison
+- Retrieved verified v3 into fresh tia-work/hmi-side/v3-review/PLC_hackathon_2026_V21; PLC and HMI both compile0/0. Logs v3_retrieve.log,v3_review_build.log. V4 working project and submission ZIPs preserved. GUI now uses v3-review.
+
+### 7 Nov - User-authorized final GitHub handoff
+- User reviewed v3 runtime, then explicitly requested closing TIA and pushing all work. Closed owned HMI/TIA processes, powered off dedicated crane_hmi_side simulator and stopped its SimHost; released owned openness.lock after TIA exited.
+- Preserved ignored session work as tracked hmi-tia-final/:source patch,generators,Excel templates,helper source,original input DB exports,comparison/stability reports,validation logs,and six fullscreen screenshots. Canonical final archives in deliver/TIA_HMI_flicker_fixed_v3.zap21 and deliver/TIA_HMI_fullscreen_final_v4.zap21.
+- Portable v3 remains submission. V4 is display-specific local demo; independent-runtime-copy experiment excluded. README documents limits and process-scoped launch.
+- package_submissions.py recreated and CRC/SHA-256 verified both strujici submission ZIPs from canonical archives. Python syntax checked for all six preserved scripts. Runtime caches,installers,vendor DLLs,and generated helper executables remain ignored.

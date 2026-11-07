@@ -1,0 +1,2462 @@
+[
+  {
+    "name": "SwOn",
+    "plc": "HMI_IF.SwOn",
+    "type": "Bool"
+  },
+  {
+    "name": "BtnInit",
+    "plc": "HMI_IF.BtnInit",
+    "type": "Bool"
+  },
+  {
+    "name": "BtnAuto",
+    "plc": "HMI_IF.BtnAuto",
+    "type": "Bool"
+  },
+  {
+    "name": "BtnSemi",
+    "plc": "HMI_IF.BtnSemi",
+    "type": "Bool"
+  },
+  {
+    "name": "BtnManual",
+    "plc": "HMI_IF.BtnManual",
+    "type": "Bool"
+  },
+  {
+    "name": "BtnStart",
+    "plc": "HMI_IF.BtnStart",
+    "type": "Bool"
+  },
+  {
+    "name": "BtnStop",
+    "plc": "HMI_IF.BtnStop",
+    "type": "Bool"
+  },
+  {
+    "name": "BtnAck",
+    "plc": "HMI_IF.BtnAck",
+    "type": "Bool"
+  },
+  {
+    "name": "BtnStep",
+    "plc": "HMI_IF.BtnStep",
+    "type": "Bool"
+  },
+  {
+    "name": "BtnManExec",
+    "plc": "HMI_IF.BtnManExec",
+    "type": "Bool"
+  },
+  {
+    "name": "ManCmd",
+    "plc": "HMI_IF.ManCmd",
+    "type": "USInt"
+  },
+  {
+    "name": "ManX",
+    "plc": "HMI_IF.ManX",
+    "type": "SInt"
+  },
+  {
+    "name": "ManY",
+    "plc": "HMI_IF.ManY",
+    "type": "SInt"
+  },
+  {
+    "name": "ManBay",
+    "plc": "HMI_IF.ManBay",
+    "type": "USInt"
+  },
+  {
+    "name": "CfgOrderMode",
+    "plc": "HMI_IF.CfgOrderMode",
+    "type": "USInt"
+  },
+  {
+    "name": "CfgSemiPerTransfer",
+    "plc": "HMI_IF.CfgSemiPerTransfer",
+    "type": "Bool"
+  },
+  {
+    "name": "CfgBalMode",
+    "plc": "HMI_IF.CfgBalMode",
+    "type": "USInt"
+  },
+  {
+    "name": "AlarmHmiAck",
+    "plc": "HMI_IF.AlarmHmiAck",
+    "type": "Word"
+  },
+  {
+    "name": "State",
+    "plc": "HMI_IF.State",
+    "type": "USInt"
+  },
+  {
+    "name": "Mode",
+    "plc": "HMI_IF.Mode",
+    "type": "USInt"
+  },
+  {
+    "name": "LampOn",
+    "plc": "HMI_IF.LampOn",
+    "type": "Bool"
+  },
+  {
+    "name": "LampOff",
+    "plc": "HMI_IF.LampOff",
+    "type": "Bool"
+  },
+  {
+    "name": "LampReady",
+    "plc": "HMI_IF.LampReady",
+    "type": "Bool"
+  },
+  {
+    "name": "LampAuto",
+    "plc": "HMI_IF.LampAuto",
+    "type": "Bool"
+  },
+  {
+    "name": "LampSemi",
+    "plc": "HMI_IF.LampSemi",
+    "type": "Bool"
+  },
+  {
+    "name": "LampManual",
+    "plc": "HMI_IF.LampManual",
+    "type": "Bool"
+  },
+  {
+    "name": "LampRunning",
+    "plc": "HMI_IF.LampRunning",
+    "type": "Bool"
+  },
+  {
+    "name": "LampAlarm",
+    "plc": "HMI_IF.LampAlarm",
+    "type": "Bool"
+  },
+  {
+    "name": "LampDone",
+    "plc": "HMI_IF.LampDone",
+    "type": "Bool"
+  },
+  {
+    "name": "Initialized",
+    "plc": "HMI_IF.Initialized",
+    "type": "Bool"
+  },
+  {
+    "name": "CraneBusy",
+    "plc": "HMI_IF.CraneBusy",
+    "type": "Bool"
+  },
+  {
+    "name": "Planning",
+    "plc": "HMI_IF.Planning",
+    "type": "Bool"
+  },
+  {
+    "name": "StepWaiting",
+    "plc": "HMI_IF.StepWaiting",
+    "type": "Bool"
+  },
+  {
+    "name": "M",
+    "plc": "HMI_IF.M",
+    "type": "UDInt"
+  },
+  {
+    "name": "T",
+    "plc": "HMI_IF.T",
+    "type": "Real"
+  },
+  {
+    "name": "J",
+    "plc": "HMI_IF.J",
+    "type": "Real"
+  },
+  {
+    "name": "MSpec",
+    "plc": "HMI_IF.MSpec",
+    "type": "UDInt"
+  },
+  {
+    "name": "JSpec",
+    "plc": "HMI_IF.JSpec",
+    "type": "Real"
+  },
+  {
+    "name": "MFb1",
+    "plc": "HMI_IF.MFb1",
+    "type": "UDInt"
+  },
+  {
+    "name": "JFb1",
+    "plc": "HMI_IF.JFb1",
+    "type": "Real"
+  },
+  {
+    "name": "OrderModeAct",
+    "plc": "HMI_IF.OrderModeAct",
+    "type": "USInt"
+  },
+  {
+    "name": "OrderFallback",
+    "plc": "HMI_IF.OrderFallback",
+    "type": "Bool"
+  },
+  {
+    "name": "SlotAccepts",
+    "plc": "HMI_IF.SlotAccepts",
+    "type": "DInt"
+  },
+  {
+    "name": "N",
+    "plc": "HMI_IF.N",
+    "type": "Int"
+  },
+  {
+    "name": "PredM",
+    "plc": "HMI_IF.PredM",
+    "type": "DInt"
+  },
+  {
+    "name": "PredT",
+    "plc": "HMI_IF.PredT",
+    "type": "Real"
+  },
+  {
+    "name": "PredJ",
+    "plc": "HMI_IF.PredJ",
+    "type": "Real"
+  },
+  {
+    "name": "PredJ0",
+    "plc": "HMI_IF.PredJ0",
+    "type": "Real"
+  },
+  {
+    "name": "LbJ",
+    "plc": "HMI_IF.LbJ",
+    "type": "Real"
+  },
+  {
+    "name": "GapPct",
+    "plc": "HMI_IF.GapPct",
+    "type": "Real"
+  },
+  {
+    "name": "ImpGainPct",
+    "plc": "HMI_IF.ImpGainPct",
+    "type": "Real"
+  },
+  {
+    "name": "ImpEvals",
+    "plc": "HMI_IF.ImpEvals",
+    "type": "DInt"
+  },
+  {
+    "name": "PlanProgress",
+    "plc": "HMI_IF.PlanProgress",
+    "type": "Int"
+  },
+  {
+    "name": "PlanVariant",
+    "plc": "HMI_IF.PlanVariant",
+    "type": "Int"
+  },
+  {
+    "name": "TrDone",
+    "plc": "HMI_IF.TrDone",
+    "type": "Int"
+  },
+  {
+    "name": "TrTotal",
+    "plc": "HMI_IF.TrTotal",
+    "type": "Int"
+  },
+  {
+    "name": "UDone",
+    "plc": "HMI_IF.UDone",
+    "type": "Int"
+  },
+  {
+    "name": "UTotal",
+    "plc": "HMI_IF.UTotal",
+    "type": "Int"
+  },
+  {
+    "name": "LDone",
+    "plc": "HMI_IF.LDone",
+    "type": "Int"
+  },
+  {
+    "name": "LTotal",
+    "plc": "HMI_IF.LTotal",
+    "type": "Int"
+  },
+  {
+    "name": "CraneX",
+    "plc": "HMI_IF.CraneX",
+    "type": "SInt"
+  },
+  {
+    "name": "CraneY",
+    "plc": "HMI_IF.CraneY",
+    "type": "SInt"
+  },
+  {
+    "name": "CraneBay",
+    "plc": "HMI_IF.CraneBay",
+    "type": "USInt"
+  },
+  {
+    "name": "CraneGX",
+    "plc": "HMI_IF.CraneGX",
+    "type": "Int"
+  },
+  {
+    "name": "Carried",
+    "plc": "HMI_IF.Carried",
+    "type": "UInt"
+  },
+  {
+    "name": "CurCmd",
+    "plc": "HMI_IF.CurCmd",
+    "type": "USInt"
+  },
+  {
+    "name": "CurX",
+    "plc": "HMI_IF.CurX",
+    "type": "SInt"
+  },
+  {
+    "name": "CurY",
+    "plc": "HMI_IF.CurY",
+    "type": "SInt"
+  },
+  {
+    "name": "CurBay",
+    "plc": "HMI_IF.CurBay",
+    "type": "USInt"
+  },
+  {
+    "name": "CurId",
+    "plc": "HMI_IF.CurId",
+    "type": "UInt"
+  },
+  {
+    "name": "CurKind",
+    "plc": "HMI_IF.CurKind",
+    "type": "USInt"
+  },
+  {
+    "name": "CurPhase",
+    "plc": "HMI_IF.CurPhase",
+    "type": "USInt"
+  },
+  {
+    "name": "Cell0_00",
+    "plc": "HMI_IF.Cell0[0]",
+    "type": "UInt"
+  },
+  {
+    "name": "Cell0_01",
+    "plc": "HMI_IF.Cell0[1]",
+    "type": "UInt"
+  },
+  {
+    "name": "Cell0_02",
+    "plc": "HMI_IF.Cell0[2]",
+    "type": "UInt"
+  },
+  {
+    "name": "Cell0_03",
+    "plc": "HMI_IF.Cell0[3]",
+    "type": "UInt"
+  },
+  {
+    "name": "Cell0_04",
+    "plc": "HMI_IF.Cell0[4]",
+    "type": "UInt"
+  },
+  {
+    "name": "Cell0_05",
+    "plc": "HMI_IF.Cell0[5]",
+    "type": "UInt"
+  },
+  {
+    "name": "Cell0_06",
+    "plc": "HMI_IF.Cell0[6]",
+    "type": "UInt"
+  },
+  {
+    "name": "Cell0_07",
+    "plc": "HMI_IF.Cell0[7]",
+    "type": "UInt"
+  },
+  {
+    "name": "Cell0_08",
+    "plc": "HMI_IF.Cell0[8]",
+    "type": "UInt"
+  },
+  {
+    "name": "Cell0_09",
+    "plc": "HMI_IF.Cell0[9]",
+    "type": "UInt"
+  },
+  {
+    "name": "Cell0_10",
+    "plc": "HMI_IF.Cell0[10]",
+    "type": "UInt"
+  },
+  {
+    "name": "Cell0_11",
+    "plc": "HMI_IF.Cell0[11]",
+    "type": "UInt"
+  },
+  {
+    "name": "Cell0_12",
+    "plc": "HMI_IF.Cell0[12]",
+    "type": "UInt"
+  },
+  {
+    "name": "Cell0_13",
+    "plc": "HMI_IF.Cell0[13]",
+    "type": "UInt"
+  },
+  {
+    "name": "Cell0_14",
+    "plc": "HMI_IF.Cell0[14]",
+    "type": "UInt"
+  },
+  {
+    "name": "Cell0_15",
+    "plc": "HMI_IF.Cell0[15]",
+    "type": "UInt"
+  },
+  {
+    "name": "Cell0_16",
+    "plc": "HMI_IF.Cell0[16]",
+    "type": "UInt"
+  },
+  {
+    "name": "Cell0_17",
+    "plc": "HMI_IF.Cell0[17]",
+    "type": "UInt"
+  },
+  {
+    "name": "Cell0_18",
+    "plc": "HMI_IF.Cell0[18]",
+    "type": "UInt"
+  },
+  {
+    "name": "Cell0_19",
+    "plc": "HMI_IF.Cell0[19]",
+    "type": "UInt"
+  },
+  {
+    "name": "Cell0_20",
+    "plc": "HMI_IF.Cell0[20]",
+    "type": "UInt"
+  },
+  {
+    "name": "Cell0_21",
+    "plc": "HMI_IF.Cell0[21]",
+    "type": "UInt"
+  },
+  {
+    "name": "Cell0_22",
+    "plc": "HMI_IF.Cell0[22]",
+    "type": "UInt"
+  },
+  {
+    "name": "Cell0_23",
+    "plc": "HMI_IF.Cell0[23]",
+    "type": "UInt"
+  },
+  {
+    "name": "Cell0_24",
+    "plc": "HMI_IF.Cell0[24]",
+    "type": "UInt"
+  },
+  {
+    "name": "Cell0_25",
+    "plc": "HMI_IF.Cell0[25]",
+    "type": "UInt"
+  },
+  {
+    "name": "Cell0_26",
+    "plc": "HMI_IF.Cell0[26]",
+    "type": "UInt"
+  },
+  {
+    "name": "Cell0_27",
+    "plc": "HMI_IF.Cell0[27]",
+    "type": "UInt"
+  },
+  {
+    "name": "Cell0_28",
+    "plc": "HMI_IF.Cell0[28]",
+    "type": "UInt"
+  },
+  {
+    "name": "Cell0_29",
+    "plc": "HMI_IF.Cell0[29]",
+    "type": "UInt"
+  },
+  {
+    "name": "Cell0_30",
+    "plc": "HMI_IF.Cell0[30]",
+    "type": "UInt"
+  },
+  {
+    "name": "Cell0_31",
+    "plc": "HMI_IF.Cell0[31]",
+    "type": "UInt"
+  },
+  {
+    "name": "Cell0_32",
+    "plc": "HMI_IF.Cell0[32]",
+    "type": "UInt"
+  },
+  {
+    "name": "Cell0_33",
+    "plc": "HMI_IF.Cell0[33]",
+    "type": "UInt"
+  },
+  {
+    "name": "Cell0_34",
+    "plc": "HMI_IF.Cell0[34]",
+    "type": "UInt"
+  },
+  {
+    "name": "Cell0_35",
+    "plc": "HMI_IF.Cell0[35]",
+    "type": "UInt"
+  },
+  {
+    "name": "Cell0_36",
+    "plc": "HMI_IF.Cell0[36]",
+    "type": "UInt"
+  },
+  {
+    "name": "Cell0_37",
+    "plc": "HMI_IF.Cell0[37]",
+    "type": "UInt"
+  },
+  {
+    "name": "Cell0_38",
+    "plc": "HMI_IF.Cell0[38]",
+    "type": "UInt"
+  },
+  {
+    "name": "Cell0_39",
+    "plc": "HMI_IF.Cell0[39]",
+    "type": "UInt"
+  },
+  {
+    "name": "Cell0_40",
+    "plc": "HMI_IF.Cell0[40]",
+    "type": "UInt"
+  },
+  {
+    "name": "Cell0_41",
+    "plc": "HMI_IF.Cell0[41]",
+    "type": "UInt"
+  },
+  {
+    "name": "Cell0_42",
+    "plc": "HMI_IF.Cell0[42]",
+    "type": "UInt"
+  },
+  {
+    "name": "Cell0_43",
+    "plc": "HMI_IF.Cell0[43]",
+    "type": "UInt"
+  },
+  {
+    "name": "Cell0_44",
+    "plc": "HMI_IF.Cell0[44]",
+    "type": "UInt"
+  },
+  {
+    "name": "Cell0_45",
+    "plc": "HMI_IF.Cell0[45]",
+    "type": "UInt"
+  },
+  {
+    "name": "Cell0_46",
+    "plc": "HMI_IF.Cell0[46]",
+    "type": "UInt"
+  },
+  {
+    "name": "Cell0_47",
+    "plc": "HMI_IF.Cell0[47]",
+    "type": "UInt"
+  },
+  {
+    "name": "Cell1_00",
+    "plc": "HMI_IF.Cell1[0]",
+    "type": "UInt"
+  },
+  {
+    "name": "Cell1_01",
+    "plc": "HMI_IF.Cell1[1]",
+    "type": "UInt"
+  },
+  {
+    "name": "Cell1_02",
+    "plc": "HMI_IF.Cell1[2]",
+    "type": "UInt"
+  },
+  {
+    "name": "Cell1_03",
+    "plc": "HMI_IF.Cell1[3]",
+    "type": "UInt"
+  },
+  {
+    "name": "Cell1_04",
+    "plc": "HMI_IF.Cell1[4]",
+    "type": "UInt"
+  },
+  {
+    "name": "Cell1_05",
+    "plc": "HMI_IF.Cell1[5]",
+    "type": "UInt"
+  },
+  {
+    "name": "Cell1_06",
+    "plc": "HMI_IF.Cell1[6]",
+    "type": "UInt"
+  },
+  {
+    "name": "Cell1_07",
+    "plc": "HMI_IF.Cell1[7]",
+    "type": "UInt"
+  },
+  {
+    "name": "Cell1_08",
+    "plc": "HMI_IF.Cell1[8]",
+    "type": "UInt"
+  },
+  {
+    "name": "Cell1_09",
+    "plc": "HMI_IF.Cell1[9]",
+    "type": "UInt"
+  },
+  {
+    "name": "Cell1_10",
+    "plc": "HMI_IF.Cell1[10]",
+    "type": "UInt"
+  },
+  {
+    "name": "Cell1_11",
+    "plc": "HMI_IF.Cell1[11]",
+    "type": "UInt"
+  },
+  {
+    "name": "Cell1_12",
+    "plc": "HMI_IF.Cell1[12]",
+    "type": "UInt"
+  },
+  {
+    "name": "Cell1_13",
+    "plc": "HMI_IF.Cell1[13]",
+    "type": "UInt"
+  },
+  {
+    "name": "Cell1_14",
+    "plc": "HMI_IF.Cell1[14]",
+    "type": "UInt"
+  },
+  {
+    "name": "Cell1_15",
+    "plc": "HMI_IF.Cell1[15]",
+    "type": "UInt"
+  },
+  {
+    "name": "Cell1_16",
+    "plc": "HMI_IF.Cell1[16]",
+    "type": "UInt"
+  },
+  {
+    "name": "Cell1_17",
+    "plc": "HMI_IF.Cell1[17]",
+    "type": "UInt"
+  },
+  {
+    "name": "Cell1_18",
+    "plc": "HMI_IF.Cell1[18]",
+    "type": "UInt"
+  },
+  {
+    "name": "Cell1_19",
+    "plc": "HMI_IF.Cell1[19]",
+    "type": "UInt"
+  },
+  {
+    "name": "Cell1_20",
+    "plc": "HMI_IF.Cell1[20]",
+    "type": "UInt"
+  },
+  {
+    "name": "Cell1_21",
+    "plc": "HMI_IF.Cell1[21]",
+    "type": "UInt"
+  },
+  {
+    "name": "Cell1_22",
+    "plc": "HMI_IF.Cell1[22]",
+    "type": "UInt"
+  },
+  {
+    "name": "Cell1_23",
+    "plc": "HMI_IF.Cell1[23]",
+    "type": "UInt"
+  },
+  {
+    "name": "Cell1_24",
+    "plc": "HMI_IF.Cell1[24]",
+    "type": "UInt"
+  },
+  {
+    "name": "Cell1_25",
+    "plc": "HMI_IF.Cell1[25]",
+    "type": "UInt"
+  },
+  {
+    "name": "Cell1_26",
+    "plc": "HMI_IF.Cell1[26]",
+    "type": "UInt"
+  },
+  {
+    "name": "Cell1_27",
+    "plc": "HMI_IF.Cell1[27]",
+    "type": "UInt"
+  },
+  {
+    "name": "Cell1_28",
+    "plc": "HMI_IF.Cell1[28]",
+    "type": "UInt"
+  },
+  {
+    "name": "Cell1_29",
+    "plc": "HMI_IF.Cell1[29]",
+    "type": "UInt"
+  },
+  {
+    "name": "Cell1_30",
+    "plc": "HMI_IF.Cell1[30]",
+    "type": "UInt"
+  },
+  {
+    "name": "Cell1_31",
+    "plc": "HMI_IF.Cell1[31]",
+    "type": "UInt"
+  },
+  {
+    "name": "Cell1_32",
+    "plc": "HMI_IF.Cell1[32]",
+    "type": "UInt"
+  },
+  {
+    "name": "Cell1_33",
+    "plc": "HMI_IF.Cell1[33]",
+    "type": "UInt"
+  },
+  {
+    "name": "Cell1_34",
+    "plc": "HMI_IF.Cell1[34]",
+    "type": "UInt"
+  },
+  {
+    "name": "Cell1_35",
+    "plc": "HMI_IF.Cell1[35]",
+    "type": "UInt"
+  },
+  {
+    "name": "Cell1_36",
+    "plc": "HMI_IF.Cell1[36]",
+    "type": "UInt"
+  },
+  {
+    "name": "Cell1_37",
+    "plc": "HMI_IF.Cell1[37]",
+    "type": "UInt"
+  },
+  {
+    "name": "Cell1_38",
+    "plc": "HMI_IF.Cell1[38]",
+    "type": "UInt"
+  },
+  {
+    "name": "Cell1_39",
+    "plc": "HMI_IF.Cell1[39]",
+    "type": "UInt"
+  },
+  {
+    "name": "Cell1_40",
+    "plc": "HMI_IF.Cell1[40]",
+    "type": "UInt"
+  },
+  {
+    "name": "Cell1_41",
+    "plc": "HMI_IF.Cell1[41]",
+    "type": "UInt"
+  },
+  {
+    "name": "Cell1_42",
+    "plc": "HMI_IF.Cell1[42]",
+    "type": "UInt"
+  },
+  {
+    "name": "Cell1_43",
+    "plc": "HMI_IF.Cell1[43]",
+    "type": "UInt"
+  },
+  {
+    "name": "Cell1_44",
+    "plc": "HMI_IF.Cell1[44]",
+    "type": "UInt"
+  },
+  {
+    "name": "Cell1_45",
+    "plc": "HMI_IF.Cell1[45]",
+    "type": "UInt"
+  },
+  {
+    "name": "Cell1_46",
+    "plc": "HMI_IF.Cell1[46]",
+    "type": "UInt"
+  },
+  {
+    "name": "Cell1_47",
+    "plc": "HMI_IF.Cell1[47]",
+    "type": "UInt"
+  },
+  {
+    "name": "CellSt0_00",
+    "plc": "HMI_IF.CellSt0[0]",
+    "type": "USInt"
+  },
+  {
+    "name": "CellSt0_01",
+    "plc": "HMI_IF.CellSt0[1]",
+    "type": "USInt"
+  },
+  {
+    "name": "CellSt0_02",
+    "plc": "HMI_IF.CellSt0[2]",
+    "type": "USInt"
+  },
+  {
+    "name": "CellSt0_03",
+    "plc": "HMI_IF.CellSt0[3]",
+    "type": "USInt"
+  },
+  {
+    "name": "CellSt0_04",
+    "plc": "HMI_IF.CellSt0[4]",
+    "type": "USInt"
+  },
+  {
+    "name": "CellSt0_05",
+    "plc": "HMI_IF.CellSt0[5]",
+    "type": "USInt"
+  },
+  {
+    "name": "CellSt0_06",
+    "plc": "HMI_IF.CellSt0[6]",
+    "type": "USInt"
+  },
+  {
+    "name": "CellSt0_07",
+    "plc": "HMI_IF.CellSt0[7]",
+    "type": "USInt"
+  },
+  {
+    "name": "CellSt0_08",
+    "plc": "HMI_IF.CellSt0[8]",
+    "type": "USInt"
+  },
+  {
+    "name": "CellSt0_09",
+    "plc": "HMI_IF.CellSt0[9]",
+    "type": "USInt"
+  },
+  {
+    "name": "CellSt0_10",
+    "plc": "HMI_IF.CellSt0[10]",
+    "type": "USInt"
+  },
+  {
+    "name": "CellSt0_11",
+    "plc": "HMI_IF.CellSt0[11]",
+    "type": "USInt"
+  },
+  {
+    "name": "CellSt0_12",
+    "plc": "HMI_IF.CellSt0[12]",
+    "type": "USInt"
+  },
+  {
+    "name": "CellSt0_13",
+    "plc": "HMI_IF.CellSt0[13]",
+    "type": "USInt"
+  },
+  {
+    "name": "CellSt0_14",
+    "plc": "HMI_IF.CellSt0[14]",
+    "type": "USInt"
+  },
+  {
+    "name": "CellSt0_15",
+    "plc": "HMI_IF.CellSt0[15]",
+    "type": "USInt"
+  },
+  {
+    "name": "CellSt0_16",
+    "plc": "HMI_IF.CellSt0[16]",
+    "type": "USInt"
+  },
+  {
+    "name": "CellSt0_17",
+    "plc": "HMI_IF.CellSt0[17]",
+    "type": "USInt"
+  },
+  {
+    "name": "CellSt0_18",
+    "plc": "HMI_IF.CellSt0[18]",
+    "type": "USInt"
+  },
+  {
+    "name": "CellSt0_19",
+    "plc": "HMI_IF.CellSt0[19]",
+    "type": "USInt"
+  },
+  {
+    "name": "CellSt0_20",
+    "plc": "HMI_IF.CellSt0[20]",
+    "type": "USInt"
+  },
+  {
+    "name": "CellSt0_21",
+    "plc": "HMI_IF.CellSt0[21]",
+    "type": "USInt"
+  },
+  {
+    "name": "CellSt0_22",
+    "plc": "HMI_IF.CellSt0[22]",
+    "type": "USInt"
+  },
+  {
+    "name": "CellSt0_23",
+    "plc": "HMI_IF.CellSt0[23]",
+    "type": "USInt"
+  },
+  {
+    "name": "CellSt0_24",
+    "plc": "HMI_IF.CellSt0[24]",
+    "type": "USInt"
+  },
+  {
+    "name": "CellSt0_25",
+    "plc": "HMI_IF.CellSt0[25]",
+    "type": "USInt"
+  },
+  {
+    "name": "CellSt0_26",
+    "plc": "HMI_IF.CellSt0[26]",
+    "type": "USInt"
+  },
+  {
+    "name": "CellSt0_27",
+    "plc": "HMI_IF.CellSt0[27]",
+    "type": "USInt"
+  },
+  {
+    "name": "CellSt0_28",
+    "plc": "HMI_IF.CellSt0[28]",
+    "type": "USInt"
+  },
+  {
+    "name": "CellSt0_29",
+    "plc": "HMI_IF.CellSt0[29]",
+    "type": "USInt"
+  },
+  {
+    "name": "CellSt0_30",
+    "plc": "HMI_IF.CellSt0[30]",
+    "type": "USInt"
+  },
+  {
+    "name": "CellSt0_31",
+    "plc": "HMI_IF.CellSt0[31]",
+    "type": "USInt"
+  },
+  {
+    "name": "CellSt0_32",
+    "plc": "HMI_IF.CellSt0[32]",
+    "type": "USInt"
+  },
+  {
+    "name": "CellSt0_33",
+    "plc": "HMI_IF.CellSt0[33]",
+    "type": "USInt"
+  },
+  {
+    "name": "CellSt0_34",
+    "plc": "HMI_IF.CellSt0[34]",
+    "type": "USInt"
+  },
+  {
+    "name": "CellSt0_35",
+    "plc": "HMI_IF.CellSt0[35]",
+    "type": "USInt"
+  },
+  {
+    "name": "CellSt0_36",
+    "plc": "HMI_IF.CellSt0[36]",
+    "type": "USInt"
+  },
+  {
+    "name": "CellSt0_37",
+    "plc": "HMI_IF.CellSt0[37]",
+    "type": "USInt"
+  },
+  {
+    "name": "CellSt0_38",
+    "plc": "HMI_IF.CellSt0[38]",
+    "type": "USInt"
+  },
+  {
+    "name": "CellSt0_39",
+    "plc": "HMI_IF.CellSt0[39]",
+    "type": "USInt"
+  },
+  {
+    "name": "CellSt0_40",
+    "plc": "HMI_IF.CellSt0[40]",
+    "type": "USInt"
+  },
+  {
+    "name": "CellSt0_41",
+    "plc": "HMI_IF.CellSt0[41]",
+    "type": "USInt"
+  },
+  {
+    "name": "CellSt0_42",
+    "plc": "HMI_IF.CellSt0[42]",
+    "type": "USInt"
+  },
+  {
+    "name": "CellSt0_43",
+    "plc": "HMI_IF.CellSt0[43]",
+    "type": "USInt"
+  },
+  {
+    "name": "CellSt0_44",
+    "plc": "HMI_IF.CellSt0[44]",
+    "type": "USInt"
+  },
+  {
+    "name": "CellSt0_45",
+    "plc": "HMI_IF.CellSt0[45]",
+    "type": "USInt"
+  },
+  {
+    "name": "CellSt0_46",
+    "plc": "HMI_IF.CellSt0[46]",
+    "type": "USInt"
+  },
+  {
+    "name": "CellSt0_47",
+    "plc": "HMI_IF.CellSt0[47]",
+    "type": "USInt"
+  },
+  {
+    "name": "CellSt1_00",
+    "plc": "HMI_IF.CellSt1[0]",
+    "type": "USInt"
+  },
+  {
+    "name": "CellSt1_01",
+    "plc": "HMI_IF.CellSt1[1]",
+    "type": "USInt"
+  },
+  {
+    "name": "CellSt1_02",
+    "plc": "HMI_IF.CellSt1[2]",
+    "type": "USInt"
+  },
+  {
+    "name": "CellSt1_03",
+    "plc": "HMI_IF.CellSt1[3]",
+    "type": "USInt"
+  },
+  {
+    "name": "CellSt1_04",
+    "plc": "HMI_IF.CellSt1[4]",
+    "type": "USInt"
+  },
+  {
+    "name": "CellSt1_05",
+    "plc": "HMI_IF.CellSt1[5]",
+    "type": "USInt"
+  },
+  {
+    "name": "CellSt1_06",
+    "plc": "HMI_IF.CellSt1[6]",
+    "type": "USInt"
+  },
+  {
+    "name": "CellSt1_07",
+    "plc": "HMI_IF.CellSt1[7]",
+    "type": "USInt"
+  },
+  {
+    "name": "CellSt1_08",
+    "plc": "HMI_IF.CellSt1[8]",
+    "type": "USInt"
+  },
+  {
+    "name": "CellSt1_09",
+    "plc": "HMI_IF.CellSt1[9]",
+    "type": "USInt"
+  },
+  {
+    "name": "CellSt1_10",
+    "plc": "HMI_IF.CellSt1[10]",
+    "type": "USInt"
+  },
+  {
+    "name": "CellSt1_11",
+    "plc": "HMI_IF.CellSt1[11]",
+    "type": "USInt"
+  },
+  {
+    "name": "CellSt1_12",
+    "plc": "HMI_IF.CellSt1[12]",
+    "type": "USInt"
+  },
+  {
+    "name": "CellSt1_13",
+    "plc": "HMI_IF.CellSt1[13]",
+    "type": "USInt"
+  },
+  {
+    "name": "CellSt1_14",
+    "plc": "HMI_IF.CellSt1[14]",
+    "type": "USInt"
+  },
+  {
+    "name": "CellSt1_15",
+    "plc": "HMI_IF.CellSt1[15]",
+    "type": "USInt"
+  },
+  {
+    "name": "CellSt1_16",
+    "plc": "HMI_IF.CellSt1[16]",
+    "type": "USInt"
+  },
+  {
+    "name": "CellSt1_17",
+    "plc": "HMI_IF.CellSt1[17]",
+    "type": "USInt"
+  },
+  {
+    "name": "CellSt1_18",
+    "plc": "HMI_IF.CellSt1[18]",
+    "type": "USInt"
+  },
+  {
+    "name": "CellSt1_19",
+    "plc": "HMI_IF.CellSt1[19]",
+    "type": "USInt"
+  },
+  {
+    "name": "CellSt1_20",
+    "plc": "HMI_IF.CellSt1[20]",
+    "type": "USInt"
+  },
+  {
+    "name": "CellSt1_21",
+    "plc": "HMI_IF.CellSt1[21]",
+    "type": "USInt"
+  },
+  {
+    "name": "CellSt1_22",
+    "plc": "HMI_IF.CellSt1[22]",
+    "type": "USInt"
+  },
+  {
+    "name": "CellSt1_23",
+    "plc": "HMI_IF.CellSt1[23]",
+    "type": "USInt"
+  },
+  {
+    "name": "CellSt1_24",
+    "plc": "HMI_IF.CellSt1[24]",
+    "type": "USInt"
+  },
+  {
+    "name": "CellSt1_25",
+    "plc": "HMI_IF.CellSt1[25]",
+    "type": "USInt"
+  },
+  {
+    "name": "CellSt1_26",
+    "plc": "HMI_IF.CellSt1[26]",
+    "type": "USInt"
+  },
+  {
+    "name": "CellSt1_27",
+    "plc": "HMI_IF.CellSt1[27]",
+    "type": "USInt"
+  },
+  {
+    "name": "CellSt1_28",
+    "plc": "HMI_IF.CellSt1[28]",
+    "type": "USInt"
+  },
+  {
+    "name": "CellSt1_29",
+    "plc": "HMI_IF.CellSt1[29]",
+    "type": "USInt"
+  },
+  {
+    "name": "CellSt1_30",
+    "plc": "HMI_IF.CellSt1[30]",
+    "type": "USInt"
+  },
+  {
+    "name": "CellSt1_31",
+    "plc": "HMI_IF.CellSt1[31]",
+    "type": "USInt"
+  },
+  {
+    "name": "CellSt1_32",
+    "plc": "HMI_IF.CellSt1[32]",
+    "type": "USInt"
+  },
+  {
+    "name": "CellSt1_33",
+    "plc": "HMI_IF.CellSt1[33]",
+    "type": "USInt"
+  },
+  {
+    "name": "CellSt1_34",
+    "plc": "HMI_IF.CellSt1[34]",
+    "type": "USInt"
+  },
+  {
+    "name": "CellSt1_35",
+    "plc": "HMI_IF.CellSt1[35]",
+    "type": "USInt"
+  },
+  {
+    "name": "CellSt1_36",
+    "plc": "HMI_IF.CellSt1[36]",
+    "type": "USInt"
+  },
+  {
+    "name": "CellSt1_37",
+    "plc": "HMI_IF.CellSt1[37]",
+    "type": "USInt"
+  },
+  {
+    "name": "CellSt1_38",
+    "plc": "HMI_IF.CellSt1[38]",
+    "type": "USInt"
+  },
+  {
+    "name": "CellSt1_39",
+    "plc": "HMI_IF.CellSt1[39]",
+    "type": "USInt"
+  },
+  {
+    "name": "CellSt1_40",
+    "plc": "HMI_IF.CellSt1[40]",
+    "type": "USInt"
+  },
+  {
+    "name": "CellSt1_41",
+    "plc": "HMI_IF.CellSt1[41]",
+    "type": "USInt"
+  },
+  {
+    "name": "CellSt1_42",
+    "plc": "HMI_IF.CellSt1[42]",
+    "type": "USInt"
+  },
+  {
+    "name": "CellSt1_43",
+    "plc": "HMI_IF.CellSt1[43]",
+    "type": "USInt"
+  },
+  {
+    "name": "CellSt1_44",
+    "plc": "HMI_IF.CellSt1[44]",
+    "type": "USInt"
+  },
+  {
+    "name": "CellSt1_45",
+    "plc": "HMI_IF.CellSt1[45]",
+    "type": "USInt"
+  },
+  {
+    "name": "CellSt1_46",
+    "plc": "HMI_IF.CellSt1[46]",
+    "type": "USInt"
+  },
+  {
+    "name": "CellSt1_47",
+    "plc": "HMI_IF.CellSt1[47]",
+    "type": "USInt"
+  },
+  {
+    "name": "UList_01",
+    "plc": "HMI_IF.UList[1]",
+    "type": "UInt"
+  },
+  {
+    "name": "UList_02",
+    "plc": "HMI_IF.UList[2]",
+    "type": "UInt"
+  },
+  {
+    "name": "UList_03",
+    "plc": "HMI_IF.UList[3]",
+    "type": "UInt"
+  },
+  {
+    "name": "UList_04",
+    "plc": "HMI_IF.UList[4]",
+    "type": "UInt"
+  },
+  {
+    "name": "UList_05",
+    "plc": "HMI_IF.UList[5]",
+    "type": "UInt"
+  },
+  {
+    "name": "UList_06",
+    "plc": "HMI_IF.UList[6]",
+    "type": "UInt"
+  },
+  {
+    "name": "UList_07",
+    "plc": "HMI_IF.UList[7]",
+    "type": "UInt"
+  },
+  {
+    "name": "UList_08",
+    "plc": "HMI_IF.UList[8]",
+    "type": "UInt"
+  },
+  {
+    "name": "UList_09",
+    "plc": "HMI_IF.UList[9]",
+    "type": "UInt"
+  },
+  {
+    "name": "UList_10",
+    "plc": "HMI_IF.UList[10]",
+    "type": "UInt"
+  },
+  {
+    "name": "UList_11",
+    "plc": "HMI_IF.UList[11]",
+    "type": "UInt"
+  },
+  {
+    "name": "UList_12",
+    "plc": "HMI_IF.UList[12]",
+    "type": "UInt"
+  },
+  {
+    "name": "UList_13",
+    "plc": "HMI_IF.UList[13]",
+    "type": "UInt"
+  },
+  {
+    "name": "UList_14",
+    "plc": "HMI_IF.UList[14]",
+    "type": "UInt"
+  },
+  {
+    "name": "UList_15",
+    "plc": "HMI_IF.UList[15]",
+    "type": "UInt"
+  },
+  {
+    "name": "UList_16",
+    "plc": "HMI_IF.UList[16]",
+    "type": "UInt"
+  },
+  {
+    "name": "UList_17",
+    "plc": "HMI_IF.UList[17]",
+    "type": "UInt"
+  },
+  {
+    "name": "UList_18",
+    "plc": "HMI_IF.UList[18]",
+    "type": "UInt"
+  },
+  {
+    "name": "UList_19",
+    "plc": "HMI_IF.UList[19]",
+    "type": "UInt"
+  },
+  {
+    "name": "UList_20",
+    "plc": "HMI_IF.UList[20]",
+    "type": "UInt"
+  },
+  {
+    "name": "UList_21",
+    "plc": "HMI_IF.UList[21]",
+    "type": "UInt"
+  },
+  {
+    "name": "UList_22",
+    "plc": "HMI_IF.UList[22]",
+    "type": "UInt"
+  },
+  {
+    "name": "UList_23",
+    "plc": "HMI_IF.UList[23]",
+    "type": "UInt"
+  },
+  {
+    "name": "UList_24",
+    "plc": "HMI_IF.UList[24]",
+    "type": "UInt"
+  },
+  {
+    "name": "UList_25",
+    "plc": "HMI_IF.UList[25]",
+    "type": "UInt"
+  },
+  {
+    "name": "UList_26",
+    "plc": "HMI_IF.UList[26]",
+    "type": "UInt"
+  },
+  {
+    "name": "UList_27",
+    "plc": "HMI_IF.UList[27]",
+    "type": "UInt"
+  },
+  {
+    "name": "UList_28",
+    "plc": "HMI_IF.UList[28]",
+    "type": "UInt"
+  },
+  {
+    "name": "UList_29",
+    "plc": "HMI_IF.UList[29]",
+    "type": "UInt"
+  },
+  {
+    "name": "UList_30",
+    "plc": "HMI_IF.UList[30]",
+    "type": "UInt"
+  },
+  {
+    "name": "UList_31",
+    "plc": "HMI_IF.UList[31]",
+    "type": "UInt"
+  },
+  {
+    "name": "UList_32",
+    "plc": "HMI_IF.UList[32]",
+    "type": "UInt"
+  },
+  {
+    "name": "UList_33",
+    "plc": "HMI_IF.UList[33]",
+    "type": "UInt"
+  },
+  {
+    "name": "UList_34",
+    "plc": "HMI_IF.UList[34]",
+    "type": "UInt"
+  },
+  {
+    "name": "UList_35",
+    "plc": "HMI_IF.UList[35]",
+    "type": "UInt"
+  },
+  {
+    "name": "UList_36",
+    "plc": "HMI_IF.UList[36]",
+    "type": "UInt"
+  },
+  {
+    "name": "UList_37",
+    "plc": "HMI_IF.UList[37]",
+    "type": "UInt"
+  },
+  {
+    "name": "UList_38",
+    "plc": "HMI_IF.UList[38]",
+    "type": "UInt"
+  },
+  {
+    "name": "UList_39",
+    "plc": "HMI_IF.UList[39]",
+    "type": "UInt"
+  },
+  {
+    "name": "UList_40",
+    "plc": "HMI_IF.UList[40]",
+    "type": "UInt"
+  },
+  {
+    "name": "UList_41",
+    "plc": "HMI_IF.UList[41]",
+    "type": "UInt"
+  },
+  {
+    "name": "UList_42",
+    "plc": "HMI_IF.UList[42]",
+    "type": "UInt"
+  },
+  {
+    "name": "UList_43",
+    "plc": "HMI_IF.UList[43]",
+    "type": "UInt"
+  },
+  {
+    "name": "UList_44",
+    "plc": "HMI_IF.UList[44]",
+    "type": "UInt"
+  },
+  {
+    "name": "UList_45",
+    "plc": "HMI_IF.UList[45]",
+    "type": "UInt"
+  },
+  {
+    "name": "UList_46",
+    "plc": "HMI_IF.UList[46]",
+    "type": "UInt"
+  },
+  {
+    "name": "UList_47",
+    "plc": "HMI_IF.UList[47]",
+    "type": "UInt"
+  },
+  {
+    "name": "UList_48",
+    "plc": "HMI_IF.UList[48]",
+    "type": "UInt"
+  },
+  {
+    "name": "LList_01",
+    "plc": "HMI_IF.LList[1]",
+    "type": "UInt"
+  },
+  {
+    "name": "LList_02",
+    "plc": "HMI_IF.LList[2]",
+    "type": "UInt"
+  },
+  {
+    "name": "LList_03",
+    "plc": "HMI_IF.LList[3]",
+    "type": "UInt"
+  },
+  {
+    "name": "LList_04",
+    "plc": "HMI_IF.LList[4]",
+    "type": "UInt"
+  },
+  {
+    "name": "LList_05",
+    "plc": "HMI_IF.LList[5]",
+    "type": "UInt"
+  },
+  {
+    "name": "LList_06",
+    "plc": "HMI_IF.LList[6]",
+    "type": "UInt"
+  },
+  {
+    "name": "LList_07",
+    "plc": "HMI_IF.LList[7]",
+    "type": "UInt"
+  },
+  {
+    "name": "LList_08",
+    "plc": "HMI_IF.LList[8]",
+    "type": "UInt"
+  },
+  {
+    "name": "LList_09",
+    "plc": "HMI_IF.LList[9]",
+    "type": "UInt"
+  },
+  {
+    "name": "LList_10",
+    "plc": "HMI_IF.LList[10]",
+    "type": "UInt"
+  },
+  {
+    "name": "LList_11",
+    "plc": "HMI_IF.LList[11]",
+    "type": "UInt"
+  },
+  {
+    "name": "LList_12",
+    "plc": "HMI_IF.LList[12]",
+    "type": "UInt"
+  },
+  {
+    "name": "LList_13",
+    "plc": "HMI_IF.LList[13]",
+    "type": "UInt"
+  },
+  {
+    "name": "LList_14",
+    "plc": "HMI_IF.LList[14]",
+    "type": "UInt"
+  },
+  {
+    "name": "LList_15",
+    "plc": "HMI_IF.LList[15]",
+    "type": "UInt"
+  },
+  {
+    "name": "LList_16",
+    "plc": "HMI_IF.LList[16]",
+    "type": "UInt"
+  },
+  {
+    "name": "LList_17",
+    "plc": "HMI_IF.LList[17]",
+    "type": "UInt"
+  },
+  {
+    "name": "LList_18",
+    "plc": "HMI_IF.LList[18]",
+    "type": "UInt"
+  },
+  {
+    "name": "LList_19",
+    "plc": "HMI_IF.LList[19]",
+    "type": "UInt"
+  },
+  {
+    "name": "LList_20",
+    "plc": "HMI_IF.LList[20]",
+    "type": "UInt"
+  },
+  {
+    "name": "LList_21",
+    "plc": "HMI_IF.LList[21]",
+    "type": "UInt"
+  },
+  {
+    "name": "LList_22",
+    "plc": "HMI_IF.LList[22]",
+    "type": "UInt"
+  },
+  {
+    "name": "LList_23",
+    "plc": "HMI_IF.LList[23]",
+    "type": "UInt"
+  },
+  {
+    "name": "LList_24",
+    "plc": "HMI_IF.LList[24]",
+    "type": "UInt"
+  },
+  {
+    "name": "LList_25",
+    "plc": "HMI_IF.LList[25]",
+    "type": "UInt"
+  },
+  {
+    "name": "LList_26",
+    "plc": "HMI_IF.LList[26]",
+    "type": "UInt"
+  },
+  {
+    "name": "LList_27",
+    "plc": "HMI_IF.LList[27]",
+    "type": "UInt"
+  },
+  {
+    "name": "LList_28",
+    "plc": "HMI_IF.LList[28]",
+    "type": "UInt"
+  },
+  {
+    "name": "LList_29",
+    "plc": "HMI_IF.LList[29]",
+    "type": "UInt"
+  },
+  {
+    "name": "LList_30",
+    "plc": "HMI_IF.LList[30]",
+    "type": "UInt"
+  },
+  {
+    "name": "LList_31",
+    "plc": "HMI_IF.LList[31]",
+    "type": "UInt"
+  },
+  {
+    "name": "LList_32",
+    "plc": "HMI_IF.LList[32]",
+    "type": "UInt"
+  },
+  {
+    "name": "LList_33",
+    "plc": "HMI_IF.LList[33]",
+    "type": "UInt"
+  },
+  {
+    "name": "LList_34",
+    "plc": "HMI_IF.LList[34]",
+    "type": "UInt"
+  },
+  {
+    "name": "LList_35",
+    "plc": "HMI_IF.LList[35]",
+    "type": "UInt"
+  },
+  {
+    "name": "LList_36",
+    "plc": "HMI_IF.LList[36]",
+    "type": "UInt"
+  },
+  {
+    "name": "LList_37",
+    "plc": "HMI_IF.LList[37]",
+    "type": "UInt"
+  },
+  {
+    "name": "LList_38",
+    "plc": "HMI_IF.LList[38]",
+    "type": "UInt"
+  },
+  {
+    "name": "LList_39",
+    "plc": "HMI_IF.LList[39]",
+    "type": "UInt"
+  },
+  {
+    "name": "LList_40",
+    "plc": "HMI_IF.LList[40]",
+    "type": "UInt"
+  },
+  {
+    "name": "LList_41",
+    "plc": "HMI_IF.LList[41]",
+    "type": "UInt"
+  },
+  {
+    "name": "LList_42",
+    "plc": "HMI_IF.LList[42]",
+    "type": "UInt"
+  },
+  {
+    "name": "LList_43",
+    "plc": "HMI_IF.LList[43]",
+    "type": "UInt"
+  },
+  {
+    "name": "LList_44",
+    "plc": "HMI_IF.LList[44]",
+    "type": "UInt"
+  },
+  {
+    "name": "LList_45",
+    "plc": "HMI_IF.LList[45]",
+    "type": "UInt"
+  },
+  {
+    "name": "LList_46",
+    "plc": "HMI_IF.LList[46]",
+    "type": "UInt"
+  },
+  {
+    "name": "LList_47",
+    "plc": "HMI_IF.LList[47]",
+    "type": "UInt"
+  },
+  {
+    "name": "LList_48",
+    "plc": "HMI_IF.LList[48]",
+    "type": "UInt"
+  },
+  {
+    "name": "UState_01",
+    "plc": "HMI_IF.UState[1]",
+    "type": "USInt"
+  },
+  {
+    "name": "UState_02",
+    "plc": "HMI_IF.UState[2]",
+    "type": "USInt"
+  },
+  {
+    "name": "UState_03",
+    "plc": "HMI_IF.UState[3]",
+    "type": "USInt"
+  },
+  {
+    "name": "UState_04",
+    "plc": "HMI_IF.UState[4]",
+    "type": "USInt"
+  },
+  {
+    "name": "UState_05",
+    "plc": "HMI_IF.UState[5]",
+    "type": "USInt"
+  },
+  {
+    "name": "UState_06",
+    "plc": "HMI_IF.UState[6]",
+    "type": "USInt"
+  },
+  {
+    "name": "UState_07",
+    "plc": "HMI_IF.UState[7]",
+    "type": "USInt"
+  },
+  {
+    "name": "UState_08",
+    "plc": "HMI_IF.UState[8]",
+    "type": "USInt"
+  },
+  {
+    "name": "UState_09",
+    "plc": "HMI_IF.UState[9]",
+    "type": "USInt"
+  },
+  {
+    "name": "UState_10",
+    "plc": "HMI_IF.UState[10]",
+    "type": "USInt"
+  },
+  {
+    "name": "UState_11",
+    "plc": "HMI_IF.UState[11]",
+    "type": "USInt"
+  },
+  {
+    "name": "UState_12",
+    "plc": "HMI_IF.UState[12]",
+    "type": "USInt"
+  },
+  {
+    "name": "UState_13",
+    "plc": "HMI_IF.UState[13]",
+    "type": "USInt"
+  },
+  {
+    "name": "UState_14",
+    "plc": "HMI_IF.UState[14]",
+    "type": "USInt"
+  },
+  {
+    "name": "UState_15",
+    "plc": "HMI_IF.UState[15]",
+    "type": "USInt"
+  },
+  {
+    "name": "UState_16",
+    "plc": "HMI_IF.UState[16]",
+    "type": "USInt"
+  },
+  {
+    "name": "UState_17",
+    "plc": "HMI_IF.UState[17]",
+    "type": "USInt"
+  },
+  {
+    "name": "UState_18",
+    "plc": "HMI_IF.UState[18]",
+    "type": "USInt"
+  },
+  {
+    "name": "UState_19",
+    "plc": "HMI_IF.UState[19]",
+    "type": "USInt"
+  },
+  {
+    "name": "UState_20",
+    "plc": "HMI_IF.UState[20]",
+    "type": "USInt"
+  },
+  {
+    "name": "UState_21",
+    "plc": "HMI_IF.UState[21]",
+    "type": "USInt"
+  },
+  {
+    "name": "UState_22",
+    "plc": "HMI_IF.UState[22]",
+    "type": "USInt"
+  },
+  {
+    "name": "UState_23",
+    "plc": "HMI_IF.UState[23]",
+    "type": "USInt"
+  },
+  {
+    "name": "UState_24",
+    "plc": "HMI_IF.UState[24]",
+    "type": "USInt"
+  },
+  {
+    "name": "UState_25",
+    "plc": "HMI_IF.UState[25]",
+    "type": "USInt"
+  },
+  {
+    "name": "UState_26",
+    "plc": "HMI_IF.UState[26]",
+    "type": "USInt"
+  },
+  {
+    "name": "UState_27",
+    "plc": "HMI_IF.UState[27]",
+    "type": "USInt"
+  },
+  {
+    "name": "UState_28",
+    "plc": "HMI_IF.UState[28]",
+    "type": "USInt"
+  },
+  {
+    "name": "UState_29",
+    "plc": "HMI_IF.UState[29]",
+    "type": "USInt"
+  },
+  {
+    "name": "UState_30",
+    "plc": "HMI_IF.UState[30]",
+    "type": "USInt"
+  },
+  {
+    "name": "UState_31",
+    "plc": "HMI_IF.UState[31]",
+    "type": "USInt"
+  },
+  {
+    "name": "UState_32",
+    "plc": "HMI_IF.UState[32]",
+    "type": "USInt"
+  },
+  {
+    "name": "UState_33",
+    "plc": "HMI_IF.UState[33]",
+    "type": "USInt"
+  },
+  {
+    "name": "UState_34",
+    "plc": "HMI_IF.UState[34]",
+    "type": "USInt"
+  },
+  {
+    "name": "UState_35",
+    "plc": "HMI_IF.UState[35]",
+    "type": "USInt"
+  },
+  {
+    "name": "UState_36",
+    "plc": "HMI_IF.UState[36]",
+    "type": "USInt"
+  },
+  {
+    "name": "UState_37",
+    "plc": "HMI_IF.UState[37]",
+    "type": "USInt"
+  },
+  {
+    "name": "UState_38",
+    "plc": "HMI_IF.UState[38]",
+    "type": "USInt"
+  },
+  {
+    "name": "UState_39",
+    "plc": "HMI_IF.UState[39]",
+    "type": "USInt"
+  },
+  {
+    "name": "UState_40",
+    "plc": "HMI_IF.UState[40]",
+    "type": "USInt"
+  },
+  {
+    "name": "UState_41",
+    "plc": "HMI_IF.UState[41]",
+    "type": "USInt"
+  },
+  {
+    "name": "UState_42",
+    "plc": "HMI_IF.UState[42]",
+    "type": "USInt"
+  },
+  {
+    "name": "UState_43",
+    "plc": "HMI_IF.UState[43]",
+    "type": "USInt"
+  },
+  {
+    "name": "UState_44",
+    "plc": "HMI_IF.UState[44]",
+    "type": "USInt"
+  },
+  {
+    "name": "UState_45",
+    "plc": "HMI_IF.UState[45]",
+    "type": "USInt"
+  },
+  {
+    "name": "UState_46",
+    "plc": "HMI_IF.UState[46]",
+    "type": "USInt"
+  },
+  {
+    "name": "UState_47",
+    "plc": "HMI_IF.UState[47]",
+    "type": "USInt"
+  },
+  {
+    "name": "UState_48",
+    "plc": "HMI_IF.UState[48]",
+    "type": "USInt"
+  },
+  {
+    "name": "LState_01",
+    "plc": "HMI_IF.LState[1]",
+    "type": "USInt"
+  },
+  {
+    "name": "LState_02",
+    "plc": "HMI_IF.LState[2]",
+    "type": "USInt"
+  },
+  {
+    "name": "LState_03",
+    "plc": "HMI_IF.LState[3]",
+    "type": "USInt"
+  },
+  {
+    "name": "LState_04",
+    "plc": "HMI_IF.LState[4]",
+    "type": "USInt"
+  },
+  {
+    "name": "LState_05",
+    "plc": "HMI_IF.LState[5]",
+    "type": "USInt"
+  },
+  {
+    "name": "LState_06",
+    "plc": "HMI_IF.LState[6]",
+    "type": "USInt"
+  },
+  {
+    "name": "LState_07",
+    "plc": "HMI_IF.LState[7]",
+    "type": "USInt"
+  },
+  {
+    "name": "LState_08",
+    "plc": "HMI_IF.LState[8]",
+    "type": "USInt"
+  },
+  {
+    "name": "LState_09",
+    "plc": "HMI_IF.LState[9]",
+    "type": "USInt"
+  },
+  {
+    "name": "LState_10",
+    "plc": "HMI_IF.LState[10]",
+    "type": "USInt"
+  },
+  {
+    "name": "LState_11",
+    "plc": "HMI_IF.LState[11]",
+    "type": "USInt"
+  },
+  {
+    "name": "LState_12",
+    "plc": "HMI_IF.LState[12]",
+    "type": "USInt"
+  },
+  {
+    "name": "LState_13",
+    "plc": "HMI_IF.LState[13]",
+    "type": "USInt"
+  },
+  {
+    "name": "LState_14",
+    "plc": "HMI_IF.LState[14]",
+    "type": "USInt"
+  },
+  {
+    "name": "LState_15",
+    "plc": "HMI_IF.LState[15]",
+    "type": "USInt"
+  },
+  {
+    "name": "LState_16",
+    "plc": "HMI_IF.LState[16]",
+    "type": "USInt"
+  },
+  {
+    "name": "LState_17",
+    "plc": "HMI_IF.LState[17]",
+    "type": "USInt"
+  },
+  {
+    "name": "LState_18",
+    "plc": "HMI_IF.LState[18]",
+    "type": "USInt"
+  },
+  {
+    "name": "LState_19",
+    "plc": "HMI_IF.LState[19]",
+    "type": "USInt"
+  },
+  {
+    "name": "LState_20",
+    "plc": "HMI_IF.LState[20]",
+    "type": "USInt"
+  },
+  {
+    "name": "LState_21",
+    "plc": "HMI_IF.LState[21]",
+    "type": "USInt"
+  },
+  {
+    "name": "LState_22",
+    "plc": "HMI_IF.LState[22]",
+    "type": "USInt"
+  },
+  {
+    "name": "LState_23",
+    "plc": "HMI_IF.LState[23]",
+    "type": "USInt"
+  },
+  {
+    "name": "LState_24",
+    "plc": "HMI_IF.LState[24]",
+    "type": "USInt"
+  },
+  {
+    "name": "LState_25",
+    "plc": "HMI_IF.LState[25]",
+    "type": "USInt"
+  },
+  {
+    "name": "LState_26",
+    "plc": "HMI_IF.LState[26]",
+    "type": "USInt"
+  },
+  {
+    "name": "LState_27",
+    "plc": "HMI_IF.LState[27]",
+    "type": "USInt"
+  },
+  {
+    "name": "LState_28",
+    "plc": "HMI_IF.LState[28]",
+    "type": "USInt"
+  },
+  {
+    "name": "LState_29",
+    "plc": "HMI_IF.LState[29]",
+    "type": "USInt"
+  },
+  {
+    "name": "LState_30",
+    "plc": "HMI_IF.LState[30]",
+    "type": "USInt"
+  },
+  {
+    "name": "LState_31",
+    "plc": "HMI_IF.LState[31]",
+    "type": "USInt"
+  },
+  {
+    "name": "LState_32",
+    "plc": "HMI_IF.LState[32]",
+    "type": "USInt"
+  },
+  {
+    "name": "LState_33",
+    "plc": "HMI_IF.LState[33]",
+    "type": "USInt"
+  },
+  {
+    "name": "LState_34",
+    "plc": "HMI_IF.LState[34]",
+    "type": "USInt"
+  },
+  {
+    "name": "LState_35",
+    "plc": "HMI_IF.LState[35]",
+    "type": "USInt"
+  },
+  {
+    "name": "LState_36",
+    "plc": "HMI_IF.LState[36]",
+    "type": "USInt"
+  },
+  {
+    "name": "LState_37",
+    "plc": "HMI_IF.LState[37]",
+    "type": "USInt"
+  },
+  {
+    "name": "LState_38",
+    "plc": "HMI_IF.LState[38]",
+    "type": "USInt"
+  },
+  {
+    "name": "LState_39",
+    "plc": "HMI_IF.LState[39]",
+    "type": "USInt"
+  },
+  {
+    "name": "LState_40",
+    "plc": "HMI_IF.LState[40]",
+    "type": "USInt"
+  },
+  {
+    "name": "LState_41",
+    "plc": "HMI_IF.LState[41]",
+    "type": "USInt"
+  },
+  {
+    "name": "LState_42",
+    "plc": "HMI_IF.LState[42]",
+    "type": "USInt"
+  },
+  {
+    "name": "LState_43",
+    "plc": "HMI_IF.LState[43]",
+    "type": "USInt"
+  },
+  {
+    "name": "LState_44",
+    "plc": "HMI_IF.LState[44]",
+    "type": "USInt"
+  },
+  {
+    "name": "LState_45",
+    "plc": "HMI_IF.LState[45]",
+    "type": "USInt"
+  },
+  {
+    "name": "LState_46",
+    "plc": "HMI_IF.LState[46]",
+    "type": "USInt"
+  },
+  {
+    "name": "LState_47",
+    "plc": "HMI_IF.LState[47]",
+    "type": "USInt"
+  },
+  {
+    "name": "LState_48",
+    "plc": "HMI_IF.LState[48]",
+    "type": "USInt"
+  },
+  {
+    "name": "BalL",
+    "plc": "HMI_IF.BalL",
+    "type": "Int"
+  },
+  {
+    "name": "BalR",
+    "plc": "HMI_IF.BalR",
+    "type": "Int"
+  },
+  {
+    "name": "BalDiff",
+    "plc": "HMI_IF.BalDiff",
+    "type": "Int"
+  },
+  {
+    "name": "BalF",
+    "plc": "HMI_IF.BalF",
+    "type": "Int"
+  },
+  {
+    "name": "BalA",
+    "plc": "HMI_IF.BalA",
+    "type": "Int"
+  },
+  {
+    "name": "BalOk",
+    "plc": "HMI_IF.BalOk",
+    "type": "Bool"
+  },
+  {
+    "name": "AlarmWord",
+    "plc": "HMI_IF.AlarmWord",
+    "type": "Word"
+  },
+  {
+    "name": "AlarmAckWord",
+    "plc": "HMI_IF.AlarmAckWord",
+    "type": "Word"
+  },
+  {
+    "name": "AlarmId",
+    "plc": "HMI_IF.AlarmId",
+    "type": "UInt"
+  },
+  {
+    "name": "AlarmWord2",
+    "plc": "HMI_IF.AlarmWord2",
+    "type": "Word"
+  },
+  {
+    "name": "AlarmUId",
+    "plc": "HMI_IF.AlarmUId",
+    "type": "UInt"
+  },
+  {
+    "name": "AlarmUCnt",
+    "plc": "HMI_IF.AlarmUCnt",
+    "type": "Int"
+  },
+  {
+    "name": "AlarmLId",
+    "plc": "HMI_IF.AlarmLId",
+    "type": "UInt"
+  },
+  {
+    "name": "AlarmLCnt",
+    "plc": "HMI_IF.AlarmLCnt",
+    "type": "Int"
+  },
+  {
+    "name": "AlarmX",
+    "plc": "HMI_IF.AlarmX",
+    "type": "SInt"
+  },
+  {
+    "name": "AlarmY",
+    "plc": "HMI_IF.AlarmY",
+    "type": "SInt"
+  },
+  {
+    "name": "AlarmBay",
+    "plc": "HMI_IF.AlarmBay",
+    "type": "USInt"
+  },
+  {
+    "name": "AlarmHist_00",
+    "plc": "HMI_IF.AlarmHist[0]",
+    "type": "Int"
+  },
+  {
+    "name": "AlarmHist_01",
+    "plc": "HMI_IF.AlarmHist[1]",
+    "type": "Int"
+  },
+  {
+    "name": "AlarmHist_02",
+    "plc": "HMI_IF.AlarmHist[2]",
+    "type": "Int"
+  },
+  {
+    "name": "AlarmHist_03",
+    "plc": "HMI_IF.AlarmHist[3]",
+    "type": "Int"
+  },
+  {
+    "name": "AlarmHist_04",
+    "plc": "HMI_IF.AlarmHist[4]",
+    "type": "Int"
+  },
+  {
+    "name": "AlarmHist_05",
+    "plc": "HMI_IF.AlarmHist[5]",
+    "type": "Int"
+  },
+  {
+    "name": "AlarmHist_06",
+    "plc": "HMI_IF.AlarmHist[6]",
+    "type": "Int"
+  },
+  {
+    "name": "AlarmHist_07",
+    "plc": "HMI_IF.AlarmHist[7]",
+    "type": "Int"
+  },
+  {
+    "name": "AlarmHist_08",
+    "plc": "HMI_IF.AlarmHist[8]",
+    "type": "Int"
+  },
+  {
+    "name": "AlarmHist_09",
+    "plc": "HMI_IF.AlarmHist[9]",
+    "type": "Int"
+  },
+  {
+    "name": "AlarmHist_10",
+    "plc": "HMI_IF.AlarmHist[10]",
+    "type": "Int"
+  },
+  {
+    "name": "AlarmHist_11",
+    "plc": "HMI_IF.AlarmHist[11]",
+    "type": "Int"
+  },
+  {
+    "name": "AlarmHist_12",
+    "plc": "HMI_IF.AlarmHist[12]",
+    "type": "Int"
+  },
+  {
+    "name": "AlarmHist_13",
+    "plc": "HMI_IF.AlarmHist[13]",
+    "type": "Int"
+  },
+  {
+    "name": "AlarmHist_14",
+    "plc": "HMI_IF.AlarmHist[14]",
+    "type": "Int"
+  },
+  {
+    "name": "AlarmHist_15",
+    "plc": "HMI_IF.AlarmHist[15]",
+    "type": "Int"
+  },
+  {
+    "name": "AlarmHistSeq",
+    "plc": "HMI_IF.AlarmHistSeq",
+    "type": "UDInt"
+  },
+  {
+    "name": "OB30Ticks",
+    "plc": "HMI_IF.OB30Ticks",
+    "type": "UDInt"
+  },
+  {
+    "name": "Heartbeat",
+    "plc": "HMI_IF.Heartbeat",
+    "type": "Bool"
+  }
+]

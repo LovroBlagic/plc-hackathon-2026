@@ -1,0 +1,202 @@
+{
+  "original": {
+    "input": "Exact offline starter DB values, verified against fresh simulator download",
+    "readback": {
+      "State": "6",
+      "N": "10",
+      "TrDone": "0",
+      "TrTotal": "0",
+      "MSpec": "0",
+      "M": "0",
+      "T": "0",
+      "J": "0",
+      "AlarmWord": "32792",
+      "AlarmUCnt": "7",
+      "AlarmLCnt": "3"
+    },
+    "checks": {
+      "done": true,
+      "zero_transfers": true,
+      "M_zero": true,
+      "T_zero": true,
+      "J_zero": true,
+      "N_ten": true,
+      "missing_unload_7": true,
+      "missing_load_3": true,
+      "bay0_unchanged": true,
+      "bay1_unchanged": true
+    },
+    "pass": true,
+    "python_result": {
+      "err": 0,
+      "commands": [],
+      "T_ds": 0,
+      "M": 0,
+      "MSpec": 0,
+      "J": 0.0,
+      "order_used": 1,
+      "plan": [],
+      "bay0": [
+        [
+          123,
+          326,
+          987,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      ],
+      "bay1": [
+        [
+          0,
+          246,
+          0,
+          0,
+          0,
+          0,
+          0,
+          675,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          777,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      ],
+      "N": 10,
+      "transfers": 0
+    }
+  },
+  "fuller_post_fix": {
+    "dataset": "tools/crane_data/rand_01.json",
+    "kind": "synthetic regression dataset, NOT organizer hidden data",
+    "trigger": "INIT/AUTO/START clicked in native WinCC HMI",
+    "last": {
+      "State": "6",
+      "Mode": "1",
+      "TrDone": "27",
+      "TrTotal": "27",
+      "MSpec": "130",
+      "T": "2503.2002",
+      "AlarmWord": "32768",
+      "CraneBusy": "0",
+      "Carried": "0",
+      "OB30Ticks": "200",
+      "elapsed": 109.36
+    },
+    "checks": {
+      "done": true,
+      "transfer_count": true,
+      "MSpec": true,
+      "T": true,
+      "bay0": true,
+      "bay1": true
+    },
+    "pass": true
+  },
+  "before_after_same": {
+    "MSpec": true,
+    "T": true,
+    "TrDone": true,
+    "TrTotal": true
+  },
+  "flashing": {
+    "samples_per_cell": 240,
+    "cells": 96,
+    "state": "2",
+    "changed_cell_count": 0,
+    "changes": {},
+    "non_base_cells": 27,
+    "pass": true
+  },
+  "optimality": "Matches the existing Python planner configuration; not a global optimality proof. Original starter has zero valid transfers."
+}

@@ -1,0 +1,15 @@
+﻿DATA_BLOCK "Current_state_of_Bay1"
+{ S7_Optimized_Access := 'TRUE' }
+VERSION : 0.1
+NON_RETAIN
+   VAR
+      Bay1 : Array[0..3, 0..11] of UInt;
+   END_VAR
+
+
+BEGIN
+   Bay1[0,1] := 246;
+   Bay1[0,7] := 675;
+   Bay1[1,5] := 777;
+
+END_DATA_BLOCK

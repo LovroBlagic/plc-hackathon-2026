@@ -1,0 +1,61 @@
+{
+  "count": 492,
+  "expected": 492,
+  "binding_errors": [],
+  "type_map": [
+    [
+      "USInt",
+      "USInt",
+      "Binary",
+      "100 ms"
+    ],
+    [
+      "Real",
+      "Real",
+      "IEEE754",
+      "1 s"
+    ],
+    [
+      "Word",
+      "Word",
+      "Binary",
+      "100 ms"
+    ],
+    [
+      "UDInt",
+      "UDInt",
+      "Binary",
+      "100 ms"
+    ],
+    [
+      "UInt",
+      "UInt",
+      "Binary",
+      "100 ms"
+    ],
+    [
+      "Int",
+      "Int",
+      "Binary",
+      "100 ms"
+    ],
+    [
+      "Bool",
+      "Bool",
+      "Binary",
+      "100 ms"
+    ],
+    [
+      "DInt",
+      "DInt",
+      "Binary",
+      "100 ms"
+    ],
+    [
+      "SInt",
+      "SInt",
+      "Binary",
+      "100 ms"
+    ]
+  ]
+}
