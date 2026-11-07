@@ -8,7 +8,7 @@ VAR_GLOBAL CONSTANT
 	FC_ALPHA_FEC : REAL := 0.5;         // EMA weight of the newest day for the load profile
 	FC_ALPHA_PV : REAL := 0.3;          // EMA weight of the newest day for the PV profile
 	FC_ALPHA_SIG : REAL := 0.3;         // EMA weight for the FEC deviation (sigma)
-	FC_KSIG_TT : REAL := 1.0;           // two-tariff: pessimistic load = expected + FC_KSIG_TT * sigma
+	FC_KSIG_TT : REAL := 0.75;          // two-tariff: pessimistic load = expected + FC_KSIG_TT * sigma
 	FC_KSIG_DA : REAL := 0.0;           // day-ahead: same (arbitrage is worth more than the reserve)
 	FC_CORR_W : INT := 4;               // intraday correction window [steps], 0 = off (max 16)
 	FC_CORR_TAU : REAL := 16.0;         // fade-out of the intraday correction [steps]

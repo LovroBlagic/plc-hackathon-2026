@@ -31,7 +31,7 @@ VAR CONSTANT
 	NS : INT := 30;                     // energy levels 0..NS: 1200 kWh / 30 = 40 kWh per level
 	AMIN : INT := -4;                   // max discharge levels per step (750*0.25/0.95/40 = 4.9)
 	AMAX : INT := 4;                    // max charge levels per step (750*0.25*0.95/40 = 4.5)
-	N_FIRST : INT := 21;                  // first-step candidates
+	N_FIRST : INT := 41;                  // first-step candidates
 END_VAR
 VAR
 	V : ARRAY[0..30] OF REAL;           // value function at i+1
@@ -56,7 +56,7 @@ VAR
 	rX : REAL;
 	rFr : REAL;
 	iS0 : INT;
-	aCand : ARRAY[0..22] OF REAL;
+	aCand : ARRAY[0..42] OF REAL;
 	nCand : INT;
 	ts : REAL;
 	etaC : REAL;

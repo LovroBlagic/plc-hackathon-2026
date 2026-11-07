@@ -75,16 +75,21 @@ class Forecaster:
         s.cw, s.ctau, s.cpv, s.cfec = cw, ctau, cpv, cfec
         s.coldmax = False
         s.med = 0
-        s.hist = [[[] for _ in range(96)] for _ in range(3)]
+        s.hist = [[[] for _ in range(96)] for _ in range(7)]
+        s.huber = 0.0
         s.hf = []; s.hp = []
         s.rf = 1.0; s.rp = 1.0
-        s.fec = [[None] * 96 for _ in range(3)]
-        s.sig = [[0.0] * 96 for _ in range(3)]
+        s.fec = [[None] * 96 for _ in range(7)]
+        s.sig = [[0.0] * 96 for _ in range(7)]
         s.pv = [None] * 96
         s.vt = [False] * 96
 
-    @staticmethod
-    def dtype(wd):
+    D7 = False
+
+    @classmethod
+    def dtype(cls, wd):
+        if cls.D7:
+            return wd - 1
         return 0 if wd <= 5 else (1 if wd == 6 else 2)
 
     def update(s, t, fec, pv, vt):
@@ -102,7 +107,12 @@ class Forecaster:
             s.rp = min(1.5, max(0.2, ap / bp)) if (s.cpv and bp > 20.0) else 1.0
         if f is not None:
             s.sig[dt][q] += s.a_sig * (abs(fec - f) - s.sig[dt][q])
-        s.fec[dt][q] = fec if f is None else f + s.a_fec * (fec - f)
+        if f is not None and s.huber > 0 and s.sig[dt][q] > 0:
+            lim = s.huber * max(s.sig[dt][q], 20.0)
+            x = min(max(fec, f - lim), f + lim)
+        else:
+            x = fec
+        s.fec[dt][q] = fec if f is None else f + s.a_fec * (x - f)
         if s.med:
             hq = s.hist[dt][q]; hq.append(fec)
             if len(hq) > s.med: hq.pop(0)
@@ -136,9 +146,11 @@ def dp_strategy(H=96, dE=20.0, pen=20.0, tvf=0.9, pvf=0.6, cap_margin=1.02, real
                 a_fec=0.5, a_pv=0.3, oracle=False, nacts=21, neg_curt=True, peak_mode=True, dbg=None,
                 ksig=0.0, a_sig=0.3, hi_in_dp=True, qf=0.0, cw=0, ctau=16.0, cpv=True, cfec=True,
                 ev_mode=0, ev_margin=2, tsplit=False, hmax=192, coldmax=False,
-                capsel=None, capsel_w=1.0, med=0, psoft=0.0, tvhist=False):
+                capsel=None, capsel_w=1.0, med=0, psoft=0.0, tvhist=False, huber=0.0, d7=False):
     fc = Forecaster(a_fec, a_pv, a_sig, cw, ctau, cpv, cfec)
     fc.med = med
+    fc.huber = huber
+    Forecaster.D7 = d7
     fc.coldmax = coldmax
     from twin import load
     D = globals().get("_DATA") or load()
@@ -321,9 +333,9 @@ def dp_strategy(H=96, dE=20.0, pen=20.0, tvf=0.9, pvf=0.6, cap_margin=1.02, real
 
 def st_config(mode):
     """Parameters equal to the ST implementation (Team_Cfg) for the given price mode."""
-    kw = dict(realistic=True, cw=4, dE=40.0, hmax=96, coldmax=True)
+    kw = dict(realistic=True, cw=4, dE=40.0, hmax=96, coldmax=True, nacts=41)
     if mode == 0:
-        kw.update(ksig=1.0, hi_in_dp=True, pvf=0.6)
+        kw.update(ksig=0.75, hi_in_dp=True, pvf=0.6)
     else:
         kw.update(ksig=0.0, hi_in_dp=False, pvf=0.2)
     return kw
