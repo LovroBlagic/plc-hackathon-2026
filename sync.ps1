@@ -17,6 +17,8 @@ foreach ($s in @("machine-expert", "tia-portal")) {
 # 2) Pull teammates' work first (autostash keeps our uncommitted changes)
 git pull --rebase --autostash -q origin main
 if ($LASTEXITCODE -ne 0) { Write-Output "SYNC_RESULT pull_failed (resolve conflicts, then rerun)"; exit 1 }
+$unmerged = git diff --name-only --diff-filter=U
+if ($LASTEXITCODE -ne 0 -or $unmerged) { Write-Output "SYNC_RESULT unresolved_conflicts (resolve conflicts, then rerun)"; exit 1 }
 
 # 3) Commit everything that changed (respecting .gitignore)
 git add -A
@@ -25,6 +27,7 @@ if ($changes) {
     $n = ($changes | Measure-Object).Count
     if (-not $Message) { $Message = "Sync: $n file(s) updated $(Get-Date -Format 'yyyy-MM-dd HH:mm')" }
     git commit -q -m $Message -m "Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>`nClaude-Session: https://claude.ai/code/session_01Sn3L6cbRF9NukZz3BtvYwi"
+    if ($LASTEXITCODE -ne 0) { Write-Output "SYNC_RESULT commit_failed"; exit 1 }
 } else { $n = 0 }
 
 # 4) Push

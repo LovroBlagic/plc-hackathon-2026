@@ -401,9 +401,7 @@ Notes:
   - The virtual 1515 instance came up and was visible to TIA. The agent was retrying the download with an explicit address. No crane test has run yet; there is no PLCSIM_RESULTS.md.
   - The headless TIA instance and TiaDownload were killed and `openness.lock` removed. The test copy may be in an inconsistent state, so start a fresh one.
   - **To resume:** continue the agent (SendMessage), or start a new one with the same brief, beginning at "download with explicit address".
-<<<<<<< Updated upstream
 - **2026-11-07 ~17:05 (orchestrator):** second laptop can work in parallel. Read **PARALLEL_WORK.md** (ownership, tasks: v1.7 PLCSIM regression, pitch, ME). v1.7 (spec M rule) compiled errors=0 and archived (PLC only). HMI: screens import; tags blocked (suspected missing HMI connection, GUI fix via windows-mcp in progress). GUI notes: hmi-tia/GUI_NOTES.md.
-=======
 
 ### 7 Nov afternoon - WebVisu HMI side-conversation work
 - Frozen v7 strategy was left unchanged. Separate hmi-me/ME_v7_WebVisu.project contains seven generated native pages (529 elements): Overview, EVs, Trends, Energy, Costs, Alarms, Controls.
@@ -439,5 +437,3 @@ Notes:
 - User requested fixing the unconnected pipe above SABIRNICA and removing the two pictured footer lines. Shortened the vertical bus stem to y=294,height=110, beginning at the horizontal bus; removed shared English footer on all seven pages and Overview interval/sign footer. 521 native elements remain.
 - Reimport/build passed 0 errors (known CheckBounds warning); frozen-source parity 26/26. Updated project saved. New archive deliver/ME_v7_WebVisu_dashboard_v2.projectarchive, 81,501,782 bytes; original archive retained. Archive integrity checked. STATUS/SHORTCUTS updated. These are geometry/text-only edits, so S1/S2 full-year results remain recorded separately; no redundant year rerun.
 - Archive saved with simulation mode off; desktop editor shows updated layout offline. No git sync/commit/push.
-
->>>>>>> Stashed changes
