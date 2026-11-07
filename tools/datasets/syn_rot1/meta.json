@@ -1,0 +1,8 @@
+{
+ "name": "syn_rot1",
+ "kind": "synthetic",
+ "description": "FEC rotated +3 weeks, PV rotated -9 days, EV resampled (seed 101, generator tools/datasets/gen_synthetic.py)",
+ "source_urls": [],
+ "prices": "2025",
+ "seed": 101
+}

@@ -1,0 +1,9 @@
+{
+ "name": "stress_load105",
+ "kind": "stress",
+ "description": "STRESS: FEC bootstrap + noise 4 %, then x1.05, soft-capped below 999.9 kW (more time near the import limit; an uncapped x1.05 trips the baseline in winter because FEC alone exceeds 1000 kW with an empty battery), PV transplant (seed 201, generator tools/datasets/gen_synthetic.py)",
+ "source_urls": [],
+ "prices": "2025",
+ "seed": 201,
+ "stress": "load +5 %"
+}

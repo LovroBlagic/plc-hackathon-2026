@@ -1,0 +1,8 @@
+{
+ "name": "syn_peaky",
+ "kind": "synthetic",
+ "description": "FEC bootstrap, intraday residual vs 9-step moving average x1.3 (sharper peaks), noise 3 %, PV transplant (seed 107, generator tools/datasets/gen_synthetic.py)",
+ "source_urls": [],
+ "prices": "2025",
+ "seed": 107
+}

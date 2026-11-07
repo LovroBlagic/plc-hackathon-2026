@@ -1,0 +1,8 @@
+{
+ "name": "syn_highload",
+ "kind": "synthetic",
+ "description": "FEC bootstrap + noise 4 % + 8 extra weekdays scaled to a 940-990 kW peak (days [15, 72, 118, 135, 239, 245, 281, 357]), PV transplant (seed 106, generator tools/datasets/gen_synthetic.py)",
+ "source_urls": [],
+ "prices": "2025",
+ "seed": 106
+}

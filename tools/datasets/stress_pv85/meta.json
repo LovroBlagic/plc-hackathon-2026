@@ -1,0 +1,9 @@
+{
+ "name": "stress_pv85",
+ "kind": "stress",
+ "description": "STRESS: FEC bootstrap + noise 4 %, PV transplant x0.85 (seed 202, generator tools/datasets/gen_synthetic.py)",
+ "source_urls": [],
+ "prices": "2025",
+ "seed": 202,
+ "stress": "PV -15 %"
+}

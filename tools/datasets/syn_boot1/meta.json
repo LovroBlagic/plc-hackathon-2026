@@ -1,0 +1,8 @@
+{
+ "name": "syn_boot1",
+ "kind": "synthetic",
+ "description": "FEC day bootstrap (same weekday +-28 d) + AR(1) noise 4 %, PV weather transplant +-10 d, EV resampled (seed 103, generator tools/datasets/gen_synthetic.py)",
+ "source_urls": [],
+ "prices": "2025",
+ "seed": 103
+}

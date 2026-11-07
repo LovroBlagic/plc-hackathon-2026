@@ -1,0 +1,30 @@
+{
+ "name": "real_jplev",
+ "kind": "real",
+ "description": "Practice FNE/FEC + real workplace EV sessions: 4 JPL (Caltech ACN-Data) EVSEs ['1-1-179-800', '1-1-179-799', '1-1-179-810', '1-1-179-815'], calendar 2019, one EVSE per charger, weekday-aligned (2025 day d <- 2019 day d+1), local wall-clock time, energies rescaled to the practice total 9.33 MWh/yr (energy from integrated current at 208 V), all sessions feasible.",
+ "source_urls": [
+  "https://ev.caltech.edu/dataset",
+  "https://github.com/tongxin-li/ACN-Data-Static"
+ ],
+ "licence": "ACN-Data (Caltech/JPL), Lee, Li & Low, 'ACN-Data: Analysis and Applications of an Open EV Charging Dataset', ACM e-Energy 2019 - free for research with citation (official API needs a free token; the static GitHub snapshot states no separate licence). Only derived, rescaled session tuples stored.",
+ "prices": "2025",
+ "ev_stations": [
+  "1-1-179-800",
+  "1-1-179-799",
+  "1-1-179-810",
+  "1-1-179-815"
+ ],
+ "stats": {
+  "fne_MWh": 998.0,
+  "fne_max": 750.0,
+  "fec_MWh": 2210.9,
+  "fec_max": 999.9,
+  "ev_MWh": 9.327,
+  "ev_sessions": [
+   320,
+   315,
+   316,
+   309
+  ]
+ }
+}

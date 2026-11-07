@@ -1,0 +1,8 @@
+{
+ "name": "syn_mixed",
+ "kind": "synthetic",
+ "description": "FEC bootstrap + peaky x1.2 + noise 5 % + 5 high-load days [49, 75, 296, 315, 341], PV Markov streaks (0.75, 50 %) (seed 112, generator tools/datasets/gen_synthetic.py)",
+ "source_urls": [],
+ "prices": "2025",
+ "seed": 112
+}

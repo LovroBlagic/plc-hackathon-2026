@@ -1,0 +1,30 @@
+{
+ "name": "real_jplev_hiturn",
+ "kind": "real",
+ "description": "Practice FNE/FEC + high-turnover JPL EVSEs ['1-1-193-819', '1-1-178-828', '1-1-194-821', '1-1-193-827'] (2019; several sessions per day incl. evening/overnight ones), rescaled to 9.33 MWh/yr.",
+ "source_urls": [
+  "https://ev.caltech.edu/dataset",
+  "https://github.com/tongxin-li/ACN-Data-Static"
+ ],
+ "licence": "ACN-Data (Caltech/JPL), Lee, Li & Low, 'ACN-Data: Analysis and Applications of an Open EV Charging Dataset', ACM e-Energy 2019 - free for research with citation (official API needs a free token; the static GitHub snapshot states no separate licence). Only derived, rescaled session tuples stored.",
+ "prices": "2025",
+ "ev_stations": [
+  "1-1-193-819",
+  "1-1-178-828",
+  "1-1-194-821",
+  "1-1-193-827"
+ ],
+ "stats": {
+  "fne_MWh": 998.0,
+  "fne_max": 750.0,
+  "fec_MWh": 2210.9,
+  "fec_max": 999.9,
+  "ev_MWh": 9.327,
+  "ev_sessions": [
+   539,
+   531,
+   497,
+   459
+  ]
+ }
+}

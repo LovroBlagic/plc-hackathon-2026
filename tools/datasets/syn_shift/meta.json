@@ -1,0 +1,8 @@
+{
+ "name": "syn_shift",
+ "kind": "synthetic",
+ "description": "FEC bootstrap, each day shifted by -2..+2 steps (start-time variation), noise 4 %, PV transplant (seed 111, generator tools/datasets/gen_synthetic.py)",
+ "source_urls": [],
+ "prices": "2025",
+ "seed": 111
+}

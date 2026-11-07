@@ -1,0 +1,34 @@
+{
+ "name": "real_ind13_pv2021_jpl",
+ "kind": "real",
+ "description": "All-real-shape scenario: FEC = German industrial plant LG13 (night ~2 % of peak, Sat ~30 %, Sun ~3 % of weekday: closest to practice) from Zenodo 3899018 (2016, 15-min), DST rows removed, wall-clock time, weekday-aligned to 2025, affinely rescaled (weekday-night median -> 35 kW, annual max -> 990 kW); FNE = PVGIS-SARAH3 2021 (organiser method); EV = JPL sessions ['1-1-179-800', '1-1-179-799', '1-1-179-810', '1-1-179-815'] rescaled to 9.33 MWh.",
+ "source_urls": [
+  "https://zenodo.org/records/3899018",
+  "https://re.jrc.ec.europa.eu/api/v5_3/seriescalc?lat=45.8&lon=15.97&peakpower=800&loss=14&angle=30&aspect=0&startyear=2021&endyear=2021&pvcalculation=1&outputformat=csv",
+  "https://ev.caltech.edu/dataset",
+  "https://github.com/tongxin-li/ACN-Data-Static"
+ ],
+ "licence": "Braeuer, F. (2020) 'Load profile data of 50 industrial plants in Germany for one year', Zenodo, doi:10.5281/zenodo.3899018, CC-BY 4.0. Only a rescaled derived 15-min series is stored here. | PVGIS (c) European Union 2001-2026, JRC; free reuse with attribution (Commission Decision 2011/833/EU). Radiation database PVGIS-SARAH3. | ACN-Data (Caltech/JPL), Lee, Li & Low, 'ACN-Data: Analysis and Applications of an Open EV Charging Dataset', ACM e-Energy 2019 - free for research with citation (official API needs a free token; the static GitHub snapshot states no separate licence). Only derived, rescaled session tuples stored.",
+ "prices": "2025",
+ "plant": "LG13 (2016)",
+ "pv_year": 2021,
+ "ev_stations": [
+  "1-1-179-800",
+  "1-1-179-799",
+  "1-1-179-810",
+  "1-1-179-815"
+ ],
+ "stats": {
+  "fne_MWh": 1012.8,
+  "fne_max": 750.0,
+  "fec_MWh": 2627.4,
+  "fec_max": 990.0,
+  "ev_MWh": 9.327,
+  "ev_sessions": [
+   320,
+   315,
+   316,
+   309
+  ]
+ }
+}

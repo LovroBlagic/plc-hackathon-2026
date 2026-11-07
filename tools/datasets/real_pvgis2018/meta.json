@@ -1,0 +1,24 @@
+{
+ "name": "real_pvgis2018",
+ "kind": "real",
+ "description": "PVGIS-SARAH3 2018 hourly PV for the exact plant (45.8N 15.97E, 800 kWp, 30 deg S, 14 % loss) turned into 15-min exactly like the practice FNE (= PVGIS 2023, PCHIP of cumulative energy, clip 750); practice FEC and EV sessions.",
+ "source_urls": [
+  "https://re.jrc.ec.europa.eu/api/v5_3/seriescalc?lat=45.8&lon=15.97&peakpower=800&loss=14&angle=30&aspect=0&startyear=2018&endyear=2018&pvcalculation=1&outputformat=csv"
+ ],
+ "licence": "PVGIS (c) European Union 2001-2026, JRC; free reuse with attribution (Commission Decision 2011/833/EU). Radiation database PVGIS-SARAH3.",
+ "prices": "2025",
+ "pv_year": 2018,
+ "stats": {
+  "fne_MWh": 958.8,
+  "fne_max": 750.0,
+  "fec_MWh": 2210.9,
+  "fec_max": 999.9,
+  "ev_MWh": 9.327,
+  "ev_sessions": [
+   228,
+   112,
+   198,
+   208
+  ]
+ }
+}

@@ -1,0 +1,9 @@
+{
+ "name": "stress_combo",
+ "kind": "stress",
+ "description": "STRESS: FEC bootstrap + noise 5 % x1.05 (soft-capped below 999.9 kW) and cloudy PV x0.85 (seed 203, generator tools/datasets/gen_synthetic.py)",
+ "source_urls": [],
+ "prices": "2025",
+ "seed": 203,
+ "stress": "load +5 % and PV -15 % with cloudy streaks"
+}

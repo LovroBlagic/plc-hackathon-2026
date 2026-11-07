@@ -1,0 +1,8 @@
+{
+ "name": "syn_sunny",
+ "kind": "synthetic",
+ "description": "FEC bootstrap + noise 4 %, PV sunnier: Markov chain (persistence 0.8, 30 % cloudy) over +-30 d donors (seed 109, generator tools/datasets/gen_synthetic.py)",
+ "source_urls": [],
+ "prices": "2025",
+ "seed": 109
+}

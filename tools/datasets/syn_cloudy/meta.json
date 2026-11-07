@@ -1,0 +1,8 @@
+{
+ "name": "syn_cloudy",
+ "kind": "synthetic",
+ "description": "FEC bootstrap + noise 4 %, PV cloudy streaks: Markov chain (persistence 0.8, 70 % cloudy) picks donors from the cloudier half of +-30 d (seed 108, generator tools/datasets/gen_synthetic.py)",
+ "source_urls": [],
+ "prices": "2025",
+ "seed": 108
+}

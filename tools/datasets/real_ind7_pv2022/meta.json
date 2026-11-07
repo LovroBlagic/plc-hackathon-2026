@@ -1,0 +1,27 @@
+{
+ "name": "real_ind7_pv2022",
+ "kind": "real",
+ "description": "All-real-shape scenario: FEC = German industrial plant LG7 (office-like: short weekday peaks, almost nothing at night/weekends) from Zenodo 3899018 (2016, 15-min), DST rows removed, wall-clock time, weekday-aligned to 2025, affinely rescaled (weekday-night median -> 35 kW, annual max -> 990 kW); FNE = PVGIS-SARAH3 2022 (organiser method); EV = practice sessions.",
+ "source_urls": [
+  "https://zenodo.org/records/3899018",
+  "https://re.jrc.ec.europa.eu/api/v5_3/seriescalc?lat=45.8&lon=15.97&peakpower=800&loss=14&angle=30&aspect=0&startyear=2022&endyear=2022&pvcalculation=1&outputformat=csv"
+ ],
+ "licence": "Braeuer, F. (2020) 'Load profile data of 50 industrial plants in Germany for one year', Zenodo, doi:10.5281/zenodo.3899018, CC-BY 4.0. Only a rescaled derived 15-min series is stored here. | PVGIS (c) European Union 2001-2026, JRC; free reuse with attribution (Commission Decision 2011/833/EU). Radiation database PVGIS-SARAH3.",
+ "prices": "2025",
+ "plant": "LG7 (2016)",
+ "pv_year": 2022,
+ "ev_stations": null,
+ "stats": {
+  "fne_MWh": 1016.6,
+  "fne_max": 738.2,
+  "fec_MWh": 1334.5,
+  "fec_max": 990.0,
+  "ev_MWh": 9.327,
+  "ev_sessions": [
+   228,
+   112,
+   198,
+   208
+  ]
+ }
+}

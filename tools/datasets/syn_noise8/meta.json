@@ -1,0 +1,8 @@
+{
+ "name": "syn_noise8",
+ "kind": "synthetic",
+ "description": "FEC rotated +2 weeks + persistent AR(1) noise 8 % (phi 0.95), PV transplant (seed 110, generator tools/datasets/gen_synthetic.py)",
+ "source_urls": [],
+ "prices": "2025",
+ "seed": 110
+}
