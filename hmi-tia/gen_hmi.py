@@ -409,6 +409,14 @@ class Builder:
         set_tag_links(el, self.cfg.tag(it["tag"]))
         return el
 
+    def datetime(self, it):
+        # judge round 2 R2-J4: date/time field on every screen (template footer). Optional prototype
+        # P_DateTime (WinCC "Date/time field", system time, HUMAN_STEPS B); skipped with a warning if absent.
+        if "P_DateTime" not in self.P:
+            log("WARNING: prototype P_DateTime missing on Proto screen - date/time field skipped (HUMAN_STEPS B)")
+            return None
+        return self._new("P_DateTime", "dtm", it["x"], it["y"], it["w"], it["h"])
+
     def bar(self, it):
         el = self._new("P_Bar", "bar", it["x"], it["y"], it["w"], it["h"])
         set_tag_links(el, self.cfg.tag(it["tag"]))
@@ -447,6 +455,7 @@ class Builder:
             elif k == "lamp": self.lamp(it)
             elif k == "lampA": self.lamp(it, alarm=True)
             elif k == "bar": self.bar(it)
+            elif k == "datetime": self.datetime(it)
             elif k == "kv":
                 self.text({"x": it["x"], "y": it["y"], "w": it["lw"], "h": it["h"], "t": it["label"]})
                 self.io({"x": it["x"] + it["lw"], "y": it["y"], "w": it["w"], "h": it["h"], "tag": it["tag"], "fmt": it.get("fmt", "99999")})

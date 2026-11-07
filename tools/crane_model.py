@@ -146,10 +146,15 @@ def fa(bay0):
     return F, A
 
 
-def step_ok(a, b, a2, b2, lim=BAL_LIMIT):
-    """Step rule: OK iff |a2-b2| <= lim or |a2-b2| <= |a-b|."""
+def step_ok(a, b, a2, b2, lim=BAL_LIMIT, ceil=0):
+    """Step rule: OK iff |a2-b2| <= lim or |a2-b2| <= |a-b|.
+    v1.5 (judge round 2 R2-J1) relaxed rule, only with ceil > lim (World.BalCeil = the imbalance of the
+    given start data, used only as a fallback before the list order is given up): while the ship is
+    still out of balance (|a-b| > lim) a step may also go up to ceil. Memoryless: once balanced
+    (<= lim) the ship stays balanced, before that it never exceeds the given start imbalance."""
     d2 = abs(a2 - b2)
-    return d2 <= lim or d2 <= abs(a - b)
+    d = abs(a - b)
+    return d2 <= lim or d2 <= d or (d > lim and d2 <= ceil)
 
 
 def reachable(L2, R2, uL, uR, n, lim=BAL_LIMIT):
@@ -164,7 +169,7 @@ def reachable(L2, R2, uL, uR, n, lim=BAL_LIMIT):
 
 
 # ---------------------------------------------------------------- CheckCmd (FC10)
-def check_cmd(world, cmd, x, y, bay, crane, lim=BAL_LIMIT, balmode=0):
+def check_cmd(world, cmd, x, y, bay, crane, lim=BAL_LIMIT, balmode=0, ceil=0):
     """Returns 0 OK, 100 = balance (bit 0), else alarm bit number.
     For lift/put the cell checked is the crane position (crane = (x, y, bay))."""
     if cmd == 3:
@@ -191,7 +196,7 @@ def check_cmd(world, cmd, x, y, bay, crane, lim=BAL_LIMIT, balmode=0):
     if cb == 0:
         L, R = lr(world.g[0])
         L2, R2 = (L + delta, R) if cx <= 1 else (L, R + delta)
-        if not step_ok(L, R, L2, R2, lim):
+        if not step_ok(L, R, L2, R2, lim, ceil):
             return 100
         if balmode == 1:
             F, A = fa(world.g[0])

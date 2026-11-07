@@ -50,6 +50,7 @@ def step_candidates(g, crane, PU, PL, cfg, alpha, want_all=False):
     """One greedy step. Returns (pass, best) or, if want_all, (pass, [cands...]) with
     candidates in scan order. Candidate = (score, s, d, E_T, E_M, Lm_T, Lm_M, Nx)."""
     order, mmode, lim, balmode = cfg["order"], cfg["mmode"], cfg["lim"], cfg["balmode"]
+    ceil = cfg.get("ceil", 0)
     bay0 = g[0]
     L, R = cm.lr(bay0)
     F, A = cm.fa(bay0)
@@ -106,7 +107,7 @@ def step_candidates(g, crane, PU, PL, cfg, alpha, want_all=False):
                         F2, A2 = F + 1, A
                     else:
                         F2, A2 = F, A + 1
-                if not cm.step_ok(L, R, L2, R2, lim):
+                if not cm.step_ok(L, R, L2, R2, lim, ceil):
                     continue
                 if balmode == 1 and not cm.step_ok(F, A, F2, A2, lim):
                     continue
@@ -163,7 +164,18 @@ def lmask(tot):
     return m
 
 
-def feas_table(bay0, bay1, PU, PL, order, lim):
+def lmask_end(tot, lim, ceil):
+    """Terminal mask: every L (lmask) for the step rule; v1.5 relaxed rule (ceil > 0): only the balanced
+    end states |L - R| <= lim, so a relaxed plan always ends balanced (judge round 2 R2-J1)."""
+    m = lmask(tot)
+    if ceil:
+        for L in range(25):
+            if abs(2 * L - tot) > lim:
+                m &= ~(1 << L)
+    return m
+
+
+def feas_table(bay0, bay1, PU, PL, order, lim, ceil=0):
     """v1.4 (CONTRACT 4.10): exact feasibility of the per-list order (order 1) / unloads-then-loads
     (order 2) under the step rule and the capacities. FT[i][j] = bit mask over L (0..24) of the states
     'i pending unloads done (list prefix), j pending loads done, L containers in x{0,1}' from which all
@@ -177,7 +189,7 @@ def feas_table(bay0, bay1, PU, PL, order, lim):
         for j in range(nl, -1, -1):
             tot = S0 - i + j
             if i == nu and j == nl:
-                FT[i][j] = lmask(tot)
+                FT[i][j] = lmask_end(tot, lim, ceil)
                 continue
             m = 0
             for L in range(25):
@@ -190,12 +202,12 @@ def feas_table(bay0, bay1, PU, PL, order, lim):
                         L2, R2 = L - 1, R
                     else:
                         L2, R2 = L, R - 1
-                    if L2 >= 0 and R2 >= 0 and cm.step_ok(L, R, L2, R2, lim) and (FT[i + 1][j] >> L2) & 1:
+                    if L2 >= 0 and R2 >= 0 and cm.step_ok(L, R, L2, R2, lim, ceil) and (FT[i + 1][j] >> L2) & 1:
                         ok = True
                 if not ok and j < nl and (order == 1 or i == nu):
                     for side in (0, 1):
                         L2, R2 = (L + 1, R) if side == 0 else (L, R + 1)
-                        if L2 <= 24 and R2 <= 24 and cm.step_ok(L, R, L2, R2, lim) and (FT[i][j + 1] >> L2) & 1:
+                        if L2 <= 24 and R2 <= 24 and cm.step_ok(L, R, L2, R2, lim, ceil) and (FT[i][j + 1] >> L2) & 1:
                             ok = True
                             break
                 if ok:
@@ -204,19 +216,19 @@ def feas_table(bay0, bay1, PU, PL, order, lim):
     return FT
 
 
-def order_feasible(state, order, lim=5):
+def order_feasible(state, order, lim=5, ceil=0):
     """True iff the pending lists can be executed in order mode 1/2 (FT[0][0] contains L0)."""
     loc = locate([state["bay0"], state["bay1"]], state["PU"], state["PL"])
     if loc is None:
         return False
     if order == 0:
         return True
-    ft = feas_table(state["bay0"], state["bay1"], loc[0], loc[1], order, lim)
+    ft = feas_table(state["bay0"], state["bay1"], loc[0], loc[1], order, lim, ceil)
     L0, _ = cm.lr(state["bay0"])
     return bool((ft[0][0] >> L0) & 1)
 
 
-def seq_feas(kinds, sides, tot0, y0, lim):
+def seq_feas(kinds, sides, tot0, y0, lim, ceil=0):
     """v1.4: exact side feasibility of a FIXED sequence (IMPROVE replay Pass A).
     kinds[k] 1 unload / 2 load, sides[k] 0 left / 1 right (unloads), k = 1..n (index 0 unused).
     Returns FA[0..n]: FA[k] = mask of L after step k from which steps k+1..n can be completed."""
@@ -228,7 +240,7 @@ def seq_feas(kinds, sides, tot0, y0, lim):
         tot[k] = tot[k - 1] + d
         yc[k] = yc[k - 1] - d
     FA = [0] * (n + 1)
-    FA[n] = lmask(tot[n])
+    FA[n] = lmask_end(tot[n], lim, ceil)
     for k in range(n, 0, -1):
         tb = tot[k - 1]
         m = 0
@@ -240,11 +252,11 @@ def seq_feas(kinds, sides, tot0, y0, lim):
             if kinds[k] == 1:
                 if yc[k - 1] < 48:
                     L2, R2 = (L - 1, R) if sides[k] == 0 else (L, R - 1)
-                    ok = L2 >= 0 and R2 >= 0 and cm.step_ok(L, R, L2, R2, lim) and (FA[k] >> L2) & 1
+                    ok = L2 >= 0 and R2 >= 0 and cm.step_ok(L, R, L2, R2, lim, ceil) and (FA[k] >> L2) & 1
             else:
                 for side in (0, 1):
                     L2, R2 = (L + 1, R) if side == 0 else (L, R + 1)
-                    if L2 <= 24 and R2 <= 24 and cm.step_ok(L, R, L2, R2, lim) and (FA[k] >> L2) & 1:
+                    if L2 <= 24 and R2 <= 24 and cm.step_ok(L, R, L2, R2, lim, ceil) and (FA[k] >> L2) & 1:
                         ok = True
                         break
             if ok:
@@ -353,7 +365,8 @@ def build_state(ds, lim=5, crane=(0, 0, 1), base_t=0, base_m=0):
     iv = cm.init_validate(ds, lim)
     PU = [(i + 1, iv["UList"][i]) for i in range(48) if iv["UState"][i] == 0]
     PL = [(j + 1, iv["LList"][j]) for j in range(48) if iv["LState"][j] == 0]
-    return {"bay0": ds["bay0"], "bay1": ds["bay1"], "crane": crane, "carried": 0,
+    L0, R0 = cm.lr(ds["bay0"])
+    return {"bay0": ds["bay0"], "bay1": ds["bay1"], "crane": crane, "carried": 0, "d0": abs(L0 - R0),
             "base_t": base_t, "base_m": base_m, "PU": PU, "PL": PL, "N": iv["N"], "init": iv}
 
 
@@ -367,8 +380,12 @@ def plan(state, cfg, alphas, trace=None, algo="v1"):
     if cfg["order"] != 0 and cfg.get("exact", True):
         loc = locate([state["bay0"], state["bay1"]], state["PU"], state["PL"])
         if loc is not None:
-            ft = feas_table(state["bay0"], state["bay1"], loc[0], loc[1], cfg["order"], cfg["lim"])
+            ft = feas_table(state["bay0"], state["bay1"], loc[0], loc[1], cfg["order"], cfg["lim"], cfg.get("ceil", 0))
             cfg = dict(cfg, _feas=(len(loc[0]), len(loc[1]), ft))
+            L0, _ = cm.lr(state["bay0"])
+            if cfg.get("ceil", 0) and not (ft[0][0] >> L0) & 1:
+                # v1.5: the relaxed rule is only used when the order is exactly feasible under it
+                return {"err": 1, "variant": 0, "plan": [], "variants": []}
     results = []
     for v, a in enumerate(alphas, start=1):
         tr = [] if trace is not None else None
@@ -397,8 +414,27 @@ def plan_fb(state, cfg, alphas, trace=None, algo="v1", imp_evals=0, imp_dist=0, 
     res["order"] / res["balmode"] = modes actually used, res["cfg"] = that config.
     imp_evals > 0: FB11 IMPROVE phase (v1.3) on the successful job; res["J0"] = greedy J."""
     c = dict(cfg)
+    c["ceil"] = 0
+    d0 = state.get("d0")
+    if d0 is None:
+        L0, R0 = cm.lr(state["bay0"])
+        d0 = abs(L0 - R0)
     while True:
         res = plan(state, c, alphas, trace, algo)
+        if res["err"] == 1 and c["order"] > 0 and c["ceil"] < d0 and d0 > c["lim"] and RELAX_BAL:
+            # v1.5 (judge round 2 R2-J1): the ship started out of balance and the list order is
+            # infeasible under the step rule -> same order under the relaxed rule (|L-R| may go back
+            # up to the ceiling while > lim) before the order is given up.
+            # v1.6 (judge round 3 R3-E3 / R3-J2): ascending ceilings lim+1, lim+2, ..., d0, so the ship
+            # never goes back above the SMALLEST imbalance that keeps the list order feasible
+            # (FB11 rejects an infeasible ceiling at once via FtMask). RELAX_MIN = 0: v1.5 (ceil = d0).
+            if not RELAX_MIN:
+                c = dict(c, ceil=d0)
+            elif c["ceil"] == 0:
+                c = dict(c, ceil=c["lim"] + 1)
+            else:
+                c = dict(c, ceil=c["ceil"] + 1)
+            continue
         if res["err"] != 1 or (c["order"] == 0 and c["balmode"] == 0):
             if res["err"] == 0:
                 res["J0"], res["T0"], res["M0"] = res["J"], res["T"], res["M"]
@@ -410,9 +446,9 @@ def plan_fb(state, cfg, alphas, trace=None, algo="v1", imp_evals=0, imp_dist=0, 
             res["order"], res["balmode"], res["cfg"] = c["order"], c["balmode"], c
             return res
         if c["order"] > 0:
-            c = dict(c, order=c["order"] - 1)
+            c = dict(c, order=c["order"] - 1, ceil=0)
         else:
-            c = dict(c, balmode=0)
+            c = dict(c, balmode=0, ceil=0)
 
 
 
@@ -436,6 +472,8 @@ def plan_fb(state, cfg, alphas, trace=None, algo="v1", imp_evals=0, imp_dist=0, 
 #  * Every replay counts as one evaluation; stop at `budget` evaluations or after a sweep (mv 1..3)
 #    without improvement.  Accept iff K_cand < CurK.
 SLOT_SWEEPS = 10                        # v1.4 World.CfgSlotSweeps (0 = no SLOT phase)
+RELAX_BAL = os.environ.get("CRANE_RELAX_BAL", "1") == "1"  # v1.5 relaxed balance fallback (R2-J1)
+RELAX_MIN = os.environ.get("CRANE_RELAX_MIN", "0") == "1"  # v1.6 World.CfgRelaxMin: ascending relaxed ceilings (R3-E3), default off
 IMP_PAT = os.environ.get("CRANE_IMP_PAT", "1") == "1"  # v1.5: order 1 mv 1 = pattern-token relocate (R2-SCORE-1)
 REST_LB = 400 + 180 + 2 * M_W          # every remaining transfer: lift+put 40 s, loaded move >= 3 cols, 2 M
 BIG_K = 2000000000
@@ -450,6 +488,7 @@ class ImpCtx:
         self.crane0 = tuple(state["crane"])
         self.baseT, self.baseM = state["base_t"], state["base_m"]
         self.mmode, self.order, self.lim, self.balmode = cfg["mmode"], cfg["order"], cfg["lim"], cfg["balmode"]
+        self.ceil = cfg.get("ceil", 0)
         PU, PL = locate(g0, state["PU"], state["PL"])
         self.src = [None] + PU + PL                           # 1-based like FB11 Src*
         self.n = len(PU) + len(PL)
@@ -501,7 +540,7 @@ def imp_replay(ctx, cand, p):
         # v1.4: exact side feasibility of the remaining fixed sequence (replaces reachable() in Pass A)
         kinds = [0] + [ctx.src[cand[k]].kind for k in range(k0, n + 1)]
         sides = [0] + [0 if ctx.src[cand[k]].pos[0] <= 1 else 1 for k in range(k0, n + 1)]
-        FA = seq_feas(kinds, sides, L + R, cnt(g[1]), lim)
+        FA = seq_feas(kinds, sides, L + R, cnt(g[1]), lim, ctx.ceil)
         if not (FA[0] >> L) & 1:
             return BIG_K, None                               # no side assignment completes it
     out = {}
@@ -533,7 +572,7 @@ def imp_replay(ctx, cand, p):
                     else:
                         L2, R2 = (L + 1, R) if x <= 1 else (L, R + 1)
                         F2, A2 = (F + 1, A) if y <= 5 else (F, A + 1)
-                    if not cm.step_ok(L, R, L2, R2, lim):
+                    if not cm.step_ok(L, R, L2, R2, lim, ctx.ceil):
                         continue
                     if ctx.balmode == 1 and not cm.step_ok(F, A, F2, A2, lim):
                         continue
@@ -725,6 +764,7 @@ def slot_search(state, cfg, res, sweeps):
         out.update(slot_sweeps=0, slot_accepts=0)
         return out
     mm, lim, balmode = cfg["mmode"], cfg["lim"], cfg["balmode"]
+    ceil = cfg.get("ceil", 0)
     plan = res["plan"]
     n = len(plan)
     SP = [None] + [tuple(tr["src"]) for tr in plan]
@@ -764,11 +804,13 @@ def slot_search(state, cfg, res, sweeps):
             else:
                 L2, R2 = (L + 1, R) if DX[k] <= 1 else (L, R + 1)
                 F2, A2 = (F + 1, A) if DY[k] <= 5 else (F, A + 1)
-            if not cm.step_ok(L, R, L2, R2, lim):
+            if not cm.step_ok(L, R, L2, R2, lim, ceil):
                 return False
             if balmode == 1 and not cm.step_ok(F, A, F2, A2, lim):
                 return False
             L, R, F, A = L2, R2, F2, A2
+        if ceil and abs(L - R) > lim:
+            return False                      # v1.5: a relaxed plan must end balanced
         return True
 
     def side_change(k, x, y):
@@ -915,7 +957,7 @@ def simulate(state, plan_list, cfg, base_ok=True):
     out = []
     for (c, p, tri, ph) in commands(plan_list, state["crane"]):
         x, y, b = p
-        rc = cm.check_cmd(w, c, x, y, b, fb.pos() if c != 3 else None, cfg["lim"], cfg["balmode"])
+        rc = cm.check_cmd(w, c, x, y, b, fb.pos() if c != 3 else None, cfg["lim"], cfg["balmode"], cfg.get("ceil", 0))
         assert rc == 0, "CheckCmd rc=%d at transfer %d phase %d" % (rc, tri, ph)
         if c in (1, 2):
             assert fb.pos() == (x, y, b), "crane not at lift/put position"

@@ -34,6 +34,7 @@ def fc20(X0, Y0, B0, X1, Y1, B1, MMode):
 class Mirror:
     def __init__(self, st, cfg, res, evals, dist, percall):
         self.cMMode, self.cOrder, self.cBalMode, self.cLim = cfg["mmode"], cfg["order"], cfg["balmode"], cfg["lim"]
+        self.cCeil = cfg.get("ceil", 0) if cfg.get("ceil", 0) > cfg["lim"] else 0   # v1.5 (R2-J1)
         self.cImpEvals, self.cImpDist, self.cImpPerCall = max(0, evals), dist, max(1, percall)
         self.cSlotSweeps = cp.SLOT_SWEEPS
         self.sG = [[c[:] for c in st["bay0"]], [c[:] for c in st["bay1"]]]
@@ -284,7 +285,7 @@ class Mirror:
                 wMsk = 0
                 for wLv in range(25):
                     wRv = FT[self.LsN] - wLv
-                    if 0 <= wRv <= 24:
+                    if 0 <= wRv <= 24 and (self.cCeil == 0 or abs(wLv - wRv) <= self.cLim):
                         wMsk |= 1 << wLv
                 FM[self.LsN] = wMsk
                 for qQ in range(self.LsN, qStart - 1, -1):
@@ -300,14 +301,14 @@ class Mirror:
                                     L2, R2 = (wLv - 1, wRv) if SX[si] <= 1 else (wLv, wRv - 1)
                                     if L2 >= 0 and R2 >= 0:
                                         dAbs = abs(L2 - R2)
-                                        if dAbs <= self.cLim or dAbs <= abs(wLv - wRv):
+                                        if dAbs <= self.cLim or dAbs <= abs(wLv - wRv) or (abs(wLv - wRv) > self.cLim and dAbs <= self.cCeil):
                                             wOk = (FM[qQ] >> L2) & 1 != 0
                             else:
                                 for wSd in (0, 1):
                                     L2, R2 = (wLv + 1, wRv) if wSd == 0 else (wLv, wRv + 1)
                                     if not wOk and L2 <= 24 and R2 <= 24:
                                         dAbs = abs(L2 - R2)
-                                        if dAbs <= self.cLim or dAbs <= abs(wLv - wRv):
+                                        if dAbs <= self.cLim or dAbs <= abs(wLv - wRv) or (abs(wLv - wRv) > self.cLim and dAbs <= self.cCeil):
                                             wOk = (FM[qQ] >> L2) & 1 != 0
                             if wOk:
                                 wMsk |= 1 << wLv
@@ -345,7 +346,7 @@ class Mirror:
                                         L2, R2 = (L + 1, R) if x <= 1 else (L, R + 1)
                                         F2, A2 = (F + 1, A) if y <= 5 else (F, A + 1)
                                     dAbs = abs(L2 - R2)
-                                    okB = dAbs <= self.cLim or dAbs <= abs(L - R)
+                                    okB = dAbs <= self.cLim or dAbs <= abs(L - R) or (abs(L - R) > self.cLim and dAbs <= self.cCeil)
                                     if okB and self.cBalMode == 1:
                                         dAbs = abs(F2 - A2)
                                         okB = dAbs <= self.cLim or dAbs <= abs(F - A)
@@ -506,7 +507,7 @@ class Mirror:
                                     L2, R2 = (wLa + 1, wRa) if DX[qQ] <= 1 else (wLa, wRa + 1)
                                     F2, A2 = (wFa + 1, wAa) if DY[qQ] <= 5 else (wFa, wAa + 1)
                                 dAbs = abs(L2 - R2)
-                                okB = dAbs <= self.cLim or dAbs <= abs(wLa - wRa)
+                                okB = dAbs <= self.cLim or dAbs <= abs(wLa - wRa) or (abs(wLa - wRa) > self.cLim and dAbs <= self.cCeil)
                                 if okB and self.cBalMode == 1:
                                     dAbs = abs(F2 - A2)
                                     okB = dAbs <= self.cLim or dAbs <= abs(wFa - wAa)
@@ -514,6 +515,8 @@ class Mirror:
                                     wTrj = False
                                     break
                                 wLa, wRa, wFa, wAa = L2, R2, F2, A2
+                            if wTrj and self.cCeil > 0 and abs(wLa - wRa) > self.cLim:
+                                wTrj = False             # v1.5: a relaxed plan must end balanced
                         if not wTrj:
                             DX[k], DY[k] = wOx, wOy
                             if wQ > 0:
@@ -596,6 +599,7 @@ if __name__ == "__main__":
     percall = int(sys.argv[2]) if len(sys.argv) > 2 else 3
     files = sorted(glob.glob(os.path.join(REPO, "tools", "crane_data", "*.json")))
     files += sorted(glob.glob(os.path.join(REPO, "tools", "crane_data_stress", "*.json")))[::4]
+    files += sorted(glob.glob(os.path.join(REPO, "tools", "judge_sets", "r2_jury_imb*.json")))   # v1.5 relaxed rule
     tot = fails = 0
     maxops = maxcalls = 0
     for f in files:

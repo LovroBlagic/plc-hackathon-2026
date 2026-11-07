@@ -1,0 +1,61 @@
+DATA_BLOCK "From_Bay0_to_Bay1"
+{ S7_Optimized_Access := 'TRUE' }
+VERSION : 0.1
+NON_RETAIN
+   VAR 
+      IDs_of_the_containers : Array[1..48] of UInt;
+   END_VAR
+
+
+BEGIN
+   IDs_of_the_containers[1] := 101;
+   IDs_of_the_containers[2] := 555;
+   IDs_of_the_containers[3] := 103;
+   IDs_of_the_containers[4] := 0;
+   IDs_of_the_containers[5] := 0;
+   IDs_of_the_containers[6] := 0;
+   IDs_of_the_containers[7] := 0;
+   IDs_of_the_containers[8] := 0;
+   IDs_of_the_containers[9] := 0;
+   IDs_of_the_containers[10] := 0;
+   IDs_of_the_containers[11] := 0;
+   IDs_of_the_containers[12] := 0;
+   IDs_of_the_containers[13] := 0;
+   IDs_of_the_containers[14] := 0;
+   IDs_of_the_containers[15] := 0;
+   IDs_of_the_containers[16] := 0;
+   IDs_of_the_containers[17] := 0;
+   IDs_of_the_containers[18] := 0;
+   IDs_of_the_containers[19] := 0;
+   IDs_of_the_containers[20] := 0;
+   IDs_of_the_containers[21] := 0;
+   IDs_of_the_containers[22] := 0;
+   IDs_of_the_containers[23] := 0;
+   IDs_of_the_containers[24] := 0;
+   IDs_of_the_containers[25] := 0;
+   IDs_of_the_containers[26] := 0;
+   IDs_of_the_containers[27] := 0;
+   IDs_of_the_containers[28] := 0;
+   IDs_of_the_containers[29] := 0;
+   IDs_of_the_containers[30] := 0;
+   IDs_of_the_containers[31] := 0;
+   IDs_of_the_containers[32] := 0;
+   IDs_of_the_containers[33] := 0;
+   IDs_of_the_containers[34] := 0;
+   IDs_of_the_containers[35] := 0;
+   IDs_of_the_containers[36] := 0;
+   IDs_of_the_containers[37] := 0;
+   IDs_of_the_containers[38] := 0;
+   IDs_of_the_containers[39] := 0;
+   IDs_of_the_containers[40] := 0;
+   IDs_of_the_containers[41] := 0;
+   IDs_of_the_containers[42] := 0;
+   IDs_of_the_containers[43] := 0;
+   IDs_of_the_containers[44] := 0;
+   IDs_of_the_containers[45] := 0;
+   IDs_of_the_containers[46] := 0;
+   IDs_of_the_containers[47] := 0;
+   IDs_of_the_containers[48] := 0;
+
+END_DATA_BLOCK
+

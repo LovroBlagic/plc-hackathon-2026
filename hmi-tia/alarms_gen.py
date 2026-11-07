@@ -37,6 +37,8 @@ ALARMS = [
 ALARMS2 = [
     (0, "warning", "Liste se ne mogu izvršiti zadanim redoslijedom zbog ravnoteže broda: plan koristi slobodan redoslijed",
      "List order infeasible under the balance rule: plan uses free order"),
+    (1, "warning", "Brod je zadan neuravnotežen: plan drži zadani redoslijed, |L-D| ne prelazi početnu razliku i završava <= 5",
+     "Ship loaded out of balance: plan keeps the list order, |L-R| never exceeds the start value and ends <= 5"),
 ]
 TRIGGER2 = "AlarmWord2"
 # RT Advanced default classes: "Errors" (must be acknowledged), "Warnings" (no ack). "System" is reserved for

@@ -1,0 +1,4 @@
+T1 re-target cases=8868 needless=0 inherent(no order-keeping cell)=301
+sets=718 (capacity-blocked 3)  plans checked=8184  mid-run replans=2604  planner err1 runs=396
+infeasible-in-every-mode sets=33, of which end state reachable (suspect)=0 []
+STRESS_RESULT failures=0

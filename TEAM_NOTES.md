@@ -2,6 +2,14 @@
 
 Write findings for the agents here (FB1 behaviour, organizer answers, HMI status). Newest on top.
 
+## TIA crane v1.5: judge round 2 fixes (builder, 7 Nov 2026)
+- **Elimination fixes (FB10):** a bogus unload entry no longer kills the valid load entry with the same ID; DB10/DB11 (and DB20/DB21) changed in ANY state are new data at POČETNO STANJE; ACK with no re-target cell → PAUSED with MANUAL usable after one ACK; POČETNO STANJE ignored while RADI/PLANIRANJE.
+- **Unbalanced start (R2-J1):** if the list order is infeasible under the step rule and the ship was loaded with |L−R| = d0 > 5, the plan keeps the list order with a relaxed rule (never above d0, once ≤ 5 stays ≤ 5, ends ≤ 5) before falling back to free order. HMI alarm ID 18.
+- **Planner:** order-1 IMPROVE move 1 is a kind-pattern relocate (block shifts). Gap to the judge's best plans +1.29 % → +0.35 %.
+- **Demo:** the given data has 0 transfers. Use `tools/demo_db/fig1_half` (made by `tools/json_to_db.py`) in a TEST COPY of the project. Alarm numbers = WinCC IDs (bit + 1).
+- **HMI humans:** optional new prototype `P_DateTime` (HUMAN_STEPS B) for the date/time in the footer; alarm import now has 18 alarms.
+- Contract **v1.5**; details `tia-src/JUDGING.md` "Round 2".
+
 ## TIA crane v1.4: judge round 1 fixes (builder, 7 Nov 2026 ~06:00)
 - **Changes:**
   - Exact list-order feasibility DP in FB11. The order-1 default no longer falls back to free order when an in-order plan exists: fallbacks went 11 → 3, and those 3 are provably infeasible.

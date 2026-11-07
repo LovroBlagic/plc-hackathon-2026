@@ -361,6 +361,7 @@ Notes:
     - alarm classes with one ACK (AlarmHmiAck / AlarmAckWord)
   - Model J (tools/crane_eval.py, 30 random sets): default 1.0751, free order 1.0651, lower bound 0.757.
   - Open: no PLCSIM on this laptop, so nothing has run on a PLC; the HMI is not imported (`hmi-tia/HUMAN_STEPS.md`); organizer questions (M rule, list order, balance, N). Details: `tia-src/STATUS.md`.
+<<<<<<< Updated upstream
 - 7 Nov ~05:50 (orchestrator):
   - Resumed workflow wf_b13c9d8e-3cf; the agents that failed on the usage limit are rerunning.
   - **User decision: a candidate is accepted for the ME port if it beats v5 on average and is never worse than v5 by more than 200 € on any dataset (twin tolerance).** By that rule, lprules (S1, worst case +106 €) qualifies.
@@ -379,3 +380,9 @@ Notes:
   - Everything is stopped: the workflow at 253/291 eval runs, the ME worker, and the cron.
   - The ME worker had already written the v7 code (capmodel S2 floor). It was not built or verified.
   - **work/src ≠ v6.** The safe deliverable is `deliver/ME_v6_late`.
+=======
+- **2026-11-07 ~12:50 (orchestrator): PAUSED for a PC reboot.**
+  - Judges loop (workflow wf_f280571d-6c8) stopped after the round 3 fixes: contract **v1.6**, TIA_RESULT errors=0, `deliver/TIA_crane_v1_plc.zap21` re-archived (PLC only). Its final verification/report step never ran. To resume it: `Workflow({scriptPath, resumeFromRunId:"wf_f280571d-6c8"})`. This only works in the same session; otherwise start a short verify pass against JUDGING.md "Round 3".
+  - **S7-PLCSIM V21 found** in `Downloads\gr8dj8r2u5au7tln.zip`, extracted to `Downloads\PLCSIM_V21\S7-PLCSIM_V21.iso`, and its installer started. **After the reboot:** check that PLCSIM is installed (mount the ISO again and finish setup if needed). Then download PLC_1 from a TEST COPY into PLCSIM, load the demo sets with `tools/json_to_db.py`, and run the human tests in `hmi-tia/HUMAN_STEPS.md` / STATUS.md.
+  - Still open: the HMI is not built into the deliverable (HUMAN_STEPS.md); the organizer email; the ME work stays paused.
+>>>>>>> Stashed changes

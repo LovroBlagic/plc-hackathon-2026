@@ -1,0 +1,61 @@
+DATA_BLOCK "From_Bay1_to_Bay0"
+{ S7_Optimized_Access := 'TRUE' }
+VERSION : 0.1
+NON_RETAIN
+   VAR 
+      Bay1_IDs_of_the_containers : Array[1..48] of UInt;
+   END_VAR
+
+
+BEGIN
+   Bay1_IDs_of_the_containers[1] := 101;
+   Bay1_IDs_of_the_containers[2] := 104;
+   Bay1_IDs_of_the_containers[3] := 105;
+   Bay1_IDs_of_the_containers[4] := 106;
+   Bay1_IDs_of_the_containers[5] := 107;
+   Bay1_IDs_of_the_containers[6] := 123;
+   Bay1_IDs_of_the_containers[7] := 0;
+   Bay1_IDs_of_the_containers[8] := 0;
+   Bay1_IDs_of_the_containers[9] := 0;
+   Bay1_IDs_of_the_containers[10] := 0;
+   Bay1_IDs_of_the_containers[11] := 0;
+   Bay1_IDs_of_the_containers[12] := 0;
+   Bay1_IDs_of_the_containers[13] := 0;
+   Bay1_IDs_of_the_containers[14] := 0;
+   Bay1_IDs_of_the_containers[15] := 0;
+   Bay1_IDs_of_the_containers[16] := 0;
+   Bay1_IDs_of_the_containers[17] := 0;
+   Bay1_IDs_of_the_containers[18] := 0;
+   Bay1_IDs_of_the_containers[19] := 0;
+   Bay1_IDs_of_the_containers[20] := 0;
+   Bay1_IDs_of_the_containers[21] := 0;
+   Bay1_IDs_of_the_containers[22] := 0;
+   Bay1_IDs_of_the_containers[23] := 0;
+   Bay1_IDs_of_the_containers[24] := 0;
+   Bay1_IDs_of_the_containers[25] := 0;
+   Bay1_IDs_of_the_containers[26] := 0;
+   Bay1_IDs_of_the_containers[27] := 0;
+   Bay1_IDs_of_the_containers[28] := 0;
+   Bay1_IDs_of_the_containers[29] := 0;
+   Bay1_IDs_of_the_containers[30] := 0;
+   Bay1_IDs_of_the_containers[31] := 0;
+   Bay1_IDs_of_the_containers[32] := 0;
+   Bay1_IDs_of_the_containers[33] := 0;
+   Bay1_IDs_of_the_containers[34] := 0;
+   Bay1_IDs_of_the_containers[35] := 0;
+   Bay1_IDs_of_the_containers[36] := 0;
+   Bay1_IDs_of_the_containers[37] := 0;
+   Bay1_IDs_of_the_containers[38] := 0;
+   Bay1_IDs_of_the_containers[39] := 0;
+   Bay1_IDs_of_the_containers[40] := 0;
+   Bay1_IDs_of_the_containers[41] := 0;
+   Bay1_IDs_of_the_containers[42] := 0;
+   Bay1_IDs_of_the_containers[43] := 0;
+   Bay1_IDs_of_the_containers[44] := 0;
+   Bay1_IDs_of_the_containers[45] := 0;
+   Bay1_IDs_of_the_containers[46] := 0;
+   Bay1_IDs_of_the_containers[47] := 0;
+   Bay1_IDs_of_the_containers[48] := 0;
+
+END_DATA_BLOCK
+

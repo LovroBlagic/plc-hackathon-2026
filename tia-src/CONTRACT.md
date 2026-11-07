@@ -1,7 +1,21 @@
 # CONTRACT: TIA container crane (TASK 2)
 
 This file is the single source of truth for every crane worker. **Workers may only read it.** Only the orchestrator changes it. To request a change, add a dated note under "Contract change requests" in `TEAM_NOTES.md`.
-Version **1.4**, judge round 1 fixes, 7 Nov 2026 ~06:00 (v1.3 optimisation pass ~04:00, v1.2 orchestrator final pass, v1.1 7 Nov ~02:05, v1.0 6 Nov ~23:40).
+Version **1.6**, judge round 3 fixes, 7 Nov 2026 (v1.5 judge round 2, v1.4 judge round 1 ~06:00, v1.3 optimisation pass ~04:00, v1.2 orchestrator final pass, v1.1 7 Nov ~02:05, v1.0 6 Nov ~23:40).
+
+**v1.6 changes (builder, judge round 3, see `tia-src/JUDGING.md` "Round 3"):** FB10 and World only; FB11, FC10, OB30 unchanged.
+- **New data at POČETNO STANJE (§3.5), replaces the v1.5 rule:** region 2a marks every externally edited cell (`EditMark`, value before the edit `EditVal`). An edit while **no job is in progress** (`JobActive` = a Src 1..3 command completed since INIT; DONE also counts as "no job") counts in `NewCnt`; an edit during a job (obstacle) counts in `ObstCnt`. Writing a cell back to `EditVal` removes its mark. INIT step 3: new yard (InitBay := DB10/DB11) iff NOT HaveInit OR NewCnt > 0 OR (DB20/DB21 changed AND ObstCnt > 0) OR ObstCnt ≥ 8 OR DB10/DB11 ≠ Snap; otherwise DB10/DB11 := InitBay (the loaded data set, including a container that was on the hook). The lists are always read from DB20/DB21, so new lists alone keep the loaded yard. JobActive/EditMark/NewCnt/ObstCnt are cleared (R3-E1, R3-J1). `ExtEdit` is unused.
+- **ACK re-target of a rejected ship put (§3.3):** among the free cells that pass the one-step balance rule, the nearest one whose side keeps the remaining lists feasible in the preferred order is chosen (exact FtMask[0,0] of the state after the put, bit-parallel in FB10: try 1 step rule, try 2 relaxed ceiling BalD0); only if no such cell exists, the nearest cell as in v1.4 (R3-E2). Python reference `tools/fb10_init_model.retarget()` / `ft00()`.
+- **World.CfgRelaxMin (Bool, FALSE):** TRUE makes the relaxed fallback try BalCeil = CfgBalLimit+1, +2, … BalD0 (smallest feasible ceiling) instead of BalD0 at once (R3-E3; costs +5…9 % J on the affected sets, default off). Python `CRANE_RELAX_MIN=1`.
+
+**v1.5 changes (builder, judge round 2, see `tia-src/JUDGING.md` "Round 2"):**
+- **List check (§3.2):** an entry is a duplicate only if the same ID was in an earlier **accepted** entry. A rejected bogus entry (e.g. an unload entry naming a yard container) no longer kills the valid load entry with that ID (R2-E1).
+- **New data at POČETNO STANJE (§3.5):** an external DB10/DB11 edit sets ExtEdit in **every** state (not only OFF/READY/DONE), and with an empty hook outside RUNNING/PLANNING it also sets PlanValid := FALSE (START replans). INIT step 3 also treats changed DB20/DB21 (≠ World.UList/LList of the last INIT) as new data (R2-E2, R2-J3).
+- **ACK re-target without a cell (§3.3):** bit 7 raised by the ACK re-target is shown but **not blocking** (FB10 static `NoCellWarn`), so one ACK leaves the system PAUSED with MANUAL enabled; the next ACK or INIT clears it (R2-E3).
+- **POČETNO STANJE is ignored while RUNNING / PLANNING** (§3.1): STOP first (R2-J4).
+- **Relaxed balance rule (§4.3) for a ship loaded out of balance (R2-J1):** new World member `BalCeil` (Int, 0). FB10 stores the loaded imbalance `BalD0` at INIT. Fallback chain on ErrCode 1: (order k, step rule) → if BalD0 > CfgBalLimit: (order k, BalCeil := BalD0) → (order k−1, step rule) → … The relaxed rule is used only when FtMask proves the order feasible under it (else FB11 ErrCode 1), and the plan must end balanced (terminal masks, SLOT trajectory). CheckCmd reads `World.BalCeil`. Warning `HMI_IF.AlarmWord2` bit 1 (HMI alarm ID 18) while such a plan is active.
+- **IMPROVE move 1 in order mode 1 (§4.8)** is the kind-pattern token relocate (R2-SCORE-1): the U/L token at i moves to j and the sequence is re-derived (k-th U = k-th pending unload, k-th L = k-th load); valid iff an element of the other kind lies between i and j; p = first changed position. Order modes 0/2 unchanged.
+- HMI: date/time field (optional prototype `P_DateTime`) in the template footer (R2-J4).
 
 **v1.4 changes (builder, judge round 1, see `tia-src/JUDGING.md`):**
 - **Exact order feasibility** (§4.10) replaces the reachability test in Pass A for order modes 1/2 (greedy) and in every IMPROVE replay. The order-1 default no longer falls back to free order when an in-order balanced plan exists (judge R1-E1); FB10 falls back only when the preferred mode is provably infeasible and then raises warning `HMI_IF.AlarmWord2` bit 0 (`HMI_IF.OrderFallback`).
@@ -344,7 +358,7 @@ END_TYPE
 | Code | State | Entered when | Leaves when |
 |---|---|---|---|
 | 0 | OFF | SwOn = FALSE (from any state; an in-flight FB1 command still completes) | SwOn = TRUE: if not Initialized → INIT, else → PAUSED (or DONE) |
-| 1 | INIT | BtnInit (if SwOn and not Busy), or first ON after PLC start | sequence §3.2 done → READY; failure → ALARM |
+| 1 | INIT | BtnInit (if SwOn and not Busy; v1.5: ignored in RUNNING / PLANNING), or first ON after PLC start | sequence §3.2 done → READY; failure → ALARM |
 | 2 | READY | INIT ok | START (AUTO/SEMI) → RUNNING (via PLANNING if plan invalid) |
 | 3 | RUNNING | START | STOP → PAUSED; blocking alarm → ALARM; plan finished → DONE |
 | 4 | PAUSED | STOP, mode change to MANUAL, ON after OFF | START → RUNNING (via PLANNING if plan invalid) |
@@ -375,7 +389,7 @@ END_TYPE
    - Lists: copy DB20 → UList and DB21 → LList. N := count of non-zero entries in both raw lists. For each entry in index order:
      - 0 → state 2 (empty entry, silent)
      - ID ∉ [100..999] → 2, bit 5
-     - already seen in either list → 2, bit 6
+     - already seen in either list in an earlier entry with state 0 (accepted) → 2, bit 6 (v1.5: a rejected earlier entry does not count)
      - unload ID not found in Bay0 → 2, bit 3 ("ID kontejnera postoji u listi za istovar, ali ne postoji u polju Bay 0"); AlarmId := ID
      - load ID not found in Bay1 → 2, bit 4
      - else 0 (pending)
@@ -409,12 +423,12 @@ END_TYPE
 - When CheckCmd fails in OB30, OB30 sets World.Fault bit, FaultCmd := NextCmd and CmdReady := FALSE, and **does not issue**.
 - FB10 ORs World.Fault into AlarmWord.
 - **ACK** clears World.Fault and the latched bits. In AUTO/SEMI it then sets PlanValid := FALSE (replan from the actual World), so the system continues.
-- v1.4: ACK of bit 0 or bit 2 for a rejected plan put with a container on the hook re-targets the put to the nearest free cell of the same bay that passes the step rule, then replans after that put. If there is no such cell: bit 7 and state PAUSED (MANUAL needed), never an automatic retry of the same put.
+- v1.4: ACK of bit 0 or bit 2 for a rejected plan put with a container on the hook re-targets the put to the nearest free cell of the same bay that passes the step rule, then replans after that put. If there is no such cell: bit 7 and state PAUSED (MANUAL needed), never an automatic retry of the same put. v1.5: that bit 7 is not blocking (NoCellWarn), so the state stays PAUSED and MANUAL works after one ACK. v1.6: for a ship put the cell must also keep the remaining lists feasible in the preferred order (FtMask[0,0] after the put, step rule then relaxed BalD0), if any free balance-safe cell does.
 - v1.4: `HMI_IF.AlarmWord2` bit 0 (warning, HMI alarm ID 17, not in AlarmHist): the plan uses a weaker order/balance mode than the HMI setting because the preferred one is provably infeasible (§4.10). `HMI_IF.AlarmUId/AlarmUCnt`, `AlarmLId/AlarmLCnt`: first list ID missing from its bay and the count (bits 3/4).
 
 ### 3.5 DB10 / DB11 = live state (v1.4)
-- After INIT, FB10 region 2a compares every cell of `"Current_state_of_Bay0/1"` with its snapshot Snap0/Snap1: a DB cell that differs is an external online edit → adopted into World (as before; while OFF/READY/DONE it also sets ExtEdit). Otherwise a World cell that differs from Snap (the crane moved a container) is written into the DB cell. So DB10/DB11 always show the current yard (≤ 1 OB1 cycle behind OB30).
-- INIT step 3: if there is no private copy yet, ExtEdit is set or any DB cell differs from Snap (new data loaded), DB10/DB11 are copied into InitBay0/InitBay1 (new initial data). Otherwise DB10/DB11 are restored from InitBay0/InitBay1, so POČETNO STANJE after a finished run starts the same data set again. Then World := DB10/DB11 as before.
+- After INIT, FB10 region 2a compares every cell of `"Current_state_of_Bay0/1"` with its snapshot Snap0/Snap1: a DB cell that differs is an external online edit → adopted into World (as before; v1.5: in every state it also sets ExtEdit, and with an empty hook outside RUNNING/PLANNING PlanValid := FALSE). Otherwise a World cell that differs from Snap (the crane moved a container) is written into the DB cell. So DB10/DB11 always show the current yard (≤ 1 OB1 cycle behind OB30).
+- INIT step 3 (v1.6, see the v1.6 change list for the exact rule): if there is no private copy yet, a cell was edited while no job was in progress (NewCnt > 0), DB20/DB21 changed and a cell was edited during the job (ObstCnt > 0), ≥ 8 cells were edited during the job, or any DB cell differs from Snap, DB10/DB11 are copied into InitBay0/InitBay1 (new initial data). Otherwise DB10/DB11 are restored from InitBay0/InitBay1, so POČETNO STANJE after a finished run starts the same data set again. Then World := DB10/DB11 as before.
 
 ### 3.4 OB30 algorithm (runtime). Exactly this order, every 1 s tick
 ```
@@ -479,6 +493,7 @@ Everything is **integer** (DInt), in deciseconds (ds). No floats in decisions.
 ### 4.3 Balance
 - L = #occupied Bay0 cells with x ≤ 1; R = #with x ≥ 2. Optionally (CfgBalMode 1) also F = #y ≤ 5 and A = #y ≥ 6. Lim = CfgBalLimit.
 - **Step rule** for a resulting state (L', R'): OK iff |L'−R'| ≤ Lim **or** |L'−R'| ≤ |L−R|, i.e. never worsen an already-bad state. With CfgBalMode 1, the same rule must also hold for (F', A').
+- **v1.5 relaxed rule** (x-split only, only while World.BalCeil = C > Lim): additionally OK iff |L−R| > Lim **and** |L'−R'| ≤ C. Memoryless: once |L−R| ≤ Lim the ship stays balanced; before that it never exceeds C = the imbalance of the loaded data. Terminal states must have |L−R| ≤ Lim (FtMask[nu, nl], FaMask[n], SLOT trajectory end). Python `cm.step_ok(..., ceil)`, `cfg["ceil"]`.
   - An unload changes the ship at the lift. A load changes the ship at the put. The hook container counts as off-ship.
 - **Reachability** (x-split only), evaluated on the state after the candidate:
   - u_L, u_R = pending unloads (excluding the candidate) in Bay0 with x ≤ 1 / x ≥ 2. n = pending loads excluding the candidate.
@@ -534,6 +549,7 @@ Runs inside the same FB11 job after the last variant, only if a variant succeede
 - **Sources** are numbered 1..n as in §4.2 (pending unloads by list index, then pending loads). **Incumbent** = sequence `LsSeq[1..n]` with, per step k, the destination and the cumulative T/M (`LsT[0]`/`LsM[0]` = Base). It starts as the greedy winner itself (its own destinations), K_inc = K of the winner.
 - **Neighbourhood**, in exactly this order: move 0 once (re-slot the incumbent, p = 1); then sweeps of move 1 (relocate the element at i to position j, i, j ∈ 1..n, j ≠ i), move 2 (swap i < j), move 3 (relocate the pair (i, i+1) to start at j, i, j ∈ 1..n−1, j ≠ i); i outer, j inner; skip if `CfgImproveDist > 0` and |i−j| > CfgImproveDist. Order mode 1: a move is valid only if no moved element passes an element of its own list. p = min(i, j).
 - **Replay** of a candidate from k0 = max(1, p−1): grid = snapshot + incumbent transfers 1..k0−1, crane = incumbent destination k0−1 (or the plan-time crane), T/M = incumbent cumulative at k0−1. For each step k = k0..n with source s and successor nx (none at k = n): E as in §4.4 (skipped if the crane is at s); destination d = free cell of the other bay (x 0..3 outer, y 0..11 inner) minimising **W(s→d) + W(d→nx)** (strict '<'), Pass A = step rule (+ bow/stern if CfgBalMode 1) + reachability over the remaining sequence, Pass B = step rule only; none → reject. T += 400 + Lm_T, M += 2 + Lm_M. **Abort** (reject) as soon as K_partial + 960·(n−k) ≥ K_inc (960 = 400 + 180 + 2·190 is a lower bound of every remaining transfer).
+- **v1.5, order mode 1, move 1 = pattern-token relocate:** let P be the U/L kind pattern of the incumbent; P' = P with the token at i moved to position j; candidate position q gets the next not yet used element of kind P'[q] (in incumbent order). Valid iff some element strictly between i and j (inclusive of j) is of the other kind. p = first q with candidate ≠ incumbent. It contains the old order-1 move 1 and also shifts whole blocks.
 - **Accept** iff the replay completes (then K < K_inc). Every replay counts one evaluation. Stop at `CfgImproveEvals` evaluations or after a sweep (moves 1..3) with no acceptance. The incumbent becomes the plan (CumT/CumM from the replay).
 - Per call: ≤ `CfgImprovePerCall` evaluations and ≤ 3000 iterator positions. The result does not depend on the split.
 

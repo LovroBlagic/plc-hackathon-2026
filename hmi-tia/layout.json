@@ -102,7 +102,8 @@
     {"k": "nav", "x": 646, "y": 1030, "w": 200, "h": 44, "t": "ALARMI", "screen": "Alarms"},
     {"k": "nav", "x": 856, "y": 1030, "w": 200, "h": 44, "t": "POVIJEST ALARMA", "screen": "AlarmLog"},
     {"k": "nav", "x": 1066, "y": 1030, "w": 220, "h": 44, "t": "REZULTAT / OPTIMIZACIJA", "screen": "Score"},
-    {"k": "kv", "x": 1500, "y": 1034, "lw": 120, "w": 120, "h": 34, "label": "OB30 takt", "tag": "OB30Ticks", "fmt": "9999999"}
+    {"k": "kv", "x": 1300, "y": 1034, "lw": 110, "w": 110, "h": 34, "label": "OB30 takt", "tag": "OB30Ticks", "fmt": "9999999"},
+    {"k": "datetime", "x": 1560, "y": 1032, "w": 346, "h": 40}
   ],
 
   "grid": {

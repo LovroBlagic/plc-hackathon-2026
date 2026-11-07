@@ -55,6 +55,7 @@ class FB11:
             self.cOrder = W["CfgOrderMode"]
             self.cBalMode = W["CfgBalMode"]
             self.cLim = W["CfgBalLimit"]
+            self.cCeil = W.get("BalCeil", 0) if W.get("BalCeil", 0) > self.cLim else 0   # v1.5 R2-J1
             self.cVariants = W["CfgVariants"]
             self.cSteps = max(1, W["CfgStepsPerCall"])
             self.cAlpha = list(W["CfgAlpha"])
@@ -137,7 +138,7 @@ class FB11:
                             wRv = wTot - wLv
                             if 0 <= wRv <= 24:
                                 if i == self.FtNu and j == self.FtNl:
-                                    wOk = True
+                                    wOk = self.cCeil == 0 or abs(wLv - wRv) <= self.cLim
                                 else:
                                     wOk = False
                                     if i < self.FtNu and self.sY0 + i - j < 48:
@@ -147,14 +148,14 @@ class FB11:
                                             L2, R2 = wLv, wRv - 1
                                         if L2 >= 0 and R2 >= 0:
                                             dAbs = abs(L2 - R2)
-                                            if dAbs <= self.cLim or dAbs <= abs(wLv - wRv):
+                                            if dAbs <= self.cLim or dAbs <= abs(wLv - wRv) or (abs(wLv - wRv) > self.cLim and dAbs <= self.cCeil):
                                                 wOk = (FM[i + 1][j] >> L2) & 1 != 0
                                     if not wOk and j < self.FtNl and (self.cOrder == 1 or i == self.FtNu):
                                         for wSd in (0, 1):
                                             L2, R2 = (wLv + 1, wRv) if wSd == 0 else (wLv, wRv + 1)
                                             if not wOk and L2 <= 24 and R2 <= 24:
                                                 dAbs = abs(L2 - R2)
-                                                if dAbs <= self.cLim or dAbs <= abs(wLv - wRv):
+                                                if dAbs <= self.cLim or dAbs <= abs(wLv - wRv) or (abs(wLv - wRv) > self.cLim and dAbs <= self.cCeil):
                                                     wOk = (FM[i][j + 1] >> L2) & 1 != 0
                                 if wOk:
                                     wMsk |= 1 << wLv
@@ -163,6 +164,13 @@ class FB11:
                     if self.FtRow < 0:
                         self.FtActive = False
                         self.OrderOk = (FM[0][0] >> self.SlBalL) & 1 != 0
+                        if self.cCeil > 0 and not self.OrderOk:     # v1.5: relaxed only if exactly feasible
+                            W["PlanValid"] = False
+                            W["PlanLen"] = 0
+                            W["PlanVariant"] = 0
+                            self.Busy = False
+                            self.Error = True
+                            self.ErrCode = 1
                 elif not self.VarActive:
                     self.VarActive = True
                     self.VarErr = 0
@@ -323,7 +331,7 @@ class FB11:
                         L2, R2 = (L + 1, R) if dx <= 1 else (L, R + 1)
                         F2, A2 = (F + 1, A) if dy <= 5 else (F, A + 1)
                     dAbs = abs(L2 - R2)
-                    ok = dAbs <= self.cLim or dAbs <= abs(L - R)
+                    ok = dAbs <= self.cLim or dAbs <= abs(L - R) or (abs(L - R) > self.cLim and dAbs <= self.cCeil)
                     if ok and self.cBalMode == 1:
                         dAbs = abs(F2 - A2)
                         ok = dAbs <= self.cLim or dAbs <= abs(F - A)
@@ -391,12 +399,12 @@ class FB11:
         self.nPend -= 1
 
 
-def run(ds_path, mmode, order, balmode, alphas=(0, 50, 100, 150), lim=5, carried=0, cfg_over=None):
+def run(ds_path, mmode, order, balmode, alphas=(0, 50, 100, 150), lim=5, carried=0, cfg_over=None, ceil=0):
     ds = cm.load_dataset(ds_path)
     st = cp.build_state(ds, lim)
     if st["init"]["blocking"]:
         return None
-    cfg = {"mmode": mmode, "order": order, "balmode": balmode, "lim": lim}
+    cfg = {"mmode": mmode, "order": order, "balmode": balmode, "lim": lim, "ceil": ceil}
     st["carried"] = carried
     ref = cp.plan(st, cfg, list(alphas))
     iv = st["init"]
@@ -404,7 +412,7 @@ def run(ds_path, mmode, order, balmode, alphas=(0, 50, 100, 150), lim=5, carried
          "UList": iv["UList"], "UState": iv["UState"], "LList": iv["LList"], "LState": iv["LState"], "N": iv["N"],
          "BaseT_ds": 0, "BaseM": 0, "CfgMMode": mmode, "CfgOrderMode": order, "CfgBalMode": balmode,
          "CfgBalLimit": lim, "CfgVariants": len(alphas), "CfgAlpha": list(alphas) + [0] * (4 - len(alphas)),
-         "CfgStepsPerCall": 1}
+         "CfgStepsPerCall": 1, "BalCeil": ceil}
     if cfg_over:
         W.update(cfg_over)
     fb = FB11(W)
@@ -445,6 +453,30 @@ if __name__ == "__main__":
             maxcalls = max(maxcalls, calls)
             maxops = max(maxops, ops)
             key = (mm, od, bm)
+            per.setdefault(key, [0, 0, 0])
+            per[key][0] += 1
+            if ref["err"]:
+                per[key][2] += 1
+            if not ok:
+                fails += 1
+                per[key][1] += 1
+                print("FAIL", os.path.basename(f), key, msg)
+    # v1.5 (R2-J1): relaxed balance rule on every set that starts out of balance (BalCeil = d0)
+    ufiles = [f for f in files + sorted(glob.glob(os.path.join(REPO, "tools", "judge_sets", "*.json")))
+              + sorted(glob.glob(os.path.join(REPO, "tools", "crane_data_stress", "*.json")))
+              if "bay0" in open(f).read(400)]
+    for f in ufiles:
+        ds = cm.load_dataset(f)
+        L0, R0 = cm.lr(ds["bay0"])
+        if abs(L0 - R0) <= 5:
+            continue
+        for mm, od, bm in itertools.product((2, 0), (1, 2), (0, 1)):
+            r = run(f, mm, od, bm, ceil=abs(L0 - R0))
+            if r is None:
+                continue
+            ok, calls, ops, msg, ref = r
+            tot += 1
+            key = (mm, od, bm, "ceil")
             per.setdefault(key, [0, 0, 0])
             per[key][0] += 1
             if ref["err"]:

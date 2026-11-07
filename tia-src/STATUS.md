@@ -1,5 +1,28 @@
 # TIA crane (TASK 2): integration status
 
+## v1.6 judge round 3 fixes (7 Nov, builder). Contract **v1.6**. Details and numbers: `tia-src/JUDGING.md` "Round 3"
+- **Build:** `TIA_RESULT errors=0 warnings=0` (`tia-work/r3_compile1.log`); `deliver/TIA_crane_v1_plc.zap21` re-archived (PLC only, `tia-work/r3_compile2.log`). TIA closed afterwards.
+- **FB10 data load (R3-E1, R3-J1):** an online DB10/DB11 edit is new data only while no job is in progress (before the first command after POČETNO STANJE, or in DONE); edits during a job are obstacles (EditMark / ObstCnt) and POČETNO STANJE restores the loaded data set (also with a container on the hook). New yard during a job only with new lists or ≥ 8 rewritten cells; new lists alone keep the loaded yard. A cell written back to its old value is no edit.
+- **FB10 ACK re-target (R3-E2):** a rejected ship put goes to the nearest balance-safe cell that keeps the remaining lists feasible in the preferred order (bit-parallel FtMask[0,0] in FB10); v1.4 rule only if no such cell exists.
+- **World.CfgRelaxMin (R3-E3, default FALSE):** TRUE = relaxed ceilings ascending from CfgBalLimit+1 (smallest feasible). Costs +5…9 % J on the affected sets, barely shortens the time above 5, so off by default; organizer question.
+- **FB11 / FC10 / OB30:** logic unchanged (FB11 header no longer claims "bit-identical", R3-J3). Planner default unchanged, so golden and plan CSVs are unchanged.
+- **Tools:** `tools/fb10_init_model.py` (v1.6 transliteration of region 2a + INIT step 3 + REGION 5 re-target, `ft00` checked against `feas_table`), `crane_stress.py` checks E2 (extended) and **T1** (re-target never breaks the list order needlessly), `json_to_db.py` writes ALL 192 watch values (demo_db regenerated).
+- **Human TODO changes:** 1.7 / 1.10 obstacle tests may now be followed by 1.9 (POČETNO STANJE restores the data set); new 1.15: during AUTO write 999 into the next ship drop cell, ACK → the put goes to a cell on the side that keeps OrderModeAct = 1 (no alarm 17); 1.12 must write a new yard **and** new lists (or ≥ 8 cells).
+
+---
+
+## v1.5 judge round 2 fixes (7 Nov, builder). Contract **v1.5**. Details and numbers: `tia-src/JUDGING.md` "Round 2"
+- **Build:** `TIA_RESULT errors=0 warnings=0` (`tia-work/r2_compile1.log`); `deliver/TIA_crane_v1_plc.zap21` re-archived (PLC only, `tia-work/r2_compile2.log`).
+- **FB10:** list duplicate check counts only accepted entries (R2-E1); external DB10/DB11 edits are new data in every state, changed DB20/DB21 too, an idle edit invalidates the plan (R2-E2/J3); bit 7 from the ACK re-target is non-blocking (R2-E3); POČETNO STANJE ignored in RUNNING/PLANNING (R2-J4); relaxed-balance fallback step and `BalD0`, HMI alarm ID 18 (R2-J1).
+- **FB11:** order-1 IMPROVE move 1 = kind-pattern relocate (R2-SCORE-1); relaxed balance rule `World.BalCeil` in FtMask/FaMask/greedy/replay/SLOT with balanced end (R2-J1). **FC10 CheckCmd** reads `World.BalCeil`.
+- **Parity:** mirror 12 **822/822**, mirror 13 **620/620** (`tools/mirror13_par.py`). `tools/fb10_init_model.py` 0 failures.
+- **J (order 1, 334 feasible sets):** 1.05885 → **1.05765**; gap to the judge's best plans mean +1.29 % → **+0.35 %**, max +0.73 %.
+- **New tools:** `tools/json_to_db.py` (dataset JSON → DB10/11/20/21 sources + watch values, TEST COPY only), demo sets `tools/demo_db/`, `tools/fb10_init_model.py`, `tools/mirror13_par.py`.
+- **HMI generator:** date/time footer item (prototype `P_DateTime`, optional), alarm 18. `CHECK_RESULT problems=0 tags=490`.
+- **Human TODO additions:** 1.12 (PLCSIM) PAUSE → write a new data set into DB10/11/20/21 → POČETNO STANJE → DB10 must equal the new set; 1.13 load `tools/judge_sets/r2_jury_imb_a.json` → OrderModeAct = 1, alarm ID 18, |L−R| never above 10, ends ≤ 5; 1.14 POČETNO STANJE during RADI does nothing.
+
+---
+
 ## v1.4 judge round 1 fixes (7 Nov ~06:00, builder). Contract **v1.4**. Details and numbers: `tia-src/JUDGING.md`
 - **Build:** `TIA_RESULT errors=0 warnings=0` (`tia-work/r1_compile1.log`, `r1_compile2.log`). New FC21 `"Crane_DropCost"` (`10b_FC_DropCost.scl`, numbers.txt). `deliver/TIA_crane_v1_plc.zap21` re-archived (PLC only).
 - **FB11:** exact order feasibility table `FtMask` (order 1/2, built one row per call before the variants) replaces the reachability test in Pass A; exact `FaMask` side feasibility in every IMPROVE replay; new **SLOT phase** (drop-cell relocate/swap after IMPROVE, one step k per call, `World.CfgSlotSweeps` = 10). Publishes `World.OrderFeasible`, `World.SlotAccepts`.
@@ -129,6 +152,10 @@ Known limitation of the re-target: OB1 stages one command ahead of FB1. After th
    9. v1.4: after DONE, check that DB10/DB11 show the final yard; press POČETNO STANJE and check that the original data is restored (a repeat run gives the same MD107/MD112).
    10. v1.4 (judge R1-E3): during AUTO, with a load lifted for a Bay 0 put, write IDs into empty LEFT cells of DB10 until L−R = 5. Expect alarm 0 → ACK → re-target to a balance-safe cell, or bit 7 + PAUSED. There must be no endless ALARM/ACK loop.
    11. v1.4: load `tools/judge_sets/r1_elimination_needless_fallback_s777_rand_0223.json` and check that `HMI_IF.OrderModeAct = 1` and `OrderFallback = 0`.
+   12. v1.5 (R2-E2): START, STOP (PAUZA), write a new data set into DB10/DB11/DB20/DB21 (`tools/json_to_db.py` → watch values), press POČETNO STANJE: World and DB10/DB11 must be the NEW set.
+   13. v1.5 (R2-J1): load `tools/judge_sets/r2_jury_imb_a.json`: OrderModeAct = 1, alarm ID 18, |L−R| never above 10 and ≤ 5 at the end.
+   14. v1.5 (R2-J4): POČETNO STANJE during RADI does nothing; after STOP it works.
+   15. v1.6 (R3-E2): on a list-order plan, during AUTO write 999 into the next SHIP drop cell (alarm 3), POTVRDA: the put goes to a free cell whose side keeps the list order (OrderModeAct stays 1, no alarm 17). Then remove the 999, finish, POČETNO STANJE: the original data set comes back (R3-E1).
 2. **HMI** (`hmi-tia/HUMAN_STEPS.md`, about 25 min): connection, seed objects, round 1, Proto, round 2, alarm import, Alarms screen, start screen. Optionally add I/O fields for `MSpec`, `JSpec` and `OrderModeAct`. Then compile the HMI and **re-archive with PLC_1 + HMI_RT_1**.
 3. **Organizer questions (ask now):**
    1. Is M scored by MD107 (1 per move) or by the spec rule (diagonal = 2)? For the spec rule, set `World.CfgMMode := 0`.

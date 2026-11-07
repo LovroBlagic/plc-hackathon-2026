@@ -65,6 +65,10 @@ NON_RETAIN
       CfgSlotSweeps : Int := 10;             // drop-cell local search sweeps after IMPROVE (0 = off)
       SlotAccepts : DInt;                    // SLOT phase: accepted drop-cell changes (last plan)
       OrderFeasible : Bool;                  // last plan job: the requested order mode is feasible (exact DP)
+      // ---- v1.5 (judge round 2 R2-J1): relaxed balance rule on a ship that starts out of balance ----
+      BalCeil : Int;                         // 0 = step rule; > CfgBalLimit: while |L-R| > CfgBalLimit a step may go up to BalCeil
+      // ---- v1.6 (judge round 3 R3-E3): relaxed ceiling search ----
+      CfgRelaxMin : Bool;                    // FALSE: relaxed fallback uses BalCeil = start imbalance at once; TRUE: ascending CfgBalLimit+1 .. start imbalance (smallest feasible, costs J)
    END_VAR
 
 

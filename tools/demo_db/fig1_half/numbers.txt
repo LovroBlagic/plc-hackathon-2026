@@ -1,0 +1,5 @@
+# DB numbers of the given blocks (unchanged)
+Current_state_of_Bay0=DB:10
+Current_state_of_Bay1=DB:11
+From_Bay0_to_Bay1=DB:20
+From_Bay1_to_Bay0=DB:21

@@ -1,0 +1,96 @@
+dataset                                      N   P status      J  v  naive     LB   ord1   ord2   bal1     v2    det
+edge_all_left_unloads                       38  38 ok     0.9787  2   -    0.9676 0.9902   -    0.9787 0.9787 True
+edge_all_left_unloads_noload_infeasible     12  12 err1  
+edge_big_swap                               80  80 ok     1.0161  3   -    0.9970 1.0474   -    1.0161 1.0175 True
+edge_empty_lists                             0   0 ok     0.0000  1 0.0000 0.0000 0.0000 0.0000 0.0000 0.0000 True
+edge_full_ship                              20  20 ok     1.0413  2 1.2130 0.9957 1.0662 1.2112 1.0413 1.0481 True
+edge_full_ship_unload_all                   48  48 ok     1.2368  1 1.2372 1.1209 1.2372 1.2372 1.2368 1.2368 True
+edge_full_yard_load                         48  48 ok     1.0454  4   -    1.0263 1.0587   -    1.0454 1.0499 True
+edge_initial_imbalance                      24  24 ok     1.0015  2   -    0.9655 1.0337   -    1.0030 1.0011 True
+edge_invalid_dup_ids                        25  20 ok     0.8126  3 0.9642 0.7921 0.8133 0.9642 0.8126 0.8091 True
+edge_only_load                              28  28 ok     1.2326  1 1.2327 1.1100 1.2327 1.2327 1.2326 1.2326 True
+edge_only_unload                            30  30 ok     1.2053  1 1.2064 1.1224 1.2054 1.2054 1.2053 1.2053 True
+rand_01                                     27  27 ok     1.1024  3   -    1.0275 1.1261   -    1.1024 1.0989 True
+rand_02                                     31  31 ok     0.9961  2 1.1809 0.9784 0.9980 1.1788 0.9961 0.9961 True
+rand_03                                     37  37 ok     1.0485  2   -    1.0158 1.0615   -    1.0485 1.0482 True
+rand_04                                     74  74 ok     1.0348  3   -    0.9999 1.0491   -    1.0356 1.0326 True
+rand_05                                     12  12 ok     1.0288  1 1.1070 0.9967 1.0169 1.1053 1.0288 1.0237 True
+rand_06                                     33  33 ok     1.0786  2   -    1.0490 1.0775   -    1.0786 1.0780 True
+rand_07                                     16  16 ok     1.0757  3 1.1576 1.0518 1.0704 1.1530 1.0791 1.0837 True
+rand_08                                      4   4 ok     1.1365  2 1.1683 1.0197 1.1683 1.1683 1.1365 1.1365 True
+rand_09                                     24  24 ok     1.0286  2 1.1751 1.0082 1.0313 1.1743 1.0286 1.0283 True
+rand_10                                     22  22 ok     1.1031  3   -    1.0502 1.1007   -    1.1058 1.1056 True
+rand_11                                     19  19 ok     1.1338  1 1.1502 1.0976 1.1346 1.1454 1.1338 1.1338 True
+rand_12                                     40  40 ok     1.0803  3 1.2124 1.0383 1.0911 1.2110 1.0803 1.0812 True
+rand_13                                     27  27 ok     1.1437  3   -    1.0758 1.1492   -    1.1437 1.1414 True
+rand_14                                     30  30 ok     1.0668  3   -    1.0434 1.0711   -    1.0668 1.0695 True
+rand_15                                     64  64 ok     1.0320  3   -    1.0104 1.0484   -    1.0320 1.0354 True
+rand_16                                     37  37 ok     1.1102  3 1.1821 1.0544 1.1109 1.1816 1.1101 1.1093 True
+rand_17                                     33  33 ok     1.0163  2   -    0.9976 1.0302   -    1.0163 1.0127 True
+rand_18                                     35  35 ok     1.1159  3 1.1875 1.0733 1.1183 1.1831 1.1171 1.1168 True
+rand_19                                     28  28 ok     1.0450  2 1.1476 1.0308 1.0431 1.1438 1.0427 1.0450 True
+rand_20                                     33  33 ok     1.0090  2 1.1471 0.9892 1.0227 1.1470 1.0090 1.0090 True
+rand_21                                     10  10 ok     1.0737  2   -    1.0671 1.1001   -    1.0737 1.0737 True
+rand_22                                     33  33 ok     1.0866  3   -    1.0323 1.0828   -    1.0866 1.0883 True
+rand_23                                     28  28 ok     1.0256  2   -    1.0099 1.0429   -    1.0266 1.0254 True
+rand_24                                      6   6 ok     1.0080  2 1.1842 0.9989 1.0146 1.1842 1.0080 1.0080 True
+rand_25                                     54  54 ok     1.0179  3   -    0.9971 1.0218   -    1.0179 1.0198 True
+rand_26                                     36  36 ok     1.0447  2   -    1.0217 1.0592   -    1.0447 1.0410 True
+rand_27                                     46  46 ok     1.0855  3   -    1.0343 1.0876   -    1.0854 1.0843 True
+rand_28                                     19  19 ok     1.0265  2 1.1787 1.0042 1.0298 1.1787 1.0265 1.0265 True
+rand_29                                     27  27 ok     1.1128  2 1.1754 1.0892 1.1102 1.1754 1.1128 1.1128 True
+rand_30                                     45  45 ok     1.0358  2 1.2106 1.0149 1.0340 1.2106 1.0358 1.0358 True
+sample_archive_b0                           10   0 ok     0.0000  1 0.0000 0.0000 0.0000 0.0000 0.0000 0.0000 True
+sample_archive_b1                           10   1 ok     0.0875  1 0.0875 0.0875 0.0875 0.0875 0.0875 0.0875 True
+
+== random (rand_*): 30 sets  (mean max)
+PLC DEFAULT v1.4 o1+fb+LS+SLOT: 1.0626 1.1683  (IMPROVE 3000 evals)
+free order 0 + LS             : 1.0538 1.1339
+order 1 + fallback, greedy    : 1.0651 1.1683  (fallback to order 0 on 0 sets)
+free order 0, greedy          : 1.0634 1.1437
+  variant 1 alpha=0          : 1.0782 1.1532
+  variant 2 alpha=100        : 1.0658 1.1508
+  variant 3 alpha=200        : 1.0658 1.1437
+  variant 4 alpha=300        : 1.0671 1.1437
+  win counts v1..v4           : [2, 15, 13, 0]
+  single alpha=0              : 1.0782 1.1532
+  single alpha=50             : 1.0692 1.1544
+  single alpha=100            : 1.0658 1.1508
+  single alpha=150            : 1.0655 1.1508
+  single alpha=200            : 1.0658 1.1437
+  single alpha=300            : 1.0671 1.1437
+order mode 1                  : 1.0701 1.1683
+order mode 2                  : 1.1694 1.2110
+bal mode 1                    : 1.0637 1.1437
+algo v2 (2-step top-3)        : 1.0634 1.1414
+naive baseline                : 1.1710 1.2124
+lower bound (closed form)     : 1.0293 1.0976
+gap dflt_ls  to bound          : mean 3.23 %  max 14.56 %
+gap free_ls  to bound          : mean 2.37 %  max 10.48 %
+deterministic all             : True
+
+== all feasible, P>0: 40 sets  (mean max)
+PLC DEFAULT v1.4 o1+fb+LS+SLOT: 1.0399 1.2368  (IMPROVE 3000 evals)
+free order 0 + LS             : 1.0310 1.2368
+order 1 + fallback, greedy    : 1.0422 1.2368  (fallback to order 0 on 0 sets)
+free order 0, greedy          : 1.0390 1.2368
+  variant 1 alpha=0          : 1.0524 1.2368
+  variant 2 alpha=100        : 1.0412 1.2368
+  variant 3 alpha=200        : 1.0411 1.2368
+  variant 4 alpha=300        : 1.0427 1.2368
+  win counts v1..v4           : [6, 18, 15, 1]
+  single alpha=0              : 1.0524 1.2368
+  single alpha=50             : 1.0443 1.2368
+  single alpha=100            : 1.0412 1.2368
+  single alpha=150            : 1.0410 1.2368
+  single alpha=200            : 1.0411 1.2368
+  single alpha=300            : 1.0427 1.2368
+order mode 1                  : 1.0469 1.2372
+order mode 2                  : 1.1180 1.2372
+bal mode 1                    : 1.0392 1.2368
+algo v2 (2-step top-3)        : 1.0392 1.2368
+naive baseline                : 1.1193 1.2372
+lower bound (closed form)     : 1.0016 1.1224
+gap dflt_ls  to bound          : mean 3.69 %  max 14.56 %
+gap free_ls  to bound          : mean 2.80 %  max 10.59 %
+deterministic all             : True

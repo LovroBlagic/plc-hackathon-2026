@@ -3,7 +3,9 @@ TITLE = Greedy transfer planner with lookahead and multi-start (CONTRACT 4)
 { S7_Optimized_Access := 'TRUE' }
 VERSION : 0.1
 //  Multi-instance "Planner" inside FB10 "Crane_Control", called once per OB1 cycle.
-//  Bit-identical to tools/crane_plan.py (CONTRACT v1.0 section 4). All decisions use DInt.
+//  Python reference tools/crane_plan.py (CONTRACT section 4); mirrored line by line by tia-src/12_planner_mirror.py
+//  (greedy + FtMask) and 13_improve_mirror.py (IMPROVE + SLOT + bound, run at a 400-evaluation budget, 3 per call;
+//  crane_stress uses 600). Not run on a PLC yet. All decisions use DInt.
 //
 //  Protocol:
 //   - Req rising edge: snapshot "World" (grids, crane, lists/states, N, Base*, Cfg*) into statics.
@@ -63,6 +65,7 @@ VERSION : 0.1
       cOrder : Int;
       cBalMode : Int;
       cLim : Int;
+      cCeil : Int;                              // v1.5 (R2-J1): relaxed balance ceiling (0 = step rule only)
       cVariants : Int;
       cSteps : Int;
       cAlpha : Array[1..4] of DInt;
@@ -272,6 +275,8 @@ VERSION : 0.1
       qHigh : Int;
       qQ : Int;
       qRd : Int;
+      qU : Int;                                 // v1.5 pattern relocate: next unload / load read position
+      qL : Int;
       qPos : Int;
       qStart : Int;
       qStep : Int;
@@ -349,6 +354,10 @@ BEGIN
 	        #cOrder := USINT_TO_INT("World".CfgOrderMode);
 	        #cBalMode := USINT_TO_INT("World".CfgBalMode);
 	        #cLim := "World".CfgBalLimit;
+	        #cCeil := 0;                            // v1.5: relaxed rule only with BalCeil > limit
+	        IF "World".BalCeil > #cLim THEN
+	            #cCeil := "World".BalCeil;
+	        END_IF;
 	        #cVariants := "World".CfgVariants;
 	        #cSteps := "World".CfgStepsPerCall;
 	        IF #cSteps < 1 THEN
@@ -629,7 +638,7 @@ BEGIN
 	                        #wRv := #wTot - #wLv;
 	                        IF #wRv >= 0 AND #wRv <= 24 THEN
 	                            IF #i = #FtNu AND #j = #FtNl THEN
-	                                #wOk := TRUE;
+	                                #wOk := #cCeil = 0 OR ABS(#wLv - #wRv) <= #cLim;   // v1.5: relaxed -> end balanced
 	                            ELSE
 	                                #wOk := FALSE;
 	                                IF #i < #FtNu AND #sY0 + #i - #j < 48 THEN
@@ -642,7 +651,7 @@ BEGIN
 	                                    END_IF;
 	                                    IF #L2 >= 0 AND #R2 >= 0 THEN
 	                                        #dAbs := ABS(#L2 - #R2);
-	                                        IF #dAbs <= #cLim OR #dAbs <= ABS(#wLv - #wRv) THEN
+	                                        IF #dAbs <= #cLim OR #dAbs <= ABS(#wLv - #wRv) OR (ABS(#wLv - #wRv) > #cLim AND #dAbs <= #cCeil) THEN
 	                                            #wOk := (#FtMask[#i + 1, #j] AND SHL(IN := DWORD#16#1, N := INT_TO_USINT(#L2))) <> DWORD#16#0;
 	                                        END_IF;
 	                                    END_IF;
@@ -658,7 +667,7 @@ BEGIN
 	                                        END_IF;
 	                                        IF NOT #wOk AND #L2 <= 24 AND #R2 <= 24 THEN
 	                                            #dAbs := ABS(#L2 - #R2);
-	                                            IF #dAbs <= #cLim OR #dAbs <= ABS(#wLv - #wRv) THEN
+	                                            IF #dAbs <= #cLim OR #dAbs <= ABS(#wLv - #wRv) OR (ABS(#wLv - #wRv) > #cLim AND #dAbs <= #cCeil) THEN
 	                                                #wOk := (#FtMask[#i, #j + 1] AND SHL(IN := DWORD#16#1, N := INT_TO_USINT(#L2))) <> DWORD#16#0;
 	                                            END_IF;
 	                                        END_IF;
@@ -676,6 +685,18 @@ BEGIN
 	                IF #FtRow < 0 THEN
 	                    #FtActive := FALSE;
 	                    #OrderOk := (#FtMask[0, 0] AND SHL(IN := DWORD#16#1, N := INT_TO_USINT(#SlBalL))) <> DWORD#16#0;
+	                    IF #cCeil > 0 AND NOT #OrderOk THEN
+	                        // v1.5 (R2-J1): the relaxed rule is only used when the list order is exactly
+	                        // feasible under it; else ErrCode 1 -> FB10 continues its fallback chain
+	                        "World".PlanValid := FALSE;
+	                        "World".PlanLen := 0;
+	                        "World".PlanVariant := 0;
+	                        "World".SlotAccepts := 0;
+	                        "World".OrderFeasible := FALSE;
+	                        #JobBusy := FALSE;
+	                        #Error := TRUE;
+	                        #ErrCode := 1;
+	                    END_IF;
 	                END_IF;
 
 	            ELSIF #ImpActive THEN
@@ -724,6 +745,9 @@ BEGIN
 	                    #qValid := #qHave;
 	                    IF #qHave AND #cOrder = 1 AND #qMv <> 0 THEN
 	                        IF #qMv = 1 THEN
+	                            // v1.5 (judge round 2 R2-SCORE-1): move 1 = relocate the KIND TOKEN at i to j
+	                            // (U/L pattern), the k-th U / L stays the k-th unload / load. Valid iff an
+	                            // element of the other kind lies between i and j (else the pattern is unchanged).
 	                            #qKa := #SrcKind[#LsSeq[#qI]];
 	                            IF #qI < #qJ THEN
 	                                #qLow := #qI + 1;
@@ -732,9 +756,10 @@ BEGIN
 	                                #qLow := #qJ;
 	                                #qHigh := #qI - 1;
 	                            END_IF;
+	                            #qValid := FALSE;
 	                            FOR #qQ := #qLow TO #qHigh DO
-	                                IF #SrcKind[#LsSeq[#qQ]] = #qKa THEN
-	                                    #qValid := FALSE;
+	                                IF #SrcKind[#LsSeq[#qQ]] <> #qKa THEN
+	                                    #qValid := TRUE;
 	                                    EXIT;
 	                                END_IF;
 	                            END_FOR;
@@ -769,6 +794,37 @@ BEGIN
 	                                #CdSeq[#qI] := #LsSeq[#qJ];
 	                                #CdSeq[#qJ] := #LsSeq[#qI];
 	                            END_IF;
+	                        ELSIF #qMv = 1 AND #cOrder = 1 THEN
+	                            // v1.5 pattern relocate: kind of position q in the new pattern (token i moved
+	                            // to j), then the next not yet used element of that kind
+	                            #qKa := #SrcKind[#LsSeq[#qI]];
+	                            #qRd := 1;
+	                            #qU := 1;
+	                            #qL := 1;
+	                            FOR #qQ := 1 TO #LsN DO
+	                                IF #qQ = #qJ THEN
+	                                    #qKb := #qKa;
+	                                ELSE
+	                                    IF #qRd = #qI THEN
+	                                        #qRd := #qRd + 1;
+	                                    END_IF;
+	                                    #qKb := #SrcKind[#LsSeq[#qRd]];
+	                                    #qRd := #qRd + 1;
+	                                END_IF;
+	                                IF #qKb = #qKa THEN
+	                                    WHILE #SrcKind[#LsSeq[#qU]] <> #qKa DO
+	                                        #qU := #qU + 1;
+	                                    END_WHILE;
+	                                    #CdSeq[#qQ] := #LsSeq[#qU];
+	                                    #qU := #qU + 1;
+	                                ELSE
+	                                    WHILE #SrcKind[#LsSeq[#qL]] = #qKa DO
+	                                        #qL := #qL + 1;
+	                                    END_WHILE;
+	                                    #CdSeq[#qQ] := #LsSeq[#qL];
+	                                    #qL := #qL + 1;
+	                                END_IF;
+	                            END_FOR;
 	                        ELSE
 	                            // move 1: element i to position j; move 3: pair (i, i+1) to j, j+1;
 	                            // all other positions keep the remaining elements in order
@@ -793,6 +849,11 @@ BEGIN
 	                        END_IF;
 	                        IF #qMv = 0 THEN
 	                            #qPos := 1;
+	                        ELSIF #qMv = 1 AND #cOrder = 1 THEN
+	                            #qPos := 1;                 // first changed position (exists: pattern changed)
+	                            WHILE #qPos < #LsN AND #CdSeq[#qPos] = #LsSeq[#qPos] DO
+	                                #qPos := #qPos + 1;
+	                            END_WHILE;
 	                        ELSIF #qI < #qJ THEN
 	                            #qPos := #qI;
 	                        ELSE
@@ -888,7 +949,7 @@ BEGIN
 	                        #wMsk := DWORD#16#0;
 	                        FOR #wLv := 0 TO 24 DO
 	                            #wRv := #FaTot[#LsN] - #wLv;
-	                            IF #wRv >= 0 AND #wRv <= 24 THEN
+	                            IF #wRv >= 0 AND #wRv <= 24 AND (#cCeil = 0 OR ABS(#wLv - #wRv) <= #cLim) THEN
 	                                #wMsk := #wMsk OR SHL(IN := DWORD#16#1, N := INT_TO_USINT(#wLv));
 	                            END_IF;
 	                        END_FOR;
@@ -912,7 +973,7 @@ BEGIN
 	                                            END_IF;
 	                                            IF #L2 >= 0 AND #R2 >= 0 THEN
 	                                                #dAbs := ABS(#L2 - #R2);
-	                                                IF #dAbs <= #cLim OR #dAbs <= ABS(#wLv - #wRv) THEN
+	                                                IF #dAbs <= #cLim OR #dAbs <= ABS(#wLv - #wRv) OR (ABS(#wLv - #wRv) > #cLim AND #dAbs <= #cCeil) THEN
 	                                                    #wOk := (#FaMask[#qQ] AND SHL(IN := DWORD#16#1, N := INT_TO_USINT(#L2))) <> DWORD#16#0;
 	                                                END_IF;
 	                                            END_IF;
@@ -928,7 +989,7 @@ BEGIN
 	                                            END_IF;
 	                                            IF NOT #wOk AND #L2 <= 24 AND #R2 <= 24 THEN
 	                                                #dAbs := ABS(#L2 - #R2);
-	                                                IF #dAbs <= #cLim OR #dAbs <= ABS(#wLv - #wRv) THEN
+	                                                IF #dAbs <= #cLim OR #dAbs <= ABS(#wLv - #wRv) OR (ABS(#wLv - #wRv) > #cLim AND #dAbs <= #cCeil) THEN
 	                                                    #wOk := (#FaMask[#qQ] AND SHL(IN := DWORD#16#1, N := INT_TO_USINT(#L2))) <> DWORD#16#0;
 	                                                END_IF;
 	                                            END_IF;
@@ -1013,7 +1074,7 @@ BEGIN
 	                                                END_IF;
 	                                            END_IF;
 	                                            #dAbs := ABS(#L2 - #R2);
-	                                            #okB := #dAbs <= #cLim OR #dAbs <= ABS(#L - #R);
+	                                            #okB := #dAbs <= #cLim OR #dAbs <= ABS(#L - #R) OR (ABS(#L - #R) > #cLim AND #dAbs <= #cCeil);
 	                                            IF #okB AND #cBalMode = 1 THEN
 	                                                #dAbs := ABS(#F2 - #A2);
 	                                                #okB := #dAbs <= #cLim OR #dAbs <= ABS(#F - #A);
@@ -1303,7 +1364,7 @@ BEGIN
 	                                    END_IF;
 	                                END_IF;
 	                                #dAbs := ABS(#L2 - #R2);
-	                                #okB := #dAbs <= #cLim OR #dAbs <= ABS(#wLa - #wRa);
+	                                #okB := #dAbs <= #cLim OR #dAbs <= ABS(#wLa - #wRa) OR (ABS(#wLa - #wRa) > #cLim AND #dAbs <= #cCeil);
 	                                IF #okB AND #cBalMode = 1 THEN
 	                                    #dAbs := ABS(#F2 - #A2);
 	                                    #okB := #dAbs <= #cLim OR #dAbs <= ABS(#wFa - #wAa);
@@ -1317,6 +1378,9 @@ BEGIN
 	                                #wFa := #F2;
 	                                #wAa := #A2;
 	                            END_FOR;
+	                            IF #wTrj AND #cCeil > 0 AND ABS(#wLa - #wRa) > #cLim THEN
+	                                #wTrj := FALSE;         // v1.5: a relaxed plan must end balanced
+	                            END_IF;
 	                        END_IF;
 	                        IF NOT #wTrj THEN
 	                            // revert
@@ -1711,7 +1775,7 @@ BEGIN
 	                            END_IF;
 	                            // step rule: OK if |L'-R'| <= Lim or not worse than now
 	                            #dAbs := ABS(#L2 - #R2);
-	                            #okB := #dAbs <= #cLim OR #dAbs <= ABS(#L - #R);
+	                            #okB := #dAbs <= #cLim OR #dAbs <= ABS(#L - #R) OR (ABS(#L - #R) > #cLim AND #dAbs <= #cCeil);
 	                            IF #okB AND #cBalMode = 1 THEN
 	                                #dAbs := ABS(#F2 - #A2);
 	                                #okB := #dAbs <= #cLim OR #dAbs <= ABS(#F - #A);

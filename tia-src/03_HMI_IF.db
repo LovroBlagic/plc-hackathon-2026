@@ -92,7 +92,7 @@ NON_RETAIN
       AlarmWord : Word;                     // alarm bits (CONTRACT 3.3)
       AlarmAckWord : Word;                  // WinCC 'PLC acknowledgement tag' = NOT AlarmWord (one ACK clears PLC and HMI)
       AlarmId : UInt;
-      AlarmWord2 : Word;                    // v1.4: extra alarm bits: bit 0 = list order abandoned (warning)
+      AlarmWord2 : Word;                    // v1.4: extra alarm bits: bit 0 = list order abandoned (warning); v1.5 bit 1 = relaxed balance rule (ship loaded unbalanced)
       AlarmUId : UInt;                      // v1.4: first unload-list ID that is not in Bay 0 (alarm bit 3)
       AlarmUCnt : Int;                      //       number of such IDs
       AlarmLId : UInt;                      // v1.4: first load-list ID that is not in Bay 1 (alarm bit 4)

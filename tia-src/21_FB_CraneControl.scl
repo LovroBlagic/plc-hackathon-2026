@@ -48,8 +48,16 @@ VERSION : 0.1
       InitBay0 : Array[0..3, 0..11] of UInt;
       InitBay1 : Array[0..3, 0..11] of UInt;
       HaveInit : Bool;                       // InitBay0/1 valid
-      ExtEdit : Bool;                        // DB10/DB11 edited online since the last INIT (v1.5: any state)
+      ExtEdit : Bool;                        // v1.6: not used any more (NewCnt / ObstCnt), kept for the interface
       NoCellWarn : Bool;                     // v1.5: bit 7 raised by the ACK re-target (MANUAL needed): not blocking
+      BalD0 : Int;                           // v1.5 (R2-J1): |L-R| of the ship as loaded at INIT
+      // v1.6 (judge round 3 R3-E1 / R3-J1): obstacle edits during a job are not a new data set
+      JobActive : Bool;                      // a plan or MANUAL command completed since the last INIT
+      EditMark : Array[0..95] of Bool;       // cell (bay*48 + x*12 + y) edited online since the last INIT
+      EditNew : Array[0..95] of Bool;        // ... and that edit was made while no job was in progress
+      EditVal : Array[0..95] of UInt;        // value of the cell before the edit (written back = unmarked)
+      NewCnt : Int;                          // marked cells edited with no job in progress (new data)
+      ObstCnt : Int;                         // marked cells edited during a job (obstacles)
    END_VAR
 
    VAR_TEMP
@@ -106,6 +114,31 @@ VERSION : 0.1
       dstB : USInt;
       noCell : Bool;                         // ACK: rejected plan put could not be re-targeted
       extE : Bool;                           // INIT: DB10/DB11 differ from the last mirrored state
+      noJob : Bool;                          // v1.6: no job in progress (an online edit is new data)
+      dbv : UInt;                            // v1.6 region 2a: DB10/DB11 cell
+      snv : UInt;                            //                 Snap cell
+      wv : UInt;                             //                 World cell
+      // v1.6 (judge round 3 R3-E2): order feasibility of the ACK re-target (bit-parallel FtMask[0,0])
+      ft0 : DWord;                           // bit L: the remaining lists stay feasible from L ship containers in x 0..1
+      ftNu : Int;                            // remaining pending unloads (list order)
+      ftNl : Int;                            // remaining pending loads (without the one on the hook)
+      ftS0 : Int;                            // ship count after the put
+      ftY0 : Int;                            // yard count
+      ftCeil : Int;                          // ceiling of this try: 0 step rule, > 0 relaxed, -1 skip, -2 no filter
+      ftTry : Int;
+      ftUse : Bool;                          // filter possible (ship put, preferred order 1 / 2)
+      ftSide : Array[1..48] of Bool;         // pending unload i (list order) stands in x 0..1
+      ftPrev : Array[0..48] of DWord;        // FtMask row i + 1
+      ftCur : Array[0..48] of DWord;         // FtMask row i
+      ftK : Array[0..4, 0..48] of DWord;     // per ship total: 0 end state, 1 unload left, 2 unload right, 3 load left, 4 load right
+      ftTot : Int;
+      ftL : Int;
+      ftR : Int;
+      ftD : Int;
+      ftD2 : Int;
+      ftM : DWord;
+      ftBit : DWord;
+      listsNew : Bool;                       // v1.6 INIT: DB20/DB21 differ from the lists of the last load
    END_VAR
 
 
@@ -148,31 +181,69 @@ BEGIN
 	    //  - DB10/DB11 cell <> Snap: changed online (watch table, HMI) -> taken over into World, so the
 	    //    OB30 pre-check "pick location empty / drop location occupied" acts on it and the grid shows it.
 	    //    v1.5: in every state such an edit counts as new input data for the next POČETNO STANJE
-	    //    (ExtEdit, see INIT; judge round 2 R2-E2 / R2-J3).
+	    //    (ExtEdit, see INIT; judge round 2 R2-E2 / R2-J3). v1.6: see below.
 	    //  - else World cell <> Snap: the crane moved a container -> written into DB10/DB11, so the given
 	    //    "Current_state_of_Bay0/1" blocks always show the current yard (v1.4, judge round 1 R1-E2).
+	    //  v1.6 (judge round 3 R3-E1 / R3-J1): every edited cell is marked (EditMark, value before the edit in
+	    //  EditVal). An edit made while NO job is in progress (nothing executed since INIT, or DONE) is new
+	    //  data (NewCnt); an edit during a job (an obstacle written to provoke "drop location occupied") is
+	    //  an obstacle (ObstCnt). Writing the cell back to its value before the edit removes the mark again.
+	    //  INIT takes DB10/DB11 as the new yard only if NewCnt > 0, or the lists changed and ObstCnt > 0, or
+	    //  ObstCnt >= 8 (a whole data set typed in while paused); otherwise it restores the loaded yard.
 	    #extE := FALSE;
+	    #noJob := NOT #JobActive OR #State = 6 OR (#State = 5 AND #PrevState = 6) OR (#State = 0 AND #OffState = 6);
 	    IF #Initialized AND #State <> 1 THEN
-	        FOR #x := 0 TO 3 DO
-	            FOR #y := 0 TO 11 DO
-	                IF "Current_state_of_Bay0".Bay0[#x, #y] <> #Snap0[#x, #y] THEN
-	                    #Snap0[#x, #y] := "Current_state_of_Bay0".Bay0[#x, #y];
-	                    "World".Bay0[#x, #y] := #Snap0[#x, #y];
-	                    #ExtEdit := TRUE;
-	                    #extE := TRUE;
-	                ELSIF "World".Bay0[#x, #y] <> #Snap0[#x, #y] THEN
-	                    #Snap0[#x, #y] := "World".Bay0[#x, #y];
-	                    "Current_state_of_Bay0".Bay0[#x, #y] := #Snap0[#x, #y];
-	                END_IF;
-	                IF "Current_state_of_Bay1".Bay1[#x, #y] <> #Snap1[#x, #y] THEN
-	                    #Snap1[#x, #y] := "Current_state_of_Bay1".Bay1[#x, #y];
-	                    "World".Bay1[#x, #y] := #Snap1[#x, #y];
-	                    #ExtEdit := TRUE;
-	                    #extE := TRUE;
-	                ELSIF "World".Bay1[#x, #y] <> #Snap1[#x, #y] THEN
-	                    #Snap1[#x, #y] := "World".Bay1[#x, #y];
-	                    "Current_state_of_Bay1".Bay1[#x, #y] := #Snap1[#x, #y];
-	                END_IF;
+	        FOR #b := 0 TO 1 DO
+	            FOR #x := 0 TO 3 DO
+	                FOR #y := 0 TO 11 DO
+	                    IF #b = 0 THEN
+	                        #dbv := "Current_state_of_Bay0".Bay0[#x, #y];
+	                        #snv := #Snap0[#x, #y];
+	                        #wv := "World".Bay0[#x, #y];
+	                    ELSE
+	                        #dbv := "Current_state_of_Bay1".Bay1[#x, #y];
+	                        #snv := #Snap1[#x, #y];
+	                        #wv := "World".Bay1[#x, #y];
+	                    END_IF;
+	                    #k := #b * 48 + #x * 12 + #y;
+	                    IF #dbv <> #snv THEN
+	                        // changed online -> adopt into World, mark the cell
+	                        IF NOT #EditMark[#k] THEN
+	                            #EditMark[#k] := TRUE;
+	                            #EditVal[#k] := #snv;
+	                            #EditNew[#k] := #noJob;
+	                            IF #noJob THEN
+	                                #NewCnt := #NewCnt + 1;
+	                            ELSE
+	                                #ObstCnt := #ObstCnt + 1;
+	                            END_IF;
+	                        ELSIF #dbv = #EditVal[#k] THEN
+	                            #EditMark[#k] := FALSE;    // written back: no longer an edit
+	                            IF #EditNew[#k] THEN
+	                                #NewCnt := #NewCnt - 1;
+	                            ELSE
+	                                #ObstCnt := #ObstCnt - 1;
+	                            END_IF;
+	                        END_IF;
+	                        #extE := TRUE;
+	                        IF #b = 0 THEN
+	                            #Snap0[#x, #y] := #dbv;
+	                            "World".Bay0[#x, #y] := #dbv;
+	                        ELSE
+	                            #Snap1[#x, #y] := #dbv;
+	                            "World".Bay1[#x, #y] := #dbv;
+	                        END_IF;
+	                    ELSIF #wv <> #snv THEN
+	                        // the crane moved a container -> mirror it into DB10/DB11
+	                        IF #b = 0 THEN
+	                            #Snap0[#x, #y] := #wv;
+	                            "Current_state_of_Bay0".Bay0[#x, #y] := #wv;
+	                        ELSE
+	                            #Snap1[#x, #y] := #wv;
+	                            "Current_state_of_Bay1".Bay1[#x, #y] := #wv;
+	                        END_IF;
+	                    END_IF;
+	                END_FOR;
 	            END_FOR;
 	        END_FOR;
 	        // v1.5 (judge round 2 R2-E2): an adopted edit while not running invalidates the plan, so the
@@ -203,6 +274,9 @@ BEGIN
 	    #last := "World".LastDone;
 	    IF #seq <> #SeenSeq AND #seq = "World".DoneSeq THEN
 	        #SeenSeq := #seq;
+	        IF #last.Src >= 1 AND #last.Src <= 3 THEN
+	            #JobActive := TRUE;                // v1.6: from now on online edits are obstacles
+	        END_IF;
 
 	        // Plan command finished: advance the done pointer (PlanIdx / Phase)
 	        IF (#last.Src = 1 OR #last.Src = 2) AND "World".PlanValid
@@ -402,45 +476,189 @@ BEGIN
 	            AND "World".Phase = 3 AND "World".CraneBay <= 1
 	        THEN
 	            #dstB := "World".CraneBay;
-	            #bestT := 32767;
-	            #bestX := -1;
-	            #bestY := -1;
-	            FOR #x := 0 TO 3 DO
-	                FOR #y := 0 TO 11 DO
-	                    IF #dstB = 0 THEN
-	                        #id := "World".Bay0[#x, #y];
-	                    ELSE
-	                        #id := "World".Bay1[#x, #y];
-	                    END_IF;
-	                    IF #id = 0 THEN
-	                        #okBal := TRUE;
-	                        IF #dstB = 0 THEN
-	                            #nL := "World".BalL;
-	                            #nR := "World".BalR;
-	                            #nF := "World".BalF;
-	                            #nA := "World".BalA;
-	                            IF #x <= 1 THEN #nL := #nL + 1; ELSE #nR := #nR + 1; END_IF;
-	                            IF #y <= 5 THEN #nF := #nF + 1; ELSE #nA := #nA + 1; END_IF;
-	                            #okBal := ABS(#nL - #nR) <= "World".CfgBalLimit
-	                                      OR ABS(#nL - #nR) <= ABS("World".BalL - "World".BalR);
-	                            IF "World".CfgBalMode = 1 AND NOT (ABS(#nF - #nA) <= "World".CfgBalLimit
-	                                OR ABS(#nF - #nA) <= ABS("World".BalF - "World".BalA))
-	                            THEN
-	                                #okBal := FALSE;
-	                            END_IF;
+	            // v1.6 (judge round 3 R3-E2): for a SHIP put, prefer the cells whose side keeps the remaining
+	            // lists feasible in the preferred order (exact FtMask[0,0] of the state after the put, the same
+	            // table as FB11, here bit-parallel: try 1 step rule, try 2 relaxed ceiling BalD0). Try 3 = the
+	            // v1.4 rule (nearest balance-safe cell) when no cell keeps the order. Python reference:
+	            // tools/fb10_init_model.retarget() / ft00().
+	            #ftUse := #dstB = 0 AND #CfgOrdHmi > 0;
+	            #ftNu := 0;
+	            #ftNl := 0;
+	            #ftS0 := "World".BalL + "World".BalR + 1;
+	            #ftY0 := 0;
+	            IF #ftUse THEN
+	                FOR #x := 0 TO 3 DO
+	                    FOR #y := 0 TO 11 DO
+	                        IF "World".Bay1[#x, #y] <> 0 THEN
+	                            #ftY0 := #ftY0 + 1;
 	                        END_IF;
-	                        IF #okBal THEN
-	                            // FB1 move time in ds: max(|dx|*6 s, |dy|*2.3 s)
-	                            #candT := MAX(IN1 := ABS(#x - SINT_TO_INT("World".CraneX)) * 60,
-	                                          IN2 := ABS(#y - SINT_TO_INT("World".CraneY)) * 23);
-	                            IF #candT < #bestT THEN
-	                                #bestT := #candT;
-	                                #bestX := #x;
-	                                #bestY := #y;
-	                            END_IF;
+	                    END_FOR;
+	                END_FOR;
+	                FOR #i := 1 TO 48 DO
+	                    #id := "World".UList[#i];
+	                    IF #id <> 0 AND "World".UState[#i] = 0 THEN
+	                        #found := FALSE;
+	                        FOR #x := 0 TO 3 DO
+	                            FOR #y := 0 TO 11 DO
+	                                IF NOT #found AND "World".Bay0[#x, #y] = #id THEN
+	                                    #found := TRUE;
+	                                    #ftNu := #ftNu + 1;
+	                                    #ftSide[#ftNu] := #x <= 1;
+	                                END_IF;
+	                            END_FOR;
+	                        END_FOR;
+	                    END_IF;
+	                    #id := "World".LList[#i];
+	                    IF #id <> 0 AND "World".LState[#i] = 0
+	                        AND NOT ("World".Plan["World".PlanIdx].Kind = 2 AND "World".Plan["World".PlanIdx].ListIdx = #i)
+	                    THEN
+	                        #found := FALSE;
+	                        FOR #x := 0 TO 3 DO
+	                            FOR #y := 0 TO 11 DO
+	                                IF "World".Bay1[#x, #y] = #id THEN
+	                                    #found := TRUE;
+	                                END_IF;
+	                            END_FOR;
+	                        END_FOR;
+	                        IF #found THEN
+	                            #ftNl := #ftNl + 1;
 	                        END_IF;
 	                    END_IF;
 	                END_FOR;
+	            END_IF;
+	            #bestX := -1;
+	            #bestY := -1;
+	            FOR #ftTry := 1 TO 3 DO
+	                IF #bestX < 0 THEN
+	                    #ftCeil := -1;
+	                    IF #ftTry = 1 AND #ftUse THEN
+	                        #ftCeil := 0;
+	                    ELSIF #ftTry = 2 AND #ftUse AND #BalD0 > "World".CfgBalLimit THEN
+	                        #ftCeil := #BalD0;
+	                    ELSIF #ftTry = 3 THEN
+	                        #ftCeil := -2;
+	                    END_IF;
+	                    IF #ftCeil >= 0 THEN
+	                        // move masks per ship total (bit L, R = tot - L)
+	                        FOR #ftTot := 0 TO 48 DO
+	                            FOR #k := 0 TO 4 DO
+	                                #ftK[#k, #ftTot] := DWORD#16#0;
+	                            END_FOR;
+	                            FOR #ftL := 0 TO 24 DO
+	                                #ftR := #ftTot - #ftL;
+	                                IF #ftR >= 0 AND #ftR <= 24 THEN
+	                                    #ftBit := SHL(IN := DWORD#16#1, N := INT_TO_USINT(#ftL));
+	                                    #ftD := ABS(#ftL - #ftR);
+	                                    IF #ftCeil = 0 OR #ftD <= "World".CfgBalLimit THEN
+	                                        #ftK[0, #ftTot] := #ftK[0, #ftTot] OR #ftBit;     // end state (relaxed: balanced)
+	                                    END_IF;
+	                                    FOR #k := 1 TO 4 DO
+	                                        IF (#k = 1 AND #ftL >= 1) OR (#k = 2 AND #ftR >= 1)
+	                                            OR (#k = 3 AND #ftL <= 23) OR (#k = 4 AND #ftR <= 23)
+	                                        THEN
+	                                            IF #k = 1 THEN
+	                                                #ftD2 := ABS(#ftL - 1 - #ftR);
+	                                            ELSIF #k = 2 THEN
+	                                                #ftD2 := ABS(#ftL - #ftR + 1);
+	                                            ELSIF #k = 3 THEN
+	                                                #ftD2 := ABS(#ftL + 1 - #ftR);
+	                                            ELSE
+	                                                #ftD2 := ABS(#ftL - #ftR - 1);
+	                                            END_IF;
+	                                            IF #ftD2 <= "World".CfgBalLimit OR #ftD2 <= #ftD
+	                                                OR (#ftD > "World".CfgBalLimit AND #ftD2 <= #ftCeil)
+	                                            THEN
+	                                                #ftK[#k, #ftTot] := #ftK[#k, #ftTot] OR #ftBit;
+	                                            END_IF;
+	                                        END_IF;
+	                                    END_FOR;
+	                                END_IF;
+	                            END_FOR;
+	                        END_FOR;
+	                        // FtMask rows i = ftNu .. 0 (two row buffers)
+	                        FOR #j := 0 TO 48 DO
+	                            #ftPrev[#j] := DWORD#16#0;
+	                            #ftCur[#j] := DWORD#16#0;
+	                        END_FOR;
+	                        FOR #i := #ftNu TO 0 BY -1 DO
+	                            FOR #j := #ftNl TO 0 BY -1 DO
+	                                #ftTot := #ftS0 - #i + #j;
+	                                #ftM := DWORD#16#0;
+	                                IF #ftTot >= 0 AND #ftTot <= 48 THEN
+	                                    IF #i = #ftNu AND #j = #ftNl THEN
+	                                        #ftM := #ftK[0, #ftTot];
+	                                    ELSE
+	                                        IF #i < #ftNu AND #ftY0 + #i - #j < 48 THEN
+	                                            IF #ftSide[#i + 1] THEN
+	                                                #ftM := #ftK[1, #ftTot] AND SHL(IN := #ftPrev[#j], N := 1);
+	                                            ELSE
+	                                                #ftM := #ftK[2, #ftTot] AND #ftPrev[#j];
+	                                            END_IF;
+	                                        END_IF;
+	                                        IF #j < #ftNl AND (#CfgOrdHmi = 1 OR #i = #ftNu) THEN
+	                                            #ftM := #ftM OR (#ftK[3, #ftTot] AND SHR(IN := #ftCur[#j + 1], N := 1))
+	                                                         OR (#ftK[4, #ftTot] AND #ftCur[#j + 1]);
+	                                        END_IF;
+	                                    END_IF;
+	                                END_IF;
+	                                #ftCur[#j] := #ftM;
+	                            END_FOR;
+	                            FOR #j := 0 TO #ftNl DO
+	                                #ftPrev[#j] := #ftCur[#j];
+	                            END_FOR;
+	                        END_FOR;
+	                        #ft0 := #ftCur[0];
+	                    END_IF;
+	                    IF #ftCeil <> -1 THEN
+	                        #bestT := 32767;
+	                        FOR #x := 0 TO 3 DO
+	                            FOR #y := 0 TO 11 DO
+	                                IF #dstB = 0 THEN
+	                                    #id := "World".Bay0[#x, #y];
+	                                ELSE
+	                                    #id := "World".Bay1[#x, #y];
+	                                END_IF;
+	                                IF #id = 0 THEN
+	                                    #okBal := TRUE;
+	                                    IF #dstB = 0 THEN
+	                                        #nL := "World".BalL;
+	                                        #nR := "World".BalR;
+	                                        #nF := "World".BalF;
+	                                        #nA := "World".BalA;
+	                                        IF #x <= 1 THEN #nL := #nL + 1; ELSE #nR := #nR + 1; END_IF;
+	                                        IF #y <= 5 THEN #nF := #nF + 1; ELSE #nA := #nA + 1; END_IF;
+	                                        #okBal := ABS(#nL - #nR) <= "World".CfgBalLimit
+	                                                  OR ABS(#nL - #nR) <= ABS("World".BalL - "World".BalR)
+	                                                  OR (ABS("World".BalL - "World".BalR) > "World".CfgBalLimit
+	                                                      AND ABS(#nL - #nR) <= "World".BalCeil);
+	                                        IF "World".CfgBalMode = 1 AND NOT (ABS(#nF - #nA) <= "World".CfgBalLimit
+	                                            OR ABS(#nF - #nA) <= ABS("World".BalF - "World".BalA))
+	                                        THEN
+	                                            #okBal := FALSE;
+	                                        END_IF;
+	                                        // v1.6: side must keep the list order feasible (tries 1 / 2)
+	                                        IF #okBal AND #ftCeil >= 0 AND #nL >= 0 AND #nL <= 24 THEN
+	                                            #ftBit := SHL(IN := DWORD#16#1, N := INT_TO_USINT(#nL));
+	                                            IF (#ft0 AND #ftBit) = DWORD#16#0 THEN
+	                                                #okBal := FALSE;
+	                                            END_IF;
+	                                        END_IF;
+	                                    END_IF;
+	                                    IF #okBal THEN
+	                                        // FB1 move time in ds: max(|dx|*6 s, |dy|*2.3 s)
+	                                        #candT := MAX(IN1 := ABS(#x - SINT_TO_INT("World".CraneX)) * 60,
+	                                                      IN2 := ABS(#y - SINT_TO_INT("World".CraneY)) * 23);
+	                                        IF #candT < #bestT THEN
+	                                            #bestT := #candT;
+	                                            #bestX := #x;
+	                                            #bestY := #y;
+	                                        END_IF;
+	                                    END_IF;
+	                                END_IF;
+	                            END_FOR;
+	                        END_FOR;
+	                    END_IF;
+	                END_IF;
 	            END_FOR;
 	            IF #bestX >= 0 THEN
 	                "World".Plan["World".PlanIdx].DstX := INT_TO_SINT(#bestX);
@@ -655,16 +873,23 @@ BEGIN
 	                3:  // copy the yard and the lists, validate (all warnings except capacity)
 	                    // v1.4: DB10/DB11 hold the live state (region 2a). POČETNO STANJE restores the
 	                    // data of the last load (InitBay0/1) for a repeat run, unless there is no copy yet,
-	                    // DB10/DB11 were edited online while idle (ExtEdit) or differ from the last mirrored
-	                    // state (e.g. new start values after a download): then DB10/DB11 are the new data.
-	                    #extE := #ExtEdit OR NOT #HaveInit;
-	                    FOR #i := 1 TO 48 DO                       // v1.5: new lists in DB20/DB21 = new data set
+	                    // DB10/DB11 were edited online while no job was in progress (ExtEdit) or differ from
+	                    // the last mirrored state (e.g. new start values after a download): then DB10/DB11
+	                    // are the new yard.
+	                    // v1.6 (judge round 3 R3-E1 / R3-J1): cells edited with no job in progress (NewCnt)
+	                    // are new yard data; edits made DURING a job (obstacles, ObstCnt) only together with
+	                    // new lists or when >= 8 cells were rewritten. Edits written back do not count.
+	                    // New lists alone keep the loaded yard (InitBay) and take the new lists. The lists
+	                    // are always read from DB20/DB21 below.
+	                    #listsNew := FALSE;
+	                    FOR #i := 1 TO 48 DO
 	                        IF "From_Bay0_to_Bay1".IDs_of_the_containers[#i] <> "World".UList[#i]
 	                            OR "From_Bay1_to_Bay0".Bay1_IDs_of_the_containers[#i] <> "World".LList[#i]
 	                        THEN
-	                            #extE := TRUE;
+	                            #listsNew := TRUE;
 	                        END_IF;
 	                    END_FOR;
+	                    #extE := #NewCnt > 0 OR NOT #HaveInit OR (#listsNew AND #ObstCnt > 0) OR #ObstCnt >= 8;
 	                    FOR #x := 0 TO 3 DO
 	                        FOR #y := 0 TO 11 DO
 	                            IF "Current_state_of_Bay0".Bay0[#x, #y] <> #Snap0[#x, #y]
@@ -687,6 +912,14 @@ BEGIN
 	                    END_FOR;
 	                    #HaveInit := TRUE;
 	                    #ExtEdit := FALSE;
+	                    #JobActive := FALSE;               // v1.6: a new job starts with this load
+	                    #NewCnt := 0;
+	                    #ObstCnt := 0;
+	                    FOR #i := 0 TO 95 DO
+	                        #EditMark[#i] := FALSE;
+	                        #EditNew[#i] := FALSE;
+	                        #EditVal[#i] := 0;
+	                    END_FOR;
 	                    "HMI_IF".AlarmUId := 0;            // list IDs missing from their bay (bits 3 / 4)
 	                    "HMI_IF".AlarmUCnt := 0;
 	                    "HMI_IF".AlarmLId := 0;
@@ -702,6 +935,15 @@ BEGIN
 	                        END_FOR;
 	                    END_FOR;
 	                    "World".Carried := 0;
+	                    #nL := 0;                          // v1.5 (R2-J1): imbalance of the loaded data
+	                    #nR := 0;
+	                    FOR #i := 0 TO 47 DO
+	                        IF #tc[#i] <> 0 THEN
+	                            IF #i < 24 THEN #nL := #nL + 1; ELSE #nR := #nR + 1; END_IF;
+	                        END_IF;
+	                    END_FOR;
+	                    #BalD0 := ABS(#nL - #nR);
+	                    "World".BalCeil := 0;
 	                    "World".CraneX := "x_position";
 	                    "World".CraneY := "y_position";
 	                    "World".CraneBay := "bay_ID";
@@ -828,6 +1070,7 @@ BEGIN
 	                        IF NOT #OrdFallback THEN       // first try: the preferred (HMI) modes
 	                            "World".CfgOrderMode := #CfgOrdHmi;
 	                            "World".CfgBalMode := #CfgBalHmi;
+	                            "World".BalCeil := 0;      // v1.5: step rule first
 	                        END_IF;
 	                        #OrdFallback := FALSE;
 	                        "World".BaseT_ds := ROUND("time" * 10.0);
@@ -849,9 +1092,22 @@ BEGIN
 	                        ELSIF #PlanErr = 1 AND ("World".CfgOrderMode > 0 OR "World".CfgBalMode > 0) THEN
 	                            // dead end under the balance rule: retry with a less strict mode
 	                            // (order 2 -> 1 -> 0, then balance mode 1 -> 0)
-	                            IF "World".CfgOrderMode > 0 THEN
+	                            // v1.5 (R2-J1): a ship that was loaded out of balance first gets the relaxed
+	                            // rule in the same order (|L-R| <= BalD0 until balanced, end balanced)
+	                            // v1.6 (R3-E3): World.CfgRelaxMin = ascending ceilings CfgBalLimit+1 .. BalD0
+	                            IF "World".CfgOrderMode > 0 AND "World".BalCeil < #BalD0 AND #BalD0 > "World".CfgBalLimit THEN
+	                                IF NOT "World".CfgRelaxMin THEN
+	                                    "World".BalCeil := #BalD0;
+	                                ELSIF "World".BalCeil = 0 THEN
+	                                    "World".BalCeil := "World".CfgBalLimit + 1;
+	                                ELSE
+	                                    "World".BalCeil := "World".BalCeil + 1;
+	                                END_IF;
+	                            ELSIF "World".CfgOrderMode > 0 THEN
+	                                "World".BalCeil := 0;
 	                                "World".CfgOrderMode := "World".CfgOrderMode - 1;
 	                            ELSE
+	                                "World".BalCeil := 0;
 	                                "World".CfgBalMode := 0;
 	                            END_IF;
 	                            #OrdFallback := TRUE;
@@ -969,6 +1225,7 @@ BEGIN
 	                            IF NOT #OrdFallback THEN   // first try: the preferred (HMI) modes
 	                                "World".CfgOrderMode := #CfgOrdHmi;
 	                                "World".CfgBalMode := #CfgBalHmi;
+	                                "World".BalCeil := 0;  // v1.5: step rule first
 	                            END_IF;
 	                            #OrdFallback := FALSE;
 	                            "World".BaseT_ds := ROUND("time" * 10.0);
@@ -995,9 +1252,22 @@ BEGIN
 	                            END_IF;
 	                        ELSIF #PlanErr = 1 AND ("World".CfgOrderMode > 0 OR "World".CfgBalMode > 0) THEN
 	                            // dead end: retry with a less strict mode (see INIT step 5)
-	                            IF "World".CfgOrderMode > 0 THEN
+	                            // v1.5 (R2-J1): a ship that was loaded out of balance first gets the relaxed
+	                            // rule in the same order (|L-R| <= BalD0 until balanced, end balanced)
+	                            // v1.6 (R3-E3): World.CfgRelaxMin = ascending ceilings CfgBalLimit+1 .. BalD0
+	                            IF "World".CfgOrderMode > 0 AND "World".BalCeil < #BalD0 AND #BalD0 > "World".CfgBalLimit THEN
+	                                IF NOT "World".CfgRelaxMin THEN
+	                                    "World".BalCeil := #BalD0;
+	                                ELSIF "World".BalCeil = 0 THEN
+	                                    "World".BalCeil := "World".CfgBalLimit + 1;
+	                                ELSE
+	                                    "World".BalCeil := "World".BalCeil + 1;
+	                                END_IF;
+	                            ELSIF "World".CfgOrderMode > 0 THEN
+	                                "World".BalCeil := 0;
 	                                "World".CfgOrderMode := "World".CfgOrderMode - 1;
 	                            ELSE
+	                                "World".BalCeil := 0;
 	                                "World".CfgBalMode := 0;
 	                            END_IF;
 	                            #OrdFallback := TRUE;
@@ -1234,6 +1504,10 @@ BEGIN
 	        "HMI_IF".AlarmWord2 := WORD#16#0001;
 	    ELSE
 	        "HMI_IF".AlarmWord2 := WORD#16#0000;
+	    END_IF;
+	    // v1.5 (R2-J1): the plan uses the relaxed balance rule (ship loaded out of balance) -> bit 1
+	    IF #Initialized AND "World".PlanValid AND "World".BalCeil > "World".CfgBalLimit THEN
+	        "HMI_IF".AlarmWord2 := "HMI_IF".AlarmWord2 OR WORD#16#0002;
 	    END_IF;
 	    "HMI_IF".OB30Ticks := "World".OB30Ticks;
 

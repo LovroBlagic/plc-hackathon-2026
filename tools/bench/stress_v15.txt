@@ -1,0 +1,3 @@
+sets=647 (capacity-blocked 2)  plans checked=7380  mid-run replans=2338  planner err1 runs=360
+infeasible-in-every-mode sets=30, of which end state reachable (suspect)=0 []
+STRESS_RESULT failures=0

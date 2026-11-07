@@ -1,4 +1,4 @@
-"""crane_stress.py - elimination-safety stress test of the v1.4 planner (greedy + IMPROVE + SLOT).
+"""crane_stress.py - elimination-safety stress test of the planner (greedy + IMPROVE + SLOT) and FB10 paths (v1.6).
 
   python tools/crane_stress.py [--random 300] [--seed 11] [--evals 600]
 
@@ -22,8 +22,12 @@ For every plan the checks are (any failure is printed and counted):
   L0  (v1.5, judge round 2 R2-E1) independent list check: every list entry whose ID is valid, lies in
       its source bay and is not an earlier executable entry, is pending (a rejected bogus entry with
       the same ID must not kill it)
-  E2  (v1.5, judge round 2 R2-E2/J3) fb10_init_model.selftest(): POČETNO STANJE loads DB10/DB11 when
-      they or DB20/DB21 changed in any state, restores the last data set otherwise
+  E2  (v1.5, judge round 2 R2-E2/J3; v1.6 round 3 R3-E1/J1) fb10_init_model.selftest(): POČETNO STANJE
+      loads a new data set (new yard + lists in any state, yard edited with no job in progress, >= 8 cells
+      rewritten), keeps the loaded yard for new lists only, and restores the loaded data after obstacle
+      edits during a job (also written back, also with a load on the hook); ft00 == feas_table
+  T1  (v1.6, judge round 3 R3-E2) ACK re-target after an obstacle at every ship drop of the order-1 plan:
+      the chosen cell never breaks the list order when another balance-safe free cell keeps it
   J1  (v1.5, judge round 2 R2-J1) order 1 on a ship that starts unbalanced: no fallback when an
       in-order plan exists under the relaxed rule (|L-R| <= max(5, d0) until first balanced)
   F1  planner error 1 only when the end state is provably unbalanceable or the greedy dead-ends;
@@ -46,7 +50,7 @@ AL = [0, 100, 200, 300]
 EVALS = 600
 
 
-def bal_trace_ok(state, plan, lim, balmode):
+def bal_trace_ok(state, plan, lim, balmode, ceil=0):
     g = [[c[:] for c in state["bay0"]], [c[:] for c in state["bay1"]]]
     L, R = cm.lr(g[0])
     F, A = cm.fa(g[0])
@@ -58,8 +62,10 @@ def bal_trace_ok(state, plan, lim, balmode):
             if b == 0:
                 L2, R2 = cm.lr(g[0])
                 F2, A2 = cm.fa(g[0])
-                if not cm.step_ok(L, R, L2, R2, lim):
+                if not cm.step_ok(L, R, L2, R2, lim, ceil):
                     return False, "B2 |L-R| %d->%d at id %d" % (abs(L - R), abs(L2 - R2), tr["id"])
+                if ceil and abs(L2 - R2) > max(lim, state["d0"]):
+                    return False, "B2 relaxed: |L-R| %d above the start imbalance %d" % (abs(L2 - R2), state["d0"])
                 if balmode == 1 and not cm.step_ok(F, A, F2, A2, lim):
                     return False, "B2 |F-A| at id %d" % tr["id"]
                 L, R, F, A = L2, R2, F2, A2
@@ -90,7 +96,7 @@ def check_plan(state, res, tag):
         cp.simulate(state, res["plan"], cfg)
     except AssertionError as e:
         errs.append("%s B1 %s" % (tag, e))
-    ok, msg = bal_trace_ok(state, res["plan"], cfg["lim"], cfg["balmode"])
+    ok, msg = bal_trace_ok(state, res["plan"], cfg["lim"], cfg["balmode"], cfg.get("ceil", 0))
     if not ok:
         errs.append("%s %s" % (tag, msg))
     ok, msg = list_ok(state, res["plan"], res["order"])
@@ -155,6 +161,10 @@ def run_set(ds):
                 out["errs"] += check_plan(st, res, tag)
                 if order > 0 and bm == 0 and res["order"] != order and cp.order_feasible(st, order, 5):
                     out["errs"].append("%s O1 needless fallback to order %d" % (tag, res["order"]))
+                if order > 0 and bm == 0 and res["order"] != order and st["d0"] > 5                         and cp.order_feasible(st, order, 5, st["d0"]):
+                    out["errs"].append("%s J1 needless fallback to order %d (relaxed rule feasible)" % (tag, res["order"]))
+                if res["cfg"].get("ceil", 0) and cp.order_feasible(st, res["order"], 5):
+                    out["errs"].append("%s J1 relaxed rule used although the strict rule is feasible" % tag)
                 if mm == 2 and bm == 0 and order == 1:
                     res2 = cp.plan_fb(st, cfg, AL, imp_evals=EVALS)
                     if cp.csv_lines(res2) != cp.csv_lines(res):
@@ -169,7 +179,8 @@ def run_set(ds):
                                 out["errs"].append("%s R1 replan after %d failed err %d" % (tag, k, r3["err"]))
                             else:
                                 out["errs"] += check_plan(ms, r3, "%s R1@%d" % (tag, k))
-                                if r3["order"] != order and res["order"] == order and cp.order_feasible(ms, order, 5):
+                                if r3["order"] != order and res["order"] == order and (
+                                        cp.order_feasible(ms, order, 5) or (ms["d0"] > 5 and cp.order_feasible(ms, order, 5, ms["d0"]))):
                                     out["errs"].append("%s O1 needless fallback in replan@%d" % (tag, k))
     L0ok = abs(L - R) <= 5
     out["suspect"] = all_fail and end_reach and L0ok and (len(PU) + len(PL)) > 0
@@ -214,6 +225,12 @@ def main():
     with Pool(initializer=_init, initargs=(a.evals,)) as p:
         res = p.map(run_set, sets, chunksize=2)
     e2 = fim.selftest()
+    with Pool() as p:
+        t1 = p.map(fim.retarget_cases, sets, chunksize=2)
+    for c, nd, inh in t1:
+        e2 += ["T1 needless order break after re-target: " + n for n in nd]
+    print("T1 re-target cases=%d needless=%d inherent(no order-keeping cell)=%d" % (
+        sum(r[0] for r in t1), sum(len(r[1]) for r in t1), sum(r[2] for r in t1)))
     for e in e2:
         print("FAIL", e)
     nerr = sum(len(r["errs"]) for r in res) + len(e2)
