@@ -1,6 +1,16 @@
 # ME Energy Manager: progress (implementation agent)
 
-STATUS: best archived ME_v6_late (S1 204 598.62 / S2 170 189.36 €; LP-bound gap 2.41 % / 4.67 %). v8 = v7 + late-discharge DP tie-breaker (S1/TT only) confirmed in ME (Sat 08:45)
+STATUS: ME_v7_capfloor verified in ME on 7 Nov afternoon: S1 204 598.62 / S2 169 833.86 €. Source snapshot deliver/ME_v7_src; validation log deliver/ME_v7_validation.log. See HANDOFF.md for packaging status and next tasks.
+
+**OPTIMISATION PLATEAU** — v7 saves 355.50 € (0.209 %) in S2 versus v6, with S1 unchanged. Prioritise the ME HMI, code review and presentation over further tuning.
+
+## Latest validation (7 Nov, resumed in Codex)
+- Built current work/src into a separate work/ME_v7_validation.project: 0 errors, 1 known CheckBounds warning.
+- Full-year order S2 then S1, requested cycle 5 ms (performance stress test; use at least 10 ms for normal operation).
+- S2: finished, no trip, 169 833.864337 €, EV 100.000 %, max logging deviation 0.00000 %, wall 263 s.
+- S1: finished, no trip, 204 598.621934 € (unchanged to cents), EV 100.000 %, max logging deviation 0.00001 %, wall 216 s.
+- S1 overall throughput about 6.16 ms/step; steady segments in both modes about 5.8–6.0 ms/step. S2 initially slower (263 s overall, about 7.51 ms/step). These are wall-time throughput estimates, not measured worst-case PLC execution times.
+- Change: v6 plus the learned monthly cap floor in day-ahead mode only (FB_CapFloor, F_DayReq). No embedded load/PV profiles.
 
 ## Results
 | Version | Scen | finished | tripped | cost_total € | E_ev kWh | E_ev_unmet kWh | EV % | max log dev |

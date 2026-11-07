@@ -317,6 +317,7 @@ Notes:
 - r/PLC sentiment is skeptical of autonomous agents and favours human-supervised use. That is good framing for the jury pitch: the agent writes and tests, the engineer reviews.
 
 ## Session log
+- **2026-11-07 afternoon (Codex, user resumed):** Read HANDOFF and machine-expert skill; verified the paused v7 capmodel port using a separate `work/ME_v7_validation.project`. Build 0 errors / known CheckBounds warning. Full-year S2 169,833.86 € (355.50 € better than v6), S1 204,598.62 € (unchanged), no trips, EV 100 %, max log deviation 0.00001 %. Snapshot `deliver/ME_v7_src/`, archive target `deliver/ME_v7_capfloor.projectarchive` (receipt in `work/archive_v7.log`). Recorded OPTIMISATION PLATEAU. Next: ME HMI, code quality and presentation; no twin workflow/cron restarted. Timing is throughput only: steady ~5.8–6.0 ms/step, S2 overall 7.51 ms/step; no worst-case execution-time measurement.
 - **2026-11-06 (session 1):**
   - Researched MCPs and created this folder.
   - ME prototype: a headless project with TM241CE24T/U, `FB_MotorStartStop` (seal-in, NC stop, fault, 2 s start-horn TON) called from `SR_Main`. The build gives **0 errors**. An injected error was reported precisely, then fixed. Opened in the GUI.

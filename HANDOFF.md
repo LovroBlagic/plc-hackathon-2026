@@ -1,9 +1,19 @@
-# HANDOFF: ME energy manager optimisation (paused Sat 7 Nov 2026 ~12:15)
+# HANDOFF: ME energy manager (updated Sat 7 Nov 2026 afternoon)
 
-Everything is paused by user request. No agents, workflows or crons are running, and the LogicBuilderShell run was stopped.
+Resumed by user in Codex. V7 full-year ME validation passed in both modes and the archive was saved. The earlier twin workflow and cron were not restarted. Sections describing the noon pause below are historical.
+
+## Latest result and next action
+- V7 cap floor verified: **S1 204,598.62 € / S2 169,833.86 €**, saving 355.50 € in S2 versus v6, S1 unchanged.
+- Both years finished without trip, EV delivery 100 %, logging deviation at most 0.00001 %.
+- Verified project: `work/ME_v7_validation.project`; sources: `deliver/ME_v7_src/`; full log: `deliver/ME_v7_validation.log` (local, gitignored).
+- **Current safe deliverable: `deliver/ME_v7_capfloor.projectarchive`**, 39,671,850 bytes; ARCHIVE_SAVED confirmed in `work/archive_v7.log`. V6 remains the fallback.
+- **work/src is now verified v7**, superseding the mid-edit warning below.
+- Requested 5 ms stress-test cycle: S1 216 s/year (~6.16 ms/step); S2 263 s/year (~7.51 ms/step, initially slower), with steady segments ~5.8–6.0 ms/step. Worst-case execution time has not been instrumented. Normal simulation cycle must be at least 10 ms.
+- **OPTIMISATION PLATEAU** recorded in work/PROGRESS.md: S2 gain 0.209 %, below the 0.5 % threshold.
+- **Next: ME HMI** from `work/HMI_VARIABLES.md`, then code quality and slides. Price-table / evaluation-price / HMIG2U-vs-WebVisu organizer questions remain open. Optional twin evaluation is deferred.
 Deadline: **Sat 7 Nov 20:00**. TIA is handled by teammates (see `tia-src/STATUS.md`), so this file covers only ME task A.
 
-## 1. Best confirmed result (real ME, practice data)
+## 1. Previous confirmed result at the noon pause (historical)
 **`deliver/ME_v6_late.projectarchive`** with sources in `deliver/ME_v6_src/`. **This is the safe deliverable.**
 
 | Version | S1 € | S2 € |
@@ -18,7 +28,7 @@ Deadline: **Sat 7 Nov 20:00**. TIA is handled by teammates (see `tia-src/STATUS.
 - v6 change: late-discharge DP tie-breaker (`PLAN_LATE_EPS_TT := 0.05`, TT/S1 only).
 
 ## 2. Work in progress when paused
-### 2a. v7 = v6 + capmodel S2 floor (ST port HALF DONE, not built or verified)
+### 2a. v7 = v6 + capmodel S2 floor (historical pause notes; now verified above)
 - **`work/src/` is mid-edit and is NOT equal to v6.** Changed: FB_Planner, FB_Strategy, Team_Cfg, Team_Main. New: FB_CapFloor.st, F_DayReq.st.
 - The worker had finished the code and was about to build and run S2 in ME when it was stopped. That code is **unverified**.
 - **To resume:** run `me_run.py` with the current work/src (full-year S2, then S1). Acceptance:
