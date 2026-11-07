@@ -2,6 +2,14 @@
 
 Write findings for the agents here (FB1 behaviour, organizer answers, HMI status). Newest on top.
 
+## TIA crane v1.7: spec M rule is the default (builder, 7 Nov 2026 ~16:30)
+- **Team decision:** M follows the spec text (diagonal move = 2, bay change = x change). `World.CfgMMode` = **0**, CfgAlpha **[0, 75, 125, 200]**. Mode 2 (FB1 counting) stays selectable.
+- **FB1 untouched:** MD107 still counts +1 per command and is shown as the secondary `HMI_IF.MFb1/JFb1`. `HMI_IF.M/J` (primary) = spec values (`World.MSpec`). MD107 ≠ MSpec by design.
+- **Score screen:** "M (pravilo zadatka)" = M/T/J, "M (FB1 brojač, MD107)" = MFb1/JFb1, plan line = spec rule. HMI generator check clean (492 tags). DB101 member list: `tia-src/STATUS.md` v1.7.
+- **J (spec rule, order 1):** 30 random 1.1639, 401 sets 1.1679; about +0.65 % above the judge's best plans.
+- **PLCSIM test tool:** `tools/plcsim/crane_sim_test.py` now gets a spec-rule model M (mode 0 default) but compares it with MD107; use golden `M_FB1` for MD107.
+- Build 0/0, `deliver/TIA_crane_v1_plc.zap21` re-archived. Contract **v1.7**.
+
 ## PLCSIM: the crane PLC runs and matches the model (PLCSIM test engineer, 7 Nov 2026)
 - The v1.6 build runs on a simulated CPU 1515 (S7-PLCSIM V21 runtime, licence OK). PLC = Python model exactly on 8 sets: M, T, MSpec, J, final yard and every command. HUMAN_STEPS 1.x (SEMI, STOP/START, OFF/ON, MANUAL alarms, obstacle + ACK re-target, balance attack, POČETNO STANJE rules) all pass. No PLC bug.
 - How to run: `tia-src/PLCSIM_RESULTS.md`. The summary: SimHost.exe → memory-card download (TiaDownload --card) → copy into the instance SIMATIC_MC → sim_hwdb.ini article 6ES7 515-2AM01-0AB0 → RUN → `python tools/plcsim/crane_sim_test.py <set.json>`. Openness online download to PLCSIM does not connect; a TIA GUI download (PG/PC interface PLCSIM) was not tried.

@@ -54,7 +54,7 @@ Generated (gitignored): `out\{tags,textlists,templates,screens,alarms,preview}`.
 - **Lists (304):**
   - settings: CfgOrderMode, CfgSemiPerTransfer, CfgBalMode
   - unload/load lists, 48 rows each: index, ID, state text
-- **Score (46, v1.3):** objective panel: actual M/T/J (FB1), spec-rule MSpec/JSpec, predicted plan M/T/J; optimisation panel: greedy J (PredJ0), improved J (PredJ), gain %, evaluations, proven lower bound LbJ and gap %, planner progress bar; order mode actually used, winning variant, N. Nav button "REZULTAT / OPTIMIZACIJA" in the template.
+- **Score (46, v1.3):** objective panel: actual M/T/J by the spec rule (primary, v1.7), FB1 counter MFb1/JFb1 (MD107), predicted plan M/T/J; optimisation panel: greedy J (PredJ0), improved J (PredJ), gain %, evaluations, proven lower bound LbJ and gap %, planner progress bar; order mode actually used, winning variant, N. Nav button "REZULTAT / OPTIMIZACIJA" in the template.
 - **AlarmLog (49):** AlarmHist[0..15] as alarm texts, newest alarm details (ID, x, y, bay, word, count).
 - **Hand-made, never regenerated:** `Alarms` (alarm view of current alarms + alarm buffer history), `Proto`.
 
