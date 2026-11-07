@@ -45,3 +45,6 @@ work/*.Application.xml
 
 # Research scratch (may contain extracted vendor docs - never commit)
 research/
+
+# PLCSIM tool build output (contains a copied Siemens runtime DLL)
+tools/plcsim/bin/

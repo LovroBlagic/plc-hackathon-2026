@@ -383,3 +383,8 @@ Notes:
   - Judges loop (workflow wf_f280571d-6c8) stopped after the round 3 fixes: contract **v1.6**, TIA_RESULT errors=0, `deliver/TIA_crane_v1_plc.zap21` re-archived (PLC only). Its final verification/report step never ran. To resume it: `Workflow({scriptPath, resumeFromRunId:"wf_f280571d-6c8"})`. This only works in the same session; otherwise start a short verify pass against JUDGING.md "Round 3".
   - **S7-PLCSIM V21 found** in `Downloads\gr8dj8r2u5au7tln.zip`, extracted to `Downloads\PLCSIM_V21\S7-PLCSIM_V21.iso`, and its installer started. **After the reboot:** check that PLCSIM is installed (mount the ISO again and finish setup if needed). Then download PLC_1 from a TEST COPY into PLCSIM, load the demo sets with `tools/json_to_db.py`, and run the human tests in `hmi-tia/HUMAN_STEPS.md` / STATUS.md.
   - Still open: the HMI is not built into the deliverable (HUMAN_STEPS.md); the organizer email; the ME work stays paused.
+- **2026-11-07 ~14:00 (orchestrator): PLCSIM test agent PAUSED by the user.**
+  - Progress before the pause: tools in `tools/plcsim/`: `SimHost.cs` (Runtime API instance host), `TiaDownload.cs` (Openness download), `simclient.py`, `build.ps1`. The `bin/` folder is gitignored; rebuild it with build.ps1.
+  - The virtual 1515 instance came up and was visible to TIA. The agent was retrying the download with an explicit address. No crane test has run yet; there is no PLCSIM_RESULTS.md.
+  - The headless TIA instance and TiaDownload were killed and `openness.lock` removed. The test copy may be in an inconsistent state, so start a fresh one.
+  - **To resume:** continue the agent (SendMessage), or start a new one with the same brief, beginning at "download with explicit address".
