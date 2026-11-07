@@ -1,0 +1,16 @@
+ORGANIZATION_BLOCK "Main"
+TITLE = "Main Program Sweep (Cycle)"
+{ S7_Optimized_Access := 'TRUE' }
+VERSION : 0.1
+   VAR_INPUT
+      Initial_Call : Bool;
+      Remanence : Bool;
+   END_VAR
+
+
+BEGIN
+	// Crane control (FB10): modes, state machine, planning, HMI interface.
+	// FB1 "Crane_manipulation" is called only in OB30 "Cyclic interrupt" (1 s).
+	"Crane_Control_DB"();
+END_ORGANIZATION_BLOCK
+

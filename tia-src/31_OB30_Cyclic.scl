@@ -1,0 +1,148 @@
+ORGANIZATION_BLOCK "Cyclic interrupt"
+TITLE = Crane command execution (1 s cyclic interrupt)
+{ S7_Optimized_Access := 'TRUE' }
+VERSION : 0.1
+   VAR_INPUT
+      Initial_Call : Bool;
+      Event_Count : Int;
+   END_VAR
+
+   VAR_TEMP
+      rc : Int;             // result of "CheckCmd"
+      bitNo : Int;          // alarm bit to set in "World".Fault
+      cx : Int;
+      cy : Int;
+      cmd : "typeCmd";      // command to issue
+   END_VAR
+
+
+BEGIN
+	// OB30 runs every 1 s (spec: "once per second"). It is the ONLY place that
+	// calls FB1 "Crane_manipulation" and writes its command tags MB100..MB103.
+	// FB10 "Crane_Control" (OB1) decides WHAT to do and stages it in "World".NextCmd;
+	// OB30 decides WHEN: only after FB1 reported the previous command finished
+	// (command_id back to 0) and only after "CheckCmd" accepted the command.
+	// Order per tick (CONTRACT 3.4): 1 tick, 2 completion, 3 issue, 4 FB1 call.
+
+	REGION 1 Tick counter and heartbeat
+	    "World".OB30Ticks := "World".OB30Ticks + 1;
+	    "HMI_IF".Heartbeat := NOT "HMI_IF".Heartbeat;
+	END_REGION
+
+	REGION 2 Has the previous command finished?
+	    IF "World".Busy THEN
+	        IF "new_command_ID" = 0 THEN
+	            // FB1 finished: take over the crane position it reports
+	            "World".CraneX := "x_position";
+	            "World".CraneY := "y_position";
+	            "World".CraneBay := "bay_ID";
+
+	            // Effect of the command on our container model (FB1 does not track containers)
+	            #cx := SINT_TO_INT("World".ActCmd.X);
+	            #cy := SINT_TO_INT("World".ActCmd.Y);
+	            CASE "World".ActCmd.Cmd OF
+	                1:  // lift: the container moves from the cell to the hook
+	                    IF #cx >= 0 AND #cx <= 3 AND #cy >= 0 AND #cy <= 11 THEN
+	                        IF "World".ActCmd.Bay = 0 THEN
+	                            "World".Carried := "World".Bay0[#cx, #cy];
+	                            "World".Bay0[#cx, #cy] := 0;
+	                        ELSIF "World".ActCmd.Bay = 1 THEN
+	                            "World".Carried := "World".Bay1[#cx, #cy];
+	                            "World".Bay1[#cx, #cy] := 0;
+	                        END_IF;
+	                    END_IF;
+	                2:  // put down: the container moves from the hook to the cell
+	                    IF #cx >= 0 AND #cx <= 3 AND #cy >= 0 AND #cy <= 11 THEN
+	                        IF "World".ActCmd.Bay = 0 THEN
+	                            "World".Bay0[#cx, #cy] := "World".Carried;
+	                            "World".Carried := 0;
+	                        ELSIF "World".ActCmd.Bay = 1 THEN
+	                            "World".Bay1[#cx, #cy] := "World".Carried;
+	                            "World".Carried := 0;
+	                        END_IF;
+	                    END_IF;
+	                3:  // move: FB1 must now report the commanded position
+	                    IF "World".CraneX <> "World".ActCmd.X
+	                        OR "World".CraneY <> "World".ActCmd.Y
+	                        OR "World".CraneBay <> "World".ActCmd.Bay
+	                    THEN
+	                        "World".Fault := "World".Fault OR WORD#16#4000;   // bit 14 position mismatch
+	                    END_IF;
+	                ELSE
+	                    ;   // 10 reset: the crane position comes from FB1 (0,0,1)
+	            END_CASE;
+
+	            "World".LastDone := "World".ActCmd;
+	            "World".DoneSeq := "World".DoneSeq + 1;
+	            "World".Busy := FALSE;
+	            "World".BusyTicks := 0;
+	        ELSE
+	            // Still executing: watchdog
+	            IF "World".BusyTicks < 32000 THEN
+	                "World".BusyTicks := "World".BusyTicks + 1;
+	            END_IF;
+	            IF "World".BusyTicks > "World".CfgTimeoutTicks THEN
+	                "World".Fault := "World".Fault OR WORD#16#0400;           // bit 10 FB1 timeout
+	            END_IF;
+	        END_IF;
+	    END_IF;
+	END_REGION
+
+	REGION 3 Issue the next command (only when the previous one is done)
+	    IF NOT "World".Busy AND "World".CmdReady AND "World".Permit AND "World".Fault = 0 THEN
+	        #cmd := "World".NextCmd;
+	        // Lift / put always act where the crane is now
+	        IF #cmd.Cmd = 1 OR #cmd.Cmd = 2 THEN
+	            #cmd.X := "World".CraneX;
+	            #cmd.Y := "World".CraneY;
+	            #cmd.Bay := "World".CraneBay;
+	        END_IF;
+
+	        // Pick not empty, drop not occupied, slot valid, ship stays balanced
+	        #rc := "CheckCmd"(C := #cmd,
+	                          CraneX := "World".CraneX,
+	                          CraneY := "World".CraneY,
+	                          CraneBay := "World".CraneBay,
+	                          Carried := "World".Carried,
+	                          BalLimit := "World".CfgBalLimit,
+	                          BalMode := "World".CfgBalMode);
+
+	        IF #rc = 0 THEN
+	            "new_x_position" := #cmd.X;
+	            "new_y_position" := #cmd.Y;
+	            "new_bay_ID" := #cmd.Bay;
+	            "new_command_ID" := #cmd.Cmd;
+	            "World".ActCmd := #cmd;
+	            "World".Busy := TRUE;
+	            "World".BusyTicks := 0;
+	        ELSE
+	            // Rejected: raise the alarm and do not issue (halts until ACK in FB10)
+	            IF #rc = 100 THEN
+	                #bitNo := 0;
+	            ELSE
+	                #bitNo := #rc;
+	            END_IF;
+	            IF #bitNo >= 0 AND #bitNo <= 15 THEN
+	                "World".Fault := "World".Fault OR SHL(IN := WORD#16#0001, N := INT_TO_UINT(#bitNo));
+	            ELSE
+	                "World".Fault := "World".Fault OR WORD#16#0200;           // unknown code -> bit 9
+	            END_IF;
+	            "World".FaultCmd := #cmd;
+	        END_IF;
+	        "World".CmdReady := FALSE;
+	    END_IF;
+	END_REGION
+
+	REGION 4 FB1 call (every tick; command 0 = nothing to do)
+	    "Crane_manipulation_DB"(new_x_position := "new_x_position",
+	                            new_y_position := "new_y_position",
+	                            new_bay_ID := "new_bay_ID",
+	                            pos_x_after_command => "x_position",
+	                            pos_y_after_command => "y_position",
+	                            bay_ID_after_command => "bay_ID",
+	                            number_of_manipulations => "number_of_manipulations",
+	                            working_time => "time",
+	                            command_id := "new_command_ID");
+	END_REGION
+END_ORGANIZATION_BLOCK
+

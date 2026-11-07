@@ -1,0 +1,9 @@
+# Name=Kind:Number  (applied by TiaRun --numbers after source import; idempotent)
+World=DB:100
+HMI_IF=DB:101
+Crane_Control=FB:10
+Crane_Control_DB=DB:110
+Crane_Planner=FB:11
+CheckCmd=FC:10
+Crane_MoveCost=FC:20
+Main=OB:1

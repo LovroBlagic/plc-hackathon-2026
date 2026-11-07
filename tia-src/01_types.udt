@@ -1,0 +1,32 @@
+TYPE "typeCmd"
+VERSION : 0.1
+   STRUCT
+      Cmd : USInt;     // 0 none, 1 lift, 2 put down, 3 move to (X,Y,Bay), 10 reset
+      X : SInt;        // 0..3   (for lift/put: current crane x)
+      Y : SInt;        // 0..11  (for lift/put: current crane y)
+      Bay : USInt;     // 0 ship, 1 yard
+      Src : USInt;     // origin: 1 AUTO, 2 SEMI, 3 MANUAL, 4 INIT(reset)
+      TrIdx : Int;     // plan transfer index (0 = not from plan)
+      Phase : USInt;   // 0 move-to-src, 1 lift, 2 move-to-dst, 3 put (only if TrIdx>0)
+   END_STRUCT;
+
+END_TYPE
+
+TYPE "typeTransfer"
+VERSION : 0.1
+   STRUCT
+      Kind : USInt;    // 1 unload (Bay0->Bay1), 2 load (Bay1->Bay0)
+      Id : UInt;       // container ID
+      ListIdx : Int;   // index into UList (Kind 1) or LList (Kind 2)
+      SrcX : SInt;
+      SrcY : SInt;
+      SrcBay : USInt;
+      DstX : SInt;
+      DstY : SInt;
+      DstBay : USInt;
+      CumT_ds : DInt;  // predicted total time after this transfer, deciseconds, incl. BaseT_ds
+      CumM : DInt;     // predicted total manipulations after this transfer, incl. BaseM
+   END_STRUCT;
+
+END_TYPE
+

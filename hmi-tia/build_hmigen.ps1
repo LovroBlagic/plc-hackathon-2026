@@ -1,0 +1,8 @@
+# Compile HmiGen.exe with the .NET Framework 4.8 C# compiler (C# 5). Re-run after editing HmiGen.cs.
+$api = "C:\Program Files\Siemens\Automation\Portal V21\PublicAPI\V21\net48"
+$csc = "$env:WINDIR\Microsoft.NET\Framework64\v4.0.30319\csc.exe"
+& $csc /nologo /target:exe /platform:x64 /out:"$PSScriptRoot\HmiGen.exe" `
+  /reference:"$api\Siemens.Engineering.Base.dll" /reference:"$api\Siemens.Engineering.Step7.dll" `
+  /reference:"$api\Siemens.Engineering.WinCC.dll" /reference:"$api\Siemens.Engineering.WinCC.Extension.dll" `
+  /reference:System.Core.dll "$PSScriptRoot\HmiGen.cs"
+exit $LASTEXITCODE

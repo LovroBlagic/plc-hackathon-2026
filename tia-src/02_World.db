@@ -1,0 +1,59 @@
+DATA_BLOCK "World"
+{ S7_Optimized_Access := 'TRUE' }
+VERSION : 0.1
+NON_RETAIN
+   VAR
+      Bay0 : Array[0..3, 0..11] of UInt;     // working copy of the ship (FB10 INIT copy / OB30 lift-put effect)
+      Bay1 : Array[0..3, 0..11] of UInt;     // working copy of the yard
+      CraneX : SInt;                         // crane x after last completed command
+      CraneY : SInt;
+      CraneBay : USInt := 1;
+      Carried : UInt;                        // ID on the hook (0 = none)
+      Busy : Bool;                           // command issued to FB1, not finished yet
+      BusyTicks : Int;                       // OB30 ticks since issue (watchdog)
+      ActCmd : "typeCmd";                    // command currently executing
+      NextCmd : "typeCmd";                   // staged command (valid when CmdReady)
+      CmdReady : Bool;                       // handshake: FB10 sets (last) / OB30 clears
+      Permit : Bool;                         // OB30 may issue NextCmd
+      DoneSeq : UDInt;                       // +1 per completed command
+      LastDone : "typeCmd";                  // last completed command
+      Fault : Word;                          // OB30-detected alarms (bit = alarm bit)
+      FaultCmd : "typeCmd";                  // command rejected by CheckCmd
+      UList : Array[1..48] of UInt;          // copy of DB20 (unload list)
+      UState : Array[1..48] of USInt;        // 0 pending, 1 done, 2 skipped
+      LList : Array[1..48] of UInt;          // copy of DB21 (load list)
+      LState : Array[1..48] of USInt;        // as UState
+      N : Int;                               // non-zero entries in DB20 + DB21 (for J)
+      Plan : Array[1..96] of "typeTransfer"; // written by the planner
+      PlanLen : Int;
+      PlanValid : Bool;
+      PlanVariant : Int;
+      PredT_ds : DInt;
+      PredM : DInt;
+      PredJ : Real;
+      BaseT_ds : DInt;                       // ROUND(T*10) at plan request
+      BaseM : DInt;                          // M at plan request
+      PlanIdx : Int := 1;                    // done pointer: transfer being executed
+      Phase : USInt;                         // done pointer: next phase of PlanIdx to complete
+      StageIdx : Int := 1;                   // staging cursor (transfer)
+      StagePhase : USInt;                    // staging cursor (phase)
+      BalL : Int;                            // ship count x in {0,1}
+      BalR : Int;                            // ship count x in {2,3}
+      BalF : Int;                            // ship count y in 0..5
+      BalA : Int;                            // ship count y in 6..11
+      CfgOrderMode : USInt;                  // 0 free, 1 per-list order, 2 strict
+      CfgBalLimit : Int := 5;
+      CfgBalMode : USInt;                    // 0 x-halves only, 1 also y-halves
+      CfgMMode : USInt := 2;                 // manipulation count model (CONTRACT 4.1); 2 = FB1 counts +1 per move command
+      CfgVariants : Int := 4;
+      CfgAlpha : Array[1..4] of Int := [0, 50, 100, 150];
+      CfgStepsPerCall : Int := 1;
+      CfgTimeoutTicks : Int := 10;           // FB1 watchdog in OB30 ticks (1 s)
+      OB30Ticks : UDInt;
+   END_VAR
+
+
+BEGIN
+
+END_DATA_BLOCK
+

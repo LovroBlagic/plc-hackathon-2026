@@ -1,0 +1,95 @@
+DATA_BLOCK "HMI_IF"
+{ S7_Optimized_Access := 'TRUE' }
+VERSION : 0.1
+NON_RETAIN
+   VAR
+      // ---- Buttons / inputs (HMI writes; FB10 resets button bits after evaluating them) ----
+      SwOn : Bool;                          // main switch level (HMI InvertBit), TRUE = ON
+      BtnInit : Bool;                       // INITIAL STATE (POCETNO STANJE)
+      BtnAuto : Bool;
+      BtnSemi : Bool;
+      BtnManual : Bool;
+      BtnStart : Bool;
+      BtnStop : Bool;
+      BtnAck : Bool;
+      BtnStep : Bool;                       // SEMI: run the next manipulation
+      BtnManExec : Bool;                    // MANUAL: execute ManCmd
+      ManCmd : USInt;                       // 1 lift, 2 put down, 3 move, 10 reset
+      ManX : SInt;                          // 0..3
+      ManY : SInt;                          // 0..11
+      ManBay : USInt;                       // 0 ship, 1 yard
+      CfgOrderMode : USInt;                 // 0 free, 1 per-list order, 2 strict
+      CfgSemiPerTransfer : Bool;            // SEMI click = one command (FALSE) or one transfer (TRUE)
+      CfgBalMode : USInt;                   // 0 x-halves, 1 also y-halves
+      // ---- Indicators (FB10 writes every OB1 cycle) ----
+      State : USInt;                        // 0 OFF,1 INIT,2 READY,3 RUNNING,4 PAUSED,5 ALARM,6 DONE,7 PLANNING
+      Mode : USInt := 1;                      // 1 AUTO, 2 SEMI, 3 MANUAL
+      LampOn : Bool;
+      LampOff : Bool;
+      LampReady : Bool;
+      LampAuto : Bool;
+      LampSemi : Bool;
+      LampManual : Bool;
+      LampRunning : Bool;
+      LampAlarm : Bool;
+      LampDone : Bool;
+      Initialized : Bool;
+      CraneBusy : Bool;
+      Planning : Bool;
+      StepWaiting : Bool;                   // SEMI is waiting for a click
+      M : UDInt;                            // = "number_of_manipulations"
+      T : Real;                             // = "time" (MD112) working time [s]
+      J : Real;                             // 0.5*T/(76*N) + 0.5*M/(4*N)
+      N : Int;
+      PredM : DInt;
+      PredT : Real;
+      PredJ : Real;
+      PlanVariant : Int;
+      TrDone : Int;
+      TrTotal : Int;
+      UDone : Int;
+      UTotal : Int;
+      LDone : Int;
+      LTotal : Int;
+      CraneX : SInt;
+      CraneY : SInt;
+      CraneBay : USInt;
+      CraneGX : Int;                        // global column: x+6 if bay 0 else x (0..9)
+      Carried : UInt;
+      CurCmd : USInt;
+      CurX : SInt;
+      CurY : SInt;
+      CurBay : USInt;
+      CurId : UInt;
+      CurKind : USInt;                      // 1 unload, 2 load, 0 none
+      CurPhase : USInt;
+      Cell0 : Array[0..47] of UInt;         // Bay0 IDs, index x*12+y
+      Cell1 : Array[0..47] of UInt;         // Bay1 IDs, index x*12+y
+      CellSt0 : Array[0..47] of USInt;      // colour code 0..7
+      CellSt1 : Array[0..47] of USInt;
+      UList : Array[1..48] of UInt;
+      LList : Array[1..48] of UInt;
+      UState : Array[1..48] of USInt;       // 0 pending, 1 done, 2 skipped, 3 in progress
+      LState : Array[1..48] of USInt;
+      BalL : Int;
+      BalR : Int;
+      BalDiff : Int;                        // BalL - BalR
+      BalF : Int;
+      BalA : Int;
+      BalOk : Bool;                         // |BalDiff| <= 5
+      AlarmWord : Word;                     // alarm bits (CONTRACT 3.3)
+      AlarmId : UInt;
+      AlarmX : SInt;
+      AlarmY : SInt;
+      AlarmBay : USInt;
+      AlarmHist : Array[0..15] of Int;      // alarm bit numbers of the last 16 raises, [0] newest
+      AlarmHistSeq : UDInt;
+      OB30Ticks : UDInt;
+      Heartbeat : Bool;                     // toggles each OB30 tick
+   END_VAR
+
+
+BEGIN
+
+END_DATA_BLOCK
+

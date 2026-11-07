@@ -1,0 +1,128 @@
+FUNCTION "CheckCmd" : Int
+TITLE = Pre-check of a crane command before OB30 issues it to FB1
+{ S7_Optimized_Access := 'TRUE' }
+VERSION : 0.1
+//  Returns 0 = OK, otherwise the alarm bit number (CONTRACT 1.4 / 3.3):
+//    100 ship imbalance (alarm bit 0)      1 pick location empty
+//      2 drop location occupied            9 invalid command / position
+//     11 crane already carrying           12 crane is empty (put down)
+//  The first failing rule decides the result.
+//  Lift/put act on the CURRENT crane position (CraneX/Y/Bay); the X/Y/Bay of C are ignored.
+//  Balance rule (CONTRACT 4.3 step rule): the result is OK if |L'-R'| <= BalLimit,
+//  or if it is not worse than before (|L'-R'| <= |L-R|). Same for front/aft if BalMode = 1.
+   VAR_INPUT
+      C : "typeCmd";          // command to check
+      CraneX : SInt;          // crane position now
+      CraneY : SInt;
+      CraneBay : USInt;
+      Carried : UInt;         // ID on the hook (0 = none)
+      BalLimit : Int;         // max |L-R| (5)
+      BalMode : USInt;        // 0 left/right only, 1 also front/aft
+   END_VAR
+
+   VAR_TEMP
+      x : Int;
+      y : Int;
+      cx : Int;
+      cy : Int;
+      cell : UInt;
+      delta : Int;            // -1 lift (container leaves the ship), +1 put
+      L : Int;                // ship count x in {0,1}
+      R : Int;                // ship count x in {2,3}
+      F : Int;                // ship count y in 0..5
+      A : Int;                // ship count y in 6..11
+      L2 : Int;
+      R2 : Int;
+      F2 : Int;
+      A2 : Int;
+   END_VAR
+
+
+BEGIN
+	REGION Move and reset
+	    CASE #C.Cmd OF
+	        3:  // move to (X, Y, Bay): only the target must be a valid slot
+	            IF #C.X >= 0 AND #C.X <= 3 AND #C.Y >= 0 AND #C.Y <= 11 AND #C.Bay <= 1 THEN
+	                #CheckCmd := 0;
+	            ELSE
+	                #CheckCmd := 9;
+	            END_IF;
+	            RETURN;
+	        10: // reset of FB1 is always allowed
+	            #CheckCmd := 0;
+	            RETURN;
+	        1, 2:
+	            ;   // checked below
+	        ELSE
+	            #CheckCmd := 9;
+	            RETURN;
+	    END_CASE;
+	END_REGION
+
+	REGION Lift / put: crane position and hook
+	    #cx := SINT_TO_INT(#CraneX);
+	    #cy := SINT_TO_INT(#CraneY);
+	    IF #cx < 0 OR #cx > 3 OR #cy < 0 OR #cy > 11 OR #CraneBay > 1 THEN
+	        #CheckCmd := 9;     // crane is not over a valid slot
+	        RETURN;
+	    END_IF;
+
+	    IF #CraneBay = 0 THEN
+	        #cell := "World".Bay0[#cx, #cy];
+	    ELSE
+	        #cell := "World".Bay1[#cx, #cy];
+	    END_IF;
+
+	    IF #C.Cmd = 1 THEN
+	        IF #Carried <> 0 THEN
+	            #CheckCmd := 11;    // already carrying a container
+	            RETURN;
+	        END_IF;
+	        IF #cell = 0 THEN
+	            #CheckCmd := 1;     // pick location empty
+	            RETURN;
+	        END_IF;
+	        #delta := -1;
+	    ELSE
+	        IF #Carried = 0 THEN
+	            #CheckCmd := 12;    // nothing on the hook
+	            RETURN;
+	        END_IF;
+	        IF #cell <> 0 THEN
+	            #CheckCmd := 2;     // drop location occupied
+	            RETURN;
+	        END_IF;
+	        #delta := 1;
+	    END_IF;
+	END_REGION
+
+	REGION Ship balance after the lift / put (only when it happens on the ship)
+	    IF #CraneBay = 0 THEN
+	        #L := 0; #R := 0; #F := 0; #A := 0;
+	        FOR #x := 0 TO 3 DO
+	            FOR #y := 0 TO 11 DO
+	                IF "World".Bay0[#x, #y] <> 0 THEN
+	                    IF #x <= 1 THEN #L := #L + 1; ELSE #R := #R + 1; END_IF;
+	                    IF #y <= 5 THEN #F := #F + 1; ELSE #A := #A + 1; END_IF;
+	                END_IF;
+	            END_FOR;
+	        END_FOR;
+
+	        #L2 := #L; #R2 := #R; #F2 := #F; #A2 := #A;
+	        IF #cx <= 1 THEN #L2 := #L + #delta; ELSE #R2 := #R + #delta; END_IF;
+	        IF #cy <= 5 THEN #F2 := #F + #delta; ELSE #A2 := #A + #delta; END_IF;
+
+	        IF ABS(#L2 - #R2) > #BalLimit AND ABS(#L2 - #R2) > ABS(#L - #R) THEN
+	            #CheckCmd := 100;
+	            RETURN;
+	        END_IF;
+	        IF #BalMode = 1 AND ABS(#F2 - #A2) > #BalLimit AND ABS(#F2 - #A2) > ABS(#F - #A) THEN
+	            #CheckCmd := 100;
+	            RETURN;
+	        END_IF;
+	    END_IF;
+
+	    #CheckCmd := 0;
+	END_REGION
+END_FUNCTION
+

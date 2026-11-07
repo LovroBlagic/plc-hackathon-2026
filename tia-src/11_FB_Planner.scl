@@ -1,0 +1,780 @@
+FUNCTION_BLOCK "Crane_Planner"
+TITLE = Greedy transfer planner with lookahead and multi-start (CONTRACT 4)
+{ S7_Optimized_Access := 'TRUE' }
+VERSION : 0.1
+//  Multi-instance "Planner" inside FB10 "Crane_Control", called once per OB1 cycle.
+//  Bit-identical to tools/crane_plan.py (CONTRACT v1.0 section 4). All decisions use DInt.
+//
+//  Protocol:
+//   - Req rising edge: snapshot "World" (grids, crane, lists/states, N, Base*, Cfg*) into statics.
+//     Nothing else is done in that call.
+//   - Every following call runs CfgStepsPerCall greedy steps (one transfer each) of the current
+//     variant v = 1..CfgVariants (alpha = CfgAlpha[v]). Initialising/closing a variant is free.
+//   - When the last variant is closed, the best one (smallest K, lower v on ties) is written to
+//     "World".Plan/PlanLen/PlanValid/PlanVariant/PredT_ds/PredM/PredJ and Done := TRUE.
+//     On failure: PlanValid := FALSE, PlanLen := 0, PlanVariant := 0, Error := TRUE, ErrCode.
+//   - Done / Error stay TRUE while Req stays TRUE. Req = FALSE clears them; Req = FALSE during a job
+//     aborts the job without touching "World".
+//  ErrCode: 1 no feasible transfer, 2 plan > 96 transfers, 3 bad config / input
+//           (also: pending list entry with ID 0 or not found in its bay, crane position invalid),
+//           4 crane carrying ("World".Carried <> 0).
+//  Calls per job <= 1 + (number of transfers) * CfgVariants  (<= 385 with 96 transfers, 4 variants).
+//
+//  Speed-ups (results identical to the literal definition):
+//   - WTab[dG, dy, xd] = T + 190*M for every |dG| 0..9, |dy| 0..11, x changed (xd) 0/1,
+//     built once per job with FC20 "Crane_MoveCost" (the only cost formula).
+//   - OrderMode 0: Nx = min over ES \ {s}. Per free cell d, the best and the second-best
+//     W(d -> s') over ES are computed once per step; Nx = best unless best belongs to s.
+//   - Alpha = 0: Nx is not needed (its weight is zero).
+   VAR_INPUT
+      Req : Bool;                               // rising edge starts a job
+   END_VAR
+   VAR_OUTPUT
+      Busy : Bool;                              // job running
+      Done : Bool;                              // job finished OK (World.Plan valid)
+      Error : Bool;                             // job failed (see ErrCode)
+      ErrCode : Int;                            // 0 ok, 1 infeasible, 2 > 96 transfers, 3 bad cfg/input, 4 carrying
+   END_VAR
+   VAR
+      ReqOld : Bool;
+      JobBusy : Bool;                           // job running (copied to Busy at the end of each call)
+      // ---------- snapshot taken at the Req edge ----------
+      sG : Array[0..1, 0..3, 0..11] of UInt;   // [bay, x, y] grids (0 ship, 1 yard)
+      sCx : Int;                                // crane at plan time
+      sCy : Int;
+      sCb : Int;
+      sBaseT : DInt;                            // World.BaseT_ds
+      sBaseM : DInt;                            // World.BaseM
+      sN : Int;                                 // World.N (for PredJ)
+      cMMode : Int;
+      cOrder : Int;
+      cBalMode : Int;
+      cLim : Int;
+      cVariants : Int;
+      cSteps : Int;
+      cAlpha : Array[1..4] of DInt;
+      nSrc : Int;                               // pending entries: unloads (index order) first, then loads
+      SrcKind : Array[1..96] of USInt;          // 1 unload, 2 load
+      SrcIdx : Array[1..96] of Int;             // list index
+      SrcId : Array[1..96] of UInt;
+      SrcX : Array[1..96] of Int;               // position at plan time (never changes while pending)
+      SrcY : Array[1..96] of Int;
+      SrcB : Array[1..96] of Int;
+      SrcG : Array[1..96] of Int;               // global column
+      WTab : Array[0..9, 0..11, 0..1] of DInt;  // weighted move cost T + 190*M by |dG|, |dy|, x changed
+      // ---------- variant state ----------
+      VarNo : Int;                              // current variant 1..cVariants
+      VarActive : Bool;                         // variant initialised
+      VarErr : Int;                             // error of the current variant (0 ok)
+      Alpha : DInt;
+      g : Array[0..1, 0..3, 0..11] of UInt;    // working grids
+      Pend : Array[1..96] of Bool;              // source still pending
+      nPend : Int;
+      cx : Int;                                 // crane
+      cy : Int;
+      cb : Int;
+      cG : Int;
+      TotT : DInt;                              // running totals incl. Base
+      TotM : DInt;
+      CurLen : Int;
+      CurPlan : Array[1..96] of "typeTransfer";
+      Err1 : Int;                               // error of variant 1 (reported if all variants fail)
+      HaveBest : Bool;
+      BestV : Int;
+      BestK : DInt;
+      BestT : DInt;
+      BestM : DInt;
+      BestLen : Int;
+      BestPlan : Array[1..96] of "typeTransfer";
+      // ---------- per-step scratch ----------
+      Es : Array[1..96] of Int;                 // eligible sources (source numbers) in ES order
+      nEs : Int;
+      nFree : Array[0..1] of Int;
+      FreeX : Array[0..1, 1..48] of Int;        // free cells per bay, x 0..3 outer / y 0..11 inner
+      FreeY : Array[0..1, 1..48] of Int;
+      FreeG : Array[0..1, 1..48] of Int;
+      B1 : Array[0..1, 1..48] of DInt;          // OrderMode 0: best W(d -> s') over ES
+      B1Own : Array[0..1, 1..48] of Int;        //   its source number
+      B2 : Array[0..1, 1..48] of DInt;          //   second best (-1 = none)
+      // ---------- diagnostics (read-only, not used by the algorithm) ----------
+      DiagCalls : DInt;                         // calls of the last job (incl. the edge call)
+      DiagSteps : DInt;                         // greedy steps of the last job
+      DiagCallMs : LReal;                       // duration of the last working call [ms]
+      DiagMaxCallMs : LReal;                    // longest working call of the last job [ms]
+      DiagJobMs : LReal;                        // sum of working-call durations of the last job [ms]
+      DiagVarK : Array[1..4] of DInt;           // K of each variant (-1 = failed)
+      DiagVarErr : Array[1..4] of Int;          // error of each variant
+      RtMem : LReal;                            // RUNTIME memory
+      ZeroTr : "typeTransfer";                  // never written: used to clear World.Plan entries
+   END_VAR
+   VAR_TEMP
+      rcode : Int;
+      i : Int;
+      j : Int;
+      k : Int;
+      x : Int;
+      y : Int;
+      b : Int;
+      ie : Int;
+      si : Int;
+      sj : Int;
+      id : UInt;
+      found : Bool;
+      okB : Bool;
+      edgeCall : Bool;
+      budget : Int;
+      rtDummy : LReal;
+      tmpT : DInt;
+      tmpM : Int;
+      wv : DInt;
+      dGi : Int;
+      dYi : Int;
+      xd : Int;
+      // step
+      L : Int;
+      R : Int;
+      F : Int;
+      A : Int;
+      L2 : Int;
+      R2 : Int;
+      F2 : Int;
+      A2 : Int;
+      dAbs : Int;
+      uLt : Int;
+      uRt : Int;
+      nLt : Int;
+      uL : Int;
+      uR : Int;
+      nL : Int;
+      Lbase : Int;
+      Rbase : Int;
+      loN : Int;
+      hiN : Int;
+      Dbase : Int;
+      fU : Int;
+      fU2 : Int;
+      fL : Int;
+      fL2 : Int;
+      nxU : Int;
+      nxL : Int;
+      nx1 : Int;
+      nx2 : Int;
+      iPas : Int;
+      sCol : Int;
+      sRow : Int;
+      sBay : Int;
+      srcCol : Int;
+      dBay : Int;
+      dCol : Int;
+      dRow : Int;
+      dGc : Int;
+      Ew : DInt;
+      Lm : DInt;
+      Nx : DInt;
+      nxFirst : Bool;
+      score : DInt;
+      bestScore : DInt;
+      bS : Int;
+      bK : Int;
+      bDb : Int;
+      eT : DInt;
+      eMan : Int;
+      lT : DInt;
+      lMan : Int;
+      kv : DInt;
+   END_VAR
+
+
+BEGIN
+	REGION 1 Request edge / abort
+	    #edgeCall := FALSE;
+	    IF #Req AND NOT #ReqOld THEN
+	        // ---------- new job: snapshot ----------
+	        #edgeCall := TRUE;
+	        #JobBusy := TRUE;
+	        #Done := FALSE;
+	        #Error := FALSE;
+	        #ErrCode := 0;
+	        #VarNo := 1;
+	        #VarActive := FALSE;
+	        #VarErr := 0;
+	        #Err1 := 0;
+	        #HaveBest := FALSE;
+	        #BestV := 0;
+	        #BestK := 0;
+	        #BestLen := 0;
+	        #DiagCalls := 1;
+	        #DiagSteps := 0;
+	        #DiagCallMs := 0.0;
+	        #DiagMaxCallMs := 0.0;
+	        #DiagJobMs := 0.0;
+	        FOR #i := 1 TO 4 DO
+	            #DiagVarK[#i] := -1;
+	            #DiagVarErr[#i] := 0;
+	        END_FOR;
+	        #rcode := 0;
+
+	        // configuration
+	        #cMMode := USINT_TO_INT("World".CfgMMode);
+	        #cOrder := USINT_TO_INT("World".CfgOrderMode);
+	        #cBalMode := USINT_TO_INT("World".CfgBalMode);
+	        #cLim := "World".CfgBalLimit;
+	        #cVariants := "World".CfgVariants;
+	        #cSteps := "World".CfgStepsPerCall;
+	        IF #cSteps < 1 THEN
+	            #cSteps := 1;
+	        END_IF;
+	        FOR #i := 1 TO 4 DO
+	            #cAlpha[#i] := INT_TO_DINT("World".CfgAlpha[#i]);
+	        END_FOR;
+	        #sCx := SINT_TO_INT("World".CraneX);
+	        #sCy := SINT_TO_INT("World".CraneY);
+	        #sCb := USINT_TO_INT("World".CraneBay);
+	        #sBaseT := "World".BaseT_ds;
+	        #sBaseM := "World".BaseM;
+	        #sN := "World".N;
+
+	        IF "World".Carried <> 0 THEN
+	            #rcode := 4;
+	        ELSIF #cVariants < 1 OR #cVariants > 4 OR #cOrder > 2 OR #cBalMode > 1 OR #cMMode > 2 THEN
+	            #rcode := 3;
+	        ELSIF #sCx < 0 OR #sCx > 3 OR #sCy < 0 OR #sCy > 11 OR #sCb < 0 OR #sCb > 1 THEN
+	            #rcode := 3;
+	        END_IF;
+
+	        IF #rcode = 0 THEN
+	            // grids
+	            FOR #x := 0 TO 3 DO
+	                FOR #y := 0 TO 11 DO
+	                    #sG[0, #x, #y] := "World".Bay0[#x, #y];
+	                    #sG[1, #x, #y] := "World".Bay1[#x, #y];
+	                END_FOR;
+	            END_FOR;
+	            // pending sources: unloads (UState = 0) in index order, then loads (LState = 0).
+	            // Each is located in its bay by the first match, x 0..3 outer, y 0..11 inner.
+	            #nSrc := 0;
+	            FOR #k := 1 TO 2 DO
+	                FOR #i := 1 TO 48 DO
+	                    IF #rcode = 0 THEN
+	                        IF #k = 1 THEN
+	                            #okB := "World".UState[#i] = 0;
+	                            #id := "World".UList[#i];
+	                            #b := 0;
+	                        ELSE
+	                            #okB := "World".LState[#i] = 0;
+	                            #id := "World".LList[#i];
+	                            #b := 1;
+	                        END_IF;
+	                        IF #okB THEN
+	                            IF #id = 0 THEN
+	                                #rcode := 3;           // pending entry without an ID
+	                            ELSE
+	                                #found := FALSE;
+	                                FOR #x := 0 TO 3 DO
+	                                    FOR #y := 0 TO 11 DO
+	                                        IF NOT #found AND #sG[#b, #x, #y] = #id THEN
+	                                            #found := TRUE;
+	                                            #nSrc := #nSrc + 1;
+	                                            #SrcKind[#nSrc] := INT_TO_USINT(#k);
+	                                            #SrcIdx[#nSrc] := #i;
+	                                            #SrcId[#nSrc] := #id;
+	                                            #SrcX[#nSrc] := #x;
+	                                            #SrcY[#nSrc] := #y;
+	                                            #SrcB[#nSrc] := #b;
+	                                            IF #b = 0 THEN
+	                                                #SrcG[#nSrc] := #x + 6;
+	                                            ELSE
+	                                                #SrcG[#nSrc] := #x;
+	                                            END_IF;
+	                                        END_IF;
+	                                    END_FOR;
+	                                END_FOR;
+	                                IF NOT #found THEN
+	                                    #rcode := 3;       // pending ID not in its bay (CONTRACT ambiguity, Python: 3)
+	                                END_IF;
+	                            END_IF;
+	                        END_IF;
+	                    END_IF;
+	                END_FOR;
+	            END_FOR;
+	        END_IF;
+
+	        IF #rcode = 0 THEN
+	            // weighted cost table from FC20. From (0,0,bay 1) to (dG,dy,bay 1): global column
+	            // difference dG, x changed iff dG <> 0. x unchanged with dG <> 0 only happens for a
+	            // bay change in the same column (dG = 6): from (0,0,1) to (0,dy,0).
+	            FOR #i := 0 TO 9 DO
+	                FOR #j := 0 TO 11 DO
+	                    #tmpT := "Crane_MoveCost"(X0 := 0, Y0 := 0, B0 := 1, X1 := #i, Y1 := #j, B1 := 1,
+	                                              MMode := #cMMode, M => #tmpM);
+	                    #wv := #tmpT + 190 * INT_TO_DINT(#tmpM);
+	                    #WTab[#i, #j, 0] := #wv;
+	                    #WTab[#i, #j, 1] := #wv;
+	                END_FOR;
+	            END_FOR;
+	            FOR #j := 0 TO 11 DO
+	                #tmpT := "Crane_MoveCost"(X0 := 0, Y0 := 0, B0 := 1, X1 := 0, Y1 := #j, B1 := 0,
+	                                          MMode := #cMMode, M => #tmpM);
+	                #WTab[6, #j, 0] := #tmpT + 190 * INT_TO_DINT(#tmpM);
+	            END_FOR;
+	        END_IF;
+
+	        IF #rcode <> 0 THEN
+	            "World".PlanValid := FALSE;
+	            "World".PlanLen := 0;
+	            "World".PlanVariant := 0;
+	            #JobBusy := FALSE;
+	            #Error := TRUE;
+	            #ErrCode := #rcode;
+	        END_IF;
+	    ELSIF NOT #Req THEN
+	        // Req low: clear the result flags; a running job is abandoned without writing "World".
+	        #JobBusy := FALSE;
+	        #Done := FALSE;
+	        #Error := FALSE;
+	        #VarActive := FALSE;
+	    END_IF;
+	    #ReqOld := #Req;
+	END_REGION
+
+	REGION 2 Work: greedy steps, variants, result
+	    IF #JobBusy AND NOT #edgeCall THEN
+	        #rtDummy := RUNTIME(MEM := #RtMem);
+	        #DiagCalls := #DiagCalls + 1;
+	        #budget := #cSteps;
+	        WHILE #JobBusy AND #budget > 0 DO
+	            IF NOT #VarActive THEN
+	                // ---------- initialise variant VarNo ----------
+	                #VarActive := TRUE;
+	                #VarErr := 0;
+	                #Alpha := #cAlpha[#VarNo];
+	                FOR #b := 0 TO 1 DO
+	                    FOR #x := 0 TO 3 DO
+	                        FOR #y := 0 TO 11 DO
+	                            #g[#b, #x, #y] := #sG[#b, #x, #y];
+	                        END_FOR;
+	                    END_FOR;
+	                END_FOR;
+	                FOR #i := 1 TO 96 DO
+	                    #Pend[#i] := #i <= #nSrc;
+	                END_FOR;
+	                #nPend := #nSrc;
+	                #cx := #sCx;
+	                #cy := #sCy;
+	                #cb := #sCb;
+	                IF #cb = 0 THEN
+	                    #cG := #cx + 6;
+	                ELSE
+	                    #cG := #cx;
+	                END_IF;
+	                #TotT := #sBaseT;
+	                #TotM := #sBaseM;
+	                #CurLen := 0;
+
+	            ELSIF #VarErr <> 0 OR #nPend = 0 THEN
+	                // ---------- close variant VarNo ----------
+	                #DiagVarErr[#VarNo] := #VarErr;
+	                IF #VarErr = 0 THEN
+	                    #kv := (#TotT - #sBaseT) + 190 * (#TotM - #sBaseM);
+	                    #DiagVarK[#VarNo] := #kv;
+	                    IF NOT #HaveBest OR #kv < #BestK THEN
+	                        #HaveBest := TRUE;
+	                        #BestV := #VarNo;
+	                        #BestK := #kv;
+	                        #BestT := #TotT;
+	                        #BestM := #TotM;
+	                        #BestLen := #CurLen;
+	                        FOR #i := 1 TO #CurLen DO
+	                            #BestPlan[#i] := #CurPlan[#i];
+	                        END_FOR;
+	                    END_IF;
+	                ELSIF #VarNo = 1 THEN
+	                    #Err1 := #VarErr;
+	                END_IF;
+	                #VarActive := FALSE;
+	                #VarNo := #VarNo + 1;
+
+	                IF #VarNo > #cVariants THEN
+	                    // ---------- job finished: publish ----------
+	                    IF #HaveBest THEN
+	                        FOR #i := 1 TO 96 DO
+	                            IF #i <= #BestLen THEN
+	                                "World".Plan[#i] := #BestPlan[#i];
+	                            ELSE
+	                                "World".Plan[#i] := #ZeroTr;
+	                            END_IF;
+	                        END_FOR;
+	                        "World".PlanLen := #BestLen;
+	                        "World".PlanVariant := #BestV;
+	                        "World".PredT_ds := #BestT;
+	                        "World".PredM := #BestM;
+	                        IF #sN > 0 THEN
+	                            "World".PredJ := 0.5 * (DINT_TO_REAL(#BestT) / 10.0) / (76.0 * INT_TO_REAL(#sN))
+	                                           + 0.5 * DINT_TO_REAL(#BestM) / (4.0 * INT_TO_REAL(#sN));
+	                        ELSE
+	                            "World".PredJ := 0.0;
+	                        END_IF;
+	                        "World".PlanValid := TRUE;
+	                        #Done := TRUE;
+	                        #ErrCode := 0;
+	                    ELSE
+	                        "World".PlanValid := FALSE;
+	                        "World".PlanLen := 0;
+	                        "World".PlanVariant := 0;
+	                        #Error := TRUE;
+	                        #ErrCode := #Err1;
+	                    END_IF;
+	                    #JobBusy := FALSE;
+	                END_IF;
+
+	            ELSE
+	                // ---------- one greedy step (CONTRACT 4.4) ----------
+	                #budget := #budget - 1;
+	                #DiagSteps := #DiagSteps + 1;
+
+	                // ship balance now
+	                #L := 0;
+	                #R := 0;
+	                #F := 0;
+	                #A := 0;
+	                FOR #x := 0 TO 3 DO
+	                    FOR #y := 0 TO 11 DO
+	                        IF #g[0, #x, #y] <> 0 THEN
+	                            IF #x <= 1 THEN
+	                                #L := #L + 1;
+	                            ELSE
+	                                #R := #R + 1;
+	                            END_IF;
+	                            IF #y <= 5 THEN
+	                                #F := #F + 1;
+	                            ELSE
+	                                #A := #A + 1;
+	                            END_IF;
+	                        END_IF;
+	                    END_FOR;
+	                END_FOR;
+
+	                // pending statistics (all pending, for reachability) and the eligible set ES
+	                #uLt := 0;
+	                #uRt := 0;
+	                #nLt := 0;
+	                #fU := 0;
+	                #fU2 := 0;
+	                #fL := 0;
+	                #fL2 := 0;
+	                #nEs := 0;
+	                FOR #i := 1 TO #nSrc DO
+	                    IF #Pend[#i] THEN
+	                        IF #SrcKind[#i] = 1 THEN
+	                            IF #SrcX[#i] <= 1 THEN
+	                                #uLt := #uLt + 1;
+	                            ELSE
+	                                #uRt := #uRt + 1;
+	                            END_IF;
+	                            IF #fU = 0 THEN
+	                                #fU := #i;
+	                            ELSIF #fU2 = 0 THEN
+	                                #fU2 := #i;
+	                            END_IF;
+	                        ELSE
+	                            #nLt := #nLt + 1;
+	                            IF #fL = 0 THEN
+	                                #fL := #i;
+	                            ELSIF #fL2 = 0 THEN
+	                                #fL2 := #i;
+	                            END_IF;
+	                        END_IF;
+	                        IF #cOrder = 0 THEN
+	                            #nEs := #nEs + 1;
+	                            #Es[#nEs] := #i;
+	                        END_IF;
+	                    END_IF;
+	                END_FOR;
+	                IF #cOrder = 1 THEN
+	                    IF #fU > 0 THEN
+	                        #nEs := #nEs + 1;
+	                        #Es[#nEs] := #fU;
+	                    END_IF;
+	                    IF #fL > 0 THEN
+	                        #nEs := #nEs + 1;
+	                        #Es[#nEs] := #fL;
+	                    END_IF;
+	                ELSIF #cOrder = 2 THEN
+	                    IF #fU > 0 THEN
+	                        #nEs := 1;
+	                        #Es[1] := #fU;
+	                    ELSIF #fL > 0 THEN
+	                        #nEs := 1;
+	                        #Es[1] := #fL;
+	                    END_IF;
+	                END_IF;
+
+	                // free cells per bay (scan order x outer, y inner)
+	                FOR #b := 0 TO 1 DO
+	                    #nFree[#b] := 0;
+	                    FOR #x := 0 TO 3 DO
+	                        FOR #y := 0 TO 11 DO
+	                            IF #g[#b, #x, #y] = 0 THEN
+	                                #nFree[#b] := #nFree[#b] + 1;
+	                                #FreeX[#b, #nFree[#b]] := #x;
+	                                #FreeY[#b, #nFree[#b]] := #y;
+	                                IF #b = 0 THEN
+	                                    #FreeG[#b, #nFree[#b]] := #x + 6;
+	                                ELSE
+	                                    #FreeG[#b, #nFree[#b]] := #x;
+	                                END_IF;
+	                            END_IF;
+	                        END_FOR;
+	                    END_FOR;
+	                END_FOR;
+
+	                // OrderMode 0 lookahead: best / second best W(d -> s') over ES per free cell
+	                IF #cOrder = 0 AND #Alpha <> 0 THEN
+	                    FOR #b := 0 TO 1 DO
+	                        FOR #k := 1 TO #nFree[#b] DO
+	                            #B1[#b, #k] := -1;
+	                            #B1Own[#b, #k] := 0;
+	                            #B2[#b, #k] := -1;
+	                            #dCol := #FreeX[#b, #k];
+	                            #dRow := #FreeY[#b, #k];
+	                            #dGc := #FreeG[#b, #k];
+	                            FOR #ie := 1 TO #nEs DO
+	                                #sj := #Es[#ie];
+	                                IF #dCol = #SrcX[#sj] THEN
+	                                    #xd := 0;
+	                                ELSE
+	                                    #xd := 1;
+	                                END_IF;
+	                                #wv := #WTab[ABS(#dGc - #SrcG[#sj]), ABS(#dRow - #SrcY[#sj]), #xd];
+	                                IF #B1[#b, #k] < 0 OR #wv < #B1[#b, #k] THEN
+	                                    #B2[#b, #k] := #B1[#b, #k];
+	                                    #B1[#b, #k] := #wv;
+	                                    #B1Own[#b, #k] := #sj;
+	                                ELSIF #B2[#b, #k] < 0 OR #wv < #B2[#b, #k] THEN
+	                                    #B2[#b, #k] := #wv;
+	                                END_IF;
+	                            END_FOR;
+	                        END_FOR;
+	                    END_FOR;
+	                END_IF;
+
+	                // candidates: Pass A (step rule + reachability), Pass B (step rule only) if A is empty
+	                #found := FALSE;
+	                #bestScore := 0;
+	                #bS := 0;
+	                #bK := 0;
+	                #bDb := 0;
+	                FOR #iPas := 0 TO 1 DO
+	                    FOR #ie := 1 TO #nEs DO
+	                        #si := #Es[#ie];
+	                        #sCol := #SrcX[#si];
+	                        #sRow := #SrcY[#si];
+	                        #sBay := #SrcB[#si];
+	                        #srcCol := #SrcG[#si];
+	                        #dBay := 1 - #sBay;
+	                        // E = W(crane -> s), 0 if the crane is already there
+	                        IF #cx = #sCol THEN
+	                            #xd := 0;
+	                        ELSE
+	                            #xd := 1;
+	                        END_IF;
+	                        #Ew := #WTab[ABS(#cG - #srcCol), ABS(#cy - #sRow), #xd];
+	                        // OrderMode 1/2: next eligible set ES' with s removed (at most 2 entries)
+	                        #nx1 := 0;
+	                        #nx2 := 0;
+	                        IF #cOrder <> 0 THEN
+	                            #nxU := #fU;
+	                            IF #nxU = #si THEN
+	                                #nxU := #fU2;
+	                            END_IF;
+	                            #nxL := #fL;
+	                            IF #nxL = #si THEN
+	                                #nxL := #fL2;
+	                            END_IF;
+	                            IF #cOrder = 1 THEN
+	                                #nx1 := #nxU;
+	                                #nx2 := #nxL;
+	                            ELSIF #nxU > 0 THEN
+	                                #nx1 := #nxU;
+	                            ELSE
+	                                #nx1 := #nxL;
+	                            END_IF;
+	                        END_IF;
+	                        // balance effect of an unload does not depend on d
+	                        IF #SrcKind[#si] = 1 THEN
+	                            IF #sCol <= 1 THEN
+	                                #L2 := #L - 1;
+	                                #R2 := #R;
+	                                #uL := #uLt - 1;
+	                                #uR := #uRt;
+	                            ELSE
+	                                #L2 := #L;
+	                                #R2 := #R - 1;
+	                                #uL := #uLt;
+	                                #uR := #uRt - 1;
+	                            END_IF;
+	                            IF #sRow <= 5 THEN
+	                                #F2 := #F - 1;
+	                                #A2 := #A;
+	                            ELSE
+	                                #F2 := #F;
+	                                #A2 := #A - 1;
+	                            END_IF;
+	                            #nL := #nLt;
+	                        ELSE
+	                            #uL := #uLt;
+	                            #uR := #uRt;
+	                            #nL := #nLt - 1;
+	                        END_IF;
+
+	                        FOR #k := 1 TO #nFree[#dBay] DO
+	                            #dCol := #FreeX[#dBay, #k];
+	                            #dRow := #FreeY[#dBay, #k];
+	                            #dGc := #FreeG[#dBay, #k];
+	                            IF #SrcKind[#si] = 2 THEN
+	                                IF #dCol <= 1 THEN
+	                                    #L2 := #L + 1;
+	                                    #R2 := #R;
+	                                ELSE
+	                                    #L2 := #L;
+	                                    #R2 := #R + 1;
+	                                END_IF;
+	                                IF #dRow <= 5 THEN
+	                                    #F2 := #F + 1;
+	                                    #A2 := #A;
+	                                ELSE
+	                                    #F2 := #F;
+	                                    #A2 := #A + 1;
+	                                END_IF;
+	                            END_IF;
+	                            // step rule: OK if |L'-R'| <= Lim or not worse than now
+	                            #dAbs := ABS(#L2 - #R2);
+	                            #okB := #dAbs <= #cLim OR #dAbs <= ABS(#L - #R);
+	                            IF #okB AND #cBalMode = 1 THEN
+	                                #dAbs := ABS(#F2 - #A2);
+	                                #okB := #dAbs <= #cLim OR #dAbs <= ABS(#F - #A);
+	                            END_IF;
+	                            // Pass A: reachability of a balanced end state (x-split)
+	                            IF #okB AND #iPas = 0 THEN
+	                                #Lbase := #L2 - #uL;
+	                                #Rbase := #R2 - #uR;
+	                                #loN := #nL - (24 - #Rbase);
+	                                IF #loN < 0 THEN
+	                                    #loN := 0;
+	                                END_IF;
+	                                #hiN := 24 - #Lbase;
+	                                IF #nL < #hiN THEN
+	                                    #hiN := #nL;
+	                                END_IF;
+	                                #Dbase := #Lbase - #Rbase - #nL;
+	                                #okB := #loN <= #hiN AND #Dbase + 2 * #loN <= #cLim AND #Dbase + 2 * #hiN >= -#cLim;
+	                            END_IF;
+	                            IF #okB THEN
+	                                // Lm = W(s -> d)
+	                                IF #dCol = #sCol THEN
+	                                    #xd := 0;
+	                                ELSE
+	                                    #xd := 1;
+	                                END_IF;
+	                                #Lm := #WTab[ABS(#dGc - #srcCol), ABS(#dRow - #sRow), #xd];
+	                                // Nx = min over ES' of W(d -> s'), 0 if ES' is empty
+	                                #Nx := 0;
+	                                IF #Alpha <> 0 THEN
+	                                    IF #cOrder = 0 THEN
+	                                        IF #B1Own[#dBay, #k] <> #si THEN
+	                                            #Nx := #B1[#dBay, #k];
+	                                        ELSIF #B2[#dBay, #k] >= 0 THEN
+	                                            #Nx := #B2[#dBay, #k];
+	                                        END_IF;
+	                                    ELSE
+	                                        #nxFirst := TRUE;
+	                                        FOR #j := 1 TO 2 DO
+	                                            IF #j = 1 THEN
+	                                                #sj := #nx1;
+	                                            ELSE
+	                                                #sj := #nx2;
+	                                            END_IF;
+	                                            IF #sj > 0 THEN
+	                                                IF #dCol = #SrcX[#sj] THEN
+	                                                    #xd := 0;
+	                                                ELSE
+	                                                    #xd := 1;
+	                                                END_IF;
+	                                                #wv := #WTab[ABS(#dGc - #SrcG[#sj]), ABS(#dRow - #SrcY[#sj]), #xd];
+	                                                IF #nxFirst OR #wv < #Nx THEN
+	                                                    #Nx := #wv;
+	                                                    #nxFirst := FALSE;
+	                                                END_IF;
+	                                            END_IF;
+	                                        END_FOR;
+	                                    END_IF;
+	                                END_IF;
+	                                #score := 100 * (#Ew + #Lm) + #Alpha * #Nx;
+	                                // strict '<': the first candidate in scan order wins ties
+	                                IF NOT #found OR #score < #bestScore THEN
+	                                    #found := TRUE;
+	                                    #bestScore := #score;
+	                                    #bS := #si;
+	                                    #bK := #k;
+	                                    #bDb := #dBay;
+	                                END_IF;
+	                            END_IF;
+	                        END_FOR;
+	                    END_FOR;
+	                    IF #found THEN
+	                        EXIT;
+	                    END_IF;
+	                END_FOR;
+
+	                IF NOT #found THEN
+	                    #VarErr := 1;                       // no feasible transfer
+	                ELSIF #CurLen >= 96 THEN
+	                    #VarErr := 2;                       // plan longer than 96 transfers
+	                ELSE
+	                    // ---------- apply the best (s, d) ----------
+	                    #si := #bS;
+	                    #sCol := #SrcX[#si];
+	                    #sRow := #SrcY[#si];
+	                    #sBay := #SrcB[#si];
+	                    #dBay := #bDb;
+	                    #dCol := #FreeX[#dBay, #bK];
+	                    #dRow := #FreeY[#dBay, #bK];
+	                    #eT := "Crane_MoveCost"(X0 := #cx, Y0 := #cy, B0 := #cb, X1 := #sCol, Y1 := #sRow, B1 := #sBay,
+	                                            MMode := #cMMode, M => #eMan);
+	                    #lT := "Crane_MoveCost"(X0 := #sCol, Y0 := #sRow, B0 := #sBay, X1 := #dCol, Y1 := #dRow, B1 := #dBay,
+	                                            MMode := #cMMode, M => #lMan);
+	                    #g[#dBay, #dCol, #dRow] := #g[#sBay, #sCol, #sRow];
+	                    #g[#sBay, #sCol, #sRow] := 0;
+	                    #TotT := #TotT + #eT + 200 + #lT + 200;
+	                    #TotM := #TotM + INT_TO_DINT(#eMan) + 1 + INT_TO_DINT(#lMan) + 1;
+	                    #CurLen := #CurLen + 1;
+	                    #CurPlan[#CurLen].Kind := #SrcKind[#si];
+	                    #CurPlan[#CurLen].Id := #SrcId[#si];
+	                    #CurPlan[#CurLen].ListIdx := #SrcIdx[#si];
+	                    #CurPlan[#CurLen].SrcX := INT_TO_SINT(#sCol);
+	                    #CurPlan[#CurLen].SrcY := INT_TO_SINT(#sRow);
+	                    #CurPlan[#CurLen].SrcBay := INT_TO_USINT(#sBay);
+	                    #CurPlan[#CurLen].DstX := INT_TO_SINT(#dCol);
+	                    #CurPlan[#CurLen].DstY := INT_TO_SINT(#dRow);
+	                    #CurPlan[#CurLen].DstBay := INT_TO_USINT(#dBay);
+	                    #CurPlan[#CurLen].CumT_ds := #TotT;
+	                    #CurPlan[#CurLen].CumM := #TotM;
+	                    #cx := #dCol;
+	                    #cy := #dRow;
+	                    #cb := #dBay;
+	                    #cG := #FreeG[#dBay, #bK];
+	                    #Pend[#si] := FALSE;
+	                    #nPend := #nPend - 1;
+	                END_IF;
+	            END_IF;
+	        END_WHILE;
+	        #DiagCallMs := RUNTIME(MEM := #RtMem) * 1000.0;
+	        #DiagJobMs := #DiagJobMs + #DiagCallMs;
+	        IF #DiagCallMs > #DiagMaxCallMs THEN
+	            #DiagMaxCallMs := #DiagCallMs;
+	        END_IF;
+	    END_IF;
+	END_REGION
+	
+	#Busy := #JobBusy;
+END_FUNCTION_BLOCK

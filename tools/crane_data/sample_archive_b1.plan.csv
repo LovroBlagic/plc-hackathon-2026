@@ -1,0 +1,3 @@
+i,kind,id,list_idx,src_bay,src_x,src_y,dst_bay,dst_x,dst_y,cum_t_ds,cum_m
+1,2,123,1,1,0,0,0,0,0,760,3
+RESULT variant=1 T_ds=760 M=3 J=0.0875 N=10

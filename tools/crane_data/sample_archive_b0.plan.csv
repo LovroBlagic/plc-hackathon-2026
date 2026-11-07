@@ -1,0 +1,2 @@
+i,kind,id,list_idx,src_bay,src_x,src_y,dst_bay,dst_x,dst_y,cum_t_ds,cum_m
+RESULT variant=1 T_ds=0 M=0 J=0.0000 N=10

@@ -1,0 +1,85 @@
+FUNCTION "Crane_MoveCost" : DInt
+TITLE = Time and manipulation cost of one crane move (CONTRACT 4.1)
+{ S7_Optimized_Access := 'TRUE' }
+VERSION : 0.1
+//  Returns the move time in DECISECONDS (DInt) from (X0,Y0,B0) to (X1,Y1,B1); output M = manipulations.
+//  Global column G(x, b) = x + 6 for bay 0 (ship), x for bay 1 (yard)   (one yard bay only).
+//  Same position              -> T = 0, M = 0
+//  otherwise                  -> T = max(60*|dG|, 23*|dy|) ds   (6 m per column / 2.3 m per row at 1 m/s)
+//  MMode 0 (spec, global X)   -> M = [dG <> 0] + [dy <> 0]
+//  MMode 1 (local x)          -> M = [x1 <> x0] + [dy <> 0]
+//  MMode 2 (per command, FB1) -> M = 1
+//  Any other MMode is treated as 0. No range checks: callers pass valid positions
+//  (the planner also uses it with synthetic columns 0..9 in bay 1 to build its cost table).
+   VAR_INPUT
+      X0 : Int;
+      Y0 : Int;
+      B0 : Int;
+      X1 : Int;
+      Y1 : Int;
+      B1 : Int;
+      MMode : Int;
+   END_VAR
+   VAR_OUTPUT
+      M : Int;
+   END_VAR
+   VAR_TEMP
+      g0 : DInt;
+      g1 : DInt;
+      dG : DInt;
+      dY : DInt;
+      tX : DInt;
+      tY : DInt;
+   END_VAR
+
+
+BEGIN
+	// Zero move: no time, no manipulation (the runtime never issues it, U6).
+	IF #X0 = #X1 AND #Y0 = #Y1 AND #B0 = #B1 THEN
+	    #M := 0;
+	    #Crane_MoveCost := 0;
+	    RETURN;
+	END_IF;
+
+	// Global columns
+	#g0 := INT_TO_DINT(#X0);
+	IF #B0 = 0 THEN
+	    #g0 := #g0 + 6;
+	END_IF;
+	#g1 := INT_TO_DINT(#X1);
+	IF #B1 = 0 THEN
+	    #g1 := #g1 + 6;
+	END_IF;
+	#dG := ABS(#g1 - #g0);
+	#dY := ABS(INT_TO_DINT(#Y1) - INT_TO_DINT(#Y0));
+
+	// Time: both axes travel at the same time, the longer one decides
+	#tX := 60 * #dG;
+	#tY := 23 * #dY;
+	IF #tX >= #tY THEN
+	    #Crane_MoveCost := #tX;
+	ELSE
+	    #Crane_MoveCost := #tY;
+	END_IF;
+
+	// Manipulations
+	#M := 0;
+	CASE #MMode OF
+	    1:
+	        IF #X1 <> #X0 THEN
+	            #M := #M + 1;
+	        END_IF;
+	        IF #dY <> 0 THEN
+	            #M := #M + 1;
+	        END_IF;
+	    2:
+	        #M := 1;
+	    ELSE
+	        IF #dG <> 0 THEN
+	            #M := #M + 1;
+	        END_IF;
+	        IF #dY <> 0 THEN
+	            #M := #M + 1;
+	        END_IF;
+	END_CASE;
+END_FUNCTION
