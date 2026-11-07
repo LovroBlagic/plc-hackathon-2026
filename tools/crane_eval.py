@@ -1,6 +1,6 @@
 """crane_eval.py - evaluate the planner on every dataset in tools/crane_data.
 
-  python tools/crane_eval.py [--data tools/crane_data] [--mmode 2] [--evals 3000]
+  python tools/crane_eval.py [--data tools/crane_data] [--mmode 0] [--evals 3000]
 
 Reports mean/max J per variant and for the winner, variant win counts, a naive baseline
 (list order: all unloads then all loads, nearest free slot by W that passes the step rule),
@@ -21,9 +21,9 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import crane_model as cm  # noqa: E402
 import crane_plan as cp   # noqa: E402
 
-ALPHAS = [0, 100, 200, 300]          # v1.3 World.CfgAlpha start values (retuned for CfgMMode 2)
+ALPHAS = [0, 75, 125, 200]           # v1.7 World.CfgAlpha start values (retuned for CfgMMode 0; v1.3 mode 2: 0,100,200,300)
 SWEEP = [0, 50, 100, 150, 200, 300]
-MMODE = 2
+MMODE = 0
 EVALS = 3000
 
 
@@ -133,7 +133,7 @@ def _setcfg(mmode, evals):
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--data", default=os.path.join(os.path.dirname(os.path.abspath(__file__)), "crane_data"))
-    ap.add_argument("--mmode", type=int, default=2, help="2 = FB1 (+1 M per command), 0 = spec p.10 rule")
+    ap.add_argument("--mmode", type=int, default=0, help="0 = spec p.10 rule (v1.7 default), 2 = FB1 (+1 M per command)")
     ap.add_argument("--evals", type=int, default=3000, help="IMPROVE evaluations (World.CfgImproveEvals)")
     a = ap.parse_args()
     global MMODE, EVALS

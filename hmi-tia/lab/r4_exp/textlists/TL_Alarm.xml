@@ -1,0 +1,392 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Document>
+  <Engineering version="V21" />
+  <DocumentInfo>
+    <Created>2026-11-07T15:50:59.4306851Z</Created>
+    <ExportSetting>WithDefaults</ExportSetting>
+    <InstalledProducts>
+      <Product>
+        <DisplayName>Totally Integrated Automation Portal</DisplayName>
+        <DisplayVersion>V21</DisplayVersion>
+      </Product>
+      <Product>
+        <DisplayName>STEP 7 Professional</DisplayName>
+        <DisplayVersion>V21</DisplayVersion>
+      </Product>
+      <OptionPackage>
+        <DisplayName>STEP 7 Safety</DisplayName>
+        <DisplayVersion>V21</DisplayVersion>
+      </OptionPackage>
+      <OptionPackage>
+        <DisplayName>Tech WebApplication</DisplayName>
+        <DisplayVersion>V21</DisplayVersion>
+      </OptionPackage>
+      <Product>
+        <DisplayName>WinCC Basic/Comfort/Advanced</DisplayName>
+        <DisplayVersion>V21</DisplayVersion>
+      </Product>
+      <Product>
+        <DisplayName>WinCC Unified</DisplayName>
+        <DisplayVersion>V21</DisplayVersion>
+      </Product>
+    </InstalledProducts>
+  </DocumentInfo>
+  <Hmi.TextGraphicList.TextList ID="0">
+    <AttributeList>
+      <ListRange>Decimal</ListRange>
+      <Name>TL_Alarm</Name>
+    </AttributeList>
+    <ObjectList>
+      <MultilingualText ID="1" CompositionName="Comment">
+        <ObjectList>
+          <MultilingualTextItem ID="2" CompositionName="Items">
+            <AttributeList>
+              <Culture>en-US</Culture>
+              <Text />
+            </AttributeList>
+          </MultilingualTextItem>
+        </ObjectList>
+      </MultilingualText>
+      <Hmi.TextGraphicList.TextListEntry ID="3" CompositionName="Entries">
+        <AttributeList>
+          <DefaultEntry>false</DefaultEntry>
+          <EntryType>SingleValue</EntryType>
+          <From>-1</From>
+          <To>-1</To>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="4" CompositionName="Text">
+            <ObjectList>
+              <MultilingualTextItem ID="5" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text><body><p>-</p></body></Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </Hmi.TextGraphicList.TextListEntry>
+      <Hmi.TextGraphicList.TextListEntry ID="6" CompositionName="Entries">
+        <AttributeList>
+          <DefaultEntry>false</DefaultEntry>
+          <EntryType>SingleValue</EntryType>
+          <From>0</From>
+          <To>0</To>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="7" CompositionName="Text">
+            <ObjectList>
+              <MultilingualTextItem ID="8" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text><body><p>0 Neuravnoteženost broda |L-R| &gt; 5</p></body></Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </Hmi.TextGraphicList.TextListEntry>
+      <Hmi.TextGraphicList.TextListEntry ID="9" CompositionName="Entries">
+        <AttributeList>
+          <DefaultEntry>false</DefaultEntry>
+          <EntryType>SingleValue</EntryType>
+          <From>1</From>
+          <To>1</To>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="A" CompositionName="Text">
+            <ObjectList>
+              <MultilingualTextItem ID="B" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text><body><p>1 Lokacija podizanja prazna</p></body></Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </Hmi.TextGraphicList.TextListEntry>
+      <Hmi.TextGraphicList.TextListEntry ID="C" CompositionName="Entries">
+        <AttributeList>
+          <DefaultEntry>false</DefaultEntry>
+          <EntryType>SingleValue</EntryType>
+          <From>2</From>
+          <To>2</To>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="D" CompositionName="Text">
+            <ObjectList>
+              <MultilingualTextItem ID="E" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text><body><p>2 Lokacija spuštanja zauzeta</p></body></Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </Hmi.TextGraphicList.TextListEntry>
+      <Hmi.TextGraphicList.TextListEntry ID="F" CompositionName="Entries">
+        <AttributeList>
+          <DefaultEntry>false</DefaultEntry>
+          <EntryType>SingleValue</EntryType>
+          <From>3</From>
+          <To>3</To>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="10" CompositionName="Text">
+            <ObjectList>
+              <MultilingualTextItem ID="11" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text><body><p>3 ID u listi za istovar, nije u Bay 0</p></body></Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </Hmi.TextGraphicList.TextListEntry>
+      <Hmi.TextGraphicList.TextListEntry ID="12" CompositionName="Entries">
+        <AttributeList>
+          <DefaultEntry>false</DefaultEntry>
+          <EntryType>SingleValue</EntryType>
+          <From>4</From>
+          <To>4</To>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="13" CompositionName="Text">
+            <ObjectList>
+              <MultilingualTextItem ID="14" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text><body><p>4 ID u listi za ukrcaj, nije u Bay 1</p></body></Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </Hmi.TextGraphicList.TextListEntry>
+      <Hmi.TextGraphicList.TextListEntry ID="15" CompositionName="Entries">
+        <AttributeList>
+          <DefaultEntry>false</DefaultEntry>
+          <EntryType>SingleValue</EntryType>
+          <From>5</From>
+          <To>5</To>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="16" CompositionName="Text">
+            <ObjectList>
+              <MultilingualTextItem ID="17" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text><body><p>5 Neispravan ID (100-999)</p></body></Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </Hmi.TextGraphicList.TextListEntry>
+      <Hmi.TextGraphicList.TextListEntry ID="18" CompositionName="Entries">
+        <AttributeList>
+          <DefaultEntry>false</DefaultEntry>
+          <EntryType>SingleValue</EntryType>
+          <From>6</From>
+          <To>6</To>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="19" CompositionName="Text">
+            <ObjectList>
+              <MultilingualTextItem ID="1A" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text><body><p>6 Dvostruki ID</p></body></Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </Hmi.TextGraphicList.TextListEntry>
+      <Hmi.TextGraphicList.TextListEntry ID="1B" CompositionName="Entries">
+        <AttributeList>
+          <DefaultEntry>false</DefaultEntry>
+          <EntryType>SingleValue</EntryType>
+          <From>7</From>
+          <To>7</To>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="1C" CompositionName="Text">
+            <ObjectList>
+              <MultilingualTextItem ID="1D" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text><body><p>7 Nema slobodnog mjesta</p></body></Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </Hmi.TextGraphicList.TextListEntry>
+      <Hmi.TextGraphicList.TextListEntry ID="1E" CompositionName="Entries">
+        <AttributeList>
+          <DefaultEntry>false</DefaultEntry>
+          <EntryType>SingleValue</EntryType>
+          <From>8</From>
+          <To>8</To>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="1F" CompositionName="Text">
+            <ObjectList>
+              <MultilingualTextItem ID="20" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text><body><p>8 Plan nije izvediv</p></body></Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </Hmi.TextGraphicList.TextListEntry>
+      <Hmi.TextGraphicList.TextListEntry ID="21" CompositionName="Entries">
+        <AttributeList>
+          <DefaultEntry>false</DefaultEntry>
+          <EntryType>SingleValue</EntryType>
+          <From>9</From>
+          <To>9</To>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="22" CompositionName="Text">
+            <ObjectList>
+              <MultilingualTextItem ID="23" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text><body><p>9 Neispravna ručna naredba</p></body></Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </Hmi.TextGraphicList.TextListEntry>
+      <Hmi.TextGraphicList.TextListEntry ID="24" CompositionName="Entries">
+        <AttributeList>
+          <DefaultEntry>false</DefaultEntry>
+          <EntryType>SingleValue</EntryType>
+          <From>10</From>
+          <To>10</To>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="25" CompositionName="Text">
+            <ObjectList>
+              <MultilingualTextItem ID="26" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text><body><p>10 Dizalica: timeout naredbe</p></body></Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </Hmi.TextGraphicList.TextListEntry>
+      <Hmi.TextGraphicList.TextListEntry ID="27" CompositionName="Entries">
+        <AttributeList>
+          <DefaultEntry>false</DefaultEntry>
+          <EntryType>SingleValue</EntryType>
+          <From>11</From>
+          <To>11</To>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="28" CompositionName="Text">
+            <ObjectList>
+              <MultilingualTextItem ID="29" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text><body><p>11 Dizalica već nosi kontejner</p></body></Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </Hmi.TextGraphicList.TextListEntry>
+      <Hmi.TextGraphicList.TextListEntry ID="2A" CompositionName="Entries">
+        <AttributeList>
+          <DefaultEntry>false</DefaultEntry>
+          <EntryType>SingleValue</EntryType>
+          <From>12</From>
+          <To>12</To>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="2B" CompositionName="Text">
+            <ObjectList>
+              <MultilingualTextItem ID="2C" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text><body><p>12 Dizalica ne nosi kontejner</p></body></Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </Hmi.TextGraphicList.TextListEntry>
+      <Hmi.TextGraphicList.TextListEntry ID="2D" CompositionName="Entries">
+        <AttributeList>
+          <DefaultEntry>false</DefaultEntry>
+          <EntryType>SingleValue</EntryType>
+          <From>13</From>
+          <To>13</To>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="2E" CompositionName="Text">
+            <ObjectList>
+              <MultilingualTextItem ID="2F" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text><body><p>13 Nije inicijalizirano</p></body></Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </Hmi.TextGraphicList.TextListEntry>
+      <Hmi.TextGraphicList.TextListEntry ID="30" CompositionName="Entries">
+        <AttributeList>
+          <DefaultEntry>false</DefaultEntry>
+          <EntryType>SingleValue</EntryType>
+          <From>14</From>
+          <To>14</To>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="31" CompositionName="Text">
+            <ObjectList>
+              <MultilingualTextItem ID="32" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text><body><p>14 Položaj dizalice ne odgovara</p></body></Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </Hmi.TextGraphicList.TextListEntry>
+      <Hmi.TextGraphicList.TextListEntry ID="33" CompositionName="Entries">
+        <AttributeList>
+          <DefaultEntry>false</DefaultEntry>
+          <EntryType>SingleValue</EntryType>
+          <From>15</From>
+          <To>15</To>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="34" CompositionName="Text">
+            <ObjectList>
+              <MultilingualTextItem ID="35" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text><body><p>15 Istovar i ukrcaj završeni</p></body></Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </Hmi.TextGraphicList.TextListEntry>
+    </ObjectList>
+  </Hmi.TextGraphicList.TextList>
+</Document>

@@ -93,6 +93,8 @@ end:
 - **U12. HMI.** The HMI is `PC-System_1` / `HMI_RT_1` (WinCC RT Advanced). It has **no connections** (we must create the HMI connection to PLC_1), one screen `Screen_1` (template content only), and one HMI tag `"time"` in its "Default tag table".
 
 ## CfgMMode decision (CONTRACT §4.1)
+
+> **v1.7 (7 Nov, team decision, binding): CfgMMode default = 0, the spec rule.** The team decided the M question in favour of the spec text p. 10: a diagonal move (x and y change) counts 2, a bay change counts as an x change (global column), a lift and a put count 1 each. The planner optimises that rule, and the HMI shows it as the primary M/J (`HMI_IF.M/J` = `World.MSpec`, counted in OB30). FB1 is given and is **not** changed, so MD107 keeps counting +1 per command; it is shown as the secondary `HMI_IF.MFb1/JFb1`. The two counts differ by design (MSpec ≥ MD107 for every plan, since no zero-distance move is ever issued). Mode 2 stays selectable. The text below is the v1.1 reasoning, kept for history.
 **CfgMMode = 2 (per command)** is what FB1, and therefore MD107 (the M shown and presumably scored), actually computes.
 
 With mode 2:

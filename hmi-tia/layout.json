@@ -1,6 +1,6 @@
 {
   "_doc": "Crane HMI layout (WinCC RT Advanced, 1920x1080). Source of truth for gen_hmi.py. Edit here, then regenerate; never hand-edit generated screens. Coordinates are px. Tag refs are HMI_IF member names; array elements as Member[i] (mapped to HMI tag names by tag_mode).",
-  "canvas": {"w": 1920, "h": 1080, "scale": 1.0},
+  "canvas": {"w": 1920, "h": 1080, "scale": 0.5333, "device_w": 1024, "device_h": 768, "_doc": "HMI_RT_1 (PC station) resolution is 1024x768 and is not settable via Openness; the 1920x1080 layout is scaled by 0.5333. Main view = screen Screen_1 (the device start screen)."},
   "tag_mode": "element",
   "elem_name_fmt": "{m}_{i:02d}",
   "array_ref_fmt": "{m}[{i}]",
@@ -10,7 +10,7 @@
   "proto_nav_target": "Screen_1",
   "header_in": "auto",
   "template_name": "Tpl",
-  "font": {"size": 14, "header_size": 15, "title_size": 22},
+  "font": {"min_size": 8, "size": 14, "header_size": 15, "title_size": 22},
 
   "palette": {
     "_doc": "ISA-101 style: grey background, colour only for state/alarm. RGB strings exactly as TIA exports them.",
@@ -96,7 +96,7 @@
     {"k": "sym", "x": 1520, "y": 92, "w": 386, "h": 34, "tag": "AlarmHist[0]", "tl": "TL_Alarm"},
 
     {"k": "frame", "x": 0, "y": 1024, "w": 1920, "h": 56, "bg": "panel_bg", "border": 0},
-    {"k": "nav", "x": 16, "y": 1030, "w": 200, "h": 44, "t": "GLAVNI PRIKAZ", "screen": "Main"},
+    {"k": "nav", "x": 16, "y": 1030, "w": 200, "h": 44, "t": "GLAVNI PRIKAZ", "screen": "Screen_1"},
     {"k": "nav", "x": 226, "y": 1030, "w": 200, "h": 44, "t": "RUČNO UPRAVLJANJE", "screen": "Manual"},
     {"k": "nav", "x": 436, "y": 1030, "w": 200, "h": 44, "t": "LISTE I POSTAVKE", "screen": "Lists"},
     {"k": "nav", "x": 646, "y": 1030, "w": 200, "h": 44, "t": "ALARMI", "screen": "Alarms"},
@@ -118,7 +118,7 @@
   },
 
   "screens": {
-    "Main": {"number": 10, "body": ["grid", "panel_main", "legend"]},
+    "Screen_1": {"number": 10, "body": ["grid", "panel_main", "legend"]},
     "Manual": {"number": 11, "body": ["grid", "panel_manual", "legend"]},
     "Lists": {"number": 12, "body": ["lists"]},
     "AlarmLog": {"number": 13, "body": ["alarmlog"]},
@@ -132,14 +132,14 @@
       {"k": "text", "x": 330, "y": 196, "w": 170, "h": 30, "t": "M", "bold": true},
       {"k": "text", "x": 510, "y": 196, "w": 170, "h": 30, "t": "T [s]", "bold": true},
       {"k": "text", "x": 690, "y": 196, "w": 170, "h": 30, "t": "J", "bold": true},
-      {"k": "text", "x": 28, "y": 234, "w": 300, "h": 34, "t": "Stvarno (FB1, MD107/MD112)"},
+      {"k": "text", "x": 28, "y": 234, "w": 300, "h": 34, "t": "M (pravilo zadatka), stvarno"},
       {"k": "io", "x": 330, "y": 234, "w": 150, "h": 34, "tag": "M", "fmt": "99999"},
       {"k": "io", "x": 510, "y": 234, "w": 150, "h": 34, "tag": "T", "fmt": "99999.9"},
       {"k": "io", "x": 690, "y": 234, "w": 150, "h": 34, "tag": "J", "fmt": "9.9999"},
-      {"k": "text", "x": 28, "y": 276, "w": 300, "h": 34, "t": "Po pravilu specifikacije (x+y = 2 M)"},
-      {"k": "io", "x": 330, "y": 276, "w": 150, "h": 34, "tag": "MSpec", "fmt": "99999"},
-      {"k": "io", "x": 690, "y": 276, "w": 150, "h": 34, "tag": "JSpec", "fmt": "9.9999"},
-      {"k": "text", "x": 28, "y": 318, "w": 300, "h": 34, "t": "Plan (predviđeno na kraju)"},
+      {"k": "text", "x": 28, "y": 276, "w": 300, "h": 34, "t": "M (FB1 brojač, MD107)"},
+      {"k": "io", "x": 330, "y": 276, "w": 150, "h": 34, "tag": "MFb1", "fmt": "99999"},
+      {"k": "io", "x": 690, "y": 276, "w": 150, "h": 34, "tag": "JFb1", "fmt": "9.9999"},
+      {"k": "text", "x": 28, "y": 318, "w": 300, "h": 34, "t": "Plan (predviđeno, pravilo zadatka)"},
       {"k": "io", "x": 330, "y": 318, "w": 150, "h": 34, "tag": "PredM", "fmt": "99999"},
       {"k": "io", "x": 510, "y": 318, "w": 150, "h": 34, "tag": "PredT", "fmt": "99999.9"},
       {"k": "io", "x": 690, "y": 318, "w": 150, "h": 34, "tag": "PredJ", "fmt": "9.9999"},

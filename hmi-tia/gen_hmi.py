@@ -130,6 +130,13 @@ def set_tag_links(el, tag):
         if t.get("TargetID") == "@OpenLink" and t.find("Name") is not None:
             t.find("Name").text = tag
             n += 1
+    # system-function parameters (SetBit/InvertBit ...): <FunctionListEntryParameter Name=Tag><LinkList><Value>
+    for prm in el.iter("Hmi.Event.FunctionListEntryParameter"):
+        if get_attr(prm, "Name") == "Tag":
+            for v in prm.iter("Value"):
+                if v.get("TargetID") == "@OpenLink" and v.find("Name") is not None:
+                    v.find("Name").text = tag
+                    n += 1
     return n
 
 def set_textlist_link(el, tl):
@@ -436,7 +443,7 @@ class Builder:
         return el, patched
 
     def _fs(self, size):
-        return max(8, int(round(size * self.cfg.scale)))
+        return max(int(self.cfg.L["font"].get("min_size", 8)), int(round(size * self.cfg.scale)))
 
     _t = 0
     def _tab(self):
@@ -469,24 +476,23 @@ class Builder:
 
 
 def patch_motion(el, motion, s):
-    """Best effort: set start/end coordinates of a movement animation (attribute names are taken from whatever
-    the prototype export contains). Returns list of patched attribute names."""
+    """Set the movement animation of a crane marker. Real V21 schema (hmi-tia/lab/r2_exp): the start position is the
+    object's own Left/Top; Hmi.Dynamic.HorizontalMovementAnimation has RangeStart/RangeEnd/XPosEnd/XDelta/YDelta,
+    VerticalMovementAnimation RangeStart/RangeEnd/YPosEnd/YDelta/XDelta. Returns the list of patched attributes."""
     out = []
     for e in el.iter():
-        if e is el:
+        if not e.tag.endswith("MovementAnimation"):
             continue
-        al = e.find("AttributeList")
-        if al is None or e.tag.startswith("Hmi.Globalization"):
-            continue
-        if "Movement" not in e.tag and "Motion" not in e.tag and "Animation" not in e.tag:
-            continue
-        for c in al:
-            n = c.tag.lower()
-            for key, val in motion.items():   # key like start_x, end_y
-                a, ax = key.split("_")
-                if (a in n or (a == "start" and "begin" in n)) and (n.endswith(ax) or n.endswith("left" if ax == "x" else "top")):
-                    c.text = str(int(round(val * s)))
-                    out.append(c.tag)
+        sx, ex = int(round(motion["start_x"] * s)), int(round(motion["end_x"] * s))
+        sy, ey = int(round(motion["start_y"] * s)), int(round(motion["end_y"] * s))
+        vals = {"RangeStart": motion.get("range", (0, 9))[0], "RangeEnd": motion.get("range", (0, 9))[1]}
+        if e.tag.endswith("HorizontalMovementAnimation"):
+            vals.update({"XPosEnd": ex, "XDelta": ex - sx, "YDelta": 0})
+        else:
+            vals.update({"YPosEnd": ey, "YDelta": ey - sy, "XDelta": 0})
+        for k, v in vals.items():
+            set_attr(e, k, v, must=True)
+            out.append("%s=%s" % (k, v))
     return out
 
 # ------------------------------------------------------------------ screen bodies
@@ -532,9 +538,9 @@ def body_grid(b, cfg, info):
     # crane markers (movement animations configured on the prototypes; positions computed here)
     mw = cw - 4
     xm, pX = b.crane("P_CraneX", gx(0) + 2, g["rail_y"] + 2, mw, g["rail_h"] - 4,
-                     {"start_x": gx(0) + 2, "end_x": gx(9) + 2, "start_y": g["rail_y"] + 2, "end_y": g["rail_y"] + 2})
+                     {"start_x": gx(0) + 2, "end_x": gx(9) + 2, "start_y": g["rail_y"] + 2, "end_y": g["rail_y"] + 2, "range": (0, 9)})
     ym, pY = b.crane("P_CraneY", ry + 10, y0 + (ch - 36) / 2.0, g["crane_y_rail_w"] - 20, 36,
-                     {"start_x": ry + 10, "end_x": ry + 10, "start_y": y0 + (ch - 36) / 2.0, "end_y": y0 + 11 * py + (ch - 36) / 2.0})
+                     {"start_x": ry + 10, "end_x": ry + 10, "start_y": y0 + (ch - 36) / 2.0, "end_y": y0 + 11 * py + (ch - 36) / 2.0, "range": (0, 11)})
     info["crane_motion"] = {
         "P_CraneX (horizontal movement, tag CraneGX, range 0..9)": {"start_left": gx(0) + 2, "end_left": gx(9) + 2, "top": g["rail_y"] + 2, "patched": pX},
         "P_CraneY (vertical movement, tag CraneY, range 0..11)": {"left": ry + 10, "start_top": y0 + (ch - 36) / 2.0, "end_top": y0 + 11 * py + (ch - 36) / 2.0, "patched": pY}}
@@ -689,8 +695,9 @@ def gen_screens(cfg, args):
         root = screen_root(st, "Screen")
         set_attr(root, "Name", name, must=True)
         set_attr(root, "Number", sc["number"], must=True)
-        set_attr(root, "Width", int(W * cfg.scale), must=True)
-        set_attr(root, "Height", int(H * cfg.scale), must=True)
+        # WinCC requires the screen size to equal the device resolution (else the import aborts TIA)
+        set_attr(root, "Width", int(cfg.L["canvas"].get("device_w", W * cfg.scale)), must=True)
+        set_attr(root, "Height", int(cfg.L["canvas"].get("device_h", H * cfg.scale)), must=True)
         set_attr(root, "BackColor", cfg.pal["screen_bg"])
         fill(root, b.items)
         save(st, os.path.join(args.out, "screens", name + ".xml"))
@@ -734,7 +741,7 @@ def check(cfg, args):
                 for e in tr.getroot().iter():
                     if e.get("CompositionName") == "ScreenItems":
                         l, t_, w, h = (int(get_attr(e, a)) for a in ("Left", "Top", "Width", "Height"))
-                        if l < 0 or t_ < 0 or l + w > cfg.L["canvas"]["w"] * cfg.scale or t_ + h > cfg.L["canvas"]["h"] * cfg.scale:
+                        if l < 0 or t_ < 0 or l + w > cfg.L["canvas"].get("device_w", cfg.L["canvas"]["w"] * cfg.scale) or t_ + h > cfg.L["canvas"].get("device_h", cfg.L["canvas"]["h"] * cfg.scale):
                             log("CHECK %s/%s: %s outside canvas" % (sub, f, get_attr(e, "ObjectName"))); bad += 1
     log("CHECK_RESULT problems=%d tags=%d" % (bad, len(tagnames)))
     return bad

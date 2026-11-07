@@ -46,7 +46,7 @@ import crane_plan as cp    # noqa: E402
 import crane_gen as cg     # noqa: E402
 import fb10_init_model as fim  # noqa: E402
 
-AL = [0, 100, 200, 300]
+AL = [0, 75, 125, 200]   # v1.7 World.CfgAlpha
 EVALS = 600
 
 
@@ -147,7 +147,7 @@ def run_set(ds):
     uL = sum(1 for s in PU if s.pos[0] <= 1)
     end_reach = cm.reachable(L, R, uL, len(PU) - uL, len(PL))
     all_fail = True
-    for mm in (2, 0):
+    for mm in (0, 2):
         for order in (1, 0, 2):
             for bm in (0, 1):
                 cfg = {"mmode": mm, "order": order, "balmode": bm, "lim": 5}

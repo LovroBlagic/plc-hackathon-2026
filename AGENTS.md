@@ -2,6 +2,16 @@
 
 Shared memory for AI-agent sessions (Claude Code and others). **Read this first, and update the Session log at the end of every session.**
 
+## Shortcuts (TIA crane): one command per loop
+Run `powershell -ExecutionPolicy Bypass -File tools\shortcuts\<script>.ps1`. Each script has `-DryRun`, prints one `*_RESULT` line, and logs to `tools\shortcuts\logs\`. Recipes and gotchas are in `.claude\skills\tia-portal\SKILL.md`.
+- `crane_check.ps1 [-Quick]`: offline checks, no TIA (mirrors 12/13, stress, FB10 model, eval, mmode match).
+- `tia_build.ps1 [-Project P] [-Archive x.zap21]`: import tia-src and compile the PLC.
+- `plcsim_regress.ps1 [-Project tia-work\simtest] [-Sets std|a,b]`: memory-card download, then 8 sets plus scenarios on PLCSIM.
+- `hmi_build.ps1` / `deliver.ps1`: **provisional** HMI regen, and final packaging to `deliver\TIA_crane_final.zap21`.
+- `rebuild_tools.ps1`: rebuilds TiaRun, HmiGen and the plcsim exes, but only while none of them is running.
+- These scripts take `tia-work\openness.lock` themselves. They refuse if anyone else holds it (never a takeover) and refuse while another TIA or Openness process runs (one TIA at a time, for RAM).
+- **Lock rule (since the 7 Nov incident):** a lock counts as stale only when it is ≥ 45 min old **and** no TIA process is running. Every holder must rewrite the lock as a heartbeat every 150 s.
+
 ## Event
 - EESTEC LC Zagreb PLC hackathon, 5th edition (https://plc.eestec.hr/). Contact: plc@eestec.hr
 - Hackathon: **Fri 6 Nov 2026 20:00 → Sat 7 Nov 20:00**, at Bird Incubator. Sun 8 Nov 09–12: prepare the presentation. **Mon 9 Nov: finale** at FER Siva vijećnica.

@@ -19,7 +19,8 @@ import crane_model as cm  # noqa: E402
 import crane_plan as cp   # noqa: E402
 
 CELLS = [(x, y) for x in range(4) for y in range(12)]
-PLC_ALPHAS = [0, 100, 200, 300]   # World.CfgAlpha start values (v1.3)
+PLC_ALPHAS = [0, 75, 125, 200]    # World.CfgAlpha start values (v1.7, tuned for CfgMMode 0)
+PLC_MMODE = 0                     # v1.7: World.CfgMMode start value (spec M rule, diagonal = 2)
 PLC_IMP_EVALS = 3000              # World.CfgImproveEvals start value (v1.3)
 
 
@@ -210,7 +211,7 @@ def stress_one(rng, f, nm):
 
 def write_plan_csv(path_json, path_csv):
     ds = cm.load_dataset(path_json)
-    cfg = {"mmode": 2, "order": 1, "balmode": 0, "lim": 5}   # PLC default (order 1 + fallback)
+    cfg = {"mmode": PLC_MMODE, "order": 1, "balmode": 0, "lim": 5}   # PLC default (order 1 + fallback)
     st = cp.build_state(ds)
     if st["init"]["blocking"]:
         lines = ["i,kind,id,list_idx,src_bay,src_x,src_y,dst_bay,dst_x,dst_y,cum_t_ds,cum_m",
@@ -274,8 +275,10 @@ def write_golden(data_dir, out_path):
     given = os.path.join(root, "tia-src", "given_data.json")
     paths = [given] if os.path.exists(given) else []
     paths += [os.path.join(data_dir, n + ".json") for n in ("sample_archive_b1", "rand_05", "rand_08")]
-    cfg = {"mmode": 2, "order": 1, "balmode": 0, "lim": 5}
-    gold = {"config": {"CfgMMode": 2, "CfgOrderMode": 1, "CfgBalMode": 0, "CfgBalLimit": 5,
+    cfg = {"mmode": PLC_MMODE, "order": 1, "balmode": 0, "lim": 5}
+    gold = {"config": {"CfgMMode": PLC_MMODE,
+                       "M_rule": "v1.7: M / cum m = spec rule (CfgMMode 0, diagonal = 2) = World.MSpec / HMI_IF.M; "
+                                 "M_FB1 / m_fb1 = FB1 counter MD107 (+1 per command) = HMI_IF.MFb1", "CfgOrderMode": 1, "CfgBalMode": 0, "CfgBalLimit": 5,
                        "CfgAlpha": PLC_ALPHAS, "CfgImproveEvals": PLC_IMP_EVALS, "CfgImproveDist": 0,
                        "CfgSlotSweeps": cp.SLOT_SWEEPS, "planner": "v1.4 (exact order DP, SLOT phase)",
                        "start": "after reset: crane (0,0,1), T=0, M=0",
@@ -295,6 +298,9 @@ def write_golden(data_dir, out_path):
                           "imp_accepts": res.get("imp_accepts", 0), "slot_accepts": res.get("slot_accepts", 0),
                           "LbT_ds": lbT, "LbM": lbM, "LbJ": round(lbJ, 6),
                           "commands": cp.simulate(st, res["plan"], res["cfg"])})
+            for i, c in enumerate(entry["commands"], start=1):
+                c["m_fb1"] = i                    # FB1 MD107: +1 per command (no zero-distance moves)
+            entry["M_FB1"] = len(entry["commands"])
         gold["sets"].append(entry)
     with open(out_path, "w", encoding="utf-8", newline="\n") as f:
         json.dump(gold, f, indent=1)

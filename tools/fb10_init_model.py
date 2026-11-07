@@ -274,7 +274,7 @@ def scenario(A, B, stop_state, change, ntr=3):
     DB20, DB21 = _lists(A)
     fb.State = 1
     fb.init_step3(DB10, DB11, DB20, DB21)
-    plan = cp.plan_fb(cp.build_state(A), {"mmode": 2, "order": 1, "balmode": 0, "lim": 5}, [0, 100, 200, 300])["plan"]
+    plan = cp.plan_fb(cp.build_state(A), {"mmode": 0, "order": 1, "balmode": 0, "lim": 5}, [0, 75, 125, 200])["plan"]
     fb.State = 3
     _run(fb, plan, DB10, DB11, ntr)
     fb.State = stop_state
@@ -324,7 +324,7 @@ def scenario_load_on_hook(A):
     DB20, DB21 = _lists(A)
     fb.State = 1
     fb.init_step3(DB10, DB11, DB20, DB21)
-    plan = cp.plan_fb(cp.build_state(A), {"mmode": 2, "order": 1, "balmode": 0, "lim": 5}, [0, 100, 200, 300])["plan"]
+    plan = cp.plan_fb(cp.build_state(A), {"mmode": 0, "order": 1, "balmode": 0, "lim": 5}, [0, 75, 125, 200])["plan"]
     fb.State = 3
     _run(fb, plan, DB10, DB11, 2)
     dx, dy, db = plan[2]["dst"]
@@ -411,7 +411,7 @@ def retarget_cases(ds, obst=998):
     if st0["init"]["blocking"]:
         return 0, [], 0
     d0 = st0["d0"]
-    res = cp.plan_fb(st0, {"mmode": 2, "order": 1, "balmode": 0, "lim": 5}, [0, 100, 200, 300])
+    res = cp.plan_fb(st0, {"mmode": 0, "order": 1, "balmode": 0, "lim": 5}, [0, 75, 125, 200])
     if res["err"] != 0 or res["order"] != 1:
         return 0, [], 0
     curceil = res["cfg"].get("ceil", 0)

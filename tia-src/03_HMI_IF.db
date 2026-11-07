@@ -38,11 +38,13 @@ NON_RETAIN
       CraneBusy : Bool;
       Planning : Bool;
       StepWaiting : Bool;                   // SEMI is waiting for a click
-      M : UDInt;                            // = "number_of_manipulations"
+      M : UDInt;                            // v1.7: M by the spec rule (x and y change = 2) = World.MSpec (primary)
       T : Real;                             // = "time" (MD112) working time [s]
-      J : Real;                             // 0.5*T/(76*N) + 0.5*M/(4*N)
-      MSpec : UDInt;                        // M by the spec rule (x and y change = 2), computed in OB30
-      JSpec : Real;                         // J with MSpec
+      J : Real;                             // v1.7: 0.5*T/(76*N) + 0.5*M/(4*N) with the spec M (primary)
+      MSpec : UDInt;                        // = M (spec rule, computed in OB30); kept for compatibility
+      JSpec : Real;                         // = J (spec rule); kept for compatibility
+      MFb1 : UDInt;                         // v1.7: FB1's own counter "number_of_manipulations" (MD107, +1 per command)
+      JFb1 : Real;                          // v1.7: J with MFb1 (secondary)
       OrderModeAct : USInt;                 // order mode actually used by the last plan (after fallback)
       OrderFallback : Bool;                 // v1.4: preferred order/balance mode infeasible, plan uses a weaker one
       SlotAccepts : DInt;                   // v1.4: SLOT phase accepted drop-cell changes (last plan)

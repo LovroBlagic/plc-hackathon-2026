@@ -27,7 +27,7 @@ These are the talking points for the finale (Mon 9 Nov).
 **"The PLC plans the whole job like an industrial quay-crane scheduler (double cycling), proves how far it is from the theoretical optimum, and never risks the ship's balance or the list order."**
 
 - **Why the order matters.** Every transfer that is not a double cycle (unload, then immediately load on the way back) costs about 36 s of empty travel.
-- **A realistic rival:** a free-order greedy double cycling team with no lookahead and no local search (`tools/judge_sets/r1_jury_rival.py`). Over 34 sets (30 random sets plus 4 built from the spec's Figure 1) it averages **J = 1.0739**. Our free order averages **1.0511** (never worse than the rival), and our list-order default **1.0603** (v1.5/v1.6), which beats the rival on 31 of 34 sets even though it keeps the list order. One of the 3 exceptions is the Figure-1 demo set (default 1.0053, rival 0.9897, our free order 0.9810): keeping the list order costs time there; see §6.
+- **A realistic rival:** a free-order greedy double cycling team with no lookahead and no local search (`tools/judge_sets/r1_jury_rival.py`). Over 34 sets (30 random sets plus 4 built from the spec's Figure 1) it averages **J = 1.0739** (these rival numbers use FB1 counting, mode 2). Our free order averages **1.0511** (never worse than the rival), and our list-order default **1.0603** (v1.5/v1.6), which beats the rival on 31 of 34 sets even though it keeps the list order. One of the 3 exceptions is the Figure-1 demo set (default 1.0053, rival 0.9897, our free order 0.9810): keeping the list order costs time there; see §6.
 - **The planner runs inside the PLC** (FB11, SCL) and has five stages:
   1. **Exact list-order feasibility.** A dynamic-programming table proves whether the lists can be executed in their given order without breaking the balance rule.
   2. **Multi-start greedy**, with 4 look-ahead weights.
@@ -58,7 +58,15 @@ Values are mean / worst J.
   - **v1.5 fix (pattern move):** on those 11 worst sets, the gap went from +1.29 % to **+0.35 %** on average, and from at most +1.79 % to at most **+0.73 %**. Mean J over all 334 feasible sets in order 1: 1.0589 → 1.0577.
   - **Round 3, fresh sets (64 new adversarial sets, judge annealer with exact cell assignment):** on large (N 45–83) and near-full sets the default is on average **about +0.5 %** above the best plan the judge found (max +1.06 % on 1 of 64 sets, the only one above 1 %); scatter +0.23 %, unbalanced start +0.13 %, corner and very unequal lists ≈ 0. More IMPROVE budget does not close it (30 000 evaluations was worse on one set), so we did not raise it.
   - **Do not claim "proven optimal"** for larger sets.
-- **If the jury scores M by the spec rule** (a diagonal move counts 2), set CfgMMode 0. The same pipeline then optimises for that rule.
+- **v1.7: we score M by the spec rule** (a diagonal move counts 2; team decision). `World.CfgMMode` = 0 is the default, and the whole pipeline optimises for that rule. The ladder above is the FB1-counting history (mode 2, still selectable).
+
+### 2b. Spec M rule (v1.7 default), order 1
+| Set group | v1.6 planner run with the spec rule | **v1.7** (α retuned) | Lower bound | Judge best plan |
+|---|---|---|---|---|
+| 30 random | 1.1642 / 1.3146 | **1.1639 / 1.3146** | 1.0293 | 1.1563 (we are +0.65 % mean) |
+| 401 feasible sets | 1.1680 | **1.1679** | 1.0167 | — |
+
+- J is higher than under FB1 counting simply because every y change now costs an extra manipulation (19 s). The bound ignores y, so its 13 % "gap" is mostly bound weakness; the judge's annealer puts the real gap at about +0.65 %, of which +0.36 % is drop-cell choice (exact assignment not ported to SCL).
 
 ## 3. Robustness evidence (elimination criteria)
 - **Balance.** `tools/crane_stress.py` runs:
@@ -82,7 +90,7 @@ Values are mean / worst J.
 
 ## 4. Industrial HMI extras
 The **REZULTAT / OPTIMIZACIJA** screen shows:
-- actual M/T/J from FB1 (MD107/MD112), plus M and J under the spec rule
+- actual M/T/J under the spec rule (primary, v1.7), plus FB1's own counter MD107 and its J (secondary; they differ by design because FB1 counts +1 per command)
 - predicted M/T/J, greedy J vs improved J, and the lower bound with the gap %
 - planner progress, the order mode actually used, and the fallback warning
 
@@ -113,6 +121,6 @@ The **AlarmLog** screen shows:
 - *"How do you know the plan is good?"* Point at the lower bound and the gap on the HMI, and at the independent judge comparison.
 
 ## Open items to settle with the organizers
-1. **M rule.** Is M scored by MD107 (FB1: +1 per command) or by the spec text (a diagonal move = 2)? Both are shown. `World.CfgMMode` switches the planner.
+1. **M rule (decided by the team, v1.7).** We follow the spec text: a diagonal move = 2. The given FB1 counts +1 per command (MD107); both are shown, the spec value as the primary M. If the organizers say MD107 is scored, set `World.CfgMMode` = 2 (and CfgAlpha [0, 100, 200, 300]).
 2. **List order.** Must the lists be processed in list order? Spec §2 lists "Odlučivanje o redoslijedu kontejnera za manipulaciju" (deciding the container order) as an FB10 task, which suggests the order is free. Free order is worth about −0.8 % J (1.0626 → 1.0538). Switch with `HMI_IF.CfgOrderMode = 0`.
 3. **Grading view.** Does the jury read DB10/DB11 or the HMI? Both are live now.

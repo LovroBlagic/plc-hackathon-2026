@@ -1,6 +1,6 @@
 """crane_bench.py - per-set J benchmark over ALL datasets (crane_data, crane_data_stress, judge_sets).
 
-  python tools/crane_bench.py --out <file.json> [--evals 3000] [--mmode 2] [--orders 1,0]
+  python tools/crane_bench.py --out <file.json> [--evals 3000] [--mmode 0] [--orders 1,0]
   python tools/crane_bench.py --compare old.json new.json
 
 For every dataset and preferred order mode: plan_fb (FB10 behaviour, fallback) + IMPROVE, plan executed
@@ -19,7 +19,7 @@ sys.path.insert(0, HERE)
 import crane_model as cm  # noqa: E402
 import crane_plan as cp   # noqa: E402
 
-ALPHAS = [0, 100, 200, 300]
+ALPHAS = [0, 75, 125, 200]   # v1.7 World.CfgAlpha
 
 
 def all_sets():
@@ -30,7 +30,7 @@ def all_sets():
 
 
 def one(args):
-    path, order, mmode, evals, legacy = args
+    path, order, mmode, evals, legacy, alphas = args
     name = os.path.relpath(path, HERE).replace("\\", "/")
     try:
         ds = cm.load_dataset(path)
@@ -43,7 +43,7 @@ def one(args):
     if st["init"]["blocking"]:
         return key, {"err": "cap"}
     cfg = {"mmode": mmode, "order": order, "balmode": 0, "lim": 5, "exact": not legacy}
-    r = cp.plan_fb(st, cfg, ALPHAS, imp_evals=evals, slot_sweeps=0 if legacy else None)
+    r = cp.plan_fb(st, cfg, alphas, imp_evals=evals, slot_sweeps=0 if legacy else None)
     if r["err"] != 0:
         return key, {"err": r["err"]}
     cp.simulate(st, r["plan"], r["cfg"])
@@ -84,16 +84,18 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--out")
     ap.add_argument("--evals", type=int, default=3000)
-    ap.add_argument("--mmode", type=int, default=2)
+    ap.add_argument("--mmode", type=int, default=0)
     ap.add_argument("--orders", default="1,0")
     ap.add_argument("--compare", nargs=2)
     ap.add_argument("--only", default="")
+    ap.add_argument("--alphas", default=",".join(str(v) for v in ALPHAS), help="CfgAlpha (default = World start values)")
     ap.add_argument("--legacy", action="store_true", help="v1.3 planner: reachable(), no SLOT phase")
     a = ap.parse_args()
     if a.compare:
         compare(*a.compare)
         return
-    jobs = [(f, int(o), a.mmode, a.evals, a.legacy) for f in all_sets() if a.only in f for o in a.orders.split(",")]
+    al = [int(v) for v in a.alphas.split(",")]
+    jobs = [(f, int(o), a.mmode, a.evals, a.legacy, al) for f in all_sets() if a.only in f for o in a.orders.split(",")]
     with Pool() as p:
         res = dict(r for r in p.map(one, jobs, chunksize=1) if r)
     json.dump(res, open(a.out, "w"), indent=0, sort_keys=True)

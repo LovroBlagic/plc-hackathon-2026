@@ -59,17 +59,43 @@ internal static class Gen
         return sb.ToString();
     }
 
-    // ---------------- lock (CONTRACT §5), same protocol as TiaRun ----------------
+    // ---------------- lock (CONTRACT §5) ----------------
+    // 7 Nov incident: a 10-min "stale" rule let one tool take another tool's ACTIVE lock -> two TIA instances.
+    // Rule now: stale only after 45 min AND only when no TIA / Openness client process (other than us) runs;
+    // the holder rewrites the lock every 150 s (heartbeat) so an active lock never looks stale.
     static string heldLock;
+    static string heldText;
+    static System.Threading.Timer heartbeat;
+    const double StaleMin = 45;
     public static void ReleaseLock()
     {
-        if (heldLock != null) { try { File.Delete(heldLock); Console.WriteLine("LOCK released"); } catch { } heldLock = null; }
+        if (heartbeat != null) { try { heartbeat.Dispose(); } catch { } heartbeat = null; }
+        if (heldLock != null) {
+            try {
+                string cur = File.Exists(heldLock) ? File.ReadAllText(heldLock).Trim() : "";
+                if (cur == heldText) { File.Delete(heldLock); Console.WriteLine("LOCK released"); }
+                else Console.WriteLine("LOCK now held by '" + cur + "', not removed");
+            } catch { }
+            heldLock = null;
+        }
     }
     static string FindTiaWork(string proj)
     {
         var d = new DirectoryInfo(proj);
         while (d != null) { if (d.Name.Equals("tia-work", StringComparison.OrdinalIgnoreCase)) return d.FullName; d = d.Parent; }
         return Path.GetDirectoryName(proj);
+    }
+    static string OtherTiaProcesses()
+    {
+        int me = System.Diagnostics.Process.GetCurrentProcess().Id;
+        var names = new[] { "Siemens.Automation.Portal", "TiaRun", "HmiGen", "HmiLab", "TiaDownload" };
+        var found = new List<string>();
+        foreach (var n in names) foreach (var p in System.Diagnostics.Process.GetProcessesByName(n)) if (p.Id != me) found.Add(n + "#" + p.Id);
+        return string.Join(",", found.ToArray());
+    }
+    static void Beat(object o)
+    {
+        try { if (heldLock != null && File.Exists(heldLock) && File.ReadAllText(heldLock).Trim() == heldText) File.SetLastWriteTime(heldLock, DateTime.Now); } catch { }
     }
     static bool TakeLock(string proj, string worker, int waitS)
     {
@@ -79,13 +105,16 @@ internal static class Gen
             if (File.Exists(lf)) {
                 double age = (DateTime.Now - File.GetLastWriteTime(lf)).TotalMinutes;
                 string who = ""; try { who = File.ReadAllText(lf).Trim(); } catch { }
-                if (age >= 10) Console.WriteLine("LOCK stale (" + age.ToString("0.0") + " min, '" + who + "') -> taking over");
-                else if (DateTime.Now < until) { Console.WriteLine("LOCK held by '" + who + "' (" + age.ToString("0.0") + " min), waiting..."); System.Threading.Thread.Sleep(15000); continue; }
+                string busy = OtherTiaProcesses();
+                if (age >= StaleMin && busy.Length == 0) { Console.WriteLine("LOCK stale (" + age.ToString("0.0") + " min, '" + who + "', no TIA running) -> taking over"); }
+                else if (DateTime.Now < until) { Console.WriteLine("LOCK held by '" + who + "' (" + age.ToString("0.0") + " min" + (busy.Length > 0 ? ", running: " + busy : "") + "), waiting..."); System.Threading.Thread.Sleep(15000); continue; }
                 else { Console.WriteLine("FATAL: lock held by '" + who + "': " + lf); return false; }
             }
-            File.WriteAllText(lf, worker + " " + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"));
+            heldText = worker + " " + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
+            File.WriteAllText(lf, heldText);
             heldLock = lf;
-            Console.WriteLine("LOCK taken: " + lf);
+            heartbeat = new System.Threading.Timer(Beat, null, 150000, 150000);
+            Console.WriteLine("LOCK taken: " + lf + " (heartbeat 150 s)");
             return true;
         }
     }

@@ -1,8 +1,8 @@
 """crane_plan.py - EXACT greedy planner of CONTRACT v1.0 section 4 (reference for FB11 "Crane_Planner").
 
 Usage:
-  python tools/crane_plan.py <dataset.json> [--mmode 2] [--order 1] [--balmode 0]
-         [--alpha 0,100,200,300] [--improve 3000] [--dist 0] [--lb] [--lim 5] [--trace]
+  python tools/crane_plan.py <dataset.json> [--mmode 0] [--order 1] [--balmode 0]
+         [--alpha 0,75,125,200] [--improve 3000] [--dist 0] [--lb] [--lim 5] [--trace]
          [--algo v1|v2] [--cmds] [--nocheck]
 v1.3: plan = greedy multi-start (4.4/4.5) + IMPROVE phase (4.8, improve()); lower_bound() = 4.9.
 
@@ -997,11 +997,11 @@ def csv_lines(res):
 def parse_args(argv):
     ap = argparse.ArgumentParser()
     ap.add_argument("dataset")
-    ap.add_argument("--mmode", type=int, default=2)
+    ap.add_argument("--mmode", type=int, default=0, help="v1.7 default 0 = spec rule; 2 = FB1 per command")
     ap.add_argument("--order", type=int, default=1, help="preferred CfgOrderMode (PLC default 1)")
     ap.add_argument("--nofallback", action="store_true", help="no 2->1->0 fallback on ErrCode 1 (raw FB11)")
     ap.add_argument("--balmode", type=int, default=0)
-    ap.add_argument("--alpha", default="0,100,200,300", help="CfgAlpha (v1.3 default 0,100,200,300)")
+    ap.add_argument("--alpha", default="0,75,125,200", help="CfgAlpha (v1.7 default 0,75,125,200)")
     ap.add_argument("--improve", type=int, default=3000, help="IMPROVE evaluations (CfgImproveEvals, 0 = off)")
     ap.add_argument("--dist", type=int, default=0, help="CfgImproveDist (0 = unlimited)")
     ap.add_argument("--slot", type=int, default=SLOT_SWEEPS, help="SLOT phase sweeps (CfgSlotSweeps, 0 = off)")

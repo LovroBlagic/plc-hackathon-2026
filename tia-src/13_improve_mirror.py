@@ -603,11 +603,11 @@ if __name__ == "__main__":
     tot = fails = 0
     maxops = maxcalls = 0
     for f in files:
-        for mm, od, bm, dist in itertools.product((2, 0), (0, 1), (0, 1), (0, 6)):
-            if mm == 0 and (bm == 1 or dist == 6):
+        for mm, od, bm, dist in itertools.product((0, 2), (0, 1), (0, 1), (0, 6)):
+            if mm == 2 and (bm == 1 or dist == 6):   # v1.7: full coverage for the default mode 0
                 continue
             r = check(f, {"mmode": mm, "order": od, "balmode": bm, "lim": 5}, budget, dist, percall,
-                      [0, 100, 200, 300])
+                      [0, 75, 125, 200])
             if r is None:
                 continue
             tot += 1

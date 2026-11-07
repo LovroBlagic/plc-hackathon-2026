@@ -1,7 +1,14 @@
 # CONTRACT: TIA container crane (TASK 2)
 
 This file is the single source of truth for every crane worker. **Workers may only read it.** Only the orchestrator changes it. To request a change, add a dated note under "Contract change requests" in `TEAM_NOTES.md`.
-Version **1.6**, judge round 3 fixes, 7 Nov 2026 (v1.5 judge round 2, v1.4 judge round 1 ~06:00, v1.3 optimisation pass ~04:00, v1.2 orchestrator final pass, v1.1 7 Nov ~02:05, v1.0 6 Nov ~23:40).
+Version **1.7**, spec M rule as default, 7 Nov 2026 (v1.6 judge round 3, v1.5 judge round 2, v1.4 judge round 1 ~06:00, v1.3 optimisation pass ~04:00, v1.2 orchestrator final pass, v1.1 7 Nov ~02:05, v1.0 6 Nov ~23:40).
+
+**v1.7 changes (builder, spec M rule as default, see `tia-src/STATUS.md` "v1.7"):** World, HMI_IF, FB10 only; FB11, FC10, FC20, FC21, OB30 logic unchanged.
+- **Team decision: M is counted by the spec text p. 10** (diagonal = 2, bay change = x change). `World.CfgMMode` start value **0** (was 2); mode 2 (= FB1 MD107, +1 per command) stays selectable. FB1 is not changed; MD107 and `World.MSpec` differ by design.
+- **CfgAlpha start values [0, 75, 125, 200]** (retuned for mode 0).
+- **HMI_IF:** `M` / `J` = spec rule (primary, from `World.MSpec`); new `MFb1` / `JFb1` = FB1 counter MD107 and its J (secondary); `MSpec` / `JSpec` kept as copies of `M` / `J`.
+- **FB10:** `BaseM` at a plan request = `World.MSpec` if CfgMMode = 0, else MD107, so PredM/PredJ/LbJ follow the active M rule. `AlarmHistM` records MSpec.
+- Tools default to mmode 0 and the new alphas (`crane_plan`, `crane_eval`, `crane_bench`, `crane_gen`, `crane_stress`, mirrors, `fb10_init_model`); golden carries `M_FB1` / `m_fb1` (expected MD107).
 
 **v1.6 changes (builder, judge round 3, see `tia-src/JUDGING.md` "Round 3"):** FB10 and World only; FB11, FC10, OB30 unchanged.
 - **New data at POČETNO STANJE (§3.5), replaces the v1.5 rule:** region 2a marks every externally edited cell (`EditMark`, value before the edit `EditVal`). An edit while **no job is in progress** (`JobActive` = a Src 1..3 command completed since INIT; DONE also counts as "no job") counts in `NewCnt`; an edit during a job (obstacle) counts in `ObstCnt`. Writing a cell back to `EditVal` removes its mark. INIT step 3: new yard (InitBay := DB10/DB11) iff NOT HaveInit OR NewCnt > 0 OR (DB20/DB21 changed AND ObstCnt > 0) OR ObstCnt ≥ 8 OR DB10/DB11 ≠ Snap; otherwise DB10/DB11 := InitBay (the loaded data set, including a container that was on the hook). The lists are always read from DB20/DB21, so new lists alone keep the loaded yard. JobActive/EditMark/NewCnt/ObstCnt are cleared (R3-E1, R3-J1). `ExtEdit` is unused.
@@ -202,9 +209,9 @@ END_TYPE
 | CfgOrderMode | USInt | 0 | FB10 (copied from HMI_IF when not running) | §4.6 |
 | CfgBalLimit | Int | 5 | const | |
 | CfgBalMode | USInt | 0 | FB10 (from HMI_IF) | 0 x-halves only, 1 also y-halves |
-| CfgMMode | USInt | **2** | const (FB1 = +1 per move command) | §4.1 |
+| CfgMMode | USInt | **0** (v1.7; was 2) | const (0 = spec rule, diagonal = 2; 2 = FB1 +1 per move command, still selectable) | §4.1 |
 | CfgVariants | Int | 4 | const | 1..4 |
-| CfgAlpha | Array[1..4] of Int | [0, 100, 200, 300] (v1.3) | const | lookahead weight (%) per variant |
+| CfgAlpha | Array[1..4] of Int | [0, 75, 125, 200] (v1.7, tuned for CfgMMode 0; v1.3 mode 2: [0, 100, 200, 300]) | const | lookahead weight (%) per variant |
 | CfgStepsPerCall | Int | 1 | const | planner greedy steps per OB1 call |
 | CfgTimeoutTicks | Int | 10 | const | FB1 watchdog (OB30 ticks) |
 | OB30Ticks | UDInt | 0 | OB30 | |
@@ -240,9 +247,12 @@ END_TYPE
 | LampAuto, LampSemi, LampManual | Bool | |
 | LampRunning, LampAlarm, LampDone | Bool | |
 | Initialized, CraneBusy, Planning, StepWaiting | Bool | StepWaiting: SEMI is waiting for a click |
-| M | UDInt | = `"number_of_manipulations"` |
+| M | UDInt | **v1.7:** = `World.MSpec` (spec M rule, diagonal = 2; primary) |
 | T | Real | = MD112 working time [s] |
-| J | Real | 0.5·T/(76·N) + 0.5·M/(4·N); 0 if N = 0 |
+| J | Real | 0.5·T/(76·N) + 0.5·M/(4·N) with the spec M (v1.7); 0 if N = 0 |
+| MFb1 | UDInt | **v1.7:** = `"number_of_manipulations"` (FB1 MD107, +1 per command; secondary) |
+| JFb1 | Real | **v1.7:** J with MFb1 |
+| MSpec, JSpec | UDInt, Real | v1.2 members; since v1.7 copies of M / J |
 | N | Int | |
 | PredM | DInt | |
 | PredT | Real | PredT_ds / 10 |
@@ -483,7 +493,7 @@ Everything is **integer** (DInt), in deciseconds (ds). No floats in decisions.
   - 2 = per command: M = 1
 - **Lift:** T = 200, M = 1. **Put:** T = 200, M = 1.
 - **Weighted cost:** W = T + 190·M. Since J = (T_s + 19·M)/(152·N), 1 M ≡ 19 s ≡ 190 ds.
-- CfgMMode is set to whatever reproduces FB1 exactly: **2** (v1.1). The planner cost for an all-equal move stays T=0, M=0, because such a move is never issued (skip rule); the real FB1 would charge +1 M.
+- **v1.7: CfgMMode default = 0 (spec rule, team decision).** The spec text p. 10 (a simultaneous x+y change = 2 manipulations) is what we optimise and show as the primary M (`World.MSpec`, counted by OB30 exactly by the mode-0 rule: +1 lift, +1 put, a move +[dG ≠ 0] +[dy ≠ 0] with G the global column, so a bay change counts as an x change; a zero-distance move counts 0; reset (cmd 10, also at POČETNO STANJE) clears it). FB1 (given, know-how protected, unchanged) still counts +1 per command in MD107; that count is shown as the secondary `HMI_IF.MFb1/JFb1`. Mode 2 stays selectable (it reproduces MD107 exactly). FB10 sets `BaseM` for a replan from `World.MSpec` in mode 0 and from MD107 otherwise. The planner cost for an all-equal move stays T=0, M=0, because such a move is never issued (skip rule); the real FB1 would charge +1 M.
 
 ### 4.2 Planner state
 - Grids G0, G1. Crane (cx, cy, cb). Carried must be 0 (else ErrCode 4).

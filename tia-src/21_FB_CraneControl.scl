@@ -1074,7 +1074,12 @@ BEGIN
 	                        END_IF;
 	                        #OrdFallback := FALSE;
 	                        "World".BaseT_ds := ROUND("time" * 10.0);
-	                        "World".BaseM := UDINT_TO_DINT("number_of_manipulations");
+	                        // v1.7: the plan continues the M count of the active model (mode 0 = spec rule = World.MSpec)
+	                        IF "World".CfgMMode = 0 THEN
+	                            "World".BaseM := UDINT_TO_DINT("World".MSpec);
+	                        ELSE
+	                            "World".BaseM := UDINT_TO_DINT("number_of_manipulations");
+	                        END_IF;
 	                        #PlanCrX := "World".CraneX;
 	                        #PlanCrY := "World".CraneY;
 	                        #PlanCrBay := "World".CraneBay;
@@ -1229,7 +1234,12 @@ BEGIN
 	                            END_IF;
 	                            #OrdFallback := FALSE;
 	                            "World".BaseT_ds := ROUND("time" * 10.0);
-	                            "World".BaseM := UDINT_TO_DINT("number_of_manipulations");
+	                            // v1.7: the plan continues the M count of the active model (mode 0 = spec rule = World.MSpec)
+	                            IF "World".CfgMMode = 0 THEN
+	                                "World".BaseM := UDINT_TO_DINT("World".MSpec);
+	                            ELSE
+	                                "World".BaseM := UDINT_TO_DINT("number_of_manipulations");
+	                            END_IF;
 	                            #PlanCrX := "World".CraneX;
 	                            #PlanCrY := "World".CraneY;
 	                            #PlanCrBay := "World".CraneBay;
@@ -1460,7 +1470,7 @@ BEGIN
 	                    #AlarmHistT[#k] := #AlarmHistT[#k - 1];
 	                END_FOR;
 	                "HMI_IF".AlarmHist[0] := #b;
-	                #AlarmHistM[0] := "number_of_manipulations";
+	                #AlarmHistM[0] := "World".MSpec;   // v1.7: spec-rule M (primary)
 	                #AlarmHistT[0] := "time";
 	                "HMI_IF".AlarmHistSeq := "HMI_IF".AlarmHistSeq + 1;
 	            END_IF;
@@ -1512,18 +1522,22 @@ BEGIN
 	    "HMI_IF".OB30Ticks := "World".OB30Ticks;
 
 	    // ---- score: M, T and J = 0.5*T/(76*N) + 0.5*M/(4*N) ----
-	    "HMI_IF".M := "number_of_manipulations";
+	    // v1.7: primary M / J = spec rule (diagonal x+y move = 2 M), counted by OB30 in World.MSpec.
+	    // FB1's own counter MD107 (+1 per move command) stays visible as MFb1 / JFb1 (secondary).
+	    "HMI_IF".M := "World".MSpec;
+	    "HMI_IF".MFb1 := "number_of_manipulations";
 	    "HMI_IF".T := "time";
 	    "HMI_IF".N := "World".N;
 	    IF "World".N > 0 THEN
 	        #rN := INT_TO_REAL("World".N);
-	        "HMI_IF".J := 0.5 * "time" / (76.0 * #rN) + 0.5 * UDINT_TO_REAL("number_of_manipulations") / (4.0 * #rN);
-	        "HMI_IF".JSpec := 0.5 * "time" / (76.0 * #rN) + 0.5 * UDINT_TO_REAL("World".MSpec) / (4.0 * #rN);
+	        "HMI_IF".J := 0.5 * "time" / (76.0 * #rN) + 0.5 * UDINT_TO_REAL("World".MSpec) / (4.0 * #rN);
+	        "HMI_IF".JFb1 := 0.5 * "time" / (76.0 * #rN) + 0.5 * UDINT_TO_REAL("number_of_manipulations") / (4.0 * #rN);
 	    ELSE
 	        "HMI_IF".J := 0.0;
-	        "HMI_IF".JSpec := 0.0;
+	        "HMI_IF".JFb1 := 0.0;
 	    END_IF;
-	    "HMI_IF".MSpec := "World".MSpec;
+	    "HMI_IF".MSpec := "HMI_IF".M;           // compatibility copies (= primary spec values)
+	    "HMI_IF".JSpec := "HMI_IF".J;
 	    "HMI_IF".PredM := "World".PredM;
 	    "HMI_IF".PredT := DINT_TO_REAL("World".PredT_ds) / 10.0;
 	    "HMI_IF".PredJ := "World".PredJ;

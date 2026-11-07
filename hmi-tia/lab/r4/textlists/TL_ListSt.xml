@@ -1,0 +1,98 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Document>
+  <Engineering version="V21" />
+  <Hmi.TextGraphicList.TextList ID="0">
+    <AttributeList>
+      <ListRange>Decimal</ListRange>
+      <Name>TL_ListSt</Name>
+    </AttributeList>
+    <ObjectList>
+      <MultilingualText ID="1" CompositionName="Comment">
+        <ObjectList>
+          <MultilingualTextItem ID="2" CompositionName="Items">
+            <AttributeList>
+              <Culture>en-US</Culture>
+              <Text />
+            </AttributeList>
+          </MultilingualTextItem>
+        </ObjectList>
+      </MultilingualText>
+      <Hmi.TextGraphicList.TextListEntry ID="3" CompositionName="Entries">
+        <AttributeList>
+          <DefaultEntry>false</DefaultEntry>
+          <From>0</From>
+          <To>0</To>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="4" CompositionName="Text">
+            <ObjectList>
+              <MultilingualTextItem ID="5" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text><body><p>čeka</p></body></Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </Hmi.TextGraphicList.TextListEntry>
+      <Hmi.TextGraphicList.TextListEntry ID="6" CompositionName="Entries">
+        <AttributeList>
+          <DefaultEntry>false</DefaultEntry>
+          <From>1</From>
+          <To>1</To>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="7" CompositionName="Text">
+            <ObjectList>
+              <MultilingualTextItem ID="8" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text><body><p>gotovo</p></body></Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </Hmi.TextGraphicList.TextListEntry>
+      <Hmi.TextGraphicList.TextListEntry ID="9" CompositionName="Entries">
+        <AttributeList>
+          <DefaultEntry>false</DefaultEntry>
+          <From>2</From>
+          <To>2</To>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="A" CompositionName="Text">
+            <ObjectList>
+              <MultilingualTextItem ID="B" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text><body><p>preskočeno</p></body></Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </Hmi.TextGraphicList.TextListEntry>
+      <Hmi.TextGraphicList.TextListEntry ID="C" CompositionName="Entries">
+        <AttributeList>
+          <DefaultEntry>false</DefaultEntry>
+          <From>3</From>
+          <To>3</To>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="D" CompositionName="Text">
+            <ObjectList>
+              <MultilingualTextItem ID="E" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text><body><p>u tijeku</p></body></Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </Hmi.TextGraphicList.TextListEntry>
+    </ObjectList>
+  </Hmi.TextGraphicList.TextList>
+</Document>

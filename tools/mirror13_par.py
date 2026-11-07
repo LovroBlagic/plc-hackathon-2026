@@ -17,7 +17,7 @@ spec.loader.exec_module(m13)
 
 def job(a):
     f, mm, od, bm, dist, budget, percall = a
-    r = m13.check(f, {"mmode": mm, "order": od, "balmode": bm, "lim": 5}, budget, dist, percall, [0, 100, 200, 300])
+    r = m13.check(f, {"mmode": mm, "order": od, "balmode": bm, "lim": 5}, budget, dist, percall, [0, 75, 125, 200])
     return (os.path.basename(f), (mm, od, bm, dist), r)
 
 
@@ -29,8 +29,8 @@ if __name__ == "__main__":
     files += sorted(glob.glob(os.path.join(REPO, "tools", "judge_sets", "r2_jury_imb*.json")))
     jobs = []
     for f in files:
-        for mm, od, bm, dist in itertools.product((2, 0), (0, 1), (0, 1), (0, 6)):
-            if mm == 0 and (bm == 1 or dist == 6):
+        for mm, od, bm, dist in itertools.product((0, 2), (0, 1), (0, 1), (0, 6)):
+            if mm == 2 and (bm == 1 or dist == 6):   # v1.7: full coverage for the default mode 0
                 continue
             jobs.append((f, mm, od, bm, dist, budget, percall))
     with Pool() as p:

@@ -1,5 +1,39 @@
 # TIA crane (TASK 2): integration status
 
+## v1.7 spec M rule (diagonal = 2) (7 Nov, builder). Contract **v1.7**
+- **Team decision (binding, replaces the open organizer question on the M rule):** M is counted by the spec text p. 10: +1 lift, +1 put, a move +1 if the global column G changes (a Bay0↔Bay1 change counts as an x change) and +1 if y changes, so a diagonal move = 2; a zero-distance move = 0 (never issued). `World.CfgMMode` start value **2 → 0**; mode 2 (FB1 counting) stays selectable.
+- **FB1 is unchanged** (given, know-how protected): MD107 still counts +1 per command. MD107 and the spec count differ **by design** (spec ≥ MD107); both are shown on the HMI. OB30's `World.MSpec` counting was re-checked against CONTRACT §4.1 mode 0 (bay change via G, zero-distance = 0, cleared by cmd 10, i.e. by POČETNO STANJE and MANUAL reset).
+- **FB10:** HMI_IF.M/J now = spec values; `BaseM` for a (re)plan = `World.MSpec` in mode 0 (MD107 otherwise), so PredM/PredJ/LbJ on the Score screen are spec-rule values; alarm history M (`AlarmHistM`) = MSpec.
+- **CfgAlpha** retuned for mode 0: **[0, 75, 125, 200]** (was [0, 100, 200, 300] for mode 2). Greedy multi-start over 400 sets: 1.18701 → 1.18570; after IMPROVE + SLOT the effect is small (see table). CfgImproveEvals 3000 / CfgSlotSweeps 10 / IMPROVE move set unchanged: re-entering IMPROVE after SLOT gains +0.02 % (1 of 30 sets), SLOT never hits its 10-sweep cap.
+- **FB11 / FC10 / FC20 / FC21 / OB30 logic unchanged**, so Python ⇄ SCL parity is untouched; mirrors re-run with the new defaults (mirror 13 now covers mode 0 fully: bal 0/1, dist 0/6).
+- **Build:** `TIA_RESULT errors=0 warnings=0` (`tia-work/v17_compile1.log`); `deliver/TIA_crane_v1_plc.zap21` re-archived (PLC only, `tia-work/v17_compile2.log`, 0/0).
+- **Verification:** mirror 12 **886/886**, mirror 13 **620/620** (`tools/bench/v17_mirror1*.txt`), `FB10_INIT_RESULT failures=0`, stress: STRESS_PLACEHOLDER. Golden + plan CSVs regenerated for mode 0 (`tools/crane_golden.json` now also carries `M_FB1` and per-command `m_fb1` = expected MD107).
+- **J (spec M rule, order 1 default), v1.6 planner run with mmode 0 → v1.7:**
+
+| Set group | v1.6 (α 0,100,200,300) | **v1.7 (α 0,75,125,200)** | Lower bound | Judge best plan |
+|---|---|---|---|---|
+| 30 random | 1.16423 / max 1.3146 | **1.16390 / 1.3146** | 1.02926 (gap 13.1 %) | 1.15632 (we are +0.65 % mean, +1.55 % max; judge exact on 7 small sets, ours optimal on 3 of them) |
+| 401 feasible bench sets | 1.16802 (4 fallbacks) | **1.16787** (4 fallbacks) | 1.01674 (gap 14.8 %) | — |
+
+  The closed-form bound (§4.9) ignores y-travel, and under the spec rule every y change also costs 19 s of M, so the 13–15 % "gap" is mostly bound weakness; the judge optimiser (`r2_score_batch.py --mmode 0`) puts the real gap at about +0.65 %. Of that, about +0.36 % is drop-cell choice (exact per-bay assignment for our own sequence, `r2_score_slotgap.py 0`); the R2-SCORE-3 Hungarian assignment in SCL was **not** implemented (≈ 0.36 % for an O(n³) solve sliced over OB1 calls plus a new mirror, not worth the risk this late).
+  Reference, same build under mode 2 (FB1 counting): MODE2_PLACEHOLDER.
+- **PLCSIM tool note (not changed, owned by the PLCSIM agent):** `tools/plcsim/crane_sim_test.py` takes the model M from `simulate()`, which now (mode 0 default) is the spec count, but compares it with MD107 → `M_match` will fail by design. Compare MD107 with the number of commands (golden `M_FB1`) and `HMI_IF.MSpec`/`HMI_IF.M` with the model M. Its `plc_J` (`HMI_IF.J`) is now the spec J.
+
+### DB101 `HMI_IF` score members after v1.7 (for the HMI generator)
+| Member | Type | Meaning |
+|---|---|---|
+| `M` | UDInt | **primary**: M by the spec rule (= `World.MSpec`, counted in OB30) |
+| `T` | Real | `"time"` MD112, working time [s] (unchanged) |
+| `J` | Real | **primary**: 0.5·T/(76·N) + 0.5·M/(4·N) with the spec M |
+| `MFb1` | UDInt | **new**, secondary: FB1 counter `"number_of_manipulations"` MD107 (+1 per command) |
+| `JFb1` | Real | **new**, secondary: J with MFb1 |
+| `MSpec`, `JSpec` | UDInt, Real | kept for compatibility; now identical copies of `M` / `J` |
+| `PredM`, `PredT`, `PredJ`, `PredJ0`, `LbJ`, `GapPct` | | planner values, now under the spec rule (CfgMMode 0) |
+
+Layout (`hmi-tia/layout.json`, Score screen): row 1 "M (pravilo zadatka), stvarno" → `M`, `T`, `J`; row 2 "M (FB1 brojač, MD107)" → `MFb1`, `JFb1`; row 3 "Plan (predviđeno, pravilo zadatka)" → `PredM/PredT/PredJ`. The top bar M/J use `M`/`J`. `python hmi-tia/gen_hmi.py all` → `CHECK_RESULT problems=0 tags=492`.
+
+---
+
 ## PLCSIM run (7 Nov, PLCSIM test engineer): the v1.6 build runs on S7-PLCSIM V21 and matches the model exactly
 - 8 data sets in AUTO give PLC = model for MD107, MD112, MSpec, J, the final DB10/DB11 and the full command sequence (up to 74 transfers / 296 commands). HUMAN_STEPS 1.1, 1.3–1.15 pass through tag writes. CPU always in RUN, planner max call 10.4 ms. **No PLC bug found, tia-src unchanged.**
 - Online Openness download to PLCSIM fails ("Connect to module failed"). It works through a virtual memory card plus an sim_hwdb.ini article-number edit. Details, steps and the table: `tia-src/PLCSIM_RESULTS.md`; tools: `tools/plcsim/`.

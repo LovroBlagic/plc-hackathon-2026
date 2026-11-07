@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Document>
+<Engineering version="V21" />
+<Hmi.Tag.TagTable ID="0"><AttributeList><Name>T_V5</Name></AttributeList><ObjectList><Hmi.Tag.Tag ID="1" CompositionName="Tags"><AttributeList><AcquisitionTriggerMode>Visible</AcquisitionTriggerMode><AddressAccessMode>Symbolic</AddressAccessMode><Name>X_V5</Name></AttributeList><LinkList><AcquisitionCycle TargetID="@OpenLink"><Name>100 ms</Name></AcquisitionCycle><Connection TargetID="@OpenLink"><Name>HMI_Connection_1</Name></Connection><ControllerTag TargetID="@OpenLink"><Name>Current_state_of_Bay0.Bay0[0,0]</Name></ControllerTag></LinkList></Hmi.Tag.Tag></ObjectList></Hmi.Tag.TagTable>
+</Document>

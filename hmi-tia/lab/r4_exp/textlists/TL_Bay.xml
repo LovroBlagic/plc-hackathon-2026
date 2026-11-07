@@ -1,0 +1,92 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Document>
+  <Engineering version="V21" />
+  <DocumentInfo>
+    <Created>2026-11-07T15:50:59.7595138Z</Created>
+    <ExportSetting>WithDefaults</ExportSetting>
+    <InstalledProducts>
+      <Product>
+        <DisplayName>Totally Integrated Automation Portal</DisplayName>
+        <DisplayVersion>V21</DisplayVersion>
+      </Product>
+      <Product>
+        <DisplayName>STEP 7 Professional</DisplayName>
+        <DisplayVersion>V21</DisplayVersion>
+      </Product>
+      <OptionPackage>
+        <DisplayName>STEP 7 Safety</DisplayName>
+        <DisplayVersion>V21</DisplayVersion>
+      </OptionPackage>
+      <OptionPackage>
+        <DisplayName>Tech WebApplication</DisplayName>
+        <DisplayVersion>V21</DisplayVersion>
+      </OptionPackage>
+      <Product>
+        <DisplayName>WinCC Basic/Comfort/Advanced</DisplayName>
+        <DisplayVersion>V21</DisplayVersion>
+      </Product>
+      <Product>
+        <DisplayName>WinCC Unified</DisplayName>
+        <DisplayVersion>V21</DisplayVersion>
+      </Product>
+    </InstalledProducts>
+  </DocumentInfo>
+  <Hmi.TextGraphicList.TextList ID="0">
+    <AttributeList>
+      <ListRange>Decimal</ListRange>
+      <Name>TL_Bay</Name>
+    </AttributeList>
+    <ObjectList>
+      <MultilingualText ID="1" CompositionName="Comment">
+        <ObjectList>
+          <MultilingualTextItem ID="2" CompositionName="Items">
+            <AttributeList>
+              <Culture>en-US</Culture>
+              <Text />
+            </AttributeList>
+          </MultilingualTextItem>
+        </ObjectList>
+      </MultilingualText>
+      <Hmi.TextGraphicList.TextListEntry ID="3" CompositionName="Entries">
+        <AttributeList>
+          <DefaultEntry>false</DefaultEntry>
+          <EntryType>SingleValue</EntryType>
+          <From>0</From>
+          <To>0</To>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="4" CompositionName="Text">
+            <ObjectList>
+              <MultilingualTextItem ID="5" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text><body><p>0 BROD</p></body></Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </Hmi.TextGraphicList.TextListEntry>
+      <Hmi.TextGraphicList.TextListEntry ID="6" CompositionName="Entries">
+        <AttributeList>
+          <DefaultEntry>false</DefaultEntry>
+          <EntryType>SingleValue</EntryType>
+          <From>1</From>
+          <To>1</To>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="7" CompositionName="Text">
+            <ObjectList>
+              <MultilingualTextItem ID="8" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text><body><p>1 SKLADIŠTE</p></body></Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </Hmi.TextGraphicList.TextListEntry>
+    </ObjectList>
+  </Hmi.TextGraphicList.TextList>
+</Document>

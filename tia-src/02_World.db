@@ -44,9 +44,9 @@ NON_RETAIN
       CfgOrderMode : USInt := 1;             // 0 free, 1 per-list order, 2 strict (set by FB10 from HMI_IF before each plan)
       CfgBalLimit : Int := 5;
       CfgBalMode : USInt;                    // 0 x-halves only, 1 also y-halves
-      CfgMMode : USInt := 2;                 // manipulation count model (CONTRACT 4.1); 2 = FB1 counts +1 per move command
+      CfgMMode : USInt := 0;                 // manipulation count model (CONTRACT 4.1); v1.7: 0 = spec rule (diagonal = 2), 2 = FB1 (+1 per move command)
       CfgVariants : Int := 4;
-      CfgAlpha : Array[1..4] of Int := [0, 100, 200, 300];   // v1.3: retuned for CfgMMode 2 (pure time)
+      CfgAlpha : Array[1..4] of Int := [0, 75, 125, 200];    // v1.7: retuned for CfgMMode 0 (v1.3 mode 2: [0, 100, 200, 300])
       CfgStepsPerCall : Int := 1;
       CfgTimeoutTicks : Int := 10;           // FB1 watchdog in OB30 ticks (1 s)
       OB30Ticks : UDInt;

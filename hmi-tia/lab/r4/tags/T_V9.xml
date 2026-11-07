@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Document>
+<Engineering version="V21" />
+<Hmi.Tag.TagTable ID="0"><AttributeList><Name>T_V9</Name></AttributeList><ObjectList><Hmi.Tag.Tag ID="1" CompositionName="Tags"><AttributeList><Name>Y_V9</Name></AttributeList><LinkList><Connection TargetID="@OpenLink"><Name>HMI_Connection_1</Name></Connection><ControllerTag TargetID="@OpenLink"><Name>HMI_IF.BtnInit</Name></ControllerTag></LinkList></Hmi.Tag.Tag></ObjectList></Hmi.Tag.TagTable>
+</Document>

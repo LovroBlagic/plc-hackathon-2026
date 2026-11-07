@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Document>
+<Engineering version="V21" />
+<Hmi.Tag.TagTable ID="0"><AttributeList><Name>Proto tags</Name></AttributeList><ObjectList><Hmi.Tag.Tag ID="1" CompositionName="Tags"><AttributeList><AcquisitionTriggerMode>Visible</AcquisitionTriggerMode><AddressAccessMode>Symbolic</AddressAccessMode><Length>1</Length><LogicalAddress /><Name>P_SwOn</Name></AttributeList><LinkList><AcquisitionCycle TargetID="@OpenLink"><Name>100 ms</Name></AcquisitionCycle><Connection TargetID="@OpenLink"><Name>HMI_Connection_1</Name></Connection><ControllerTag TargetID="@OpenLink"><Name>HMI_IF.SwOn</Name></ControllerTag><DataType TargetID="@OpenLink"><Name>Bool</Name></DataType><HmiDataType TargetID="@OpenLink"><Name>Bool</Name></HmiDataType></LinkList><ObjectList><MultilingualText ID="2" CompositionName="Comment"><ObjectList><MultilingualTextItem ID="3" CompositionName="Items"><AttributeList><Culture>en-US</Culture><Text /></AttributeList></MultilingualTextItem></ObjectList></MultilingualText></ObjectList></Hmi.Tag.Tag></ObjectList></Hmi.Tag.TagTable>
+</Document>

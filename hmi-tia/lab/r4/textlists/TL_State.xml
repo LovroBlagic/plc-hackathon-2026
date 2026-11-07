@@ -1,0 +1,174 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Document>
+  <Engineering version="V21" />
+  <Hmi.TextGraphicList.TextList ID="0">
+    <AttributeList>
+      <ListRange>Decimal</ListRange>
+      <Name>TL_State</Name>
+    </AttributeList>
+    <ObjectList>
+      <MultilingualText ID="1" CompositionName="Comment">
+        <ObjectList>
+          <MultilingualTextItem ID="2" CompositionName="Items">
+            <AttributeList>
+              <Culture>en-US</Culture>
+              <Text />
+            </AttributeList>
+          </MultilingualTextItem>
+        </ObjectList>
+      </MultilingualText>
+      <Hmi.TextGraphicList.TextListEntry ID="3" CompositionName="Entries">
+        <AttributeList>
+          <DefaultEntry>false</DefaultEntry>
+          <From>0</From>
+          <To>0</To>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="4" CompositionName="Text">
+            <ObjectList>
+              <MultilingualTextItem ID="5" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text><body><p>ISKLJUČENO</p></body></Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </Hmi.TextGraphicList.TextListEntry>
+      <Hmi.TextGraphicList.TextListEntry ID="6" CompositionName="Entries">
+        <AttributeList>
+          <DefaultEntry>false</DefaultEntry>
+          <From>1</From>
+          <To>1</To>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="7" CompositionName="Text">
+            <ObjectList>
+              <MultilingualTextItem ID="8" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text><body><p>INICIJALIZACIJA</p></body></Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </Hmi.TextGraphicList.TextListEntry>
+      <Hmi.TextGraphicList.TextListEntry ID="9" CompositionName="Entries">
+        <AttributeList>
+          <DefaultEntry>false</DefaultEntry>
+          <From>2</From>
+          <To>2</To>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="A" CompositionName="Text">
+            <ObjectList>
+              <MultilingualTextItem ID="B" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text><body><p>SPREMAN</p></body></Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </Hmi.TextGraphicList.TextListEntry>
+      <Hmi.TextGraphicList.TextListEntry ID="C" CompositionName="Entries">
+        <AttributeList>
+          <DefaultEntry>false</DefaultEntry>
+          <From>3</From>
+          <To>3</To>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="D" CompositionName="Text">
+            <ObjectList>
+              <MultilingualTextItem ID="E" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text><body><p>RADI</p></body></Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </Hmi.TextGraphicList.TextListEntry>
+      <Hmi.TextGraphicList.TextListEntry ID="F" CompositionName="Entries">
+        <AttributeList>
+          <DefaultEntry>false</DefaultEntry>
+          <From>4</From>
+          <To>4</To>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="10" CompositionName="Text">
+            <ObjectList>
+              <MultilingualTextItem ID="11" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text><body><p>PAUZA</p></body></Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </Hmi.TextGraphicList.TextListEntry>
+      <Hmi.TextGraphicList.TextListEntry ID="12" CompositionName="Entries">
+        <AttributeList>
+          <DefaultEntry>false</DefaultEntry>
+          <From>5</From>
+          <To>5</To>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="13" CompositionName="Text">
+            <ObjectList>
+              <MultilingualTextItem ID="14" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text><body><p>ALARM</p></body></Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </Hmi.TextGraphicList.TextListEntry>
+      <Hmi.TextGraphicList.TextListEntry ID="15" CompositionName="Entries">
+        <AttributeList>
+          <DefaultEntry>false</DefaultEntry>
+          <From>6</From>
+          <To>6</To>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="16" CompositionName="Text">
+            <ObjectList>
+              <MultilingualTextItem ID="17" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text><body><p>ZAVRŠENO</p></body></Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </Hmi.TextGraphicList.TextListEntry>
+      <Hmi.TextGraphicList.TextListEntry ID="18" CompositionName="Entries">
+        <AttributeList>
+          <DefaultEntry>false</DefaultEntry>
+          <From>7</From>
+          <To>7</To>
+        </AttributeList>
+        <ObjectList>
+          <MultilingualText ID="19" CompositionName="Text">
+            <ObjectList>
+              <MultilingualTextItem ID="1A" CompositionName="Items">
+                <AttributeList>
+                  <Culture>en-US</Culture>
+                  <Text><body><p>PLANIRANJE</p></body></Text>
+                </AttributeList>
+              </MultilingualTextItem>
+            </ObjectList>
+          </MultilingualText>
+        </ObjectList>
+      </Hmi.TextGraphicList.TextListEntry>
+    </ObjectList>
+  </Hmi.TextGraphicList.TextList>
+</Document>

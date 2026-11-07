@@ -133,3 +133,19 @@ Changes are in FB10 (`21_FB_CraneControl.scl`) and World (`CfgRelaxMin`) only; F
 - **Parity (FB11 unchanged, re-run on all current sets):** `tia-src/12_planner_mirror.py` **886/886** (`tools/bench/r3_mirror12.txt`); `tools/mirror13_par.py 400 3` **620/620** (`tools/bench/r3_mirror13.txt`).
 - **FB10 model:** `python tools/fb10_init_model.py` → `FB10_INIT_RESULT failures=0`.
 - **Judge repros:** `r3_elim_obstacle_then_init.py` (rand_05, rand_16) → `failures=0`; `r3_jury_lists_only.py` → 0 cells differ, all entries pending; T1 (= the judge's `r3_elim_retarget_order.py` procedure with the v1.6 rule, all 418 sets) → 0 needless.
+
+## v1.7: spec M rule as default (7 Nov 2026, builder). Contract **v1.7**
+
+Team decision: M is scored by the spec text (diagonal = 2), `World.CfgMMode` = 0, CfgAlpha [0, 75, 125, 200]. FB11 logic unchanged. Details: `tia-src/STATUS.md` "v1.7".
+
+### Current J table (v1.7, CfgMMode 0 = spec M rule, order 1 default, IMPROVE 3000, SLOT 10)
+Source: `python tools/crane_bench.py --mmode 0 --orders 1` (`tools/bench/v16_m0_before.json` = v1.6 planner run with mmode 0, `tools/bench/m0_a0_75_125_200.json` = v1.7), judge optimiser `python tools/judge_sets/r2_score_batch.py --mmode 0 --order 1 --iters 6000 "tools/crane_data/rand_*.json"`.
+
+| Set group | v1.6 planner, mmode 0 | **v1.7** | Lower bound (§4.9) | Judge best plan |
+|---|---|---|---|---|
+| 30 random | 1.16423 / max 1.3146 | **1.16390 / 1.3146** | 1.02926 | 1.15632 (v1.7 gap +0.65 % mean, +1.55 % max, 9 of 30 above 1 %) |
+| 401 feasible sets (crane_data, stress, all judge sets) | 1.16802 (4 fallbacks) | **1.16787** (4 fallbacks) | 1.01674 | — |
+
+- The lower bound is loose under mode 0 (it ignores y-travel, and each y change now also costs 1 M): 13–15 % "gap" vs about +0.65 % to the judge's best plans.
+- **R2-SCORE-3 re-measured:** exact per-bay drop-cell assignment for our own final sequence gains **+0.36 %** mean (max 1.17 %, 2 of 30 above 1 %; `r2_score_slotgap.py 0`). Re-entering IMPROVE after SLOT (`r3_score_iterate` idea, mode 0) gains +0.02 %. Alpha retune: −0.03 % on 30 random, −0.01 % on 401. **Not implemented:** the Hungarian solve in SCL (sliced over OB1 calls + mirror) for ≈ 0.36 % was judged not worth the risk before the deadline. It stays the main open score item under the spec rule, together with slot-aware IMPROVE acceptance.
+- Mode-2 reference (FB1 counting) for the same build: MODE2_PLACEHOLDER.

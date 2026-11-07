@@ -399,7 +399,7 @@ class FB11:
         self.nPend -= 1
 
 
-def run(ds_path, mmode, order, balmode, alphas=(0, 50, 100, 150), lim=5, carried=0, cfg_over=None, ceil=0):
+def run(ds_path, mmode, order, balmode, alphas=(0, 75, 125, 200), lim=5, carried=0, cfg_over=None, ceil=0):
     ds = cm.load_dataset(ds_path)
     st = cp.build_state(ds, lim)
     if st["init"]["blocking"]:
