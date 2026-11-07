@@ -1,0 +1,10 @@
+flowchart TD
+  N0["At step k: current load, available solar and starting SoC are known"]
+  N1["Actual energy-flow readings describe interval k−1"]
+  N2["Log k−1 using the remembered date, tariff and fixed load"]
+  N3["Choose commands for interval k"]
+  N4["At k+1: interval k becomes the previous interval"]
+  N0 --> N1
+  N1 --> N2
+  N2 --> N3
+  N3 --> N4

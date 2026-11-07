@@ -3,6 +3,7 @@
 Resumed by user in Codex. V7 full-year ME validation passed in both modes and the archive was saved. The earlier twin workflow and cron were not restarted. Sections describing the noon pause below are historical.
 
 ## Latest result and next action
+- **User decision (7 Nov, side conversation): freeze optimisation at verified v7 and use Machine Expert WebVisu for the HMI.** No further strategy tuning is planned. Organizer acceptance of WebVisu remains unconfirmed.
 - V7 cap floor verified: **S1 204,598.62 € / S2 169,833.86 €**, saving 355.50 € in S2 versus v6, S1 unchanged.
 - Both years finished without trip, EV delivery 100 %, logging deviation at most 0.00001 %.
 - Verified project: `work/ME_v7_validation.project`; sources: `deliver/ME_v7_src/`; full log: `deliver/ME_v7_validation.log` (local, gitignored).

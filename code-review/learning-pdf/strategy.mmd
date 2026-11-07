@@ -1,0 +1,10 @@
+flowchart TD
+  N0["Choose horizon: at most 96 intervals"]
+  N1["Learn current conditions and forecast future net load"]
+  N2["Read published prices and add the correct grid fee"]
+  N3["Calculate the day-ahead learned cap floor"]
+  N4["Plan battery power; curtail exports at negative prices"]
+  N0 --> N1
+  N1 --> N2
+  N2 --> N3
+  N3 --> N4

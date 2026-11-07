@@ -1,0 +1,6 @@
+screen.png
+*.log
+*.opt
+*.~u
+*_seed.xml
+browser-profile/

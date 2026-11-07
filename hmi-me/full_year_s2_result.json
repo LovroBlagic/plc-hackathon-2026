@@ -1,0 +1,74 @@
+{
+  "elapsed_s": 428.77615356445313, 
+  "max_logging_error_percent": 3.9586811147155148e-06, 
+  "ev_fulfilment_percent": 99.999999999697508, 
+  "pass": true, 
+  "SimScore.total.E_ev_unmet": 2.8212872035597514e-08, 
+  "SimCtrl.price_mode": 1.0, 
+  "Team_Results.nLogged": 35040.0, 
+  "SimCtrl.run": true, 
+  "SimScore.total.cost_total": 169833.86433741127, 
+  "Team_HMI.sDateTime": "31.12.2025 23:45", 
+  "SimScore.total.E_ev_required": 9326.7550097703934, 
+  "SimCtrl.k": 35040.0, 
+  "SimCtrl.finished": true, 
+  "percent": 100.0, 
+  "totals": {
+    "E_fec": {
+      "logged": 2210851.8455896378, 
+      "error_percent": 0.0, 
+      "official": 2210851.8455896378
+    }, 
+    "cost_total": {
+      "logged": 169833.86306665908, 
+      "error_percent": 7.4823251616556391e-07, 
+      "official": 169833.86433741127
+    }, 
+    "E_bess_chg": {
+      "logged": 726215.20586112828, 
+      "error_percent": 1.210176214041438e-08, 
+      "official": 726215.20577324345
+    }, 
+    "cost_peak": {
+      "logged": 32774.925492247858, 
+      "error_percent": 3.9586811147155148e-06, 
+      "official": 32774.926789702695
+    }, 
+    "cost_grid": {
+      "logged": 28737.069906836303, 
+      "error_percent": 1.5633295106567465e-08, 
+      "official": 28737.069902343752
+    }, 
+    "E_fne": {
+      "logged": 972907.22828553664, 
+      "error_percent": 0.0, 
+      "official": 972907.22828553664
+    }, 
+    "E_ev": {
+      "logged": 10363.061402796526, 
+      "error_percent": 6.1114978757909915e-08, 
+      "official": 10363.061396463143
+    }, 
+    "E_export": {
+      "logged": 350219.55477074377, 
+      "error_percent": 1.5889372034569159e-08, 
+      "official": 350219.55471509608
+    }, 
+    "cost_energy": {
+      "logged": 108321.8676675749, 
+      "error_percent": 2.0503794783757085e-08, 
+      "official": 108321.86764536481
+    }, 
+    "E_import": {
+      "logged": 1668763.2327047251, 
+      "error_percent": 1.6076034925934829e-08, 
+      "official": 1668763.2324364542
+    }, 
+    "E_bess_dch": {
+      "logged": 655979.20684924629, 
+      "error_percent": 1.475600328552141e-08, 
+      "official": 655979.20675244997
+    }
+  }, 
+  "SimCtrl.tripped": false
+}

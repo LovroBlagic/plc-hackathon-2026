@@ -1,0 +1,10 @@
+flowchart TD
+  N0["State: usable stored energy, 31 levels from 0 to 1200 kWh"]
+  N1["Action: change energy by −4 … +4 levels (40 kWh each)"]
+  N2["Transition: energy_next = energy_now + action × 40"]
+  N3["Cost: grid energy + soft penalty for import above target"]
+  N4["Work backwards; then choose only the first real action"]
+  N0 --> N1
+  N1 --> N2
+  N2 --> N3
+  N3 --> N4

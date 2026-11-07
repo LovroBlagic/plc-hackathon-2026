@@ -1,0 +1,155 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Symbolconfiguration xmlns="http://www.3s-software.com/schemas/Symbolconfiguration.xsd">
+  <Header>
+    <Version>3.5.14.0</Version>
+    <SymbolConfigObject version="4.5.2.0" runtimeid="3.5.20.30" libversion="4.5.0.0" compiler="3.5.20.30" lmm="3.5.20.30" profile="V23.0.22.0" settings="LayoutCalculator=OptimizedClientSideLayoutCalculator" />
+    <ProjectInfo name="ME_v7_WebVisu" devicename="MyController" appname="Application" />
+  </Header>
+  <TypeList>
+    <TypeSimple name="T_BOOL" size="1" swapsize="0" typeclass="Bool" iecname="BOOL" />
+    <TypeSimple name="T_DATE_AND_TIME" size="4" swapsize="4" typeclass="DateAndTime" iecname="DATE_AND_TIME" />
+    <TypeSimple name="T_DINT" size="4" swapsize="4" typeclass="DInt" iecname="DINT" />
+    <TypeSimple name="T_INT" size="2" swapsize="2" typeclass="Int" iecname="INT" />
+    <TypeSimple name="T_LREAL" size="8" swapsize="8" typeclass="LReal" iecname="LREAL" />
+    <TypeSimple name="T_REAL" size="4" swapsize="4" typeclass="Real" iecname="REAL" />
+    <TypeSimple name="T_UDINT" size="4" swapsize="4" typeclass="UDInt" iecname="UDINT" />
+    <TypeSimple name="T_UINT" size="2" swapsize="2" typeclass="UInt" iecname="UINT" />
+    <TypeSimple name="T_USINT" size="1" swapsize="1" typeclass="USInt" iecname="USINT" />
+    <TypeArray name="T_ARRAY__0__12__OF_INT" size="26" nativesize="26" typeclass="Array" iecname="ARRAY [0..12] OF INT" basetype="T_INT">
+      <ArrayDim minrange="0" maxrange="12" />
+    </TypeArray>
+    <TypeUserDef name="T_typeAgg" size="120" nativesize="120" typeclass="Userdef" pouclass="STRUCTURE" iecname="typeAgg">
+      <UserDefElement iecname="E_fne" type="T_LREAL" byteoffset="0" vartype="VAR" access="ReadWrite" />
+      <UserDefElement iecname="E_fne_curtailed" type="T_LREAL" byteoffset="8" vartype="VAR" access="ReadWrite" />
+      <UserDefElement iecname="E_fec" type="T_LREAL" byteoffset="16" vartype="VAR" access="ReadWrite" />
+      <UserDefElement iecname="E_bess_chg" type="T_LREAL" byteoffset="24" vartype="VAR" access="ReadWrite" />
+      <UserDefElement iecname="E_bess_dch" type="T_LREAL" byteoffset="32" vartype="VAR" access="ReadWrite" />
+      <UserDefElement iecname="E_ev" type="T_LREAL" byteoffset="40" vartype="VAR" access="ReadWrite" />
+      <UserDefElement iecname="E_ev_required" type="T_LREAL" byteoffset="48" vartype="VAR" access="ReadWrite" />
+      <UserDefElement iecname="E_ev_unmet" type="T_LREAL" byteoffset="56" vartype="VAR" access="ReadWrite" />
+      <UserDefElement iecname="E_import" type="T_LREAL" byteoffset="64" vartype="VAR" access="ReadWrite" />
+      <UserDefElement iecname="E_export" type="T_LREAL" byteoffset="72" vartype="VAR" access="ReadWrite" />
+      <UserDefElement iecname="P_peak" type="T_LREAL" byteoffset="80" vartype="VAR" access="ReadWrite" />
+      <UserDefElement iecname="cost_energy" type="T_LREAL" byteoffset="88" vartype="VAR" access="ReadWrite" />
+      <UserDefElement iecname="cost_grid" type="T_LREAL" byteoffset="96" vartype="VAR" access="ReadWrite" />
+      <UserDefElement iecname="cost_peak" type="T_LREAL" byteoffset="104" vartype="VAR" access="ReadWrite" />
+      <UserDefElement iecname="cost_total" type="T_LREAL" byteoffset="112" vartype="VAR" access="ReadWrite" />
+    </TypeUserDef>
+    <TypeUserDef name="T_typeEVCmd" size="4" nativesize="4" typeclass="Userdef" pouclass="STRUCTURE" iecname="typeEVCmd">
+      <UserDefElement iecname="P_charge" type="T_REAL" byteoffset="0" vartype="VAR" access="ReadWrite" />
+    </TypeUserDef>
+    <TypeUserDef name="T_typeEVOut" size="32" nativesize="32" typeclass="Userdef" pouclass="STRUCTURE" iecname="typeEVOut">
+      <UserDefElement iecname="connected" type="T_BOOL" byteoffset="0" vartype="VAR" access="ReadWrite" />
+      <UserDefElement iecname="planned_departure" type="T_DATE_AND_TIME" byteoffset="4" vartype="VAR" access="ReadWrite" />
+      <UserDefElement iecname="PD_DT_YEAR" type="T_UINT" byteoffset="8" vartype="VAR" access="ReadWrite" />
+      <UserDefElement iecname="PD_DT_MONTH" type="T_USINT" byteoffset="10" vartype="VAR" access="ReadWrite" />
+      <UserDefElement iecname="PD_DT_DAY" type="T_USINT" byteoffset="11" vartype="VAR" access="ReadWrite" />
+      <UserDefElement iecname="PD_DT_WEEKDAY" type="T_USINT" byteoffset="12" vartype="VAR" access="ReadWrite" />
+      <UserDefElement iecname="PD_DT_HOUR" type="T_USINT" byteoffset="13" vartype="VAR" access="ReadWrite" />
+      <UserDefElement iecname="PD_DT_MINUTE" type="T_USINT" byteoffset="14" vartype="VAR" access="ReadWrite" />
+      <UserDefElement iecname="PD_DT_SECOND" type="T_USINT" byteoffset="15" vartype="VAR" access="ReadWrite" />
+      <UserDefElement iecname="PD_DT_NANOSECOND" type="T_USINT" byteoffset="16" vartype="VAR" access="ReadWrite" />
+      <UserDefElement iecname="energy_required" type="T_REAL" byteoffset="20" vartype="VAR" access="ReadWrite" />
+      <UserDefElement iecname="energy_delivered" type="T_REAL" byteoffset="24" vartype="VAR" access="ReadWrite" />
+      <UserDefElement iecname="P_charge_act" type="T_REAL" byteoffset="28" vartype="VAR" access="ReadWrite" />
+    </TypeUserDef>
+    <TypeUserDef name="T_typeSimTime" size="29" nativesize="32" typeclass="Userdef" pouclass="STRUCTURE" iecname="typeSimTime">
+      <UserDefElement iecname="k" type="T_DINT" byteoffset="0" vartype="VAR" access="ReadWrite" />
+      <UserDefElement iecname="DT_YEAR" type="T_UINT" byteoffset="4" vartype="VAR" access="ReadWrite" />
+      <UserDefElement iecname="DT_MONTH" type="T_USINT" byteoffset="6" vartype="VAR" access="ReadWrite" />
+      <UserDefElement iecname="DT_DAY" type="T_USINT" byteoffset="7" vartype="VAR" access="ReadWrite" />
+      <UserDefElement iecname="DT_WEEKDAY" type="T_USINT" byteoffset="8" vartype="VAR" access="ReadWrite" />
+      <UserDefElement iecname="DT_HOUR" type="T_USINT" byteoffset="9" vartype="VAR" access="ReadWrite" />
+      <UserDefElement iecname="DT_MINUTE" type="T_USINT" byteoffset="10" vartype="VAR" access="ReadWrite" />
+      <UserDefElement iecname="DT_SECOND" type="T_USINT" byteoffset="11" vartype="VAR" access="ReadWrite" />
+      <UserDefElement iecname="DT_NANOSECOND" type="T_USINT" byteoffset="12" vartype="VAR" access="ReadWrite" />
+      <UserDefElement iecname="stamp" type="T_DATE_AND_TIME" byteoffset="16" vartype="VAR" access="ReadWrite" />
+      <UserDefElement iecname="qh_of_day" type="T_INT" byteoffset="20" vartype="VAR" access="ReadWrite" />
+      <UserDefElement iecname="day_of_year" type="T_INT" byteoffset="22" vartype="VAR" access="ReadWrite" />
+      <UserDefElement iecname="month" type="T_INT" byteoffset="24" vartype="VAR" access="ReadWrite" />
+      <UserDefElement iecname="weekday" type="T_INT" byteoffset="26" vartype="VAR" access="ReadWrite" />
+      <UserDefElement iecname="tariff_high" type="T_BOOL" byteoffset="28" vartype="VAR" access="ReadWrite" />
+    </TypeUserDef>
+    <TypeArray name="T_ARRAY__0__3__OF_typeEVCmd" size="16" nativesize="16" typeclass="Array" iecname="ARRAY [0..3] OF typeEVCmd" basetype="T_typeEVCmd">
+      <ArrayDim minrange="0" maxrange="3" />
+    </TypeArray>
+    <TypeArray name="T_ARRAY__0__3__OF_typeEVOut" size="128" nativesize="128" typeclass="Array" iecname="ARRAY [0..3] OF typeEVOut" basetype="T_typeEVOut">
+      <ArrayDim minrange="0" maxrange="3" />
+    </TypeArray>
+    <TypeUserDef name="T_typeSimCmd" size="40" nativesize="40" typeclass="Userdef" pouclass="STRUCTURE" iecname="typeSimCmd">
+      <UserDefElement iecname="FNE_enable_curtail" type="T_BOOL" byteoffset="0" vartype="VAR" access="ReadWrite" />
+      <UserDefElement iecname="FNE_curtail_value" type="T_REAL" byteoffset="4" vartype="VAR" access="ReadWrite" />
+      <UserDefElement iecname="BESS_enable_charge" type="T_BOOL" byteoffset="8" vartype="VAR" access="ReadWrite" />
+      <UserDefElement iecname="BESS_P_charge" type="T_REAL" byteoffset="12" vartype="VAR" access="ReadWrite" />
+      <UserDefElement iecname="BESS_enable_discharge" type="T_BOOL" byteoffset="16" vartype="VAR" access="ReadWrite" />
+      <UserDefElement iecname="BESS_P_discharge" type="T_REAL" byteoffset="20" vartype="VAR" access="ReadWrite" />
+      <UserDefElement iecname="EV" type="T_ARRAY__0__3__OF_typeEVCmd" byteoffset="24" vartype="VAR" access="ReadWrite" />
+    </TypeUserDef>
+    <TypeUserDef name="T_typeSimOut" size="196" nativesize="196" typeclass="Userdef" pouclass="STRUCTURE" iecname="typeSimOut">
+      <UserDefElement iecname="t_sim" type="T_typeSimTime" byteoffset="0" vartype="VAR" access="ReadWrite" />
+      <UserDefElement iecname="FNE_output_power" type="T_REAL" byteoffset="32" vartype="VAR" access="ReadWrite" />
+      <UserDefElement iecname="FNE_P_act" type="T_REAL" byteoffset="36" vartype="VAR" access="ReadWrite" />
+      <UserDefElement iecname="FEC_P_fix" type="T_REAL" byteoffset="40" vartype="VAR" access="ReadWrite" />
+      <UserDefElement iecname="BESS_SoC" type="T_REAL" byteoffset="44" vartype="VAR" access="ReadWrite" />
+      <UserDefElement iecname="BESS_P_charge_act" type="T_REAL" byteoffset="48" vartype="VAR" access="ReadWrite" />
+      <UserDefElement iecname="BESS_P_discharge_act" type="T_REAL" byteoffset="52" vartype="VAR" access="ReadWrite" />
+      <UserDefElement iecname="EV" type="T_ARRAY__0__3__OF_typeEVOut" byteoffset="56" vartype="VAR" access="ReadWrite" />
+      <UserDefElement iecname="EGC_P_import" type="T_REAL" byteoffset="184" vartype="VAR" access="ReadWrite" />
+      <UserDefElement iecname="EGC_P_export" type="T_REAL" byteoffset="188" vartype="VAR" access="ReadWrite" />
+      <UserDefElement iecname="EGC_overload_import" type="T_BOOL" byteoffset="192" vartype="VAR" access="ReadWrite" />
+      <UserDefElement iecname="EGC_overload_export" type="T_BOOL" byteoffset="193" vartype="VAR" access="ReadWrite" />
+      <UserDefElement iecname="sim_finished" type="T_BOOL" byteoffset="194" vartype="VAR" access="ReadWrite" />
+      <UserDefElement iecname="sim_tripped" type="T_BOOL" byteoffset="195" vartype="VAR" access="ReadWrite" />
+    </TypeUserDef>
+  </TypeList>
+  <NodeList>
+    <Node name="Application">
+      <Node name="SimCal">
+        <Node name="CumDays" type="T_ARRAY__0__12__OF_INT" access="ReadWrite" />
+      </Node>
+      <Node name="SimCtrl">
+        <Node name="change_cycle" type="T_BOOL" access="ReadWrite" />
+        <Node name="change_cycle_P1" type="T_BOOL" access="ReadWrite" />
+        <Node name="cycle_time_ms" type="T_UDINT" access="ReadWrite" />
+        <Node name="cycle_time_us" type="T_UDINT" access="ReadWrite" />
+        <Node name="finished" type="T_BOOL" access="ReadWrite" />
+        <Node name="k" type="T_DINT" access="ReadWrite" />
+        <Node name="price_mode" type="T_INT" access="ReadWrite" />
+        <Node name="reset" type="T_BOOL" access="ReadWrite" />
+        <Node name="ret_val_cint" type="T_UDINT" access="ReadWrite" />
+        <Node name="run" type="T_BOOL" access="ReadWrite" />
+        <Node name="stepActive" type="T_BOOL" access="ReadWrite" />
+        <Node name="tripped" type="T_BOOL" access="ReadWrite" />
+      </Node>
+      <Node name="SimIO">
+        <Node name="simCmd" type="T_typeSimCmd" access="ReadWrite" />
+        <Node name="simOut" type="T_typeSimOut" access="ReadWrite" />
+      </Node>
+      <Node name="SimParam">
+        <Node name="BESS_CAPACITY" type="T_REAL" access="ReadWrite" />
+        <Node name="BESS_ETA_CHG" type="T_REAL" access="ReadWrite" />
+        <Node name="BESS_ETA_DCH" type="T_REAL" access="ReadWrite" />
+        <Node name="BESS_MAX_CHG" type="T_REAL" access="ReadWrite" />
+        <Node name="BESS_MAX_DCH" type="T_REAL" access="ReadWrite" />
+        <Node name="BESS_SOC_INIT" type="T_REAL" access="ReadWrite" />
+        <Node name="BESS_SOC_MAX" type="T_REAL" access="ReadWrite" />
+        <Node name="BESS_SOC_MIN" type="T_REAL" access="ReadWrite" />
+        <Node name="EGC_MAX_EXPORT" type="T_REAL" access="ReadWrite" />
+        <Node name="EGC_MAX_IMPORT" type="T_REAL" access="ReadWrite" />
+        <Node name="EV_ETA" type="T_REAL" access="ReadWrite" />
+        <Node name="EV_MAX_CHARGE" type="T_REAL" access="ReadWrite" />
+        <Node name="EXPORT_FACTOR" type="T_REAL" access="ReadWrite" />
+        <Node name="FNE_MAX_POWER" type="T_REAL" access="ReadWrite" />
+        <Node name="GRID_NT" type="T_REAL" access="ReadWrite" />
+        <Node name="GRID_VT" type="T_REAL" access="ReadWrite" />
+        <Node name="PEAK_PRICE" type="T_REAL" access="ReadWrite" />
+        <Node name="SIM_YEAR" type="T_UINT" access="ReadWrite" />
+        <Node name="START_WEEKDAY" type="T_INT" access="ReadWrite" />
+        <Node name="TS_H" type="T_REAL" access="ReadWrite" />
+      </Node>
+      <Node name="SimScore">
+        <Node name="total" type="T_typeAgg" access="ReadWrite" />
+      </Node>
+    </Node>
+  </NodeList>
+</Symbolconfiguration>

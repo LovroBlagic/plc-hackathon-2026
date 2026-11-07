@@ -1,0 +1,37 @@
+[
+  {
+    "page": "Overview",
+    "elements": 99,
+    "file": "Overview.export"
+  },
+  {
+    "page": "EVs",
+    "elements": 138,
+    "file": "EVs.export"
+  },
+  {
+    "page": "Trends",
+    "elements": 29,
+    "file": "Trends.export"
+  },
+  {
+    "page": "Energy",
+    "elements": 72,
+    "file": "Energy.export"
+  },
+  {
+    "page": "Costs",
+    "elements": 50,
+    "file": "Costs.export"
+  },
+  {
+    "page": "Alarms",
+    "elements": 71,
+    "file": "Alarms.export"
+  },
+  {
+    "page": "Controls",
+    "elements": 62,
+    "file": "Controls.export"
+  }
+]

@@ -1,0 +1,10 @@
+flowchart TD
+  N0["Simulator supplies current conditions + previous actual flows"]
+  N1["Team_Main logs the previous interval and prepares limits"]
+  N2["Forecast + planner request a battery action"]
+  N3["GridGuard checks the current physical balance"]
+  N4["Commands return to simulator; HMI exposes the story"]
+  N0 --> N1
+  N1 --> N2
+  N2 --> N3
+  N3 --> N4

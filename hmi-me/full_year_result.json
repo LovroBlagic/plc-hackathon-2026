@@ -1,0 +1,73 @@
+{
+  "elapsed_s": 396.32799530029297, 
+  "max_logging_error_percent": 5.2447969689881124e-06, 
+  "ev_fulfilment_percent": 99.999999999697508, 
+  "pass": true, 
+  "SimScore.total.E_ev_unmet": 2.8212872035597514e-08, 
+  "Team_Results.nLogged": 35040.0, 
+  "SimCtrl.run": true, 
+  "SimScore.total.cost_total": 204598.62193356699, 
+  "Team_HMI.sDateTime": "31.12.2025 23:45", 
+  "SimScore.total.E_ev_required": 9326.7550097703934, 
+  "SimCtrl.k": 35040.0, 
+  "SimCtrl.finished": true, 
+  "percent": 100.0, 
+  "totals": {
+    "E_fec": {
+      "logged": 2210851.8455896378, 
+      "error_percent": 0.0, 
+      "official": 2210851.8455896378
+    }, 
+    "cost_total": {
+      "logged": 204598.62052680983, 
+      "error_percent": 6.875692258953755e-07, 
+      "official": 204598.62193356699
+    }, 
+    "E_bess_chg": {
+      "logged": 465955.96653561638, 
+      "error_percent": 2.2436639177434786e-08, 
+      "official": 465955.96643107152
+    }, 
+    "cost_peak": {
+      "logged": 26828.718517431771, 
+      "error_percent": 5.2447969689881124e-06, 
+      "official": 26828.71992454366
+    }, 
+    "cost_grid": {
+      "logged": 22525.314145329663, 
+      "error_percent": 5.785880318531307e-09, 
+      "official": 22525.314144026375
+    }, 
+    "E_fne": {
+      "logged": 996926.21277020918, 
+      "error_percent": 0.0, 
+      "official": 996926.21277020918
+    }, 
+    "E_ev": {
+      "logged": 10363.061402796526, 
+      "error_percent": 6.1114978757909915e-08, 
+      "official": 10363.061396463143
+    }, 
+    "E_export": {
+      "logged": 211054.2159183115, 
+      "error_percent": 1.8736521461083782e-08, 
+      "official": 211054.21587876728
+    }, 
+    "cost_energy": {
+      "logged": 155244.5878640484, 
+      "error_percent": 6.1100490219391095e-10, 
+      "official": 155244.58786499695
+    }, 
+    "E_import": {
+      "logged": 1480203.6273432036, 
+      "error_percent": 2.664002623762874e-09, 
+      "official": 1480203.6273826363
+    }, 
+    "E_bess_dch": {
+      "logged": 421095.24914482929, 
+      "error_percent": 4.115498077699169e-10, 
+      "official": 421095.24914309627
+    }
+  }, 
+  "SimCtrl.tripped": false
+}

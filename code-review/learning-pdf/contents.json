@@ -1,0 +1,146 @@
+[
+  [
+    1,
+    "Understand your energy manager"
+  ],
+  [
+    2,
+    "A route through the guide"
+  ],
+  [
+    3,
+    "1 \u00b7 The plant and the power balance"
+  ],
+  [
+    4,
+    "2 \u00b7 Two clocks, one correct sequence"
+  ],
+  [
+    5,
+    "3 \u00b7 Read Structured Text without fear"
+  ],
+  [
+    6,
+    "4 \u00b7 Team_Main is the conductor"
+  ],
+  [
+    7,
+    "5 \u00b7 Physical limits and the EV promise"
+  ],
+  [
+    8,
+    "6 \u00b7 Strategy builds the planning question"
+  ],
+  [
+    9,
+    "7 \u00b7 Forecasting: learn a normal day"
+  ],
+  [
+    10,
+    "8 \u00b7 Forecasting: adjust for today"
+  ],
+  [
+    11,
+    "9 \u00b7 Find a plausible monthly peak cap"
+  ],
+  [
+    12,
+    "10 \u00b7 Dynamic programming: the map"
+  ],
+  [
+    13,
+    "11 \u00b7 Dynamic programming: the arithmetic"
+  ],
+  [
+    14,
+    "12 \u00b7 The first action is more precise"
+  ],
+  [
+    15,
+    "13 \u00b7 What v7 adds: a learned cap floor"
+  ],
+  [
+    16,
+    "14 \u00b7 GridGuard is the last safety net"
+  ],
+  [
+    17,
+    "15 \u00b7 Walk through one interval"
+  ],
+  [
+    18,
+    "16 \u00b7 Energy accounting is not control"
+  ],
+  [
+    19,
+    "17 \u00b7 The actual electricity bill"
+  ],
+  [
+    20,
+    "18 \u00b7 Why remember previous values?"
+  ],
+  [
+    21,
+    "19 \u00b7 HMI support: data before screens"
+  ],
+  [
+    22,
+    "20 \u00b7 Alarms and diagnostic evidence"
+  ],
+  [
+    23,
+    "21 \u00b7 What the verified results prove"
+  ],
+  [
+    24,
+    "22 \u00b7 Every file has a job (1 of 2)"
+  ],
+  [
+    25,
+    "23 \u00b7 Every file has a job (2 of 2)"
+  ],
+  [
+    26,
+    "Reference 1 \u00b7 Battery feasibility helpers"
+  ],
+  [
+    27,
+    "Reference 2 \u00b7 Prices and tariff selection"
+  ],
+  [
+    28,
+    "Reference 3 \u00b7 Date and small formatting helpers"
+  ],
+  [
+    29,
+    "Reference 4 \u00b7 Aggregate and history data types"
+  ],
+  [
+    30,
+    "Reference 5 \u00b7 Logs and official totals"
+  ],
+  [
+    31,
+    "Reference 6 \u00b7 HMI variables: display data"
+  ],
+  [
+    32,
+    "Reference 7 \u00b7 Tuning: forecast and basic safety"
+  ],
+  [
+    33,
+    "Reference 8 \u00b7 Tuning: v7 and planner modes"
+  ],
+  [
+    34,
+    "Reference 9 \u00b7 Planner stage cost"
+  ],
+  [
+    35,
+    "Reference 10 \u00b7 Realised-day cap feasibility"
+  ],
+  [
+    36,
+    "Try explaining it back to yourself"
+  ]
+]

@@ -1,0 +1,13 @@
+{
+  "elapsed_s": 396.32799530029297, 
+  "SimScore.total.E_ev_unmet": 2.8212872035597514e-08, 
+  "Team_Results.nLogged": 35040.0, 
+  "SimCtrl.run": true, 
+  "SimScore.total.cost_total": 204598.62193356699, 
+  "Team_HMI.sDateTime": "31.12.2025 23:45", 
+  "SimScore.total.E_ev_required": 9326.7550097703934, 
+  "SimCtrl.k": 35040.0, 
+  "SimCtrl.finished": true, 
+  "percent": 100.0, 
+  "SimCtrl.tripped": false
+}
