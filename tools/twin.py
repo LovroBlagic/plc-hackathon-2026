@@ -56,6 +56,8 @@ def simulate(ctrl, mode=0, data=None, verbose=False):
     tot = dict(E_fne=0, E_fne_curt=0, E_fec=0, E_chg=0, E_dch=0, E_ev=0, E_ev_req=0, E_ev_unmet=0, E_imp=0, E_exp=0,
                cost_energy=0.0, cost_grid=0.0)
     mpeak = [0.0] * 13
+    mon = [[0.0, 0.0, 0.0] for _ in range(13)]   # buy, revenue, grid per month
+    soc_trace = []
     tripped = None
     for k in range(N):
         t = time_of(k)
@@ -105,12 +107,17 @@ def simulate(ctrl, mode=0, data=None, verbose=False):
         tot["E_imp"] += imp * TS; tot["E_exp"] += ex * TS
         tot["cost_energy"] += imp * TS * pe_ - ex * TS * pe_ * P["EXPF"]
         tot["cost_grid"] += imp * TS * fee
+        mm = t["month"]
+        mon[mm][0] += imp * TS * pe_; mon[mm][1] += ex * TS * pe_ * P["EXPF"]; mon[mm][2] += imp * TS * fee
+        soc_trace.append(soc)
         if imp > mpeak[t["month"]]:
             mpeak[t["month"]] = imp
     tot["cost_peak"] = sum(mpeak) * P["PEAK"]
     tot["cost_total"] = tot["cost_energy"] + tot["cost_grid"] + tot["cost_peak"]
     tot["tripped"] = tripped
     tot["mpeak"] = mpeak[1:]
+    tot["mon"] = mon[1:]
+    tot["soc"] = soc_trace
     tot["ev_pct"] = 100.0 * (tot["E_ev_req"] - tot["E_ev_unmet"]) / tot["E_ev_req"] if tot["E_ev_req"] else 0
     return tot
 

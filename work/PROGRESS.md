@@ -1,6 +1,6 @@
 # ME Energy Manager: progress (implementation agent)
 
-STATUS: best archived ME_v4_pvf_da (S1 205 877 / S2 170 232 €; practice-data gap to oracle 1.96 % / 1.41 %). Next round: soft peak penalty, forecast tweaks (Sat 00:55)
+STATUS: best archived ME_v5_k075 (S1 205 231 / S2 170 189 €). True LP bound S1 199 779 / S2 162 592 → gap 2.7 % / 4.7 %, ~88 % of it monthly peak. Testing peak-focused ideas (Sat 01:20)
 
 ## Results
 | Version | Scen | finished | tripped | cost_total € | E_ev kWh | E_ev_unmet kWh | EV % | max log dev |
@@ -16,12 +16,46 @@ STATUS: best archived ME_v4_pvf_da (S1 205 877 / S2 170 232 €; practice-data g
 | **v5 = ME_v3_coldstart** (ME, 5 ms cycle) | S2 | yes | no | **171 602.67** | 10 363.06 | 0.00 | 100.000 | 0.00000 % |
 | **v6 = ME_v4_pvf_da** (S1 code identical to v5) | S1 | yes | no | 205 877.07 (v5 run) | 10 363.06 | 0.00 | 100.000 | 0.00000 % |
 | **v6 = ME_v4_pvf_da**: S2 PV derate 0.2 (ME) | S2 | yes | no | **170 231.63** | 10 363.06 | 0.00 | 100.000 | 0.00000 % |
+| **v7 = ME_v5_k075**: S1 σ-factor 0.75, 41 first-step candidates (ME) | S1 | yes | no | **205 231.01** | 10 363.06 | 0.00 | 100.000 | 0.00000 % |
+| **v7 = ME_v5_k075** (ME) | S2 | yes | no | **170 189.36** | 10 363.06 | 0.00 | 100.000 | 0.00000 % |
 | twin: DP oracle (perfect forecast, reference only) | S1 | | | 201 921 | | 0 | 100 | |
 | twin: DP oracle | S2 | | | 167 859 | | 0 | 100 | |
 | twin: DP + EMA forecast (default) | S1 | | | 210 332 | | 0 | 100 | |
 | twin: DP + EMA forecast (default) | S2 | | | 174 204 | | 0 | 100 | |
 
-### Gap to oracle (target = DP with perfect forecast, no reserve; twin)
+### TRUE LOWER BOUND: full-year LP (tools/lp_bound.py, HiGHS, ~5 s per solve)
+Perfect knowledge of FEC, PV, prices and EV sessions; EV fixed at max power; same guard limits (999 / 498 kW); monthly peak variables. The S2 LP uses about 150 steps of simultaneous charge+discharge at negative prices (a relaxation the simulator forbids), so the S2 bound is slightly optimistic.
+| Dataset | LP S1 € | LP S2 € |
+|---|---|---|
+| v0 practice | 199 779 | 162 592 |
+| v1 | 198 738 | 162 988 |
+| v2 | 198 719 | 163 083 |
+| v3 | 198 336 | 157 957 |
+| **mean** | **198 893** | **161 655** |
+
+**Honest gap, ME practice data:**
+| Version | S1 | S2 |
+|---|---|---|
+| ME_v4 | 205 877 → +6 098 (3.05 %) | 170 232 → +7 640 (4.70 %) |
+| ME_v5 | 205 231 → +5 452 (2.73 %) | 170 189 → +7 597 (4.67 %) |
+
+**Twin mean over 4 datasets:**
+| Version | S1 | S2 |
+|---|---|---|
+| v7 | 204 392 → +5 499 (2.76 %) | 169 189 → +7 534 (4.66 %) |
+
+### LOSS BREAKDOWN (twin v7 vs LP, practice data, tools/loss.py)
+| Scen | total gap | energy (buy−revenue) | grid fee | **peak** |
+|---|---|---|---|---|
+| S1 | 5 445 € | 480 | 107 | **4 858 (89 %)** |
+| S2 | 7 608 € | 772 | 277 | **6 558 (86 %)** |
+
+- Our monthly peaks are 50–230 kW above the LP's. S1 example: Jan 669 vs 520, Jul 553 vs 381, Nov 748 vs 565.
+- Energy arbitrage is within 0.3–0.7 % of the bound.
+- Peak analysis: many monthly peaks are set with the battery still 70–88 % full. The DP imports right up to the cap computed from the pessimistic forecast, because import below the cap looks free. That commits the month's peak, while the pessimistic afternoon never comes.
+- → Next ideas are aimed only at the peak: the "lazy peak" rule (do not raise the paid peak while holding it is feasible under the expected forecast), and reserve sizing.
+
+### Gap to oracle (DP with perfect forecast, no reserve; twin). This measures forecast loss only.
 Mean over 4 datasets (v0 = practice data, v1–v3 = synthetic with the same statistics):
 | Version | S1 mean € | S1 gap | S2 mean € | S2 gap |
 |---|---|---|---|---|
@@ -98,6 +132,9 @@ Archive: deliver/ME_v1_baseline.projectarchive (39.5 MB).
 - 23:15 v5: cold-start fallback (unlearned quarter-hours use the highest FEC seen so far): twin −330 € S1, ±0 S2.
 
 - 00:35 (Sat) Orchestrator: keep optimising toward the oracle bound. Oracle recomputed properly (no reserve in DP; earlier run with hi_in_dp default was not a valid bound). Tested: explicit monthly cap selection by DP cost × remaining days (+6k worse; with weight 0.05 only −255 €, not worth ST complexity); S2 PV derate 0.2 in the cap (−1.7k, robust on all 4 datasets) → ported to ST (PLAN_PVF_TT/DA), confirmed in ME (S2 170 231.63, −1 371) and archived as deliver/ME_v4_pvf_da.projectarchive (+ ME_v4_src). Median-of-N forecasts: no gain. S1 sweep: σ factor 0.75 −400 €, a_fec 0.3 −140 € (small).
+
+- 01:10 Round: soft peak penalty above the paid peak (no effect), Huber-clipped EMA (±0), 7 day types (worse), median forecasts (±0), history-based terminal value (±0), cap selection by DP cost (no gain). Adopted S1 σ 0.75 + 41 first-step candidates → ME_v5_k075 (S1 −646 €, S2 −42 €), archived (+ ME_v5_src).
+- 01:15 LP bound (tools/lp_bound.py, lp_all.py) and loss breakdown (tools/loss.py) done.
 
 ## BLOCKERS / pending confirmation
 - Price tables in our own GVL `Team_Prices` (allowed as "cjenici" per spec §4.1/§5; spec §3.7 says prices come as separate CSVs): **pending organizer confirmation** that the evaluation dataset uses the same 2025 prices.

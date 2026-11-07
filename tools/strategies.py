@@ -146,7 +146,8 @@ def dp_strategy(H=96, dE=20.0, pen=20.0, tvf=0.9, pvf=0.6, cap_margin=1.02, real
                 a_fec=0.5, a_pv=0.3, oracle=False, nacts=21, neg_curt=True, peak_mode=True, dbg=None,
                 ksig=0.0, a_sig=0.3, hi_in_dp=True, qf=0.0, cw=0, ctau=16.0, cpv=True, cfec=True,
                 ev_mode=0, ev_margin=2, tsplit=False, hmax=192, coldmax=False,
-                capsel=None, capsel_w=1.0, med=0, psoft=0.0, tvhist=False, huber=0.0, d7=False):
+                capsel=None, capsel_w=1.0, med=0, psoft=0.0, tvhist=False, huber=0.0, d7=False,
+                lazy=None):
     fc = Forecaster(a_fec, a_pv, a_sig, cw, ctau, cpv, cfec)
     fc.med = med
     fc.huber = huber
@@ -321,6 +322,30 @@ def dp_strategy(H=96, dE=20.0, pen=20.0, tvf=0.9, pvf=0.6, cap_margin=1.02, real
         pb, _ = first(V, Te, Th)
         if n[0] - pb > Te:
             pb = min(bd, n[0] - Te)
+        if lazy is not None and n[0] - pb > st["T"] + 1e-6:
+            # lazy peak: do not raise the month's paid peak now if holding it stays feasible
+            # over the horizon under the expected forecast + lazy*sigma
+            S_ = st["T"]
+            pbS = n[0] - S_
+            if pbS <= bd:
+                E1 = E0 - pbS * TS / P["ETA_D"] if pbS > 0 else E0 - pbS * TS * P["ETA_C"]
+                arr = n.copy()
+                if not oracle:
+                    for i in range(1, h):
+                        arr[i] += lazy * fc.sig_at(k + i)
+                E = E1; ok = E >= 0
+                for i in range(1, h):
+                    if not ok: break
+                    g = arr[i]
+                    if g > S_:
+                        need = g - S_
+                        if need > P["BDC"]: ok = False; break
+                        E -= need * TS / P["ETA_D"]
+                        if E < 0: ok = False
+                    else:
+                        E += min(S_ - g, P["BCH"], (EUSE - E) / (TS * P["ETA_C"])) * TS * P["ETA_C"]
+                if ok:
+                    pb = pbS
         curt = None
         p0 = o["price"][k]
         if neg_curt and p0 < 0 and o["fec"] + sum(evreq) - pb - o["fne"] < 0:
