@@ -1,8 +1,8 @@
-"""crane_stress.py - elimination-safety stress test of the v1.3 planner (greedy + IMPROVE).
+"""crane_stress.py - elimination-safety stress test of the v1.4 planner (greedy + IMPROVE + SLOT).
 
   python tools/crane_stress.py [--random 300] [--seed 11] [--evals 600]
 
-Datasets: tools/crane_data + tools/crane_data_stress + N freshly generated sets (random and
+Datasets: tools/crane_data + tools/crane_data_stress + tools/judge_sets + N freshly generated sets (random and
 stress families, crane_gen.stress_one / random_set with a fixed seed).
 Configs: CfgOrderMode 1 (PLC default, with fallback), 0, 2 x CfgBalMode 0/1 x CfgMMode 2/0.
 For every plan the checks are (any failure is printed and counted):
@@ -16,6 +16,16 @@ For every plan the checks are (any failure is printed and counted):
   I1  IMPROVE never worse than the greedy, and the lower bound never above the plan
   R1  replan from the middle (after k transfers, crane at the last drop, Base T/M carried over;
       what FB10 does after STOP/ACK/MANUAL) - checks B1..L2 again on the rest
+  O1  (v1.4, judge round 1 R1-E1) no needless order fallback: whenever the preferred order mode 1/2
+      is feasible (exact DP crane_plan.order_feasible, BalMode 0), the plan uses that mode - also
+      for every mid-run replan
+  L0  (v1.5, judge round 2 R2-E1) independent list check: every list entry whose ID is valid, lies in
+      its source bay and is not an earlier executable entry, is pending (a rejected bogus entry with
+      the same ID must not kill it)
+  E2  (v1.5, judge round 2 R2-E2/J3) fb10_init_model.selftest(): POČETNO STANJE loads DB10/DB11 when
+      they or DB20/DB21 changed in any state, restores the last data set otherwise
+  J1  (v1.5, judge round 2 R2-J1) order 1 on a ship that starts unbalanced: no fallback when an
+      in-order plan exists under the relaxed rule (|L-R| <= max(5, d0) until first balanced)
   F1  planner error 1 only when the end state is provably unbalanceable or the greedy dead-ends;
       sets where the end state is reachable but every mode fails are listed as 'suspect'
 """
@@ -30,6 +40,7 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import crane_model as cm   # noqa: E402
 import crane_plan as cp    # noqa: E402
 import crane_gen as cg     # noqa: E402
+import fb10_init_model as fim  # noqa: E402
 
 AL = [0, 100, 200, 300]
 EVALS = 600
@@ -114,6 +125,14 @@ def mid_state(state, plan, k):
 def run_set(ds):
     out = {"name": ds["name"], "errs": [], "plans": 0, "err1": 0, "suspect": False, "replans": 0}
     st = cp.build_state(ds)
+    w0 = cm.World(ds["bay0"], ds["bay1"])
+    execd = set()
+    for lst, sts, bay, nm in ((ds["unload"], st["init"]["UState"], 0, "U"), (ds["load"], st["init"]["LState"], 1, "L")):
+        for i, v in enumerate(lst):
+            if v and cm.valid_id(v) and w0.find(bay, v) is not None:
+                if v not in execd and sts[i] != 0:
+                    out["errs"].append("%s L0 valid %s entry %d (%d) rejected" % (ds["name"], nm, i + 1, v))
+                execd.add(v)
     if st["init"]["blocking"]:
         out["blocking"] = True
         return out
@@ -134,6 +153,8 @@ def run_set(ds):
                 all_fail = False
                 out["plans"] += 1
                 out["errs"] += check_plan(st, res, tag)
+                if order > 0 and bm == 0 and res["order"] != order and cp.order_feasible(st, order, 5):
+                    out["errs"].append("%s O1 needless fallback to order %d" % (tag, res["order"]))
                 if mm == 2 and bm == 0 and order == 1:
                     res2 = cp.plan_fb(st, cfg, AL, imp_evals=EVALS)
                     if cp.csv_lines(res2) != cp.csv_lines(res):
@@ -148,6 +169,8 @@ def run_set(ds):
                                 out["errs"].append("%s R1 replan after %d failed err %d" % (tag, k, r3["err"]))
                             else:
                                 out["errs"] += check_plan(ms, r3, "%s R1@%d" % (tag, k))
+                                if r3["order"] != order and res["order"] == order and cp.order_feasible(ms, order, 5):
+                                    out["errs"].append("%s O1 needless fallback in replan@%d" % (tag, k))
     L0ok = abs(L - R) <= 5
     out["suspect"] = all_fail and end_reach and L0ok and (len(PU) + len(PL)) > 0
     return out
@@ -185,11 +208,15 @@ def main():
     a = ap.parse_args()
     here = os.path.dirname(os.path.abspath(__file__))
     sets = [cm.load_dataset(p) for p in sorted(glob.glob(os.path.join(here, "crane_data", "*.json")))
-            + sorted(glob.glob(os.path.join(here, "crane_data_stress", "*.json")))]
+            + sorted(glob.glob(os.path.join(here, "crane_data_stress", "*.json")))
+            + sorted(glob.glob(os.path.join(here, "judge_sets", "*.json")))]
     sets += gen_sets(a.random, a.seed)
     with Pool(initializer=_init, initargs=(a.evals,)) as p:
         res = p.map(run_set, sets, chunksize=2)
-    nerr = sum(len(r["errs"]) for r in res)
+    e2 = fim.selftest()
+    for e in e2:
+        print("FAIL", e)
+    nerr = sum(len(r["errs"]) for r in res) + len(e2)
     for r in res:
         for e in r["errs"][:5]:
             print("FAIL", e)

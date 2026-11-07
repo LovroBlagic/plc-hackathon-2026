@@ -19,8 +19,9 @@ The agent generates everything else. **Never hand-edit the screens `Main`, `Manu
    - Acquisition cycle **100 ms**. All generated tags copy this cycle.
 5. HMI_RT_1 → Text and graphic lists → new **text list `TL_State`**, type *Range*. Add 2 entries: `0 → OFF`, `1 → INIT`.
 6. HMI_RT_1 → Screen management → Templates: add an **empty template `Tpl`**.
+   - Also add an **empty screen `Alarms`** (number **15**, template `Tpl`) now: the generated header has a nav button to it, so it must exist before round 2. You fill it in step D. (Screen 14 is the generated `Score` screen.)
 7. Release the lock. **Agent:** `.\hmi-tia\regen.ps1 -Export`. With no Proto screen yet, this is round 1: it generates and imports only the tags and text lists, then compiles.
-   - Result: tag table **`HMI_IF_gen`** (472 tags), 11 text lists `TL_*`.
+   - Result: tag table **`HMI_IF_gen`** (490 tags), 11 text lists `TL_*`.
 
 ## B. Prototype screen "Proto" (12 min), then agent round 2
 Add screen **`Proto`** (number 99, template `Tpl`). Draw the objects below anywhere on it. Each object's **Name** (Properties → General/Miscellaneous → Name) must be exactly as given. Use tags from table `HMI_IF_gen`.
@@ -48,9 +49,11 @@ Add screen **`Proto`** (number 99, template `Tpl`). Draw the objects below anywh
 3. **Agent:** `python hmi-tia\alarms_gen.py --sample hmi-tia\export\alarm_sample.xlsx`, which writes `hmi-tia\out\alarms\crane_alarms.xlsx`.
 4. Click **Import** in the alarm editor → `crane_alarms.xlsx`. ID 1 overwrites your test alarm.
 5. Check: alarm ID 4 = "ID kontejnera postoji u listi za istovar, ali ne postoji u polju Bay 0", trigger bit 3.
+6. v1.4: alarm ID 17 (warning) is triggered by tag `AlarmWord2` bit 0 ("list order abandoned because of the balance rule"). If the import complains that `AlarmWord2` is unknown, run agent round 2 first (it creates the tag).
+7. Optional (about 2 min, judge finding J7): in the text of alarm 4 append " ID: " and insert a **tag field** (right-click → Insert parameter field) with tag `AlarmUId`; same in alarm 5 with `AlarmLId`. The screen `AlarmLog` already shows both IDs and their counts.
 
 ## D. Alarm screen (3 min), hand-made and never regenerated
-1. Add screen **`Alarms`** (number 14, template `Tpl`).
+1. Open the screen **`Alarms`** created in step A6 (number **15**, template `Tpl`; number 14 belongs to the generated `Score` screen).
 2. Controls → **Alarm view** at (16, 156), 1888 × 420. Display: **current alarms** (pending + acknowledge button).
 3. Second **Alarm view** at (16, 590), 1888 × 420. Display: **Alarm buffer** (history with date/time).
 4. HMI_RT_1 → Runtime settings → General → **Start screen = `Main`**.

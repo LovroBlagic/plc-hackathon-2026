@@ -1,7 +1,14 @@
 # CONTRACT: TIA container crane (TASK 2)
 
 This file is the single source of truth for every crane worker. **Workers may only read it.** Only the orchestrator changes it. To request a change, add a dated note under "Contract change requests" in `TEAM_NOTES.md`.
-Version **1.3**, optimisation pass, 7 Nov 2026 ~04:00 (v1.2 orchestrator final pass, v1.1 7 Nov ~02:05, v1.0 6 Nov ~23:40).
+Version **1.4**, judge round 1 fixes, 7 Nov 2026 ~06:00 (v1.3 optimisation pass ~04:00, v1.2 orchestrator final pass, v1.1 7 Nov ~02:05, v1.0 6 Nov ~23:40).
+
+**v1.4 changes (builder, judge round 1, see `tia-src/JUDGING.md`):**
+- **Exact order feasibility** (§4.10) replaces the reachability test in Pass A for order modes 1/2 (greedy) and in every IMPROVE replay. The order-1 default no longer falls back to free order when an in-order balanced plan exists (judge R1-E1); FB10 falls back only when the preferred mode is provably infeasible and then raises warning `HMI_IF.AlarmWord2` bit 0 (`HMI_IF.OrderFallback`).
+- **SLOT phase** (§4.11) after IMPROVE: drop-cell local search with a fixed sequence (relocate / swap, separable cost). New FC21 `"Crane_DropCost"`.
+- **DB10/DB11 are the live state** (§3.5): FB10 region 2a mirrors every World cell change into `"Current_state_of_Bay0/1"`; POČETNO STANJE restores the loaded data from a private copy (judge R1-E2 / J4).
+- **ACK after a rejected plan put** (bit 0 or bit 2 with a load): re-target to the nearest balance-safe free cell; if none, PAUSED + bit 7 instead of re-staging the same put (judge R1-E3).
+- New World members: `CfgSlotSweeps` (Int, 10), `SlotAccepts`, `OrderFeasible`. New HMI_IF members: `OrderFallback`, `SlotAccepts`, `AlarmWord2`, `AlarmUId`, `AlarmUCnt`, `AlarmLId`, `AlarmLCnt`.
 
 **v1.3 changes (optimisation engineer, see §4.8, §4.9 and `plans/PITCH_CRANE.md`):**
 - **IMPROVE phase** in FB11 after the multi-start greedy (§4.8): deterministic first-improvement local search over the transfer order, never worse than the greedy, respects the order mode (1 = per-list order kept, 2 = phase skipped) and every balance rule. Python reference `crane_plan.improve()`, `plan_fb(..., imp_evals=)`; SCL mirror `tia-src/13_improve_mirror.py`.
@@ -402,6 +409,12 @@ END_TYPE
 - When CheckCmd fails in OB30, OB30 sets World.Fault bit, FaultCmd := NextCmd and CmdReady := FALSE, and **does not issue**.
 - FB10 ORs World.Fault into AlarmWord.
 - **ACK** clears World.Fault and the latched bits. In AUTO/SEMI it then sets PlanValid := FALSE (replan from the actual World), so the system continues.
+- v1.4: ACK of bit 0 or bit 2 for a rejected plan put with a container on the hook re-targets the put to the nearest free cell of the same bay that passes the step rule, then replans after that put. If there is no such cell: bit 7 and state PAUSED (MANUAL needed), never an automatic retry of the same put.
+- v1.4: `HMI_IF.AlarmWord2` bit 0 (warning, HMI alarm ID 17, not in AlarmHist): the plan uses a weaker order/balance mode than the HMI setting because the preferred one is provably infeasible (§4.10). `HMI_IF.AlarmUId/AlarmUCnt`, `AlarmLId/AlarmLCnt`: first list ID missing from its bay and the count (bits 3/4).
+
+### 3.5 DB10 / DB11 = live state (v1.4)
+- After INIT, FB10 region 2a compares every cell of `"Current_state_of_Bay0/1"` with its snapshot Snap0/Snap1: a DB cell that differs is an external online edit → adopted into World (as before; while OFF/READY/DONE it also sets ExtEdit). Otherwise a World cell that differs from Snap (the crane moved a container) is written into the DB cell. So DB10/DB11 always show the current yard (≤ 1 OB1 cycle behind OB30).
+- INIT step 3: if there is no private copy yet, ExtEdit is set or any DB cell differs from Snap (new data loaded), DB10/DB11 are copied into InitBay0/InitBay1 (new initial data). Otherwise DB10/DB11 are restored from InitBay0/InitBay1, so POČETNO STANJE after a finished run starts the same data set again. Then World := DB10/DB11 as before.
 
 ### 3.4 OB30 algorithm (runtime). Exactly this order, every 1 s tick
 ```
@@ -523,6 +536,19 @@ Runs inside the same FB11 job after the last variant, only if a variant succeede
 - **Replay** of a candidate from k0 = max(1, p−1): grid = snapshot + incumbent transfers 1..k0−1, crane = incumbent destination k0−1 (or the plan-time crane), T/M = incumbent cumulative at k0−1. For each step k = k0..n with source s and successor nx (none at k = n): E as in §4.4 (skipped if the crane is at s); destination d = free cell of the other bay (x 0..3 outer, y 0..11 inner) minimising **W(s→d) + W(d→nx)** (strict '<'), Pass A = step rule (+ bow/stern if CfgBalMode 1) + reachability over the remaining sequence, Pass B = step rule only; none → reject. T += 400 + Lm_T, M += 2 + Lm_M. **Abort** (reject) as soon as K_partial + 960·(n−k) ≥ K_inc (960 = 400 + 180 + 2·190 is a lower bound of every remaining transfer).
 - **Accept** iff the replay completes (then K < K_inc). Every replay counts one evaluation. Stop at `CfgImproveEvals` evaluations or after a sweep (moves 1..3) with no acceptance. The incumbent becomes the plan (CumT/CumM from the replay).
 - Per call: ≤ `CfgImprovePerCall` evaluations and ≤ 3000 iterator positions. The result does not depend on the split.
+
+### 4.10 Exact order feasibility (v1.4)
+Replaces the reachability test of §4.3 in **Pass A** wherever the remaining order is fixed. Python reference `crane_plan.feas_table()` / `seq_feas()`.
+- **Greedy, CfgOrderMode 1/2** (`FtMask`, built at the start of the job, one row per OB1 call): sources 1..nu = pending unloads (list order), nu+1..nSrc = pending loads. `FtMask[i, j]` bit L (L = 0..24) is set iff from "i unloads done, j loads done, L containers in x 0..1" (R = S0 − i + j − L, S0 = ship count at plan time, 0 ≤ R ≤ 24) every remaining transfer can still be executed: the next unload (side fixed by its source x) needs yard count Y0 + i − j < 48, L'/R' ≥ 0, the step rule and bit L' of FtMask[i+1, j]; the next load (order 1 always, order 2 only when i = nu) may go to either half if the half has < 24 containers, step rule and bit L' of FtMask[i, j+1]. FtMask[nu, nl] = all valid L. Pass A accepts a candidate iff L' ∈ FtMask[i', j'] of the post-step state. CfgOrderMode 0 keeps the §4.3 reachability.
+- `OrderOk` = L0 ∈ FtMask[0, 0] (published as `World.OrderFeasible`). Exact (balance mode 0): if it is set, Pass A never runs empty, so the preferred order only fails when it is provably infeasible.
+- **IMPROVE replay** (every order mode, §4.8): before the replay of steps k0..n, `FaMask[k]` (mask over L after step k) is computed backwards for the fixed candidate sequence with the same rules (yard count and ship count follow the sequence). If L(k0−1) ∉ FaMask[k0−1] the candidate is rejected without a replay (still one evaluation). Pass A of step k = L' ∈ FaMask[k].
+
+### 4.11 SLOT phase (v1.4)
+After IMPROVE (or directly after the variants if IMPROVE does not run), when `CfgSlotSweeps > 0` and n ≥ 1. The sequence stays fixed; only destinations change. Python reference `crane_plan.slot_search()`; SCL branches SlStart / SlActive / FinStart; mirror `13_improve_mirror.py`.
+- Avail[cell] = 1 if empty at plan time, k+1 if it is the source cell of step k, never otherwise; Used[cell] = step whose drop uses it.
+- Cost of cell d for step k: c_k(d) = W(s_k → d) + W(d → s_k+1) (second term 0 at k = n), FC21 `"Crane_DropCost"`. K = const + Σ c_k(d_k), so changes are evaluated in O(1).
+- Sweep: k = 1..n (one k per OB1 call): (a) relocate Dst[k] to every cell of its bay (x 0..3 outer, y 0..11 inner) with Used = 0 and Avail ≤ k; (b) swap Dst[k] ↔ Dst[q], q = k+1..n, same bay, Avail[Dst[q]] ≤ k. First improvement, strict '<'. If a load changes ship half (or bow/stern half with CfgBalMode 1), the step rule is re-checked over the whole sequence; failure → revert.
+- Stop after a sweep without improvement or after CfgSlotSweeps sweeps. Then CumT/CumM are recomputed along the sequence and the plan is published (never worse than before).
 
 ### 4.9 Lower bound (v1.3)
 For the pending sources at the Req edge (u unloads, l loads, P = u + l, crane at global column cG):

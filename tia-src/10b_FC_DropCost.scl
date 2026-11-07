@@ -1,0 +1,38 @@
+FUNCTION "Crane_DropCost" : DInt
+TITLE = Weighted cost of a drop cell in the planner SLOT phase (CONTRACT 4.11)
+{ S7_Optimized_Access := 'TRUE' }
+VERSION : 0.1
+//  c(d) = W(source -> cell) + W(cell -> next source)   (second term only if HasNxt)
+//  W = T [ds] + 190 * M, both from FC20 "Crane_MoveCost" (the only cost formula).
+//  Python reference: tools/crane_plan.py slot_search() cost(); mirror tia-src/13_improve_mirror.py.
+   VAR_INPUT
+      SrcX : Int;
+      SrcY : Int;
+      SrcB : Int;
+      CelX : Int;
+      CelY : Int;
+      CelB : Int;
+      NxtX : Int;
+      NxtY : Int;
+      NxtB : Int;
+      HasNxt : Bool;
+      MMode : Int;
+   END_VAR
+   VAR_TEMP
+      tA : DInt;
+      mA : Int;
+      wSum : DInt;
+   END_VAR
+
+
+BEGIN
+	#tA := "Crane_MoveCost"(X0 := #SrcX, Y0 := #SrcY, B0 := #SrcB, X1 := #CelX, Y1 := #CelY, B1 := #CelB,
+	                        MMode := #MMode, M => #mA);
+	#wSum := #tA + 190 * INT_TO_DINT(#mA);
+	IF #HasNxt THEN
+	    #tA := "Crane_MoveCost"(X0 := #CelX, Y0 := #CelY, B0 := #CelB, X1 := #NxtX, Y1 := #NxtY, B1 := #NxtB,
+	                            MMode := #MMode, M => #mA);
+	    #wSum := #wSum + #tA + 190 * INT_TO_DINT(#mA);
+	END_IF;
+	#Crane_DropCost := #wSum;
+END_FUNCTION

@@ -1,0 +1,55 @@
+rand_01                      N= 27 P= 27 ord=1 ours=1.1123 judge=1.1001 SA gap=+1.11% LB=1.0275  <<< >1%
+rand_02                      N= 31 P= 31 ord=1 ours=0.9955 judge=0.9955 SA gap=+0.00% LB=0.9784
+rand_03                      N= 37 P= 37 ord=1 ours=1.0571 judge=1.0420 SA gap=+1.45% LB=1.0158  <<< >1%
+rand_04                      N= 74 P= 74 ord=1 ours=1.0433 judge=1.0403 SA gap=+0.29% LB=0.9999
+rand_05                      N= 12 P= 12 ord=1 ours=1.0156 judge=1.0045 EX gap=+1.11% LB=0.9967  <<< >1%
+rand_06                      N= 33 P= 33 ord=1 ours=1.0665 judge=1.0621 SA gap=+0.41% LB=1.0490
+rand_07                      N= 16 P= 16 ord=1 ours=1.0685 judge=1.0666 EX gap=+0.18% LB=1.0518
+rand_08                      N=  4 P=  4 ord=1 ours=1.1683 judge=1.1683 EX gap=+0.00% LB=1.0197
+rand_09                      N= 24 P= 24 ord=1 ours=1.0238 judge=1.0235 SA gap=+0.03% LB=1.0082
+rand_10                      N= 22 P= 22 ord=1 ours=1.0922 judge=1.0915 EX gap=+0.06% LB=1.0502
+rand_11                      N= 19 P= 19 ord=1 ours=1.1338 judge=1.1338 EX gap=+0.00% LB=1.0976
+rand_12                      N= 40 P= 40 ord=1 ours=1.0746 judge=1.0728 SA gap=+0.16% LB=1.0383
+rand_13                      N= 27 P= 27 ord=1 ours=1.1457 judge=1.1420 EX gap=+0.32% LB=1.0758
+rand_14                      N= 30 P= 30 ord=1 ours=1.0671 judge=1.0613 SA gap=+0.54% LB=1.0434
+rand_15                      N= 64 P= 64 ord=1 ours=1.0417 judge=1.0385 SA gap=+0.31% LB=1.0104
+rand_16                      N= 37 P= 37 ord=1 ours=1.1065 judge=1.1047 SA gap=+0.16% LB=1.0544
+rand_17                      N= 33 P= 33 ord=1 ours=1.0228 judge=1.0186 SA gap=+0.41% LB=0.9976
+rand_18                      N= 35 P= 35 ord=1 ours=1.1132 judge=1.1103 SA gap=+0.26% LB=1.0733
+rand_19                      N= 28 P= 28 ord=1 ours=1.0388 judge=1.0366 SA gap=+0.21% LB=1.0308
+rand_20                      N= 33 P= 33 ord=1 ours=1.0082 judge=1.0063 SA gap=+0.19% LB=0.9892
+rand_21                      N= 10 P= 10 ord=1 ours=1.1001 judge=1.1001 EX gap=+0.00% LB=1.0671
+rand_22                      N= 33 P= 33 ord=1 ours=1.0760 judge=1.0705 SA gap=+0.51% LB=1.0323
+rand_23                      N= 28 P= 28 ord=1 ours=1.0381 judge=1.0218 SA gap=+1.60% LB=1.0099  <<< >1%
+rand_24                      N=  6 P=  6 ord=1 ours=1.0146 judge=1.0146 EX gap=+0.00% LB=0.9989
+rand_25                      N= 54 P= 54 ord=1 ours=1.0164 judge=1.0155 SA gap=+0.09% LB=0.9971
+rand_26                      N= 36 P= 36 ord=1 ours=1.0516 judge=1.0466 SA gap=+0.47% LB=1.0217
+rand_27                      N= 46 P= 46 ord=1 ours=1.0783 judge=1.0744 SA gap=+0.37% LB=1.0343
+rand_28                      N= 19 P= 19 ord=1 ours=1.0249 judge=1.0245 EX gap=+0.03% LB=1.0042
+rand_29                      N= 27 P= 27 ord=1 ours=1.1074 judge=1.1074 SA gap=+0.00% LB=1.0892
+rand_30                      N= 45 P= 45 ord=1 ours=1.0296 judge=1.0296 SA gap=+0.00% LB=1.0149
+r1_score_rnd_01              N= 20 P= 20 ord=1 ours=1.0994 judge=1.0994 EX gap=+0.00% LB=1.0612
+r1_score_rnd_02              N= 19 P= 19 ord=1 ours=1.0100 judge=1.0247 EX gap=-1.43% LB=0.9830
+r1_score_rnd_03              N= 32 P= 32 ord=1 ours=1.1549 judge=1.1534 EX gap=+0.12% LB=1.0876
+r1_score_rnd_04              N= 26 P= 26 ord=1 ours=1.0333 judge=1.0194 SA gap=+1.36% LB=0.9848  <<< >1%
+r1_score_rnd_05              N= 16 P= 16 ord=1 ours=1.0322 judge=1.0446 EX gap=-1.18% LB=1.0169
+r1_score_rnd_06              N= 23 P= 23 ord=1 ours=1.0808 judge=1.0783 EX gap=+0.23% LB=1.0426
+r1_score_rnd_07              N= 10 P= 10 ord=1 ours=1.1463 judge=1.1463 EX gap=+0.00% LB=1.1066
+r1_score_rnd_08              N= 24 P= 24 ord=1 ours=1.1455 judge=1.1488 EX gap=-0.29% LB=1.0737
+r1_score_rnd_09              N= 31 P= 31 ord=1 ours=1.2394 judge=1.2394 EX gap=+0.00% LB=1.1388
+r1_score_rnd_10              N= 19 P= 19 ord=1 ours=1.0650 judge=1.0650 EX gap=+0.00% LB=1.0519
+r1_score_rnd_11              N= 19 P= 19 ord=1 ours=1.0131 judge=1.0182 EX gap=-0.50% LB=1.0000
+r1_score_rnd_12              N= 35 P= 35 ord=1 ours=1.1182 judge=1.1161 SA gap=+0.19% LB=1.0415
+r1_score_rnd_13              N= 54 P= 54 ord=1 ours=1.0315 judge=1.0298 SA gap=+0.17% LB=1.0050
+r1_score_rnd_14              N=  5 P=  5 ord=1 ours=1.0316 judge=1.0316 EX gap=+0.00% LB=0.9842
+r1_score_rnd_15              N=  6 P=  6 ord=1 ours=1.1842 judge=1.2171 EX gap=-2.70% LB=1.0526
+r1_score_rnd_16              N= 33 P= 33 ord=1 ours=1.0769 judge=1.0674 SA gap=+0.89% LB=1.0249
+r1_score_rnd_17              N= 39 P= 39 ord=1 ours=1.0520 judge=1.0407 SA gap=+1.09% LB=1.0182  <<< >1%
+r1_score_rnd_18              N= 27 P= 27 ord=1 ours=1.0245 judge=1.0217 SA gap=+0.27% LB=1.0000
+r1_score_rnd_19              N= 39 P= 39 ord=1 ours=1.0357 judge=1.0307 SA gap=+0.49% LB=1.0172
+r1_score_rnd_20              N= 18 P= 18 ord=1 ours=1.0121 judge=1.0148 EX gap=-0.26% LB=0.9952
+r1_score_rnd_21              N= 24 P= 24 ord=1 ours=1.0172 judge=1.0151 SA gap=+0.20% LB=0.9984
+r1_score_rnd_22              N= 16 P= 16 ord=1 ours=1.0091 judge=1.0229 EX gap=-1.35% LB=1.0025
+r1_score_rnd_23              N= 11 P= 11 ord=1 ours=1.1443 judge=1.1443 EX gap=+0.00% LB=1.0933
+r1_score_rnd_24              N= 22 P= 22 ord=1 ours=1.0796 judge=1.0803 EX gap=-0.06% LB=1.0395
+mean gap 0.14%  max 1.60%  >1%: 6 / 54

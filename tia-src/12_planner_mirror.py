@@ -99,6 +99,18 @@ class FB11:
                 for j in range(12):
                     t, m = fc20(0, 0, 1, 0, j, 0, self.cMMode)
                     self.WTab[(6, j, 0)] = t + 190 * m
+            if rc == 0:
+                # v1.4 counts for FtMask (exact order feasibility, CONTRACT 4.10)
+                self.sS0 = sum(1 for x in range(4) for y in range(12) if self.sG[0][x][y] != 0)
+                self.sY0 = sum(1 for x in range(4) for y in range(12) if self.sG[1][x][y] != 0)
+                self.SlBalL = sum(1 for x in range(2) for y in range(12) if self.sG[0][x][y] != 0)
+                self.FtNu = sum(1 for s in self.Src if s["kind"] == 1)
+                self.FtNl = len(self.Src) - self.FtNu
+                self.FtUse = self.cOrder != 0
+                self.FtActive = self.FtUse
+                self.FtRow = self.FtNu
+                self.OrderOk = not self.FtUse
+                self.FtMask = [[0] * 49 for _ in range(49)]
             if rc:
                 W["PlanValid"] = False
                 W["PlanLen"] = 0
@@ -114,7 +126,44 @@ class FB11:
             self.calls += 1
             budget = self.cSteps
             while self.Busy and budget > 0:
-                if not self.VarActive:
+                if self.FtActive:
+                    budget = 0
+                    i = self.FtRow
+                    FM = self.FtMask
+                    for j in range(self.FtNl, -1, -1):
+                        wTot = self.sS0 - i + j
+                        wMsk = 0
+                        for wLv in range(25):
+                            wRv = wTot - wLv
+                            if 0 <= wRv <= 24:
+                                if i == self.FtNu and j == self.FtNl:
+                                    wOk = True
+                                else:
+                                    wOk = False
+                                    if i < self.FtNu and self.sY0 + i - j < 48:
+                                        if self.Src[i]["x"] <= 1:      # source i+1 (1-based)
+                                            L2, R2 = wLv - 1, wRv
+                                        else:
+                                            L2, R2 = wLv, wRv - 1
+                                        if L2 >= 0 and R2 >= 0:
+                                            dAbs = abs(L2 - R2)
+                                            if dAbs <= self.cLim or dAbs <= abs(wLv - wRv):
+                                                wOk = (FM[i + 1][j] >> L2) & 1 != 0
+                                    if not wOk and j < self.FtNl and (self.cOrder == 1 or i == self.FtNu):
+                                        for wSd in (0, 1):
+                                            L2, R2 = (wLv + 1, wRv) if wSd == 0 else (wLv, wRv + 1)
+                                            if not wOk and L2 <= 24 and R2 <= 24:
+                                                dAbs = abs(L2 - R2)
+                                                if dAbs <= self.cLim or dAbs <= abs(wLv - wRv):
+                                                    wOk = (FM[i][j + 1] >> L2) & 1 != 0
+                                if wOk:
+                                    wMsk |= 1 << wLv
+                        FM[i][j] = wMsk
+                    self.FtRow -= 1
+                    if self.FtRow < 0:
+                        self.FtActive = False
+                        self.OrderOk = (FM[0][0] >> self.SlBalL) & 1 != 0
+                elif not self.VarActive:
                     self.VarActive = True
                     self.VarErr = 0
                     self.Alpha = self.cAlpha[self.VarNo - 1]
@@ -278,7 +327,11 @@ class FB11:
                     if ok and self.cBalMode == 1:
                         dAbs = abs(F2 - A2)
                         ok = dAbs <= self.cLim or dAbs <= abs(F - A)
-                    if ok and iPas == 0:
+                    if ok and iPas == 0 and self.FtUse:
+                        ok = 0 <= L2 <= 24
+                        if ok:
+                            ok = (self.FtMask[self.FtNu - uL - uR][self.FtNl - nL] >> L2) & 1 != 0
+                    elif ok and iPas == 0:
                         L0 = L2 - uL
                         R0 = R2 - uR
                         lo = nL - (24 - R0)
@@ -360,7 +413,7 @@ def run(ds_path, mmode, order, balmode, alphas=(0, 50, 100, 150), lim=5, carried
     while fb.Busy:
         fb.call(True)
         guard += 1
-        assert guard < 2000
+        assert guard < 4000
     calls = fb.calls
     if ref["err"] != 0:
         ok = fb.Error and fb.ErrCode == ref["err"]

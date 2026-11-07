@@ -155,7 +155,7 @@ def main():
     groups = (("random (rand_*)", [r for r in ok if r["name"].startswith("rand_")]), ("all feasible, P>0", ok))
     for gname, grp in groups:
         print("\n== %s: %d sets  (mean max)" % (gname, len(grp)))
-        print("PLC DEFAULT v1.3 order1+fb+LS: %s  (IMPROVE %d evals)" % (stats([r["dflt_ls"] for r in grp]), EVALS))
+        print("PLC DEFAULT v1.4 o1+fb+LS+SLOT: %s  (IMPROVE %d evals)" % (stats([r["dflt_ls"] for r in grp]), EVALS))
         print("free order 0 + LS             : %s" % stats([r["free_ls"] for r in grp]))
         print("order 1 + fallback, greedy    : %s  (fallback to order 0 on %d sets)" % (
             stats([r["dflt"] for r in grp]), sum(1 for r in grp if r["dflt_fb"])))

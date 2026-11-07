@@ -230,7 +230,9 @@ def valid_id(i):
 def init_validate(ds, lim=BAL_LIMIT):
     """CONTRACT 3.2 step 4.  Returns dict with UList/UState/LList/LState/N/alarm bits.
     Ordering interpretation: UList 1..48 first, then LList 1..48; "already seen"
-    means the same non-zero ID appeared in an earlier entry (any state)."""
+    means the same ID appeared in an earlier ACCEPTED entry (state 0).  v1.5 (judge round 2
+    R2-E1): a rejected entry (e.g. a bogus unload of a yard container) no longer kills a valid
+    later entry with the same ID."""
     bay0, bay1 = ds["bay0"], ds["bay1"]
     bits = set()
     seen_cells = {}
@@ -265,7 +267,6 @@ def init_validate(ds, lim=BAL_LIMIT):
                 bits.add(nbit)
             else:
                 st[i] = 0
-            if v != 0:
                 seen.add(v)
     pu = sum(1 for s in UState if s == 0)
     pl = sum(1 for s in LState if s == 0)

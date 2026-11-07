@@ -7,3 +7,4 @@ Crane_Planner=FB:11
 CheckCmd=FC:10
 Crane_MoveCost=FC:20
 Main=OB:1
+Crane_DropCost=FC:21

@@ -1,5 +1,18 @@
 # TIA crane (TASK 2): integration status
 
+## v1.4 judge round 1 fixes (7 Nov ~06:00, builder). Contract **v1.4**. Details and numbers: `tia-src/JUDGING.md`
+- **Build:** `TIA_RESULT errors=0 warnings=0` (`tia-work/r1_compile1.log`, `r1_compile2.log`). New FC21 `"Crane_DropCost"` (`10b_FC_DropCost.scl`, numbers.txt). `deliver/TIA_crane_v1_plc.zap21` re-archived (PLC only).
+- **FB11:** exact order feasibility table `FtMask` (order 1/2, built one row per call before the variants) replaces the reachability test in Pass A; exact `FaMask` side feasibility in every IMPROVE replay; new **SLOT phase** (drop-cell relocate/swap after IMPROVE, one step k per call, `World.CfgSlotSweeps` = 10). Publishes `World.OrderFeasible`, `World.SlotAccepts`.
+- **FB10:**
+  - region 2a mirrors World into **DB10/DB11** (live state); INIT restores the loaded data from InitBay0/1 for a repeat run (unless DB10/DB11 were edited online while idle or reloaded).
+  - ACK after a rejected plan put (bit 0 or 2, load on hook): re-target; if no cell → PAUSED + bit 7 (no ALARM/ACK loop).
+  - `HMI_IF.OrderFallback` / `AlarmWord2` bit 0 warning when the preferred order is provably infeasible; `AlarmUId/UCnt/LId/LCnt` for bits 3/4.
+- **Parity:** greedy mirror `12_planner_mirror.py` **774/774**; IMPROVE + SLOT + bound mirror `13_improve_mirror.py` **570/570** (budget 400, 3 evaluations per call).
+- **Order 1 (PLC default) no longer leaves list order when an in-order plan exists:** fallbacks over all 164 benchmark sets 11 → 3, all 3 provably infeasible (exact DP).
+- **HMI generator:** AlarmLog screen gets a "PROVJERA LISTA" panel (missing IDs, order fallback); alarm 17 on `AlarmWord2`; HUMAN_STEPS: `Alarms` = screen 15, created in step A. `CHECK_RESULT problems=0 tags=490`.
+
+---
+
 ## v1.3 optimisation pass (7 Nov ~04:00, optimisation engineer). Contract **v1.3**
 - **Build:** `TIA_RESULT errors=0 warnings=0` (`tia-work/opt_compile1.log`, `opt_compile2.log`). `deliver/TIA_crane_v1_plc.zap21` re-archived with v1.3 (same file name, PLC only).
 - **New in FB11:**
@@ -101,7 +114,7 @@ Known limitation of the re-target: OB1 stages one command ahead of FB1. After th
 2. **Planner per-call time** on a 1515 is unmeasured; read `"Crane_Control_DB".Planner.DiagMaxCallMs`. With the fallback, a dead-end set plans up to 2–3 times, which is still ≲ 1000 OB1 cycles.
 3. **The HMI is not built in TIA.**
 4. **N counts raw non-zero list entries**, including invalid, duplicate and missing IDs (contract §3.2). Ask the organizers.
-5. Our program never writes DB10/DB11, so they keep the initial state. The live state is World/HMI grid. If the jury expects DB10/DB11 to be updated as "current state", that needs a decision. Writing runtime values is allowed; changing the given block structure is not.
+5. ~~Our program never writes DB10/DB11~~ **Fixed in v1.4:** DB10/DB11 are mirrored from World every OB1 cycle (CONTRACT §3.5). Still ask the organizers which view they grade.
 
 ## Human TODO (in order)
 1. **Install PLCSIM** (S7-PLCSIM V21 from the TIA ISO, or PLCSIM Advanced V8), or run on the other laptop. Load `deliver/TIA_crane_v1_plc.zap21`. Then test:
@@ -113,6 +126,9 @@ Known limitation of the re-target: OB1 stages one command ahead of FB1. After th
    6. MANUAL lift on an empty cell and put on an occupied cell, then ACK
    7. During AUTO, write an obstacle ID into DB10/DB11 at the next drop cell: expect the bit 2 alarm, then ACK, then the put goes to the nearest free cell and the run continues
    8. Read `DiagMaxCallMs`
+   9. v1.4: after DONE, check that DB10/DB11 show the final yard; press POČETNO STANJE and check that the original data is restored (a repeat run gives the same MD107/MD112).
+   10. v1.4 (judge R1-E3): during AUTO, with a load lifted for a Bay 0 put, write IDs into empty LEFT cells of DB10 until L−R = 5. Expect alarm 0 → ACK → re-target to a balance-safe cell, or bit 7 + PAUSED. There must be no endless ALARM/ACK loop.
+   11. v1.4: load `tools/judge_sets/r1_elimination_needless_fallback_s777_rand_0223.json` and check that `HMI_IF.OrderModeAct = 1` and `OrderFallback = 0`.
 2. **HMI** (`hmi-tia/HUMAN_STEPS.md`, about 25 min): connection, seed objects, round 1, Proto, round 2, alarm import, Alarms screen, start screen. Optionally add I/O fields for `MSpec`, `JSpec` and `OrderModeAct`. Then compile the HMI and **re-archive with PLC_1 + HMI_RT_1**.
 3. **Organizer questions (ask now):**
    1. Is M scored by MD107 (1 per move) or by the spec rule (diagonal = 2)? For the spec rule, set `World.CfgMMode := 0`.

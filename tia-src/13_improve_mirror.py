@@ -1,5 +1,7 @@
-"""Line-by-line Python mirror of the v1.3 additions to tia-src/11_FB_Planner.scl:
-the IMPROVE phase (REGION 2, branch `IF #ImpActive`) and the closed-form lower bound (REGION 1).
+"""Line-by-line Python mirror of the v1.3/v1.4 additions to tia-src/11_FB_Planner.scl:
+the IMPROVE phase (REGION 2, branch `IF #ImpActive`, v1.4: exact FaMask side feasibility in Pass A),
+the v1.4 SLOT phase (branches SlStart / SlActive / FinStart, FC21 "Crane_DropCost") and the
+closed-form lower bound (REGION 1).
 It starts from the oracle's greedy winner (the greedy part is mirrored by 12_planner_mirror.py),
 runs the SCL state machine call by call (cImpPerCall evaluations / 3000 iterator positions per
 call) and compares plan, T, M, evaluations, accepts and the bound with tools/crane_plan.py
@@ -33,6 +35,7 @@ class Mirror:
     def __init__(self, st, cfg, res, evals, dist, percall):
         self.cMMode, self.cOrder, self.cBalMode, self.cLim = cfg["mmode"], cfg["order"], cfg["balmode"], cfg["lim"]
         self.cImpEvals, self.cImpDist, self.cImpPerCall = max(0, evals), dist, max(1, percall)
+        self.cSlotSweeps = cp.SLOT_SWEEPS
         self.sG = [[c[:] for c in st["bay0"]], [c[:] for c in st["bay1"]]]
         self.sCx, self.sCy, self.sCb = st["crane"]
         self.sBaseT, self.sBaseM = st["base_t"], st["base_m"]
@@ -111,9 +114,8 @@ class Mirror:
 
     # ---------------- close of the last variant: start ----------------
     def start(self):
-        if not (self.cImpEvals > 0 and self.cOrder != 2 and self.BestLen >= 2):
-            self.ImpActive = False
-            return
+        self.SlAcc = 0
+        self.SlSweeps = 0
         self.LsN = self.BestLen
         self.LsT = [self.sBaseT] + [0] * 96
         self.LsM = [self.sBaseM] + [0] * 96
@@ -124,11 +126,16 @@ class Mirror:
             self.LsT[i] = self.BestPlan[i]["cum_t"]
             self.LsM[i] = self.BestPlan[i]["cum_m"]
         self.LsK = self.BestK
-        self.ItMv, self.ItI, self.ItJ = 0, 1, 1
-        self.ItSweepImp = False
-        self.ImpActive = True
         self.CdSeq, self.CdDX, self.CdDY, self.CdDB = [0] * 97, [0] * 97, [0] * 97, [0] * 97
         self.CdT, self.CdM = [0] * 97, [0] * 97
+        self.FaTot, self.FaYc, self.FaMask = [0] * 97, [0] * 97, [0] * 97
+        if self.cImpEvals > 0 and self.cOrder != 2 and self.BestLen >= 2:
+            self.ItMv, self.ItI, self.ItJ = 0, 1, 1
+            self.ItSweepImp = False
+            self.ImpActive = True
+        else:
+            self.ImpActive = False
+            self.slot()
 
     # ---------------- REGION 2: one call of the improve branch ----------------
     def call(self):
@@ -161,11 +168,13 @@ class Mirror:
             qValid = qHave
             if qHave and self.cOrder == 1 and qMv != 0:
                 if qMv == 1:
+                    # v1.5: pattern-token relocate, valid iff an element of the other kind lies between
                     qKa = SK[Ls[qI]]
                     qLow, qHigh = (qI + 1, qJ) if qI < qJ else (qJ, qI - 1)
+                    qValid = False
                     for qQ in range(qLow, qHigh + 1):
-                        if SK[Ls[qQ]] == qKa:
-                            qValid = False
+                        if SK[Ls[qQ]] != qKa:
+                            qValid = True
                             break
                 elif qMv == 2:
                     qValid = qJ == qI + 1 and SK[Ls[qI]] != SK[Ls[qJ]]
@@ -184,6 +193,27 @@ class Mirror:
                     if qMv == 2:
                         Cd[qI] = Ls[qJ]
                         Cd[qJ] = Ls[qI]
+                elif qMv == 1 and self.cOrder == 1:
+                    # v1.5: kind pattern with token i moved to j; k-th U / L = k-th unload / load
+                    qRd = qU = qL = 1
+                    for qQ in range(1, self.LsN + 1):
+                        if qQ == qJ:
+                            qKb = SK[Ls[qI]]
+                        else:
+                            if qRd == qI:
+                                qRd += 1
+                            qKb = SK[Ls[qRd]]
+                            qRd += 1
+                        if qKb == SK[Ls[qI]]:
+                            while SK[Ls[qU]] != qKb:
+                                qU += 1
+                            Cd[qQ] = Ls[qU]
+                            qU += 1
+                        else:
+                            while SK[Ls[qL]] == SK[Ls[qI]]:
+                                qL += 1
+                            Cd[qQ] = Ls[qL]
+                            qL += 1
                 else:
                     qRd = 1
                     for qQ in range(1, self.LsN + 1):
@@ -198,6 +228,10 @@ class Mirror:
                             qRd += 1
                 if qMv == 0:
                     qPos = 1
+                elif qMv == 1 and self.cOrder == 1:
+                    qPos = 1
+                    while Cd[qPos] == Ls[qPos]:
+                        qPos += 1
                 elif qI < qJ:
                     qPos = qI
                 else:
@@ -235,10 +269,53 @@ class Mirror:
                             uRt += 1
                     else:
                         nLt += 1
-                qFail = False
+                # v1.4 FaMask (exact side feasibility of the remaining fixed sequence)
+                wYc = sum(1 for x in range(4) for y in range(12) if g[1][x][y] != 0)
+                FT, FY, FM = self.FaTot, self.FaYc, self.FaMask
+                FT[qStart - 1] = L + R
+                FY[qStart - 1] = wYc
+                for qQ in range(qStart, self.LsN + 1):
+                    if SK[Cd[qQ]] == 1:
+                        FT[qQ] = FT[qQ - 1] - 1
+                        FY[qQ] = FY[qQ - 1] + 1
+                    else:
+                        FT[qQ] = FT[qQ - 1] + 1
+                        FY[qQ] = FY[qQ - 1] - 1
+                wMsk = 0
+                for wLv in range(25):
+                    wRv = FT[self.LsN] - wLv
+                    if 0 <= wRv <= 24:
+                        wMsk |= 1 << wLv
+                FM[self.LsN] = wMsk
+                for qQ in range(self.LsN, qStart - 1, -1):
+                    si = Cd[qQ]
+                    wTot = FT[qQ - 1]
+                    wMsk = 0
+                    for wLv in range(25):
+                        wRv = wTot - wLv
+                        if 0 <= wRv <= 24:
+                            wOk = False
+                            if SK[si] == 1:
+                                if FY[qQ - 1] < 48:
+                                    L2, R2 = (wLv - 1, wRv) if SX[si] <= 1 else (wLv, wRv - 1)
+                                    if L2 >= 0 and R2 >= 0:
+                                        dAbs = abs(L2 - R2)
+                                        if dAbs <= self.cLim or dAbs <= abs(wLv - wRv):
+                                            wOk = (FM[qQ] >> L2) & 1 != 0
+                            else:
+                                for wSd in (0, 1):
+                                    L2, R2 = (wLv + 1, wRv) if wSd == 0 else (wLv, wRv + 1)
+                                    if not wOk and L2 <= 24 and R2 <= 24:
+                                        dAbs = abs(L2 - R2)
+                                        if dAbs <= self.cLim or dAbs <= abs(wLv - wRv):
+                                            wOk = (FM[qQ] >> L2) & 1 != 0
+                            if wOk:
+                                wMsk |= 1 << wLv
+                    FM[qQ - 1] = wMsk
+                qFail = (FM[qStart - 1] >> L) & 1 == 0
                 ops = 0
                 kv = 0
-                for qStep in range(qStart, self.LsN + 1):
+                for qStep in (range(qStart, self.LsN + 1) if not qFail else ()):
                     si = Cd[qStep]
                     sCol, sRow, sBay, srcCol = SX[si], SY[si], SB[si], SG[si]
                     dBay = 1 - sBay
@@ -273,12 +350,9 @@ class Mirror:
                                         dAbs = abs(F2 - A2)
                                         okB = dAbs <= self.cLim or dAbs <= abs(F - A)
                                     if okB and iPas == 0:
-                                        Lbase = L2 - uLt
-                                        Rbase = R2 - uRt
-                                        loN = max(0, nLt - (24 - Rbase))
-                                        hiN = min(24 - Lbase, nLt)
-                                        Dbase = Lbase - Rbase - nLt
-                                        okB = loN <= hiN and Dbase + 2 * loN <= self.cLim and Dbase + 2 * hiN >= -self.cLim
+                                        okB = 0 <= L2 <= 24
+                                        if okB:
+                                            okB = (self.FaMask[qStep] >> L2) & 1 != 0
                                     if okB:
                                         dGc = x + 6 if dBay == 0 else x
                                         xd = 0 if x == sCol else 1
@@ -346,28 +420,163 @@ class Mirror:
                     qFin = True
             if qFin:
                 self.ImpActive = False
-                if self.ImpAcc > 0:
-                    for qQ in range(1, self.LsN + 1):
-                        si = self.LsSeq[qQ]
-                        self.BestPlan[qQ] = {"kind": SK[si], "id": SI[si], "list_idx": self.SrcIdx[si],
-                                             "src": (SX[si], SY[si], SB[si]),
-                                             "dst": (self.LsDX[qQ], self.LsDY[qQ], self.LsDB[qQ]),
-                                             "cum_t": self.LsT[qQ], "cum_m": self.LsM[qQ]}
-                    self.BestT, self.BestM, self.BestK = self.LsT[self.LsN], self.LsM[self.LsN], self.LsK
+                self.slot()
+
+    # ---------------- v1.4: SlStart / SlActive (one k per call) / FinStart ----------------
+    def dropcost(self, s, x, y, b, nq, has):
+        t, m = fc20(self.SrcX[s], self.SrcY[s], self.SrcB[s], x, y, b, self.cMMode)
+        w = t + 190 * m
+        if has:
+            t, m = fc20(x, y, b, self.SrcX[nq], self.SrcY[nq], self.SrcB[nq], self.cMMode)
+            w += t + 190 * m
+        return w
+
+    def slot(self):
+        SK, SX, SY, SB, SI = self.SrcKind, self.SrcX, self.SrcY, self.SrcB, self.SrcId
+        Ls, DX, DY, DB = self.LsSeq, self.LsDX, self.LsDY, self.LsDB
+        N = self.LsN
+        if self.cSlotSweeps > 0 and N >= 1:
+            Av = [[[1 if self.sG[b][x][y] == 0 else 999 for y in range(12)] for x in range(4)] for b in range(2)]
+            Us = [[[0] * 12 for x in range(4)] for b in range(2)]
+            for k in range(1, N + 1):
+                si = Ls[k]
+                Av[SB[si]][SX[si]][SY[si]] = k + 1
+                Us[DB[k]][DX[k]][DY[k]] = k
+            bl = br = bf = ba = 0
+            for x in range(4):
+                for y in range(12):
+                    if self.sG[0][x][y] != 0:
+                        if x <= 1:
+                            bl += 1
+                        else:
+                            br += 1
+                        if y <= 5:
+                            bf += 1
+                        else:
+                            ba += 1
+            SlK, SlSweep, SlImp, active = 1, 1, False, True
+            while active:                                   # one iteration = one OB1 call
+                self.calls += 1
+                k = SlK
+                si = Ls[k]
+                b = DB[k]
+                qNx = Ls[k + 1] if k < N else 1
+                wCur = self.dropcost(si, DX[k], DY[k], b, qNx, k < N)
+                for wC in range(0, 48 + N):
+                    wGo = False
+                    wQ = 0
+                    if wC <= 47:
+                        x, y = wC // 12, wC % 12
+                        if Us[b][x][y] == 0 and Av[b][x][y] <= k:
+                            wC1 = self.dropcost(si, x, y, b, qNx, k < N)
+                            wGo = wC1 < wCur
+                    else:
+                        wQ = wC - 47 + k
+                        if wQ <= N:
+                            if DB[wQ] == b and Av[b][DX[wQ]][DY[wQ]] <= k:
+                                sj = Ls[wQ]
+                                wNq = Ls[wQ + 1] if wQ < N else 1
+                                wC2 = self.dropcost(sj, DX[wQ], DY[wQ], b, wNq, wQ < N)
+                                wC1 = (self.dropcost(si, DX[wQ], DY[wQ], b, qNx, k < N)
+                                       + self.dropcost(sj, DX[k], DY[k], b, wNq, wQ < N))
+                                if wC1 < wCur + wC2:
+                                    wGo = True
+                                    x, y = DX[wQ], DY[wQ]
+                        else:
+                            wQ = 0
+                    if wGo:
+                        wOx, wOy = DX[k], DY[k]
+                        wChk = False
+                        if SK[si] == 2:
+                            wChk = ((x <= 1) != (wOx <= 1)) or (self.cBalMode == 1 and ((y <= 5) != (wOy <= 5)))
+                        if wQ > 0 and SK[Ls[wQ]] == 2:
+                            wChk = wChk or ((wOx <= 1) != (x <= 1)) or (self.cBalMode == 1 and ((wOy <= 5) != (y <= 5)))
+                        DX[k], DY[k] = x, y
+                        if wQ > 0:
+                            DX[wQ], DY[wQ] = wOx, wOy
+                        wTrj = True
+                        if wChk:
+                            wLa, wRa, wFa, wAa = bl, br, bf, ba
+                            for qQ in range(1, N + 1):
+                                sj = Ls[qQ]
+                                if SK[sj] == 1:
+                                    L2, R2 = (wLa - 1, wRa) if SX[sj] <= 1 else (wLa, wRa - 1)
+                                    F2, A2 = (wFa - 1, wAa) if SY[sj] <= 5 else (wFa, wAa - 1)
+                                else:
+                                    L2, R2 = (wLa + 1, wRa) if DX[qQ] <= 1 else (wLa, wRa + 1)
+                                    F2, A2 = (wFa + 1, wAa) if DY[qQ] <= 5 else (wFa, wAa + 1)
+                                dAbs = abs(L2 - R2)
+                                okB = dAbs <= self.cLim or dAbs <= abs(wLa - wRa)
+                                if okB and self.cBalMode == 1:
+                                    dAbs = abs(F2 - A2)
+                                    okB = dAbs <= self.cLim or dAbs <= abs(wFa - wAa)
+                                if not okB:
+                                    wTrj = False
+                                    break
+                                wLa, wRa, wFa, wAa = L2, R2, F2, A2
+                        if not wTrj:
+                            DX[k], DY[k] = wOx, wOy
+                            if wQ > 0:
+                                DX[wQ], DY[wQ] = x, y
+                        else:
+                            if wQ > 0:
+                                Us[b][x][y] = k
+                                Us[b][wOx][wOy] = wQ
+                                wCur = self.dropcost(si, x, y, b, qNx, k < N)
+                            else:
+                                Us[b][wOx][wOy] = 0
+                                Us[b][x][y] = k
+                                wCur = wC1
+                            SlImp = True
+                            self.SlAcc += 1
+                SlK += 1
+                if SlK > N:
+                    if SlImp and SlSweep < self.cSlotSweeps:
+                        SlSweep += 1
+                        SlK = 1
+                        SlImp = False
+                    else:
+                        active = False
+            self.SlSweeps = SlSweep
+        # FinStart
+        if self.SlAcc > 0:
+            cx, cy, cb = self.sCx, self.sCy, self.sCb
+            TotT, TotM = self.sBaseT, self.sBaseM
+            for k in range(1, N + 1):
+                si = Ls[k]
+                if cx != SX[si] or cy != SY[si] or cb != SB[si]:
+                    eT, eMan = fc20(cx, cy, cb, SX[si], SY[si], SB[si], self.cMMode)
+                    TotT += eT
+                    TotM += eMan
+                lT, lMan = fc20(SX[si], SY[si], SB[si], DX[k], DY[k], DB[k], self.cMMode)
+                TotT += 400 + lT
+                TotM += 2 + lMan
+                self.LsT[k], self.LsM[k] = TotT, TotM
+                cx, cy, cb = DX[k], DY[k], DB[k]
+            self.LsK = (TotT - self.sBaseT) + 190 * (TotM - self.sBaseM)
+        if self.ImpAcc > 0 or self.SlAcc > 0:
+            for qQ in range(1, N + 1):
+                si = Ls[qQ]
+                self.BestPlan[qQ] = {"kind": SK[si], "id": SI[si], "list_idx": self.SrcIdx[si],
+                                     "src": (SX[si], SY[si], SB[si]),
+                                     "dst": (DX[qQ], DY[qQ], DB[qQ]),
+                                     "cum_t": self.LsT[qQ], "cum_m": self.LsM[qQ]}
+            self.BestT, self.BestM, self.BestK = self.LsT[N], self.LsM[N], self.LsK
 
 
-def check(path, cfg, evals, dist, percall, alphas):
+def check(path, cfg, evals, dist, percall, alphas, sweeps=cp.SLOT_SWEEPS):
     ds = cm.load_dataset(path)
     st = cp.build_state(ds)
     if st["init"]["blocking"]:
         return None
-    res = cp.plan_fb(st, cfg, alphas)
+    res = cp.plan_fb(st, cfg, alphas, slot_sweeps=0)          # greedy winner only
     if res["err"] != 0:
         return None
     c2 = res["cfg"]
-    ref = cp.improve(st, c2, res, evals, dist)
+    ref = cp.slot_search(st, c2, cp.improve(st, c2, res, evals, dist), sweeps)
     lbT, lbM, _ = cp.lower_bound(st)
     mi = Mirror(st, c2, res, evals, dist, percall)
+    mi.cSlotSweeps = sweeps
     mi.start()
     guard = 0
     while mi.ImpActive:
@@ -377,6 +586,7 @@ def check(path, cfg, evals, dist, percall, alphas):
     plan = [mi.BestPlan[i] for i in range(1, mi.BestLen + 1)]
     ok = (plan == ref["plan"] and mi.BestT == ref["T"] and mi.BestM == ref["M"]
           and mi.ImpEvals == ref.get("imp_evals", 0) and mi.ImpAcc == ref.get("imp_accepts", 0)
+          and mi.SlAcc == ref.get("slot_accepts", 0) and mi.SlSweeps == ref.get("slot_sweeps", 0)
           and mi.LbT == lbT and mi.LbM == lbM)
     return ok, mi.calls, mi.maxops, mi.ImpEvals, mi.ImpAcc
 

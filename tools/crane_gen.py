@@ -8,6 +8,7 @@ L, R <= 24), capacity feasible.  Plus hand-made edge cases and the archive toy s
 """
 
 import argparse
+import glob
 import json
 import os
 import random
@@ -224,6 +225,14 @@ def write_plan_csv(path_json, path_csv):
     return lines[-1]
 
 
+def regen_plans(data_dir):
+    """v1.4: rewrite every *.plan.csv of data_dir and the golden file (datasets unchanged)."""
+    for p in sorted(glob.glob(os.path.join(data_dir, "*.json"))):
+        r = write_plan_csv(p, p[:-5] + ".plan.csv")
+        print("%-45s %s" % (os.path.basename(p)[:-5], r))
+    write_golden(data_dir, os.path.join(os.path.dirname(data_dir), "crane_golden.json"))
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--n", type=int, default=30)
@@ -231,7 +240,11 @@ def main():
     ap.add_argument("--out", default=os.path.join(os.path.dirname(os.path.abspath(__file__)), "crane_data"))
     ap.add_argument("--stress", type=int, default=0,
                     help="write N stress sets to tools/crane_data_stress instead (no CSVs, no golden)")
+    ap.add_argument("--plans-only", action="store_true", help="only regenerate *.plan.csv + golden (v1.4)")
     a = ap.parse_args()
+    if a.plans_only:
+        regen_plans(a.out)
+        return
     if a.stress > 0:
         sd = os.path.join(os.path.dirname(os.path.abspath(__file__)), "crane_data_stress")
         os.makedirs(sd, exist_ok=True)
@@ -264,8 +277,9 @@ def write_golden(data_dir, out_path):
     cfg = {"mmode": 2, "order": 1, "balmode": 0, "lim": 5}
     gold = {"config": {"CfgMMode": 2, "CfgOrderMode": 1, "CfgBalMode": 0, "CfgBalLimit": 5,
                        "CfgAlpha": PLC_ALPHAS, "CfgImproveEvals": PLC_IMP_EVALS, "CfgImproveDist": 0,
+                       "CfgSlotSweeps": cp.SLOT_SWEEPS, "planner": "v1.4 (exact order DP, SLOT phase)",
                        "start": "after reset: crane (0,0,1), T=0, M=0",
-                       "fallback": "on ErrCode 1 FB10 retries with order 1 -> 0; order_used per set"},
+                       "fallback": "on ErrCode 1 (order provably infeasible) FB10 retries with order 1 -> 0; order_used per set"},
             "cmd_codes": "1 lift, 2 put, 3 move; phase 0 move-to-src (skipped if already there), 1 lift, 2 move-to-dst, 3 put",
             "sets": []}
     for p in paths:
@@ -278,7 +292,8 @@ def write_golden(data_dir, out_path):
         if res["err"] == 0:
             entry.update({"variant": res["variant"], "T_ds": res["T"], "M": res["M"], "J": round(res["J"], 6),
                           "J_greedy": round(res["J0"], 6), "imp_evals": res.get("imp_evals", 0),
-                          "imp_accepts": res.get("imp_accepts", 0), "LbT_ds": lbT, "LbM": lbM, "LbJ": round(lbJ, 6),
+                          "imp_accepts": res.get("imp_accepts", 0), "slot_accepts": res.get("slot_accepts", 0),
+                          "LbT_ds": lbT, "LbM": lbM, "LbJ": round(lbJ, 6),
                           "commands": cp.simulate(st, res["plan"], res["cfg"])})
         gold["sets"].append(entry)
     with open(out_path, "w", encoding="utf-8", newline="\n") as f:

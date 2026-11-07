@@ -61,6 +61,10 @@ NON_RETAIN
       LbJ : Real;                            // lower bound of J (no plan can be better)
       ImpEvals : DInt;                       // improve phase: evaluations done (last plan)
       ImpAccepts : DInt;                     // improve phase: accepted improvements (last plan)
+      // ---- v1.4: exact order feasibility (CONTRACT 4.10) and SLOT phase (4.11) ----
+      CfgSlotSweeps : Int := 10;             // drop-cell local search sweeps after IMPROVE (0 = off)
+      SlotAccepts : DInt;                    // SLOT phase: accepted drop-cell changes (last plan)
+      OrderFeasible : Bool;                  // last plan job: the requested order mode is feasible (exact DP)
    END_VAR
 
 

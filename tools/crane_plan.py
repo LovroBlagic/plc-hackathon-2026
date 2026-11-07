@@ -114,7 +114,13 @@ def step_candidates(g, crane, PU, PL, cfg, alpha, want_all=False):
                     uL = uL_tot - (1 if (s.kind == 1 and sx <= 1) else 0)
                     uR = uR_tot - (1 if (s.kind == 1 and sx >= 2) else 0)
                     n = n_tot - (1 if s.kind == 2 else 0)
-                    if not cm.reachable(L2, R2, uL, uR, n, lim):
+                    feas = cfg.get("_feas")
+                    if feas is not None and order != 0:
+                        # v1.4: exact per-list-order feasibility (feas_table), post-step state
+                        nu0, nl0, FT = feas
+                        if not (FT[nu0 - (uL + uR)][nl0 - n] >> L2) & 1:
+                            continue
+                    elif not cm.reachable(L2, R2, uL, uR, n, lim):
                         continue
                 Lm_T, Lm_M, Lm = wcost(s.pos, d, mmode)
                 if order == 0:
@@ -142,6 +148,109 @@ def step_candidates(g, crane, PU, PL, cfg, alpha, want_all=False):
         if best is not None:
             return pas, (allc if want_all else best)
     return None, None
+
+
+def cnt(grid):
+    return sum(1 for x in range(cm.NX) for y in range(cm.NY) if grid[x][y] != 0)
+
+
+def lmask(tot):
+    """Bit mask of the L values 0..24 for which R = tot - L is in 0..24."""
+    m = 0
+    for L in range(25):
+        if 0 <= tot - L <= 24:
+            m |= 1 << L
+    return m
+
+
+def feas_table(bay0, bay1, PU, PL, order, lim):
+    """v1.4 (CONTRACT 4.10): exact feasibility of the per-list order (order 1) / unloads-then-loads
+    (order 2) under the step rule and the capacities. FT[i][j] = bit mask over L (0..24) of the states
+    'i pending unloads done (list prefix), j pending loads done, L containers in x{0,1}' from which all
+    remaining transfers can still be executed. R = S0 - i + j - L is implied. Unload sides are fixed
+    (source x), a load may go to either half. FB11 builds the same table row by row (i = nu..0)."""
+    nu, nl = len(PU), len(PL)
+    S0, Y0 = cnt(bay0), cnt(bay1)
+    usL = [1 if s.pos[0] <= 1 else 0 for s in PU]
+    FT = [[0] * (nl + 1) for _ in range(nu + 1)]
+    for i in range(nu, -1, -1):
+        for j in range(nl, -1, -1):
+            tot = S0 - i + j
+            if i == nu and j == nl:
+                FT[i][j] = lmask(tot)
+                continue
+            m = 0
+            for L in range(25):
+                R = tot - L
+                if R < 0 or R > 24:
+                    continue
+                ok = False
+                if i < nu and Y0 + i - j < 48:
+                    if usL[i]:
+                        L2, R2 = L - 1, R
+                    else:
+                        L2, R2 = L, R - 1
+                    if L2 >= 0 and R2 >= 0 and cm.step_ok(L, R, L2, R2, lim) and (FT[i + 1][j] >> L2) & 1:
+                        ok = True
+                if not ok and j < nl and (order == 1 or i == nu):
+                    for side in (0, 1):
+                        L2, R2 = (L + 1, R) if side == 0 else (L, R + 1)
+                        if L2 <= 24 and R2 <= 24 and cm.step_ok(L, R, L2, R2, lim) and (FT[i][j + 1] >> L2) & 1:
+                            ok = True
+                            break
+                if ok:
+                    m |= 1 << L
+            FT[i][j] = m
+    return FT
+
+
+def order_feasible(state, order, lim=5):
+    """True iff the pending lists can be executed in order mode 1/2 (FT[0][0] contains L0)."""
+    loc = locate([state["bay0"], state["bay1"]], state["PU"], state["PL"])
+    if loc is None:
+        return False
+    if order == 0:
+        return True
+    ft = feas_table(state["bay0"], state["bay1"], loc[0], loc[1], order, lim)
+    L0, _ = cm.lr(state["bay0"])
+    return bool((ft[0][0] >> L0) & 1)
+
+
+def seq_feas(kinds, sides, tot0, y0, lim):
+    """v1.4: exact side feasibility of a FIXED sequence (IMPROVE replay Pass A).
+    kinds[k] 1 unload / 2 load, sides[k] 0 left / 1 right (unloads), k = 1..n (index 0 unused).
+    Returns FA[0..n]: FA[k] = mask of L after step k from which steps k+1..n can be completed."""
+    n = len(kinds) - 1
+    tot = [tot0] * (n + 1)
+    yc = [y0] * (n + 1)
+    for k in range(1, n + 1):
+        d = -1 if kinds[k] == 1 else 1
+        tot[k] = tot[k - 1] + d
+        yc[k] = yc[k - 1] - d
+    FA = [0] * (n + 1)
+    FA[n] = lmask(tot[n])
+    for k in range(n, 0, -1):
+        tb = tot[k - 1]
+        m = 0
+        for L in range(25):
+            R = tb - L
+            if R < 0 or R > 24:
+                continue
+            ok = False
+            if kinds[k] == 1:
+                if yc[k - 1] < 48:
+                    L2, R2 = (L - 1, R) if sides[k] == 0 else (L, R - 1)
+                    ok = L2 >= 0 and R2 >= 0 and cm.step_ok(L, R, L2, R2, lim) and (FA[k] >> L2) & 1
+            else:
+                for side in (0, 1):
+                    L2, R2 = (L + 1, R) if side == 0 else (L, R + 1)
+                    if L2 <= 24 and R2 <= 24 and cm.step_ok(L, R, L2, R2, lim) and (FA[k] >> L2) & 1:
+                        ok = True
+                        break
+            if ok:
+                m |= 1 << L
+        FA[k - 1] = m
+    return FA
 
 
 def locate(g, PU_raw, PL_raw):
@@ -255,6 +364,11 @@ def plan(state, cfg, alphas, trace=None, algo="v1"):
     if (cfg["order"] not in (0, 1, 2) or cfg["balmode"] not in (0, 1) or cfg["mmode"] not in (0, 1, 2)
             or not (1 <= len(alphas) <= 4)):
         return {"err": 3, "variant": 0, "plan": [], "variants": []}
+    if cfg["order"] != 0 and cfg.get("exact", True):
+        loc = locate([state["bay0"], state["bay1"]], state["PU"], state["PL"])
+        if loc is not None:
+            ft = feas_table(state["bay0"], state["bay1"], loc[0], loc[1], cfg["order"], cfg["lim"])
+            cfg = dict(cfg, _feas=(len(loc[0]), len(loc[1]), ft))
     results = []
     for v, a in enumerate(alphas, start=1):
         tr = [] if trace is not None else None
@@ -277,7 +391,7 @@ def plan(state, cfg, alphas, trace=None, algo="v1"):
             "J": cm.J(best["T"], best["M"], N), "N": N, "variants": results}
 
 
-def plan_fb(state, cfg, alphas, trace=None, algo="v1", imp_evals=0, imp_dist=0):
+def plan_fb(state, cfg, alphas, trace=None, algo="v1", imp_evals=0, imp_dist=0, slot_sweeps=None):
     """FB10 behaviour (default since 7 Nov): plan with the preferred modes; on ErrCode 1 (dead end)
     retry with CfgOrderMode - 1 (2 -> 1 -> 0), then CfgBalMode 1 -> 0.
     res["order"] / res["balmode"] = modes actually used, res["cfg"] = that config.
@@ -290,6 +404,9 @@ def plan_fb(state, cfg, alphas, trace=None, algo="v1", imp_evals=0, imp_dist=0):
                 res["J0"], res["T0"], res["M0"] = res["J"], res["T"], res["M"]
                 if imp_evals > 0:
                     res = improve(state, c, res, imp_evals, imp_dist)
+                sw = SLOT_SWEEPS if slot_sweeps is None else slot_sweeps
+                if sw > 0:
+                    res = slot_search(state, c, res, sw)
             res["order"], res["balmode"], res["cfg"] = c["order"], c["balmode"], c
             return res
         if c["order"] > 0:
@@ -318,6 +435,8 @@ def plan_fb(state, cfg, alphas, trace=None, algo="v1", imp_evals=0, imp_dist=0):
 #    passes an element of the same list (per-list order kept); order mode 2: no moves.
 #  * Every replay counts as one evaluation; stop at `budget` evaluations or after a sweep (mv 1..3)
 #    without improvement.  Accept iff K_cand < CurK.
+SLOT_SWEEPS = 10                        # v1.4 World.CfgSlotSweeps (0 = no SLOT phase)
+IMP_PAT = os.environ.get("CRANE_IMP_PAT", "1") == "1"  # v1.5: order 1 mv 1 = pattern-token relocate (R2-SCORE-1)
 REST_LB = 400 + 180 + 2 * M_W          # every remaining transfer: lift+put 40 s, loaded move >= 3 cols, 2 M
 BIG_K = 2000000000
 
@@ -343,6 +462,7 @@ class ImpCtx:
         self.CurK = (self.CurT[-1] - self.baseT) + M_W * (self.CurM[-1] - self.baseM)
         self.evals = 0
         self.accepts = 0
+        self.exact = cfg.get("exact", True)
 
     def kind(self, s):
         return self.src[s].kind
@@ -376,6 +496,14 @@ def imp_replay(ctx, cand, p):
                 uR += 1
         else:
             nl += 1
+    FA = None
+    if ctx.exact:
+        # v1.4: exact side feasibility of the remaining fixed sequence (replaces reachable() in Pass A)
+        kinds = [0] + [ctx.src[cand[k]].kind for k in range(k0, n + 1)]
+        sides = [0] + [0 if ctx.src[cand[k]].pos[0] <= 1 else 1 for k in range(k0, n + 1)]
+        FA = seq_feas(kinds, sides, L + R, cnt(g[1]), lim)
+        if not (FA[0] >> L) & 1:
+            return BIG_K, None                               # no side assignment completes it
     out = {}
     for k in range(k0, n + 1):
         s = ctx.src[cand[k]]
@@ -409,8 +537,12 @@ def imp_replay(ctx, cand, p):
                         continue
                     if ctx.balmode == 1 and not cm.step_ok(F, A, F2, A2, lim):
                         continue
-                    if pas == 0 and not cm.reachable(L2, R2, uL, uR, nl, lim):
-                        continue
+                    if pas == 0:
+                        if FA is not None:
+                            if not (FA[k - k0 + 1] >> L2) & 1:
+                                continue
+                        elif not cm.reachable(L2, R2, uL, uR, nl, lim):
+                            continue
                     d = (x, y, db)
                     v = wcost(s.pos, d, mm)[2]
                     if nx is not None:
@@ -444,6 +576,17 @@ def imp_valid(ctx, mv, i, j):
     if ctx.order == 2:
         return False
     seq = ctx.CurSeq
+    if mv == 1 and IMP_PAT:
+        # v1.5 (judge round 2 R2-SCORE-1): order mode 1, mv 1 = relocate the KIND TOKEN at i to j and
+        # re-derive the sequence (k-th U = k-th pending unload, k-th L = k-th load). Valid iff the
+        # pattern changes, i.e. some element between i and j is of the other kind. Superset of the
+        # old mv 1 (a run of the other kind only) and also shifts whole blocks.
+        ki = ctx.kind(seq[i])
+        lo, hi = (i + 1, j) if i < j else (j, i - 1)
+        for q in range(lo, hi + 1):
+            if ctx.kind(seq[q]) != ki:
+                return True
+        return False
     if mv == 1:
         ki = ctx.kind(seq[i])
         lo, hi = (i + 1, j) if i < j else (j, i - 1)
@@ -472,6 +615,26 @@ def imp_build(ctx, mv, i, j):
     if mv == 0:
         return seq[:], 1
     c = seq[1:]
+    if mv == 1 and IMP_PAT and ctx.order == 1:
+        # pattern-token relocate (see imp_valid); p = first position that differs
+        kinds = [ctx.kind(e) for e in c]
+        t = kinds.pop(i - 1)
+        kinds.insert(j - 1, t)
+        us = [e for e in c if ctx.kind(e) == 1]
+        ls = [e for e in c if ctx.kind(e) == 2]
+        iu = il = 0
+        out = [0]
+        for k in kinds:
+            if k == 1:
+                out.append(us[iu])
+                iu += 1
+            else:
+                out.append(ls[il])
+                il += 1
+        p = 1
+        while out[p] == seq[p]:
+            p += 1
+        return out, p
     if mv == 1:
         e = c.pop(i - 1)
         c.insert(j - 1, e)
@@ -543,6 +706,141 @@ def improve(state, cfg, res, budget, dist=0):
     out.update(plan=plan, T=ctx.CurT[ctx.n], M=ctx.CurM[ctx.n],
                J=cm.J(ctx.CurT[ctx.n], ctx.CurM[ctx.n], res["N"]),
                imp_evals=ctx.evals, imp_accepts=ctx.accepts, imp_K0=K0, imp_K=ctx.CurK)
+    return out
+
+
+# ============================================================== SLOT phase (CONTRACT v1.4 4.11)
+# After IMPROVE the transfer sequence is fixed; only the drop cells are re-optimised. The cost of a
+# drop cell d of step k is separable: c_k(d) = W(s_k -> d) + W(d -> s_{k+1}) (0 for the last step).
+#  * Avail[b,x,y] = first step at which a drop may use the cell: 1 if empty at plan time, k+1 if it is
+#    the source cell of step k, never otherwise. A cell holds at most one drop (Used).
+#  * Per sweep, k = 1..n: (a) relocate Dst[k] to every free cell c of its bay (x 0..3 / y 0..11) with
+#    Avail[c] <= k; (b) swap Dst[k] <-> Dst[q] for q = k+1..n in the same bay with Avail[Dst[q]] <= k.
+#    First improvement, strict '<'. A change of a load's ship half (or fore/aft half, BalMode 1)
+#    re-checks the step rule over the whole sequence.
+#  * Stop after a sweep without improvement or after `sweeps` sweeps. FB11: one k per OB1 call.
+def slot_search(state, cfg, res, sweeps):
+    if res["err"] != 0 or sweeps <= 0 or len(res["plan"]) < 1:
+        out = dict(res)
+        out.update(slot_sweeps=0, slot_accepts=0)
+        return out
+    mm, lim, balmode = cfg["mmode"], cfg["lim"], cfg["balmode"]
+    plan = res["plan"]
+    n = len(plan)
+    SP = [None] + [tuple(tr["src"]) for tr in plan]
+    KD = [0] + [tr["kind"] for tr in plan]
+    DX = [0] + [tr["dst"][0] for tr in plan]
+    DY = [0] + [tr["dst"][1] for tr in plan]
+    DB = [0] + [tr["dst"][2] for tr in plan]
+    NEVER = 999
+    Avail = [[[NEVER] * 12 for _ in range(4)] for _ in range(2)]
+    Used = [[[0] * 12 for _ in range(4)] for _ in range(2)]
+    g0 = [state["bay0"], state["bay1"]]
+    for b in (0, 1):
+        for x in range(4):
+            for y in range(12):
+                if g0[b][x][y] == 0:
+                    Avail[b][x][y] = 1
+    for k in range(1, n + 1):
+        sx, sy, sb = SP[k]
+        Avail[sb][sx][sy] = k + 1
+        Used[DB[k]][DX[k]][DY[k]] = k
+    L0, R0 = cm.lr(state["bay0"])
+    F0, A0 = cm.fa(state["bay0"])
+
+    def cost(k, x, y, b):
+        v = wcost(SP[k], (x, y, b), mm)[2]
+        if k < n:
+            v += wcost((x, y, b), SP[k + 1], mm)[2]
+        return v
+
+    def traj_ok():
+        L, R, F, A = L0, R0, F0, A0
+        for k in range(1, n + 1):
+            if KD[k] == 1:
+                sx, sy, _ = SP[k]
+                L2, R2 = (L - 1, R) if sx <= 1 else (L, R - 1)
+                F2, A2 = (F - 1, A) if sy <= 5 else (F, A - 1)
+            else:
+                L2, R2 = (L + 1, R) if DX[k] <= 1 else (L, R + 1)
+                F2, A2 = (F + 1, A) if DY[k] <= 5 else (F, A + 1)
+            if not cm.step_ok(L, R, L2, R2, lim):
+                return False
+            if balmode == 1 and not cm.step_ok(F, A, F2, A2, lim):
+                return False
+            L, R, F, A = L2, R2, F2, A2
+        return True
+
+    def side_change(k, x, y):
+        if KD[k] != 2:
+            return False
+        if (x <= 1) != (DX[k] <= 1):
+            return True
+        return balmode == 1 and (y <= 5) != (DY[k] <= 5)
+
+    nsw = acc = 0
+    while nsw < sweeps:
+        nsw += 1
+        imp = False
+        for k in range(1, n + 1):
+            b = DB[k]
+            for x in range(4):
+                for y in range(12):
+                    if Used[b][x][y] != 0 or Avail[b][x][y] > k:
+                        continue
+                    if cost(k, x, y, b) >= cost(k, DX[k], DY[k], b):
+                        continue
+                    ox, oy = DX[k], DY[k]
+                    chk = side_change(k, x, y)
+                    DX[k], DY[k] = x, y
+                    if chk and not traj_ok():
+                        DX[k], DY[k] = ox, oy
+                        continue
+                    Used[b][ox][oy] = 0
+                    Used[b][x][y] = k
+                    imp = True
+                    acc += 1
+            for q in range(k + 1, n + 1):
+                if DB[q] != b or Avail[b][DX[q]][DY[q]] > k:
+                    continue
+                old = cost(k, DX[k], DY[k], b) + cost(q, DX[q], DY[q], b)
+                new = cost(k, DX[q], DY[q], b) + cost(q, DX[k], DY[k], b)
+                if new >= old:
+                    continue
+                chk = side_change(k, DX[q], DY[q]) or side_change(q, DX[k], DY[k])
+                DX[k], DX[q] = DX[q], DX[k]
+                DY[k], DY[q] = DY[q], DY[k]
+                if chk and not traj_ok():
+                    DX[k], DX[q] = DX[q], DX[k]
+                    DY[k], DY[q] = DY[q], DY[k]
+                    continue
+                Used[b][DX[k]][DY[k]] = k
+                Used[b][DX[q]][DY[q]] = q
+                imp = True
+                acc += 1
+        if not imp:
+            break
+    # cumulative T / M along the (unchanged) sequence
+    T, M = state["base_t"], state["base_m"]
+    crane = tuple(state["crane"])
+    newplan = []
+    for k in range(1, n + 1):
+        tr = dict(plan[k - 1])
+        if crane != SP[k]:
+            t, m = cm.move_cost(crane[0], crane[1], crane[2], SP[k][0], SP[k][1], SP[k][2], mm)
+            T += t
+            M += m
+        d = (DX[k], DY[k], DB[k])
+        t, m = cm.move_cost(SP[k][0], SP[k][1], SP[k][2], d[0], d[1], d[2], mm)
+        T += 400 + t
+        M += 2 + m
+        tr.update(dst=d, cum_t=T, cum_m=M)
+        newplan.append(tr)
+        crane = d
+    out = dict(res)
+    if (T - res["T"]) + M_W * (M - res["M"]) <= 0:
+        out.update(plan=newplan, T=T, M=M, J=cm.J(T, M, res["N"]))
+    out.update(slot_sweeps=nsw, slot_accepts=acc)
     return out
 
 
@@ -664,6 +962,8 @@ def parse_args(argv):
     ap.add_argument("--alpha", default="0,100,200,300", help="CfgAlpha (v1.3 default 0,100,200,300)")
     ap.add_argument("--improve", type=int, default=3000, help="IMPROVE evaluations (CfgImproveEvals, 0 = off)")
     ap.add_argument("--dist", type=int, default=0, help="CfgImproveDist (0 = unlimited)")
+    ap.add_argument("--slot", type=int, default=SLOT_SWEEPS, help="SLOT phase sweeps (CfgSlotSweeps, 0 = off)")
+    ap.add_argument("--noexact", action="store_true", help="v1.3 behaviour: reachable() instead of the exact DP")
     ap.add_argument("--lb", action="store_true", help="print the closed-form lower bound")
     ap.add_argument("--lim", type=int, default=5)
     ap.add_argument("--trace", action="store_true")
@@ -676,7 +976,7 @@ def parse_args(argv):
 def main(argv=None):
     a = parse_args(argv if argv is not None else sys.argv[1:])
     ds = cm.load_dataset(a.dataset)
-    cfg = {"mmode": a.mmode, "order": a.order, "balmode": a.balmode, "lim": a.lim}
+    cfg = {"mmode": a.mmode, "order": a.order, "balmode": a.balmode, "lim": a.lim, "exact": not a.noexact}
     alphas = [int(v) for v in a.alpha.split(",") if v.strip() != ""]
     state = build_state(ds, a.lim)
     trace = [] if a.trace else None
@@ -688,8 +988,10 @@ def main(argv=None):
         res = plan(state, cfg, alphas, trace, a.algo)
         if res["err"] == 0 and a.improve > 0:
             res = improve(state, cfg, res, a.improve, a.dist)
+        if res["err"] == 0 and a.slot > 0:
+            res = slot_search(state, cfg, res, a.slot)
     else:
-        res = plan_fb(state, cfg, alphas, trace, a.algo, imp_evals=a.improve, imp_dist=a.dist)
+        res = plan_fb(state, cfg, alphas, trace, a.algo, imp_evals=a.improve, imp_dist=a.dist, slot_sweeps=a.slot)
         cfg = res["cfg"]
     if a.lb:
         lt, lm, lj = lower_bound(state)

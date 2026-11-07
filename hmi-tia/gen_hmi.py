@@ -595,6 +595,17 @@ def body_alarmlog(b, cfg, info):
         {"k": "kv", "x": 1232, "y": 372, "lw": 180, "w": 100, "h": 34, "label": "Broj pojava", "tag": "AlarmHistSeq", "fmt": "999999"},
         {"k": "text", "x": 1232, "y": 420, "w": 660, "h": 60, "t": "Blokirajući alarm zaustavlja dizalicu. Uklonite uzrok i pritisnite POTVRDA; rad se nastavlja.", "size": 12, "fg": "text_dim"},
     ])
+    # v1.4 (judge round 1 J7 / R1-E1): which list IDs are missing, and whether the list order was abandoned
+    b.frame({"x": 1220, "y": 516, "w": 684, "h": 236, "bg": "panel_bg", "border": 1})
+    b.render([
+        {"k": "text", "x": 1232, "y": 522, "w": 660, "h": 28, "t": "PROVJERA LISTA (POČETNO STANJE)", "bold": True},
+        {"k": "kv", "x": 1232, "y": 558, "lw": 330, "w": 80, "h": 34, "label": "Istovar: prvi ID koji nije u Bay 0", "tag": "AlarmUId", "fmt": "999"},
+        {"k": "kv", "x": 1660, "y": 558, "lw": 90, "w": 60, "h": 34, "label": "ukupno", "tag": "AlarmUCnt", "fmt": "99"},
+        {"k": "kv", "x": 1232, "y": 600, "lw": 330, "w": 80, "h": 34, "label": "Ukrcaj: prvi ID koji nije u Bay 1", "tag": "AlarmLId", "fmt": "999"},
+        {"k": "kv", "x": 1660, "y": 600, "lw": 90, "w": 60, "h": 34, "label": "ukupno", "tag": "AlarmLCnt", "fmt": "99"},
+        {"k": "ks", "x": 1232, "y": 642, "lw": 330, "w": 100, "h": 34, "label": "Redoslijed liste napušten", "tag": "OrderFallback", "tl": "TL_YesNo"},
+        {"k": "ks", "x": 1232, "y": 684, "lw": 330, "w": 300, "h": 34, "label": "Korišteni način redoslijeda", "tag": "OrderModeAct", "tl": "TL_Order"},
+    ])
     info["alarmlog_rows"] = 16
 
 # ------------------------------------------------------------------ screens

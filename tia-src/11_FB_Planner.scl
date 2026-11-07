@@ -151,6 +151,33 @@ VERSION : 0.1
       ItI : Int;
       ItJ : Int;
       ItSweepImp : Bool;                        // an improvement was accepted in this sweep
+      // ---------- v1.4: exact order feasibility (CONTRACT 4.10) + SLOT phase (4.11) ----------
+      sS0 : Int;                                // ship containers at plan time
+      sY0 : Int;                                // yard containers at plan time
+      SlBalL : Int;                             // ship halves at plan time (x 0..1 / 2..3, y 0..5 / 6..11)
+      SlBalR : Int;
+      SlBalF : Int;
+      SlBalA : Int;
+      FtNu : Int;                               // pending unloads (sources 1..FtNu, list order)
+      FtNl : Int;                               // pending loads (sources FtNu+1..nSrc, list order)
+      FtRow : Int;                              // table row (unloads done) built next: FtNu..0
+      FtActive : Bool;                          // building FtMask (one row per call)
+      FtUse : Bool;                             // greedy Pass A uses FtMask (order mode 1 / 2)
+      OrderOk : Bool;                           // FtMask[0,0] contains the start state (order 0: TRUE)
+      FtMask : Array[0..48, 0..48] of DWord;    // bit L: state (i unloads, j loads done, L left) completable
+      FaTot : Array[0..96] of Int;              // IMPROVE replay: ship containers after step k
+      FaYc : Array[0..96] of Int;               // IMPROVE replay: yard containers after step k
+      FaMask : Array[0..96] of DWord;           // IMPROVE replay: bit L: steps k+1..n completable from L
+      cSlotSweeps : Int;                        // World.CfgSlotSweeps (0 = no SLOT phase)
+      SlStart : Bool;                           // SLOT phase to be initialised
+      SlActive : Bool;                          // SLOT phase running (one step k per call)
+      FinStart : Bool;                          // finalise: cumulative T/M, copy to BestPlan, publish
+      SlK : Int;                                // SLOT: step processed next
+      SlSweep : Int;                            // SLOT: current sweep 1..cSlotSweeps
+      SlImp : Bool;                             // SLOT: an improvement was accepted in this sweep
+      SlAcc : DInt;                             // SLOT: accepted changes
+      SlAvail : Array[0..1, 0..3, 0..11] of Int; // first step that may drop into the cell (999 never)
+      SlUsed : Array[0..1, 0..3, 0..11] of Int;  // step whose drop uses the cell (0 none)
    END_VAR
    VAR_TEMP
       rcode : Int;
@@ -262,6 +289,29 @@ VERSION : 0.1
       qXt : DInt;
       qXb : DInt;
       qAtSrc : Bool;
+      // v1.4 (prefix w)
+      wTot : Int;
+      wYc : Int;
+      wLv : Int;
+      wRv : Int;
+      wSd : Int;
+      wOk : Bool;
+      wMsk : DWord;
+      wC : Int;
+      wQ : Int;
+      wNq : Int;
+      wOx : Int;
+      wOy : Int;
+      wGo : Bool;
+      wChk : Bool;
+      wTrj : Bool;
+      wCur : DInt;
+      wC1 : DInt;
+      wC2 : DInt;
+      wLa : Int;
+      wRa : Int;
+      wFa : Int;
+      wAa : Int;
    END_VAR
 
 
@@ -329,6 +379,18 @@ BEGIN
 	        #ImpAcc := 0;
 	        #LbT := 0;
 	        #LbM := 0;
+	        // v1.4 exact order feasibility + SLOT phase
+	        #FtActive := FALSE;
+	        #FtUse := FALSE;
+	        #OrderOk := FALSE;
+	        #SlStart := FALSE;
+	        #SlActive := FALSE;
+	        #FinStart := FALSE;
+	        #SlAcc := 0;
+	        #cSlotSweeps := "World".CfgSlotSweeps;
+	        IF #cSlotSweeps < 0 THEN
+	            #cSlotSweeps := 0;
+	        END_IF;
 
 	        IF "World".Carried <> 0 THEN
 	            #rcode := 4;
@@ -485,10 +547,53 @@ BEGIN
 	            END_IF;
 	        END_IF;
 
+	        IF #rcode = 0 THEN
+	            // ---------- v1.4: counts for the order feasibility table (4.10) and the SLOT phase (4.11) ----------
+	            #sS0 := 0;
+	            #sY0 := 0;
+	            #SlBalL := 0;
+	            #SlBalR := 0;
+	            #SlBalF := 0;
+	            #SlBalA := 0;
+	            FOR #x := 0 TO 3 DO
+	                FOR #y := 0 TO 11 DO
+	                    IF #sG[0, #x, #y] <> 0 THEN
+	                        #sS0 := #sS0 + 1;
+	                        IF #x <= 1 THEN
+	                            #SlBalL := #SlBalL + 1;
+	                        ELSE
+	                            #SlBalR := #SlBalR + 1;
+	                        END_IF;
+	                        IF #y <= 5 THEN
+	                            #SlBalF := #SlBalF + 1;
+	                        ELSE
+	                            #SlBalA := #SlBalA + 1;
+	                        END_IF;
+	                    END_IF;
+	                    IF #sG[1, #x, #y] <> 0 THEN
+	                        #sY0 := #sY0 + 1;
+	                    END_IF;
+	                END_FOR;
+	            END_FOR;
+	            #FtNu := 0;
+	            FOR #i := 1 TO #nSrc DO
+	                IF #SrcKind[#i] = 1 THEN
+	                    #FtNu := #FtNu + 1;
+	                END_IF;
+	            END_FOR;
+	            #FtNl := #nSrc - #FtNu;
+	            #FtUse := #cOrder <> 0;
+	            #FtActive := #FtUse;               // order 1 / 2: build FtMask first (rows FtNu..0, one per call)
+	            #FtRow := #FtNu;
+	            #OrderOk := NOT #FtUse;
+	        END_IF;
+
 	        IF #rcode <> 0 THEN
 	            "World".PlanValid := FALSE;
 	            "World".PlanLen := 0;
 	            "World".PlanVariant := 0;
+	            "World".OrderFeasible := FALSE;
+	            "World".SlotAccepts := 0;
 	            #JobBusy := FALSE;
 	            #Error := TRUE;
 	            #ErrCode := #rcode;
@@ -509,7 +614,71 @@ BEGIN
 	        #DiagCalls := #DiagCalls + 1;
 	        #budget := #cSteps;
 	        WHILE #JobBusy AND #budget > 0 DO
-	            IF #ImpActive THEN
+	            IF #FtActive THEN
+	                // ================= v1.4: exact order feasibility table (CONTRACT 4.10) =================
+	                // FtMask[i, j] bit L = from "i pending unloads done (list prefix), j pending loads done,
+	                // L containers in x 0..1" (R = sS0 - i + j - L) all remaining transfers can still be done
+	                // under the step rule and the capacities. Unload sides are fixed, a load may go left or
+	                // right; order 2 allows loads only after all unloads. One row i per call (<= 49 x 25 x 3).
+	                #budget := 0;
+	                #i := #FtRow;
+	                FOR #j := #FtNl TO 0 BY -1 DO
+	                    #wTot := #sS0 - #i + #j;
+	                    #wMsk := DWORD#16#0;
+	                    FOR #wLv := 0 TO 24 DO
+	                        #wRv := #wTot - #wLv;
+	                        IF #wRv >= 0 AND #wRv <= 24 THEN
+	                            IF #i = #FtNu AND #j = #FtNl THEN
+	                                #wOk := TRUE;
+	                            ELSE
+	                                #wOk := FALSE;
+	                                IF #i < #FtNu AND #sY0 + #i - #j < 48 THEN
+	                                    IF #SrcX[#i + 1] <= 1 THEN
+	                                        #L2 := #wLv - 1;
+	                                        #R2 := #wRv;
+	                                    ELSE
+	                                        #L2 := #wLv;
+	                                        #R2 := #wRv - 1;
+	                                    END_IF;
+	                                    IF #L2 >= 0 AND #R2 >= 0 THEN
+	                                        #dAbs := ABS(#L2 - #R2);
+	                                        IF #dAbs <= #cLim OR #dAbs <= ABS(#wLv - #wRv) THEN
+	                                            #wOk := (#FtMask[#i + 1, #j] AND SHL(IN := DWORD#16#1, N := INT_TO_USINT(#L2))) <> DWORD#16#0;
+	                                        END_IF;
+	                                    END_IF;
+	                                END_IF;
+	                                IF NOT #wOk AND #j < #FtNl AND (#cOrder = 1 OR #i = #FtNu) THEN
+	                                    FOR #wSd := 0 TO 1 DO
+	                                        IF #wSd = 0 THEN
+	                                            #L2 := #wLv + 1;
+	                                            #R2 := #wRv;
+	                                        ELSE
+	                                            #L2 := #wLv;
+	                                            #R2 := #wRv + 1;
+	                                        END_IF;
+	                                        IF NOT #wOk AND #L2 <= 24 AND #R2 <= 24 THEN
+	                                            #dAbs := ABS(#L2 - #R2);
+	                                            IF #dAbs <= #cLim OR #dAbs <= ABS(#wLv - #wRv) THEN
+	                                                #wOk := (#FtMask[#i, #j + 1] AND SHL(IN := DWORD#16#1, N := INT_TO_USINT(#L2))) <> DWORD#16#0;
+	                                            END_IF;
+	                                        END_IF;
+	                                    END_FOR;
+	                                END_IF;
+	                            END_IF;
+	                            IF #wOk THEN
+	                                #wMsk := #wMsk OR SHL(IN := DWORD#16#1, N := INT_TO_USINT(#wLv));
+	                            END_IF;
+	                        END_IF;
+	                    END_FOR;
+	                    #FtMask[#i, #j] := #wMsk;
+	                END_FOR;
+	                #FtRow := #FtRow - 1;
+	                IF #FtRow < 0 THEN
+	                    #FtActive := FALSE;
+	                    #OrderOk := (#FtMask[0, 0] AND SHL(IN := DWORD#16#1, N := INT_TO_USINT(#SlBalL))) <> DWORD#16#0;
+	                END_IF;
+
+	            ELSIF #ImpActive THEN
 	                // ================= IMPROVE phase (CONTRACT 4.8) =================
 	                // Up to cImpPerCall evaluations per call (each = one replay); scan guard bounds the
 	                // number of iterator positions per call. The result does not depend on the split.
@@ -694,7 +863,87 @@ BEGIN
 	                            END_IF;
 	                        END_FOR;
 
-	                        #qFail := FALSE;
+	                        // ---- v1.4: exact side feasibility of the remaining fixed sequence (CONTRACT 4.10) ----
+	                        // FaMask[k] bit L = after step k with L containers in x 0..1, steps k+1..LsN can
+	                        // be done (unload sides fixed, loads either side, step rule, capacities).
+	                        #wYc := 0;
+	                        FOR #x := 0 TO 3 DO
+	                            FOR #y := 0 TO 11 DO
+	                                IF #g[1, #x, #y] <> 0 THEN
+	                                    #wYc := #wYc + 1;
+	                                END_IF;
+	                            END_FOR;
+	                        END_FOR;
+	                        #FaTot[#qStart - 1] := #L + #R;
+	                        #FaYc[#qStart - 1] := #wYc;
+	                        FOR #qQ := #qStart TO #LsN DO
+	                            IF #SrcKind[#CdSeq[#qQ]] = 1 THEN
+	                                #FaTot[#qQ] := #FaTot[#qQ - 1] - 1;
+	                                #FaYc[#qQ] := #FaYc[#qQ - 1] + 1;
+	                            ELSE
+	                                #FaTot[#qQ] := #FaTot[#qQ - 1] + 1;
+	                                #FaYc[#qQ] := #FaYc[#qQ - 1] - 1;
+	                            END_IF;
+	                        END_FOR;
+	                        #wMsk := DWORD#16#0;
+	                        FOR #wLv := 0 TO 24 DO
+	                            #wRv := #FaTot[#LsN] - #wLv;
+	                            IF #wRv >= 0 AND #wRv <= 24 THEN
+	                                #wMsk := #wMsk OR SHL(IN := DWORD#16#1, N := INT_TO_USINT(#wLv));
+	                            END_IF;
+	                        END_FOR;
+	                        #FaMask[#LsN] := #wMsk;
+	                        FOR #qQ := #LsN TO #qStart BY -1 DO
+	                            #si := #CdSeq[#qQ];
+	                            #wTot := #FaTot[#qQ - 1];
+	                            #wMsk := DWORD#16#0;
+	                            FOR #wLv := 0 TO 24 DO
+	                                #wRv := #wTot - #wLv;
+	                                IF #wRv >= 0 AND #wRv <= 24 THEN
+	                                    #wOk := FALSE;
+	                                    IF #SrcKind[#si] = 1 THEN
+	                                        IF #FaYc[#qQ - 1] < 48 THEN
+	                                            IF #SrcX[#si] <= 1 THEN
+	                                                #L2 := #wLv - 1;
+	                                                #R2 := #wRv;
+	                                            ELSE
+	                                                #L2 := #wLv;
+	                                                #R2 := #wRv - 1;
+	                                            END_IF;
+	                                            IF #L2 >= 0 AND #R2 >= 0 THEN
+	                                                #dAbs := ABS(#L2 - #R2);
+	                                                IF #dAbs <= #cLim OR #dAbs <= ABS(#wLv - #wRv) THEN
+	                                                    #wOk := (#FaMask[#qQ] AND SHL(IN := DWORD#16#1, N := INT_TO_USINT(#L2))) <> DWORD#16#0;
+	                                                END_IF;
+	                                            END_IF;
+	                                        END_IF;
+	                                    ELSE
+	                                        FOR #wSd := 0 TO 1 DO
+	                                            IF #wSd = 0 THEN
+	                                                #L2 := #wLv + 1;
+	                                                #R2 := #wRv;
+	                                            ELSE
+	                                                #L2 := #wLv;
+	                                                #R2 := #wRv + 1;
+	                                            END_IF;
+	                                            IF NOT #wOk AND #L2 <= 24 AND #R2 <= 24 THEN
+	                                                #dAbs := ABS(#L2 - #R2);
+	                                                IF #dAbs <= #cLim OR #dAbs <= ABS(#wLv - #wRv) THEN
+	                                                    #wOk := (#FaMask[#qQ] AND SHL(IN := DWORD#16#1, N := INT_TO_USINT(#L2))) <> DWORD#16#0;
+	                                                END_IF;
+	                                            END_IF;
+	                                        END_FOR;
+	                                    END_IF;
+	                                    IF #wOk THEN
+	                                        #wMsk := #wMsk OR SHL(IN := DWORD#16#1, N := INT_TO_USINT(#wLv));
+	                                    END_IF;
+	                                END_IF;
+	                            END_FOR;
+	                            #FaMask[#qQ - 1] := #wMsk;
+	                        END_FOR;
+	                        // no side assignment completes the candidate: rejected without a replay
+	                        #qFail := (#FaMask[#qStart - 1] AND SHL(IN := DWORD#16#1, N := INT_TO_USINT(#L))) = DWORD#16#0;
+	                        IF NOT #qFail THEN
 	                        FOR #qStep := #qStart TO #LsN DO
 	                            #si := #CdSeq[#qStep];
 	                            #sCol := #SrcX[#si];
@@ -770,18 +1019,11 @@ BEGIN
 	                                                #okB := #dAbs <= #cLim OR #dAbs <= ABS(#F - #A);
 	                                            END_IF;
 	                                            IF #okB AND #iPas = 0 THEN
-	                                                #Lbase := #L2 - #uLt;
-	                                                #Rbase := #R2 - #uRt;
-	                                                #loN := #nLt - (24 - #Rbase);
-	                                                IF #loN < 0 THEN
-	                                                    #loN := 0;
+	                                                // v1.4 Pass A: exact feasibility of the rest of the sequence
+	                                                #okB := #L2 >= 0 AND #L2 <= 24;
+	                                                IF #okB THEN
+	                                                    #okB := (#FaMask[#qStep] AND SHL(IN := DWORD#16#1, N := INT_TO_USINT(#L2))) <> DWORD#16#0;
 	                                                END_IF;
-	                                                #hiN := 24 - #Lbase;
-	                                                IF #nLt < #hiN THEN
-	                                                    #hiN := #nLt;
-	                                                END_IF;
-	                                                #Dbase := #Lbase - #Rbase - #nLt;
-	                                                #okB := #loN <= #hiN AND #Dbase + 2 * #loN <= #cLim AND #Dbase + 2 * #hiN >= -#cLim;
 	                                            END_IF;
 	                                            IF #okB THEN
 	                                                IF #dBay = 0 THEN
@@ -867,6 +1109,7 @@ BEGIN
 	                                EXIT;
 	                            END_IF;
 	                        END_FOR;
+	                        END_IF;
 	                        #ImpEvals := #ImpEvals + 1;
 	                        #qEv := #qEv + 1;
 	                        IF NOT #qFail THEN
@@ -898,28 +1141,270 @@ BEGIN
 	                    END_IF;
 	                    IF #qFin THEN
 	                        #ImpActive := FALSE;
-	                        IF #ImpAcc > 0 THEN
-	                            FOR #qQ := 1 TO #LsN DO
-	                                #si := #LsSeq[#qQ];
-	                                #BestPlan[#qQ].Kind := #SrcKind[#si];
-	                                #BestPlan[#qQ].Id := #SrcId[#si];
-	                                #BestPlan[#qQ].ListIdx := #SrcIdx[#si];
-	                                #BestPlan[#qQ].SrcX := INT_TO_SINT(#SrcX[#si]);
-	                                #BestPlan[#qQ].SrcY := INT_TO_SINT(#SrcY[#si]);
-	                                #BestPlan[#qQ].SrcBay := INT_TO_USINT(#SrcB[#si]);
-	                                #BestPlan[#qQ].DstX := INT_TO_SINT(#LsDX[#qQ]);
-	                                #BestPlan[#qQ].DstY := INT_TO_SINT(#LsDY[#qQ]);
-	                                #BestPlan[#qQ].DstBay := INT_TO_USINT(#LsDB[#qQ]);
-	                                #BestPlan[#qQ].CumT_ds := #LsT[#qQ];
-	                                #BestPlan[#qQ].CumM := #LsM[#qQ];
-	                            END_FOR;
-	                            #BestT := #LsT[#LsN];
-	                            #BestM := #LsM[#LsN];
-	                            #BestK := #LsK;
-	                        END_IF;
-	                        #PubPending := TRUE;
+	                        #SlStart := TRUE;               // v1.4: SLOT phase, then finalise / publish
 	                    END_IF;
 	                END_WHILE;
+
+	            ELSIF #SlStart THEN
+	                // ================= v1.4: SLOT phase start (CONTRACT 4.11) =================
+	                #SlStart := FALSE;
+	                IF #cSlotSweeps > 0 AND #LsN >= 1 THEN
+	                    FOR #b := 0 TO 1 DO
+	                        FOR #x := 0 TO 3 DO
+	                            FOR #y := 0 TO 11 DO
+	                                IF #sG[#b, #x, #y] = 0 THEN
+	                                    #SlAvail[#b, #x, #y] := 1;
+	                                ELSE
+	                                    #SlAvail[#b, #x, #y] := 999;
+	                                END_IF;
+	                                #SlUsed[#b, #x, #y] := 0;
+	                            END_FOR;
+	                        END_FOR;
+	                    END_FOR;
+	                    FOR #k := 1 TO #LsN DO
+	                        #si := #LsSeq[#k];
+	                        #SlAvail[#SrcB[#si], #SrcX[#si], #SrcY[#si]] := #k + 1;   // freed by the lift of step k
+	                        #SlUsed[#LsDB[#k], #LsDX[#k], #LsDY[#k]] := #k;
+	                    END_FOR;
+	                    #SlK := 1;
+	                    #SlSweep := 1;
+	                    #SlImp := FALSE;
+	                    #SlActive := TRUE;
+	                ELSE
+	                    #FinStart := TRUE;
+	                END_IF;
+
+	            ELSIF #SlActive THEN
+	                // ================= v1.4: SLOT phase, one step k per call (CONTRACT 4.11) =================
+	                // The sequence is fixed; only drop cells change. Cost of cell d for step k (separable):
+	                // c_k(d) = W(s_k -> d) + W(d -> s_k+1). Candidates in this order, first improvement:
+	                //  wC 0..47 : relocate Dst[k] to free cell (wC / 12, wC MOD 12) with SlAvail <= k;
+	                //  wC 48..  : swap Dst[k] <-> Dst[q], q = k+1..LsN, same bay, SlAvail[Dst[q]] <= k.
+	                // A load that changes ship half (or fore/aft half, BalMode 1) re-checks the step rule
+	                // over the whole sequence.
+	                #budget := 0;
+	                #k := #SlK;
+	                #si := #LsSeq[#k];
+	                #b := #LsDB[#k];
+	                IF #k < #LsN THEN
+	                    #qNx := #LsSeq[#k + 1];
+	                ELSE
+	                    #qNx := 1;                          // any valid index; HasNxt = FALSE ignores it
+	                END_IF;
+	                #wCur := "Crane_DropCost"(SrcX := #SrcX[#si], SrcY := #SrcY[#si], SrcB := #SrcB[#si],
+	                                          CelX := #LsDX[#k], CelY := #LsDY[#k], CelB := #b,
+	                                          NxtX := #SrcX[#qNx], NxtY := #SrcY[#qNx], NxtB := #SrcB[#qNx],
+	                                          HasNxt := #k < #LsN, MMode := #cMMode);
+	                FOR #wC := 0 TO 47 + #LsN DO
+	                    #wGo := FALSE;
+	                    #wQ := 0;
+	                    IF #wC <= 47 THEN
+	                        #x := #wC / 12;
+	                        #y := #wC MOD 12;
+	                        IF #SlUsed[#b, #x, #y] = 0 AND #SlAvail[#b, #x, #y] <= #k THEN
+	                            #wC1 := "Crane_DropCost"(SrcX := #SrcX[#si], SrcY := #SrcY[#si], SrcB := #SrcB[#si],
+	                                                     CelX := #x, CelY := #y, CelB := #b,
+	                                                     NxtX := #SrcX[#qNx], NxtY := #SrcY[#qNx], NxtB := #SrcB[#qNx],
+	                                                     HasNxt := #k < #LsN, MMode := #cMMode);
+	                            #wGo := #wC1 < #wCur;
+	                        END_IF;
+	                    ELSE
+	                        #wQ := #wC - 47 + #k;
+	                        IF #wQ <= #LsN THEN
+	                            IF #LsDB[#wQ] = #b THEN
+	                                IF #SlAvail[#b, #LsDX[#wQ], #LsDY[#wQ]] <= #k THEN
+	                                    #sj := #LsSeq[#wQ];
+	                                    IF #wQ < #LsN THEN
+	                                        #wNq := #LsSeq[#wQ + 1];
+	                                    ELSE
+	                                        #wNq := 1;
+	                                    END_IF;
+	                                    #wC2 := "Crane_DropCost"(SrcX := #SrcX[#sj], SrcY := #SrcY[#sj], SrcB := #SrcB[#sj],
+	                                                             CelX := #LsDX[#wQ], CelY := #LsDY[#wQ], CelB := #b,
+	                                                             NxtX := #SrcX[#wNq], NxtY := #SrcY[#wNq], NxtB := #SrcB[#wNq],
+	                                                             HasNxt := #wQ < #LsN, MMode := #cMMode);
+	                                    #wC1 := "Crane_DropCost"(SrcX := #SrcX[#si], SrcY := #SrcY[#si], SrcB := #SrcB[#si],
+	                                                             CelX := #LsDX[#wQ], CelY := #LsDY[#wQ], CelB := #b,
+	                                                             NxtX := #SrcX[#qNx], NxtY := #SrcY[#qNx], NxtB := #SrcB[#qNx],
+	                                                             HasNxt := #k < #LsN, MMode := #cMMode)
+	                                            + "Crane_DropCost"(SrcX := #SrcX[#sj], SrcY := #SrcY[#sj], SrcB := #SrcB[#sj],
+	                                                               CelX := #LsDX[#k], CelY := #LsDY[#k], CelB := #b,
+	                                                               NxtX := #SrcX[#wNq], NxtY := #SrcY[#wNq], NxtB := #SrcB[#wNq],
+	                                                               HasNxt := #wQ < #LsN, MMode := #cMMode);
+	                                    IF #wC1 < #wCur + #wC2 THEN
+	                                        #wGo := TRUE;
+	                                        #x := #LsDX[#wQ];
+	                                        #y := #LsDY[#wQ];
+	                                    END_IF;
+	                                END_IF;
+	                            END_IF;
+	                        ELSE
+	                            #wQ := 0;
+	                        END_IF;
+	                    END_IF;
+
+	                    IF #wGo THEN
+	                        // tentative change: Dst[k] := (x, y); swap: Dst[q] := old Dst[k]
+	                        #wOx := #LsDX[#k];
+	                        #wOy := #LsDY[#k];
+	                        #wChk := FALSE;
+	                        IF #SrcKind[#si] = 2 THEN
+	                            #wChk := ((#x <= 1) <> (#wOx <= 1)) OR (#cBalMode = 1 AND ((#y <= 5) <> (#wOy <= 5)));
+	                        END_IF;
+	                        IF #wQ > 0 THEN
+	                            IF #SrcKind[#LsSeq[#wQ]] = 2 THEN
+	                                #wChk := #wChk OR ((#wOx <= 1) <> (#x <= 1)) OR (#cBalMode = 1 AND ((#wOy <= 5) <> (#y <= 5)));
+	                            END_IF;
+	                        END_IF;
+	                        #LsDX[#k] := #x;
+	                        #LsDY[#k] := #y;
+	                        IF #wQ > 0 THEN
+	                            #LsDX[#wQ] := #wOx;
+	                            #LsDY[#wQ] := #wOy;
+	                        END_IF;
+	                        #wTrj := TRUE;
+	                        IF #wChk THEN
+	                            // step rule along the whole sequence with the changed ship halves
+	                            #wLa := #SlBalL;
+	                            #wRa := #SlBalR;
+	                            #wFa := #SlBalF;
+	                            #wAa := #SlBalA;
+	                            FOR #qQ := 1 TO #LsN DO
+	                                #sj := #LsSeq[#qQ];
+	                                IF #SrcKind[#sj] = 1 THEN
+	                                    IF #SrcX[#sj] <= 1 THEN
+	                                        #L2 := #wLa - 1;
+	                                        #R2 := #wRa;
+	                                    ELSE
+	                                        #L2 := #wLa;
+	                                        #R2 := #wRa - 1;
+	                                    END_IF;
+	                                    IF #SrcY[#sj] <= 5 THEN
+	                                        #F2 := #wFa - 1;
+	                                        #A2 := #wAa;
+	                                    ELSE
+	                                        #F2 := #wFa;
+	                                        #A2 := #wAa - 1;
+	                                    END_IF;
+	                                ELSE
+	                                    IF #LsDX[#qQ] <= 1 THEN
+	                                        #L2 := #wLa + 1;
+	                                        #R2 := #wRa;
+	                                    ELSE
+	                                        #L2 := #wLa;
+	                                        #R2 := #wRa + 1;
+	                                    END_IF;
+	                                    IF #LsDY[#qQ] <= 5 THEN
+	                                        #F2 := #wFa + 1;
+	                                        #A2 := #wAa;
+	                                    ELSE
+	                                        #F2 := #wFa;
+	                                        #A2 := #wAa + 1;
+	                                    END_IF;
+	                                END_IF;
+	                                #dAbs := ABS(#L2 - #R2);
+	                                #okB := #dAbs <= #cLim OR #dAbs <= ABS(#wLa - #wRa);
+	                                IF #okB AND #cBalMode = 1 THEN
+	                                    #dAbs := ABS(#F2 - #A2);
+	                                    #okB := #dAbs <= #cLim OR #dAbs <= ABS(#wFa - #wAa);
+	                                END_IF;
+	                                IF NOT #okB THEN
+	                                    #wTrj := FALSE;
+	                                    EXIT;
+	                                END_IF;
+	                                #wLa := #L2;
+	                                #wRa := #R2;
+	                                #wFa := #F2;
+	                                #wAa := #A2;
+	                            END_FOR;
+	                        END_IF;
+	                        IF NOT #wTrj THEN
+	                            // revert
+	                            #LsDX[#k] := #wOx;
+	                            #LsDY[#k] := #wOy;
+	                            IF #wQ > 0 THEN
+	                                #LsDX[#wQ] := #x;
+	                                #LsDY[#wQ] := #y;
+	                            END_IF;
+	                        ELSE
+	                            IF #wQ > 0 THEN
+	                                #SlUsed[#b, #x, #y] := #k;
+	                                #SlUsed[#b, #wOx, #wOy] := #wQ;
+	                                #wCur := "Crane_DropCost"(SrcX := #SrcX[#si], SrcY := #SrcY[#si], SrcB := #SrcB[#si],
+	                                                          CelX := #x, CelY := #y, CelB := #b,
+	                                                          NxtX := #SrcX[#qNx], NxtY := #SrcY[#qNx], NxtB := #SrcB[#qNx],
+	                                                          HasNxt := #k < #LsN, MMode := #cMMode);
+	                            ELSE
+	                                #SlUsed[#b, #wOx, #wOy] := 0;
+	                                #SlUsed[#b, #x, #y] := #k;
+	                                #wCur := #wC1;
+	                            END_IF;
+	                            #SlImp := TRUE;
+	                            #SlAcc := #SlAcc + 1;
+	                        END_IF;
+	                    END_IF;
+	                END_FOR;
+	                #SlK := #SlK + 1;
+	                IF #SlK > #LsN THEN
+	                    IF #SlImp AND #SlSweep < #cSlotSweeps THEN
+	                        #SlSweep := #SlSweep + 1;
+	                        #SlK := 1;
+	                        #SlImp := FALSE;
+	                    ELSE
+	                        #SlActive := FALSE;
+	                        #FinStart := TRUE;
+	                    END_IF;
+	                END_IF;
+
+	            ELSIF #FinStart THEN
+	                // ================= v1.4: finalise (cumulative T / M, result -> BestPlan) =================
+	                #FinStart := FALSE;
+	                IF #SlAcc > 0 THEN
+	                    #cx := #sCx;
+	                    #cy := #sCy;
+	                    #cb := #sCb;
+	                    #TotT := #sBaseT;
+	                    #TotM := #sBaseM;
+	                    FOR #k := 1 TO #LsN DO
+	                        #si := #LsSeq[#k];
+	                        IF #cx <> #SrcX[#si] OR #cy <> #SrcY[#si] OR #cb <> #SrcB[#si] THEN
+	                            #eT := "Crane_MoveCost"(X0 := #cx, Y0 := #cy, B0 := #cb, X1 := #SrcX[#si], Y1 := #SrcY[#si], B1 := #SrcB[#si],
+	                                                    MMode := #cMMode, M => #eMan);
+	                            #TotT := #TotT + #eT;
+	                            #TotM := #TotM + INT_TO_DINT(#eMan);
+	                        END_IF;
+	                        #lT := "Crane_MoveCost"(X0 := #SrcX[#si], Y0 := #SrcY[#si], B0 := #SrcB[#si], X1 := #LsDX[#k], Y1 := #LsDY[#k], B1 := #LsDB[#k],
+	                                                MMode := #cMMode, M => #lMan);
+	                        #TotT := #TotT + 400 + #lT;
+	                        #TotM := #TotM + 2 + INT_TO_DINT(#lMan);
+	                        #LsT[#k] := #TotT;
+	                        #LsM[#k] := #TotM;
+	                        #cx := #LsDX[#k];
+	                        #cy := #LsDY[#k];
+	                        #cb := #LsDB[#k];
+	                    END_FOR;
+	                    #LsK := (#TotT - #sBaseT) + 190 * (#TotM - #sBaseM);
+	                END_IF;
+	                IF #ImpAcc > 0 OR #SlAcc > 0 THEN
+	                    FOR #qQ := 1 TO #LsN DO
+	                        #si := #LsSeq[#qQ];
+	                        #BestPlan[#qQ].Kind := #SrcKind[#si];
+	                        #BestPlan[#qQ].Id := #SrcId[#si];
+	                        #BestPlan[#qQ].ListIdx := #SrcIdx[#si];
+	                        #BestPlan[#qQ].SrcX := INT_TO_SINT(#SrcX[#si]);
+	                        #BestPlan[#qQ].SrcY := INT_TO_SINT(#SrcY[#si]);
+	                        #BestPlan[#qQ].SrcBay := INT_TO_USINT(#SrcB[#si]);
+	                        #BestPlan[#qQ].DstX := INT_TO_SINT(#LsDX[#qQ]);
+	                        #BestPlan[#qQ].DstY := INT_TO_SINT(#LsDY[#qQ]);
+	                        #BestPlan[#qQ].DstBay := INT_TO_USINT(#LsDB[#qQ]);
+	                        #BestPlan[#qQ].CumT_ds := #LsT[#qQ];
+	                        #BestPlan[#qQ].CumM := #LsM[#qQ];
+	                    END_FOR;
+	                    #BestT := #LsT[#LsN];
+	                    #BestM := #LsM[#LsN];
+	                    #BestK := #LsK;
+	                END_IF;
+	                #PubPending := TRUE;
 
 	            ELSIF NOT #VarActive THEN
 	                // ---------- initialise variant VarNo ----------
@@ -976,8 +1461,8 @@ BEGIN
 	                IF #VarNo > #cVariants THEN
 	                    #GrT := #BestT;
 	                    #GrM := #BestM;
-	                    IF #HaveBest AND #cImpEvals > 0 AND #cOrder <> 2 AND #BestLen >= 2 THEN
-	                        // ---------- start the IMPROVE phase from the greedy winner (CONTRACT 4.8) ----------
+	                    IF #HaveBest THEN
+	                        // ---------- incumbent = greedy winner; IMPROVE (4.8) if enabled, then SLOT (4.11) ----------
 	                        #LsN := #BestLen;
 	                        #LsT[0] := #sBaseT;
 	                        #LsM[0] := #sBaseM;
@@ -990,11 +1475,15 @@ BEGIN
 	                            #LsM[#i] := #BestPlan[#i].CumM;
 	                        END_FOR;
 	                        #LsK := #BestK;
-	                        #ItMv := 0;
-	                        #ItI := 1;
-	                        #ItJ := 1;
-	                        #ItSweepImp := FALSE;
-	                        #ImpActive := TRUE;
+	                        IF #cImpEvals > 0 AND #cOrder <> 2 AND #BestLen >= 2 THEN
+	                            #ItMv := 0;
+	                            #ItI := 1;
+	                            #ItJ := 1;
+	                            #ItSweepImp := FALSE;
+	                            #ImpActive := TRUE;
+	                        ELSE
+	                            #SlStart := TRUE;
+	                        END_IF;
 	                    ELSE
 	                        #PubPending := TRUE;
 	                    END_IF;
@@ -1227,8 +1716,15 @@ BEGIN
 	                                #dAbs := ABS(#F2 - #A2);
 	                                #okB := #dAbs <= #cLim OR #dAbs <= ABS(#F - #A);
 	                            END_IF;
-	                            // Pass A: reachability of a balanced end state (x-split)
-	                            IF #okB AND #iPas = 0 THEN
+	                            // Pass A: order 1 / 2: exact list-order feasibility of the post-step state (v1.4,
+	                            // FtMask); order 0: reachability of a balanced end state (x-split)
+	                            IF #okB AND #iPas = 0 AND #FtUse THEN
+	                                #okB := #L2 >= 0 AND #L2 <= 24;
+	                                IF #okB THEN
+	                                    #okB := (#FtMask[#FtNu - #uL - #uR, #FtNl - #nL]
+	                                             AND SHL(IN := DWORD#16#1, N := INT_TO_USINT(#L2))) <> DWORD#16#0;
+	                                END_IF;
+	                            ELSIF #okB AND #iPas = 0 THEN
 	                                #Lbase := #L2 - #uL;
 	                                #Rbase := #R2 - #uR;
 	                                #loN := #nL - (24 - #Rbase);
@@ -1361,6 +1857,8 @@ BEGIN
 	                    "World".LbM := #sBaseM + #LbM;
 	                    "World".ImpEvals := #ImpEvals;
 	                    "World".ImpAccepts := #ImpAcc;
+	                    "World".SlotAccepts := #SlAcc;
+	                    "World".OrderFeasible := #OrderOk;
 	                    IF #sN > 0 THEN
 	                        "World".PredJ := 0.5 * (DINT_TO_REAL(#BestT) / 10.0) / (76.0 * INT_TO_REAL(#sN))
 	                                       + 0.5 * DINT_TO_REAL(#BestM) / (4.0 * INT_TO_REAL(#sN));
@@ -1380,6 +1878,8 @@ BEGIN
 	                    "World".PlanValid := FALSE;
 	                    "World".PlanLen := 0;
 	                    "World".PlanVariant := 0;
+	                    "World".SlotAccepts := 0;
+	                    "World".OrderFeasible := #OrderOk;
 	                    #Error := TRUE;
 	                    #ErrCode := #Err1;
 	                END_IF;

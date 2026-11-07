@@ -1,6 +1,19 @@
-﻿# Team notes
+# Team notes
 
 Write findings for the agents here (FB1 behaviour, organizer answers, HMI status). Newest on top.
+
+## TIA crane v1.4: judge round 1 fixes (builder, 7 Nov 2026 ~06:00)
+- **Changes:**
+  - Exact list-order feasibility DP in FB11. The order-1 default no longer falls back to free order when an in-order plan exists: fallbacks went 11 → 3, and those 3 are provably infeasible.
+  - New SLOT phase (drop-cell local search) and new FC21 `Crane_DropCost`.
+  - DB10/DB11 are kept live, and POČETNO STANJE restores the loaded data.
+  - ACK of a rejected put goes to PAUSED instead of an ALARM/ACK loop.
+  - Order-fallback warning `AlarmWord2` bit 0, and missing-ID tags `AlarmUId`/`AlarmLId`.
+  - Contract **v1.4**.
+- **J over 30 random sets:** default 1.0684 → **1.0644**, free order 1.0549 → **1.0538**.
+- **Checks:** compile 0/0, mirrors 774/774 and 570/570, stress 0 failures (464 sets).
+- **Details:** `tia-src/JUDGING.md`. New tool `tools/crane_bench.py` (per-set benchmark, `--compare`, `--legacy`).
+- **HMI humans:** the `Alarms` screen is now **number 15**, created in step A6 (see HUMAN_STEPS).
 
 ## TIA crane v1.3 optimisation (optimisation engineer, 7 Nov 2026 ~04:00)
 - **FB11 now runs greedy → IMPROVE → publish.** IMPROVE is a deterministic local search (relocate, swap, pair) with a fixed budget of `World.CfgImproveEvals` = 3000, and it is never worse than the greedy. FB11 also publishes a closed-form **lower bound** (`World.LbJ`). CfgAlpha is now [0,100,200,300]. Contract **v1.3** (§4.8, §4.9).

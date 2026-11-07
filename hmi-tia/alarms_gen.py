@@ -33,6 +33,12 @@ ALARMS = [
     (14, "blocking", "Položaj dizalice ne odgovara naredbi", "Crane position mismatch after move"),
     (15, "info", "Istovar i ukrcaj završeni", "Unloading and loading finished"),
 ]
+# v1.4: second trigger word HMI_IF.AlarmWord2 (AlarmWord is full). (bit, class, HR, EN); alarm ID = 17 + bit.
+ALARMS2 = [
+    (0, "warning", "Liste se ne mogu izvršiti zadanim redoslijedom zbog ravnoteže broda: plan koristi slobodan redoslijed",
+     "List order infeasible under the balance rule: plan uses free order"),
+]
+TRIGGER2 = "AlarmWord2"
 # RT Advanced default classes: "Errors" (must be acknowledged), "Warnings" (no ack). "System" is reserved for
 # system events in RT Advanced, so the info alarm uses "Warnings" by default; change with --info-class.
 CLASS = {"blocking": "Errors", "warning": "Warnings", "info": "Warnings"}
@@ -52,14 +58,14 @@ DEFAULT_HEADERS = ["ID", "Name", "Alarm text [en-US], Alarm text", "FieldInfo [A
                    "PLC acknowledgement bit", "Group", "Report", "Info text [en-US], Info text"]
 
 
-def row_values(headers, a, trigger, info_class):
+def row_values(headers, a, trigger, info_class, id_base=1, word="AlarmWord"):
     bit, cls, hr, en = a
     klass = info_class if cls == "info" else CLASS[cls]
     out = []
     for h in headers:
         k = h.lower()
-        if k == "id": v = bit + 1
-        elif k == "name": v = "Crane_bit%02d" % bit
+        if k == "id": v = bit + id_base
+        elif k == "name": v = ("Crane_bit%02d" % bit) if word == "AlarmWord" else ("Crane_w2_bit%02d" % bit)
         elif k.startswith("alarm text"): v = hr
         elif k.startswith("fieldinfo"): v = ""
         elif k == "class": v = klass
@@ -70,7 +76,7 @@ def row_values(headers, a, trigger, info_class):
         elif k.startswith("acknowledgement bit") or k.startswith("plc acknowledgement bit"): v = bit if klass == "Errors" else 0
         elif k == "group": v = "<No value>"
         elif k == "report": v = "False"
-        elif k.startswith("info text"): v = "EN: %s. Blokirajući: %s. Bit %d u HMI_IF.AlarmWord." % (en, ("DA iz OB30 provjere, inače upozorenje" if bit in MIXED else "DA") if cls == "blocking" else "NE", bit)
+        elif k.startswith("info text"): v = "EN: %s. Blokirajući: %s. Bit %d u HMI_IF.AlarmWord." % (en, ("DA iz OB30 provjere, inače upozorenje" if bit in MIXED else "DA") if cls == "blocking" else "NE", bit) if word == "AlarmWord" else "EN: %s. Blokirajući: NE. Bit %d u HMI_IF.%s." % (en, bit, word)
         else: v = ""
         out.append(v)
     return out
@@ -137,6 +143,7 @@ def main():
     a = ap.parse_args()
     sheet, headers = (read_sample(a.sample) if a.sample else (DEFAULT_SHEET, DEFAULT_HEADERS))
     rows = [row_values(headers, al, a.trigger_tag, a.info_class) for al in ALARMS]
+    rows += [row_values(headers, al, TRIGGER2, a.info_class, id_base=17, word=TRIGGER2) for al in ALARMS2]
     os.makedirs(a.out, exist_ok=True)
     write_xlsx(os.path.join(a.out, "crane_alarms.xlsx"), sheet, headers, rows)
     with open(os.path.join(a.out, "crane_alarms.csv"), "w", encoding="utf-8-sig", newline="") as f:

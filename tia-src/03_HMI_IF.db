@@ -44,6 +44,8 @@ NON_RETAIN
       MSpec : UDInt;                        // M by the spec rule (x and y change = 2), computed in OB30
       JSpec : Real;                         // J with MSpec
       OrderModeAct : USInt;                 // order mode actually used by the last plan (after fallback)
+      OrderFallback : Bool;                 // v1.4: preferred order/balance mode infeasible, plan uses a weaker one
+      SlotAccepts : DInt;                   // v1.4: SLOT phase accepted drop-cell changes (last plan)
       N : Int;
       PredM : DInt;
       PredT : Real;
@@ -90,6 +92,11 @@ NON_RETAIN
       AlarmWord : Word;                     // alarm bits (CONTRACT 3.3)
       AlarmAckWord : Word;                  // WinCC 'PLC acknowledgement tag' = NOT AlarmWord (one ACK clears PLC and HMI)
       AlarmId : UInt;
+      AlarmWord2 : Word;                    // v1.4: extra alarm bits: bit 0 = list order abandoned (warning)
+      AlarmUId : UInt;                      // v1.4: first unload-list ID that is not in Bay 0 (alarm bit 3)
+      AlarmUCnt : Int;                      //       number of such IDs
+      AlarmLId : UInt;                      // v1.4: first load-list ID that is not in Bay 1 (alarm bit 4)
+      AlarmLCnt : Int;
       AlarmX : SInt;
       AlarmY : SInt;
       AlarmBay : USInt;
