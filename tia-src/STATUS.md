@@ -1,5 +1,38 @@
 # TIA crane (TASK 2): integration status
 
+## v1.3 optimisation pass (7 Nov ~04:00, optimisation engineer). Contract **v1.3**
+- **Build:** `TIA_RESULT errors=0 warnings=0` (`tia-work/opt_compile1.log`, `opt_compile2.log`). `deliver/TIA_crane_v1_plc.zap21` re-archived with v1.3 (same file name, PLC only).
+- **New in FB11:**
+  - IMPROVE phase: deterministic local search after the greedy, never worse than it (CONTRACT §4.8).
+  - Closed-form lower bound (§4.9).
+  - CfgAlpha start values are now [0,100,200,300].
+- **New in World:** `CfgImproveEvals` (3000), `CfgImproveDist` (0), `CfgImprovePerCall` (1), `PredJ0`, `LbT_ds`, `LbM`, `LbJ`, `ImpEvals`, `ImpAccepts`.
+- **New in HMI_IF:** `PredJ0`, `LbJ`, `GapPct`, `ImpGainPct`, `ImpEvals`, `PlanProgress` (FB10 fills them). HMI screen **Score** (14) plus a nav button. Generator check is clean: `CHECK_RESULT problems=0 tags=483`.
+- **Parity:**
+  - IMPROVE + bound line-by-line mirror `tia-src/13_improve_mirror.py`: **570/570** runs, with work split 2–3 evaluations per call.
+  - Greedy mirror `12_planner_mirror.py`: still **774/774**.
+  - Golden (`tools/crane_golden.json`) and every `*.plan.csv` regenerated with the v1.3 default (order 1 + fallback, α {0,100,200,300}, 3000 evaluations). The golden now also carries `J_greedy`, `imp_evals`, `imp_accepts` and `LbT_ds`/`LbM`/`LbJ`.
+
+Model J over 30 random sets, mmode 2 (mean / max):
+
+| Config | greedy v1.2 | greedy v1.3 | **v1.3 + IMPROVE** | lower bound | gap |
+|---|---|---|---|---|---|
+| order 1 + fallback (PLC default) | 1.0751 / 1.1683 | 1.0708 / 1.1683 | **1.0684 / 1.1683** | 1.0293 | 3.8 % |
+| free order (CfgOrderMode 0) | 1.0651 / 1.1508 | 1.0634 / 1.1437 | **1.0549 / 1.1339** | 1.0293 | 2.5 % |
+
+- In mmode 0 (spec M rule), free order goes 1.1301 → 1.1072 and order 1 goes 1.1837 → 1.1750.
+- Over all 40 feasible sets: default 1.0508 → 1.0455; free order 1.0403 → 1.0319.
+- Order 1 stops early: about 300 evaluations on average, so planning takes about 300–600 OB1 cycles. Free order uses about 2500.
+- **Planning time on HW is unmeasured.** Read `"Crane_Control_DB".Planner.DiagMaxCallMs` / `DiagJobMs` on PLCSIM. If a call takes > 20 ms, keep CfgImprovePerCall = 1. If INIT feels too slow, lower `World.CfgImproveEvals` (1000 gives about 75 % of the free-order gain: 1.0569 vs 1.0549).
+- **Robustness:** `python tools/crane_stress.py`, result: **`STRESS_RESULT failures=0`** (`--random 300 --seed 11 --evals 600`).
+  - 407 sets; 4548 plans checked command by command (order 1/0/2 × bal 0/1 × mmode 2/0), plus 1435 mid-run replans.
+  - Checks: step rule after every lift/put, list membership and order, determinism, improve ≤ greedy, bound ≤ plan.
+  - 26 sets are infeasible in every mode, and all 26 are provably unbalanceable; 0 false "plan infeasible" alarms.
+- **OB80 not added.** Per-call work is bounded (≤ 1 greedy step or 1 replay, ≤ 4.6k inner iterations). If the jury asks, add an OB80 "Time error interrupt" in the GUI (an empty body is enough).
+- **Recommendation to the orchestrator:** spec §2 lists "Odlučivanje o redoslijedu kontejnera za manipulaciju" (deciding the container order) as an FB10 duty, which suggests free order is intended. If the organizers confirm, set `HMI_IF.CfgOrderMode := 0` for −1.3 % J.
+
+---
+
 Orchestrator final pass, 7 Nov 2026 (review fixes). Contract: `CONTRACT.md` **v1.2**. Previous integration was at 7 Nov ~02:05 (v1.1).
 
 ## Build result

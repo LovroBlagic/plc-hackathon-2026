@@ -2,6 +2,24 @@
 
 Write findings for the agents here (FB1 behaviour, organizer answers, HMI status). Newest on top.
 
+## TIA crane v1.3 optimisation (optimisation engineer, 7 Nov 2026 ~04:00)
+- **FB11 now runs greedy → IMPROVE → publish.** IMPROVE is a deterministic local search (relocate, swap, pair) with a fixed budget of `World.CfgImproveEvals` = 3000, and it is never worse than the greedy. FB11 also publishes a closed-form **lower bound** (`World.LbJ`). CfgAlpha is now [0,100,200,300]. Contract **v1.3** (§4.8, §4.9).
+- **J over 30 random sets, mmode 2:**
+  - default order 1: **1.0751 → 1.0684**
+  - free order: 1.0651 → **1.0549**
+  - lower bound 1.0293, gap 2.5 % (free order)
+- **Build:** `TIA_RESULT errors=0 warnings=0`, and `deliver/TIA_crane_v1_plc.zap21` was re-archived.
+- **Parity:** mirrors 774/774 (greedy) and 570/570 (improve + bound).
+- **Stress:** `tools/crane_stress.py`, 0 failures (see STATUS).
+- **HMI:** new screen **Score** ("REZULTAT / OPTIMIZACIJA"), generated from `hmi-tia/layout.json`. 483 tags, check clean. Humans: nothing extra to draw; it uses the existing prototypes.
+- **Ask the organizers:** may we choose the order freely? Spec §2 makes "deciding the container order" an FB10 task. If yes, set `HMI_IF.CfgOrderMode = 0` for −1.3 % J.
+- **New tools:**
+  - `crane_plan.py --improve N --lb`
+  - `crane_eval.py --mmode --evals`
+  - `crane_stress.py`
+  - `crane_gen.py --stress N` writes `tools/crane_data_stress/`
+- Talking points are in `plans/PITCH_CRANE.md`.
+
 ## TIA crane: FB1 findings and status (orchestrator final pass, 7 Nov 2026)
 - **FB1 (recovered source, `tia-src/FB1_ANALYSIS.md`):**
   - **+1 M per move command**, so a diagonal x+y move = 1, not the 2 that spec p. 10 says.

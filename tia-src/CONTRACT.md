@@ -1,7 +1,15 @@
 # CONTRACT: TIA container crane (TASK 2)
 
 This file is the single source of truth for every crane worker. **Workers may only read it.** Only the orchestrator changes it. To request a change, add a dated note under "Contract change requests" in `TEAM_NOTES.md`.
-Version **1.2**, orchestrator final pass, 7 Nov 2026 (v1.1 7 Nov ~02:05, v1.0 6 Nov ~23:40).
+Version **1.3**, optimisation pass, 7 Nov 2026 ~04:00 (v1.2 orchestrator final pass, v1.1 7 Nov ~02:05, v1.0 6 Nov ~23:40).
+
+**v1.3 changes (optimisation engineer, see §4.8, §4.9 and `plans/PITCH_CRANE.md`):**
+- **IMPROVE phase** in FB11 after the multi-start greedy (§4.8): deterministic first-improvement local search over the transfer order, never worse than the greedy, respects the order mode (1 = per-list order kept, 2 = phase skipped) and every balance rule. Python reference `crane_plan.improve()`, `plan_fb(..., imp_evals=)`; SCL mirror `tia-src/13_improve_mirror.py`.
+- **Closed-form lower bound** (§4.9) computed by FB11 at the Req edge, published with the plan.
+- **CfgAlpha start values [0, 100, 200, 300]** (retuned for CfgMMode 2; was [0, 50, 100, 150]).
+- New World members: `CfgImproveEvals` (DInt, 3000), `CfgImproveDist` (Int, 0), `CfgImprovePerCall` (Int, 1), `PredJ0`, `LbT_ds`, `LbM`, `LbJ`, `ImpEvals`, `ImpAccepts`.
+- New HMI_IF members: `PredJ0`, `LbJ`, `GapPct`, `ImpGainPct`, `ImpEvals`, `PlanProgress`; HMI screen `Score` (14).
+- FB11 interface unchanged. Calls per job ≤ 1 + transfers·CfgVariants + CfgImproveEvals/CfgImprovePerCall (≈ 3400 OB1 cycles at the defaults); work per call ≤ one greedy step or CfgImprovePerCall replays.
 
 **v1.2 changes (review fixes, see `tia-src/STATUS.md`):**
 - **CfgOrderMode default = 1** (per-list order; hedge for elimination criterion 1) in HMI_IF and World. FB10 keeps the HMI choice as the preferred mode and, when FB11 returns ErrCode 1, retries with order 2 → 1 → 0, then CfgBalMode 1 → 0. `HMI_IF.OrderModeAct` shows the mode actually used. Tools: `crane_plan.plan_fb`, CLI default `--order 1`.
@@ -175,7 +183,7 @@ END_TYPE
 | CfgBalMode | USInt | 0 | FB10 (from HMI_IF) | 0 x-halves only, 1 also y-halves |
 | CfgMMode | USInt | **2** | const (FB1 = +1 per move command) | §4.1 |
 | CfgVariants | Int | 4 | const | 1..4 |
-| CfgAlpha | Array[1..4] of Int | [0, 50, 100, 150] | const | lookahead weight (%) per variant |
+| CfgAlpha | Array[1..4] of Int | [0, 100, 200, 300] (v1.3) | const | lookahead weight (%) per variant |
 | CfgStepsPerCall | Int | 1 | const | planner greedy steps per OB1 call |
 | CfgTimeoutTicks | Int | 10 | const | FB1 watchdog (OB30 ticks) |
 | OB30Ticks | UDInt | 0 | OB30 | |
@@ -507,6 +515,20 @@ i,kind,id,list_idx,src_bay,src_x,src_y,dst_bay,dst_x,dst_y,cum_t_ds,cum_m
 ...
 RESULT variant=2 T_ds=... M=... J=0.9876 N=...
 ```
+
+### 4.8 IMPROVE phase (v1.3)
+Runs inside the same FB11 job after the last variant, only if a variant succeeded, `CfgImproveEvals > 0`, `CfgOrderMode ≠ 2` and the plan has ≥ 2 transfers. `World` is still written only once, when the job finishes.
+- **Sources** are numbered 1..n as in §4.2 (pending unloads by list index, then pending loads). **Incumbent** = sequence `LsSeq[1..n]` with, per step k, the destination and the cumulative T/M (`LsT[0]`/`LsM[0]` = Base). It starts as the greedy winner itself (its own destinations), K_inc = K of the winner.
+- **Neighbourhood**, in exactly this order: move 0 once (re-slot the incumbent, p = 1); then sweeps of move 1 (relocate the element at i to position j, i, j ∈ 1..n, j ≠ i), move 2 (swap i < j), move 3 (relocate the pair (i, i+1) to start at j, i, j ∈ 1..n−1, j ≠ i); i outer, j inner; skip if `CfgImproveDist > 0` and |i−j| > CfgImproveDist. Order mode 1: a move is valid only if no moved element passes an element of its own list. p = min(i, j).
+- **Replay** of a candidate from k0 = max(1, p−1): grid = snapshot + incumbent transfers 1..k0−1, crane = incumbent destination k0−1 (or the plan-time crane), T/M = incumbent cumulative at k0−1. For each step k = k0..n with source s and successor nx (none at k = n): E as in §4.4 (skipped if the crane is at s); destination d = free cell of the other bay (x 0..3 outer, y 0..11 inner) minimising **W(s→d) + W(d→nx)** (strict '<'), Pass A = step rule (+ bow/stern if CfgBalMode 1) + reachability over the remaining sequence, Pass B = step rule only; none → reject. T += 400 + Lm_T, M += 2 + Lm_M. **Abort** (reject) as soon as K_partial + 960·(n−k) ≥ K_inc (960 = 400 + 180 + 2·190 is a lower bound of every remaining transfer).
+- **Accept** iff the replay completes (then K < K_inc). Every replay counts one evaluation. Stop at `CfgImproveEvals` evaluations or after a sweep (moves 1..3) with no acceptance. The incumbent becomes the plan (CumT/CumM from the replay).
+- Per call: ≤ `CfgImprovePerCall` evaluations and ≤ 3000 iterator positions. The result does not depend on the split.
+
+### 4.9 Lower bound (v1.3)
+For the pending sources at the Req edge (u unloads, l loads, P = u + l, crane at global column cG):
+- X = 2·Σ x(unloads) + 2·Σ (3 − x(loads)) + 3P + 3S + F, minimised over the kind of the first transfer: S = (u − l if u > l else max(0, l − u − 1)) if a load is first, (max(0, u − l − 1) if u ≥ l else l − u) if an unload is first; F = min over sources s of that kind of 3 + |cG − G(s)| − v(s), v = x + 3 (unload) / 6 − x (load).
+- T_LB = 400·P + 60·X_min [ds]; M_LB = 4P − [a pending source is at the crane position]. Valid for every order mode, balance rule and CfgMMode (it ignores y-travel, occupancy and balance).
+- Published: `LbT_ds = BaseT_ds + T_LB`, `LbM = BaseM + M_LB`, `LbJ` = J of those. `crane_plan.lower_bound()` is the reference.
 
 Optional improvements, such as a pair lookahead or a v2 algorithm, are proposed by the model worker in TEAM_NOTES.md with measured J gains. They become contract v1.1 only after orchestrator approval.
 

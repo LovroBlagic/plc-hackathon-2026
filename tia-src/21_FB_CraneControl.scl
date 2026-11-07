@@ -1148,6 +1148,27 @@ BEGIN
 	    "HMI_IF".PredT := DINT_TO_REAL("World".PredT_ds) / 10.0;
 	    "HMI_IF".PredJ := "World".PredJ;
 	    "HMI_IF".PlanVariant := "World".PlanVariant;
+	    // v1.3: greedy J, lower bound, gap to the bound, improve-phase progress
+	    "HMI_IF".PredJ0 := "World".PredJ0;
+	    "HMI_IF".LbJ := "World".LbJ;
+	    IF "World".LbJ > 0.0 THEN
+	        "HMI_IF".GapPct := ("World".PredJ / "World".LbJ - 1.0) * 100.0;
+	    ELSE
+	        "HMI_IF".GapPct := 0.0;
+	    END_IF;
+	    IF "World".PredJ0 > 0.0 THEN
+	        "HMI_IF".ImpGainPct := (1.0 - "World".PredJ / "World".PredJ0) * 100.0;
+	    ELSE
+	        "HMI_IF".ImpGainPct := 0.0;
+	    END_IF;
+	    "HMI_IF".ImpEvals := "World".ImpEvals;
+	    IF #Planner.Busy AND #Planner.ImpActive AND "World".CfgImproveEvals > 0 THEN
+	        "HMI_IF".PlanProgress := DINT_TO_INT(#Planner.ImpEvals * 100 / "World".CfgImproveEvals);
+	    ELSIF #Planner.Busy THEN
+	        "HMI_IF".PlanProgress := 0;
+	    ELSE
+	        "HMI_IF".PlanProgress := 100;
+	    END_IF;
 
 	    // ---- crane ----
 	    "HMI_IF".CraneX := "World".CraneX;

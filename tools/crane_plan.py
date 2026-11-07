@@ -1,8 +1,10 @@
 """crane_plan.py - EXACT greedy planner of CONTRACT v1.0 section 4 (reference for FB11 "Crane_Planner").
 
 Usage:
-  python tools/crane_plan.py <dataset.json> [--mmode 2] [--order 0] [--balmode 0]
-         [--alpha 0,50,100,150] [--lim 5] [--trace] [--algo v1|v2] [--cmds] [--nocheck]
+  python tools/crane_plan.py <dataset.json> [--mmode 2] [--order 1] [--balmode 0]
+         [--alpha 0,100,200,300] [--improve 3000] [--dist 0] [--lb] [--lim 5] [--trace]
+         [--algo v1|v2] [--cmds] [--nocheck]
+v1.3: plan = greedy multi-start (4.4/4.5) + IMPROVE phase (4.8, improve()); lower_bound() = 4.9.
 
 Prints the parity CSV of CONTRACT 4.7. `--trace` adds '#'-prefixed lines with the chosen
 candidate of every greedy step. `--cmds` adds '#CMD' lines (the crane command sequence).
@@ -275,20 +277,318 @@ def plan(state, cfg, alphas, trace=None, algo="v1"):
             "J": cm.J(best["T"], best["M"], N), "N": N, "variants": results}
 
 
-def plan_fb(state, cfg, alphas, trace=None, algo="v1"):
+def plan_fb(state, cfg, alphas, trace=None, algo="v1", imp_evals=0, imp_dist=0):
     """FB10 behaviour (default since 7 Nov): plan with the preferred modes; on ErrCode 1 (dead end)
     retry with CfgOrderMode - 1 (2 -> 1 -> 0), then CfgBalMode 1 -> 0.
-    res["order"] / res["balmode"] = modes actually used, res["cfg"] = that config."""
+    res["order"] / res["balmode"] = modes actually used, res["cfg"] = that config.
+    imp_evals > 0: FB11 IMPROVE phase (v1.3) on the successful job; res["J0"] = greedy J."""
     c = dict(cfg)
     while True:
         res = plan(state, c, alphas, trace, algo)
         if res["err"] != 1 or (c["order"] == 0 and c["balmode"] == 0):
+            if res["err"] == 0:
+                res["J0"], res["T0"], res["M0"] = res["J"], res["T"], res["M"]
+                if imp_evals > 0:
+                    res = improve(state, c, res, imp_evals, imp_dist)
             res["order"], res["balmode"], res["cfg"] = c["order"], c["balmode"], c
             return res
         if c["order"] > 0:
             c = dict(c, order=c["order"] - 1)
         else:
             c = dict(c, balmode=0)
+
+
+
+# ============================================================== IMPROVE phase (CONTRACT v1.3 4.8)
+# Deterministic first-improvement local search over the transfer ORDER of the winning greedy plan.
+# Written array-style so that FB11 (tia-src/11_FB_Planner.scl, phase IMPROVE) is a transliteration.
+#
+#  * Sources are numbered 1..n exactly like FB11 (pending unloads by index, then pending loads).
+#  * Cur = incumbent: sequence CurSeq[1..n] + per step Dst / cumulative T / M.  It starts as the
+#    greedy winner itself (its own destinations, K_greedy), so the result is never worse than greedy.
+#  * A candidate differs from Cur first at position p. Steps 1..p-2 are identical (same source, same
+#    successor), so the replay starts at k0 = max(1, p-1) from Cur's cached state.
+#  * Replay slot rule (per step, source s, successor nx): free cell d of the other bay, scan x 0..3
+#    outer / y 0..11 inner, Pass A (step rule + reachability over the remaining sequence) else Pass B
+#    (step rule only); value = W(s->d) + W(d->nx) (0 if last); strict '<'.
+#  * A replay aborts as soon as K_partial + rest*REST_LB >= CurK (it cannot be accepted anyway).
+#  * Neighbourhood, nested in this exact order: mv 0 = re-slot Cur (once, p = 1);
+#    mv 1 relocate i -> j; mv 2 swap i < j; mv 3 relocate pair (i, i+1) -> j.  Positions 1-based,
+#    j inner. |i - j| <= dist (0 = unlimited).  Order mode 1: a candidate is valid only if no element
+#    passes an element of the same list (per-list order kept); order mode 2: no moves.
+#  * Every replay counts as one evaluation; stop at `budget` evaluations or after a sweep (mv 1..3)
+#    without improvement.  Accept iff K_cand < CurK.
+REST_LB = 400 + 180 + 2 * M_W          # every remaining transfer: lift+put 40 s, loaded move >= 3 cols, 2 M
+BIG_K = 2000000000
+
+
+class ImpCtx:
+    """Snapshot + incumbent for the improve phase (FB11 statics)."""
+
+    def __init__(self, state, cfg, res):
+        g0 = [[col[:] for col in state["bay0"]], [col[:] for col in state["bay1"]]]
+        self.sG = g0
+        self.crane0 = tuple(state["crane"])
+        self.baseT, self.baseM = state["base_t"], state["base_m"]
+        self.mmode, self.order, self.lim, self.balmode = cfg["mmode"], cfg["order"], cfg["lim"], cfg["balmode"]
+        PU, PL = locate(g0, state["PU"], state["PL"])
+        self.src = [None] + PU + PL                           # 1-based like FB11 Src*
+        self.n = len(PU) + len(PL)
+        key = {(s.kind, s.idx): k for k, s in enumerate(self.src) if s is not None}
+        plan = res["plan"]
+        self.CurSeq = [0] + [key[(tr["kind"], tr["list_idx"])] for tr in plan]
+        self.CurDst = [None] + [tuple(tr["dst"]) for tr in plan]
+        self.CurT = [self.baseT] + [tr["cum_t"] for tr in plan]
+        self.CurM = [self.baseM] + [tr["cum_m"] for tr in plan]
+        self.CurK = (self.CurT[-1] - self.baseT) + M_W * (self.CurM[-1] - self.baseM)
+        self.evals = 0
+        self.accepts = 0
+
+    def kind(self, s):
+        return self.src[s].kind
+
+
+def imp_replay(ctx, cand, p):
+    """Replay candidate sequence cand[1..n] from k0 = max(1, p-1) using Cur's cached prefix.
+    Returns (K, {k: (dst, T, M)}) for steps k0..n, or (BIG_K, None) on dead end / abort."""
+    n, mm, lim = ctx.n, ctx.mmode, ctx.lim
+    k0 = max(1, p - 1)
+    g = [[col[:] for col in ctx.sG[0]], [col[:] for col in ctx.sG[1]]]
+    for k in range(1, k0):
+        s = ctx.src[ctx.CurSeq[k]]
+        dx, dy, db = ctx.CurDst[k]
+        g[db][dx][dy] = s.id
+        g[s.pos[2]][s.pos[0]][s.pos[1]] = 0
+    if k0 > 1:
+        crane = ctx.CurDst[k0 - 1]
+    else:
+        crane = ctx.crane0
+    T, M = ctx.CurT[k0 - 1], ctx.CurM[k0 - 1]
+    L, R = cm.lr(g[0])
+    F, A = cm.fa(g[0])
+    uL = uR = nl = 0
+    for k in range(k0, n + 1):
+        s = ctx.src[cand[k]]
+        if s.kind == 1:
+            if s.pos[0] <= 1:
+                uL += 1
+            else:
+                uR += 1
+        else:
+            nl += 1
+    out = {}
+    for k in range(k0, n + 1):
+        s = ctx.src[cand[k]]
+        sx, sy, sb = s.pos
+        nx = ctx.src[cand[k + 1]].pos if k < n else None
+        if crane != s.pos:
+            t, m = cm.move_cost(crane[0], crane[1], crane[2], sx, sy, sb, mm)
+            T += t
+            M += m
+        if s.kind == 1:
+            if sx <= 1:
+                uL -= 1
+            else:
+                uR -= 1
+        else:
+            nl -= 1
+        db = 1 - sb
+        best = None
+        for pas in (0, 1):
+            for x in range(cm.NX):
+                for y in range(cm.NY):
+                    if g[db][x][y] != 0:
+                        continue
+                    if s.kind == 1:
+                        L2, R2 = (L - 1, R) if sx <= 1 else (L, R - 1)
+                        F2, A2 = (F - 1, A) if sy <= 5 else (F, A - 1)
+                    else:
+                        L2, R2 = (L + 1, R) if x <= 1 else (L, R + 1)
+                        F2, A2 = (F + 1, A) if y <= 5 else (F, A + 1)
+                    if not cm.step_ok(L, R, L2, R2, lim):
+                        continue
+                    if ctx.balmode == 1 and not cm.step_ok(F, A, F2, A2, lim):
+                        continue
+                    if pas == 0 and not cm.reachable(L2, R2, uL, uR, nl, lim):
+                        continue
+                    d = (x, y, db)
+                    v = wcost(s.pos, d, mm)[2]
+                    if nx is not None:
+                        v += wcost(d, nx, mm)[2]
+                    if best is None or v < best[0]:
+                        best = (v, d, L2, R2, F2, A2)
+            if best is not None:
+                break
+        if best is None:
+            return BIG_K, None
+        d = best[1]
+        L, R, F, A = best[2], best[3], best[4], best[5]
+        g[db][d[0]][d[1]] = s.id
+        g[sb][sx][sy] = 0
+        t, m = cm.move_cost(sx, sy, sb, d[0], d[1], d[2], mm)
+        T += 400 + t
+        M += 2 + m
+        out[k] = (d, T, M)
+        crane = d
+        kp = (T - ctx.baseT) + M_W * (M - ctx.baseM)
+        if kp + (n - k) * REST_LB >= ctx.CurK:
+            return BIG_K, None                               # cannot beat the incumbent
+    K = (T - ctx.baseT) + M_W * (M - ctx.baseM)
+    return K, out
+
+
+def imp_valid(ctx, mv, i, j):
+    """Order-mode validity of move (mv, i, j) on CurSeq without building it (FB11: same scan)."""
+    if ctx.order == 0:
+        return True
+    if ctx.order == 2:
+        return False
+    seq = ctx.CurSeq
+    if mv == 1:
+        ki = ctx.kind(seq[i])
+        lo, hi = (i + 1, j) if i < j else (j, i - 1)
+        for q in range(lo, hi + 1):
+            if ctx.kind(seq[q]) == ki:
+                return False
+        return True
+    if mv == 2:
+        return j == i + 1 and ctx.kind(seq[i]) != ctx.kind(seq[j])
+    # mv 3: pair (i, i+1) moved so that it starts at j
+    ka, kb = ctx.kind(seq[i]), ctx.kind(seq[i + 1])
+    if j < i:
+        lo, hi = j, i - 1
+    else:
+        lo, hi = i + 2, j + 1
+    for q in range(lo, hi + 1):
+        kq = ctx.kind(seq[q])
+        if kq == ka or kq == kb:
+            return False
+    return True
+
+
+def imp_build(ctx, mv, i, j):
+    """Candidate sequence (1-based list) and first changed position p."""
+    seq = ctx.CurSeq
+    if mv == 0:
+        return seq[:], 1
+    c = seq[1:]
+    if mv == 1:
+        e = c.pop(i - 1)
+        c.insert(j - 1, e)
+    elif mv == 2:
+        c[i - 1], c[j - 1] = c[j - 1], c[i - 1]
+    else:
+        seg = c[i - 1:i + 1]
+        del c[i - 1:i + 1]
+        c[j - 1:j - 1] = seg
+    return [0] + c, min(i, j)
+
+
+def imp_moves(n, dist):
+    """The exact neighbourhood iteration order (generator of (mv, i, j); None = end of sweep)."""
+    yield (0, 1, 1)
+    while True:
+        for mv in (1, 2, 3):
+            imax = n - 1 if mv == 3 else n
+            for i in range(1, imax + 1):
+                for j in range(1, imax + 1):
+                    if j == i or (mv == 2 and j < i):
+                        continue
+                    if dist > 0 and abs(i - j) > dist:
+                        continue
+                    yield (mv, i, j)
+        yield None
+
+
+def improve(state, cfg, res, budget, dist=0):
+    """Improve phase on a successful plan() result. Returns a new result dict (same format) with
+    extra keys imp_evals, imp_accepts, imp_K0, imp_K. Never worse than the input."""
+    if res["err"] != 0 or budget <= 0 or len(res["plan"]) < 2:
+        out = dict(res)
+        out.update(imp_evals=0, imp_accepts=0)
+        return out
+    ctx = ImpCtx(state, cfg, res)
+    K0 = ctx.CurK
+    if ctx.order != 2:
+        sweep_imp = False
+        for mvij in imp_moves(ctx.n, dist):
+            if mvij is None:
+                if not sweep_imp:
+                    break
+                sweep_imp = False
+                continue
+            if ctx.evals >= budget:
+                break
+            mv, i, j = mvij
+            if mv != 0 and not imp_valid(ctx, mv, i, j):
+                continue
+            cand, p = imp_build(ctx, mv, i, j)
+            K, steps = imp_replay(ctx, cand, p)
+            ctx.evals += 1
+            if K < ctx.CurK:
+                ctx.accepts += 1
+                sweep_imp = True
+                for k, (d, T, M) in steps.items():
+                    ctx.CurDst[k] = d
+                    ctx.CurT[k] = T
+                    ctx.CurM[k] = M
+                ctx.CurSeq = cand
+                ctx.CurK = K
+    plan = []
+    for k in range(1, ctx.n + 1):
+        s = ctx.src[ctx.CurSeq[k]]
+        plan.append({"kind": s.kind, "id": s.id, "list_idx": s.idx, "src": s.pos, "dst": ctx.CurDst[k],
+                     "cum_t": ctx.CurT[k], "cum_m": ctx.CurM[k]})
+    out = dict(res)
+    out.update(plan=plan, T=ctx.CurT[ctx.n], M=ctx.CurM[ctx.n],
+               J=cm.J(ctx.CurT[ctx.n], ctx.CurM[ctx.n], res["N"]),
+               imp_evals=ctx.evals, imp_accepts=ctx.accepts, imp_K0=K0, imp_K=ctx.CurK)
+    return out
+
+
+# ============================================================== closed-form lower bound (4.9)
+def lower_bound(state):
+    """Closed-form relaxation (plans/CRANE_RESEARCH.md 2.1), valid for any order/balance/capacity
+    and every M rule: x-travel X (columns) depends only on the source order:
+      X = 2*sum(x_ship of unloads) + 2*sum(3 - x_yard of loads) + 3P + 3S + F,
+    S = forced same-kind neighbours given the first kind, F = 3 + |G(crane) - G(first)| - v(first),
+    v = x+3 (unload) / 6-x (load).  y-travel ignored (max(60dG, 23dy) >= 60dG).
+    T_LB = 400 P + 60 X_min (ds), M_LB = 4P - [some pending source at the crane position].
+    Returns (T_LB_ds, M_LB, J_LB) with N = state["N"] (0, 0, 0.0 if nothing pending)."""
+    g = [state["bay0"], state["bay1"]]
+    loc = locate(g, state["PU"], state["PL"])
+    if loc is None:
+        return 0, 0, 0.0
+    PU, PL = loc
+    u, l = len(PU), len(PL)
+    P = u + l
+    if P == 0:
+        return 0, 0, 0.0
+    cx, cy, cb = state["crane"]
+    cG = cm.G(cx, cb)
+    base = 2 * sum(s.pos[0] for s in PU) + 2 * sum(3 - s.pos[0] for s in PL) + 3 * P
+    best = None
+    for first in (1, 2):
+        grp = PU if first == 1 else PL
+        if not grp:
+            continue
+        if first == 2:
+            S = (u - l) if u > l else max(0, l - u - 1)
+        else:
+            S = max(0, u - l - 1) if u >= l else (l - u)
+        Fm = None
+        for s in grp:
+            v = (s.pos[0] + 3) if first == 1 else (6 - s.pos[0])
+            f = 3 + abs(cG - cm.G(s.pos[0], s.pos[2])) - v
+            if Fm is None or f < Fm:
+                Fm = f
+        x = base + 3 * S + Fm
+        if best is None or x < best:
+            best = x
+    T = 400 * P + 60 * best
+    at = any(tuple(s.pos) == (cx, cy, cb) for s in PU + PL)
+    M = 4 * P - (1 if at else 0)
+    return T, M, cm.J(T, M, state["N"])
 
 
 def commands(plan_list, crane0):
@@ -361,7 +661,10 @@ def parse_args(argv):
     ap.add_argument("--order", type=int, default=1, help="preferred CfgOrderMode (PLC default 1)")
     ap.add_argument("--nofallback", action="store_true", help="no 2->1->0 fallback on ErrCode 1 (raw FB11)")
     ap.add_argument("--balmode", type=int, default=0)
-    ap.add_argument("--alpha", default="0,50,100,150")
+    ap.add_argument("--alpha", default="0,100,200,300", help="CfgAlpha (v1.3 default 0,100,200,300)")
+    ap.add_argument("--improve", type=int, default=3000, help="IMPROVE evaluations (CfgImproveEvals, 0 = off)")
+    ap.add_argument("--dist", type=int, default=0, help="CfgImproveDist (0 = unlimited)")
+    ap.add_argument("--lb", action="store_true", help="print the closed-form lower bound")
     ap.add_argument("--lim", type=int, default=5)
     ap.add_argument("--trace", action="store_true")
     ap.add_argument("--cmds", action="store_true")
@@ -383,9 +686,18 @@ def main(argv=None):
         return 0
     if a.nofallback:
         res = plan(state, cfg, alphas, trace, a.algo)
+        if res["err"] == 0 and a.improve > 0:
+            res = improve(state, cfg, res, a.improve, a.dist)
     else:
-        res = plan_fb(state, cfg, alphas, trace, a.algo)
+        res = plan_fb(state, cfg, alphas, trace, a.algo, imp_evals=a.improve, imp_dist=a.dist)
         cfg = res["cfg"]
+    if a.lb:
+        lt, lm, lj = lower_bound(state)
+        print("# LB T_ds=%d M=%d J=%.4f" % (lt, lm, lj))
+        if res["err"] == 0:
+            print("# greedy J=%.4f  improved J=%.4f  evals=%s accepts=%s  gap=%.2f %%" % (
+                res.get("J0", res["J"]), res["J"], res.get("imp_evals", 0), res.get("imp_accepts", 0),
+                100.0 * (res["J"] / lj - 1) if lj > 0 else 0.0))
     if trace:
         print("\n".join(trace))
     print("\n".join(csv_lines(res)))

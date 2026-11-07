@@ -46,11 +46,21 @@ NON_RETAIN
       CfgBalMode : USInt;                    // 0 x-halves only, 1 also y-halves
       CfgMMode : USInt := 2;                 // manipulation count model (CONTRACT 4.1); 2 = FB1 counts +1 per move command
       CfgVariants : Int := 4;
-      CfgAlpha : Array[1..4] of Int := [0, 50, 100, 150];
+      CfgAlpha : Array[1..4] of Int := [0, 100, 200, 300];   // v1.3: retuned for CfgMMode 2 (pure time)
       CfgStepsPerCall : Int := 1;
       CfgTimeoutTicks : Int := 10;           // FB1 watchdog in OB30 ticks (1 s)
       OB30Ticks : UDInt;
       MSpec : UDInt;                         // manipulations by the spec rule (OB30): +1 per changed axis, +1 lift/put
+      // ---- v1.3: improve phase (CONTRACT 4.8) and lower bound (4.9) ----
+      CfgImproveEvals : DInt := 3000;        // local-search evaluations after the greedy (0 = off)
+      CfgImproveDist : Int := 0;             // max |i-j| of a move (0 = unlimited)
+      CfgImprovePerCall : Int := 1;          // evaluations per OB1 call (per-call work bound)
+      PredJ0 : Real;                         // J of the greedy winner before the improve phase
+      LbT_ds : DInt;                         // lower bound of the final T (incl. BaseT_ds), deciseconds
+      LbM : DInt;                            // lower bound of the final M (incl. BaseM)
+      LbJ : Real;                            // lower bound of J (no plan can be better)
+      ImpEvals : DInt;                       // improve phase: evaluations done (last plan)
+      ImpAccepts : DInt;                     // improve phase: accepted improvements (last plan)
    END_VAR
 
 

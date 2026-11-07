@@ -1,11 +1,12 @@
 """crane_eval.py - evaluate the planner on every dataset in tools/crane_data.
 
-  python tools/crane_eval.py [--data tools/crane_data] [--quick]
+  python tools/crane_eval.py [--data tools/crane_data] [--mmode 2] [--evals 3000]
 
 Reports mean/max J per variant and for the winner, variant win counts, a naive baseline
 (list order: all unloads then all loads, nearest free slot by W that passes the step rule),
-a lower bound (per transfer lift+put 40 s + minimal loaded move 18 s and 1 M), an alpha
-sweep, CfgOrderMode 1/2, CfgBalMode 1 and the experimental --algo v2.
+the closed-form lower bound (crane_plan.lower_bound, CONTRACT 4.9) and the gap to it, an alpha
+sweep, CfgOrderMode 1/2, CfgBalMode 1, the experimental --algo v2 and (v1.3) the IMPROVE phase
+(crane_plan.improve, CONTRACT 4.8) for the PLC default (order 1 + fallback) and free order.
 Also checks determinism (two identical runs) and executes every plan through the FB1
 emulator (crane_plan.simulate) - any assertion failure aborts.
 """
@@ -20,8 +21,10 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import crane_model as cm  # noqa: E402
 import crane_plan as cp   # noqa: E402
 
-ALPHAS = [0, 50, 100, 150]
-SWEEP = [0, 25, 50, 75, 100, 150, 200, 300]
+ALPHAS = [0, 100, 200, 300]          # v1.3 World.CfgAlpha start values (retuned for CfgMMode 2)
+SWEEP = [0, 50, 100, 150, 200, 300]
+MMODE = 2
+EVALS = 3000
 
 
 def naive(state, cfg):
@@ -72,7 +75,7 @@ def eval_one(path):
     if st["init"]["blocking"]:
         out["status"] = "capacity"
         return out
-    base = {"mmode": 2, "order": 0, "balmode": 0, "lim": 5}
+    base = {"mmode": MMODE, "order": 0, "balmode": 0, "lim": 5}
     r = cp.plan(st, base, ALPHAS)
     r2 = cp.plan(st, base, ALPHAS)
     out["deterministic"] = cp.csv_lines(r) == cp.csv_lines(r2)
@@ -100,10 +103,18 @@ def eval_one(path):
         cp.simulate(st, rr["plan"], rr["cfg"])
     out["dflt"] = rr["J"] if rr["err"] == 0 else None
     out["dflt_fb"] = rr["err"] == 0 and rr["order"] != 1
+    for key, order in (("dflt_ls", 1), ("free_ls", 0)):
+        ri = cp.plan_fb(st, dict(base, order=order), ALPHAS, imp_evals=EVALS)
+        if ri["err"] == 0:
+            cp.simulate(st, ri["plan"], ri["cfg"])
+            assert ri["J"] <= ri["J0"] + 1e-12
+        out[key] = ri["J"] if ri["err"] == 0 else None
     nv = naive(st, base)
     out["naive"] = cm.J(nv[0], nv[1], N) if nv else None
-    P = out["P"]
-    out["lb"] = cm.J(P * 580, P * 3, N)
+    out["lb"] = cp.lower_bound(st)[2]
+    for k in ("J", "dflt", "dflt_ls", "free_ls"):
+        if out.get(k) is not None:
+            assert out["lb"] <= out[k] + 1e-12, "lower bound above a plan: %s %s" % (name, k)
     return out
 
 
@@ -114,12 +125,21 @@ def stats(vals):
     return "%.4f %.4f" % (sum(v) / len(v), max(v))
 
 
+def _setcfg(mmode, evals):
+    global MMODE, EVALS
+    MMODE, EVALS = mmode, evals
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--data", default=os.path.join(os.path.dirname(os.path.abspath(__file__)), "crane_data"))
+    ap.add_argument("--mmode", type=int, default=2, help="2 = FB1 (+1 M per command), 0 = spec p.10 rule")
+    ap.add_argument("--evals", type=int, default=3000, help="IMPROVE evaluations (World.CfgImproveEvals)")
     a = ap.parse_args()
+    global MMODE, EVALS
+    MMODE, EVALS = a.mmode, a.evals
     files = sorted(glob.glob(os.path.join(a.data, "*.json")))
-    with Pool() as p:
+    with Pool(initializer=_setcfg, initargs=(a.mmode, a.evals)) as p:
         res = p.map(eval_one, files)
     print("%-42s %3s %3s %-6s %6s %2s %6s %6s %6s %6s %6s %6s %6s" % (
         "dataset", "N", "P", "status", "J", "v", "naive", "LB", "ord1", "ord2", "bal1", "v2", "det"))
@@ -135,9 +155,11 @@ def main():
     groups = (("random (rand_*)", [r for r in ok if r["name"].startswith("rand_")]), ("all feasible, P>0", ok))
     for gname, grp in groups:
         print("\n== %s: %d sets  (mean max)" % (gname, len(grp)))
-        print("PLC DEFAULT order 1 + fallback : %s  (fallback to order 0 on %d sets)" % (
+        print("PLC DEFAULT v1.3 order1+fb+LS: %s  (IMPROVE %d evals)" % (stats([r["dflt_ls"] for r in grp]), EVALS))
+        print("free order 0 + LS             : %s" % stats([r["free_ls"] for r in grp]))
+        print("order 1 + fallback, greedy    : %s  (fallback to order 0 on %d sets)" % (
             stats([r["dflt"] for r in grp]), sum(1 for r in grp if r["dflt_fb"])))
-        print("winner v1 (alpha 0/50/100/150) : %s" % stats([r["J"] for r in grp]))
+        print("free order 0, greedy          : %s" % stats([r["J"] for r in grp]))
         for i, al in enumerate(ALPHAS):
             print("  variant %d alpha=%-3d        : %s" % (i + 1, al, stats([r["Jv"][i] for r in grp])))
         wins = [0] * len(ALPHAS)
@@ -151,7 +173,11 @@ def main():
         print("bal mode 1                    : %s" % stats([r["bal1"] for r in grp]))
         print("algo v2 (2-step top-3)        : %s" % stats([r["v2"] for r in grp]))
         print("naive baseline                : %s" % stats([r["naive"] for r in grp]))
-        print("lower bound                   : %s" % stats([r["lb"] for r in grp]))
+        print("lower bound (closed form)     : %s" % stats([r["lb"] for r in grp]))
+        for k in ("dflt_ls", "free_ls"):
+            gp = [r[k] / r["lb"] - 1 for r in grp if r.get(k) is not None and r["lb"] > 0]
+            if gp:
+                print("gap %-8s to bound          : mean %.2f %%  max %.2f %%" % (k, 100 * sum(gp) / len(gp), 100 * max(gp)))
         print("deterministic all             : %s" % all(r["deterministic"] for r in grp))
 
 

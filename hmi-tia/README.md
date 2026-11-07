@@ -24,9 +24,9 @@ The human click list is in **[HUMAN_STEPS.md](HUMAN_STEPS.md)** (about 25 min).
 Generated (gitignored): `out\{tags,textlists,templates,screens,alarms,preview}`. Human exports (gitignored): `export\`.
 
 ## What gets generated
-- **Tag table `HMI_IF_gen`:** 472 tags, one per HMI_IF scalar plus one per array element (`Cell0_05` → `HMI_IF.Cell0[5]`, `UList_01`…). Members are parsed read-only from `tia-src/03_HMI_IF.db`, so a DB change only needs a regeneration.
+- **Tag table `HMI_IF_gen`:** 483 tags (v1.3), one per HMI_IF scalar plus one per array element (`Cell0_05` → `HMI_IF.Cell0[5]`, `UList_01`…). Members are parsed read-only from `tia-src/03_HMI_IF.db`, so a DB change only needs a regeneration.
   - Tag mode "element" was chosen because it needs no array-index syntax in screen links.
-  - PowerTag count is 472, so it fits a 512 licence.
+  - PowerTag count is 483, so it fits a 512 licence.
 - **Text lists (11):** TL_State, TL_Mode, TL_Cmd, TL_Kind, TL_Phase, TL_Bay, TL_ListSt, TL_Order, TL_YesNo, TL_BalMode, TL_Alarm.
 - **Template `Tpl`** (header on every screen, 49 objects):
   - UKLJ./ISKLJ. (InvertBit SwOn) with SPREMAN/ISKLJUČEN lamps
@@ -54,6 +54,7 @@ Generated (gitignored): `out\{tags,textlists,templates,screens,alarms,preview}`.
 - **Lists (304):**
   - settings: CfgOrderMode, CfgSemiPerTransfer, CfgBalMode
   - unload/load lists, 48 rows each: index, ID, state text
+- **Score (46, v1.3):** objective panel: actual M/T/J (FB1), spec-rule MSpec/JSpec, predicted plan M/T/J; optimisation panel: greedy J (PredJ0), improved J (PredJ), gain %, evaluations, proven lower bound LbJ and gap %, planner progress bar; order mode actually used, winning variant, N. Nav button "REZULTAT / OPTIMIZACIJA" in the template.
 - **AlarmLog (49):** AlarmHist[0..15] as alarm texts, newest alarm details (ID, x, y, bay, word, count).
 - **Hand-made, never regenerated:** `Alarms` (alarm view of current alarms + alarm buffer history), `Proto`.
 

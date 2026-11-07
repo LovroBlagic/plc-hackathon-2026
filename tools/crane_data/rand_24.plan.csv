@@ -5,4 +5,4 @@ i,kind,id,list_idx,src_bay,src_x,src_y,dst_bay,dst_x,dst_y,cum_t_ds,cum_m
 4,1,490,2,0,2,3,1,2,11,3303,15
 5,2,849,3,1,1,11,0,0,4,4063,19
 6,1,659,3,0,1,6,1,1,2,4883,23
-RESULT variant=3 T_ds=4883 M=23 J=1.0146 N=6 order=1
+RESULT variant=2 T_ds=4883 M=23 J=1.0146 N=6 order=1

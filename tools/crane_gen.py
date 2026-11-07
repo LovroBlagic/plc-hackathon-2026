@@ -18,6 +18,8 @@ import crane_model as cm  # noqa: E402
 import crane_plan as cp   # noqa: E402
 
 CELLS = [(x, y) for x in range(4) for y in range(12)]
+PLC_ALPHAS = [0, 100, 200, 300]   # World.CfgAlpha start values (v1.3)
+PLC_IMP_EVALS = 3000              # World.CfgImproveEvals start value (v1.3)
 
 
 def blank():
@@ -146,6 +148,65 @@ def sample_archive():
     return out
 
 
+def stress_sets(rng, n):
+    """Stress families (optimisation / elimination-safety tests, v1.3): big N (up to 94), near-full
+    bays, heavy one-sided unloads (left or right), ship at the balance limit, tiny lists, and
+    imbalance-forcing load-only sets. Written to tools/crane_data_stress (no plan CSVs)."""
+    out = []
+    fams = ("big", "full", "left", "right", "limit", "small", "loadonly", "mixed")
+    for i in range(n):
+        f = fams[i % len(fams)]
+        for _ in range(500):          # redraw the family parameters until capacity-feasible
+            try:
+                out.append(stress_one(rng, f, "st_%s_%02d" % (f, i + 1)))
+                break
+            except (RuntimeError, ValueError):
+                continue
+    return out
+
+
+def stress_one(rng, f, nm):
+    if True:
+        if f == "big":
+            k = rng.randint(40, 47)
+            d = random_set(rng, nm, ship=47, yard=47, nu=k, nl=k)
+        elif f == "full":
+            sh, yd = rng.randint(44, 48), rng.randint(40, 46)
+            nu_ = rng.randint(20, 40)
+            nl_ = rng.randint(max(0, nu_ - (48 - yd)), min(30, nu_ + 48 - sh))
+            d = random_set(rng, nm, ship=sh, yard=yd, nu=nu_, nl=nl_)
+        elif f in ("left", "right"):
+            d = random_set(rng, nm, ship=rng.randint(30, 44), yard=rng.randint(20, 40),
+                           nu=rng.randint(10, 24), nl=rng.randint(8, 30), unload_side="left")
+            if f == "right":   # mirror the ship columns: unloads all from the right half
+                for k in ("bay0",):
+                    d[k] = [d[k][3], d[k][2], d[k][1], d[k][0]]
+        elif f == "limit":
+            # ship exactly at |L-R| = 5, unloads drawn from the light side first
+            ids = rng.sample(range(100, 1000), 96)
+            bay0 = blank()
+            nl_ = rng.randint(10, 19)
+            left = [c for c in CELLS if c[0] <= 1]
+            right = [c for c in CELLS if c[0] >= 2]
+            for (x, y) in rng.sample(left, nl_) + rng.sample(right, nl_ + 5):
+                bay0[x][y] = ids.pop()
+            bay1 = fill_any(rng, rng.randint(15, 40), ids)
+            light = [bay0[x][y] for x in (0, 1) for y in range(12) if bay0[x][y] != 0]
+            un = rng.sample(light, min(len(light), rng.randint(4, 12)))
+            cap = 48 - (2 * nl_ + 5) + len(un)
+            ld = rng.sample(occupied_ids(bay1), rng.randint(0, min(20, cap, len(occupied_ids(bay1)))))
+            d = ds_dict(nm, bay0, bay1, un, ld, "ship L=%d R=%d (at limit), unloads from light side" % (nl_, nl_ + 5))
+        elif f == "small":
+            d = random_set(rng, nm, nu=rng.randint(0, 3), nl=rng.randint(1, 3))
+        elif f == "loadonly":
+            sh = rng.randint(10, 24)
+            d = random_set(rng, nm, ship=sh, yard=rng.randint(30, 48), nu=0,
+                           nl=rng.randint(15, min(30, 48 - sh)))
+        else:
+            d = random_set(rng, nm)
+        return d
+
+
 def write_plan_csv(path_json, path_csv):
     ds = cm.load_dataset(path_json)
     cfg = {"mmode": 2, "order": 1, "balmode": 0, "lim": 5}   # PLC default (order 1 + fallback)
@@ -154,7 +215,7 @@ def write_plan_csv(path_json, path_csv):
         lines = ["i,kind,id,list_idx,src_bay,src_x,src_y,dst_bay,dst_x,dst_y,cum_t_ds,cum_m",
                  "RESULT error=capacity(bit7)"]
     else:
-        res = cp.plan_fb(st, cfg, [0, 50, 100, 150])
+        res = cp.plan_fb(st, cfg, PLC_ALPHAS, imp_evals=PLC_IMP_EVALS)
         lines = cp.csv_lines(res)
         if res["err"] == 0:
             cp.simulate(st, res["plan"], res["cfg"])
@@ -168,7 +229,17 @@ def main():
     ap.add_argument("--n", type=int, default=30)
     ap.add_argument("--seed", type=int, default=2026)
     ap.add_argument("--out", default=os.path.join(os.path.dirname(os.path.abspath(__file__)), "crane_data"))
+    ap.add_argument("--stress", type=int, default=0,
+                    help="write N stress sets to tools/crane_data_stress instead (no CSVs, no golden)")
     a = ap.parse_args()
+    if a.stress > 0:
+        sd = os.path.join(os.path.dirname(os.path.abspath(__file__)), "crane_data_stress")
+        os.makedirs(sd, exist_ok=True)
+        for d in stress_sets(random.Random(a.seed), a.stress):
+            with open(os.path.join(sd, d["name"] + ".json"), "w", encoding="utf-8", newline="\n") as f:
+                f.write(json.dumps(d, separators=(",", ":")) + "\n")
+            print(d["name"], d.get("note", ""))
+        return
     os.makedirs(a.out, exist_ok=True)
     rng = random.Random(a.seed)
     sets = [random_set(rng, "rand_%02d" % i) for i in range(1, a.n + 1)]
@@ -192,18 +263,22 @@ def write_golden(data_dir, out_path):
     paths += [os.path.join(data_dir, n + ".json") for n in ("sample_archive_b1", "rand_05", "rand_08")]
     cfg = {"mmode": 2, "order": 1, "balmode": 0, "lim": 5}
     gold = {"config": {"CfgMMode": 2, "CfgOrderMode": 1, "CfgBalMode": 0, "CfgBalLimit": 5,
-                       "CfgAlpha": [0, 50, 100, 150], "start": "after reset: crane (0,0,1), T=0, M=0",
+                       "CfgAlpha": PLC_ALPHAS, "CfgImproveEvals": PLC_IMP_EVALS, "CfgImproveDist": 0,
+                       "start": "after reset: crane (0,0,1), T=0, M=0",
                        "fallback": "on ErrCode 1 FB10 retries with order 1 -> 0; order_used per set"},
             "cmd_codes": "1 lift, 2 put, 3 move; phase 0 move-to-src (skipped if already there), 1 lift, 2 move-to-dst, 3 put",
             "sets": []}
     for p in paths:
         ds = cm.load_dataset(p)
         st = cp.build_state(ds)
-        res = cp.plan_fb(st, cfg, [0, 50, 100, 150])
+        res = cp.plan_fb(st, cfg, PLC_ALPHAS, imp_evals=PLC_IMP_EVALS)
+        lbT, lbM, lbJ = cp.lower_bound(st)
         entry = {"dataset": os.path.relpath(p, root).replace("\\", "/"), "N": st["N"],
                  "init_alarm_bits": st["init"]["bits"], "err": res["err"], "order_used": res["order"]}
         if res["err"] == 0:
             entry.update({"variant": res["variant"], "T_ds": res["T"], "M": res["M"], "J": round(res["J"], 6),
+                          "J_greedy": round(res["J0"], 6), "imp_evals": res.get("imp_evals", 0),
+                          "imp_accepts": res.get("imp_accepts", 0), "LbT_ds": lbT, "LbM": lbM, "LbJ": round(lbJ, 6),
                           "commands": cp.simulate(st, res["plan"], res["cfg"])})
         gold["sets"].append(entry)
     with open(out_path, "w", encoding="utf-8", newline="\n") as f:

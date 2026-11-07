@@ -48,6 +48,12 @@ NON_RETAIN
       PredM : DInt;
       PredT : Real;
       PredJ : Real;
+      PredJ0 : Real;                        // v1.3: greedy J before the improve phase
+      LbJ : Real;                           // v1.3: lower bound of J (no plan can be better)
+      GapPct : Real;                        // v1.3: (PredJ / LbJ - 1) * 100
+      ImpGainPct : Real;                    // v1.3: (1 - PredJ / PredJ0) * 100 = gain of the improve phase
+      ImpEvals : DInt;                      // v1.3: improve-phase evaluations of the last plan
+      PlanProgress : Int;                   // v1.3: planner progress 0..100 % (improve phase)
       PlanVariant : Int;
       TrDone : Int;
       TrTotal : Int;
