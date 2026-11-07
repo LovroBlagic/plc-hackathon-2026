@@ -47,7 +47,7 @@ def _feas_grid(E0, arrs, Ts):
     K, h = arrs.shape
     Tm = np.broadcast_to(Ts if np.ndim(Ts) == 2 else np.asarray(Ts)[:, None], (len(Ts), K)).astype(float)
     E = np.broadcast_to(np.asarray(E0, dtype=float), Tm.shape).copy()
-    ok = E >= 0
+    ok = np.ones(Tm.shape, dtype=bool)        # like v5: only an EMPTY battery after a discharge is infeasible
     for i in range(h):
         g = arrs[:, i][None, :]
         d = g - Tm
@@ -56,7 +56,7 @@ def _feas_grid(E0, arrs, Ts):
         dis = np.where(over, d * TS / P["ETA_D"], 0.0)
         chg = np.where(over, 0.0, np.minimum(np.minimum(-d, P["BCH"]), (EUSE - E) / (TS * P["ETA_C"])) * TS * P["ETA_C"])
         E = E - dis + chg
-        ok &= E >= -1e-9
+        ok &= ~(over & (E < 0))
     return ok
 
 
