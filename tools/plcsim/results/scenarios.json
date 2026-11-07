@@ -1,0 +1,152 @@
+[
+ {
+  "check": "semi: mode = SEMI (2)",
+  "ok": true,
+  "detail": "Mode=2"
+ },
+ {
+  "check": "semi: click before START executes exactly 1 command",
+  "ok": true,
+  "detail": "M 0 -> 1, State=3"
+ },
+ {
+  "check": "semi: 4 more clicks = 4 commands",
+  "ok": true,
+  "detail": "M=5"
+ },
+ {
+  "check": "semi: no progress without a click",
+  "ok": true,
+  "detail": "M=5 StepWaiting=1"
+ },
+ {
+  "check": "semi->auto: finishes DONE, M/T = model",
+  "ok": true,
+  "detail": "state=6 M=48 T=921.6 model M=48 T=921.6"
+ },
+ {
+  "check": "stop: after a lift -> PAUSED (4), crane holds",
+  "ok": true,
+  "detail": "state=4 M 3->3 Carried=101"
+ },
+ {
+  "check": "stop/start: resumes to DONE, M/T = model",
+  "ok": true,
+  "detail": "state=6 M=48 T=921.6 model M=48 T=921.6"
+ },
+ {
+  "check": "off: State OFF (0), no commands",
+  "ok": true,
+  "detail": "state=0 M=6 LampOff=1"
+ },
+ {
+  "check": "on: leaves OFF (READY/PAUSED, not running by itself)",
+  "ok": true,
+  "detail": "state=4 LampReady=1"
+ },
+ {
+  "check": "off/on: START finishes DONE",
+  "ok": true,
+  "detail": "state=6 M=48 T=921.6 TrDone=12/12"
+ },
+ {
+  "check": "manual: mode = MANUAL (3)",
+  "ok": true,
+  "detail": "Mode=3"
+ },
+ {
+  "check": "manual: move to bay 2 rejected, alarm bit 9",
+  "ok": true,
+  "detail": "dM=0 AlarmWord=512 AlarmId? hist0=9"
+ },
+ {
+  "check": "manual: move to empty yard cell executes",
+  "ok": true,
+  "detail": "dM=1 pos=0,1,1"
+ },
+ {
+  "check": "manual: lift on empty cell rejected, alarm bit 1",
+  "ok": true,
+  "detail": "dM=0 AlarmWord=2 state=5"
+ },
+ {
+  "check": "manual: ACK clears bit 1",
+  "ok": true,
+  "detail": "AlarmWord=0 state=2"
+ },
+ {
+  "check": "manual: lift on occupied cell executes",
+  "ok": true,
+  "detail": "dM=1 Carried=104"
+ },
+ {
+  "check": "manual: put on occupied cell rejected, alarm bit 2",
+  "ok": true,
+  "detail": "dM=0 AlarmWord=4"
+ },
+ {
+  "check": "manual: put back on its own (now empty) cell executes",
+  "ok": true,
+  "detail": "dM=1 DB11[0,0]=104"
+ },
+ {
+  "check": "manual: reset (10) with empty hook executes",
+  "ok": true,
+  "detail": "M=0 pos=0,0,1"
+ },
+ {
+  "check": "obstacle: 999 at next ship drop -> ALARM, bit 2",
+  "ok": false,
+  "detail": "carried=True cell=(0,2) state=True AlarmWord=4"
+ },
+ {
+  "check": "obstacle: after ACK run continues to DONE",
+  "ok": true,
+  "detail": "state=6 M=49 T=926.199951"
+ },
+ {
+  "check": "obstacle: container put to another ship cell",
+  "ok": true,
+  "detail": "id 104 at [(0, 3)]"
+ },
+ {
+  "check": "obstacle (1.15): OrderModeAct stays 1, no alarm 17",
+  "ok": true,
+  "detail": "OrderModeAct=1 AlarmWord2=0"
+ },
+ {
+  "check": "obstacle: final balance |L-R| <= 5",
+  "ok": true,
+  "detail": "L=8 R=5"
+ },
+ {
+  "check": "obstacle -> POCETNO STANJE restores the loaded data set (R3-E1)",
+  "ok": true,
+  "detail": "state=2"
+ },
+ {
+  "check": "repeat: DB10/DB11 show the final yard after DONE",
+  "ok": true,
+  "detail": ""
+ },
+ {
+  "check": "repeat: POCETNO STANJE restores the original data",
+  "ok": true,
+  "detail": "M after init=0"
+ },
+ {
+  "check": "repeat: second run same M/T",
+  "ok": true,
+  "detail": "run1 M=48 T=921.6 run2 M=48 T=921.6"
+ },
+ {
+  "check": "init during RUNNING ignored",
+  "ok": true,
+  "detail": "state=3 M 5->8"
+ },
+ {
+  "check": "init after STOP works (READY, M=0, data restored)",
+  "ok": true,
+  "detail": "state=2 M=0"
+ }
+]

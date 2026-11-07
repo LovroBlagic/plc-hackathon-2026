@@ -1,5 +1,11 @@
 # TIA crane (TASK 2): integration status
 
+## PLCSIM run (7 Nov, PLCSIM test engineer): the v1.6 build runs on S7-PLCSIM V21 and matches the model exactly
+- 8 data sets in AUTO give PLC = model for MD107, MD112, MSpec, J, the final DB10/DB11 and the full command sequence (up to 74 transfers / 296 commands). HUMAN_STEPS 1.1, 1.3–1.15 pass through tag writes. CPU always in RUN, planner max call 10.4 ms. **No PLC bug found, tia-src unchanged.**
+- Online Openness download to PLCSIM fails ("Connect to module failed"). It works through a virtual memory card plus an sim_hwdb.ini article-number edit. Details, steps and the table: `tia-src/PLCSIM_RESULTS.md`; tools: `tools/plcsim/`.
+
+---
+
 ## v1.6 judge round 3 fixes (7 Nov, builder). Contract **v1.6**. Details and numbers: `tia-src/JUDGING.md` "Round 3"
 - **Build:** `TIA_RESULT errors=0 warnings=0` (`tia-work/r3_compile1.log`); `deliver/TIA_crane_v1_plc.zap21` re-archived (PLC only, `tia-work/r3_compile2.log`). TIA closed afterwards.
 - **FB10 data load (R3-E1, R3-J1):** an online DB10/DB11 edit is new data only while no job is in progress (before the first command after POČETNO STANJE, or in DONE); edits during a job are obstacles (EditMark / ObstCnt) and POČETNO STANJE restores the loaded data set (also with a container on the hook). New yard during a job only with new lists or ≥ 8 rewritten cells; new lists alone keep the loaded yard. A cell written back to its old value is no edit.

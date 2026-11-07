@@ -1,0 +1,47 @@
+  "MSpec": 110
+ "plc_final_state": "DONE",
+ "plc_M": 80,
+ "plc_T_ds": 17040,
+ "plc_MSpec": 110,
+ "MSpec_match": true,
+ "pass": true
+SIM_RESULT pass=1
+== scenario semi
+CHECK semi: mode = SEMI (2)                                      PASS  Mode=2
+CHECK semi: click before START executes exactly 1 command        PASS  M 0 -> 1, State=3
+CHECK semi: 4 more clicks = 4 commands                           PASS  M=5
+CHECK semi: no progress without a click                          PASS  M=5 StepWaiting=1
+CHECK semi->auto: finishes DONE, M/T = model                     PASS  state=6 M=48 T=921.6 model M=48 T=921.6
+== scenario stopstart
+CHECK stop: after a lift -> PAUSED (4), crane holds              PASS  state=4 M 3->3 Carried=101
+CHECK stop/start: resumes to DONE, M/T = model                   PASS  state=6 M=48 T=921.6 model M=48 T=921.6
+== scenario onoff
+CHECK off: State OFF (0), no commands                            PASS  state=0 M=6 LampOff=1
+CHECK on: leaves OFF (READY/PAUSED, not running by itself)       PASS  state=4 LampReady=1
+CHECK off/on: START finishes DONE                                PASS  state=6 M=48 T=921.6 TrDone=12/12
+== scenario manual
+CHECK manual: mode = MANUAL (3)                                  PASS  Mode=3
+CHECK manual: move to bay 2 rejected, alarm bit 9                PASS  dM=0 AlarmWord=512 AlarmId? hist0=9
+CHECK manual: move to empty yard cell executes                   PASS  dM=1 pos=0,1,1
+CHECK manual: lift on empty cell rejected, alarm bit 1           PASS  dM=0 AlarmWord=2 state=5
+CHECK manual: ACK clears bit 1                                   PASS  AlarmWord=0 state=2
+CHECK manual: lift on occupied cell executes                     PASS  dM=1 Carried=104
+CHECK manual: put on occupied cell rejected, alarm bit 2         PASS  dM=0 AlarmWord=4
+CHECK manual: put back on its own (now empty) cell executes      PASS  dM=1 DB11[0,0]=104
+CHECK manual: reset (10) with empty hook executes                PASS  M=0 pos=0,0,1
+== scenario obstacle
+CHECK obstacle: 999 at next ship drop -> ALARM, bit 2            FAIL  carried=True cell=(0,2) state=True AlarmWord=4
+CHECK obstacle: after ACK run continues to DONE                  PASS  state=6 M=49 T=926.199951
+CHECK obstacle: container put to another ship cell               PASS  id 104 at [(0, 3)]
+CHECK obstacle (1.15): OrderModeAct stays 1, no alarm 17         PASS  OrderModeAct=1 AlarmWord2=0
+CHECK obstacle: final balance |L-R| <= 5                         PASS  L=8 R=5
+CHECK obstacle -> POCETNO STANJE restores the loaded data set (R3-E1) PASS  state=2
+== scenario repeat
+CHECK repeat: DB10/DB11 show the final yard after DONE           PASS  
+CHECK repeat: POCETNO STANJE restores the original data          PASS  M after init=0
+CHECK repeat: second run same M/T                                PASS  run1 M=48 T=921.6 run2 M=48 T=921.6
+== scenario initrun
+CHECK init during RUNNING ignored                                PASS  state=3 M 5->8
+CHECK init after STOP works (READY, M=0, data restored)          PASS  state=2 M=0
+CPU Run
+SCEN_RESULT fails=1

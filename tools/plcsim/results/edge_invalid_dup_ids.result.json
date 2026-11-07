@@ -1,0 +1,203 @@
+{
+ "dataset": "tools/crane_data/edge_invalid_dup_ids.json",
+ "model": {
+  "err": 0,
+  "T_ds": 15591,
+  "M": 80,
+  "J": 0.8102894736842106,
+  "order_used": 1,
+  "N": 25,
+  "transfers": 20
+ },
+ "after_init_state": "READY",
+ "after_init_alarm": 112,
+ "after_init_N": 25,
+ "after_init_M": 0,
+ "after_init_T": 0.0,
+ "plc_final_state": "DONE",
+ "plc_M": 80,
+ "plc_T": 1559.1,
+ "plc_T_ds": 15591,
+ "plc_MSpec": 110,
+ "plc_J": 0.8102895,
+ "plc_PredJ": 0.8102895,
+ "plc_OrderModeAct": 1,
+ "plc_TrDone": 20,
+ "plc_TrTotal": 20,
+ "plc_AlarmWord": 32880,
+ "plc_AlarmWord2": 0,
+ "max_abs_balance": 5,
+ "wall_s": 81.2,
+ "ticks": 82,
+ "planner_max_call_ms": 5.315103078121073,
+ "planner_job_ms": 1734.0330431543796,
+ "planner_calls": 933,
+ "cpu_state": "Run",
+ "plc_cmds_reconstructed": 79,
+ "model_cmds": 80,
+ "cmds_match": false,
+ "first_cmd_diff": {
+  "index": 74,
+  "model": [
+   [
+    3,
+    2,
+    0,
+    0
+   ],
+   [
+    2,
+    2,
+    0,
+    0
+   ],
+   [
+    3,
+    3,
+    2,
+    0
+   ]
+  ],
+  "plc": [
+   [
+    -2,
+    2,
+    0,
+    0
+   ],
+   [
+    3,
+    3,
+    2,
+    0
+   ],
+   [
+    2,
+    3,
+    2,
+    0
+   ]
+  ]
+ },
+ "bay0_match": true,
+ "bay1_match": true,
+ "M_match": true,
+ "T_match": true,
+ "plc_bay0": [
+  [
+   0,
+   947,
+   513,
+   0,
+   350,
+   833,
+   157,
+   847,
+   857,
+   225,
+   133,
+   339
+  ],
+  [
+   451,
+   0,
+   555,
+   0,
+   956,
+   299,
+   546,
+   0,
+   286,
+   0,
+   0,
+   677
+  ],
+  [
+   504,
+   248,
+   493,
+   261,
+   167,
+   478,
+   987,
+   0,
+   285,
+   394,
+   592,
+   0
+  ],
+  [
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   798,
+   0,
+   0,
+   589,
+   185
+  ]
+ ],
+ "plc_bay1": [
+  [
+   170,
+   0,
+   0,
+   337,
+   0,
+   0,
+   0,
+   553,
+   0,
+   392,
+   0,
+   0
+  ],
+  [
+   593,
+   0,
+   788,
+   928,
+   400,
+   0,
+   995,
+   0,
+   0,
+   822,
+   0,
+   0
+  ],
+  [
+   926,
+   122,
+   518,
+   613,
+   848,
+   223,
+   503,
+   0,
+   0,
+   425,
+   278,
+   149
+  ],
+  [
+   736,
+   477,
+   991,
+   174,
+   217,
+   701,
+   996,
+   744,
+   733,
+   543,
+   0,
+   77
+  ]
+ ],
+ "pass": false
+}

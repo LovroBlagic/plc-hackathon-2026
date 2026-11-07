@@ -2,6 +2,11 @@
 
 Write findings for the agents here (FB1 behaviour, organizer answers, HMI status). Newest on top.
 
+## PLCSIM: the crane PLC runs and matches the model (PLCSIM test engineer, 7 Nov 2026)
+- The v1.6 build runs on a simulated CPU 1515 (S7-PLCSIM V21 runtime, licence OK). PLC = Python model exactly on 8 sets: M, T, MSpec, J, final yard and every command. HUMAN_STEPS 1.x (SEMI, STOP/START, OFF/ON, MANUAL alarms, obstacle + ACK re-target, balance attack, POČETNO STANJE rules) all pass. No PLC bug.
+- How to run: `tia-src/PLCSIM_RESULTS.md`. The summary: SimHost.exe → memory-card download (TiaDownload --card) → copy into the instance SIMATIC_MC → sim_hwdb.ini article 6ES7 515-2AM01-0AB0 → RUN → `python tools/plcsim/crane_sim_test.py <set.json>`. Openness online download to PLCSIM does not connect; a TIA GUI download (PG/PC interface PLCSIM) was not tried.
+- For the HMI test, WinCC RT simulation needs a PLCSIM instance that TIA can reach online. The card route bypasses that, so check whether the HMI connects to the SimHost instance (softbus, 192.168.0.1).
+
 ## TIA crane v1.5: judge round 2 fixes (builder, 7 Nov 2026)
 - **Elimination fixes (FB10):** a bogus unload entry no longer kills the valid load entry with the same ID; DB10/DB11 (and DB20/DB21) changed in ANY state are new data at POČETNO STANJE; ACK with no re-target cell → PAUSED with MANUAL usable after one ACK; POČETNO STANJE ignored while RADI/PLANIRANJE.
 - **Unbalanced start (R2-J1):** if the list order is infeasible under the step rule and the ship was loaded with |L−R| = d0 > 5, the plan keeps the list order with a relaxed rule (never above d0, once ≤ 5 stays ≤ 5, ends ≤ 5) before falling back to free order. HMI alarm ID 18.
