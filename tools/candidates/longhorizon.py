@@ -63,7 +63,7 @@ def ops_estimate(Hf=96, Hc=96, B=8, nca=9, dE=40.0, nacts=41, nbis=13, **_):
 def make(Hf=96, Hc=96, B=8, nca=9, dE=40.0, pen=20.0, tvf=0.9, pvf=0.6, cap_margin=1.02,
          a_fec=0.5, a_pv=0.3, a_sig=0.3, nacts=41, neg_curt=True, ksig=0.0, hi_in_dp=True,
          cw=4, ctau=16.0, coldmax=True, cap_h=None, pfill="last", fine_pub=True, cpen=1.0,
-         tv_h=None, realistic=True, fixtot=False, dbg=None):
+         tv_h=None, realistic=True, fixtot=False, tpess=1.0, dbg=None):
     """Controller factory (same contract as strategies.dp_strategy).
 
     Hf      fine 15-min steps (S2 with fine_pub: limited to the published DA horizon)
@@ -74,6 +74,7 @@ def make(Hf=96, Hc=96, B=8, nca=9, dE=40.0, pen=20.0, tvf=0.9, pvf=0.6, cap_marg
             earlier), 'mean' (mean of 'last' and 'week')
     cpen    scale of the peak penalty in the coarse part
     tv_h    steps used for the terminal-value mean price (None = whole horizon)
+    tpess   scale of the pessimistic margin ((1-pvf)*PV + ksig*sigma) in the coarse tail (1 = as fine part)
     fixtot  S2: keep the total horizon at Hf + Hc even when the fine part is cut at the publication limit
     """
     fc = Forecaster(a_fec, a_pv, a_sig, cw, ctau, True, True)
@@ -167,6 +168,8 @@ def make(Hf=96, Hc=96, B=8, nca=9, dE=40.0, pen=20.0, tvf=0.9, pvf=0.6, cap_marg
         npk = n.copy(); npk[1:] += (1 - pvf) * pvh[1:]
         for i in range(1, htot):
             npk[i] += ksig * fc.sig_at(k + i)
+        if tpess != 1.0 and htot > hf:
+            npk[hf:] = n[hf:] + tpess * (npk[hf:] - n[hf:])
         nh = npk if hi_in_dp else n
 
         # block boundaries of the coarse tail

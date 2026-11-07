@@ -75,7 +75,7 @@ def _min_caps(E0, arrs, lo):
 
 
 def make(K=5, D=7, rs=1.0, rs_pv=1.0, qsel=0, cap_margin=1.02, with_v5=False, capsrc="scen",
-         defer=True, defer_set="covered", defer_min=0.0, defer_k0=672, scen_k0=672, defer_mode="full", defer_soc=0.0, defer_chk="cov", hi_dp="v5", ksig=0.75, pvf=0.6, a_fec=0.5, a_pv=0.3,
+         defer=True, defer_set="covered", defer_min=0.0, defer_k0=672, scen_k0=672, defer_mode="full", defer_soc=0.0, defer_chk="cov", wpk=None, hi_dp="v5", ksig=0.75, pvf=0.6, a_fec=0.5, a_pv=0.3,
          a_sig=0.3, cw=4, ctau=16.0, coldmax=True, dE=40.0, hmax=96, nacts=41, pen=20.0, tvf=0.9,
          neg_curt=True, pvneg=True, dbg=None):
     """K scenarios from the last K days' residuals (ring buffer D>=K days). rs/rs_pv scale FEC/PV residuals.
@@ -216,7 +216,16 @@ def make(K=5, D=7, rs=1.0, rs_pv=1.0, qsel=0, cap_margin=1.02, with_v5=False, ca
                 sel = scen[cov] if defer_chk == "cov" else scen[:K]
                 ok = _feas_grid(E1x[:, None], sel[:, 1:], np.full(len(xs), T)).all(axis=1)
             if ok.any():
-                jx = int(np.flatnonzero(ok)[0])
+                if wpk is None:
+                    jx = int(np.flatnonzero(ok)[0])            # lowest feasible import level
+                else:
+                    # economic deferral: DP objective of the first step (energy now + cost-to-go) plus
+                    # wpk * PEAK per kW the paid peak is raised now
+                    x1 = np.clip(E1x / dE, 0, NS)
+                    v1x = np.interp(x1, np.arange(NS + 1), V)
+                    sc = stepcost(n[0], ci[0], ce[0], T, pbs, n[0]) + v1x + wpk * P["PEAK"] * np.maximum(n[0] - pbs - Sp, 0.0)
+                    sc = np.where(ok, sc, 1e18)
+                    jx = int(np.argmin(sc))
                 if g0 - xs[jx] > defer_min:
                     pb = float(pbs[jx])
         curt = None

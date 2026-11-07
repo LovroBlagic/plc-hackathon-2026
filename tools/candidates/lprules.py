@@ -13,18 +13,19 @@ What the full-year LP (tools/lp_bound.py) does with the monthly peak, and the ru
   * Our v5 discharges "discretionarily" (import below the paid peak) early in the VT window because, inside
     one tariff block, the DP is indifferent about WHEN it discharges.  When the afternoon then turns out
     heavier than forecast the battery is empty and the peak jumps (e.g. 748 vs 565 kW).
-  Rule G  "glide-path reserve" (peak-window discharge spreading): on workdays the stored energy should not drop
-          below a reserve line R(q) that is gl_E kWh at quarter-hour gl_q0 and falls linearly to 0 at gl_q1;
-          each kWh below the line costs gl_rho EUR per step in the DP (soft; far below the cap penalty, so it
-          never raises the peak, it only re-orders discretionary discharge).  Weekend days use gl_we * gl_E.
-  Rule A  "late discharge preference": inside the DP the import price of horizon step i is scaled by
-          (1 + late_eps * i / 96) -> among equal-price choices discharge as late as possible (LP: flat import).
-  Rule C  "charge only to the expected cap": grid charging may not lift import above
-          max(paid peak, cap from the EXPECTED forecast) (the pessimistic cap is a safety level for load,
-          not a licence to set a new peak by charging).
-  Rule B  "history cap ceiling": the controller records the hindsight minimal shaving cap of every finished
-          day from its OWN measured net load (one bisection per day).  The pessimistic cap is not allowed to
-          exceed max(paid peak, cap from expected forecast, hb_f * rolling-max of the last hb_n workday caps).
+  Rule A  "late discharge preference" (ADOPTED for S1): inside the DP the import price of horizon step i is
+          scaled by (1 + late_eps * i / 96).  It acts as a tie-breaker: within one tariff block the battery
+          discharges as late as possible and import is held flat at the paid peak, like the LP.  The value of
+          late_eps hardly matters (0.005 ... 0.15 give the same peaks); late_tv=True also scales the terminal value.
+  Rule G  "glide-path reserve" (peak-window discharge spreading; same effect as A in S1, harmful in S2): on
+          workdays stored energy below a reserve line R(q) (gl_E kWh at quarter-hour gl_q0, falling linearly to
+          0 at gl_q1) costs gl_rho EUR/kWh per step in the DP.  Weekend days use gl_we * gl_E.
+  Rule C  "charge only to the expected cap" (rejected): grid charging may not lift import above
+          max(paid peak, cap from the EXPECTED forecast); chg_exp=2 also serves load from the battery down to it.
+  Rule B  "history cap ceiling" (rejected): the hindsight minimal shaving cap of every finished workday is
+          computed from the controller's OWN measured net load; the pessimistic cap may not exceed
+          max(paid peak, expected-forecast cap, hb_f * max of the last hb_n workday caps).
+  Tuned: S1_KW = late_eps 0.005; S2 = v5 unchanged (no rule helped S2).
 Only past data, own history, the price tables and constants are used.
 """
 import math, os, sys
@@ -46,8 +47,8 @@ NEUTRAL = dict(late_eps=0.0, late_tv=False, gl_E=0.0, gl_q0=28, gl_q1=68, gl_rho
                hb_n=0, hb_f=1.0)
 
 # tuned per-mode defaults (filled in after tuning; see report)
-S1_KW = dict()
-S2_KW = dict()
+S1_KW = dict(late_eps=0.005)
+S2_KW = dict()          # no LP-derived rule improved S2; identical to v5
 
 
 def make_s1(**kw):
