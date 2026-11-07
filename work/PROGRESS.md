@@ -1,6 +1,6 @@
 # ME Energy Manager: progress (implementation agent)
 
-STATUS: best archived ME_v5_k075 (S1 205 231 / S2 170 189 €). True LP bound S1 199 779 / S2 162 592 → gap 2.7 % / 4.7 %, ~88 % of it monthly peak. Testing peak-focused ideas (Sat 01:20)
+STATUS: best archived ME_v6_late (S1 204 598.62 / S2 170 189.36 €; LP-bound gap 2.41 % / 4.67 %). v8 = v7 + late-discharge DP tie-breaker (S1/TT only) confirmed in ME (Sat 08:45)
 
 ## Results
 | Version | Scen | finished | tripped | cost_total € | E_ev kWh | E_ev_unmet kWh | EV % | max log dev |
@@ -18,6 +18,8 @@ STATUS: best archived ME_v5_k075 (S1 205 231 / S2 170 189 €). True LP bound S1
 | **v6 = ME_v4_pvf_da**: S2 PV derate 0.2 (ME) | S2 | yes | no | **170 231.63** | 10 363.06 | 0.00 | 100.000 | 0.00000 % |
 | **v7 = ME_v5_k075**: S1 σ-factor 0.75, 41 first-step candidates (ME) | S1 | yes | no | **205 231.01** | 10 363.06 | 0.00 | 100.000 | 0.00000 % |
 | **v7 = ME_v5_k075** (ME) | S2 | yes | no | **170 189.36** | 10 363.06 | 0.00 | 100.000 | 0.00000 % |
+| **v8 = ME_v6_late**: + late-discharge tie-breaker (S1/TT only, ε = 0.05) (ME) | S1 | yes | no | **204 598.62** | 10 363.06 | 0.00 | 100.000 | 0.00001 % |
+| **v8 = ME_v6_late** (ME; S2 unchanged by design) | S2 | yes | no | **170 189.36** | 10 363.06 | 0.00 | 100.000 | 0.00000 % |
 | twin: DP oracle (perfect forecast, reference only) | S1 | | | 201 921 | | 0 | 100 | |
 | twin: DP oracle | S2 | | | 167 859 | | 0 | 100 | |
 | twin: DP + EMA forecast (default) | S1 | | | 210 332 | | 0 | 100 | |
@@ -38,6 +40,7 @@ Perfect knowledge of FEC, PV, prices and EV sessions; EV fixed at max power; sam
 |---|---|---|
 | ME_v4 | 205 877 → +6 098 (3.05 %) | 170 232 → +7 640 (4.70 %) |
 | ME_v5 | 205 231 → +5 452 (2.73 %) | 170 189 → +7 597 (4.67 %) |
+| **ME_v6_late** | **204 599 → +4 820 (2.41 %)** | 170 189 → +7 597 (4.67 %) |
 
 **Twin mean over 4 datasets:**
 | Version | S1 | S2 |
@@ -135,6 +138,16 @@ Archive: deliver/ME_v1_baseline.projectarchive (39.5 MB).
 
 - 01:10 Round: soft peak penalty above the paid peak (no effect), Huber-clipped EMA (±0), 7 day types (worse), median forecasts (±0), history-based terminal value (±0), cap selection by DP cost (no gain). Adopted S1 σ 0.75 + 41 first-step candidates → ME_v5_k075 (S1 −646 €, S2 −42 €), archived (+ ME_v5_src).
 - 01:15 LP bound (tools/lp_bound.py, lp_all.py) and loss breakdown (tools/loss.py) done.
+
+- 01:25 Peak-focused twin round: the "lazy peak" rule (hold the paid peak while it stays feasible under the expected forecast) was worse in both modes (S1 +350 €, S2 +110 €). Rejected.
+- 08:10–08:45 Orchestrator workflow candidate "lprules" rule A (tools/candidates/lprules.py, reviewer-approved) ported to ST.
+  - DP stage import price of horizon step i is multiplied by (1 + PLAN_LATE_EPS_TT·i/96), with ε = 0.05.
+  - Gated to two-tariff mode only (SEL on price_mode). The terminal value still uses unscaled prices.
+  - Effect: within one tariff block the battery discharges as late as possible and import stays flat at the paid peak, like the LP. It also breaks float32 knife-edge ties.
+  - ME v8: S1 204 598.62 (−632.39 € vs v5; twin predicted −633), S2 170 189.36 (identical to v5).
+  - No trip, EV 100 %, logging max deviation 0.00001 %.
+  - Archived deliver/ME_v6_late.projectarchive + deliver/ME_v6_src/.
+  - The ME run went fine at ~90 steps/s even with ~22 workflow python processes running.
 
 ## BLOCKERS / pending confirmation
 - Price tables in our own GVL `Team_Prices` (allowed as "cjenici" per spec §4.1/§5; spec §3.7 says prices come as separate CSVs): **pending organizer confirmation** that the evaluation dataset uses the same 2025 prices.

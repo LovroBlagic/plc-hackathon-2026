@@ -18,6 +18,7 @@ VAR_GLOBAL CONSTANT
 	PLAN_H : INT := 96;                 // planning horizon [steps] (24 h)
 	PLAN_DA_PUBLISHED : BOOL := TRUE;   // TRUE: day-ahead horizon limited to published prices (13:00 rule)
 	PLAN_PEN : REAL := 20.0;            // [EUR/kW per step] penalty for planned import above the cap
+	PLAN_LATE_EPS_TT : REAL := 0.05;    // two-tariff: late-discharge tie-breaker in the DP (0 = off); day-ahead: off
 	PLAN_TVF : REAL := 0.9;             // terminal value of stored energy = mean import price * PLAN_TVF
 	PLAN_PVF_TT : REAL := 0.6;          // two-tariff: PV share trusted in the pessimistic load (peak cap)
 	PLAN_PVF_DA : REAL := 0.2;          // day-ahead: lower -> higher cap -> more room for cheap grid charging

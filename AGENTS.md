@@ -365,3 +365,8 @@ Notes:
   - Resumed workflow wf_b13c9d8e-3cf; the agents that failed on the usage limit are rerunning.
   - **User decision: a candidate is accepted for the ME port if it beats v5 on average and is never worse than v5 by more than 200 € on any dataset (twin tolerance).** By that rule, lprules (S1, worst case +106 €) qualifies.
   - **User decision: NO git history purge** of the Vijeo help files (07b9c07). They stay in history; `research/` stays gitignored.
+  - **2026-11-07 08:45 (ME worker):**
+    - v8 = lprules rule A, the late-discharge DP tie-breaker, ported to `FB_Planner`. Set by `Team_Cfg.PLAN_LATE_EPS_TT` = 0.05 and applied in two-tariff mode only.
+    - ME results: S1 204,598.62 € (−632 vs v5), S2 170,189.36 € (unchanged). No trip, EV 100 %, logging exact.
+    - Archive: `deliver/ME_v6_late.projectarchive` and `deliver/ME_v6_src/`.
+    - The true LP bound is in `tools/lp_bound.py`: S1 199,779 €, S2 162,592 €. The gap is 2.4 % / 4.7 %, and about 88 % of it is monthly peak cost.

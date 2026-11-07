@@ -360,7 +360,7 @@ def st_config(mode):
     """Parameters equal to the ST implementation (Team_Cfg) for the given price mode."""
     kw = dict(realistic=True, cw=4, dE=40.0, hmax=96, coldmax=True, nacts=41)
     if mode == 0:
-        kw.update(ksig=0.75, hi_in_dp=True, pvf=0.6)
+        kw.update(ksig=0.75, hi_in_dp=True, pvf=0.6)   # + late_eps=0.05 in ST (see candidates/lprules.py)
     else:
         kw.update(ksig=0.0, hi_in_dp=False, pvf=0.2)
     return kw

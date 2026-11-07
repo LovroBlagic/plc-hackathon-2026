@@ -93,7 +93,8 @@ Call LogicBuilderShell.exe directly (me.ps1 mangles `--out`/`--o*` args):
 - Graphical POUs (LD/CFC, e.g. SR_Main_Sim) have no textual implementation: the dump shows only their declaration.
 - **ST gotchas (compiler V2.3):** `S` and `R` are reserved (IL set/reset), so a variable named `s` gives "Unexpected token 's'". Identifiers are case-insensitive, so a constant `NCAND` clashes with a variable `nCand`. `SEL(G, IN0, IN1)` returns IN1 when G is TRUE. FUNCTIONs may take arrays as `VAR_IN_OUT` (by reference). `REAL_TO_INT` rounds and does not truncate.
 - **Simulator login fails under CPU load:** with ~15 CPU-bound processes running, `oa.login` failed with "No connection to the gateway", and a year run died mid-way with "No connection to the device" / "operation has timed out". Keep other heavy jobs to ≤ 8 processes while a simulator run is active.
-- A rolling DP of ~100k inner iterations per PLC cycle still runs at the full 10 ms rate in the PC simulator.
+- A rolling DP of ~100k inner iterations per PLC cycle still runs at the full 10 ms rate in the PC simulator only when the CPU is otherwise idle. Sustained ~150k (≈20 ms per step) makes the online connection drop mid-run ("No connection to the device" / "Not logged in"). Keep the per-step work to about 30k operations; then a step takes about 5.7 ms in total (measured with `--cycle-ms 5`).
+- With ~22 other CPU-bound processes running, apply+build took about 8 min instead of about 1 min, but a year run still went at about 90 steps/s once logged in.
 
 ## Limits
 - Graphical languages (LD/FBD/SFC) can't be authored via script. Write ST, or import PLCopenXML.

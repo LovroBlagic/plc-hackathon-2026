@@ -6,6 +6,9 @@ FUNCTION_BLOCK FB_Planner
 //  2. Dynamic programming over the stored battery energy (0..1200 kWh in 40 kWh levels):
 //     cost(i) = import*TS*(price+fee) - export*TS*0.9*price(>=0) + PEN*(pessimistic import above T),
 //     terminal value of stored energy = mean import price * PLAN_TVF.
+//     Tie-breaker (two-tariff only, rLateEps > 0): the import price of horizon step i is scaled by
+//     (1 + rLateEps*i/96), so within one tariff block the battery discharges as late as possible and
+//     import is held flat at the paid peak (like the full-year LP). The terminal value uses unscaled prices.
 //  3. The first interval is optimised with continuous candidates and the exact current values.
 // Output rPb: requested BESS power for interval k (+ discharge / - charge); FB_GridGuard checks it.
 VAR_INPUT
@@ -15,6 +18,7 @@ VAR_INPUT
 	rBdMax : REAL;                      // feasible discharge [kW]
 	rPeakSoFar : REAL;                  // import peak of the current month so far [kW]
 	xHiInDp : BOOL;                     // TRUE: peak penalty uses the pessimistic net load
+	rLateEps : REAL;                    // late-discharge tie-breaker: import price of step i x (1 + rLateEps*i/96)
 END_VAR
 VAR_IN_OUT
 	aNet : ARRAY[0..191] OF REAL;       // forecast net load without battery [kW] (i = 0 is exact)
@@ -48,6 +52,7 @@ VAR
 	rE0 : REAL;
 	rE : REAL;
 	rTv : REAL;
+	rCiS : REAL;                        // scaled import price of the current DP stage
 	rG : REAL;
 	rC : REAL;
 	rBest : REAL;
@@ -103,6 +108,7 @@ FOR a := AMIN TO AMAX DO
 	END_IF;
 END_FOR;
 FOR i := h - 1 TO 1 BY -1 DO
+	rCiS := aCi[i] * (1.0 + rLateEps * INT_TO_REAL(i) / 96.0);   // tie-breaker scaled import price
 	FOR a := AMIN TO AMAX DO
 		IF NOT Team_Cfg.PLAN_TSPLIT THEN
 			IF xHiInDp THEN
@@ -110,9 +116,9 @@ FOR i := h - 1 TO 1 BY -1 DO
 			ELSE
 				rG := aNet[i] - aBus[a];
 			END_IF;
-			aCa[a] := F_StageCost(aNet[i] - aBus[a], rG, aCi[i], aCe[i], rT, limExp);
+			aCa[a] := F_StageCost(aNet[i] - aBus[a], rG, rCiS, aCe[i], rT, limExp);
 		ELSE
-			aCa[a] := F_StageCost(aNet[i] - aBus[a], aNet[i] - aBus[a], aCi[i], aCe[i], rT, limExp);
+			aCa[a] := F_StageCost(aNet[i] - aBus[a], aNet[i] - aBus[a], rCiS, aCe[i], rT, limExp);
 			IF xHiInDp AND aNetHi[i] - aBus[a] > rTh THEN
 				aCa[a] := aCa[a] + Team_Cfg.PLAN_PEN * (aNetHi[i] - aBus[a] - rTh);
 			END_IF;

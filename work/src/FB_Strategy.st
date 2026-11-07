@@ -104,6 +104,7 @@ ELSE
 
 	fbPlanner(iH := iHorizon, rSoc := rSoc, rBcMax := rBcMax, rBdMax := rBdMax, rPeakSoFar := rPeakSoFar,
 		xHiInDp := SEL(iPriceMode = 1, Team_Cfg.PLAN_HI_TT, Team_Cfg.PLAN_HI_DA),
+		rLateEps := SEL(iPriceMode = 1, Team_Cfg.PLAN_LATE_EPS_TT, 0.0),
 		aNet := aNet, aNetHi := aNetHi, aCi := aCi, aCe := aCe);
 	rPbReq := fbPlanner.rPb;
 	rPeakTarget := fbPlanner.rT;
