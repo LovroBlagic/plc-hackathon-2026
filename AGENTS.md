@@ -190,7 +190,7 @@ The Machine Expert task lives in `task/machine-expert/`.
   3. `add -A`
   4. commits with Claude attribution
   5. pushes
-- **Single git operator on this laptop:** the orchestrator Claude session runs sync.ps1, on changes and in its 15-minute monitoring loop. **Worker agents must NOT run git**; they just write files.
+- **Git operator on this laptop:** the orchestrator Claude session runs sync.ps1, on changes and in its monitoring loop. **Worker agents never run raw git commands.** A worker may run `sync.ps1` only at the end of a milestone when the orchestrator asks it to; the script is safe because it pulls with rebase and autostash first.
 - **Not committed** (see .gitignore):
   - live binary `*.project` / TIA project folders
   - simulation caches, `.~u` locks, `*.Application.map`
@@ -370,3 +370,8 @@ Notes:
     - ME results: S1 204,598.62 € (−632 vs v5), S2 170,189.36 € (unchanged). No trip, EV 100 %, logging exact.
     - Archive: `deliver/ME_v6_late.projectarchive` and `deliver/ME_v6_src/`.
     - The true LP bound is in `tools/lp_bound.py`: S1 199,779 €, S2 162,592 €. The gap is 2.4 % / 4.7 %, and about 88 % of it is monthly peak cost.
+- 7 Nov ~08:45: **ME_v6_late archived** (internally "v8").
+  - S1 204,598.62 € (−632 vs v5); S2 170,189.36 € (unchanged).
+  - No trip, EV 100 %, logging ≤ 0.00001 %.
+  - Change: late-discharge DP tie-breaker, PLAN_LATE_EPS_TT 0.05, TT/S1 only.
+  - Gap to the LP bound: S1 2.41 %, S2 4.67 %.
