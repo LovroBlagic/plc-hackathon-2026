@@ -1,29 +1,32 @@
 """Candidate controller "capmodel": learned monthly peak-cap policy (twin only, ST-portable).
 
-Idea (peak is ~88 % of the v5 gap to the LP bound; v5's cap comes from ONE pessimistic trajectory,
-expected + k*sigma at EVERY step and PV*pvf, which overstates daily risk because it assumes all
-per-step errors happen together; the DP then imports "for free" up to that cap and the cap becomes
-the month's peak):
-  * Day library (own history only): ring buffers of the last NW workdays / NWE Saturdays / NWE
-    Sundays of the REALISED net load, base = FEC - PV_available, and the EV power we drew.
-  * Daily statistic: at each day end R_d = the lowest cap that would have held that day starting
-    with a full battery at 00:00 (bisection). Kept per day type; used for the optional monthly floor.
-  * Scenario cap: for each library day s a horizon trajectory is built from the library days of the
-    matching day types (today -> s-th latest day of today's type, tomorrow -> s-th latest of
-    tomorrow's type), plus an intraday additive correction (today's actual base minus the scenario's
-    over the last W steps, fading with tau), plus EV = max(known connected sessions, library EV).
-    For each scenario the lowest cap T_s feasible from the current stored energy (incl. recharge
-    under the cap, same feasibility rule as v5) is computed. Cap = the (r+1)-th largest T_s
-    (r = number of library days we accept to miss), r larger early in the month ("avoid ratcheting
-    the cap early": many days remain, the cap can still be raised later at the same price).
-  * The paid peak is sunk: T = max(paid peak, cap * margin, optional floor).
-  * Pre-charge target: from the critical scenario (the one defining the cap) a reverse recursion gives
-    need_i = stored energy needed at step i to hold T for the rest of the horizon; the DP adds
-    pre_w * max(need_i - E, 0) per state/step (an explicit SoC floor; at night it becomes the
-    "SoC by the morning" target).  DP energy costs use the v5 expected forecast.
-  * Cold start / few library days: falls back to the v5 cap (EMA + k*sigma, PV*pvf).
-Rules: past data only (own measurements and the price tables), no embedded profiles.
-API: make(**kw) -> ctrl(obs) for twin.simulate; config(mode); v5_config(mode); make_mode(mode, **over).
+TUNED RESULT (config(mode)) = exact v5 (strategies.st_config) + a LEARNED MONTHLY CAP FLOOR:
+  T := MAX(T_v5, floor).  Import up to the floor is treated as free from the first day of the month,
+  instead of ratcheting the cap up day by day while the battery is short early in the month.
+  * S1 (price_mode 0): floor = max over the last 28 days of R_d, where R_d = the lowest import cap
+    that would have held that (realised) day starting with a full battery at 00:00 (bisection over the
+    day's own measured net load FEC - PV + EV). R_d is the "daily requirement" statistic; its recent
+    max predicts the month's unavoidable peak (on the practice data the LP-optimal monthly peak in S1
+    equals exactly the max R_d of the month).
+  * S2 (price_mode 1): floor = 0.95 x mean of the last 3 months' paid peaks (DA arbitrage needs a
+    higher free level than R_d; 0.95 keeps it from ratcheting month over month - f >= 1.05 is a cliff).
+    config_alt(1): floor = 1.3 x max R_d (no feedback from our own peaks), weaker but more conservative.
+
+TRIED AND REJECTED (kept as options, all OFF; numbers = full year practice unless noted, v5 205 224 / 170 200):
+  * Day-library scenario cap (scen=True): ring buffers of the last NW workdays / NWE Sat / NWE Sun of the
+    realised net load (+EV), per scenario the lowest feasible cap from the current energy (v5
+    feasibility rule incl. recharge under the cap, intraday additive correction), cap = (r+1)-th largest
+    T_s, DP penalty on the critical scenario: S1 210 303 (+5.1k), S2 174 669 (+4.5k). With r=0 (max)
+    peaks go UP (Jan-Apr S1 82 484 vs 79 524): any cap estimate becomes a free import level and is
+    realised by night charging.  combine="min" (min of v5 and scenario cap): S1 206 308, S2 171 709.
+    combine="qday" (v5 cap limited by the learned high-quantile daily requirement): S1 207 081, S2 172 475
+    (S2 peak -1.7k but energy +4k).  Lesson: lowering the cap below v5's pessimistic level always lost.
+  * Explicit SoC floors / pre-charge targets from the critical library day (pre_w, term_w): +-20 EUR,
+    they almost never bind (night recharge under the cap covers tomorrow).
+  * Learned PV downside deviation instead of PV*pvf (pvs="sig"/"min"): S1 +200..+1400, S2 +1000..+1400.
+Rules: past data only (own measurements, own monthly peaks, the price tables), no embedded profiles.
+API: make(**kw) -> ctrl(obs) for twin.simulate; config(mode); config_alt(mode); v5_config(mode);
+make_mode(mode, **over).  make(**v5_config(m), scen=False) reproduces v5 exactly (205 224 / 170 200).
 """
 import os, sys, math
 import numpy as np
@@ -377,8 +380,23 @@ def v5_config(mode):
 
 
 def config(mode):
+    """Tuned capmodel configuration = exact v5 + learned monthly cap floor (scenario cap OFF: it lost,
+    see the module docstring).  S1: floor = max over the last 28 days of R_d (daily requirement with a
+    full battery).  S2: floor = 0.95 x mean of the last 3 months' paid peaks."""
     kw = v5_config(mode)
-    kw.update(scen=True)
+    kw.update(scen=False)
+    if mode == 0:
+        kw.update(floor_src="rd", floor_q=1.0, floor_n=28, floor_f=1.0)
+    else:
+        kw.update(floor_src="prev", floor_f=0.95, floor_nm=3)
+    return kw
+
+
+def config_alt(mode):
+    """Alternative S2 floor anchored on R_d only (no feedback from our own peaks): 1.3 x max R_d(28 d)."""
+    kw = config(mode)
+    if mode == 1:
+        kw.update(floor_src="rd", floor_q=1.0, floor_n=28, floor_f=1.3)
     return kw
 
 
