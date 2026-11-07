@@ -12,6 +12,8 @@ VERSION : 0.1
       bitNo : Int;          // alarm bit to set in "World".Fault
       cx : Int;
       cy : Int;
+      gxOld : Int;          // global column before / after a move (Bay0 x + 6, Bay1 x)
+      gxNew : Int;
       cmd : "typeCmd";      // command to issue
    END_VAR
 
@@ -32,6 +34,24 @@ BEGIN
 	REGION 2 Has the previous command finished?
 	    IF "World".Busy THEN
 	        IF "new_command_ID" = 0 THEN
+	            // Spec section 3 manipulation count (shown next to FB1's MD107):
+	            // a move counts +1 per changed axis (x incl. bay change, y), lift / put +1, reset clears
+	            CASE "World".ActCmd.Cmd OF
+	                1, 2:
+	                    "World".MSpec := "World".MSpec + 1;
+	                3:
+	                    #gxOld := SINT_TO_INT("World".CraneX);
+	                    IF "World".CraneBay = 0 THEN #gxOld := #gxOld + 6; END_IF;
+	                    #gxNew := SINT_TO_INT("x_position");
+	                    IF "bay_ID" = 0 THEN #gxNew := #gxNew + 6; END_IF;
+	                    IF #gxNew <> #gxOld THEN "World".MSpec := "World".MSpec + 1; END_IF;
+	                    IF "y_position" <> "World".CraneY THEN "World".MSpec := "World".MSpec + 1; END_IF;
+	                10:
+	                    "World".MSpec := 0;
+	                ELSE
+	                    ;
+	            END_CASE;
+
 	            // FB1 finished: take over the crane position it reports
 	            "World".CraneX := "x_position";
 	            "World".CraneY := "y_position";
@@ -89,7 +109,10 @@ BEGIN
 	END_REGION
 
 	REGION 3 Issue the next command (only when the previous one is done)
-	    IF NOT "World".Busy AND "World".CmdReady AND "World".Permit AND "World".Fault = 0 THEN
+	    // Spec 2.2: "na pocetku bloka OB30 provjeriti je li posljednja manipulacija izvrsena":
+	    // FB1 resets "new_command_ID" (MB103) to 0 when a command is done (checked in region 2
+	    // for World.Busy and here again literally, so a stray MB103 value is never overwritten).
+	    IF NOT "World".Busy AND "new_command_ID" = 0 AND "World".CmdReady AND "World".Permit AND "World".Fault = 0 THEN
 	        #cmd := "World".NextCmd;
 	        // Lift / put always act where the crane is now
 	        IF #cmd.Cmd = 1 OR #cmd.Cmd = 2 THEN

@@ -5,7 +5,7 @@ VERSION : 0.1
 //  Returns 0 = OK, otherwise the alarm bit number (CONTRACT 1.4 / 3.3):
 //    100 ship imbalance (alarm bit 0)      1 pick location empty
 //      2 drop location occupied            9 invalid command / position
-//     11 crane already carrying           12 crane is empty (put down)
+//     11 crane already carrying (lift, or MANUAL reset with a load)   12 crane is empty (put down)
 //  The first failing rule decides the result.
 //  Lift/put act on the CURRENT crane position (CraneX/Y/Bay); the X/Y/Bay of C are ignored.
 //  Balance rule (CONTRACT 4.3 step rule): the result is OK if |L'-R'| <= BalLimit,
@@ -48,8 +48,13 @@ BEGIN
 	                #CheckCmd := 9;
 	            END_IF;
 	            RETURN;
-	        10: // reset of FB1 is always allowed
-	            #CheckCmd := 0;
+	        10: // reset of FB1: INIT may always reset (it reloads the yard and clears the hook);
+	            // a MANUAL reset with a container on the hook would lose it and the score counters
+	            IF #C.Src = 3 AND #Carried <> 0 THEN
+	                #CheckCmd := 11;
+	            ELSE
+	                #CheckCmd := 0;
+	            END_IF;
 	            RETURN;
 	        1, 2:
 	            ;   // checked below

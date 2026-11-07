@@ -72,7 +72,7 @@ def eval_one(path):
     if st["init"]["blocking"]:
         out["status"] = "capacity"
         return out
-    base = {"mmode": 0, "order": 0, "balmode": 0, "lim": 5}
+    base = {"mmode": 2, "order": 0, "balmode": 0, "lim": 5}
     r = cp.plan(st, base, ALPHAS)
     r2 = cp.plan(st, base, ALPHAS)
     out["deterministic"] = cp.csv_lines(r) == cp.csv_lines(r2)
@@ -95,6 +95,11 @@ def eval_one(path):
         if rr["err"] == 0:
             cp.simulate(st, rr["plan"], cfg)
         out[key] = rr["J"] if rr["err"] == 0 else None
+    rr = cp.plan_fb(st, dict(base, order=1), ALPHAS)
+    if rr["err"] == 0:
+        cp.simulate(st, rr["plan"], rr["cfg"])
+    out["dflt"] = rr["J"] if rr["err"] == 0 else None
+    out["dflt_fb"] = rr["err"] == 0 and rr["order"] != 1
     nv = naive(st, base)
     out["naive"] = cm.J(nv[0], nv[1], N) if nv else None
     P = out["P"]
@@ -130,6 +135,8 @@ def main():
     groups = (("random (rand_*)", [r for r in ok if r["name"].startswith("rand_")]), ("all feasible, P>0", ok))
     for gname, grp in groups:
         print("\n== %s: %d sets  (mean max)" % (gname, len(grp)))
+        print("PLC DEFAULT order 1 + fallback : %s  (fallback to order 0 on %d sets)" % (
+            stats([r["dflt"] for r in grp]), sum(1 for r in grp if r["dflt_fb"])))
         print("winner v1 (alpha 0/50/100/150) : %s" % stats([r["J"] for r in grp]))
         for i, al in enumerate(ALPHAS):
             print("  variant %d alpha=%-3d        : %s" % (i + 1, al, stats([r["Jv"][i] for r in grp])))

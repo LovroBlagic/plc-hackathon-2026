@@ -148,16 +148,16 @@ def sample_archive():
 
 def write_plan_csv(path_json, path_csv):
     ds = cm.load_dataset(path_json)
-    cfg = {"mmode": 0, "order": 0, "balmode": 0, "lim": 5}
+    cfg = {"mmode": 2, "order": 1, "balmode": 0, "lim": 5}   # PLC default (order 1 + fallback)
     st = cp.build_state(ds)
     if st["init"]["blocking"]:
         lines = ["i,kind,id,list_idx,src_bay,src_x,src_y,dst_bay,dst_x,dst_y,cum_t_ds,cum_m",
                  "RESULT error=capacity(bit7)"]
     else:
-        res = cp.plan(st, cfg, [0, 50, 100, 150])
+        res = cp.plan_fb(st, cfg, [0, 50, 100, 150])
         lines = cp.csv_lines(res)
         if res["err"] == 0:
-            cp.simulate(st, res["plan"], cfg)
+            cp.simulate(st, res["plan"], res["cfg"])
     with open(path_csv, "w", encoding="utf-8", newline="\n") as f:
         f.write("\n".join(lines) + "\n")
     return lines[-1]
@@ -190,20 +190,21 @@ def write_golden(data_dir, out_path):
     given = os.path.join(root, "tia-src", "given_data.json")
     paths = [given] if os.path.exists(given) else []
     paths += [os.path.join(data_dir, n + ".json") for n in ("sample_archive_b1", "rand_05", "rand_08")]
-    cfg = {"mmode": 0, "order": 0, "balmode": 0, "lim": 5}
-    gold = {"config": {"CfgMMode": 0, "CfgOrderMode": 0, "CfgBalMode": 0, "CfgBalLimit": 5,
-                       "CfgAlpha": [0, 50, 100, 150], "start": "after reset: crane (0,0,1), T=0, M=0"},
+    cfg = {"mmode": 2, "order": 1, "balmode": 0, "lim": 5}
+    gold = {"config": {"CfgMMode": 2, "CfgOrderMode": 1, "CfgBalMode": 0, "CfgBalLimit": 5,
+                       "CfgAlpha": [0, 50, 100, 150], "start": "after reset: crane (0,0,1), T=0, M=0",
+                       "fallback": "on ErrCode 1 FB10 retries with order 1 -> 0; order_used per set"},
             "cmd_codes": "1 lift, 2 put, 3 move; phase 0 move-to-src (skipped if already there), 1 lift, 2 move-to-dst, 3 put",
             "sets": []}
     for p in paths:
         ds = cm.load_dataset(p)
         st = cp.build_state(ds)
-        res = cp.plan(st, cfg, [0, 50, 100, 150])
+        res = cp.plan_fb(st, cfg, [0, 50, 100, 150])
         entry = {"dataset": os.path.relpath(p, root).replace("\\", "/"), "N": st["N"],
-                 "init_alarm_bits": st["init"]["bits"], "err": res["err"]}
+                 "init_alarm_bits": st["init"]["bits"], "err": res["err"], "order_used": res["order"]}
         if res["err"] == 0:
             entry.update({"variant": res["variant"], "T_ds": res["T"], "M": res["M"], "J": round(res["J"], 6),
-                          "commands": cp.simulate(st, res["plan"], cfg)})
+                          "commands": cp.simulate(st, res["plan"], res["cfg"])})
         gold["sets"].append(entry)
     with open(out_path, "w", encoding="utf-8", newline="\n") as f:
         json.dump(gold, f, indent=1)

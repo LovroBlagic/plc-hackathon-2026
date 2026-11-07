@@ -37,6 +37,13 @@ VERSION : 0.1
       AlarmHistM : Array[0..15] of UDInt;    // M at each history entry (parallel to HMI_IF.AlarmHist)
       AlarmHistT : Array[0..15] of Real;     // T [s] at each history entry
       FirstScan : Bool := TRUE;
+      Snap0 : Array[0..3, 0..11] of UInt;    // DB10 as last seen: external online edits are adopted into World
+      Snap1 : Array[0..3, 0..11] of UInt;    // DB11 as last seen
+      PendStep : Bool;                       // SEMI: latched NEXT STEP click (kept while FB1 is busy)
+      ReplanAfterPut : Bool;                 // destination re-targeted after ACK: replan after that put
+      CfgOrdHmi : USInt := 1;                // CfgOrderMode last taken from the HMI (preferred mode)
+      CfgBalHmi : USInt;                     // CfgBalMode last taken from the HMI
+      OrdFallback : Bool;                    // next plan request is a fallback retry (keep World.Cfg*)
    END_VAR
 
    VAR_TEMP
@@ -77,6 +84,20 @@ VERSION : 0.1
       rN : Real;
       curValid : Bool;
       tr : "typeTransfer";
+      unbal : Bool;                          // ship out of balance now (alarm bit 0 condition)
+      semiGo : Bool;                         // SEMI NEXT STEP in READY / PAUSED = START + one step
+      faultWas : Word;                       // World.Fault at ACK
+      planPut : Bool;                        // completed PUT belongs to the plan
+      bestT : Int;                           // re-target: best travel time [ds]
+      bestX : Int;
+      bestY : Int;
+      candT : Int;
+      nL : Int;
+      nR : Int;
+      nF : Int;
+      nA : Int;
+      okBal : Bool;
+      dstB : USInt;
    END_VAR
 
 
@@ -102,6 +123,35 @@ BEGIN
 	    #bAck := "HMI_IF".BtnAck;         "HMI_IF".BtnAck := FALSE;
 	    #bStep := "HMI_IF".BtnStep;       "HMI_IF".BtnStep := FALSE;
 	    #bManExec := "HMI_IF".BtnManExec; "HMI_IF".BtnManExec := FALSE;
+	    // Alarm acknowledged in the WinCC alarm view ("Acknowledgement tag") = POTVRDA
+	    IF "HMI_IF".AlarmHmiAck <> 0 THEN
+	        #bAck := TRUE;
+	        "HMI_IF".AlarmHmiAck := 0;
+	    END_IF;
+	    // SEMI: a NEXT STEP click is latched until it can be executed (FB1 busy, planning, ...)
+	    IF #bStep AND #Mode = 2 THEN
+	        #PendStep := TRUE;
+	    END_IF;
+	END_REGION
+
+	REGION 2a External online edits of DB10 / DB11 (test hook for the pick / drop checks)
+	    // After INIT our container model is World.Bay0/Bay1. A cell of DB10/DB11 that is changed
+	    // online (watch table, HMI) is taken over into World, so the OB30 pre-check
+	    // "pick location empty / drop location occupied" acts on it and the grid shows it.
+	    IF #Initialized AND #State <> 1 THEN
+	        FOR #x := 0 TO 3 DO
+	            FOR #y := 0 TO 11 DO
+	                IF "Current_state_of_Bay0".Bay0[#x, #y] <> #Snap0[#x, #y] THEN
+	                    #Snap0[#x, #y] := "Current_state_of_Bay0".Bay0[#x, #y];
+	                    "World".Bay0[#x, #y] := #Snap0[#x, #y];
+	                END_IF;
+	                IF "Current_state_of_Bay1".Bay1[#x, #y] <> #Snap1[#x, #y] THEN
+	                    #Snap1[#x, #y] := "Current_state_of_Bay1".Bay1[#x, #y];
+	                    "World".Bay1[#x, #y] := #Snap1[#x, #y];
+	                END_IF;
+	            END_FOR;
+	        END_FOR;
+	    END_IF;
 	END_REGION
 
 	REGION 2 Planner call (multi-instance; runs a few greedy steps per OB1 cycle)
@@ -149,44 +199,75 @@ BEGIN
 	            END_IF;
 	        END_IF;
 
-	        // After every PUT: refresh the list states from the container model
+	        // After every PUT: update the list states
 	        IF #last.Cmd = 2 THEN
-	            FOR #i := 1 TO 48 DO
-	                // unload entry: done when its ID is in Bay1, pending again if back in Bay0
-	                #id := "World".UList[#i];
-	                IF #id <> 0 AND "World".UState[#i] <= 1 THEN
-	                    #found0 := FALSE;
-	                    #found1 := FALSE;
-	                    FOR #x := 0 TO 3 DO
-	                        FOR #y := 0 TO 11 DO
-	                            IF "World".Bay0[#x, #y] = #id THEN #found0 := TRUE; END_IF;
-	                            IF "World".Bay1[#x, #y] = #id THEN #found1 := TRUE; END_IF;
-	                        END_FOR;
-	                    END_FOR;
-	                    IF "World".UState[#i] = 0 AND #found1 THEN
-	                        "World".UState[#i] := 1;
-	                    ELSIF "World".UState[#i] = 1 AND #found0 THEN
-	                        "World".UState[#i] := 0;
+	            // Plan put (AUTO / SEMI): exactly its own list entry is done (robust against
+	            // duplicate IDs, which INIT accepts with a bit 6 warning)
+	            #planPut := FALSE;
+	            IF (#last.Src = 1 OR #last.Src = 2) AND #last.Phase = 3 AND #last.TrIdx >= 1 AND #last.TrIdx <= 96
+	                AND #last.X >= 0 AND #last.X <= 3 AND #last.Y >= 0 AND #last.Y <= 11 AND #last.Bay <= 1
+	            THEN
+	                #tr := "World".Plan[#last.TrIdx];
+	                IF #last.Bay = 0 THEN
+	                    #id := "World".Bay0[SINT_TO_INT(#last.X), SINT_TO_INT(#last.Y)];
+	                ELSE
+	                    #id := "World".Bay1[SINT_TO_INT(#last.X), SINT_TO_INT(#last.Y)];
+	                END_IF;
+	                IF #id <> 0 AND #id = #tr.Id AND #last.Bay = #tr.DstBay AND #tr.ListIdx >= 1 AND #tr.ListIdx <= 48 THEN
+	                    IF #tr.Kind = 1 AND "World".UState[#tr.ListIdx] = 0 THEN
+	                        "World".UState[#tr.ListIdx] := 1;
+	                        #planPut := TRUE;
+	                    ELSIF #tr.Kind = 2 AND "World".LState[#tr.ListIdx] = 0 THEN
+	                        "World".LState[#tr.ListIdx] := 1;
+	                        #planPut := TRUE;
 	                    END_IF;
 	                END_IF;
-	                // load entry: done when its ID is in Bay0, pending again if back in Bay1
-	                #id := "World".LList[#i];
-	                IF #id <> 0 AND "World".LState[#i] <= 1 THEN
-	                    #found0 := FALSE;
-	                    #found1 := FALSE;
-	                    FOR #x := 0 TO 3 DO
-	                        FOR #y := 0 TO 11 DO
-	                            IF "World".Bay0[#x, #y] = #id THEN #found0 := TRUE; END_IF;
-	                            IF "World".Bay1[#x, #y] = #id THEN #found1 := TRUE; END_IF;
-	                        END_FOR;
-	                    END_FOR;
-	                    IF "World".LState[#i] = 0 AND #found0 THEN
-	                        "World".LState[#i] := 1;
-	                    ELSIF "World".LState[#i] = 1 AND #found1 THEN
-	                        "World".LState[#i] := 0;
-	                    END_IF;
+	                // the destination was re-targeted after a "drop occupied" ACK: replan now
+	                IF #ReplanAfterPut THEN
+	                    #ReplanAfterPut := FALSE;
+	                    "World".PlanValid := FALSE;
 	                END_IF;
-	            END_FOR;
+	            END_IF;
+
+	            // MANUAL put: presence check. Done only if the ID is in the destination bay and no
+	            // longer in the source bay; pending again only in the opposite case (an ID that is in
+	            // both bays, i.e. a duplicate, never changes the state).
+	            IF NOT #planPut THEN
+	                FOR #i := 1 TO 48 DO
+	                    #id := "World".UList[#i];
+	                    IF #id <> 0 AND "World".UState[#i] <= 1 THEN
+	                        #found0 := FALSE;
+	                        #found1 := FALSE;
+	                        FOR #x := 0 TO 3 DO
+	                            FOR #y := 0 TO 11 DO
+	                                IF "World".Bay0[#x, #y] = #id THEN #found0 := TRUE; END_IF;
+	                                IF "World".Bay1[#x, #y] = #id THEN #found1 := TRUE; END_IF;
+	                            END_FOR;
+	                        END_FOR;
+	                        IF "World".UState[#i] = 0 AND #found1 AND NOT #found0 THEN
+	                            "World".UState[#i] := 1;
+	                        ELSIF "World".UState[#i] = 1 AND #found0 AND NOT #found1 THEN
+	                            "World".UState[#i] := 0;
+	                        END_IF;
+	                    END_IF;
+	                    #id := "World".LList[#i];
+	                    IF #id <> 0 AND "World".LState[#i] <= 1 THEN
+	                        #found0 := FALSE;
+	                        #found1 := FALSE;
+	                        FOR #x := 0 TO 3 DO
+	                            FOR #y := 0 TO 11 DO
+	                                IF "World".Bay0[#x, #y] = #id THEN #found0 := TRUE; END_IF;
+	                                IF "World".Bay1[#x, #y] = #id THEN #found1 := TRUE; END_IF;
+	                            END_FOR;
+	                        END_FOR;
+	                        IF "World".LState[#i] = 0 AND #found0 AND NOT #found1 THEN
+	                            "World".LState[#i] := 1;
+	                        ELSIF "World".LState[#i] = 1 AND #found1 AND NOT #found0 THEN
+	                            "World".LState[#i] := 0;
+	                        END_IF;
+	                    END_IF;
+	                END_FOR;
+	            END_IF;
 	        END_IF;
 	    END_IF;
 	END_REGION
@@ -214,20 +295,25 @@ BEGIN
 	    END_FOR;
 	    // Alarm bit 0 while the ship is out of balance (warning; CheckCmd in OB30
 	    // blocks every lift/put that would make it worse)
-	    IF #Initialized AND (ABS("World".BalL - "World".BalR) > "World".CfgBalLimit
-	        OR ("World".CfgBalMode = 1 AND ABS("World".BalF - "World".BalA) > "World".CfgBalLimit))
-	    THEN
+	    #unbal := #Initialized AND (ABS("World".BalL - "World".BalR) > "World".CfgBalLimit
+	        OR ("World".CfgBalMode = 1 AND ABS("World".BalF - "World".BalA) > "World".CfgBalLimit));
+	    IF #unbal THEN
 	        #AlarmLatch := #AlarmLatch OR WORD#16#0001;
 	    END_IF;
 
-	    // Planner configuration from the HMI, only while nothing is running
-	    IF #State <> 1 AND #State <> 3 AND #State <> 7 THEN
-	        IF "HMI_IF".CfgOrderMode <= 2 AND "HMI_IF".CfgOrderMode <> "World".CfgOrderMode THEN
-	            "World".CfgOrderMode := "HMI_IF".CfgOrderMode;
+	    // Planner configuration from the HMI: only while nothing runs and the hook is empty
+	    // (a change takes effect at the next transfer boundary; a replan needs an empty hook).
+	    // CfgOrdHmi / CfgBalHmi are the preferred modes; World.Cfg* may be lowered by the
+	    // infeasibility fallback and are set back to the preferred modes before every plan request.
+	    IF #State <> 1 AND #State <> 3 AND #State <> 7 AND "World".Carried = 0 AND NOT "World".Busy THEN
+	        IF "HMI_IF".CfgOrderMode <= 2 AND "HMI_IF".CfgOrderMode <> #CfgOrdHmi THEN
+	            #CfgOrdHmi := "HMI_IF".CfgOrderMode;
+	            "World".CfgOrderMode := #CfgOrdHmi;
 	            "World".PlanValid := FALSE;
 	        END_IF;
-	        IF "HMI_IF".CfgBalMode <= 1 AND "HMI_IF".CfgBalMode <> "World".CfgBalMode THEN
-	            "World".CfgBalMode := "HMI_IF".CfgBalMode;
+	        IF "HMI_IF".CfgBalMode <= 1 AND "HMI_IF".CfgBalMode <> #CfgBalHmi THEN
+	            #CfgBalHmi := "HMI_IF".CfgBalMode;
+	            "World".CfgBalMode := #CfgBalHmi;
 	            "World".PlanValid := FALSE;
 	        END_IF;
 	    END_IF;
@@ -256,12 +342,79 @@ BEGIN
 	    END_IF;
 	    #AlarmLatch := #AlarmLatch OR "World".Fault;
 
-	    // ACK: clear all latched bits; bits whose cause persists are raised again
-	    IF #bAck THEN
-	        #hadFault := "World".Fault <> 0;
-	        "World".Fault := 0;
-	        #AlarmLatch := 0;
+	    // ACK: clear all latched bits; bits whose cause persists are raised again.
+	    // An ACK in the same cycle as a new OB30 fault is ignored: the fault must first stop the
+	    // system (ALARM) and enter the history; the operator acknowledges it afterwards.
+	    // The imbalance bit 0 stays latched while the ship is still out of balance (no new history entry).
+	    IF #bAck AND #newFault = 0 THEN
+	        #faultWas := "World".Fault;
+	        #hadFault := #faultWas <> 0;
+	        "World".Fault := "World".Fault AND NOT #faultWas;
+	        IF #unbal THEN
+	            #AlarmLatch := WORD#16#0001;
+	        ELSE
+	            #AlarmLatch := 0;
+	        END_IF;
 	        "HMI_IF".AlarmId := 0;
+
+	        // "Drop location occupied" for a plan put with the container on the hook: put it on the
+	        // nearest free cell of the same bay that keeps the ship balanced, then replan
+	        // ("nakon potvrde sustav nastavlja s radom").
+	        IF (#faultWas AND WORD#16#0004) <> 0 AND "World".Carried <> 0 AND "World".PlanValid
+	            AND "World".FaultCmd.Cmd = 2 AND ("World".FaultCmd.Src = 1 OR "World".FaultCmd.Src = 2)
+	            AND "World".PlanIdx >= 1 AND "World".PlanIdx <= "World".PlanLen AND "World".PlanIdx <= 96
+	            AND "World".Phase = 3 AND "World".CraneBay <= 1
+	        THEN
+	            #dstB := "World".CraneBay;
+	            #bestT := 32767;
+	            #bestX := -1;
+	            #bestY := -1;
+	            FOR #x := 0 TO 3 DO
+	                FOR #y := 0 TO 11 DO
+	                    IF #dstB = 0 THEN
+	                        #id := "World".Bay0[#x, #y];
+	                    ELSE
+	                        #id := "World".Bay1[#x, #y];
+	                    END_IF;
+	                    IF #id = 0 THEN
+	                        #okBal := TRUE;
+	                        IF #dstB = 0 THEN
+	                            #nL := "World".BalL;
+	                            #nR := "World".BalR;
+	                            #nF := "World".BalF;
+	                            #nA := "World".BalA;
+	                            IF #x <= 1 THEN #nL := #nL + 1; ELSE #nR := #nR + 1; END_IF;
+	                            IF #y <= 5 THEN #nF := #nF + 1; ELSE #nA := #nA + 1; END_IF;
+	                            #okBal := ABS(#nL - #nR) <= "World".CfgBalLimit
+	                                      OR ABS(#nL - #nR) <= ABS("World".BalL - "World".BalR);
+	                            IF "World".CfgBalMode = 1 AND NOT (ABS(#nF - #nA) <= "World".CfgBalLimit
+	                                OR ABS(#nF - #nA) <= ABS("World".BalF - "World".BalA))
+	                            THEN
+	                                #okBal := FALSE;
+	                            END_IF;
+	                        END_IF;
+	                        IF #okBal THEN
+	                            // FB1 move time in ds: max(|dx|*6 s, |dy|*2.3 s)
+	                            #candT := MAX(IN1 := ABS(#x - SINT_TO_INT("World".CraneX)) * 60,
+	                                          IN2 := ABS(#y - SINT_TO_INT("World".CraneY)) * 23);
+	                            IF #candT < #bestT THEN
+	                                #bestT := #candT;
+	                                #bestX := #x;
+	                                #bestY := #y;
+	                            END_IF;
+	                        END_IF;
+	                    END_IF;
+	                END_FOR;
+	            END_FOR;
+	            IF #bestX >= 0 THEN
+	                "World".Plan["World".PlanIdx].DstX := INT_TO_SINT(#bestX);
+	                "World".Plan["World".PlanIdx].DstY := INT_TO_SINT(#bestY);
+	                "World".Phase := 2;            // move to the new destination, then put
+	                #ReplanAfterPut := TRUE;
+	            ELSE
+	                #AlarmLatch := #AlarmLatch OR WORD#16#0080;   // bit 7 no free slot: MANUAL needed
+	            END_IF;
+	        END_IF;
 	        // A runtime fault means the yard may differ from the plan: replan from the
 	        // actual state. Exception: a container is on the hook - then the plan is
 	        // kept and resumed from the done pointer (the planner cannot start with a load).
@@ -314,6 +467,7 @@ BEGIN
 	        END_IF;
 	        IF #PendMode <> #Mode THEN
 	            #SemiTokens := 0;
+	            #PendStep := FALSE;
 	        END_IF;
 	        #Mode := #PendMode;
 	        #PendMode := 0;
@@ -328,6 +482,7 @@ BEGIN
 	            "World".Permit := FALSE;           // first Permit, then withdraw (OB30 preempts OB1)
 	            "World".CmdReady := FALSE;
 	            #SemiTokens := 0;
+	            #PendStep := FALSE;
 	            #State := 0;
 	        END_IF;
 	    ELSIF #State = 0 THEN
@@ -350,6 +505,9 @@ BEGIN
 	        END_IF;
 
 	        // STOP: the command in FB1 completes, a staged one is withdrawn
+	        IF #bStop THEN
+	            #PendStep := FALSE;
+	        END_IF;
 	        IF #bStop AND (#State = 3 OR #State = 7) THEN
 	            "World".Permit := FALSE;
 	            "World".CmdReady := FALSE;
@@ -357,10 +515,13 @@ BEGIN
 	            #State := 4;
 	        END_IF;
 
-	        // START (AUTO / SEMI)
-	        IF #bStart AND NOT #bStop THEN
+	        // START (AUTO / SEMI). In SEMI, NEXT STEP in READY / PAUSED acts as START + one step
+	        // (the latched click is executed as soon as the state is RUNNING).
+	        #semiGo := #PendStep AND #Mode = 2 AND (#State = 2 OR #State = 4);
+	        IF (#bStart OR #semiGo) AND NOT #bStop THEN
 	            IF NOT #Initialized THEN
 	                #AlarmLatch := #AlarmLatch OR WORD#16#2000;            // bit 13 not initialized
+	                #PendStep := FALSE;
 	            ELSIF #Mode <> 3 AND (#State = 2 OR #State = 4 OR #State = 6) THEN
 	                // With a container on the hook, START is only allowed to finish the
 	                // transfer that is in progress (STOP after a lift, then START).
@@ -400,6 +561,7 @@ BEGIN
 	        "World".Permit := FALSE;
 	        "World".CmdReady := FALSE;
 	        #SemiTokens := 0;
+	        #PendStep := FALSE;
 	        #State := 5;
 	    END_IF;
 
@@ -418,6 +580,9 @@ BEGIN
 	                    #Initialized := FALSE;
 	                    "World".PlanValid := FALSE;
 	                    #SemiTokens := 0;
+	                    #PendStep := FALSE;
+	                    #ReplanAfterPut := FALSE;
+	                    #OrdFallback := FALSE;
 	                    #InitStep := 1;
 
 	                1:  // wait for FB1, then stage the reset command (10)
@@ -446,6 +611,8 @@ BEGIN
 	                        FOR #y := 0 TO 11 DO
 	                            "World".Bay0[#x, #y] := "Current_state_of_Bay0".Bay0[#x, #y];
 	                            "World".Bay1[#x, #y] := "Current_state_of_Bay1".Bay1[#x, #y];
+	                            #Snap0[#x, #y] := "World".Bay0[#x, #y];
+	                            #Snap1[#x, #y] := "World".Bay1[#x, #y];
 	                            #tc[#x * 12 + #y] := "World".Bay0[#x, #y];
 	                            #tc[48 + #x * 12 + #y] := "World".Bay1[#x, #y];
 	                        END_FOR;
@@ -564,6 +731,11 @@ BEGIN
 	                    IF NOT "World".Busy AND #SeenSeq = "World".DoneSeq
 	                        AND NOT #PlanReq AND NOT #Planner.Busy AND NOT #Planner.Done AND NOT #Planner.Error
 	                    THEN
+	                        IF NOT #OrdFallback THEN       // first try: the preferred (HMI) modes
+	                            "World".CfgOrderMode := #CfgOrdHmi;
+	                            "World".CfgBalMode := #CfgBalHmi;
+	                        END_IF;
+	                        #OrdFallback := FALSE;
 	                        "World".BaseT_ds := ROUND("time" * 10.0);
 	                        "World".BaseM := UDINT_TO_DINT("number_of_manipulations");
 	                        #PlanCrX := "World".CraneX;
@@ -580,6 +752,16 @@ BEGIN
 	                        #Initialized := TRUE;          // yard copied: MANUAL is possible even if planning failed
 	                        IF #PlanOk THEN
 	                            #State := 2;               // READY
+	                        ELSIF #PlanErr = 1 AND ("World".CfgOrderMode > 0 OR "World".CfgBalMode > 0) THEN
+	                            // dead end under the balance rule: retry with a less strict mode
+	                            // (order 2 -> 1 -> 0, then balance mode 1 -> 0)
+	                            IF "World".CfgOrderMode > 0 THEN
+	                                "World".CfgOrderMode := "World".CfgOrderMode - 1;
+	                            ELSE
+	                                "World".CfgBalMode := 0;
+	                            END_IF;
+	                            #OrdFallback := TRUE;
+	                            #InitStep := 4;
 	                        ELSE
 	                            "World".PlanValid := FALSE;
 	                            #AlarmLatch := #AlarmLatch OR WORD#16#0100;   // bit 8 plan infeasible
@@ -623,7 +805,7 @@ BEGIN
 	            ;   // leaves on ACK (region 5) or INIT
 
 	        6:  // ---------------- DONE ----------------
-	            ;
+	            #PendStep := FALSE;
 
 	        7:  // ---------------- PLANNING ----------------
 	            CASE #PlanStep OF
@@ -643,6 +825,58 @@ BEGIN
 	                            #PrevState := 4;
 	                            #State := 5;
 	                        ELSE
+	                            // Pending entries whose container is no longer in its source bay
+	                            // (MANUAL moves, online DB10/DB11 edits): done if it is in the
+	                            // destination bay, otherwise skipped with warning bit 3 / 4.
+	                            FOR #i := 1 TO 48 DO
+	                                FOR #k := 1 TO 2 DO
+	                                    IF #k = 1 THEN
+	                                        #id := "World".UList[#i];
+	                                        #found := "World".UState[#i] = 0;
+	                                    ELSE
+	                                        #id := "World".LList[#i];
+	                                        #found := "World".LState[#i] = 0;
+	                                    END_IF;
+	                                    IF #found THEN
+	                                        #found0 := FALSE;
+	                                        #found1 := FALSE;
+	                                        FOR #x := 0 TO 3 DO
+	                                            FOR #y := 0 TO 11 DO
+	                                                IF "World".Bay0[#x, #y] = #id THEN #found0 := TRUE; END_IF;
+	                                                IF "World".Bay1[#x, #y] = #id THEN #found1 := TRUE; END_IF;
+	                                            END_FOR;
+	                                        END_FOR;
+	                                        IF #k = 1 AND NOT #found0 THEN
+	                                            IF #found1 THEN
+	                                                "World".UState[#i] := 1;
+	                                            ELSE
+	                                                "World".UState[#i] := 2;
+	                                                #AlarmLatch := #AlarmLatch OR WORD#16#0008;
+	                                                "HMI_IF".AlarmId := #id;
+	                                                "HMI_IF".AlarmBay := 0;
+	                                                "HMI_IF".AlarmX := -1;
+	                                                "HMI_IF".AlarmY := -1;
+	                                            END_IF;
+	                                        ELSIF #k = 2 AND NOT #found1 THEN
+	                                            IF #found0 THEN
+	                                                "World".LState[#i] := 1;
+	                                            ELSE
+	                                                "World".LState[#i] := 2;
+	                                                #AlarmLatch := #AlarmLatch OR WORD#16#0010;
+	                                                "HMI_IF".AlarmId := #id;
+	                                                "HMI_IF".AlarmBay := 1;
+	                                                "HMI_IF".AlarmX := -1;
+	                                                "HMI_IF".AlarmY := -1;
+	                                            END_IF;
+	                                        END_IF;
+	                                    END_IF;
+	                                END_FOR;
+	                            END_FOR;
+	                            IF NOT #OrdFallback THEN   // first try: the preferred (HMI) modes
+	                                "World".CfgOrderMode := #CfgOrdHmi;
+	                                "World".CfgBalMode := #CfgBalHmi;
+	                            END_IF;
+	                            #OrdFallback := FALSE;
 	                            "World".BaseT_ds := ROUND("time" * 10.0);
 	                            "World".BaseM := UDINT_TO_DINT("number_of_manipulations");
 	                            #PlanCrX := "World".CraneX;
@@ -665,6 +899,15 @@ BEGIN
 	                                #SemiTokens := 0;
 	                                "World".Permit := TRUE;
 	                            END_IF;
+	                        ELSIF #PlanErr = 1 AND ("World".CfgOrderMode > 0 OR "World".CfgBalMode > 0) THEN
+	                            // dead end: retry with a less strict mode (see INIT step 5)
+	                            IF "World".CfgOrderMode > 0 THEN
+	                                "World".CfgOrderMode := "World".CfgOrderMode - 1;
+	                            ELSE
+	                                "World".CfgBalMode := 0;
+	                            END_IF;
+	                            #OrdFallback := TRUE;
+	                            #PlanStep := 1;
 	                        ELSE
 	                            "World".PlanValid := FALSE;
 	                            #AlarmLatch := #AlarmLatch OR WORD#16#0100;   // bit 8 plan infeasible
@@ -714,6 +957,7 @@ BEGIN
 	        END_IF;
 	        "World".StageIdx := 1;
 	        "World".StagePhase := "World".Phase;
+	        #ReplanAfterPut := FALSE;
 	        #InitStep := 6;                        // INIT finished
 	        #PlanStep := 3;                        // PLANNING finished
 	        #PlanOk := FALSE;                      // consumed
@@ -731,10 +975,12 @@ BEGIN
 	            #Resync := FALSE;
 	        END_IF;
 
-	        // SEMI: one click = one command (or the rest of one transfer)
-	        IF #Mode = 2 AND #bStep AND NOT #Resync AND #SemiTokens = 0
+	        // SEMI: one click = one command (or the rest of one transfer); the click is latched
+	        // (PendStep) and executed as soon as FB1 has finished the previous command
+	        IF #Mode = 2 AND #PendStep AND NOT #Resync AND #SemiTokens = 0
 	            AND NOT "World".Busy AND NOT "World".CmdReady
 	        THEN
+	            #PendStep := FALSE;
 	            IF "HMI_IF".CfgSemiPerTransfer THEN
 	                #SemiTokens := 4 - USINT_TO_INT("World".StagePhase);
 	            ELSE
@@ -881,6 +1127,8 @@ BEGIN
 	                            AND NOT "World".Busy AND NOT "World".CmdReady
 	                            AND "World".StageIdx <= "World".PlanLen;
 	    "HMI_IF".AlarmWord := #AlarmLatch;
+	    "HMI_IF".AlarmAckWord := NOT #AlarmLatch;  // WinCC PLC acknowledgement: cleared bit = acknowledged
+	    "HMI_IF".OrderModeAct := "World".CfgOrderMode;
 	    "HMI_IF".OB30Ticks := "World".OB30Ticks;
 
 	    // ---- score: M, T and J = 0.5*T/(76*N) + 0.5*M/(4*N) ----
@@ -890,9 +1138,12 @@ BEGIN
 	    IF "World".N > 0 THEN
 	        #rN := INT_TO_REAL("World".N);
 	        "HMI_IF".J := 0.5 * "time" / (76.0 * #rN) + 0.5 * UDINT_TO_REAL("number_of_manipulations") / (4.0 * #rN);
+	        "HMI_IF".JSpec := 0.5 * "time" / (76.0 * #rN) + 0.5 * UDINT_TO_REAL("World".MSpec) / (4.0 * #rN);
 	    ELSE
 	        "HMI_IF".J := 0.0;
+	        "HMI_IF".JSpec := 0.0;
 	    END_IF;
+	    "HMI_IF".MSpec := "World".MSpec;
 	    "HMI_IF".PredM := "World".PredM;
 	    "HMI_IF".PredT := DINT_TO_REAL("World".PredT_ds) / 10.0;
 	    "HMI_IF".PredJ := "World".PredJ;

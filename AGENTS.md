@@ -345,3 +345,19 @@ Notes:
   - 23:47: **PAUSED by the user.** The ME worker was stopped, along with the monitoring loop and its leftover twin processes. Best archived version: deliver/ME_v3_coldstart (S1 205,877 €, S2 171,603 €). The worker was in the middle of porting a per-mode PV derate (S1 0.6, S2 0.2) to ST, not yet verified in ME. To resume: SendMessage to the worker (it continues from its transcript) and recreate the 15-min monitor cron.
   - 01:25 (Sat): **PAUSED by the user (2nd time).** Best archived: deliver/ME_v5_k075 (S1 205,231 € / S2 170,189 €). True LP bound (tools/lp_bound.py): S1 199,779 / S2 162,592, so the gap is 2.7 % / 4.7 %, and ~88 % of it is the monthly peak (our peaks are 50–230 kW above the LP's). Next planned: peak-focused ideas. To resume: SendMessage to the worker and recreate the 15-min monitor cron.
   - ~01:45: **Twin optimisation workflow** launched by the orchestrator (run wf_b13c9d8e-3cf). Steps: (1) dataset agents: synthetic suite in tools/datasets/syn_* with loader.py, plus real-world data (PVGIS, load profiles, EV sessions) in tools/datasets/real_*, then a dataset reviewer; (2) 4 strategy implementers in tools/candidates/{longhorizon,capmodel,scenario,lprules}.py, each with an adversarial reviewer and one fix round; (3) evaluator tools/eval_all.py → work/TWIN_LEADERBOARD.md. Winners must beat v5 on every dataset. They are then ported to ST and confirmed in ME by the ME worker. Raw downloads go to research/data_raw (gitignored).
+- **2026-11-06/07 night (TIA crane, orchestrator integration + final review pass):**
+  - The FB1 source was recovered: +1 M per move command, so a diagonal counts 1, not the spec's 2. Contract v1.1 → **v1.2**; World.CfgMMode = 2.
+  - All tia-src (UDTs, World DB100, HMI_IF DB101, FC20, FB11 planner, FC10 CheckCmd, FB10 + DB110, OB1, SCL OB30 at 1000 ms) imports into `tia-work/crane`: **TIA_RESULT errors=0 warnings=0**. Archive: `deliver/TIA_crane_v1_plc.zap21` (PLC only).
+  - Review fixes:
+    - CfgOrderMode default 1, with a fallback 2→1→0 on ErrCode 1
+    - plan puts mark their own list entry (duplicate-ID safe)
+    - online DB10/DB11 edits are adopted
+    - a drop-occupied ACK re-targets the put and replans
+    - SEMI click latch
+    - ACK race and bit 0 history fixes
+    - MANUAL reset with a load rejected
+    - literal MB103 = 0 check in OB30
+    - spec-rule MSpec/JSpec
+    - alarm classes with one ACK (AlarmHmiAck / AlarmAckWord)
+  - Model J (tools/crane_eval.py, 30 random sets): default 1.0751, free order 1.0651, lower bound 0.757.
+  - Open: no PLCSIM on this laptop, so nothing has run on a PLC; the HMI is not imported (`hmi-tia/HUMAN_STEPS.md`); organizer questions (M rule, list order, balance, N). Details: `tia-src/STATUS.md`.

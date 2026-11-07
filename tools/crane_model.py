@@ -11,8 +11,9 @@ Contents
   * J computation
 
 Grid convention: grid[x][y], x 0..3, y 0..11; bay0 = ship (DB10), bay1 = yard (DB11).
-FB1 findings (TEAM_NOTES.md) were not available when this was written: defaults
-are the spec rule (one-call completion, CfgMMode 0, max(60*dG, 23*dy) ds).
+FB1 semantics (tia-src/FB1_ANALYSIS.md, recovered source): one-call completion,
++1 M per move COMMAND (CfgMMode 2), a zero-distance move still costs +1 M and 0 s,
+move time max(60*dG, 23*dy) ds.  Default mmode is therefore 2 (CONTRACT v1.1).
 """
 
 import copy
@@ -70,9 +71,10 @@ def J(T_ds, M, N):
 
 # ---------------------------------------------------------------- FB1 emulator
 class FB1:
-    """Emulates FB1 "Crane_manipulation" (spec rule; one-call completion)."""
+    """Emulates FB1 "Crane_manipulation" (one-call completion).
+    mmode 2 = the real FB1 (+1 M per move command, also for a zero-distance move)."""
 
-    def __init__(self, mmode=0):
+    def __init__(self, mmode=2):
         self.mmode = mmode
         self.reset()
 
@@ -94,7 +96,11 @@ class FB1:
             self.M += 1
             return (LIFT_T if cmd == 1 else PUT_T), 1
         if cmd == 3:
+            if bay not in (0, 1):
+                raise ValueError("FB1 has no range check: bay %r gives garbage time" % (bay,))
             t, m = move_cost(self.x, self.y, self.bay, x, y, bay, self.mmode)
+            if self.mmode == 2 and m == 0:
+                m = 1  # real FB1: zero-distance move still +1 manipulation, 0 s
             self.x, self.y, self.bay = x, y, bay
             self.T_ds += t
             self.M += m

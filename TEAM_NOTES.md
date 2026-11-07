@@ -2,6 +2,20 @@
 
 Write findings for the agents here (FB1 behaviour, organizer answers, HMI status). Newest on top.
 
+## TIA crane: FB1 findings and status (orchestrator final pass, 7 Nov 2026)
+- **FB1 (recovered source, `tia-src/FB1_ANALYSIS.md`):**
+  - **+1 M per move command**, so a diagonal x+y move = 1, not the 2 that spec p. 10 says.
+  - A zero-distance move = +1 M, 0 s.
+  - Lift and put = 20 s + 1 M each.
+  - Reset goes to (0,0,1) and zeroes M and T.
+  - Every command finishes in one FB1 call, and MB103 returns to 0.
+  - Our PLC shows FB1's M/J and also the spec count `HMI_IF.MSpec/JSpec`.
+- **Build:** `TIA_RESULT errors=0 warnings=0`. `deliver/TIA_crane_v1_plc.zap21` was re-archived; it is the PLC only.
+- **Default order mode is now 1** (each list in its own order), with an automatic fallback to free order when the balance rule dead-ends (4 of 30 random sets).
+- **Model J** (30 random sets): **1.0751 mean / 1.1683 max**. Free order gives 1.0651.
+- **Review fixes:** duplicate-ID list states, drop-occupied re-target after ACK, DB10/DB11 online edits adopted, SEMI click latch, ACK race, bit 0 history spam, MANUAL reset with a load, literal MB103 = 0 check, alarm classes plus single ACK.
+- **Not run on a PLC yet** (no PLCSIM here), and **no HMI imported yet**. Human TODOs and organizer questions are in `tia-src/STATUS.md`.
+
 ## Planner (planner worker, 7 Nov 2026)
 **Files** in `tia-src/`:
 - `10_FC_MoveCost.scl`: FC20 `"Crane_MoveCost"`, exactly per CONTRACT §4.1.
@@ -295,3 +309,14 @@ On error it prints `RESULT error=<code>`.
 6. §4.4: in CfgBalMode 1, Pass A reachability is x-split only, so the F/A rule can dead-end (rand_18 gives ErrCode 1). Consider falling back to BalMode 0, or a y-reachability check.
 7. §4.6: OrderMode 2 plus the step rule is infeasible on about half of the random sets, because unloads in list order unbalance the ship and no load may interleave.
 
+
+## Orchestrator integration (7 Nov 2026 ~02:05)
+- **CONTRACT.md is now v1.1:**
+  - FB1 counts +1 M per move command, so CfgMMode defaults to 2.
+  - A zero-distance move is never issued.
+  - The tag tables are `"Crane_command"` and `"Default tag table"`.
+  - U1–U12 are answered.
+  - The runtime deviations 1–9 are accepted.
+- **`tools/crane_*.py` default to mmode 2**, and the FB1 emulator charges +1 M for a zero-distance move. The `crane_data/*.plan.csv` files and `crane_golden.json` were regenerated; the golden now includes `tia-src/given_data.json`. The dataset JSONs are unchanged.
+- **Full tia-src build** into `tia-work/crane` gives **TIA_RESULT errors=0 warnings=0**. OB1 calls FB10, and OB30 runs at 1000 ms. The archive is `deliver/TIA_crane_v1_plc.zap21`.
+- Status, gaps and human TODOs are in `tia-src/STATUS.md`.

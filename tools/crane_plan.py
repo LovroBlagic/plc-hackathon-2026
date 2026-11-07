@@ -1,7 +1,7 @@
 """crane_plan.py - EXACT greedy planner of CONTRACT v1.0 section 4 (reference for FB11 "Crane_Planner").
 
 Usage:
-  python tools/crane_plan.py <dataset.json> [--mmode 0] [--order 0] [--balmode 0]
+  python tools/crane_plan.py <dataset.json> [--mmode 2] [--order 0] [--balmode 0]
          [--alpha 0,50,100,150] [--lim 5] [--trace] [--algo v1|v2] [--cmds] [--nocheck]
 
 Prints the parity CSV of CONTRACT 4.7. `--trace` adds '#'-prefixed lines with the chosen
@@ -275,6 +275,22 @@ def plan(state, cfg, alphas, trace=None, algo="v1"):
             "J": cm.J(best["T"], best["M"], N), "N": N, "variants": results}
 
 
+def plan_fb(state, cfg, alphas, trace=None, algo="v1"):
+    """FB10 behaviour (default since 7 Nov): plan with the preferred modes; on ErrCode 1 (dead end)
+    retry with CfgOrderMode - 1 (2 -> 1 -> 0), then CfgBalMode 1 -> 0.
+    res["order"] / res["balmode"] = modes actually used, res["cfg"] = that config."""
+    c = dict(cfg)
+    while True:
+        res = plan(state, c, alphas, trace, algo)
+        if res["err"] != 1 or (c["order"] == 0 and c["balmode"] == 0):
+            res["order"], res["balmode"], res["cfg"] = c["order"], c["balmode"], c
+            return res
+        if c["order"] > 0:
+            c = dict(c, order=c["order"] - 1)
+        else:
+            c = dict(c, balmode=0)
+
+
 def commands(plan_list, crane0):
     """Crane command sequence with the skip rule (phase 0 skipped when crane already at Src)."""
     cmds = []
@@ -333,15 +349,17 @@ def csv_lines(res):
         dx, dy, db = tr["dst"]
         lines.append("%d,%d,%d,%d,%d,%d,%d,%d,%d,%d,%d,%d" % (
             i, tr["kind"], tr["id"], tr["list_idx"], sb, sx, sy, db, dx, dy, tr["cum_t"], tr["cum_m"]))
-    lines.append("RESULT variant=%d T_ds=%d M=%d J=%.4f N=%d" % (res["variant"], res["T"], res["M"], res["J"], res["N"]))
+    tail = (" order=%d" % res["order"]) if "order" in res else ""
+    lines.append("RESULT variant=%d T_ds=%d M=%d J=%.4f N=%d%s" % (res["variant"], res["T"], res["M"], res["J"], res["N"], tail))
     return lines
 
 
 def parse_args(argv):
     ap = argparse.ArgumentParser()
     ap.add_argument("dataset")
-    ap.add_argument("--mmode", type=int, default=0)
-    ap.add_argument("--order", type=int, default=0)
+    ap.add_argument("--mmode", type=int, default=2)
+    ap.add_argument("--order", type=int, default=1, help="preferred CfgOrderMode (PLC default 1)")
+    ap.add_argument("--nofallback", action="store_true", help="no 2->1->0 fallback on ErrCode 1 (raw FB11)")
     ap.add_argument("--balmode", type=int, default=0)
     ap.add_argument("--alpha", default="0,50,100,150")
     ap.add_argument("--lim", type=int, default=5)
@@ -363,7 +381,11 @@ def main(argv=None):
         print("i,kind,id,list_idx,src_bay,src_x,src_y,dst_bay,dst_x,dst_y,cum_t_ds,cum_m")
         print("RESULT error=capacity(bit7)")
         return 0
-    res = plan(state, cfg, alphas, trace, a.algo)
+    if a.nofallback:
+        res = plan(state, cfg, alphas, trace, a.algo)
+    else:
+        res = plan_fb(state, cfg, alphas, trace, a.algo)
+        cfg = res["cfg"]
     if trace:
         print("\n".join(trace))
     print("\n".join(csv_lines(res)))

@@ -25,17 +25,26 @@ ALARMS = [
     (6, "warning", "Dvostruki ID kontejnera", "Duplicate container ID"),
     (7, "blocking", "Nema slobodnog mjesta u odredišnom polju", "No free slot"),
     (8, "blocking", "Plan istovara/ukrcaja nije izvediv", "Plan infeasible"),
-    (9, "warning", "Neispravna ručna naredba (Bay mora biti 0/1, x 0–3, y 0–11)", "Invalid manual command"),
+    (9, "blocking", "Neispravna ručna naredba (Bay mora biti 0/1, x 0–3, y 0–11)", "Invalid manual command"),
     (10, "blocking", "Dizalica nije izvršila naredbu (timeout)", "FB1 timeout"),
     (11, "blocking", "Dizalica već nosi kontejner", "Crane already carrying"),
     (12, "blocking", "Dizalica ne nosi kontejner", "Crane is empty (put down)"),
     (13, "warning", "Sustav nije inicijaliziran: pritisnite POČETNO STANJE", "Not initialized"),
-    (14, "warning", "Položaj dizalice ne odgovara naredbi", "Crane position mismatch after move"),
+    (14, "blocking", "Položaj dizalice ne odgovara naredbi", "Crane position mismatch after move"),
     (15, "info", "Istovar i ukrcaj završeni", "Unloading and loading finished"),
 ]
 # RT Advanced default classes: "Errors" (must be acknowledged), "Warnings" (no ack). "System" is reserved for
 # system events in RT Advanced, so the info alarm uses "Warnings" by default; change with --info-class.
 CLASS = {"blocking": "Errors", "warning": "Warnings", "info": "Warnings"}
+# "Errors" = every bit that can stop the system: FB10 mask 16#1D86 (1,2,7,8,10,11,12) plus the bits OB30 can
+# raise through World.Fault (0 imbalance, 9 invalid command, 14 position). Bits 0 and 9 are only warnings when
+# FB10 raises them (continuous imbalance, invalid manual input).
+# One ACK for PLC and HMI: Errors get the HMI acknowledgement tag AlarmHmiAck (operator acks in the alarm view ->
+# FB10 treats it as POTVRDA) and the PLC acknowledgement tag AlarmAckWord (= NOT AlarmWord, so POTVRDA acks the
+# HMI alarm too). Same bit number as the trigger bit.
+MIXED = (0, 9)
+ACK_TAG_HMI = "AlarmHmiAck"
+ACK_TAG_PLC = "AlarmAckWord"
 
 DEFAULT_SHEET = "DiscreteAlarms"
 DEFAULT_HEADERS = ["ID", "Name", "Alarm text [en-US], Alarm text", "FieldInfo [Alarm text]", "Class", "Trigger tag",
@@ -56,11 +65,12 @@ def row_values(headers, a, trigger, info_class):
         elif k == "class": v = klass
         elif k == "trigger tag": v = trigger
         elif k == "trigger bit": v = bit
-        elif k.startswith("acknowledgement tag") or k.startswith("plc acknowledgement tag"): v = "<No value>"
-        elif k.startswith("acknowledgement bit") or k.startswith("plc acknowledgement bit"): v = 0
+        elif k.startswith("acknowledgement tag"): v = ACK_TAG_HMI if klass == "Errors" else "<No value>"
+        elif k.startswith("plc acknowledgement tag"): v = ACK_TAG_PLC if klass == "Errors" else "<No value>"
+        elif k.startswith("acknowledgement bit") or k.startswith("plc acknowledgement bit"): v = bit if klass == "Errors" else 0
         elif k == "group": v = "<No value>"
         elif k == "report": v = "False"
-        elif k.startswith("info text"): v = "EN: %s. Blokirajući: %s. Bit %d u HMI_IF.AlarmWord." % (en, "DA" if cls == "blocking" else "NE", bit)
+        elif k.startswith("info text"): v = "EN: %s. Blokirajući: %s. Bit %d u HMI_IF.AlarmWord." % (en, ("DA iz OB30 provjere, inače upozorenje" if bit in MIXED else "DA") if cls == "blocking" else "NE", bit)
         else: v = ""
         out.append(v)
     return out

@@ -41,7 +41,7 @@ NON_RETAIN
       BalR : Int;                            // ship count x in {2,3}
       BalF : Int;                            // ship count y in 0..5
       BalA : Int;                            // ship count y in 6..11
-      CfgOrderMode : USInt;                  // 0 free, 1 per-list order, 2 strict
+      CfgOrderMode : USInt := 1;             // 0 free, 1 per-list order, 2 strict (set by FB10 from HMI_IF before each plan)
       CfgBalLimit : Int := 5;
       CfgBalMode : USInt;                    // 0 x-halves only, 1 also y-halves
       CfgMMode : USInt := 2;                 // manipulation count model (CONTRACT 4.1); 2 = FB1 counts +1 per move command
@@ -50,6 +50,7 @@ NON_RETAIN
       CfgStepsPerCall : Int := 1;
       CfgTimeoutTicks : Int := 10;           // FB1 watchdog in OB30 ticks (1 s)
       OB30Ticks : UDInt;
+      MSpec : UDInt;                         // manipulations by the spec rule (OB30): +1 per changed axis, +1 lift/put
    END_VAR
 
 

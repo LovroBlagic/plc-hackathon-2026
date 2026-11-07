@@ -1,7 +1,25 @@
 # CONTRACT: TIA container crane (TASK 2)
 
 This file is the single source of truth for every crane worker. **Workers may only read it.** Only the orchestrator changes it. To request a change, add a dated note under "Contract change requests" in `TEAM_NOTES.md`.
-Version **1.0**, orchestrator, 6 Nov 2026 ~23:40.
+Version **1.2**, orchestrator final pass, 7 Nov 2026 (v1.1 7 Nov ~02:05, v1.0 6 Nov ~23:40).
+
+**v1.2 changes (review fixes, see `tia-src/STATUS.md`):**
+- **CfgOrderMode default = 1** (per-list order; hedge for elimination criterion 1) in HMI_IF and World. FB10 keeps the HMI choice as the preferred mode and, when FB11 returns ErrCode 1, retries with order 2 → 1 → 0, then CfgBalMode 1 → 0. `HMI_IF.OrderModeAct` shows the mode actually used. Tools: `crane_plan.plan_fb`, CLI default `--order 1`.
+- List states: a plan put marks exactly `Plan[TrIdx].ListIdx` done. A MANUAL put uses the presence check, and a duplicate ID (in both bays) never changes a state. Before every replan, pending entries whose ID left its source bay become done (in the destination bay) or skipped (bit 3/4).
+- Online edits of DB10/DB11 after INIT are adopted cell by cell into World (test hook for the pick/drop pre-check).
+- ACK of bit 2 (drop occupied) on a plan put with a load: the put is re-targeted to the nearest free, balance-safe cell of the same bay, and the plan is redone after that put.
+- An ACK in the same OB1 cycle as a new OB30 fault is ignored. ACK keeps bit 0 latched while the ship is still unbalanced.
+- Config changes apply only with an empty hook and FB1 idle. MANUAL reset (cmd 10) with a load is rejected (bit 11).
+- SEMI: a NEXT STEP click is latched; in READY/PAUSED it acts as START plus one step.
+- OB30 issues only if `"new_command_ID" = 0` (literal spec 2.2 check). OB30 also counts `World.MSpec` (spec rule: +1 per changed axis, +1 lift/put).
+- New HMI_IF members: `AlarmHmiAck` (WinCC acknowledgement tag = POTVRDA), `AlarmAckWord` (= NOT AlarmWord, WinCC PLC acknowledgement tag), `MSpec`, `JSpec`, `OrderModeAct`.
+
+**v1.1 changes (FB1 source recovered, see `tia-src/FB1_ANALYSIS.md`):**
+- FB1 counts **+1 M per move command** (diagonal = 1, not 2 as spec p. 10 says). **CfgMMode default = 2** (World start value). Organizer question open; mode 0 stays selectable.
+- A move to the current position costs +1 M and 0 s in FB1. **Never issue a zero-distance move** (skip rule in AUTO/SEMI; MANUAL drops it).
+- Tag table names: `"Crane_command"` (MB100..103), `"Default tag table"` (MB104..106, MD107, MD112 = `"time"`).
+- U1..U12 answered (§2). Runtime deviations accepted as documented in TEAM_NOTES "Runtime" (mode buttons immediate, START with load finishes the transfer, bit 0 continuous = warning, any OB30 fault halts until ACK, default Mode = AUTO).
+- `tools/crane_*.py` default to mmode 2; the FB1 emulator reproduces the zero-distance +1 M.
 
 Spec: `task/tia/PLC_hackathon_2026_HR.pdf`. Plan: `plans/TIA_crane_plan.md`. Rules: AGENTS.md (TASK 2 + ORGANIZER CLARIFICATIONS).
 **Official clarification:** there is only ONE yard bay. Valid bays are **0 = ship** and **1 = yard**. Bay 2 does not exist; ignore every Bay 2 formula.
@@ -21,12 +39,12 @@ Read by the orchestrator from `PLC_hackathon_2026_V21.zap21` strings. The toolin
 | DB11 | `"Current_state_of_Bay1"` | `Bay1 : Array[0..3, 0..11] of UInt` (yard) |
 | DB20 | `"From_Bay0_to_Bay1"` | `IDs_of_the_containers : Array[1..48] of UInt` (**unload list**) |
 | DB21 | `"From_Bay1_to_Bay0"` | `Bay1_IDs_of_the_containers : Array[1..48] of UInt` (**load list**) |
-| OB30 | `"Cyclic interrupt"` | **already exists** in the given project (contents unknown, see U9) |
+| OB30 | `"Cyclic interrupt"` | given as LAD, 1 network calling FB1 (1000 ms, prio 10); **replaced by our SCL source** with identical FB1 wiring |
 | OB100 | `"Startup"` | already exists. **Do not touch it.** |
 | OB1 | – | **does NOT exist.** We create `"Main"`. |
 | HMI | PC station `PC-System_1`, WinCC RT Advanced | already in the project |
 
-**Given PLC tags** (tag table probably `"Crane_command_parameters"`; tooling confirms):
+**Given PLC tags** (MB100..103 in tag table `"Crane_command"`; MB104..MD112 in `"Default tag table"`, confirmed by tooling):
 
 | Tag | Address | Type | Meaning |
 |---|---|---|---|
@@ -38,7 +56,7 @@ Read by the orchestrator from `PLC_hackathon_2026_V21.zap21` strings. The toolin
 | `"y_position"` | %MB105 | SInt | FB1 out pos_y_after_command |
 | `"bay_ID"` | %MB106 | USInt | FB1 out bay_ID_after_command |
 | `"number_of_manipulations"` | %MD107 | UDInt | FB1 out number_of_manipulations (**M**) |
-| `"time"` (**name to confirm**, U10) | %MD112 | Real | FB1 out working_time (**T**, seconds) |
+| `"time"` (confirmed, U10) | %MD112 | Real | FB1 out working_time (**T**, seconds) |
 
 Our code accesses these **only by symbolic name**. If the MD112 tag turns out to have a different name, the runtime worker uses whatever the tooling worker reports in TEAM_NOTES.md.
 
@@ -155,7 +173,7 @@ END_TYPE
 | CfgOrderMode | USInt | 0 | FB10 (copied from HMI_IF when not running) | §4.6 |
 | CfgBalLimit | Int | 5 | const | |
 | CfgBalMode | USInt | 0 | FB10 (from HMI_IF) | 0 x-halves only, 1 also y-halves |
-| CfgMMode | USInt | 0 | const (set after FB1 read) | §4.1 |
+| CfgMMode | USInt | **2** | const (FB1 = +1 per move command) | §4.1 |
 | CfgVariants | Int | 4 | const | 1..4 |
 | CfgAlpha | Array[1..4] of Int | [0, 50, 100, 150] | const | lookahead weight (%) per variant |
 | CfgStepsPerCall | Int | 1 | const | planner greedy steps per OB1 call |
@@ -299,7 +317,9 @@ END_TYPE
 - U11. Is any given block know-how protected?
 - U12. Does the HMI device already have a connection to the PLC, and are there screens?
 
-Until the answers are in, everyone uses the defaults: one-call completion, the spec M rule with global X (CfgMMode 0), and the spec time formula. **The code must not depend on U1:** the OB30 handshake works for multi-call commands too.
+**ANSWERED (v1.1):** U1 one call; command_id := 0 every call. U2 +1 per move command. U3 bay change uses global column (Bay0 x+6). U4 max(|ΔG|·6.0, |Δy|·2.3)/1.0 from DB1, REAL (float error ~1e-6 per move). U5 lift/put +20 s +1 M, no inputs read, no checks. U6 zero-distance move: +1 M, 0 s. U7 no range checks (bay ≠ 0/1 gives garbage time). U8 reset → (0,0,1), M=0, T=0, one call. U9 OB30 LAD, FB1 only, 1000 ms; OB100 resets DB2 statics and tags. U10 see §0. U11 only FB1/DB2 know-how protected. U12 HMI has no PLC connection, one empty screen.
+
+(v1.0 text:) Until the answers are in, everyone uses the defaults: one-call completion, the spec M rule with global X (CfgMMode 0), and the spec time formula. **The code must not depend on U1:** the OB30 handshake works for multi-call commands too.
 
 ---
 
@@ -428,7 +448,7 @@ Everything is **integer** (DInt), in deciseconds (ds). No floats in decisions.
   - 2 = per command: M = 1
 - **Lift:** T = 200, M = 1. **Put:** T = 200, M = 1.
 - **Weighted cost:** W = T + 190·M. Since J = (T_s + 19·M)/(152·N), 1 M ≡ 19 s ≡ 190 ds.
-- CfgMMode is set to whatever reproduces FB1 exactly (tooling report). The model worker verifies FB1 parity in Python.
+- CfgMMode is set to whatever reproduces FB1 exactly: **2** (v1.1). The planner cost for an all-equal move stays T=0, M=0, because such a move is never issued (skip rule); the real FB1 would charge +1 M.
 
 ### 4.2 Planner state
 - Grids G0, G1. Crane (cx, cy, cb). Carried must be 0 (else ErrCode 4).

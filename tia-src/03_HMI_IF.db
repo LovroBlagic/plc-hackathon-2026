@@ -18,9 +18,10 @@ NON_RETAIN
       ManX : SInt;                          // 0..3
       ManY : SInt;                          // 0..11
       ManBay : USInt;                       // 0 ship, 1 yard
-      CfgOrderMode : USInt;                 // 0 free, 1 per-list order, 2 strict
+      CfgOrderMode : USInt := 1;            // 0 free, 1 per-list order (default, hedge), 2 strict; FB10 falls back 2->1->0 if infeasible
       CfgSemiPerTransfer : Bool;            // SEMI click = one command (FALSE) or one transfer (TRUE)
       CfgBalMode : USInt;                   // 0 x-halves, 1 also y-halves
+      AlarmHmiAck : Word;                   // WinCC 'Acknowledgement tag': alarm acknowledged in the alarm view (= POTVRDA); FB10 resets it
       // ---- Indicators (FB10 writes every OB1 cycle) ----
       State : USInt;                        // 0 OFF,1 INIT,2 READY,3 RUNNING,4 PAUSED,5 ALARM,6 DONE,7 PLANNING
       Mode : USInt := 1;                      // 1 AUTO, 2 SEMI, 3 MANUAL
@@ -40,6 +41,9 @@ NON_RETAIN
       M : UDInt;                            // = "number_of_manipulations"
       T : Real;                             // = "time" (MD112) working time [s]
       J : Real;                             // 0.5*T/(76*N) + 0.5*M/(4*N)
+      MSpec : UDInt;                        // M by the spec rule (x and y change = 2), computed in OB30
+      JSpec : Real;                         // J with MSpec
+      OrderModeAct : USInt;                 // order mode actually used by the last plan (after fallback)
       N : Int;
       PredM : DInt;
       PredT : Real;
@@ -78,6 +82,7 @@ NON_RETAIN
       BalA : Int;
       BalOk : Bool;                         // |BalDiff| <= 5
       AlarmWord : Word;                     // alarm bits (CONTRACT 3.3)
+      AlarmAckWord : Word;                  // WinCC 'PLC acknowledgement tag' = NOT AlarmWord (one ACK clears PLC and HMI)
       AlarmId : UInt;
       AlarmX : SInt;
       AlarmY : SInt;
