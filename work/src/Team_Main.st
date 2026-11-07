@@ -131,7 +131,8 @@ IF xNewStep THEN
 			iWeekday := simOut.t_sim.weekday, iMonth := simOut.t_sim.month, xVt := simOut.t_sim.tariff_high,
 			iPriceMode := SimCtrl.price_mode, rFec := simOut.FEC_P_fix, rFneAvail := simOut.FNE_output_power,
 			rSoc := simOut.BESS_SoC, rBcMax := rBcMax, rBdMax := rBdMax, aEvMax := aEvMax,
-			aEvRem := aEvRem, aEvSteps := aEvSteps, rPeakSoFar := rPeakMonth);
+			aEvRem := aEvRem, aEvSteps := aEvSteps, rPeakSoFar := rPeakMonth,
+			iDay := simOut.t_sim.day_of_year, rEvPrevSum := aEvLast[0] + aEvLast[1] + aEvLast[2] + aEvLast[3]);
 
 		// 3b. grid guard: predicted P_grid within EGC limits
 		fbGuard(rFec := simOut.FEC_P_fix, rFneAvail := simOut.FNE_output_power,

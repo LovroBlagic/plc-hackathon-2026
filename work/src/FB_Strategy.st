@@ -24,6 +24,8 @@ VAR_INPUT
 	aEvRem : ARRAY[0..3] OF REAL;       // EV remaining energy [kWh] (0 if not connected)
 	aEvSteps : ARRAY[0..3] OF DINT;     // EV steps to departure
 	rPeakSoFar : REAL;                  // import peak of this month so far [kW]
+	iDay : INT;                         // day_of_year of k
+	rEvPrevSum : REAL;                  // actual total EV power of interval k-1 [kW]
 END_VAR
 VAR_OUTPUT
 	rPbReq : REAL;                      // BESS request, + discharge / - charge [kW]
@@ -36,6 +38,7 @@ END_VAR
 VAR
 	fbForecast : FB_Forecast;
 	fbPlanner : FB_Planner;
+	fbCapFloor : FB_CapFloor;           // learned monthly cap floor (day-ahead)
 	aNet : ARRAY[0..191] OF REAL;       // forecast net load
 	aNetHi : ARRAY[0..191] OF REAL;     // pessimistic net load
 	aVtF : ARRAY[0..191] OF BOOL;       // forecast VT
@@ -102,9 +105,14 @@ ELSE
 		aCe[i] := MAX(0.0, rP * SimParam.EXPORT_FACTOR);
 	END_FOR;
 
+	fbCapFloor(xReset := xReset, xEnable := (iPriceMode = 1) AND Team_Cfg.CAPF_ON_DA, k := k, iQh := iQh,
+		iDay := iDay, iMonth := iMonth, rFec := rFec, rPv := rFneAvail, rEvPrev := rEvPrevSum,
+		rPeakSoFar := rPeakSoFar, rLimImp := SimParam.EGC_MAX_IMPORT - Team_Cfg.GRID_MARGIN_IMP);
+
 	fbPlanner(iH := iHorizon, rSoc := rSoc, rBcMax := rBcMax, rBdMax := rBdMax, rPeakSoFar := rPeakSoFar,
 		xHiInDp := SEL(iPriceMode = 1, Team_Cfg.PLAN_HI_TT, Team_Cfg.PLAN_HI_DA),
 		rLateEps := SEL(iPriceMode = 1, Team_Cfg.PLAN_LATE_EPS_TT, 0.0),
+		rCapFloor := fbCapFloor.rFloor,
 		aNet := aNet, aNetHi := aNetHi, aCi := aCi, aCe := aCe);
 	rPbReq := fbPlanner.rPb;
 	rPeakTarget := fbPlanner.rT;

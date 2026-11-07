@@ -375,3 +375,7 @@ Notes:
   - No trip, EV 100 %, logging ≤ 0.00001 %.
   - Change: late-discharge DP tie-breaker, PLAN_LATE_EPS_TT 0.05, TT/S1 only.
   - Gap to the LP bound: S1 2.41 %, S2 4.67 %.
+- 7 Nov ~12:15: **PAUSED by the user (3rd time). Read `HANDOFF.md` first.**
+  - Everything is stopped: the workflow at 253/291 eval runs, the ME worker, and the cron.
+  - The ME worker had already written the v7 code (capmodel S2 floor). It was not built or verified.
+  - **work/src ≠ v6.** The safe deliverable is `deliver/ME_v6_late`.

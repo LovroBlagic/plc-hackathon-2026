@@ -19,6 +19,7 @@ VAR_INPUT
 	rPeakSoFar : REAL;                  // import peak of the current month so far [kW]
 	xHiInDp : BOOL;                     // TRUE: peak penalty uses the pessimistic net load
 	rLateEps : REAL;                    // late-discharge tie-breaker: import price of step i x (1 + rLateEps*i/96)
+	rCapFloor : REAL;                   // learned monthly cap floor (FB_CapFloor, day-ahead only; 0 = none)
 END_VAR
 VAR_IN_OUT
 	aNet : ARRAY[0..191] OF REAL;       // forecast net load without battery [kW] (i = 0 is exact)
@@ -90,6 +91,7 @@ IF Team_Cfg.PLAN_TSPLIT THEN
 ELSE
 	rT := rTh;
 END_IF;
+rT := MAX(rT, rCapFloor);               // import up to the learned floor is treated as free (day-ahead mode)
 
 // ---------------- 2. DP backward over stored energy ----------------
 rTv := 0.0;

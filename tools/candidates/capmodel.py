@@ -1,16 +1,20 @@
 """Candidate controller "capmodel": learned monthly peak-cap policy (twin only, ST-portable).
 
-TUNED RESULT (config(mode)) = exact v5 (strategies.st_config) + a LEARNED MONTHLY CAP FLOOR:
+TUNED RESULT (config(mode), fix round) = exact v5 (strategies.st_config) + a LEARNED MONTHLY CAP FLOOR:
   T := MAX(T_v5, floor).  Import up to the floor is treated as free from the first day of the month,
   instead of ratcheting the cap up day by day while the battery is short early in the month.
-  * S1 (price_mode 0): floor = max over the last 28 days of R_d, where R_d = the lowest import cap
-    that would have held that (realised) day starting with a full battery at 00:00 (bisection over the
-    day's own measured net load FEC - PV + EV). R_d is the "daily requirement" statistic; its recent
-    max predicts the month's unavoidable peak (on the practice data the LP-optimal monthly peak in S1
-    equals exactly the max R_d of the month).
-  * S2 (price_mode 1): floor = 0.95 x mean of the last 3 months' paid peaks (DA arbitrage needs a
-    higher free level than R_d; 0.95 keeps it from ratcheting month over month - f >= 1.05 is a cliff).
-    config_alt(1): floor = 1.3 x max R_d (no feedback from our own peaks), weaker but more conservative.
+  R_d = the lowest import cap that would have held one realised day starting with a full battery at
+  00:00 (bisection over the day's own measured net load FEC - PV + own EV draw).  In the ST port the
+  bisection runs 1 iteration per step over the first 14 steps of the next day (rd_delay=14 models this).
+  * S1 (price_mode 0): floor OFF in config() (= exact v5).  Option config_s1floor(): floor = max R_d over
+    the last 14 days: mean -273 EUR over 35 datasets but worst +239 (syn_boot2), so it fails the 200 EUR
+    rule.  (Round 1 used 28 days: real_ind9 +510, the window carried a high late-winter R_d into April.)
+  * S2 (price_mode 1): floor = min(0.95 x mean of the last 3 paid monthly peaks, 1.2 x max R_d over 14 days)
+    (c=1.15/n=28 gave syn_sunny +367, real_pvgis2020 +162; c=1.3/n=28 gave real_ind13 +174).
+    The R_d bound keeps one high / near-limit month from being carried into later lower-load months
+    (round 1 rule without the bound: real_ind1 +3 508, real_ind13 +1 489 EUR).  In practice the R_d term
+    almost always binds (with c=1.2, n=14 the prev-peak term changes nothing measurable).
+  config_r1(mode) = the rejected round-1 rule; config_alt(mode) = S2 floor 1.3 x max R_d(28 d) only.
 
 TRIED AND REJECTED (kept as options, all OFF; numbers = full year practice unless noted, v5 205 224 / 170 200):
   * Day-library scenario cap (scen=True): ring buffers of the last NW workdays / NWE Sat / NWE Sun of the
@@ -25,7 +29,7 @@ TRIED AND REJECTED (kept as options, all OFF; numbers = full year practice unles
     they almost never bind (night recharge under the cap covers tomorrow).
   * Learned PV downside deviation instead of PV*pvf (pvs="sig"/"min"): S1 +200..+1400, S2 +1000..+1400.
 Rules: past data only (own measurements, own monthly peaks, the price tables), no embedded profiles.
-API: make(**kw) -> ctrl(obs) for twin.simulate; config(mode); config_alt(mode); v5_config(mode);
+API: make(**kw) -> ctrl(obs) for twin.simulate; config(mode); config_s1floor(mode); config_r1(mode); config_alt(mode); v5_config(mode);
 make_mode(mode, **over).  make(**v5_config(m), scen=False) reproduces v5 exactly (205 224 / 170 200).
 """
 import os, sys, math
@@ -134,7 +138,7 @@ def make(H=96, dE=40.0, pen=20.0, tvf=0.9, pvf=0.6, cap_margin=1.02, a_fec=0.5, 
          # ---- capmodel ----
          scen=True, NW=10, NWE=4, smin=4, r_early=1, r_late=0, dl_thr=10, W=4, otau=16.0, ocorr=True,
          ev_hist=True, combine="scen", dpprof="crit", pre_w=0.0, floor_f=0.0, floor_q=0.5, floor_n=20,
-         pvf_scen=1.0, term_w=0.0, term_T="plan", term_r=0, term_min_h=0, qd_f=1.0, pvs="pvf", kpv=2.0, a_pvs=0.1, floor_src="rd", floor_nm=2, floor_agg="mean", dbg=None):
+         pvf_scen=1.0, term_w=0.0, term_T="plan", term_r=0, term_min_h=0, qd_f=1.0, pvs="pvf", kpv=2.0, a_pvs=0.1, floor_src="rd", floor_nm=2, floor_agg="mean", floor_c=1.3, rd_delay=14, dbg=None, log=None):
     fc = Forecaster(a_fec, a_pv, a_sig, cw, ctau, True, True)
     Forecaster.D7 = False
     fc.coldmax = coldmax
@@ -151,6 +155,7 @@ def make(H=96, dE=40.0, pen=20.0, tvf=0.9, pvf=0.6, cap_margin=1.02, a_fec=0.5, 
     lib = {0: [], 1: [], 2: []}
     cap_n = {0: NW, 1: NWE, 2: NWE}
     Rd = []                                       # recent daily R_d (all day types), newest last
+    pend = []                                     # R_d of yesterday still being computed (ST: spread bisection)
     cur = dict(day=-1, base=np.zeros(96), ev=np.zeros(96))
     st = dict(month=0, T=0.0, evlast=0.0)
     pvdev = np.zeros(96)                          # learned PV downside deviation per quarter-hour
@@ -172,9 +177,15 @@ def make(H=96, dE=40.0, pen=20.0, tvf=0.9, pvf=0.6, cap_margin=1.02, a_fec=0.5, 
                 Rnew = _req_full(cur["base"] + cur["ev"])
                 L.insert(0, (cur["base"].copy(), cur["ev"].copy(), Rnew))
                 del L[cap_n[dt0]:]
-                Rd.append(Rnew)
-                del Rd[:-floor_n]
+                # ST port: the bisection runs 1 iteration per step over the first rd_delay steps of the new
+                # day, so the new R_d becomes usable only from qh = rd_delay on (modelled by pend).
+                pend.append(Rnew)
+                if log is not None:
+                    log.setdefault("rd", []).append(Rnew)
             cur["day"] = day; cur["base"][:] = 0.0; cur["ev"][:] = 0.0
+        if pend and q >= rd_delay:
+            Rd.extend(pend); pend.clear()
+            del Rd[:-max(28, floor_n)]
         cur["base"][q] = o["fec"] - o["fne"]
         p0_ = fc.pv[q]
         if p0_ is not None:
@@ -303,7 +314,11 @@ def make(H=96, dE=40.0, pen=20.0, tvf=0.9, pvf=0.6, cap_margin=1.02, a_fec=0.5, 
                     else:
                         need[i] = max(0.0, need[i + 1] - min(-x, BCH) * TS * ETC)
         if floor_f > 0 and floor_src == "rd" and len(Rd) >= 5:
-            T = max(T, min(LIM_IMP, floor_f * float(np.quantile(Rd, floor_q))))
+            T = max(T, min(LIM_IMP, floor_f * float(np.quantile(Rd[-floor_n:], floor_q))))
+        if floor_f > 0 and floor_src == "prevrd" and st.get("prevpk") and len(Rd) >= 5:
+            # feedback floor from our own paid peaks, bounded by a multiple of the recent daily requirement
+            pp = st["prevpk"][-floor_nm:]
+            T = max(T, min(LIM_IMP, floor_f * sum(pp) / len(pp), floor_c * max(Rd[-floor_n:])))
         if floor_f > 0 and floor_src == "prev" and st.get("prevpk"):
             pp = st["prevpk"][-floor_nm:]
             base_ = min(pp) if floor_agg == "min" else sum(pp) / len(pp)
@@ -380,9 +395,30 @@ def v5_config(mode):
 
 
 def config(mode):
-    """Tuned capmodel configuration = exact v5 + learned monthly cap floor (scenario cap OFF: it lost,
-    see the module docstring).  S1: floor = max over the last 28 days of R_d (daily requirement with a
-    full battery).  S2: floor = 0.95 x mean of the last 3 months' paid peaks."""
+    """Tuned capmodel configuration (fix round).
+    S2: exact v5 + floor = min(0.95 x mean of the last 3 paid monthly peaks, 1.2 x max R_d over the last
+        14 days).  35/35 datasets better than v5 in the twin (worst -118 EUR, mean -544 EUR).
+    S1: exact v5 (floor OFF).  No S1 floor variant met the "never worse than v5 by more than 200 EUR" rule
+        (best: config_s1floor, max R_d over 14 days, mean -273 EUR but syn_boot2 +239, syn_rot1 +174)."""
+    kw = v5_config(mode)
+    kw.update(scen=False)
+    if mode == 1:
+        kw.update(floor_src="prevrd", floor_f=0.95, floor_nm=3, floor_c=1.2, floor_n=14)
+    return kw
+
+
+def config_s1floor(mode):
+    """Optional S1 floor (fails the 200 EUR rule on 1 of 35 datasets): floor = max R_d over the last 14 days.
+    14 instead of round 1's 28 days, because 28 days carried a high late-winter R_d into a lower-load month
+    (real_ind9 April peak 695 vs v5 572, +510 EUR).  10 days or the 90 % quantile were not better."""
+    kw = config(mode)
+    if mode == 0:
+        kw.update(floor_src="rd", floor_q=1.0, floor_n=14, floor_f=1.0)
+    return kw
+
+
+def config_r1(mode):
+    """Round-1 configuration (REJECTED by review): S1 max R_d over 28 d, S2 unbounded 0.95 x mean(prev 3 peaks)."""
     kw = v5_config(mode)
     kw.update(scen=False)
     if mode == 0:

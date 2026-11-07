@@ -1,0 +1,427 @@
+candidate,dataset,kind,mode,cost,peak_cost,tripped,ev_pct,source
+v5,practice,practice,0,205224.50,27500.33,0,100.0000,run
+v5,variant1,variant,0,203744.05,26430.53,0,100.0000,run
+v5,variant2,variant,0,204094.85,26763.24,0,100.0000,run
+v5,variant3,variant,0,204505.12,27588.93,0,100.0000,run
+v5,variant4,variant,0,204823.89,27165.50,0,100.0000,run
+v5,variant5,variant,0,203776.80,26354.23,0,100.0000,run
+v5,syn_rot1,synthetic,0,204390.86,26700.04,0,100.0000,run
+v5,syn_rot2,synthetic,0,205835.40,27884.46,0,100.0000,run
+v5,syn_boot1,synthetic,0,212447.92,28803.87,0,100.0000,run
+v5,syn_boot3,synthetic,0,204231.54,27409.80,0,100.0000,run
+v5,syn_noise8,synthetic,0,206035.77,29337.45,0,100.0000,run
+v5,syn_shift,synthetic,0,196609.60,29075.50,0,100.0000,run
+v5,syn_cloudy,synthetic,0,233180.67,27930.99,0,100.0000,run
+v5,real_pvgis2010,real,0,230006.80,28106.25,0,100.0000,run
+v5,real_pvgis2012,real,0,199384.26,25558.88,0,100.0000,run
+v5,real_pvgis2017,real,0,199899.86,26889.91,0,100.0000,run
+v5,real_pvgis2018,real,0,209704.69,26029.70,0,100.0000,run
+v5,real_pvgis2019,real,0,208576.21,27064.30,0,100.0000,run
+v5,real_pvgis2020,real,0,201076.33,26977.81,0,100.0000,run
+v5,real_pvgis2021,real,0,201791.98,26585.72,0,100.0000,run
+v5,real_pvgis2022,real,0,201180.36,27123.68,0,100.0000,run
+v5,syn_boot2,synthetic,0,207875.12,28009.64,0,100.0000,run
+v5,syn_peaky,synthetic,0,210408.87,28487.27,0,100.0000,run
+v5,syn_highload,synthetic,0,203315.06,27613.82,0,100.0000,run
+v5,syn_mixed,synthetic,0,205760.16,28557.18,0,100.0000,run
+v5,stress_load105,stress,0,223057.48,30111.02,0,100.0000,run
+v5,stress_pv85,stress,0,235525.30,28806.74,0,100.0000,run
+v5,stress_combo,stress,0,269076.78,32593.95,0,100.0000,run
+v5,real_jplev,real,0,204895.65,27487.06,0,100.0000,run
+v5,real_ind9_pv2019,real,0,214775.12,30026.03,0,100.0000,run
+v5,real_ind13_pv2021_jpl,real,0,289416.59,35836.83,0,100.0000,run
+v5,practice,practice,1,170199.99,32549.75,0,100.0000,run
+v5,variant1,variant,1,170604.97,32904.59,0,100.0000,run
+v5,variant2,variant,1,171004.91,32065.95,0,100.0000,run
+v5,variant3,variant,1,164945.57,31750.37,0,100.0000,run
+v5,variant4,variant,1,166804.37,31471.73,0,100.0000,run
+v5,variant5,variant,1,170250.53,30414.64,0,100.0000,run
+v5,syn_rot1,synthetic,1,169410.31,31323.72,0,100.0000,run
+v5,syn_rot2,synthetic,1,169434.81,31957.16,0,100.0000,run
+v5,syn_boot1,synthetic,1,173792.60,33085.67,0,100.0000,run
+v5,syn_boot3,synthetic,1,171793.62,34075.73,0,100.0000,run
+v5,syn_noise8,synthetic,1,170436.35,33448.15,0,100.0000,run
+v5,syn_shift,synthetic,1,161477.19,33223.74,0,100.0000,run
+v5,syn_cloudy,synthetic,1,190678.73,33723.97,0,100.0000,run
+v5,real_pvgis2010,real,1,189900.21,31962.62,0,100.0000,run
+v5,real_pvgis2012,real,1,169022.47,30584.04,0,100.0000,run
+v5,real_pvgis2017,real,1,168622.72,31396.36,0,100.0000,run
+v5,real_pvgis2018,real,1,177634.37,31067.78,0,100.0000,run
+v5,real_pvgis2019,real,1,172625.66,32351.57,0,100.0000,run
+v5,real_pvgis2020,real,1,170312.48,32239.49,0,100.0000,run
+v5,real_pvgis2021,real,1,167533.02,31768.34,0,100.0000,run
+v5,real_pvgis2022,real,1,168263.58,31555.79,0,100.0000,run
+v5,syn_boot2,synthetic,1,173680.73,34243.05,0,100.0000,run
+v5,syn_peaky,synthetic,1,178374.45,34442.40,0,100.0000,run
+v5,syn_highload,synthetic,1,169614.60,34669.96,0,100.0000,run
+v5,syn_mixed,synthetic,1,172329.01,36493.56,0,100.0000,run
+v5,stress_load105,stress,1,184080.45,34084.49,0,100.0000,run
+v5,stress_pv85,stress,1,189401.72,35098.26,0,100.0000,run
+v5,stress_combo,stress,1,214040.16,36733.85,0,100.0000,run
+v5,real_jplev,real,1,170163.91,32354.09,0,100.0000,run
+v5,real_ind9_pv2019,real,1,183695.73,35053.09,0,100.0000,run
+v5,real_ind13_pv2021_jpl,real,1,268745.29,39094.53,0,100.0000,run
+longhorizon,practice,practice,0,205224.50,27500.33,0,100.0000,run
+longhorizon,variant1,variant,0,203744.05,26430.53,0,100.0000,v5 (identical by construction)
+longhorizon,variant2,variant,0,204094.85,26763.24,0,100.0000,v5 (identical by construction)
+longhorizon,variant3,variant,0,204505.12,27588.93,0,100.0000,v5 (identical by construction)
+longhorizon,variant4,variant,0,204823.89,27165.50,0,100.0000,v5 (identical by construction)
+longhorizon,variant5,variant,0,203776.80,26354.23,0,100.0000,v5 (identical by construction)
+longhorizon,syn_rot1,synthetic,0,204390.86,26700.04,0,100.0000,v5 (identical by construction)
+longhorizon,syn_rot2,synthetic,0,205835.40,27884.46,0,100.0000,v5 (identical by construction)
+longhorizon,syn_boot1,synthetic,0,212447.92,28803.87,0,100.0000,v5 (identical by construction)
+longhorizon,syn_boot3,synthetic,0,204231.54,27409.80,0,100.0000,v5 (identical by construction)
+longhorizon,syn_noise8,synthetic,0,206035.77,29337.45,0,100.0000,v5 (identical by construction)
+longhorizon,syn_shift,synthetic,0,196609.60,29075.50,0,100.0000,v5 (identical by construction)
+longhorizon,syn_cloudy,synthetic,0,233180.67,27930.99,0,100.0000,v5 (identical by construction)
+longhorizon,real_pvgis2010,real,0,230006.80,28106.25,0,100.0000,v5 (identical by construction)
+longhorizon,real_pvgis2012,real,0,199384.26,25558.88,0,100.0000,v5 (identical by construction)
+longhorizon,real_pvgis2017,real,0,199899.86,26889.91,0,100.0000,v5 (identical by construction)
+longhorizon,real_pvgis2018,real,0,209704.69,26029.70,0,100.0000,v5 (identical by construction)
+longhorizon,real_pvgis2019,real,0,208576.21,27064.30,0,100.0000,v5 (identical by construction)
+longhorizon,real_pvgis2020,real,0,201076.33,26977.81,0,100.0000,v5 (identical by construction)
+longhorizon,real_pvgis2021,real,0,201791.98,26585.72,0,100.0000,v5 (identical by construction)
+longhorizon,real_pvgis2022,real,0,201180.36,27123.68,0,100.0000,v5 (identical by construction)
+longhorizon,syn_boot2,synthetic,0,207875.12,28009.64,0,100.0000,v5 (identical by construction)
+longhorizon,syn_peaky,synthetic,0,210408.87,28487.27,0,100.0000,v5 (identical by construction)
+longhorizon,syn_highload,synthetic,0,203315.06,27613.82,0,100.0000,v5 (identical by construction)
+longhorizon,syn_mixed,synthetic,0,205760.16,28557.18,0,100.0000,v5 (identical by construction)
+longhorizon,stress_load105,stress,0,223057.48,30111.02,0,100.0000,v5 (identical by construction)
+longhorizon,stress_pv85,stress,0,235525.30,28806.74,0,100.0000,v5 (identical by construction)
+longhorizon,stress_combo,stress,0,269076.78,32593.95,0,100.0000,v5 (identical by construction)
+longhorizon,real_jplev,real,0,204895.65,27487.06,0,100.0000,v5 (identical by construction)
+longhorizon,real_ind9_pv2019,real,0,214775.12,30026.03,0,100.0000,v5 (identical by construction)
+longhorizon,real_ind13_pv2021_jpl,real,0,289416.59,35836.83,0,100.0000,v5 (identical by construction)
+longhorizon,practice,practice,1,170013.30,32549.46,0,100.0000,run
+longhorizon,variant1,variant,1,170477.39,32940.04,0,100.0000,run
+longhorizon,variant2,variant,1,170944.39,32146.73,0,100.0000,run
+longhorizon,variant3,variant,1,164803.03,31699.13,0,100.0000,run
+longhorizon,variant4,variant,1,166405.71,31225.74,0,100.0000,run
+longhorizon,variant5,variant,1,170160.75,30471.47,0,100.0000,run
+longhorizon,syn_rot1,synthetic,1,169245.44,31298.15,0,100.0000,run
+longhorizon,syn_rot2,synthetic,1,169295.20,31935.07,0,100.0000,run
+longhorizon,syn_boot1,synthetic,1,173512.23,32968.93,0,100.0000,run
+longhorizon,syn_boot3,synthetic,1,171627.82,34086.09,0,100.0000,run
+longhorizon,syn_noise8,synthetic,1,170418.75,33544.44,0,100.0000,run
+longhorizon,syn_shift,synthetic,1,161367.10,33163.80,0,100.0000,run
+longhorizon,syn_cloudy,synthetic,1,190505.36,33735.46,0,100.0000,run
+longhorizon,real_pvgis2010,real,1,189830.12,32026.87,0,100.0000,run
+longhorizon,real_pvgis2012,real,1,168940.86,30641.12,0,100.0000,run
+longhorizon,real_pvgis2017,real,1,168500.56,31488.36,0,100.0000,run
+longhorizon,real_pvgis2018,real,1,177465.60,31055.41,0,100.0000,run
+longhorizon,real_pvgis2019,real,1,172556.09,32446.57,0,100.0000,run
+longhorizon,real_pvgis2020,real,1,170131.88,32252.90,0,100.0000,run
+longhorizon,real_pvgis2021,real,1,167424.08,31794.21,0,100.0000,run
+longhorizon,real_pvgis2022,real,1,168166.65,31604.32,0,100.0000,run
+longhorizon,syn_boot2,synthetic,1,173547.23,34259.00,0,100.0000,run
+longhorizon,syn_peaky,synthetic,1,178219.94,34406.32,0,100.0000,run
+longhorizon,syn_highload,synthetic,1,169502.88,34631.96,0,100.0000,run
+longhorizon,syn_mixed,synthetic,1,172112.95,36371.17,0,100.0000,run
+longhorizon,stress_load105,stress,1,183975.46,34038.40,0,100.0000,run
+longhorizon,stress_pv85,stress,1,189188.67,35009.77,0,100.0000,run
+longhorizon,stress_combo,stress,1,213857.49,36833.77,0,100.0000,run
+longhorizon,real_jplev,real,1,170019.44,32360.52,0,100.0000,run
+longhorizon,real_ind9_pv2019,real,1,183595.94,35020.07,0,100.0000,run
+longhorizon,real_ind13_pv2021_jpl,real,1,268879.03,39328.27,0,100.0000,run
+capmodel,practice,practice,0,205224.50,27500.33,0,100.0000,run
+capmodel,variant1,variant,0,203744.05,26430.53,0,100.0000,v5 (identical by construction)
+capmodel,variant2,variant,0,204094.85,26763.24,0,100.0000,v5 (identical by construction)
+capmodel,variant3,variant,0,204505.12,27588.93,0,100.0000,v5 (identical by construction)
+capmodel,variant4,variant,0,204823.89,27165.50,0,100.0000,v5 (identical by construction)
+capmodel,variant5,variant,0,203776.80,26354.23,0,100.0000,v5 (identical by construction)
+capmodel,syn_rot1,synthetic,0,204390.86,26700.04,0,100.0000,v5 (identical by construction)
+capmodel,syn_rot2,synthetic,0,205835.40,27884.46,0,100.0000,v5 (identical by construction)
+capmodel,syn_boot1,synthetic,0,212447.92,28803.87,0,100.0000,v5 (identical by construction)
+capmodel,syn_boot3,synthetic,0,204231.54,27409.80,0,100.0000,v5 (identical by construction)
+capmodel,syn_noise8,synthetic,0,206035.77,29337.45,0,100.0000,v5 (identical by construction)
+capmodel,syn_shift,synthetic,0,196609.60,29075.50,0,100.0000,v5 (identical by construction)
+capmodel,syn_cloudy,synthetic,0,233180.67,27930.99,0,100.0000,v5 (identical by construction)
+capmodel,real_pvgis2010,real,0,230006.80,28106.25,0,100.0000,v5 (identical by construction)
+capmodel,real_pvgis2012,real,0,199384.26,25558.88,0,100.0000,v5 (identical by construction)
+capmodel,real_pvgis2017,real,0,199899.86,26889.91,0,100.0000,v5 (identical by construction)
+capmodel,real_pvgis2018,real,0,209704.69,26029.70,0,100.0000,v5 (identical by construction)
+capmodel,real_pvgis2019,real,0,208576.21,27064.30,0,100.0000,v5 (identical by construction)
+capmodel,real_pvgis2020,real,0,201076.33,26977.81,0,100.0000,v5 (identical by construction)
+capmodel,real_pvgis2021,real,0,201791.98,26585.72,0,100.0000,v5 (identical by construction)
+capmodel,real_pvgis2022,real,0,201180.36,27123.68,0,100.0000,v5 (identical by construction)
+capmodel,syn_boot2,synthetic,0,207875.12,28009.64,0,100.0000,v5 (identical by construction)
+capmodel,syn_peaky,synthetic,0,210408.87,28487.27,0,100.0000,v5 (identical by construction)
+capmodel,syn_highload,synthetic,0,203315.06,27613.82,0,100.0000,v5 (identical by construction)
+capmodel,syn_mixed,synthetic,0,205760.16,28557.18,0,100.0000,v5 (identical by construction)
+capmodel,stress_load105,stress,0,223057.48,30111.02,0,100.0000,v5 (identical by construction)
+capmodel,stress_pv85,stress,0,235525.30,28806.74,0,100.0000,v5 (identical by construction)
+capmodel,stress_combo,stress,0,269076.78,32593.95,0,100.0000,v5 (identical by construction)
+capmodel,real_jplev,real,0,204895.65,27487.06,0,100.0000,v5 (identical by construction)
+capmodel,real_ind9_pv2019,real,0,214775.12,30026.03,0,100.0000,v5 (identical by construction)
+capmodel,real_ind13_pv2021_jpl,real,0,289416.59,35836.83,0,100.0000,v5 (identical by construction)
+capmodel,practice,practice,1,169833.46,32774.90,0,100.0000,run
+capmodel,variant1,variant,1,170168.27,32904.81,0,100.0000,run
+capmodel,variant2,variant,1,169848.92,31882.07,0,100.0000,run
+capmodel,variant3,variant,1,164563.73,31708.93,0,100.0000,run
+capmodel,variant4,variant,1,166391.64,31639.49,0,100.0000,run
+capmodel,variant5,variant,1,169853.09,30846.14,0,100.0000,run
+capmodel,syn_rot1,synthetic,1,168995.25,31597.93,0,100.0000,run
+capmodel,syn_rot2,synthetic,1,168612.33,32058.99,0,100.0000,run
+capmodel,syn_boot1,synthetic,1,173416.03,33372.60,0,100.0000,run
+capmodel,syn_boot3,synthetic,1,171324.23,34305.19,0,100.0000,run
+capmodel,syn_noise8,synthetic,1,169904.76,33536.84,0,100.0000,run
+capmodel,syn_shift,synthetic,1,160777.50,33275.99,0,100.0000,run
+capmodel,syn_cloudy,synthetic,1,189484.45,33994.69,0,100.0000,run
+capmodel,real_pvgis2010,real,1,188978.28,32572.93,0,100.0000,run
+capmodel,real_pvgis2012,real,1,168842.79,31043.35,0,100.0000,run
+capmodel,real_pvgis2017,real,1,168499.28,32310.91,0,100.0000,run
+capmodel,real_pvgis2018,real,1,177345.65,31725.60,0,100.0000,run
+capmodel,real_pvgis2019,real,1,172348.99,32682.98,0,100.0000,run
+capmodel,real_pvgis2020,real,1,169797.12,32504.13,0,100.0000,run
+capmodel,real_pvgis2021,real,1,167228.96,31934.90,0,100.0000,run
+capmodel,real_pvgis2022,real,1,168058.16,32116.85,0,100.0000,run
+capmodel,syn_boot2,synthetic,1,172947.19,34094.88,0,100.0000,run
+capmodel,syn_peaky,synthetic,1,176680.30,33105.90,0,100.0000,run
+capmodel,syn_highload,synthetic,1,169288.84,34733.42,0,100.0000,run
+capmodel,syn_mixed,synthetic,1,171831.13,36493.56,0,100.0000,run
+capmodel,stress_load105,stress,1,183861.55,34283.31,0,100.0000,run
+capmodel,stress_pv85,stress,1,188554.52,34591.86,0,100.0000,run
+capmodel,stress_combo,stress,1,213056.11,37257.55,0,100.0000,run
+capmodel,real_jplev,real,1,169762.39,32527.45,0,100.0000,run
+capmodel,real_ind9_pv2019,real,1,182967.09,35684.86,0,100.0000,run
+capmodel,real_ind13_pv2021_jpl,real,1,268627.31,39590.60,0,100.0000,run
+lprules,practice,practice,0,204591.71,26830.15,0,100.0000,run
+lprules,variant1,variant,0,203370.71,26000.21,0,100.0000,run
+lprules,variant2,variant,0,203771.30,26380.98,0,100.0000,run
+lprules,variant3,variant,0,204234.71,27301.64,0,100.0000,run
+lprules,variant4,variant,0,204929.97,27197.44,0,100.0000,run
+lprules,variant5,variant,0,203761.24,26300.69,0,100.0000,run
+lprules,syn_rot1,synthetic,0,204317.54,26587.85,0,100.0000,run
+lprules,syn_rot2,synthetic,0,205195.89,27185.12,0,100.0000,run
+lprules,syn_boot1,synthetic,0,212549.26,28728.19,0,100.0000,run
+lprules,syn_boot3,synthetic,0,204210.97,27251.18,0,100.0000,run
+lprules,syn_noise8,synthetic,0,205104.65,28332.55,0,100.0000,run
+lprules,syn_shift,synthetic,0,195147.80,27354.72,0,100.0000,run
+lprules,syn_cloudy,synthetic,0,232959.77,27553.64,0,100.0000,run
+lprules,real_pvgis2010,real,0,229352.08,27390.82,0,100.0000,run
+lprules,real_pvgis2012,real,0,199321.92,25453.94,0,100.0000,run
+lprules,real_pvgis2017,real,0,199815.97,26761.39,0,100.0000,run
+lprules,real_pvgis2018,real,0,209739.07,26003.48,0,100.0000,run
+lprules,real_pvgis2019,real,0,207612.01,26057.22,0,100.0000,run
+lprules,real_pvgis2020,real,0,200210.11,26069.09,0,100.0000,run
+lprules,real_pvgis2021,real,0,201678.31,26426.45,0,100.0000,run
+lprules,real_pvgis2022,real,0,200238.89,26158.71,0,100.0000,run
+lprules,syn_boot2,synthetic,0,207410.50,27414.02,0,100.0000,run
+lprules,syn_peaky,synthetic,0,209265.76,27176.28,0,100.0000,run
+lprules,syn_highload,synthetic,0,203349.60,27452.27,0,100.0000,run
+lprules,syn_mixed,synthetic,0,205591.37,28248.14,0,100.0000,run
+lprules,stress_load105,stress,0,222555.37,29462.80,0,100.0000,run
+lprules,stress_pv85,stress,0,235429.54,28556.13,0,100.0000,run
+lprules,stress_combo,stress,0,267825.36,31146.10,0,100.0000,run
+lprules,real_jplev,real,0,204218.24,26770.40,0,100.0000,run
+lprules,real_ind9_pv2019,real,0,214757.40,29952.23,0,100.0000,run
+lprules,real_ind13_pv2021_jpl,real,0,289026.71,35137.91,0,100.0000,run
+lprules,practice,practice,1,170199.99,32549.75,0,100.0000,run
+lprules,variant1,variant,1,170604.97,32904.59,0,100.0000,v5 (identical by construction)
+lprules,variant2,variant,1,171004.91,32065.95,0,100.0000,v5 (identical by construction)
+lprules,variant3,variant,1,164945.57,31750.37,0,100.0000,v5 (identical by construction)
+lprules,variant4,variant,1,166804.37,31471.73,0,100.0000,v5 (identical by construction)
+lprules,variant5,variant,1,170250.53,30414.64,0,100.0000,v5 (identical by construction)
+lprules,syn_rot1,synthetic,1,169410.31,31323.72,0,100.0000,v5 (identical by construction)
+lprules,syn_rot2,synthetic,1,169434.81,31957.16,0,100.0000,v5 (identical by construction)
+lprules,syn_boot1,synthetic,1,173792.60,33085.67,0,100.0000,v5 (identical by construction)
+lprules,syn_boot3,synthetic,1,171793.62,34075.73,0,100.0000,v5 (identical by construction)
+lprules,syn_noise8,synthetic,1,170436.35,33448.15,0,100.0000,v5 (identical by construction)
+lprules,syn_shift,synthetic,1,161477.19,33223.74,0,100.0000,v5 (identical by construction)
+lprules,syn_cloudy,synthetic,1,190678.73,33723.97,0,100.0000,v5 (identical by construction)
+lprules,real_pvgis2010,real,1,189900.21,31962.62,0,100.0000,v5 (identical by construction)
+lprules,real_pvgis2012,real,1,169022.47,30584.04,0,100.0000,v5 (identical by construction)
+lprules,real_pvgis2017,real,1,168622.72,31396.36,0,100.0000,v5 (identical by construction)
+lprules,real_pvgis2018,real,1,177634.37,31067.78,0,100.0000,v5 (identical by construction)
+lprules,real_pvgis2019,real,1,172625.66,32351.57,0,100.0000,v5 (identical by construction)
+lprules,real_pvgis2020,real,1,170312.48,32239.49,0,100.0000,v5 (identical by construction)
+lprules,real_pvgis2021,real,1,167533.02,31768.34,0,100.0000,v5 (identical by construction)
+lprules,real_pvgis2022,real,1,168263.58,31555.79,0,100.0000,v5 (identical by construction)
+lprules,syn_boot2,synthetic,1,173680.73,34243.05,0,100.0000,v5 (identical by construction)
+lprules,syn_peaky,synthetic,1,178374.45,34442.40,0,100.0000,v5 (identical by construction)
+lprules,syn_highload,synthetic,1,169614.60,34669.96,0,100.0000,v5 (identical by construction)
+lprules,syn_mixed,synthetic,1,172329.01,36493.56,0,100.0000,v5 (identical by construction)
+lprules,stress_load105,stress,1,184080.45,34084.49,0,100.0000,v5 (identical by construction)
+lprules,stress_pv85,stress,1,189401.72,35098.26,0,100.0000,v5 (identical by construction)
+lprules,stress_combo,stress,1,214040.16,36733.85,0,100.0000,v5 (identical by construction)
+lprules,real_jplev,real,1,170163.91,32354.09,0,100.0000,v5 (identical by construction)
+lprules,real_ind9_pv2019,real,1,183695.73,35053.09,0,100.0000,v5 (identical by construction)
+lprules,real_ind13_pv2021_jpl,real,1,268745.29,39094.53,0,100.0000,v5 (identical by construction)
+lprules_e05,practice,practice,0,204601.11,26830.15,0,100.0000,run
+lprules_e05,variant1,variant,0,203377.51,25997.06,0,100.0000,run
+lprules_e05,variant2,variant,0,203775.19,26367.66,0,100.0000,run
+lprules_e05,variant3,variant,0,204196.22,27261.47,0,100.0000,run
+lprules_e05,variant4,variant,0,204946.77,27198.06,0,100.0000,run
+lprules_e05,variant5,variant,0,203760.71,26297.06,0,100.0000,run
+lprules_e05,syn_rot1,synthetic,0,204310.56,26584.09,0,100.0000,run
+lprules_e05,syn_rot2,synthetic,0,205205.32,27185.08,0,100.0000,run
+lprules_e05,syn_boot1,synthetic,0,212507.44,28671.22,0,100.0000,run
+lprules_e05,syn_boot3,synthetic,0,204235.45,27266.99,0,100.0000,run
+lprules_e05,syn_noise8,synthetic,0,205135.21,28355.05,0,100.0000,run
+lprules_e05,syn_shift,synthetic,0,195097.18,27294.33,0,100.0000,run
+lprules_e05,syn_cloudy,synthetic,0,232969.53,27553.36,0,100.0000,run
+lprules_e05,real_pvgis2010,real,0,229423.99,27450.94,0,100.0000,run
+lprules_e05,real_pvgis2012,real,0,199324.60,25450.30,0,100.0000,run
+lprules_e05,real_pvgis2017,real,0,199816.75,26748.87,0,100.0000,run
+lprules_e05,real_pvgis2018,real,0,209745.97,26003.48,0,100.0000,run
+lprules_e05,real_pvgis2019,real,0,207619.22,26057.22,0,100.0000,run
+lprules_e05,practice,practice,1,170199.99,32549.75,0,100.0000,run
+lprules_e05,variant1,variant,1,170604.97,32904.59,0,100.0000,v5 (identical by construction)
+lprules_e05,variant2,variant,1,171004.91,32065.95,0,100.0000,v5 (identical by construction)
+lprules_e05,variant3,variant,1,164945.57,31750.37,0,100.0000,v5 (identical by construction)
+lprules_e05,variant4,variant,1,166804.37,31471.73,0,100.0000,v5 (identical by construction)
+lprules_e05,variant5,variant,1,170250.53,30414.64,0,100.0000,v5 (identical by construction)
+lprules_e05,syn_rot1,synthetic,1,169410.31,31323.72,0,100.0000,v5 (identical by construction)
+lprules_e05,syn_rot2,synthetic,1,169434.81,31957.16,0,100.0000,v5 (identical by construction)
+lprules_e05,syn_boot1,synthetic,1,173792.60,33085.67,0,100.0000,v5 (identical by construction)
+lprules_e05,syn_boot3,synthetic,1,171793.62,34075.73,0,100.0000,v5 (identical by construction)
+lprules_e05,syn_noise8,synthetic,1,170436.35,33448.15,0,100.0000,v5 (identical by construction)
+lprules_e05,syn_shift,synthetic,1,161477.19,33223.74,0,100.0000,v5 (identical by construction)
+lprules_e05,syn_cloudy,synthetic,1,190678.73,33723.97,0,100.0000,v5 (identical by construction)
+lprules_e05,real_pvgis2010,real,1,189900.21,31962.62,0,100.0000,v5 (identical by construction)
+lprules_e05,real_pvgis2012,real,1,169022.47,30584.04,0,100.0000,v5 (identical by construction)
+lprules_e05,real_pvgis2017,real,1,168622.72,31396.36,0,100.0000,v5 (identical by construction)
+lprules_e05,real_pvgis2018,real,1,177634.37,31067.78,0,100.0000,v5 (identical by construction)
+lprules_e05,real_pvgis2019,real,1,172625.66,32351.57,0,100.0000,v5 (identical by construction)
+lprules_e05,real_pvgis2020,real,1,170312.48,32239.49,0,100.0000,v5 (identical by construction)
+lprules_e05,real_pvgis2021,real,1,167533.02,31768.34,0,100.0000,v5 (identical by construction)
+lprules_e05,real_pvgis2022,real,1,168263.58,31555.79,0,100.0000,v5 (identical by construction)
+lprules_e05,syn_boot2,synthetic,1,173680.73,34243.05,0,100.0000,v5 (identical by construction)
+lprules_e05,syn_peaky,synthetic,1,178374.45,34442.40,0,100.0000,v5 (identical by construction)
+lprules_e05,syn_highload,synthetic,1,169614.60,34669.96,0,100.0000,v5 (identical by construction)
+lprules_e05,syn_mixed,synthetic,1,172329.01,36493.56,0,100.0000,v5 (identical by construction)
+lprules_e05,stress_load105,stress,1,184080.45,34084.49,0,100.0000,v5 (identical by construction)
+lprules_e05,stress_pv85,stress,1,189401.72,35098.26,0,100.0000,v5 (identical by construction)
+lprules_e05,stress_combo,stress,1,214040.16,36733.85,0,100.0000,v5 (identical by construction)
+lprules_e05,real_jplev,real,1,170163.91,32354.09,0,100.0000,v5 (identical by construction)
+lprules_e05,real_ind9_pv2019,real,1,183695.73,35053.09,0,100.0000,v5 (identical by construction)
+lprules_e05,real_ind13_pv2021_jpl,real,1,268745.29,39094.53,0,100.0000,v5 (identical by construction)
+combo_s2,practice,practice,0,205224.50,27500.33,0,100.0000,run
+combo_s2,variant1,variant,0,203744.05,26430.53,0,100.0000,v5 (identical by construction)
+combo_s2,variant2,variant,0,204094.85,26763.24,0,100.0000,v5 (identical by construction)
+combo_s2,variant3,variant,0,204505.12,27588.93,0,100.0000,v5 (identical by construction)
+combo_s2,variant4,variant,0,204823.89,27165.50,0,100.0000,v5 (identical by construction)
+combo_s2,variant5,variant,0,203776.80,26354.23,0,100.0000,v5 (identical by construction)
+combo_s2,syn_rot1,synthetic,0,204390.86,26700.04,0,100.0000,v5 (identical by construction)
+combo_s2,syn_rot2,synthetic,0,205835.40,27884.46,0,100.0000,v5 (identical by construction)
+combo_s2,syn_boot1,synthetic,0,212447.92,28803.87,0,100.0000,v5 (identical by construction)
+combo_s2,syn_boot3,synthetic,0,204231.54,27409.80,0,100.0000,v5 (identical by construction)
+combo_s2,syn_noise8,synthetic,0,206035.77,29337.45,0,100.0000,v5 (identical by construction)
+combo_s2,syn_shift,synthetic,0,196609.60,29075.50,0,100.0000,v5 (identical by construction)
+combo_s2,syn_cloudy,synthetic,0,233180.67,27930.99,0,100.0000,v5 (identical by construction)
+combo_s2,real_pvgis2010,real,0,230006.80,28106.25,0,100.0000,v5 (identical by construction)
+combo_s2,real_pvgis2012,real,0,199384.26,25558.88,0,100.0000,v5 (identical by construction)
+combo_s2,real_pvgis2017,real,0,199899.86,26889.91,0,100.0000,v5 (identical by construction)
+combo_s2,real_pvgis2018,real,0,209704.69,26029.70,0,100.0000,v5 (identical by construction)
+combo_s2,real_pvgis2019,real,0,208576.21,27064.30,0,100.0000,v5 (identical by construction)
+combo_s2,real_pvgis2020,real,0,201076.33,26977.81,0,100.0000,v5 (identical by construction)
+combo_s2,real_pvgis2021,real,0,201791.98,26585.72,0,100.0000,v5 (identical by construction)
+combo_s2,real_pvgis2022,real,0,201180.36,27123.68,0,100.0000,v5 (identical by construction)
+combo_s2,syn_boot2,synthetic,0,207875.12,28009.64,0,100.0000,v5 (identical by construction)
+combo_s2,syn_peaky,synthetic,0,210408.87,28487.27,0,100.0000,v5 (identical by construction)
+combo_s2,syn_highload,synthetic,0,203315.06,27613.82,0,100.0000,v5 (identical by construction)
+combo_s2,syn_mixed,synthetic,0,205760.16,28557.18,0,100.0000,v5 (identical by construction)
+combo_s2,stress_load105,stress,0,223057.48,30111.02,0,100.0000,v5 (identical by construction)
+combo_s2,stress_pv85,stress,0,235525.30,28806.74,0,100.0000,v5 (identical by construction)
+combo_s2,stress_combo,stress,0,269076.78,32593.95,0,100.0000,v5 (identical by construction)
+combo_s2,real_jplev,real,0,204895.65,27487.06,0,100.0000,v5 (identical by construction)
+combo_s2,real_ind9_pv2019,real,0,214775.12,30026.03,0,100.0000,v5 (identical by construction)
+combo_s2,real_ind13_pv2021_jpl,real,0,289416.59,35836.83,0,100.0000,v5 (identical by construction)
+combo_s2,practice,practice,1,169862.13,32774.62,0,100.0000,run
+combo_s2,variant1,variant,1,170240.58,32980.82,0,100.0000,run
+combo_s2,variant2,variant,1,169916.87,31849.39,0,100.0000,run
+combo_s2,variant3,variant,1,164538.56,31657.40,0,100.0000,run
+combo_s2,variant4,variant,1,166129.98,31341.33,0,100.0000,run
+combo_s2,variant5,variant,1,169941.05,30901.81,0,100.0000,run
+combo_s2,syn_rot1,synthetic,1,169025.17,31571.47,0,100.0000,run
+combo_s2,syn_rot2,synthetic,1,168636.57,32043.29,0,100.0000,run
+combo_s2,syn_boot1,synthetic,1,173339.38,33255.92,0,100.0000,run
+combo_s2,syn_boot3,synthetic,1,171377.20,34308.94,0,100.0000,run
+combo_s2,syn_noise8,synthetic,1,170017.92,33632.98,0,100.0000,run
+combo_s2,syn_shift,synthetic,1,160783.31,33198.01,0,100.0000,run
+combo_s2,syn_cloudy,synthetic,1,189542.02,34012.56,0,100.0000,run
+combo_s2,real_pvgis2010,real,1,189011.75,32570.77,0,100.0000,run
+combo_s2,real_pvgis2012,real,1,168902.48,31066.02,0,100.0000,run
+combo_s2,real_pvgis2017,real,1,168536.20,32291.03,0,100.0000,run
+combo_s2,real_pvgis2018,real,1,177417.26,31728.17,0,100.0000,run
+combo_s2,real_pvgis2019,real,1,172438.75,32711.54,0,100.0000,run
+combo_s2,real_pvgis2020,real,1,169967.87,32736.10,0,100.0000,run
+combo_s2,real_pvgis2021,real,1,167232.95,31960.55,0,100.0000,run
+combo_s2,real_pvgis2022,real,1,168136.42,32217.28,0,100.0000,run
+combo_s2,syn_boot2,synthetic,1,172925.83,34071.58,0,100.0000,run
+combo_s2,syn_peaky,synthetic,1,176667.66,33069.50,0,100.0000,run
+combo_s2,syn_highload,synthetic,1,169310.01,34695.49,0,100.0000,run
+combo_s2,syn_mixed,synthetic,1,171763.31,36371.17,0,100.0000,run
+combo_s2,stress_load105,stress,1,183874.00,34237.14,0,100.0000,run
+combo_s2,stress_pv85,stress,1,188426.49,34654.93,0,100.0000,run
+combo_s2,stress_combo,stress,1,213093.83,37156.18,0,100.0000,run
+combo_s2,real_jplev,real,1,169803.36,32534.10,0,100.0000,run
+combo_s2,real_ind9_pv2019,real,1,183018.20,35627.38,0,100.0000,run
+combo_s2,real_ind13_pv2021_jpl,real,1,268825.49,39824.41,0,100.0000,run
+capwrap_s2,practice,practice,1,169833.28,32774.88,0,100.0000,run
+capwrap_s2,variant2,variant,1,169847.91,31830.35,0,100.0000,run
+capwrap_s2,syn_peaky,synthetic,1,176676.78,33105.98,0,100.0000,run
+capwrap_s2,real_pvgis2010,real,1,188978.27,32572.88,0,100.0000,run
+capwrap_s2,real_ind13_pv2021_jpl,real,1,268604.56,39590.60,0,100.0000,run
+combo_s1,practice,practice,1,170199.99,32549.75,0,100.0000,run
+combo_s1,variant1,variant,1,170604.97,32904.59,0,100.0000,v5 (identical by construction)
+combo_s1,variant2,variant,1,171004.91,32065.95,0,100.0000,v5 (identical by construction)
+combo_s1,variant3,variant,1,164945.57,31750.37,0,100.0000,v5 (identical by construction)
+combo_s1,variant4,variant,1,166804.37,31471.73,0,100.0000,v5 (identical by construction)
+combo_s1,variant5,variant,1,170250.53,30414.64,0,100.0000,v5 (identical by construction)
+combo_s1,syn_rot1,synthetic,1,169410.31,31323.72,0,100.0000,v5 (identical by construction)
+combo_s1,syn_rot2,synthetic,1,169434.81,31957.16,0,100.0000,v5 (identical by construction)
+combo_s1,syn_boot1,synthetic,1,173792.60,33085.67,0,100.0000,v5 (identical by construction)
+combo_s1,syn_boot3,synthetic,1,171793.62,34075.73,0,100.0000,v5 (identical by construction)
+combo_s1,syn_noise8,synthetic,1,170436.35,33448.15,0,100.0000,v5 (identical by construction)
+combo_s1,syn_shift,synthetic,1,161477.19,33223.74,0,100.0000,v5 (identical by construction)
+combo_s1,syn_cloudy,synthetic,1,190678.73,33723.97,0,100.0000,v5 (identical by construction)
+combo_s1,real_pvgis2010,real,1,189900.21,31962.62,0,100.0000,v5 (identical by construction)
+combo_s1,real_pvgis2012,real,1,169022.47,30584.04,0,100.0000,v5 (identical by construction)
+combo_s1,real_pvgis2017,real,1,168622.72,31396.36,0,100.0000,v5 (identical by construction)
+combo_s1,real_pvgis2018,real,1,177634.37,31067.78,0,100.0000,v5 (identical by construction)
+combo_s1,real_pvgis2019,real,1,172625.66,32351.57,0,100.0000,v5 (identical by construction)
+combo_s1,real_pvgis2020,real,1,170312.48,32239.49,0,100.0000,v5 (identical by construction)
+combo_s1,real_pvgis2021,real,1,167533.02,31768.34,0,100.0000,v5 (identical by construction)
+combo_s1,real_pvgis2022,real,1,168263.58,31555.79,0,100.0000,v5 (identical by construction)
+combo_s1,syn_boot2,synthetic,1,173680.73,34243.05,0,100.0000,v5 (identical by construction)
+combo_s1,syn_peaky,synthetic,1,178374.45,34442.40,0,100.0000,v5 (identical by construction)
+combo_s1,syn_highload,synthetic,1,169614.60,34669.96,0,100.0000,v5 (identical by construction)
+combo_s1,syn_mixed,synthetic,1,172329.01,36493.56,0,100.0000,v5 (identical by construction)
+combo_s1,stress_load105,stress,1,184080.45,34084.49,0,100.0000,v5 (identical by construction)
+combo_s1,stress_pv85,stress,1,189401.72,35098.26,0,100.0000,v5 (identical by construction)
+combo_s1,stress_combo,stress,1,214040.16,36733.85,0,100.0000,v5 (identical by construction)
+combo_s1,real_jplev,real,1,170163.91,32354.09,0,100.0000,v5 (identical by construction)
+combo_s1,real_ind9_pv2019,real,1,183695.73,35053.09,0,100.0000,v5 (identical by construction)
+combo_s1,real_ind13_pv2021_jpl,real,1,268745.29,39094.53,0,100.0000,v5 (identical by construction)
+combo_s1e05,practice,practice,1,170199.99,32549.75,0,100.0000,run
+combo_s1e05,variant1,variant,1,170604.97,32904.59,0,100.0000,v5 (identical by construction)
+combo_s1e05,variant2,variant,1,171004.91,32065.95,0,100.0000,v5 (identical by construction)
+combo_s1e05,variant3,variant,1,164945.57,31750.37,0,100.0000,v5 (identical by construction)
+combo_s1e05,variant4,variant,1,166804.37,31471.73,0,100.0000,v5 (identical by construction)
+combo_s1e05,variant5,variant,1,170250.53,30414.64,0,100.0000,v5 (identical by construction)
+combo_s1e05,syn_rot1,synthetic,1,169410.31,31323.72,0,100.0000,v5 (identical by construction)
+combo_s1e05,syn_rot2,synthetic,1,169434.81,31957.16,0,100.0000,v5 (identical by construction)
+combo_s1e05,syn_boot1,synthetic,1,173792.60,33085.67,0,100.0000,v5 (identical by construction)
+combo_s1e05,syn_boot3,synthetic,1,171793.62,34075.73,0,100.0000,v5 (identical by construction)
+combo_s1e05,syn_noise8,synthetic,1,170436.35,33448.15,0,100.0000,v5 (identical by construction)
+combo_s1e05,syn_shift,synthetic,1,161477.19,33223.74,0,100.0000,v5 (identical by construction)
+combo_s1e05,syn_cloudy,synthetic,1,190678.73,33723.97,0,100.0000,v5 (identical by construction)
+combo_s1e05,real_pvgis2010,real,1,189900.21,31962.62,0,100.0000,v5 (identical by construction)
+combo_s1e05,real_pvgis2012,real,1,169022.47,30584.04,0,100.0000,v5 (identical by construction)
+combo_s1e05,real_pvgis2017,real,1,168622.72,31396.36,0,100.0000,v5 (identical by construction)
+combo_s1e05,real_pvgis2018,real,1,177634.37,31067.78,0,100.0000,v5 (identical by construction)
+combo_s1e05,real_pvgis2019,real,1,172625.66,32351.57,0,100.0000,v5 (identical by construction)
+combo_s1e05,real_pvgis2020,real,1,170312.48,32239.49,0,100.0000,v5 (identical by construction)
+combo_s1e05,real_pvgis2021,real,1,167533.02,31768.34,0,100.0000,v5 (identical by construction)
+combo_s1e05,real_pvgis2022,real,1,168263.58,31555.79,0,100.0000,v5 (identical by construction)
+combo_s1e05,syn_boot2,synthetic,1,173680.73,34243.05,0,100.0000,v5 (identical by construction)
+combo_s1e05,syn_peaky,synthetic,1,178374.45,34442.40,0,100.0000,v5 (identical by construction)
+combo_s1e05,syn_highload,synthetic,1,169614.60,34669.96,0,100.0000,v5 (identical by construction)
+combo_s1e05,syn_mixed,synthetic,1,172329.01,36493.56,0,100.0000,v5 (identical by construction)
+combo_s1e05,stress_load105,stress,1,184080.45,34084.49,0,100.0000,v5 (identical by construction)
+combo_s1e05,stress_pv85,stress,1,189401.72,35098.26,0,100.0000,v5 (identical by construction)
+combo_s1e05,stress_combo,stress,1,214040.16,36733.85,0,100.0000,v5 (identical by construction)
+combo_s1e05,real_jplev,real,1,170163.91,32354.09,0,100.0000,v5 (identical by construction)
+combo_s1e05,real_ind9_pv2019,real,1,183695.73,35053.09,0,100.0000,v5 (identical by construction)
+combo_s1e05,real_ind13_pv2021_jpl,real,1,268745.29,39094.53,0,100.0000,v5 (identical by construction)
