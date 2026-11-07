@@ -131,7 +131,7 @@ def make(H=96, dE=40.0, pen=20.0, tvf=0.9, pvf=0.6, cap_margin=1.02, a_fec=0.5, 
          # ---- capmodel ----
          scen=True, NW=10, NWE=4, smin=4, r_early=1, r_late=0, dl_thr=10, W=4, otau=16.0, ocorr=True,
          ev_hist=True, combine="scen", dpprof="crit", pre_w=0.0, floor_f=0.0, floor_q=0.5, floor_n=20,
-         pvf_scen=1.0, dbg=None):
+         pvf_scen=1.0, term_w=0.0, term_T="plan", term_r=0, term_min_h=0, dbg=None):
     fc = Forecaster(a_fec, a_pv, a_sig, cw, ctau, True, True)
     Forecaster.D7 = False
     fc.coldmax = coldmax
@@ -259,6 +259,8 @@ def make(H=96, dE=40.0, pen=20.0, tvf=0.9, pvf=0.6, cap_margin=1.02, a_fec=0.5, 
                 T = min(T5, Tq)
             elif combine == "max":
                 T = max(T5, Tq)
+            elif combine == "v5":
+                T = T5
             elif combine == "avg":
                 T = 0.5 * (T5 + Tq)
             if dpprof == "crit":
@@ -281,6 +283,33 @@ def make(H=96, dE=40.0, pen=20.0, tvf=0.9, pvf=0.6, cap_margin=1.02, a_fec=0.5, 
             T = max(T, min(LIM_IMP, floor_f * float(np.quantile(Rd, floor_q))))
         tv = float(np.mean(ci)) * tvf
         V = -Egrid * tv
+        if term_w > 0 and len(lib[0]) >= smin and h >= term_min_h and k + h < 35040:
+            # explicit pre-charge target at the horizon end: stored energy needed to hold the cap over
+            # the next 96 steps for the library days (night recharge under the cap included)
+            Tt = T if term_T == "plan" else st["T"]
+            ke = k + h
+            needs = []
+            S2 = max(len(lib[0]), 1)
+            for s_ in range(S2):
+                g = np.zeros(96); i = 0
+                while i < 96:
+                    kk = ke + i; qq0 = kk % 96
+                    Ld = lib[_dt(_wd(kk // 96))] or lib[0]
+                    seg = min(96 - i, 96 - qq0)
+                    b_, e_ = Ld[s_ % len(Ld)]
+                    g[i:i + seg] = b_[qq0:qq0 + seg] + e_[qq0:qq0 + seg]
+                    i += seg
+                nd = 0.0
+                for j in range(95, -1, -1):
+                    x = g[j] - Tt
+                    if x > 0:
+                        nd = nd + x * TS / ETD
+                    else:
+                        nd = max(0.0, nd - min(-x, BCH) * TS * ETC)
+                needs.append(min(nd, EUSE))
+            needs.sort(reverse=True)
+            Etgt = needs[min(term_r, len(needs) - 1)]
+            V = V + term_w * np.maximum(Etgt - Egrid, 0.0)
         for i in range(h - 1, 0, -1):
             if need is not None:
                 V = V + pre_w * np.maximum(need[i + 1] - Egrid, 0.0)

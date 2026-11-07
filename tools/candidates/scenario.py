@@ -75,7 +75,7 @@ def _min_caps(E0, arrs, lo):
 
 
 def make(K=5, D=7, rs=1.0, rs_pv=1.0, qsel=0, cap_margin=1.02, with_v5=False, capsrc="scen",
-         defer=True, defer_set="covered", defer_min=0.0, hi_dp="v5", ksig=0.75, pvf=0.6, a_fec=0.5, a_pv=0.3,
+         defer=True, defer_set="covered", defer_min=0.0, defer_k0=672, scen_k0=672, hi_dp="v5", ksig=0.75, pvf=0.6, a_fec=0.5, a_pv=0.3,
          a_sig=0.3, cw=4, ctau=16.0, coldmax=True, dE=40.0, hmax=96, nacts=41, pen=20.0, tvf=0.9,
          neg_curt=True, pvneg=True, dbg=None):
     """K scenarios from the last K days' residuals (ring buffer D>=K days). rs/rs_pv scale FEC/PV residuals.
@@ -167,13 +167,13 @@ def make(K=5, D=7, rs=1.0, rs_pv=1.0, qsel=0, cap_margin=1.02, with_v5=False, ca
         srt = np.sort(Ts)[::-1]
         Trob = srt[min(qsel, len(srt) - 1)]
         Trob = max(Sp, min(LIM_IMP, Trob * cap_margin)) if Trob > Sp else Sp
-        if capsrc != "scen":
+        if capsrc != "scen" or k < scen_k0:
             T5 = _min_caps(E0, npk[None, :], Sp)[0]
             T5 = max(Sp, min(LIM_IMP, T5 * cap_margin)) if T5 > Sp else Sp
-            Trob = T5 if capsrc == "v5" else max(Trob, T5)
+            Trob = T5 if (capsrc == "v5" or k < scen_k0) else max(Trob, T5)
         T = Trob
         cov = Ts <= Trob + 1e-6 if defer_set == "covered" else np.ones(len(Ts), dtype=bool)
-        if capsrc != "scen" and not with_v5:
+        if (capsrc != "scen" or k < scen_k0) and not with_v5:
             # the v5 pessimistic trajectory is covered by the cap: include it in the deferral check
             scen = np.vstack([scen, npk[None, :]]); cov = np.append(cov, True)
         if hi_dp == "v5":
@@ -202,7 +202,7 @@ def make(K=5, D=7, rs=1.0, rs_pv=1.0, qsel=0, cap_margin=1.02, with_v5=False, ca
         if n[0] - pb > T:
             pb = min(bd, n[0] - T)
         g0 = n[0] - pb
-        if defer and g0 > Sp + 1e-6 and h > 1 and cov.any():
+        if defer and k >= defer_k0 and g0 > Sp + 1e-6 and h > 1 and cov.any():
             # lowest import level x in [Sp, g0] that keeps every covered scenario feasible with cap T
             xs = np.linspace(Sp, g0, 17)
             pbs = np.minimum(n[0] - xs, bd)

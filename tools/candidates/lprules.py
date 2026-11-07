@@ -204,10 +204,12 @@ def make(mode=0, H=96, dE=40.0, pen=20.0, tvf=0.9, pvf=None, cap_margin=1.02, a_
         pb = float(bs[int(np.argmin(tot))])
         if n[0] - pb > T:
             pb = min(bd, n[0] - T)
-        if chg_exp and pb < 0.0:
+        if chg_exp and n[0] - pb > max(st["T"], Tx):
             lim = max(st["T"], Tx)
-            if n[0] - pb > lim:
+            if pb < 0.0:                       # rule C: grid charging only up to the expected cap
                 pb = max(pb, min(0.0, n[0] - lim))
+            if chg_exp == 2 and n[0] - pb > lim:   # C2: also serve load from the battery down to it
+                pb = min(bd, n[0] - lim)
         curt = None
         if o["price"][k] < 0 and o["fec"] + sum(evm) - pb - o["fne"] < 0:
             curt = max(0.0, o["fec"] + sum(evm) - pb)
