@@ -37,11 +37,11 @@ def v5_config(mode):
 
 def config(mode):
     """Chosen longhorizon parameters per price mode (S1 = 0, S2 = 1).  See tuning notes in the report."""
-    kw = dict(Hf=96, Hc=96, B=8, nca=9, dE=40.0, cw=4, coldmax=True, nacts=41, cap_h=None)
-    if mode == 0:
-        kw.update(ksig=0.75, hi_in_dp=True, pvf=0.6)
-    else:
-        kw.update(ksig=0.0, hi_in_dp=False, pvf=0.2, pfill="last", fine_pub=True)
+    kw = dict(Hf=96, B=8, nca=9, dE=40.0, cw=4, coldmax=True, nacts=41, cap_h=None)
+    if mode == 0:   # S1: 24 h fine + 24 h coarse (2 h blocks), half pessimistic margin in the tail
+        kw.update(Hc=96, tpess=0.5, ksig=0.75, hi_in_dp=True, pvf=0.6)
+    else:           # S2: fine part up to DA publication, + 48 h coarse tail with 'last published day' prices
+        kw.update(Hc=192, tpess=1.0, ksig=0.0, hi_in_dp=False, pvf=0.2, pfill="last", fine_pub=True)
     return kw
 
 

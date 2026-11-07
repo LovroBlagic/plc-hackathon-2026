@@ -361,3 +361,7 @@ Notes:
     - alarm classes with one ACK (AlarmHmiAck / AlarmAckWord)
   - Model J (tools/crane_eval.py, 30 random sets): default 1.0751, free order 1.0651, lower bound 0.757.
   - Open: no PLCSIM on this laptop, so nothing has run on a PLC; the HMI is not imported (`hmi-tia/HUMAN_STEPS.md`); organizer questions (M rule, list order, balance, N). Details: `tia-src/STATUS.md`.
+- 7 Nov ~05:50 (orchestrator):
+  - Resumed workflow wf_b13c9d8e-3cf; the agents that failed on the usage limit are rerunning.
+  - **User decision: a candidate is accepted for the ME port if it beats v5 on average and is never worse than v5 by more than 200 € on any dataset (twin tolerance).** By that rule, lprules (S1, worst case +106 €) qualifies.
+  - **User decision: NO git history purge** of the Vijeo help files (07b9c07). They stay in history; `research/` stays gitignored.
