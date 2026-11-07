@@ -106,11 +106,23 @@ internal static class Lab
         string lockOwner = Arg(a, "--lock");
         if (lockOwner != null) { int w = 3600; int.TryParse(Arg(a, "--lock-wait") ?? "3600", out w); if (!TakeLock(proj, lockOwner, w)) return 2; }
 
-        Console.WriteLine("STARTING headless TIA Portal " + DateTime.Now.ToString("HH:mm:ss"));
-        using (var portal = new TiaPortal(TiaPortalMode.WithoutUserInterface))
+        bool attach = Flag(a, "--attach");
+        TiaPortal portalObj;
+        if (attach) {
+            var procs = TiaPortal.GetProcesses();
+            if (procs.Count == 0) { Console.WriteLine("FATAL: --attach but no TIA Portal process"); return 2; }
+            Console.WriteLine("ATTACHING to TIA PID " + procs[0].Id + " (answer the Openness access dialog with 'Yes to all')");
+            portalObj = procs[0].Attach();
+        } else {
+            Console.WriteLine("STARTING headless TIA Portal " + DateTime.Now.ToString("HH:mm:ss"));
+            portalObj = new TiaPortal(TiaPortalMode.WithoutUserInterface);
+        }
+        using (var portal = portalObj)
         {
             string ap21 = Directory.GetFiles(proj, "*.ap21").First();
-            Project p = portal.Projects.Open(new FileInfo(ap21));
+            Project p = portal.Projects.FirstOrDefault(x => string.Equals(x.Path.FullName, ap21, StringComparison.OrdinalIgnoreCase));
+            if (p == null && attach) { Console.WriteLine("FATAL: attached TIA does not have " + ap21 + " open"); return 2; }
+            if (p == null) p = portal.Projects.Open(new FileInfo(ap21));
             Console.WriteLine("OPENED " + ap21 + " " + DateTime.Now.ToString("HH:mm:ss"));
             int errs = 0, importErrors = 0;
 
@@ -178,7 +190,7 @@ internal static class Lab
                 p.Archive(fi.Directory, fi.Name, ProjectArchivationMode.Compressed);
                 Console.WriteLine("ARCHIVED " + fi.FullName);
             }
-            p.Close();
+            if (!attach) p.Close();
             Console.WriteLine("LAB_RESULT errors=" + errs + " import_errors=" + importErrors);
             return (errs + importErrors) > 0 ? 1 : 0;
         }
@@ -333,6 +345,7 @@ internal static class Lab
     }
 
     // ---------------- import / export ----------------
+    public static HashSet<string> KeepScreens = new HashSet<string>(StringComparer.OrdinalIgnoreCase) { "Alarms" };
     static int Import(HmiTarget hmi, string dir)
     {
         int bad = 0;
@@ -341,7 +354,10 @@ internal static class Lab
         bad += ImportSet(Path.Combine(dir, "textlists"), "textlist", f => hmi.TextLists.Import(f, ImportOptions.Override));
         bad += ImportSet(Path.Combine(dir, "tags"), "tagtable", f => hmi.TagFolder.TagTables.Import(f, ImportOptions.Override));
         bad += ImportSet(Path.Combine(dir, "templates"), "template", f => hmi.ScreenTemplateFolder.ScreenTemplates.Import(f, ImportOptions.Override));
-        bad += ImportSet(Path.Combine(dir, "screens"), "screen", f => hmi.ScreenFolder.Screens.Import(f, ImportOptions.Override));
+        bad += ImportSet(Path.Combine(dir, "screens"), "screen", f => {
+            string n = Path.GetFileNameWithoutExtension(f.Name);
+            if (KeepScreens.Contains(n) && hmi.ScreenFolder.Screens.Find(n) != null) { Console.WriteLine("SKIP screen " + n + " (exists, hand-edited)"); return; }
+            hmi.ScreenFolder.Screens.Import(f, ImportOptions.Override); });
         return bad;
     }
     static int ImportSet(string d, string kind, Action<FileInfo> f)

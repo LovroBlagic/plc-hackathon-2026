@@ -48,7 +48,7 @@
     "TL_Order": [[0, "0 slobodan redoslijed"], [1, "1 redoslijed po listi"], [2, "2 strogo: istovar pa ukrcaj"]],
     "TL_YesNo": [[0, "NE"], [1, "DA"]],
     "TL_BalMode": [[0, "0 lijevo/desno"], [1, "1 + pramac/krma"]],
-    "TL_Alarm": [[-1, "-"], [0, "0 Neuravnoteženost broda |L-R| > 5"], [1, "1 Lokacija podizanja prazna"], [2, "2 Lokacija spuštanja zauzeta"], [3, "3 ID u listi za istovar, nije u Bay 0"], [4, "4 ID u listi za ukrcaj, nije u Bay 1"], [5, "5 Neispravan ID (100-999)"], [6, "6 Dvostruki ID"], [7, "7 Nema slobodnog mjesta"], [8, "8 Plan nije izvediv"], [9, "9 Neispravna ručna naredba"], [10, "10 Dizalica: timeout naredbe"], [11, "11 Dizalica već nosi kontejner"], [12, "12 Dizalica ne nosi kontejner"], [13, "13 Nije inicijalizirano"], [14, "14 Položaj dizalice ne odgovara"], [15, "15 Istovar i ukrcaj završeni"]]
+    "TL_Alarm": [[-1, "-"], [0, "0 Neuravnoteženost broda |L-R| > 5"], [1, "1 Lokacija podizanja prazna"], [2, "2 Lokacija spuštanja zauzeta"], [3, "3 ID kontejnera postoji u listi za istovar, ali ne postoji u polju Bay 0"], [4, "4 ID kontejnera postoji u listi za ukrcaj, ali ne postoji u polju Bay 1"], [5, "5 Neispravan ID (100-999)"], [6, "6 Dvostruki ID"], [7, "7 Nema slobodnog mjesta"], [8, "8 Plan nije izvediv"], [9, "9 Neispravna ručna naredba"], [10, "10 Dizalica: timeout naredbe"], [11, "11 Dizalica već nosi kontejner"], [12, "12 Dizalica ne nosi kontejner"], [13, "13 Nije inicijalizirano"], [14, "14 Položaj dizalice ne odgovara"], [15, "15 Istovar i ukrcaj završeni"]]
   },
 
   "header": [
@@ -64,11 +64,11 @@
     {"k": "text", "x": 516, "y": 44, "w": 110, "h": 22, "t": "ISKLJUČEN"},
 
     {"k": "btn", "x": 640, "y": 10, "w": 180, "h": 58, "t": "POČETNO STANJE", "tag": "BtnInit"},
-    {"k": "btn", "x": 840, "y": 10, "w": 160, "h": 58, "t": "AUTOMATSKI", "tag": "BtnAuto"},
+    {"k": "btn", "x": 840, "y": 10, "w": 160, "h": 58, "t": "AUTOMATSKA§MANIPULACIJA", "tag": "BtnAuto"},
     {"k": "lamp", "x": 840, "y": 70, "w": 160, "h": 8, "tag": "LampAuto"},
-    {"k": "btn", "x": 1006, "y": 10, "w": 180, "h": 58, "t": "POLUAUTOMATSKI", "tag": "BtnSemi"},
+    {"k": "btn", "x": 1006, "y": 10, "w": 180, "h": 58, "t": "POLUAUTOMATSKA§MANIPULACIJA", "tag": "BtnSemi"},
     {"k": "lamp", "x": 1006, "y": 70, "w": 180, "h": 8, "tag": "LampSemi"},
-    {"k": "btn", "x": 1192, "y": 10, "w": 140, "h": 58, "t": "RUČNO", "tag": "BtnManual"},
+    {"k": "btn", "x": 1192, "y": 10, "w": 140, "h": 58, "t": "RUČNO§UPRAVLJANJE", "tag": "BtnManual"},
     {"k": "lamp", "x": 1192, "y": 70, "w": 140, "h": 8, "tag": "LampManual"},
 
     {"k": "btn", "x": 1352, "y": 10, "w": 120, "h": 58, "t": "START", "tag": "BtnStart"},

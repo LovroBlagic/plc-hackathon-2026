@@ -98,8 +98,12 @@ def set_ml_text(ml, text):
                 t.remove(c)
             t.text = None
             body = ET.SubElement(t, "body")
+            lines = str(text).split("§")   # multi-line text: <p>line1<br />line2</p> (format of real exports)
             p = ET.SubElement(body, "p")
-            p.text = text
+            p.text = lines[0]
+            for line in lines[1:]:
+                br = ET.SubElement(p, "br")
+                br.tail = line
         else:
             t.text = text
 

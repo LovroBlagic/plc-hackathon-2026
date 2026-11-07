@@ -16,7 +16,7 @@
 | 401 feasible bench sets | 1.16802 (4 fallbacks) | **1.16787** (4 fallbacks) | 1.01674 (gap 14.8 %) | — |
 
   The closed-form bound (§4.9) ignores y-travel, and under the spec rule every y change also costs 19 s of M, so the 13–15 % "gap" is mostly bound weakness; the judge optimiser (`r2_score_batch.py --mmode 0`) puts the real gap at about +0.65 %. Of that, about +0.36 % is drop-cell choice (exact per-bay assignment for our own sequence, `r2_score_slotgap.py 0`); the R2-SCORE-3 Hungarian assignment in SCL was **not** implemented (≈ 0.36 % for an O(n³) solve sliced over OB1 calls plus a new mirror, not worth the risk this late).
-  Reference, same build under mode 2 (FB1 counting): MODE2_PLACEHOLDER.
+  Reference, same build under mode 2 (FB1 counting): 30 random, order 1 **1.06231** (v1.6: 1.0626), free order **1.05364** (v1.6: 1.0538), i.e. the new alphas do not hurt mode 2 (`tools/bench/v17_m2_rand.json`). Under the spec rule **free order (CfgOrderMode 0) is worth much more than under FB1 counting: 30 random 1.16390 → 1.10693 (−4.9 %, max 1.2385)**, vs −0.8 % in mode 2 (`tools/bench/v17_m0_rand_o0.json`); this raises the stakes of the open list-order question.
 - **PLCSIM tool note (not changed, owned by the PLCSIM agent):** `tools/plcsim/crane_sim_test.py` takes the model M from `simulate()`, which now (mode 0 default) is the spec count, but compares it with MD107 → `M_match` will fail by design. Compare MD107 with the number of commands (golden `M_FB1`) and `HMI_IF.MSpec`/`HMI_IF.M` with the model M. Its `plc_J` (`HMI_IF.J`) is now the spec J.
 
 ### DB101 `HMI_IF` score members after v1.7 (for the HMI generator)

@@ -1,0 +1,3190 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Document>
+  <Engineering version="V21" />
+  <Hmi.Screen.Screen ID="0">
+    <AttributeList>
+      <ActiveLayer>0</ActiveLayer>
+      <BackColor>214, 214, 214</BackColor>
+      <GridColor>0, 0, 0</GridColor>
+      <Height>768</Height>
+      <Name>AlarmLog</Name>
+      <Number>13</Number>
+      <Visible>true</Visible>
+      <Width>1024</Width>
+    </AttributeList>
+    <LinkList>
+      <Template TargetID="@OpenLink">
+        <Name>Tpl</Name>
+      </Template>
+    </LinkList>
+    <ObjectList>
+      <MultilingualText ID="1" CompositionName="HelpText">
+        <ObjectList>
+          <MultilingualTextItem ID="2" CompositionName="Items">
+            <AttributeList>
+              <Culture>en-US</Culture>
+              <Text />
+            </AttributeList>
+          </MultilingualTextItem>
+        </ObjectList>
+      </MultilingualText>
+      <Hmi.Screen.ScreenLayer ID="3" CompositionName="Layers">
+        <AttributeList>
+          <Index>0</Index>
+          <Name />
+          <VisibleES>true</VisibleES>
+        </AttributeList>
+        <ObjectList>
+          <Hmi.Screen.TextField ID="4" CompositionName="ScreenItems">
+            <AttributeList>
+              <Left>9</Left>
+              <Top>83</Top>
+              <Width>533</Width>
+              <Height>16</Height>
+              <ObjectName>txt_1</ObjectName>
+              <BackFillStyle>Transparent</BackFillStyle>
+              <BorderWidth>0</BorderWidth>
+              <EdgeStyle>None</EdgeStyle>
+              <FitToLargest>false</FitToLargest>
+              <ForeColor>0, 0, 0</ForeColor>
+              <HorizontalAlignment>Left</HorizontalAlignment>
+              <UseDesignColorSchema>false</UseDesignColorSchema>
+              <VerticalAlignment>Middle</VerticalAlignment>
+            </AttributeList>
+            <ObjectList>
+              <Hmi.Globalization.MultiLingualFont ID="5" CompositionName="Font">
+                <ObjectList>
+                  <Hmi.Globalization.FontItem ID="6" CompositionName="Items">
+                    <AttributeList>
+                      <Culture>en-US</Culture>
+                      <FontFamily>Tahoma</FontFamily>
+                      <FontSize>8</FontSize>
+                      <FontStyle>Bold</FontStyle>
+                    </AttributeList>
+                  </Hmi.Globalization.FontItem>
+                </ObjectList>
+              </Hmi.Globalization.MultiLingualFont>
+              <MultilingualText ID="7" CompositionName="Text">
+                <ObjectList>
+                  <MultilingualTextItem ID="8" CompositionName="Items">
+                    <AttributeList>
+                      <Culture>en-US</Culture>
+                      <Text><body><p>POVIJEST ALARMA (zadnjih 16 pojava, [0] najnoviji). Puna povijest s vremenom: zaslon ALARMI.</p></body></Text>
+                    </AttributeList>
+                  </MultilingualTextItem>
+                </ObjectList>
+              </MultilingualText>
+            </ObjectList>
+          </Hmi.Screen.TextField>
+          <Hmi.Screen.TextField ID="9" CompositionName="ScreenItems">
+            <AttributeList>
+              <Left>9</Left>
+              <Top>107</Top>
+              <Width>32</Width>
+              <Height>20</Height>
+              <ObjectName>txt_2</ObjectName>
+              <BackFillStyle>Transparent</BackFillStyle>
+              <BorderWidth>0</BorderWidth>
+              <EdgeStyle>None</EdgeStyle>
+              <FitToLargest>false</FitToLargest>
+              <ForeColor>70, 70, 70</ForeColor>
+              <HorizontalAlignment>Left</HorizontalAlignment>
+              <UseDesignColorSchema>false</UseDesignColorSchema>
+              <VerticalAlignment>Middle</VerticalAlignment>
+            </AttributeList>
+            <ObjectList>
+              <Hmi.Globalization.MultiLingualFont ID="A" CompositionName="Font">
+                <ObjectList>
+                  <Hmi.Globalization.FontItem ID="B" CompositionName="Items">
+                    <AttributeList>
+                      <Culture>en-US</Culture>
+                      <FontFamily>Tahoma</FontFamily>
+                      <FontSize>8</FontSize>
+                      <FontStyle>Regular</FontStyle>
+                    </AttributeList>
+                  </Hmi.Globalization.FontItem>
+                </ObjectList>
+              </Hmi.Globalization.MultiLingualFont>
+              <MultilingualText ID="C" CompositionName="Text">
+                <ObjectList>
+                  <MultilingualTextItem ID="D" CompositionName="Items">
+                    <AttributeList>
+                      <Culture>en-US</Culture>
+                      <Text><body><p>[0]</p></body></Text>
+                    </AttributeList>
+                  </MultilingualTextItem>
+                </ObjectList>
+              </MultilingualText>
+            </ObjectList>
+          </Hmi.Screen.TextField>
+          <Hmi.Screen.SymbolicIOField ID="E" CompositionName="ScreenItems">
+            <AttributeList>
+              <Left>43</Left>
+              <Top>107</Top>
+              <Width>552</Width>
+              <Height>20</Height>
+              <ObjectName>sym_1</ObjectName>
+              <BackColor>236, 236, 236</BackColor>
+              <BorderColor>128, 128, 128</BorderColor>
+              <BorderWidth>1</BorderWidth>
+              <ForeColor>0, 0, 0</ForeColor>
+              <Mode>Output</Mode>
+              <UseDesignColorSchema>false</UseDesignColorSchema>
+            </AttributeList>
+            <LinkList>
+              <TextList TargetID="@OpenLink">
+                <Name>TL_Alarm</Name>
+              </TextList>
+            </LinkList>
+            <ObjectList>
+              <Hmi.Globalization.MultiLingualFont ID="F" CompositionName="Font">
+                <ObjectList>
+                  <Hmi.Globalization.FontItem ID="10" CompositionName="Items">
+                    <AttributeList>
+                      <Culture>en-US</Culture>
+                      <FontFamily>Tahoma</FontFamily>
+                      <FontSize>15</FontSize>
+                      <FontStyle>Regular</FontStyle>
+                    </AttributeList>
+                  </Hmi.Globalization.FontItem>
+                </ObjectList>
+              </Hmi.Globalization.MultiLingualFont>
+              <MultilingualText ID="11" CompositionName="HelpText">
+                <ObjectList>
+                  <MultilingualTextItem ID="12" CompositionName="Items">
+                    <AttributeList>
+                      <Culture>en-US</Culture>
+                      <Text />
+                    </AttributeList>
+                  </MultilingualTextItem>
+                </ObjectList>
+              </MultilingualText>
+              <Hmi.Screen.Property ID="13" CompositionName="Properties">
+                <AttributeList>
+                  <Name>ProcessValue</Name>
+                </AttributeList>
+                <ObjectList>
+                  <Hmi.Dynamic.TagConnectionDynamic ID="14" CompositionName="Dynamic">
+                    <AttributeList>
+                      <Indirect>false</Indirect>
+                    </AttributeList>
+                    <LinkList>
+                      <Tag TargetID="@OpenLink">
+                        <Name>AlarmHist_00</Name>
+                      </Tag>
+                    </LinkList>
+                  </Hmi.Dynamic.TagConnectionDynamic>
+                </ObjectList>
+              </Hmi.Screen.Property>
+            </ObjectList>
+          </Hmi.Screen.SymbolicIOField>
+          <Hmi.Screen.TextField ID="15" CompositionName="ScreenItems">
+            <AttributeList>
+              <Left>9</Left>
+              <Top>131</Top>
+              <Width>32</Width>
+              <Height>20</Height>
+              <ObjectName>txt_3</ObjectName>
+              <BackFillStyle>Transparent</BackFillStyle>
+              <BorderWidth>0</BorderWidth>
+              <EdgeStyle>None</EdgeStyle>
+              <FitToLargest>false</FitToLargest>
+              <ForeColor>70, 70, 70</ForeColor>
+              <HorizontalAlignment>Left</HorizontalAlignment>
+              <UseDesignColorSchema>false</UseDesignColorSchema>
+              <VerticalAlignment>Middle</VerticalAlignment>
+            </AttributeList>
+            <ObjectList>
+              <Hmi.Globalization.MultiLingualFont ID="16" CompositionName="Font">
+                <ObjectList>
+                  <Hmi.Globalization.FontItem ID="17" CompositionName="Items">
+                    <AttributeList>
+                      <Culture>en-US</Culture>
+                      <FontFamily>Tahoma</FontFamily>
+                      <FontSize>8</FontSize>
+                      <FontStyle>Regular</FontStyle>
+                    </AttributeList>
+                  </Hmi.Globalization.FontItem>
+                </ObjectList>
+              </Hmi.Globalization.MultiLingualFont>
+              <MultilingualText ID="18" CompositionName="Text">
+                <ObjectList>
+                  <MultilingualTextItem ID="19" CompositionName="Items">
+                    <AttributeList>
+                      <Culture>en-US</Culture>
+                      <Text><body><p>[1]</p></body></Text>
+                    </AttributeList>
+                  </MultilingualTextItem>
+                </ObjectList>
+              </MultilingualText>
+            </ObjectList>
+          </Hmi.Screen.TextField>
+          <Hmi.Screen.SymbolicIOField ID="1A" CompositionName="ScreenItems">
+            <AttributeList>
+              <Left>43</Left>
+              <Top>131</Top>
+              <Width>552</Width>
+              <Height>20</Height>
+              <ObjectName>sym_2</ObjectName>
+              <BackColor>236, 236, 236</BackColor>
+              <BorderColor>128, 128, 128</BorderColor>
+              <BorderWidth>1</BorderWidth>
+              <ForeColor>0, 0, 0</ForeColor>
+              <Mode>Output</Mode>
+              <UseDesignColorSchema>false</UseDesignColorSchema>
+            </AttributeList>
+            <LinkList>
+              <TextList TargetID="@OpenLink">
+                <Name>TL_Alarm</Name>
+              </TextList>
+            </LinkList>
+            <ObjectList>
+              <Hmi.Globalization.MultiLingualFont ID="1B" CompositionName="Font">
+                <ObjectList>
+                  <Hmi.Globalization.FontItem ID="1C" CompositionName="Items">
+                    <AttributeList>
+                      <Culture>en-US</Culture>
+                      <FontFamily>Tahoma</FontFamily>
+                      <FontSize>15</FontSize>
+                      <FontStyle>Regular</FontStyle>
+                    </AttributeList>
+                  </Hmi.Globalization.FontItem>
+                </ObjectList>
+              </Hmi.Globalization.MultiLingualFont>
+              <MultilingualText ID="1D" CompositionName="HelpText">
+                <ObjectList>
+                  <MultilingualTextItem ID="1E" CompositionName="Items">
+                    <AttributeList>
+                      <Culture>en-US</Culture>
+                      <Text />
+                    </AttributeList>
+                  </MultilingualTextItem>
+                </ObjectList>
+              </MultilingualText>
+              <Hmi.Screen.Property ID="1F" CompositionName="Properties">
+                <AttributeList>
+                  <Name>ProcessValue</Name>
+                </AttributeList>
+                <ObjectList>
+                  <Hmi.Dynamic.TagConnectionDynamic ID="20" CompositionName="Dynamic">
+                    <AttributeList>
+                      <Indirect>false</Indirect>
+                    </AttributeList>
+                    <LinkList>
+                      <Tag TargetID="@OpenLink">
+                        <Name>AlarmHist_01</Name>
+                      </Tag>
+                    </LinkList>
+                  </Hmi.Dynamic.TagConnectionDynamic>
+                </ObjectList>
+              </Hmi.Screen.Property>
+            </ObjectList>
+          </Hmi.Screen.SymbolicIOField>
+          <Hmi.Screen.TextField ID="21" CompositionName="ScreenItems">
+            <AttributeList>
+              <Left>9</Left>
+              <Top>156</Top>
+              <Width>32</Width>
+              <Height>20</Height>
+              <ObjectName>txt_4</ObjectName>
+              <BackFillStyle>Transparent</BackFillStyle>
+              <BorderWidth>0</BorderWidth>
+              <EdgeStyle>None</EdgeStyle>
+              <FitToLargest>false</FitToLargest>
+              <ForeColor>70, 70, 70</ForeColor>
+              <HorizontalAlignment>Left</HorizontalAlignment>
+              <UseDesignColorSchema>false</UseDesignColorSchema>
+              <VerticalAlignment>Middle</VerticalAlignment>
+            </AttributeList>
+            <ObjectList>
+              <Hmi.Globalization.MultiLingualFont ID="22" CompositionName="Font">
+                <ObjectList>
+                  <Hmi.Globalization.FontItem ID="23" CompositionName="Items">
+                    <AttributeList>
+                      <Culture>en-US</Culture>
+                      <FontFamily>Tahoma</FontFamily>
+                      <FontSize>8</FontSize>
+                      <FontStyle>Regular</FontStyle>
+                    </AttributeList>
+                  </Hmi.Globalization.FontItem>
+                </ObjectList>
+              </Hmi.Globalization.MultiLingualFont>
+              <MultilingualText ID="24" CompositionName="Text">
+                <ObjectList>
+                  <MultilingualTextItem ID="25" CompositionName="Items">
+                    <AttributeList>
+                      <Culture>en-US</Culture>
+                      <Text><body><p>[2]</p></body></Text>
+                    </AttributeList>
+                  </MultilingualTextItem>
+                </ObjectList>
+              </MultilingualText>
+            </ObjectList>
+          </Hmi.Screen.TextField>
+          <Hmi.Screen.SymbolicIOField ID="26" CompositionName="ScreenItems">
+            <AttributeList>
+              <Left>43</Left>
+              <Top>156</Top>
+              <Width>552</Width>
+              <Height>20</Height>
+              <ObjectName>sym_3</ObjectName>
+              <BackColor>236, 236, 236</BackColor>
+              <BorderColor>128, 128, 128</BorderColor>
+              <BorderWidth>1</BorderWidth>
+              <ForeColor>0, 0, 0</ForeColor>
+              <Mode>Output</Mode>
+              <UseDesignColorSchema>false</UseDesignColorSchema>
+            </AttributeList>
+            <LinkList>
+              <TextList TargetID="@OpenLink">
+                <Name>TL_Alarm</Name>
+              </TextList>
+            </LinkList>
+            <ObjectList>
+              <Hmi.Globalization.MultiLingualFont ID="27" CompositionName="Font">
+                <ObjectList>
+                  <Hmi.Globalization.FontItem ID="28" CompositionName="Items">
+                    <AttributeList>
+                      <Culture>en-US</Culture>
+                      <FontFamily>Tahoma</FontFamily>
+                      <FontSize>15</FontSize>
+                      <FontStyle>Regular</FontStyle>
+                    </AttributeList>
+                  </Hmi.Globalization.FontItem>
+                </ObjectList>
+              </Hmi.Globalization.MultiLingualFont>
+              <MultilingualText ID="29" CompositionName="HelpText">
+                <ObjectList>
+                  <MultilingualTextItem ID="2A" CompositionName="Items">
+                    <AttributeList>
+                      <Culture>en-US</Culture>
+                      <Text />
+                    </AttributeList>
+                  </MultilingualTextItem>
+                </ObjectList>
+              </MultilingualText>
+              <Hmi.Screen.Property ID="2B" CompositionName="Properties">
+                <AttributeList>
+                  <Name>ProcessValue</Name>
+                </AttributeList>
+                <ObjectList>
+                  <Hmi.Dynamic.TagConnectionDynamic ID="2C" CompositionName="Dynamic">
+                    <AttributeList>
+                      <Indirect>false</Indirect>
+                    </AttributeList>
+                    <LinkList>
+                      <Tag TargetID="@OpenLink">
+                        <Name>AlarmHist_02</Name>
+                      </Tag>
+                    </LinkList>
+                  </Hmi.Dynamic.TagConnectionDynamic>
+                </ObjectList>
+              </Hmi.Screen.Property>
+            </ObjectList>
+          </Hmi.Screen.SymbolicIOField>
+          <Hmi.Screen.TextField ID="2D" CompositionName="ScreenItems">
+            <AttributeList>
+              <Left>9</Left>
+              <Top>180</Top>
+              <Width>32</Width>
+              <Height>20</Height>
+              <ObjectName>txt_5</ObjectName>
+              <BackFillStyle>Transparent</BackFillStyle>
+              <BorderWidth>0</BorderWidth>
+              <EdgeStyle>None</EdgeStyle>
+              <FitToLargest>false</FitToLargest>
+              <ForeColor>70, 70, 70</ForeColor>
+              <HorizontalAlignment>Left</HorizontalAlignment>
+              <UseDesignColorSchema>false</UseDesignColorSchema>
+              <VerticalAlignment>Middle</VerticalAlignment>
+            </AttributeList>
+            <ObjectList>
+              <Hmi.Globalization.MultiLingualFont ID="2E" CompositionName="Font">
+                <ObjectList>
+                  <Hmi.Globalization.FontItem ID="2F" CompositionName="Items">
+                    <AttributeList>
+                      <Culture>en-US</Culture>
+                      <FontFamily>Tahoma</FontFamily>
+                      <FontSize>8</FontSize>
+                      <FontStyle>Regular</FontStyle>
+                    </AttributeList>
+                  </Hmi.Globalization.FontItem>
+                </ObjectList>
+              </Hmi.Globalization.MultiLingualFont>
+              <MultilingualText ID="30" CompositionName="Text">
+                <ObjectList>
+                  <MultilingualTextItem ID="31" CompositionName="Items">
+                    <AttributeList>
+                      <Culture>en-US</Culture>
+                      <Text><body><p>[3]</p></body></Text>
+                    </AttributeList>
+                  </MultilingualTextItem>
+                </ObjectList>
+              </MultilingualText>
+            </ObjectList>
+          </Hmi.Screen.TextField>
+          <Hmi.Screen.SymbolicIOField ID="32" CompositionName="ScreenItems">
+            <AttributeList>
+              <Left>43</Left>
+              <Top>180</Top>
+              <Width>552</Width>
+              <Height>20</Height>
+              <ObjectName>sym_4</ObjectName>
+              <BackColor>236, 236, 236</BackColor>
+              <BorderColor>128, 128, 128</BorderColor>
+              <BorderWidth>1</BorderWidth>
+              <ForeColor>0, 0, 0</ForeColor>
+              <Mode>Output</Mode>
+              <UseDesignColorSchema>false</UseDesignColorSchema>
+            </AttributeList>
+            <LinkList>
+              <TextList TargetID="@OpenLink">
+                <Name>TL_Alarm</Name>
+              </TextList>
+            </LinkList>
+            <ObjectList>
+              <Hmi.Globalization.MultiLingualFont ID="33" CompositionName="Font">
+                <ObjectList>
+                  <Hmi.Globalization.FontItem ID="34" CompositionName="Items">
+                    <AttributeList>
+                      <Culture>en-US</Culture>
+                      <FontFamily>Tahoma</FontFamily>
+                      <FontSize>15</FontSize>
+                      <FontStyle>Regular</FontStyle>
+                    </AttributeList>
+                  </Hmi.Globalization.FontItem>
+                </ObjectList>
+              </Hmi.Globalization.MultiLingualFont>
+              <MultilingualText ID="35" CompositionName="HelpText">
+                <ObjectList>
+                  <MultilingualTextItem ID="36" CompositionName="Items">
+                    <AttributeList>
+                      <Culture>en-US</Culture>
+                      <Text />
+                    </AttributeList>
+                  </MultilingualTextItem>
+                </ObjectList>
+              </MultilingualText>
+              <Hmi.Screen.Property ID="37" CompositionName="Properties">
+                <AttributeList>
+                  <Name>ProcessValue</Name>
+                </AttributeList>
+                <ObjectList>
+                  <Hmi.Dynamic.TagConnectionDynamic ID="38" CompositionName="Dynamic">
+                    <AttributeList>
+                      <Indirect>false</Indirect>
+                    </AttributeList>
+                    <LinkList>
+                      <Tag TargetID="@OpenLink">
+                        <Name>AlarmHist_03</Name>
+                      </Tag>
+                    </LinkList>
+                  </Hmi.Dynamic.TagConnectionDynamic>
+                </ObjectList>
+              </Hmi.Screen.Property>
+            </ObjectList>
+          </Hmi.Screen.SymbolicIOField>
+          <Hmi.Screen.TextField ID="39" CompositionName="ScreenItems">
+            <AttributeList>
+              <Left>9</Left>
+              <Top>205</Top>
+              <Width>32</Width>
+              <Height>20</Height>
+              <ObjectName>txt_6</ObjectName>
+              <BackFillStyle>Transparent</BackFillStyle>
+              <BorderWidth>0</BorderWidth>
+              <EdgeStyle>None</EdgeStyle>
+              <FitToLargest>false</FitToLargest>
+              <ForeColor>70, 70, 70</ForeColor>
+              <HorizontalAlignment>Left</HorizontalAlignment>
+              <UseDesignColorSchema>false</UseDesignColorSchema>
+              <VerticalAlignment>Middle</VerticalAlignment>
+            </AttributeList>
+            <ObjectList>
+              <Hmi.Globalization.MultiLingualFont ID="3A" CompositionName="Font">
+                <ObjectList>
+                  <Hmi.Globalization.FontItem ID="3B" CompositionName="Items">
+                    <AttributeList>
+                      <Culture>en-US</Culture>
+                      <FontFamily>Tahoma</FontFamily>
+                      <FontSize>8</FontSize>
+                      <FontStyle>Regular</FontStyle>
+                    </AttributeList>
+                  </Hmi.Globalization.FontItem>
+                </ObjectList>
+              </Hmi.Globalization.MultiLingualFont>
+              <MultilingualText ID="3C" CompositionName="Text">
+                <ObjectList>
+                  <MultilingualTextItem ID="3D" CompositionName="Items">
+                    <AttributeList>
+                      <Culture>en-US</Culture>
+                      <Text><body><p>[4]</p></body></Text>
+                    </AttributeList>
+                  </MultilingualTextItem>
+                </ObjectList>
+              </MultilingualText>
+            </ObjectList>
+          </Hmi.Screen.TextField>
+          <Hmi.Screen.SymbolicIOField ID="3E" CompositionName="ScreenItems">
+            <AttributeList>
+              <Left>43</Left>
+              <Top>205</Top>
+              <Width>552</Width>
+              <Height>20</Height>
+              <ObjectName>sym_5</ObjectName>
+              <BackColor>236, 236, 236</BackColor>
+              <BorderColor>128, 128, 128</BorderColor>
+              <BorderWidth>1</BorderWidth>
+              <ForeColor>0, 0, 0</ForeColor>
+              <Mode>Output</Mode>
+              <UseDesignColorSchema>false</UseDesignColorSchema>
+            </AttributeList>
+            <LinkList>
+              <TextList TargetID="@OpenLink">
+                <Name>TL_Alarm</Name>
+              </TextList>
+            </LinkList>
+            <ObjectList>
+              <Hmi.Globalization.MultiLingualFont ID="3F" CompositionName="Font">
+                <ObjectList>
+                  <Hmi.Globalization.FontItem ID="40" CompositionName="Items">
+                    <AttributeList>
+                      <Culture>en-US</Culture>
+                      <FontFamily>Tahoma</FontFamily>
+                      <FontSize>15</FontSize>
+                      <FontStyle>Regular</FontStyle>
+                    </AttributeList>
+                  </Hmi.Globalization.FontItem>
+                </ObjectList>
+              </Hmi.Globalization.MultiLingualFont>
+              <MultilingualText ID="41" CompositionName="HelpText">
+                <ObjectList>
+                  <MultilingualTextItem ID="42" CompositionName="Items">
+                    <AttributeList>
+                      <Culture>en-US</Culture>
+                      <Text />
+                    </AttributeList>
+                  </MultilingualTextItem>
+                </ObjectList>
+              </MultilingualText>
+              <Hmi.Screen.Property ID="43" CompositionName="Properties">
+                <AttributeList>
+                  <Name>ProcessValue</Name>
+                </AttributeList>
+                <ObjectList>
+                  <Hmi.Dynamic.TagConnectionDynamic ID="44" CompositionName="Dynamic">
+                    <AttributeList>
+                      <Indirect>false</Indirect>
+                    </AttributeList>
+                    <LinkList>
+                      <Tag TargetID="@OpenLink">
+                        <Name>AlarmHist_04</Name>
+                      </Tag>
+                    </LinkList>
+                  </Hmi.Dynamic.TagConnectionDynamic>
+                </ObjectList>
+              </Hmi.Screen.Property>
+            </ObjectList>
+          </Hmi.Screen.SymbolicIOField>
+          <Hmi.Screen.TextField ID="45" CompositionName="ScreenItems">
+            <AttributeList>
+              <Left>9</Left>
+              <Top>229</Top>
+              <Width>32</Width>
+              <Height>20</Height>
+              <ObjectName>txt_7</ObjectName>
+              <BackFillStyle>Transparent</BackFillStyle>
+              <BorderWidth>0</BorderWidth>
+              <EdgeStyle>None</EdgeStyle>
+              <FitToLargest>false</FitToLargest>
+              <ForeColor>70, 70, 70</ForeColor>
+              <HorizontalAlignment>Left</HorizontalAlignment>
+              <UseDesignColorSchema>false</UseDesignColorSchema>
+              <VerticalAlignment>Middle</VerticalAlignment>
+            </AttributeList>
+            <ObjectList>
+              <Hmi.Globalization.MultiLingualFont ID="46" CompositionName="Font">
+                <ObjectList>
+                  <Hmi.Globalization.FontItem ID="47" CompositionName="Items">
+                    <AttributeList>
+                      <Culture>en-US</Culture>
+                      <FontFamily>Tahoma</FontFamily>
+                      <FontSize>8</FontSize>
+                      <FontStyle>Regular</FontStyle>
+                    </AttributeList>
+                  </Hmi.Globalization.FontItem>
+                </ObjectList>
+              </Hmi.Globalization.MultiLingualFont>
+              <MultilingualText ID="48" CompositionName="Text">
+                <ObjectList>
+                  <MultilingualTextItem ID="49" CompositionName="Items">
+                    <AttributeList>
+                      <Culture>en-US</Culture>
+                      <Text><body><p>[5]</p></body></Text>
+                    </AttributeList>
+                  </MultilingualTextItem>
+                </ObjectList>
+              </MultilingualText>
+            </ObjectList>
+          </Hmi.Screen.TextField>
+          <Hmi.Screen.SymbolicIOField ID="4A" CompositionName="ScreenItems">
+            <AttributeList>
+              <Left>43</Left>
+              <Top>229</Top>
+              <Width>552</Width>
+              <Height>20</Height>
+              <ObjectName>sym_6</ObjectName>
+              <BackColor>236, 236, 236</BackColor>
+              <BorderColor>128, 128, 128</BorderColor>
+              <BorderWidth>1</BorderWidth>
+              <ForeColor>0, 0, 0</ForeColor>
+              <Mode>Output</Mode>
+              <UseDesignColorSchema>false</UseDesignColorSchema>
+            </AttributeList>
+            <LinkList>
+              <TextList TargetID="@OpenLink">
+                <Name>TL_Alarm</Name>
+              </TextList>
+            </LinkList>
+            <ObjectList>
+              <Hmi.Globalization.MultiLingualFont ID="4B" CompositionName="Font">
+                <ObjectList>
+                  <Hmi.Globalization.FontItem ID="4C" CompositionName="Items">
+                    <AttributeList>
+                      <Culture>en-US</Culture>
+                      <FontFamily>Tahoma</FontFamily>
+                      <FontSize>15</FontSize>
+                      <FontStyle>Regular</FontStyle>
+                    </AttributeList>
+                  </Hmi.Globalization.FontItem>
+                </ObjectList>
+              </Hmi.Globalization.MultiLingualFont>
+              <MultilingualText ID="4D" CompositionName="HelpText">
+                <ObjectList>
+                  <MultilingualTextItem ID="4E" CompositionName="Items">
+                    <AttributeList>
+                      <Culture>en-US</Culture>
+                      <Text />
+                    </AttributeList>
+                  </MultilingualTextItem>
+                </ObjectList>
+              </MultilingualText>
+              <Hmi.Screen.Property ID="4F" CompositionName="Properties">
+                <AttributeList>
+                  <Name>ProcessValue</Name>
+                </AttributeList>
+                <ObjectList>
+                  <Hmi.Dynamic.TagConnectionDynamic ID="50" CompositionName="Dynamic">
+                    <AttributeList>
+                      <Indirect>false</Indirect>
+                    </AttributeList>
+                    <LinkList>
+                      <Tag TargetID="@OpenLink">
+                        <Name>AlarmHist_05</Name>
+                      </Tag>
+                    </LinkList>
+                  </Hmi.Dynamic.TagConnectionDynamic>
+                </ObjectList>
+              </Hmi.Screen.Property>
+            </ObjectList>
+          </Hmi.Screen.SymbolicIOField>
+          <Hmi.Screen.TextField ID="51" CompositionName="ScreenItems">
+            <AttributeList>
+              <Left>9</Left>
+              <Top>254</Top>
+              <Width>32</Width>
+              <Height>20</Height>
+              <ObjectName>txt_8</ObjectName>
+              <BackFillStyle>Transparent</BackFillStyle>
+              <BorderWidth>0</BorderWidth>
+              <EdgeStyle>None</EdgeStyle>
+              <FitToLargest>false</FitToLargest>
+              <ForeColor>70, 70, 70</ForeColor>
+              <HorizontalAlignment>Left</HorizontalAlignment>
+              <UseDesignColorSchema>false</UseDesignColorSchema>
+              <VerticalAlignment>Middle</VerticalAlignment>
+            </AttributeList>
+            <ObjectList>
+              <Hmi.Globalization.MultiLingualFont ID="52" CompositionName="Font">
+                <ObjectList>
+                  <Hmi.Globalization.FontItem ID="53" CompositionName="Items">
+                    <AttributeList>
+                      <Culture>en-US</Culture>
+                      <FontFamily>Tahoma</FontFamily>
+                      <FontSize>8</FontSize>
+                      <FontStyle>Regular</FontStyle>
+                    </AttributeList>
+                  </Hmi.Globalization.FontItem>
+                </ObjectList>
+              </Hmi.Globalization.MultiLingualFont>
+              <MultilingualText ID="54" CompositionName="Text">
+                <ObjectList>
+                  <MultilingualTextItem ID="55" CompositionName="Items">
+                    <AttributeList>
+                      <Culture>en-US</Culture>
+                      <Text><body><p>[6]</p></body></Text>
+                    </AttributeList>
+                  </MultilingualTextItem>
+                </ObjectList>
+              </MultilingualText>
+            </ObjectList>
+          </Hmi.Screen.TextField>
+          <Hmi.Screen.SymbolicIOField ID="56" CompositionName="ScreenItems">
+            <AttributeList>
+              <Left>43</Left>
+              <Top>254</Top>
+              <Width>552</Width>
+              <Height>20</Height>
+              <ObjectName>sym_7</ObjectName>
+              <BackColor>236, 236, 236</BackColor>
+              <BorderColor>128, 128, 128</BorderColor>
+              <BorderWidth>1</BorderWidth>
+              <ForeColor>0, 0, 0</ForeColor>
+              <Mode>Output</Mode>
+              <UseDesignColorSchema>false</UseDesignColorSchema>
+            </AttributeList>
+            <LinkList>
+              <TextList TargetID="@OpenLink">
+                <Name>TL_Alarm</Name>
+              </TextList>
+            </LinkList>
+            <ObjectList>
+              <Hmi.Globalization.MultiLingualFont ID="57" CompositionName="Font">
+                <ObjectList>
+                  <Hmi.Globalization.FontItem ID="58" CompositionName="Items">
+                    <AttributeList>
+                      <Culture>en-US</Culture>
+                      <FontFamily>Tahoma</FontFamily>
+                      <FontSize>15</FontSize>
+                      <FontStyle>Regular</FontStyle>
+                    </AttributeList>
+                  </Hmi.Globalization.FontItem>
+                </ObjectList>
+              </Hmi.Globalization.MultiLingualFont>
+              <MultilingualText ID="59" CompositionName="HelpText">
+                <ObjectList>
+                  <MultilingualTextItem ID="5A" CompositionName="Items">
+                    <AttributeList>
+                      <Culture>en-US</Culture>
+                      <Text />
+                    </AttributeList>
+                  </MultilingualTextItem>
+                </ObjectList>
+              </MultilingualText>
+              <Hmi.Screen.Property ID="5B" CompositionName="Properties">
+                <AttributeList>
+                  <Name>ProcessValue</Name>
+                </AttributeList>
+                <ObjectList>
+                  <Hmi.Dynamic.TagConnectionDynamic ID="5C" CompositionName="Dynamic">
+                    <AttributeList>
+                      <Indirect>false</Indirect>
+                    </AttributeList>
+                    <LinkList>
+                      <Tag TargetID="@OpenLink">
+                        <Name>AlarmHist_06</Name>
+                      </Tag>
+                    </LinkList>
+                  </Hmi.Dynamic.TagConnectionDynamic>
+                </ObjectList>
+              </Hmi.Screen.Property>
+            </ObjectList>
+          </Hmi.Screen.SymbolicIOField>
+          <Hmi.Screen.TextField ID="5D" CompositionName="ScreenItems">
+            <AttributeList>
+              <Left>9</Left>
+              <Top>278</Top>
+              <Width>32</Width>
+              <Height>20</Height>
+              <ObjectName>txt_9</ObjectName>
+              <BackFillStyle>Transparent</BackFillStyle>
+              <BorderWidth>0</BorderWidth>
+              <EdgeStyle>None</EdgeStyle>
+              <FitToLargest>false</FitToLargest>
+              <ForeColor>70, 70, 70</ForeColor>
+              <HorizontalAlignment>Left</HorizontalAlignment>
+              <UseDesignColorSchema>false</UseDesignColorSchema>
+              <VerticalAlignment>Middle</VerticalAlignment>
+            </AttributeList>
+            <ObjectList>
+              <Hmi.Globalization.MultiLingualFont ID="5E" CompositionName="Font">
+                <ObjectList>
+                  <Hmi.Globalization.FontItem ID="5F" CompositionName="Items">
+                    <AttributeList>
+                      <Culture>en-US</Culture>
+                      <FontFamily>Tahoma</FontFamily>
+                      <FontSize>8</FontSize>
+                      <FontStyle>Regular</FontStyle>
+                    </AttributeList>
+                  </Hmi.Globalization.FontItem>
+                </ObjectList>
+              </Hmi.Globalization.MultiLingualFont>
+              <MultilingualText ID="60" CompositionName="Text">
+                <ObjectList>
+                  <MultilingualTextItem ID="61" CompositionName="Items">
+                    <AttributeList>
+                      <Culture>en-US</Culture>
+                      <Text><body><p>[7]</p></body></Text>
+                    </AttributeList>
+                  </MultilingualTextItem>
+                </ObjectList>
+              </MultilingualText>
+            </ObjectList>
+          </Hmi.Screen.TextField>
+          <Hmi.Screen.SymbolicIOField ID="62" CompositionName="ScreenItems">
+            <AttributeList>
+              <Left>43</Left>
+              <Top>278</Top>
+              <Width>552</Width>
+              <Height>20</Height>
+              <ObjectName>sym_8</ObjectName>
+              <BackColor>236, 236, 236</BackColor>
+              <BorderColor>128, 128, 128</BorderColor>
+              <BorderWidth>1</BorderWidth>
+              <ForeColor>0, 0, 0</ForeColor>
+              <Mode>Output</Mode>
+              <UseDesignColorSchema>false</UseDesignColorSchema>
+            </AttributeList>
+            <LinkList>
+              <TextList TargetID="@OpenLink">
+                <Name>TL_Alarm</Name>
+              </TextList>
+            </LinkList>
+            <ObjectList>
+              <Hmi.Globalization.MultiLingualFont ID="63" CompositionName="Font">
+                <ObjectList>
+                  <Hmi.Globalization.FontItem ID="64" CompositionName="Items">
+                    <AttributeList>
+                      <Culture>en-US</Culture>
+                      <FontFamily>Tahoma</FontFamily>
+                      <FontSize>15</FontSize>
+                      <FontStyle>Regular</FontStyle>
+                    </AttributeList>
+                  </Hmi.Globalization.FontItem>
+                </ObjectList>
+              </Hmi.Globalization.MultiLingualFont>
+              <MultilingualText ID="65" CompositionName="HelpText">
+                <ObjectList>
+                  <MultilingualTextItem ID="66" CompositionName="Items">
+                    <AttributeList>
+                      <Culture>en-US</Culture>
+                      <Text />
+                    </AttributeList>
+                  </MultilingualTextItem>
+                </ObjectList>
+              </MultilingualText>
+              <Hmi.Screen.Property ID="67" CompositionName="Properties">
+                <AttributeList>
+                  <Name>ProcessValue</Name>
+                </AttributeList>
+                <ObjectList>
+                  <Hmi.Dynamic.TagConnectionDynamic ID="68" CompositionName="Dynamic">
+                    <AttributeList>
+                      <Indirect>false</Indirect>
+                    </AttributeList>
+                    <LinkList>
+                      <Tag TargetID="@OpenLink">
+                        <Name>AlarmHist_07</Name>
+                      </Tag>
+                    </LinkList>
+                  </Hmi.Dynamic.TagConnectionDynamic>
+                </ObjectList>
+              </Hmi.Screen.Property>
+            </ObjectList>
+          </Hmi.Screen.SymbolicIOField>
+          <Hmi.Screen.TextField ID="69" CompositionName="ScreenItems">
+            <AttributeList>
+              <Left>9</Left>
+              <Top>303</Top>
+              <Width>32</Width>
+              <Height>20</Height>
+              <ObjectName>txt_10</ObjectName>
+              <BackFillStyle>Transparent</BackFillStyle>
+              <BorderWidth>0</BorderWidth>
+              <EdgeStyle>None</EdgeStyle>
+              <FitToLargest>false</FitToLargest>
+              <ForeColor>70, 70, 70</ForeColor>
+              <HorizontalAlignment>Left</HorizontalAlignment>
+              <UseDesignColorSchema>false</UseDesignColorSchema>
+              <VerticalAlignment>Middle</VerticalAlignment>
+            </AttributeList>
+            <ObjectList>
+              <Hmi.Globalization.MultiLingualFont ID="6A" CompositionName="Font">
+                <ObjectList>
+                  <Hmi.Globalization.FontItem ID="6B" CompositionName="Items">
+                    <AttributeList>
+                      <Culture>en-US</Culture>
+                      <FontFamily>Tahoma</FontFamily>
+                      <FontSize>8</FontSize>
+                      <FontStyle>Regular</FontStyle>
+                    </AttributeList>
+                  </Hmi.Globalization.FontItem>
+                </ObjectList>
+              </Hmi.Globalization.MultiLingualFont>
+              <MultilingualText ID="6C" CompositionName="Text">
+                <ObjectList>
+                  <MultilingualTextItem ID="6D" CompositionName="Items">
+                    <AttributeList>
+                      <Culture>en-US</Culture>
+                      <Text><body><p>[8]</p></body></Text>
+                    </AttributeList>
+                  </MultilingualTextItem>
+                </ObjectList>
+              </MultilingualText>
+            </ObjectList>
+          </Hmi.Screen.TextField>
+          <Hmi.Screen.SymbolicIOField ID="6E" CompositionName="ScreenItems">
+            <AttributeList>
+              <Left>43</Left>
+              <Top>303</Top>
+              <Width>552</Width>
+              <Height>20</Height>
+              <ObjectName>sym_9</ObjectName>
+              <BackColor>236, 236, 236</BackColor>
+              <BorderColor>128, 128, 128</BorderColor>
+              <BorderWidth>1</BorderWidth>
+              <ForeColor>0, 0, 0</ForeColor>
+              <Mode>Output</Mode>
+              <UseDesignColorSchema>false</UseDesignColorSchema>
+            </AttributeList>
+            <LinkList>
+              <TextList TargetID="@OpenLink">
+                <Name>TL_Alarm</Name>
+              </TextList>
+            </LinkList>
+            <ObjectList>
+              <Hmi.Globalization.MultiLingualFont ID="6F" CompositionName="Font">
+                <ObjectList>
+                  <Hmi.Globalization.FontItem ID="70" CompositionName="Items">
+                    <AttributeList>
+                      <Culture>en-US</Culture>
+                      <FontFamily>Tahoma</FontFamily>
+                      <FontSize>15</FontSize>
+                      <FontStyle>Regular</FontStyle>
+                    </AttributeList>
+                  </Hmi.Globalization.FontItem>
+                </ObjectList>
+              </Hmi.Globalization.MultiLingualFont>
+              <MultilingualText ID="71" CompositionName="HelpText">
+                <ObjectList>
+                  <MultilingualTextItem ID="72" CompositionName="Items">
+                    <AttributeList>
+                      <Culture>en-US</Culture>
+                      <Text />
+                    </AttributeList>
+                  </MultilingualTextItem>
+                </ObjectList>
+              </MultilingualText>
+              <Hmi.Screen.Property ID="73" CompositionName="Properties">
+                <AttributeList>
+                  <Name>ProcessValue</Name>
+                </AttributeList>
+                <ObjectList>
+                  <Hmi.Dynamic.TagConnectionDynamic ID="74" CompositionName="Dynamic">
+                    <AttributeList>
+                      <Indirect>false</Indirect>
+                    </AttributeList>
+                    <LinkList>
+                      <Tag TargetID="@OpenLink">
+                        <Name>AlarmHist_08</Name>
+                      </Tag>
+                    </LinkList>
+                  </Hmi.Dynamic.TagConnectionDynamic>
+                </ObjectList>
+              </Hmi.Screen.Property>
+            </ObjectList>
+          </Hmi.Screen.SymbolicIOField>
+          <Hmi.Screen.TextField ID="75" CompositionName="ScreenItems">
+            <AttributeList>
+              <Left>9</Left>
+              <Top>327</Top>
+              <Width>32</Width>
+              <Height>20</Height>
+              <ObjectName>txt_11</ObjectName>
+              <BackFillStyle>Transparent</BackFillStyle>
+              <BorderWidth>0</BorderWidth>
+              <EdgeStyle>None</EdgeStyle>
+              <FitToLargest>false</FitToLargest>
+              <ForeColor>70, 70, 70</ForeColor>
+              <HorizontalAlignment>Left</HorizontalAlignment>
+              <UseDesignColorSchema>false</UseDesignColorSchema>
+              <VerticalAlignment>Middle</VerticalAlignment>
+            </AttributeList>
+            <ObjectList>
+              <Hmi.Globalization.MultiLingualFont ID="76" CompositionName="Font">
+                <ObjectList>
+                  <Hmi.Globalization.FontItem ID="77" CompositionName="Items">
+                    <AttributeList>
+                      <Culture>en-US</Culture>
+                      <FontFamily>Tahoma</FontFamily>
+                      <FontSize>8</FontSize>
+                      <FontStyle>Regular</FontStyle>
+                    </AttributeList>
+                  </Hmi.Globalization.FontItem>
+                </ObjectList>
+              </Hmi.Globalization.MultiLingualFont>
+              <MultilingualText ID="78" CompositionName="Text">
+                <ObjectList>
+                  <MultilingualTextItem ID="79" CompositionName="Items">
+                    <AttributeList>
+                      <Culture>en-US</Culture>
+                      <Text><body><p>[9]</p></body></Text>
+                    </AttributeList>
+                  </MultilingualTextItem>
+                </ObjectList>
+              </MultilingualText>
+            </ObjectList>
+          </Hmi.Screen.TextField>
+          <Hmi.Screen.SymbolicIOField ID="7A" CompositionName="ScreenItems">
+            <AttributeList>
+              <Left>43</Left>
+              <Top>327</Top>
+              <Width>552</Width>
+              <Height>20</Height>
+              <ObjectName>sym_10</ObjectName>
+              <BackColor>236, 236, 236</BackColor>
+              <BorderColor>128, 128, 128</BorderColor>
+              <BorderWidth>1</BorderWidth>
+              <ForeColor>0, 0, 0</ForeColor>
+              <Mode>Output</Mode>
+              <UseDesignColorSchema>false</UseDesignColorSchema>
+            </AttributeList>
+            <LinkList>
+              <TextList TargetID="@OpenLink">
+                <Name>TL_Alarm</Name>
+              </TextList>
+            </LinkList>
+            <ObjectList>
+              <Hmi.Globalization.MultiLingualFont ID="7B" CompositionName="Font">
+                <ObjectList>
+                  <Hmi.Globalization.FontItem ID="7C" CompositionName="Items">
+                    <AttributeList>
+                      <Culture>en-US</Culture>
+                      <FontFamily>Tahoma</FontFamily>
+                      <FontSize>15</FontSize>
+                      <FontStyle>Regular</FontStyle>
+                    </AttributeList>
+                  </Hmi.Globalization.FontItem>
+                </ObjectList>
+              </Hmi.Globalization.MultiLingualFont>
+              <MultilingualText ID="7D" CompositionName="HelpText">
+                <ObjectList>
+                  <MultilingualTextItem ID="7E" CompositionName="Items">
+                    <AttributeList>
+                      <Culture>en-US</Culture>
+                      <Text />
+                    </AttributeList>
+                  </MultilingualTextItem>
+                </ObjectList>
+              </MultilingualText>
+              <Hmi.Screen.Property ID="7F" CompositionName="Properties">
+                <AttributeList>
+                  <Name>ProcessValue</Name>
+                </AttributeList>
+                <ObjectList>
+                  <Hmi.Dynamic.TagConnectionDynamic ID="80" CompositionName="Dynamic">
+                    <AttributeList>
+                      <Indirect>false</Indirect>
+                    </AttributeList>
+                    <LinkList>
+                      <Tag TargetID="@OpenLink">
+                        <Name>AlarmHist_09</Name>
+                      </Tag>
+                    </LinkList>
+                  </Hmi.Dynamic.TagConnectionDynamic>
+                </ObjectList>
+              </Hmi.Screen.Property>
+            </ObjectList>
+          </Hmi.Screen.SymbolicIOField>
+          <Hmi.Screen.TextField ID="81" CompositionName="ScreenItems">
+            <AttributeList>
+              <Left>9</Left>
+              <Top>352</Top>
+              <Width>32</Width>
+              <Height>20</Height>
+              <ObjectName>txt_12</ObjectName>
+              <BackFillStyle>Transparent</BackFillStyle>
+              <BorderWidth>0</BorderWidth>
+              <EdgeStyle>None</EdgeStyle>
+              <FitToLargest>false</FitToLargest>
+              <ForeColor>70, 70, 70</ForeColor>
+              <HorizontalAlignment>Left</HorizontalAlignment>
+              <UseDesignColorSchema>false</UseDesignColorSchema>
+              <VerticalAlignment>Middle</VerticalAlignment>
+            </AttributeList>
+            <ObjectList>
+              <Hmi.Globalization.MultiLingualFont ID="82" CompositionName="Font">
+                <ObjectList>
+                  <Hmi.Globalization.FontItem ID="83" CompositionName="Items">
+                    <AttributeList>
+                      <Culture>en-US</Culture>
+                      <FontFamily>Tahoma</FontFamily>
+                      <FontSize>8</FontSize>
+                      <FontStyle>Regular</FontStyle>
+                    </AttributeList>
+                  </Hmi.Globalization.FontItem>
+                </ObjectList>
+              </Hmi.Globalization.MultiLingualFont>
+              <MultilingualText ID="84" CompositionName="Text">
+                <ObjectList>
+                  <MultilingualTextItem ID="85" CompositionName="Items">
+                    <AttributeList>
+                      <Culture>en-US</Culture>
+                      <Text><body><p>[10]</p></body></Text>
+                    </AttributeList>
+                  </MultilingualTextItem>
+                </ObjectList>
+              </MultilingualText>
+            </ObjectList>
+          </Hmi.Screen.TextField>
+          <Hmi.Screen.SymbolicIOField ID="86" CompositionName="ScreenItems">
+            <AttributeList>
+              <Left>43</Left>
+              <Top>352</Top>
+              <Width>552</Width>
+              <Height>20</Height>
+              <ObjectName>sym_11</ObjectName>
+              <BackColor>236, 236, 236</BackColor>
+              <BorderColor>128, 128, 128</BorderColor>
+              <BorderWidth>1</BorderWidth>
+              <ForeColor>0, 0, 0</ForeColor>
+              <Mode>Output</Mode>
+              <UseDesignColorSchema>false</UseDesignColorSchema>
+            </AttributeList>
+            <LinkList>
+              <TextList TargetID="@OpenLink">
+                <Name>TL_Alarm</Name>
+              </TextList>
+            </LinkList>
+            <ObjectList>
+              <Hmi.Globalization.MultiLingualFont ID="87" CompositionName="Font">
+                <ObjectList>
+                  <Hmi.Globalization.FontItem ID="88" CompositionName="Items">
+                    <AttributeList>
+                      <Culture>en-US</Culture>
+                      <FontFamily>Tahoma</FontFamily>
+                      <FontSize>15</FontSize>
+                      <FontStyle>Regular</FontStyle>
+                    </AttributeList>
+                  </Hmi.Globalization.FontItem>
+                </ObjectList>
+              </Hmi.Globalization.MultiLingualFont>
+              <MultilingualText ID="89" CompositionName="HelpText">
+                <ObjectList>
+                  <MultilingualTextItem ID="8A" CompositionName="Items">
+                    <AttributeList>
+                      <Culture>en-US</Culture>
+                      <Text />
+                    </AttributeList>
+                  </MultilingualTextItem>
+                </ObjectList>
+              </MultilingualText>
+              <Hmi.Screen.Property ID="8B" CompositionName="Properties">
+                <AttributeList>
+                  <Name>ProcessValue</Name>
+                </AttributeList>
+                <ObjectList>
+                  <Hmi.Dynamic.TagConnectionDynamic ID="8C" CompositionName="Dynamic">
+                    <AttributeList>
+                      <Indirect>false</Indirect>
+                    </AttributeList>
+                    <LinkList>
+                      <Tag TargetID="@OpenLink">
+                        <Name>AlarmHist_10</Name>
+                      </Tag>
+                    </LinkList>
+                  </Hmi.Dynamic.TagConnectionDynamic>
+                </ObjectList>
+              </Hmi.Screen.Property>
+            </ObjectList>
+          </Hmi.Screen.SymbolicIOField>
+          <Hmi.Screen.TextField ID="8D" CompositionName="ScreenItems">
+            <AttributeList>
+              <Left>9</Left>
+              <Top>377</Top>
+              <Width>32</Width>
+              <Height>20</Height>
+              <ObjectName>txt_13</ObjectName>
+              <BackFillStyle>Transparent</BackFillStyle>
+              <BorderWidth>0</BorderWidth>
+              <EdgeStyle>None</EdgeStyle>
+              <FitToLargest>false</FitToLargest>
+              <ForeColor>70, 70, 70</ForeColor>
+              <HorizontalAlignment>Left</HorizontalAlignment>
+              <UseDesignColorSchema>false</UseDesignColorSchema>
+              <VerticalAlignment>Middle</VerticalAlignment>
+            </AttributeList>
+            <ObjectList>
+              <Hmi.Globalization.MultiLingualFont ID="8E" CompositionName="Font">
+                <ObjectList>
+                  <Hmi.Globalization.FontItem ID="8F" CompositionName="Items">
+                    <AttributeList>
+                      <Culture>en-US</Culture>
+                      <FontFamily>Tahoma</FontFamily>
+                      <FontSize>8</FontSize>
+                      <FontStyle>Regular</FontStyle>
+                    </AttributeList>
+                  </Hmi.Globalization.FontItem>
+                </ObjectList>
+              </Hmi.Globalization.MultiLingualFont>
+              <MultilingualText ID="90" CompositionName="Text">
+                <ObjectList>
+                  <MultilingualTextItem ID="91" CompositionName="Items">
+                    <AttributeList>
+                      <Culture>en-US</Culture>
+                      <Text><body><p>[11]</p></body></Text>
+                    </AttributeList>
+                  </MultilingualTextItem>
+                </ObjectList>
+              </MultilingualText>
+            </ObjectList>
+          </Hmi.Screen.TextField>
+          <Hmi.Screen.SymbolicIOField ID="92" CompositionName="ScreenItems">
+            <AttributeList>
+              <Left>43</Left>
+              <Top>377</Top>
+              <Width>552</Width>
+              <Height>20</Height>
+              <ObjectName>sym_12</ObjectName>
+              <BackColor>236, 236, 236</BackColor>
+              <BorderColor>128, 128, 128</BorderColor>
+              <BorderWidth>1</BorderWidth>
+              <ForeColor>0, 0, 0</ForeColor>
+              <Mode>Output</Mode>
+              <UseDesignColorSchema>false</UseDesignColorSchema>
+            </AttributeList>
+            <LinkList>
+              <TextList TargetID="@OpenLink">
+                <Name>TL_Alarm</Name>
+              </TextList>
+            </LinkList>
+            <ObjectList>
+              <Hmi.Globalization.MultiLingualFont ID="93" CompositionName="Font">
+                <ObjectList>
+                  <Hmi.Globalization.FontItem ID="94" CompositionName="Items">
+                    <AttributeList>
+                      <Culture>en-US</Culture>
+                      <FontFamily>Tahoma</FontFamily>
+                      <FontSize>15</FontSize>
+                      <FontStyle>Regular</FontStyle>
+                    </AttributeList>
+                  </Hmi.Globalization.FontItem>
+                </ObjectList>
+              </Hmi.Globalization.MultiLingualFont>
+              <MultilingualText ID="95" CompositionName="HelpText">
+                <ObjectList>
+                  <MultilingualTextItem ID="96" CompositionName="Items">
+                    <AttributeList>
+                      <Culture>en-US</Culture>
+                      <Text />
+                    </AttributeList>
+                  </MultilingualTextItem>
+                </ObjectList>
+              </MultilingualText>
+              <Hmi.Screen.Property ID="97" CompositionName="Properties">
+                <AttributeList>
+                  <Name>ProcessValue</Name>
+                </AttributeList>
+                <ObjectList>
+                  <Hmi.Dynamic.TagConnectionDynamic ID="98" CompositionName="Dynamic">
+                    <AttributeList>
+                      <Indirect>false</Indirect>
+                    </AttributeList>
+                    <LinkList>
+                      <Tag TargetID="@OpenLink">
+                        <Name>AlarmHist_11</Name>
+                      </Tag>
+                    </LinkList>
+                  </Hmi.Dynamic.TagConnectionDynamic>
+                </ObjectList>
+              </Hmi.Screen.Property>
+            </ObjectList>
+          </Hmi.Screen.SymbolicIOField>
+          <Hmi.Screen.TextField ID="99" CompositionName="ScreenItems">
+            <AttributeList>
+              <Left>9</Left>
+              <Top>401</Top>
+              <Width>32</Width>
+              <Height>20</Height>
+              <ObjectName>txt_14</ObjectName>
+              <BackFillStyle>Transparent</BackFillStyle>
+              <BorderWidth>0</BorderWidth>
+              <EdgeStyle>None</EdgeStyle>
+              <FitToLargest>false</FitToLargest>
+              <ForeColor>70, 70, 70</ForeColor>
+              <HorizontalAlignment>Left</HorizontalAlignment>
+              <UseDesignColorSchema>false</UseDesignColorSchema>
+              <VerticalAlignment>Middle</VerticalAlignment>
+            </AttributeList>
+            <ObjectList>
+              <Hmi.Globalization.MultiLingualFont ID="9A" CompositionName="Font">
+                <ObjectList>
+                  <Hmi.Globalization.FontItem ID="9B" CompositionName="Items">
+                    <AttributeList>
+                      <Culture>en-US</Culture>
+                      <FontFamily>Tahoma</FontFamily>
+                      <FontSize>8</FontSize>
+                      <FontStyle>Regular</FontStyle>
+                    </AttributeList>
+                  </Hmi.Globalization.FontItem>
+                </ObjectList>
+              </Hmi.Globalization.MultiLingualFont>
+              <MultilingualText ID="9C" CompositionName="Text">
+                <ObjectList>
+                  <MultilingualTextItem ID="9D" CompositionName="Items">
+                    <AttributeList>
+                      <Culture>en-US</Culture>
+                      <Text><body><p>[12]</p></body></Text>
+                    </AttributeList>
+                  </MultilingualTextItem>
+                </ObjectList>
+              </MultilingualText>
+            </ObjectList>
+          </Hmi.Screen.TextField>
+          <Hmi.Screen.SymbolicIOField ID="9E" CompositionName="ScreenItems">
+            <AttributeList>
+              <Left>43</Left>
+              <Top>401</Top>
+              <Width>552</Width>
+              <Height>20</Height>
+              <ObjectName>sym_13</ObjectName>
+              <BackColor>236, 236, 236</BackColor>
+              <BorderColor>128, 128, 128</BorderColor>
+              <BorderWidth>1</BorderWidth>
+              <ForeColor>0, 0, 0</ForeColor>
+              <Mode>Output</Mode>
+              <UseDesignColorSchema>false</UseDesignColorSchema>
+            </AttributeList>
+            <LinkList>
+              <TextList TargetID="@OpenLink">
+                <Name>TL_Alarm</Name>
+              </TextList>
+            </LinkList>
+            <ObjectList>
+              <Hmi.Globalization.MultiLingualFont ID="9F" CompositionName="Font">
+                <ObjectList>
+                  <Hmi.Globalization.FontItem ID="A0" CompositionName="Items">
+                    <AttributeList>
+                      <Culture>en-US</Culture>
+                      <FontFamily>Tahoma</FontFamily>
+                      <FontSize>15</FontSize>
+                      <FontStyle>Regular</FontStyle>
+                    </AttributeList>
+                  </Hmi.Globalization.FontItem>
+                </ObjectList>
+              </Hmi.Globalization.MultiLingualFont>
+              <MultilingualText ID="A1" CompositionName="HelpText">
+                <ObjectList>
+                  <MultilingualTextItem ID="A2" CompositionName="Items">
+                    <AttributeList>
+                      <Culture>en-US</Culture>
+                      <Text />
+                    </AttributeList>
+                  </MultilingualTextItem>
+                </ObjectList>
+              </MultilingualText>
+              <Hmi.Screen.Property ID="A3" CompositionName="Properties">
+                <AttributeList>
+                  <Name>ProcessValue</Name>
+                </AttributeList>
+                <ObjectList>
+                  <Hmi.Dynamic.TagConnectionDynamic ID="A4" CompositionName="Dynamic">
+                    <AttributeList>
+                      <Indirect>false</Indirect>
+                    </AttributeList>
+                    <LinkList>
+                      <Tag TargetID="@OpenLink">
+                        <Name>AlarmHist_12</Name>
+                      </Tag>
+                    </LinkList>
+                  </Hmi.Dynamic.TagConnectionDynamic>
+                </ObjectList>
+              </Hmi.Screen.Property>
+            </ObjectList>
+          </Hmi.Screen.SymbolicIOField>
+          <Hmi.Screen.TextField ID="A5" CompositionName="ScreenItems">
+            <AttributeList>
+              <Left>9</Left>
+              <Top>426</Top>
+              <Width>32</Width>
+              <Height>20</Height>
+              <ObjectName>txt_15</ObjectName>
+              <BackFillStyle>Transparent</BackFillStyle>
+              <BorderWidth>0</BorderWidth>
+              <EdgeStyle>None</EdgeStyle>
+              <FitToLargest>false</FitToLargest>
+              <ForeColor>70, 70, 70</ForeColor>
+              <HorizontalAlignment>Left</HorizontalAlignment>
+              <UseDesignColorSchema>false</UseDesignColorSchema>
+              <VerticalAlignment>Middle</VerticalAlignment>
+            </AttributeList>
+            <ObjectList>
+              <Hmi.Globalization.MultiLingualFont ID="A6" CompositionName="Font">
+                <ObjectList>
+                  <Hmi.Globalization.FontItem ID="A7" CompositionName="Items">
+                    <AttributeList>
+                      <Culture>en-US</Culture>
+                      <FontFamily>Tahoma</FontFamily>
+                      <FontSize>8</FontSize>
+                      <FontStyle>Regular</FontStyle>
+                    </AttributeList>
+                  </Hmi.Globalization.FontItem>
+                </ObjectList>
+              </Hmi.Globalization.MultiLingualFont>
+              <MultilingualText ID="A8" CompositionName="Text">
+                <ObjectList>
+                  <MultilingualTextItem ID="A9" CompositionName="Items">
+                    <AttributeList>
+                      <Culture>en-US</Culture>
+                      <Text><body><p>[13]</p></body></Text>
+                    </AttributeList>
+                  </MultilingualTextItem>
+                </ObjectList>
+              </MultilingualText>
+            </ObjectList>
+          </Hmi.Screen.TextField>
+          <Hmi.Screen.SymbolicIOField ID="AA" CompositionName="ScreenItems">
+            <AttributeList>
+              <Left>43</Left>
+              <Top>426</Top>
+              <Width>552</Width>
+              <Height>20</Height>
+              <ObjectName>sym_14</ObjectName>
+              <BackColor>236, 236, 236</BackColor>
+              <BorderColor>128, 128, 128</BorderColor>
+              <BorderWidth>1</BorderWidth>
+              <ForeColor>0, 0, 0</ForeColor>
+              <Mode>Output</Mode>
+              <UseDesignColorSchema>false</UseDesignColorSchema>
+            </AttributeList>
+            <LinkList>
+              <TextList TargetID="@OpenLink">
+                <Name>TL_Alarm</Name>
+              </TextList>
+            </LinkList>
+            <ObjectList>
+              <Hmi.Globalization.MultiLingualFont ID="AB" CompositionName="Font">
+                <ObjectList>
+                  <Hmi.Globalization.FontItem ID="AC" CompositionName="Items">
+                    <AttributeList>
+                      <Culture>en-US</Culture>
+                      <FontFamily>Tahoma</FontFamily>
+                      <FontSize>15</FontSize>
+                      <FontStyle>Regular</FontStyle>
+                    </AttributeList>
+                  </Hmi.Globalization.FontItem>
+                </ObjectList>
+              </Hmi.Globalization.MultiLingualFont>
+              <MultilingualText ID="AD" CompositionName="HelpText">
+                <ObjectList>
+                  <MultilingualTextItem ID="AE" CompositionName="Items">
+                    <AttributeList>
+                      <Culture>en-US</Culture>
+                      <Text />
+                    </AttributeList>
+                  </MultilingualTextItem>
+                </ObjectList>
+              </MultilingualText>
+              <Hmi.Screen.Property ID="AF" CompositionName="Properties">
+                <AttributeList>
+                  <Name>ProcessValue</Name>
+                </AttributeList>
+                <ObjectList>
+                  <Hmi.Dynamic.TagConnectionDynamic ID="B0" CompositionName="Dynamic">
+                    <AttributeList>
+                      <Indirect>false</Indirect>
+                    </AttributeList>
+                    <LinkList>
+                      <Tag TargetID="@OpenLink">
+                        <Name>AlarmHist_13</Name>
+                      </Tag>
+                    </LinkList>
+                  </Hmi.Dynamic.TagConnectionDynamic>
+                </ObjectList>
+              </Hmi.Screen.Property>
+            </ObjectList>
+          </Hmi.Screen.SymbolicIOField>
+          <Hmi.Screen.TextField ID="B1" CompositionName="ScreenItems">
+            <AttributeList>
+              <Left>9</Left>
+              <Top>450</Top>
+              <Width>32</Width>
+              <Height>20</Height>
+              <ObjectName>txt_16</ObjectName>
+              <BackFillStyle>Transparent</BackFillStyle>
+              <BorderWidth>0</BorderWidth>
+              <EdgeStyle>None</EdgeStyle>
+              <FitToLargest>false</FitToLargest>
+              <ForeColor>70, 70, 70</ForeColor>
+              <HorizontalAlignment>Left</HorizontalAlignment>
+              <UseDesignColorSchema>false</UseDesignColorSchema>
+              <VerticalAlignment>Middle</VerticalAlignment>
+            </AttributeList>
+            <ObjectList>
+              <Hmi.Globalization.MultiLingualFont ID="B2" CompositionName="Font">
+                <ObjectList>
+                  <Hmi.Globalization.FontItem ID="B3" CompositionName="Items">
+                    <AttributeList>
+                      <Culture>en-US</Culture>
+                      <FontFamily>Tahoma</FontFamily>
+                      <FontSize>8</FontSize>
+                      <FontStyle>Regular</FontStyle>
+                    </AttributeList>
+                  </Hmi.Globalization.FontItem>
+                </ObjectList>
+              </Hmi.Globalization.MultiLingualFont>
+              <MultilingualText ID="B4" CompositionName="Text">
+                <ObjectList>
+                  <MultilingualTextItem ID="B5" CompositionName="Items">
+                    <AttributeList>
+                      <Culture>en-US</Culture>
+                      <Text><body><p>[14]</p></body></Text>
+                    </AttributeList>
+                  </MultilingualTextItem>
+                </ObjectList>
+              </MultilingualText>
+            </ObjectList>
+          </Hmi.Screen.TextField>
+          <Hmi.Screen.SymbolicIOField ID="B6" CompositionName="ScreenItems">
+            <AttributeList>
+              <Left>43</Left>
+              <Top>450</Top>
+              <Width>552</Width>
+              <Height>20</Height>
+              <ObjectName>sym_15</ObjectName>
+              <BackColor>236, 236, 236</BackColor>
+              <BorderColor>128, 128, 128</BorderColor>
+              <BorderWidth>1</BorderWidth>
+              <ForeColor>0, 0, 0</ForeColor>
+              <Mode>Output</Mode>
+              <UseDesignColorSchema>false</UseDesignColorSchema>
+            </AttributeList>
+            <LinkList>
+              <TextList TargetID="@OpenLink">
+                <Name>TL_Alarm</Name>
+              </TextList>
+            </LinkList>
+            <ObjectList>
+              <Hmi.Globalization.MultiLingualFont ID="B7" CompositionName="Font">
+                <ObjectList>
+                  <Hmi.Globalization.FontItem ID="B8" CompositionName="Items">
+                    <AttributeList>
+                      <Culture>en-US</Culture>
+                      <FontFamily>Tahoma</FontFamily>
+                      <FontSize>15</FontSize>
+                      <FontStyle>Regular</FontStyle>
+                    </AttributeList>
+                  </Hmi.Globalization.FontItem>
+                </ObjectList>
+              </Hmi.Globalization.MultiLingualFont>
+              <MultilingualText ID="B9" CompositionName="HelpText">
+                <ObjectList>
+                  <MultilingualTextItem ID="BA" CompositionName="Items">
+                    <AttributeList>
+                      <Culture>en-US</Culture>
+                      <Text />
+                    </AttributeList>
+                  </MultilingualTextItem>
+                </ObjectList>
+              </MultilingualText>
+              <Hmi.Screen.Property ID="BB" CompositionName="Properties">
+                <AttributeList>
+                  <Name>ProcessValue</Name>
+                </AttributeList>
+                <ObjectList>
+                  <Hmi.Dynamic.TagConnectionDynamic ID="BC" CompositionName="Dynamic">
+                    <AttributeList>
+                      <Indirect>false</Indirect>
+                    </AttributeList>
+                    <LinkList>
+                      <Tag TargetID="@OpenLink">
+                        <Name>AlarmHist_14</Name>
+                      </Tag>
+                    </LinkList>
+                  </Hmi.Dynamic.TagConnectionDynamic>
+                </ObjectList>
+              </Hmi.Screen.Property>
+            </ObjectList>
+          </Hmi.Screen.SymbolicIOField>
+          <Hmi.Screen.TextField ID="BD" CompositionName="ScreenItems">
+            <AttributeList>
+              <Left>9</Left>
+              <Top>475</Top>
+              <Width>32</Width>
+              <Height>20</Height>
+              <ObjectName>txt_17</ObjectName>
+              <BackFillStyle>Transparent</BackFillStyle>
+              <BorderWidth>0</BorderWidth>
+              <EdgeStyle>None</EdgeStyle>
+              <FitToLargest>false</FitToLargest>
+              <ForeColor>70, 70, 70</ForeColor>
+              <HorizontalAlignment>Left</HorizontalAlignment>
+              <UseDesignColorSchema>false</UseDesignColorSchema>
+              <VerticalAlignment>Middle</VerticalAlignment>
+            </AttributeList>
+            <ObjectList>
+              <Hmi.Globalization.MultiLingualFont ID="BE" CompositionName="Font">
+                <ObjectList>
+                  <Hmi.Globalization.FontItem ID="BF" CompositionName="Items">
+                    <AttributeList>
+                      <Culture>en-US</Culture>
+                      <FontFamily>Tahoma</FontFamily>
+                      <FontSize>8</FontSize>
+                      <FontStyle>Regular</FontStyle>
+                    </AttributeList>
+                  </Hmi.Globalization.FontItem>
+                </ObjectList>
+              </Hmi.Globalization.MultiLingualFont>
+              <MultilingualText ID="C0" CompositionName="Text">
+                <ObjectList>
+                  <MultilingualTextItem ID="C1" CompositionName="Items">
+                    <AttributeList>
+                      <Culture>en-US</Culture>
+                      <Text><body><p>[15]</p></body></Text>
+                    </AttributeList>
+                  </MultilingualTextItem>
+                </ObjectList>
+              </MultilingualText>
+            </ObjectList>
+          </Hmi.Screen.TextField>
+          <Hmi.Screen.SymbolicIOField ID="C2" CompositionName="ScreenItems">
+            <AttributeList>
+              <Left>43</Left>
+              <Top>475</Top>
+              <Width>552</Width>
+              <Height>20</Height>
+              <ObjectName>sym_16</ObjectName>
+              <BackColor>236, 236, 236</BackColor>
+              <BorderColor>128, 128, 128</BorderColor>
+              <BorderWidth>1</BorderWidth>
+              <ForeColor>0, 0, 0</ForeColor>
+              <Mode>Output</Mode>
+              <UseDesignColorSchema>false</UseDesignColorSchema>
+            </AttributeList>
+            <LinkList>
+              <TextList TargetID="@OpenLink">
+                <Name>TL_Alarm</Name>
+              </TextList>
+            </LinkList>
+            <ObjectList>
+              <Hmi.Globalization.MultiLingualFont ID="C3" CompositionName="Font">
+                <ObjectList>
+                  <Hmi.Globalization.FontItem ID="C4" CompositionName="Items">
+                    <AttributeList>
+                      <Culture>en-US</Culture>
+                      <FontFamily>Tahoma</FontFamily>
+                      <FontSize>15</FontSize>
+                      <FontStyle>Regular</FontStyle>
+                    </AttributeList>
+                  </Hmi.Globalization.FontItem>
+                </ObjectList>
+              </Hmi.Globalization.MultiLingualFont>
+              <MultilingualText ID="C5" CompositionName="HelpText">
+                <ObjectList>
+                  <MultilingualTextItem ID="C6" CompositionName="Items">
+                    <AttributeList>
+                      <Culture>en-US</Culture>
+                      <Text />
+                    </AttributeList>
+                  </MultilingualTextItem>
+                </ObjectList>
+              </MultilingualText>
+              <Hmi.Screen.Property ID="C7" CompositionName="Properties">
+                <AttributeList>
+                  <Name>ProcessValue</Name>
+                </AttributeList>
+                <ObjectList>
+                  <Hmi.Dynamic.TagConnectionDynamic ID="C8" CompositionName="Dynamic">
+                    <AttributeList>
+                      <Indirect>false</Indirect>
+                    </AttributeList>
+                    <LinkList>
+                      <Tag TargetID="@OpenLink">
+                        <Name>AlarmHist_15</Name>
+                      </Tag>
+                    </LinkList>
+                  </Hmi.Dynamic.TagConnectionDynamic>
+                </ObjectList>
+              </Hmi.Screen.Property>
+            </ObjectList>
+          </Hmi.Screen.SymbolicIOField>
+          <Hmi.Screen.TextField ID="C9" CompositionName="ScreenItems">
+            <AttributeList>
+              <Left>651</Left>
+              <Top>107</Top>
+              <Width>365</Width>
+              <Height>160</Height>
+              <ObjectName>frm_1</ObjectName>
+              <BackFillStyle>Solid</BackFillStyle>
+              <BorderWidth>1</BorderWidth>
+              <EdgeStyle>Solid</EdgeStyle>
+              <FitToLargest>false</FitToLargest>
+              <ForeColor>0, 0, 0</ForeColor>
+              <HorizontalAlignment>Left</HorizontalAlignment>
+              <UseDesignColorSchema>false</UseDesignColorSchema>
+              <VerticalAlignment>Middle</VerticalAlignment>
+            </AttributeList>
+            <ObjectList>
+              <Hmi.Globalization.MultiLingualFont ID="CA" CompositionName="Font">
+                <ObjectList>
+                  <Hmi.Globalization.FontItem ID="CB" CompositionName="Items">
+                    <AttributeList>
+                      <Culture>en-US</Culture>
+                      <FontFamily>Tahoma</FontFamily>
+                      <FontSize>15</FontSize>
+                      <FontStyle>Regular</FontStyle>
+                    </AttributeList>
+                  </Hmi.Globalization.FontItem>
+                </ObjectList>
+              </Hmi.Globalization.MultiLingualFont>
+              <MultilingualText ID="CC" CompositionName="Text">
+                <ObjectList>
+                  <MultilingualTextItem ID="CD" CompositionName="Items">
+                    <AttributeList>
+                      <Culture>en-US</Culture>
+                      <Text><body><p /></body></Text>
+                    </AttributeList>
+                  </MultilingualTextItem>
+                </ObjectList>
+              </MultilingualText>
+            </ObjectList>
+          </Hmi.Screen.TextField>
+          <Hmi.Screen.TextField ID="CE" CompositionName="ScreenItems">
+            <AttributeList>
+              <Left>657</Left>
+              <Top>110</Top>
+              <Width>320</Width>
+              <Height>15</Height>
+              <ObjectName>txt_18</ObjectName>
+              <BackFillStyle>Transparent</BackFillStyle>
+              <BorderWidth>0</BorderWidth>
+              <EdgeStyle>None</EdgeStyle>
+              <FitToLargest>false</FitToLargest>
+              <ForeColor>0, 0, 0</ForeColor>
+              <HorizontalAlignment>Left</HorizontalAlignment>
+              <UseDesignColorSchema>false</UseDesignColorSchema>
+              <VerticalAlignment>Middle</VerticalAlignment>
+            </AttributeList>
+            <ObjectList>
+              <Hmi.Globalization.MultiLingualFont ID="CF" CompositionName="Font">
+                <ObjectList>
+                  <Hmi.Globalization.FontItem ID="D0" CompositionName="Items">
+                    <AttributeList>
+                      <Culture>en-US</Culture>
+                      <FontFamily>Tahoma</FontFamily>
+                      <FontSize>8</FontSize>
+                      <FontStyle>Bold</FontStyle>
+                    </AttributeList>
+                  </Hmi.Globalization.FontItem>
+                </ObjectList>
+              </Hmi.Globalization.MultiLingualFont>
+              <MultilingualText ID="D1" CompositionName="Text">
+                <ObjectList>
+                  <MultilingualTextItem ID="D2" CompositionName="Items">
+                    <AttributeList>
+                      <Culture>en-US</Culture>
+                      <Text><body><p>NAJNOVIJI ALARM - DETALJI</p></body></Text>
+                    </AttributeList>
+                  </MultilingualTextItem>
+                </ObjectList>
+              </MultilingualText>
+            </ObjectList>
+          </Hmi.Screen.TextField>
+          <Hmi.Screen.Rectangle ID="D3" CompositionName="ScreenItems">
+            <AttributeList>
+              <Left>657</Left>
+              <Top>131</Top>
+              <Width>12</Width>
+              <Height>12</Height>
+              <ObjectName>lmp_1</ObjectName>
+              <BackColor>170, 170, 170</BackColor>
+              <BorderColor>90, 90, 90</BorderColor>
+              <BorderWidth>1</BorderWidth>
+            </AttributeList>
+            <ObjectList>
+              <Hmi.Dynamic.RangeAppearanceAnimation ID="D4" CompositionName="Animations">
+                <AttributeList>
+                  <Name>RangeAppearanceAnimation</Name>
+                </AttributeList>
+                <ObjectList>
+                  <Hmi.Dynamic.TagElementTrigger ID="D5" CompositionName="RangeTag">
+                    <LinkList>
+                      <Tag TargetID="@OpenLink">
+                        <Name>LampAlarm</Name>
+                      </Tag>
+                    </LinkList>
+                  </Hmi.Dynamic.TagElementTrigger>
+                  <Hmi.Dynamic.Range ID="D6" CompositionName="RangeValues">
+                    <AttributeList>
+                      <BackColor>170, 170, 170</BackColor>
+                      <FlashingType>No</FlashingType>
+                      <ForeColor>0, 0, 0</ForeColor>
+                      <LowerLimit>0</LowerLimit>
+                      <UpperLimit>0</UpperLimit>
+                    </AttributeList>
+                  </Hmi.Dynamic.Range>
+                  <Hmi.Dynamic.Range ID="D7" CompositionName="RangeValues">
+                    <AttributeList>
+                      <BackColor>220, 0, 0</BackColor>
+                      <FlashingType>Medium</FlashingType>
+                      <ForeColor>0, 0, 0</ForeColor>
+                      <LowerLimit>1</LowerLimit>
+                      <UpperLimit>1</UpperLimit>
+                    </AttributeList>
+                  </Hmi.Dynamic.Range>
+                </ObjectList>
+              </Hmi.Dynamic.RangeAppearanceAnimation>
+            </ObjectList>
+          </Hmi.Screen.Rectangle>
+          <Hmi.Screen.TextField ID="D8" CompositionName="ScreenItems">
+            <AttributeList>
+              <Left>673</Left>
+              <Top>128</Top>
+              <Width>80</Width>
+              <Height>18</Height>
+              <ObjectName>txt_19</ObjectName>
+              <BackFillStyle>Transparent</BackFillStyle>
+              <BorderWidth>0</BorderWidth>
+              <EdgeStyle>None</EdgeStyle>
+              <FitToLargest>false</FitToLargest>
+              <ForeColor>0, 0, 0</ForeColor>
+              <HorizontalAlignment>Left</HorizontalAlignment>
+              <UseDesignColorSchema>false</UseDesignColorSchema>
+              <VerticalAlignment>Middle</VerticalAlignment>
+            </AttributeList>
+            <ObjectList>
+              <Hmi.Globalization.MultiLingualFont ID="D9" CompositionName="Font">
+                <ObjectList>
+                  <Hmi.Globalization.FontItem ID="DA" CompositionName="Items">
+                    <AttributeList>
+                      <Culture>en-US</Culture>
+                      <FontFamily>Tahoma</FontFamily>
+                      <FontSize>8</FontSize>
+                      <FontStyle>Regular</FontStyle>
+                    </AttributeList>
+                  </Hmi.Globalization.FontItem>
+                </ObjectList>
+              </Hmi.Globalization.MultiLingualFont>
+              <MultilingualText ID="DB" CompositionName="Text">
+                <ObjectList>
+                  <MultilingualTextItem ID="DC" CompositionName="Items">
+                    <AttributeList>
+                      <Culture>en-US</Culture>
+                      <Text><body><p>Kontejner ID</p></body></Text>
+                    </AttributeList>
+                  </MultilingualTextItem>
+                </ObjectList>
+              </MultilingualText>
+            </ObjectList>
+          </Hmi.Screen.TextField>
+          <Hmi.Screen.IOField ID="DD" CompositionName="ScreenItems">
+            <AttributeList>
+              <Left>753</Left>
+              <Top>128</Top>
+              <Width>43</Width>
+              <Height>18</Height>
+              <ObjectName>io_1</ObjectName>
+              <BackColor>236, 236, 236</BackColor>
+              <BackFillStyle>Solid</BackFillStyle>
+              <BorderColor>128, 128, 128</BorderColor>
+              <BorderWidth>1</BorderWidth>
+              <ForeColor>0, 0, 0</ForeColor>
+              <HorizontalAlignment>Right</HorizontalAlignment>
+              <UseDesignColorSchema>false</UseDesignColorSchema>
+              <DataFormat>Decimal</DataFormat>
+              <FieldLength>3</FieldLength>
+              <FormatPattern>999</FormatPattern>
+              <Mode>Output</Mode>
+            </AttributeList>
+            <ObjectList>
+              <Hmi.Globalization.MultiLingualFont ID="DE" CompositionName="Font">
+                <ObjectList>
+                  <Hmi.Globalization.FontItem ID="DF" CompositionName="Items">
+                    <AttributeList>
+                      <Culture>en-US</Culture>
+                      <FontFamily>Tahoma</FontFamily>
+                      <FontSize>15</FontSize>
+                      <FontStyle>Regular</FontStyle>
+                    </AttributeList>
+                  </Hmi.Globalization.FontItem>
+                </ObjectList>
+              </Hmi.Globalization.MultiLingualFont>
+              <MultilingualText ID="E0" CompositionName="HelpText">
+                <ObjectList>
+                  <MultilingualTextItem ID="E1" CompositionName="Items">
+                    <AttributeList>
+                      <Culture>en-US</Culture>
+                      <Text />
+                    </AttributeList>
+                  </MultilingualTextItem>
+                </ObjectList>
+              </MultilingualText>
+              <Hmi.Screen.Property ID="E2" CompositionName="Properties">
+                <AttributeList>
+                  <Name>ProcessValue</Name>
+                </AttributeList>
+                <ObjectList>
+                  <Hmi.Dynamic.TagConnectionDynamic ID="E3" CompositionName="Dynamic">
+                    <AttributeList>
+                      <Indirect>false</Indirect>
+                    </AttributeList>
+                    <LinkList>
+                      <Tag TargetID="@OpenLink">
+                        <Name>AlarmId</Name>
+                      </Tag>
+                    </LinkList>
+                  </Hmi.Dynamic.TagConnectionDynamic>
+                </ObjectList>
+              </Hmi.Screen.Property>
+            </ObjectList>
+          </Hmi.Screen.IOField>
+          <Hmi.Screen.TextField ID="E4" CompositionName="ScreenItems">
+            <AttributeList>
+              <Left>657</Left>
+              <Top>151</Top>
+              <Width>64</Width>
+              <Height>18</Height>
+              <ObjectName>txt_20</ObjectName>
+              <BackFillStyle>Transparent</BackFillStyle>
+              <BorderWidth>0</BorderWidth>
+              <EdgeStyle>None</EdgeStyle>
+              <FitToLargest>false</FitToLargest>
+              <ForeColor>0, 0, 0</ForeColor>
+              <HorizontalAlignment>Left</HorizontalAlignment>
+              <UseDesignColorSchema>false</UseDesignColorSchema>
+              <VerticalAlignment>Middle</VerticalAlignment>
+            </AttributeList>
+            <ObjectList>
+              <Hmi.Globalization.MultiLingualFont ID="E5" CompositionName="Font">
+                <ObjectList>
+                  <Hmi.Globalization.FontItem ID="E6" CompositionName="Items">
+                    <AttributeList>
+                      <Culture>en-US</Culture>
+                      <FontFamily>Tahoma</FontFamily>
+                      <FontSize>8</FontSize>
+                      <FontStyle>Regular</FontStyle>
+                    </AttributeList>
+                  </Hmi.Globalization.FontItem>
+                </ObjectList>
+              </Hmi.Globalization.MultiLingualFont>
+              <MultilingualText ID="E7" CompositionName="Text">
+                <ObjectList>
+                  <MultilingualTextItem ID="E8" CompositionName="Items">
+                    <AttributeList>
+                      <Culture>en-US</Culture>
+                      <Text><body><p>Lokacija x</p></body></Text>
+                    </AttributeList>
+                  </MultilingualTextItem>
+                </ObjectList>
+              </MultilingualText>
+            </ObjectList>
+          </Hmi.Screen.TextField>
+          <Hmi.Screen.IOField ID="E9" CompositionName="ScreenItems">
+            <AttributeList>
+              <Left>721</Left>
+              <Top>151</Top>
+              <Width>27</Width>
+              <Height>18</Height>
+              <ObjectName>io_2</ObjectName>
+              <BackColor>236, 236, 236</BackColor>
+              <BackFillStyle>Solid</BackFillStyle>
+              <BorderColor>128, 128, 128</BorderColor>
+              <BorderWidth>1</BorderWidth>
+              <ForeColor>0, 0, 0</ForeColor>
+              <HorizontalAlignment>Right</HorizontalAlignment>
+              <UseDesignColorSchema>false</UseDesignColorSchema>
+              <DataFormat>Decimal</DataFormat>
+              <FieldLength>2</FieldLength>
+              <FormatPattern>s9</FormatPattern>
+              <Mode>Output</Mode>
+            </AttributeList>
+            <ObjectList>
+              <Hmi.Globalization.MultiLingualFont ID="EA" CompositionName="Font">
+                <ObjectList>
+                  <Hmi.Globalization.FontItem ID="EB" CompositionName="Items">
+                    <AttributeList>
+                      <Culture>en-US</Culture>
+                      <FontFamily>Tahoma</FontFamily>
+                      <FontSize>15</FontSize>
+                      <FontStyle>Regular</FontStyle>
+                    </AttributeList>
+                  </Hmi.Globalization.FontItem>
+                </ObjectList>
+              </Hmi.Globalization.MultiLingualFont>
+              <MultilingualText ID="EC" CompositionName="HelpText">
+                <ObjectList>
+                  <MultilingualTextItem ID="ED" CompositionName="Items">
+                    <AttributeList>
+                      <Culture>en-US</Culture>
+                      <Text />
+                    </AttributeList>
+                  </MultilingualTextItem>
+                </ObjectList>
+              </MultilingualText>
+              <Hmi.Screen.Property ID="EE" CompositionName="Properties">
+                <AttributeList>
+                  <Name>ProcessValue</Name>
+                </AttributeList>
+                <ObjectList>
+                  <Hmi.Dynamic.TagConnectionDynamic ID="EF" CompositionName="Dynamic">
+                    <AttributeList>
+                      <Indirect>false</Indirect>
+                    </AttributeList>
+                    <LinkList>
+                      <Tag TargetID="@OpenLink">
+                        <Name>AlarmX</Name>
+                      </Tag>
+                    </LinkList>
+                  </Hmi.Dynamic.TagConnectionDynamic>
+                </ObjectList>
+              </Hmi.Screen.Property>
+            </ObjectList>
+          </Hmi.Screen.IOField>
+          <Hmi.Screen.TextField ID="F0" CompositionName="ScreenItems">
+            <AttributeList>
+              <Left>757</Left>
+              <Top>151</Top>
+              <Width>16</Width>
+              <Height>18</Height>
+              <ObjectName>txt_21</ObjectName>
+              <BackFillStyle>Transparent</BackFillStyle>
+              <BorderWidth>0</BorderWidth>
+              <EdgeStyle>None</EdgeStyle>
+              <FitToLargest>false</FitToLargest>
+              <ForeColor>0, 0, 0</ForeColor>
+              <HorizontalAlignment>Left</HorizontalAlignment>
+              <UseDesignColorSchema>false</UseDesignColorSchema>
+              <VerticalAlignment>Middle</VerticalAlignment>
+            </AttributeList>
+            <ObjectList>
+              <Hmi.Globalization.MultiLingualFont ID="F1" CompositionName="Font">
+                <ObjectList>
+                  <Hmi.Globalization.FontItem ID="F2" CompositionName="Items">
+                    <AttributeList>
+                      <Culture>en-US</Culture>
+                      <FontFamily>Tahoma</FontFamily>
+                      <FontSize>8</FontSize>
+                      <FontStyle>Regular</FontStyle>
+                    </AttributeList>
+                  </Hmi.Globalization.FontItem>
+                </ObjectList>
+              </Hmi.Globalization.MultiLingualFont>
+              <MultilingualText ID="F3" CompositionName="Text">
+                <ObjectList>
+                  <MultilingualTextItem ID="F4" CompositionName="Items">
+                    <AttributeList>
+                      <Culture>en-US</Culture>
+                      <Text><body><p>y</p></body></Text>
+                    </AttributeList>
+                  </MultilingualTextItem>
+                </ObjectList>
+              </MultilingualText>
+            </ObjectList>
+          </Hmi.Screen.TextField>
+          <Hmi.Screen.IOField ID="F5" CompositionName="ScreenItems">
+            <AttributeList>
+              <Left>773</Left>
+              <Top>151</Top>
+              <Width>27</Width>
+              <Height>18</Height>
+              <ObjectName>io_3</ObjectName>
+              <BackColor>236, 236, 236</BackColor>
+              <BackFillStyle>Solid</BackFillStyle>
+              <BorderColor>128, 128, 128</BorderColor>
+              <BorderWidth>1</BorderWidth>
+              <ForeColor>0, 0, 0</ForeColor>
+              <HorizontalAlignment>Right</HorizontalAlignment>
+              <UseDesignColorSchema>false</UseDesignColorSchema>
+              <DataFormat>Decimal</DataFormat>
+              <FieldLength>3</FieldLength>
+              <FormatPattern>s99</FormatPattern>
+              <Mode>Output</Mode>
+            </AttributeList>
+            <ObjectList>
+              <Hmi.Globalization.MultiLingualFont ID="F6" CompositionName="Font">
+                <ObjectList>
+                  <Hmi.Globalization.FontItem ID="F7" CompositionName="Items">
+                    <AttributeList>
+                      <Culture>en-US</Culture>
+                      <FontFamily>Tahoma</FontFamily>
+                      <FontSize>15</FontSize>
+                      <FontStyle>Regular</FontStyle>
+                    </AttributeList>
+                  </Hmi.Globalization.FontItem>
+                </ObjectList>
+              </Hmi.Globalization.MultiLingualFont>
+              <MultilingualText ID="F8" CompositionName="HelpText">
+                <ObjectList>
+                  <MultilingualTextItem ID="F9" CompositionName="Items">
+                    <AttributeList>
+                      <Culture>en-US</Culture>
+                      <Text />
+                    </AttributeList>
+                  </MultilingualTextItem>
+                </ObjectList>
+              </MultilingualText>
+              <Hmi.Screen.Property ID="FA" CompositionName="Properties">
+                <AttributeList>
+                  <Name>ProcessValue</Name>
+                </AttributeList>
+                <ObjectList>
+                  <Hmi.Dynamic.TagConnectionDynamic ID="FB" CompositionName="Dynamic">
+                    <AttributeList>
+                      <Indirect>false</Indirect>
+                    </AttributeList>
+                    <LinkList>
+                      <Tag TargetID="@OpenLink">
+                        <Name>AlarmY</Name>
+                      </Tag>
+                    </LinkList>
+                  </Hmi.Dynamic.TagConnectionDynamic>
+                </ObjectList>
+              </Hmi.Screen.Property>
+            </ObjectList>
+          </Hmi.Screen.IOField>
+          <Hmi.Screen.TextField ID="FC" CompositionName="ScreenItems">
+            <AttributeList>
+              <Left>821</Left>
+              <Top>151</Top>
+              <Width>32</Width>
+              <Height>18</Height>
+              <ObjectName>txt_22</ObjectName>
+              <BackFillStyle>Transparent</BackFillStyle>
+              <BorderWidth>0</BorderWidth>
+              <EdgeStyle>None</EdgeStyle>
+              <FitToLargest>false</FitToLargest>
+              <ForeColor>0, 0, 0</ForeColor>
+              <HorizontalAlignment>Left</HorizontalAlignment>
+              <UseDesignColorSchema>false</UseDesignColorSchema>
+              <VerticalAlignment>Middle</VerticalAlignment>
+            </AttributeList>
+            <ObjectList>
+              <Hmi.Globalization.MultiLingualFont ID="FD" CompositionName="Font">
+                <ObjectList>
+                  <Hmi.Globalization.FontItem ID="FE" CompositionName="Items">
+                    <AttributeList>
+                      <Culture>en-US</Culture>
+                      <FontFamily>Tahoma</FontFamily>
+                      <FontSize>8</FontSize>
+                      <FontStyle>Regular</FontStyle>
+                    </AttributeList>
+                  </Hmi.Globalization.FontItem>
+                </ObjectList>
+              </Hmi.Globalization.MultiLingualFont>
+              <MultilingualText ID="FF" CompositionName="Text">
+                <ObjectList>
+                  <MultilingualTextItem ID="100" CompositionName="Items">
+                    <AttributeList>
+                      <Culture>en-US</Culture>
+                      <Text><body><p>Bay</p></body></Text>
+                    </AttributeList>
+                  </MultilingualTextItem>
+                </ObjectList>
+              </MultilingualText>
+            </ObjectList>
+          </Hmi.Screen.TextField>
+          <Hmi.Screen.SymbolicIOField ID="101" CompositionName="ScreenItems">
+            <AttributeList>
+              <Left>853</Left>
+              <Top>151</Top>
+              <Width>128</Width>
+              <Height>18</Height>
+              <ObjectName>sym_17</ObjectName>
+              <BackColor>236, 236, 236</BackColor>
+              <BorderColor>128, 128, 128</BorderColor>
+              <BorderWidth>1</BorderWidth>
+              <ForeColor>0, 0, 0</ForeColor>
+              <Mode>Output</Mode>
+              <UseDesignColorSchema>false</UseDesignColorSchema>
+            </AttributeList>
+            <LinkList>
+              <TextList TargetID="@OpenLink">
+                <Name>TL_Bay</Name>
+              </TextList>
+            </LinkList>
+            <ObjectList>
+              <Hmi.Globalization.MultiLingualFont ID="102" CompositionName="Font">
+                <ObjectList>
+                  <Hmi.Globalization.FontItem ID="103" CompositionName="Items">
+                    <AttributeList>
+                      <Culture>en-US</Culture>
+                      <FontFamily>Tahoma</FontFamily>
+                      <FontSize>15</FontSize>
+                      <FontStyle>Regular</FontStyle>
+                    </AttributeList>
+                  </Hmi.Globalization.FontItem>
+                </ObjectList>
+              </Hmi.Globalization.MultiLingualFont>
+              <MultilingualText ID="104" CompositionName="HelpText">
+                <ObjectList>
+                  <MultilingualTextItem ID="105" CompositionName="Items">
+                    <AttributeList>
+                      <Culture>en-US</Culture>
+                      <Text />
+                    </AttributeList>
+                  </MultilingualTextItem>
+                </ObjectList>
+              </MultilingualText>
+              <Hmi.Screen.Property ID="106" CompositionName="Properties">
+                <AttributeList>
+                  <Name>ProcessValue</Name>
+                </AttributeList>
+                <ObjectList>
+                  <Hmi.Dynamic.TagConnectionDynamic ID="107" CompositionName="Dynamic">
+                    <AttributeList>
+                      <Indirect>false</Indirect>
+                    </AttributeList>
+                    <LinkList>
+                      <Tag TargetID="@OpenLink">
+                        <Name>AlarmBay</Name>
+                      </Tag>
+                    </LinkList>
+                  </Hmi.Dynamic.TagConnectionDynamic>
+                </ObjectList>
+              </Hmi.Screen.Property>
+            </ObjectList>
+          </Hmi.Screen.SymbolicIOField>
+          <Hmi.Screen.TextField ID="108" CompositionName="ScreenItems">
+            <AttributeList>
+              <Left>657</Left>
+              <Top>175</Top>
+              <Width>96</Width>
+              <Height>18</Height>
+              <ObjectName>txt_23</ObjectName>
+              <BackFillStyle>Transparent</BackFillStyle>
+              <BorderWidth>0</BorderWidth>
+              <EdgeStyle>None</EdgeStyle>
+              <FitToLargest>false</FitToLargest>
+              <ForeColor>0, 0, 0</ForeColor>
+              <HorizontalAlignment>Left</HorizontalAlignment>
+              <UseDesignColorSchema>false</UseDesignColorSchema>
+              <VerticalAlignment>Middle</VerticalAlignment>
+            </AttributeList>
+            <ObjectList>
+              <Hmi.Globalization.MultiLingualFont ID="109" CompositionName="Font">
+                <ObjectList>
+                  <Hmi.Globalization.FontItem ID="10A" CompositionName="Items">
+                    <AttributeList>
+                      <Culture>en-US</Culture>
+                      <FontFamily>Tahoma</FontFamily>
+                      <FontSize>8</FontSize>
+                      <FontStyle>Regular</FontStyle>
+                    </AttributeList>
+                  </Hmi.Globalization.FontItem>
+                </ObjectList>
+              </Hmi.Globalization.MultiLingualFont>
+              <MultilingualText ID="10B" CompositionName="Text">
+                <ObjectList>
+                  <MultilingualTextItem ID="10C" CompositionName="Items">
+                    <AttributeList>
+                      <Culture>en-US</Culture>
+                      <Text><body><p>Riječ alarma</p></body></Text>
+                    </AttributeList>
+                  </MultilingualTextItem>
+                </ObjectList>
+              </MultilingualText>
+            </ObjectList>
+          </Hmi.Screen.TextField>
+          <Hmi.Screen.IOField ID="10D" CompositionName="ScreenItems">
+            <AttributeList>
+              <Left>753</Left>
+              <Top>175</Top>
+              <Width>53</Width>
+              <Height>18</Height>
+              <ObjectName>io_4</ObjectName>
+              <BackColor>236, 236, 236</BackColor>
+              <BackFillStyle>Solid</BackFillStyle>
+              <BorderColor>128, 128, 128</BorderColor>
+              <BorderWidth>1</BorderWidth>
+              <ForeColor>0, 0, 0</ForeColor>
+              <HorizontalAlignment>Right</HorizontalAlignment>
+              <UseDesignColorSchema>false</UseDesignColorSchema>
+              <DataFormat>Decimal</DataFormat>
+              <FieldLength>5</FieldLength>
+              <FormatPattern>99999</FormatPattern>
+              <Mode>Output</Mode>
+            </AttributeList>
+            <ObjectList>
+              <Hmi.Globalization.MultiLingualFont ID="10E" CompositionName="Font">
+                <ObjectList>
+                  <Hmi.Globalization.FontItem ID="10F" CompositionName="Items">
+                    <AttributeList>
+                      <Culture>en-US</Culture>
+                      <FontFamily>Tahoma</FontFamily>
+                      <FontSize>15</FontSize>
+                      <FontStyle>Regular</FontStyle>
+                    </AttributeList>
+                  </Hmi.Globalization.FontItem>
+                </ObjectList>
+              </Hmi.Globalization.MultiLingualFont>
+              <MultilingualText ID="110" CompositionName="HelpText">
+                <ObjectList>
+                  <MultilingualTextItem ID="111" CompositionName="Items">
+                    <AttributeList>
+                      <Culture>en-US</Culture>
+                      <Text />
+                    </AttributeList>
+                  </MultilingualTextItem>
+                </ObjectList>
+              </MultilingualText>
+              <Hmi.Screen.Property ID="112" CompositionName="Properties">
+                <AttributeList>
+                  <Name>ProcessValue</Name>
+                </AttributeList>
+                <ObjectList>
+                  <Hmi.Dynamic.TagConnectionDynamic ID="113" CompositionName="Dynamic">
+                    <AttributeList>
+                      <Indirect>false</Indirect>
+                    </AttributeList>
+                    <LinkList>
+                      <Tag TargetID="@OpenLink">
+                        <Name>AlarmWord</Name>
+                      </Tag>
+                    </LinkList>
+                  </Hmi.Dynamic.TagConnectionDynamic>
+                </ObjectList>
+              </Hmi.Screen.Property>
+            </ObjectList>
+          </Hmi.Screen.IOField>
+          <Hmi.Screen.TextField ID="114" CompositionName="ScreenItems">
+            <AttributeList>
+              <Left>657</Left>
+              <Top>198</Top>
+              <Width>96</Width>
+              <Height>18</Height>
+              <ObjectName>txt_24</ObjectName>
+              <BackFillStyle>Transparent</BackFillStyle>
+              <BorderWidth>0</BorderWidth>
+              <EdgeStyle>None</EdgeStyle>
+              <FitToLargest>false</FitToLargest>
+              <ForeColor>0, 0, 0</ForeColor>
+              <HorizontalAlignment>Left</HorizontalAlignment>
+              <UseDesignColorSchema>false</UseDesignColorSchema>
+              <VerticalAlignment>Middle</VerticalAlignment>
+            </AttributeList>
+            <ObjectList>
+              <Hmi.Globalization.MultiLingualFont ID="115" CompositionName="Font">
+                <ObjectList>
+                  <Hmi.Globalization.FontItem ID="116" CompositionName="Items">
+                    <AttributeList>
+                      <Culture>en-US</Culture>
+                      <FontFamily>Tahoma</FontFamily>
+                      <FontSize>8</FontSize>
+                      <FontStyle>Regular</FontStyle>
+                    </AttributeList>
+                  </Hmi.Globalization.FontItem>
+                </ObjectList>
+              </Hmi.Globalization.MultiLingualFont>
+              <MultilingualText ID="117" CompositionName="Text">
+                <ObjectList>
+                  <MultilingualTextItem ID="118" CompositionName="Items">
+                    <AttributeList>
+                      <Culture>en-US</Culture>
+                      <Text><body><p>Broj pojava</p></body></Text>
+                    </AttributeList>
+                  </MultilingualTextItem>
+                </ObjectList>
+              </MultilingualText>
+            </ObjectList>
+          </Hmi.Screen.TextField>
+          <Hmi.Screen.IOField ID="119" CompositionName="ScreenItems">
+            <AttributeList>
+              <Left>753</Left>
+              <Top>198</Top>
+              <Width>53</Width>
+              <Height>18</Height>
+              <ObjectName>io_5</ObjectName>
+              <BackColor>236, 236, 236</BackColor>
+              <BackFillStyle>Solid</BackFillStyle>
+              <BorderColor>128, 128, 128</BorderColor>
+              <BorderWidth>1</BorderWidth>
+              <ForeColor>0, 0, 0</ForeColor>
+              <HorizontalAlignment>Right</HorizontalAlignment>
+              <UseDesignColorSchema>false</UseDesignColorSchema>
+              <DataFormat>Decimal</DataFormat>
+              <FieldLength>6</FieldLength>
+              <FormatPattern>999999</FormatPattern>
+              <Mode>Output</Mode>
+            </AttributeList>
+            <ObjectList>
+              <Hmi.Globalization.MultiLingualFont ID="11A" CompositionName="Font">
+                <ObjectList>
+                  <Hmi.Globalization.FontItem ID="11B" CompositionName="Items">
+                    <AttributeList>
+                      <Culture>en-US</Culture>
+                      <FontFamily>Tahoma</FontFamily>
+                      <FontSize>15</FontSize>
+                      <FontStyle>Regular</FontStyle>
+                    </AttributeList>
+                  </Hmi.Globalization.FontItem>
+                </ObjectList>
+              </Hmi.Globalization.MultiLingualFont>
+              <MultilingualText ID="11C" CompositionName="HelpText">
+                <ObjectList>
+                  <MultilingualTextItem ID="11D" CompositionName="Items">
+                    <AttributeList>
+                      <Culture>en-US</Culture>
+                      <Text />
+                    </AttributeList>
+                  </MultilingualTextItem>
+                </ObjectList>
+              </MultilingualText>
+              <Hmi.Screen.Property ID="11E" CompositionName="Properties">
+                <AttributeList>
+                  <Name>ProcessValue</Name>
+                </AttributeList>
+                <ObjectList>
+                  <Hmi.Dynamic.TagConnectionDynamic ID="11F" CompositionName="Dynamic">
+                    <AttributeList>
+                      <Indirect>false</Indirect>
+                    </AttributeList>
+                    <LinkList>
+                      <Tag TargetID="@OpenLink">
+                        <Name>AlarmHistSeq</Name>
+                      </Tag>
+                    </LinkList>
+                  </Hmi.Dynamic.TagConnectionDynamic>
+                </ObjectList>
+              </Hmi.Screen.Property>
+            </ObjectList>
+          </Hmi.Screen.IOField>
+          <Hmi.Screen.TextField ID="120" CompositionName="ScreenItems">
+            <AttributeList>
+              <Left>657</Left>
+              <Top>224</Top>
+              <Width>352</Width>
+              <Height>32</Height>
+              <ObjectName>txt_25</ObjectName>
+              <BackFillStyle>Transparent</BackFillStyle>
+              <BorderWidth>0</BorderWidth>
+              <EdgeStyle>None</EdgeStyle>
+              <FitToLargest>false</FitToLargest>
+              <ForeColor>70, 70, 70</ForeColor>
+              <HorizontalAlignment>Left</HorizontalAlignment>
+              <UseDesignColorSchema>false</UseDesignColorSchema>
+              <VerticalAlignment>Middle</VerticalAlignment>
+            </AttributeList>
+            <ObjectList>
+              <Hmi.Globalization.MultiLingualFont ID="121" CompositionName="Font">
+                <ObjectList>
+                  <Hmi.Globalization.FontItem ID="122" CompositionName="Items">
+                    <AttributeList>
+                      <Culture>en-US</Culture>
+                      <FontFamily>Tahoma</FontFamily>
+                      <FontSize>8</FontSize>
+                      <FontStyle>Regular</FontStyle>
+                    </AttributeList>
+                  </Hmi.Globalization.FontItem>
+                </ObjectList>
+              </Hmi.Globalization.MultiLingualFont>
+              <MultilingualText ID="123" CompositionName="Text">
+                <ObjectList>
+                  <MultilingualTextItem ID="124" CompositionName="Items">
+                    <AttributeList>
+                      <Culture>en-US</Culture>
+                      <Text><body><p>Blokirajući alarm zaustavlja dizalicu. Uklonite uzrok i pritisnite POTVRDA; rad se nastavlja.</p></body></Text>
+                    </AttributeList>
+                  </MultilingualTextItem>
+                </ObjectList>
+              </MultilingualText>
+            </ObjectList>
+          </Hmi.Screen.TextField>
+          <Hmi.Screen.TextField ID="125" CompositionName="ScreenItems">
+            <AttributeList>
+              <Left>651</Left>
+              <Top>275</Top>
+              <Width>365</Width>
+              <Height>126</Height>
+              <ObjectName>frm_2</ObjectName>
+              <BackFillStyle>Solid</BackFillStyle>
+              <BorderWidth>1</BorderWidth>
+              <EdgeStyle>Solid</EdgeStyle>
+              <FitToLargest>false</FitToLargest>
+              <ForeColor>0, 0, 0</ForeColor>
+              <HorizontalAlignment>Left</HorizontalAlignment>
+              <UseDesignColorSchema>false</UseDesignColorSchema>
+              <VerticalAlignment>Middle</VerticalAlignment>
+            </AttributeList>
+            <ObjectList>
+              <Hmi.Globalization.MultiLingualFont ID="126" CompositionName="Font">
+                <ObjectList>
+                  <Hmi.Globalization.FontItem ID="127" CompositionName="Items">
+                    <AttributeList>
+                      <Culture>en-US</Culture>
+                      <FontFamily>Tahoma</FontFamily>
+                      <FontSize>15</FontSize>
+                      <FontStyle>Regular</FontStyle>
+                    </AttributeList>
+                  </Hmi.Globalization.FontItem>
+                </ObjectList>
+              </Hmi.Globalization.MultiLingualFont>
+              <MultilingualText ID="128" CompositionName="Text">
+                <ObjectList>
+                  <MultilingualTextItem ID="129" CompositionName="Items">
+                    <AttributeList>
+                      <Culture>en-US</Culture>
+                      <Text><body><p /></body></Text>
+                    </AttributeList>
+                  </MultilingualTextItem>
+                </ObjectList>
+              </MultilingualText>
+            </ObjectList>
+          </Hmi.Screen.TextField>
+          <Hmi.Screen.TextField ID="12A" CompositionName="ScreenItems">
+            <AttributeList>
+              <Left>657</Left>
+              <Top>278</Top>
+              <Width>352</Width>
+              <Height>15</Height>
+              <ObjectName>txt_26</ObjectName>
+              <BackFillStyle>Transparent</BackFillStyle>
+              <BorderWidth>0</BorderWidth>
+              <EdgeStyle>None</EdgeStyle>
+              <FitToLargest>false</FitToLargest>
+              <ForeColor>0, 0, 0</ForeColor>
+              <HorizontalAlignment>Left</HorizontalAlignment>
+              <UseDesignColorSchema>false</UseDesignColorSchema>
+              <VerticalAlignment>Middle</VerticalAlignment>
+            </AttributeList>
+            <ObjectList>
+              <Hmi.Globalization.MultiLingualFont ID="12B" CompositionName="Font">
+                <ObjectList>
+                  <Hmi.Globalization.FontItem ID="12C" CompositionName="Items">
+                    <AttributeList>
+                      <Culture>en-US</Culture>
+                      <FontFamily>Tahoma</FontFamily>
+                      <FontSize>8</FontSize>
+                      <FontStyle>Bold</FontStyle>
+                    </AttributeList>
+                  </Hmi.Globalization.FontItem>
+                </ObjectList>
+              </Hmi.Globalization.MultiLingualFont>
+              <MultilingualText ID="12D" CompositionName="Text">
+                <ObjectList>
+                  <MultilingualTextItem ID="12E" CompositionName="Items">
+                    <AttributeList>
+                      <Culture>en-US</Culture>
+                      <Text><body><p>PROVJERA LISTA (POČETNO STANJE)</p></body></Text>
+                    </AttributeList>
+                  </MultilingualTextItem>
+                </ObjectList>
+              </MultilingualText>
+            </ObjectList>
+          </Hmi.Screen.TextField>
+          <Hmi.Screen.TextField ID="12F" CompositionName="ScreenItems">
+            <AttributeList>
+              <Left>657</Left>
+              <Top>298</Top>
+              <Width>176</Width>
+              <Height>18</Height>
+              <ObjectName>txt_27</ObjectName>
+              <BackFillStyle>Transparent</BackFillStyle>
+              <BorderWidth>0</BorderWidth>
+              <EdgeStyle>None</EdgeStyle>
+              <FitToLargest>false</FitToLargest>
+              <ForeColor>0, 0, 0</ForeColor>
+              <HorizontalAlignment>Left</HorizontalAlignment>
+              <UseDesignColorSchema>false</UseDesignColorSchema>
+              <VerticalAlignment>Middle</VerticalAlignment>
+            </AttributeList>
+            <ObjectList>
+              <Hmi.Globalization.MultiLingualFont ID="130" CompositionName="Font">
+                <ObjectList>
+                  <Hmi.Globalization.FontItem ID="131" CompositionName="Items">
+                    <AttributeList>
+                      <Culture>en-US</Culture>
+                      <FontFamily>Tahoma</FontFamily>
+                      <FontSize>8</FontSize>
+                      <FontStyle>Regular</FontStyle>
+                    </AttributeList>
+                  </Hmi.Globalization.FontItem>
+                </ObjectList>
+              </Hmi.Globalization.MultiLingualFont>
+              <MultilingualText ID="132" CompositionName="Text">
+                <ObjectList>
+                  <MultilingualTextItem ID="133" CompositionName="Items">
+                    <AttributeList>
+                      <Culture>en-US</Culture>
+                      <Text><body><p>Istovar: prvi ID koji nije u Bay 0</p></body></Text>
+                    </AttributeList>
+                  </MultilingualTextItem>
+                </ObjectList>
+              </MultilingualText>
+            </ObjectList>
+          </Hmi.Screen.TextField>
+          <Hmi.Screen.IOField ID="134" CompositionName="ScreenItems">
+            <AttributeList>
+              <Left>833</Left>
+              <Top>298</Top>
+              <Width>43</Width>
+              <Height>18</Height>
+              <ObjectName>io_6</ObjectName>
+              <BackColor>236, 236, 236</BackColor>
+              <BackFillStyle>Solid</BackFillStyle>
+              <BorderColor>128, 128, 128</BorderColor>
+              <BorderWidth>1</BorderWidth>
+              <ForeColor>0, 0, 0</ForeColor>
+              <HorizontalAlignment>Right</HorizontalAlignment>
+              <UseDesignColorSchema>false</UseDesignColorSchema>
+              <DataFormat>Decimal</DataFormat>
+              <FieldLength>3</FieldLength>
+              <FormatPattern>999</FormatPattern>
+              <Mode>Output</Mode>
+            </AttributeList>
+            <ObjectList>
+              <Hmi.Globalization.MultiLingualFont ID="135" CompositionName="Font">
+                <ObjectList>
+                  <Hmi.Globalization.FontItem ID="136" CompositionName="Items">
+                    <AttributeList>
+                      <Culture>en-US</Culture>
+                      <FontFamily>Tahoma</FontFamily>
+                      <FontSize>15</FontSize>
+                      <FontStyle>Regular</FontStyle>
+                    </AttributeList>
+                  </Hmi.Globalization.FontItem>
+                </ObjectList>
+              </Hmi.Globalization.MultiLingualFont>
+              <MultilingualText ID="137" CompositionName="HelpText">
+                <ObjectList>
+                  <MultilingualTextItem ID="138" CompositionName="Items">
+                    <AttributeList>
+                      <Culture>en-US</Culture>
+                      <Text />
+                    </AttributeList>
+                  </MultilingualTextItem>
+                </ObjectList>
+              </MultilingualText>
+              <Hmi.Screen.Property ID="139" CompositionName="Properties">
+                <AttributeList>
+                  <Name>ProcessValue</Name>
+                </AttributeList>
+                <ObjectList>
+                  <Hmi.Dynamic.TagConnectionDynamic ID="13A" CompositionName="Dynamic">
+                    <AttributeList>
+                      <Indirect>false</Indirect>
+                    </AttributeList>
+                    <LinkList>
+                      <Tag TargetID="@OpenLink">
+                        <Name>AlarmUId</Name>
+                      </Tag>
+                    </LinkList>
+                  </Hmi.Dynamic.TagConnectionDynamic>
+                </ObjectList>
+              </Hmi.Screen.Property>
+            </ObjectList>
+          </Hmi.Screen.IOField>
+          <Hmi.Screen.TextField ID="13B" CompositionName="ScreenItems">
+            <AttributeList>
+              <Left>885</Left>
+              <Top>298</Top>
+              <Width>48</Width>
+              <Height>18</Height>
+              <ObjectName>txt_28</ObjectName>
+              <BackFillStyle>Transparent</BackFillStyle>
+              <BorderWidth>0</BorderWidth>
+              <EdgeStyle>None</EdgeStyle>
+              <FitToLargest>false</FitToLargest>
+              <ForeColor>0, 0, 0</ForeColor>
+              <HorizontalAlignment>Left</HorizontalAlignment>
+              <UseDesignColorSchema>false</UseDesignColorSchema>
+              <VerticalAlignment>Middle</VerticalAlignment>
+            </AttributeList>
+            <ObjectList>
+              <Hmi.Globalization.MultiLingualFont ID="13C" CompositionName="Font">
+                <ObjectList>
+                  <Hmi.Globalization.FontItem ID="13D" CompositionName="Items">
+                    <AttributeList>
+                      <Culture>en-US</Culture>
+                      <FontFamily>Tahoma</FontFamily>
+                      <FontSize>8</FontSize>
+                      <FontStyle>Regular</FontStyle>
+                    </AttributeList>
+                  </Hmi.Globalization.FontItem>
+                </ObjectList>
+              </Hmi.Globalization.MultiLingualFont>
+              <MultilingualText ID="13E" CompositionName="Text">
+                <ObjectList>
+                  <MultilingualTextItem ID="13F" CompositionName="Items">
+                    <AttributeList>
+                      <Culture>en-US</Culture>
+                      <Text><body><p>ukupno</p></body></Text>
+                    </AttributeList>
+                  </MultilingualTextItem>
+                </ObjectList>
+              </MultilingualText>
+            </ObjectList>
+          </Hmi.Screen.TextField>
+          <Hmi.Screen.IOField ID="140" CompositionName="ScreenItems">
+            <AttributeList>
+              <Left>933</Left>
+              <Top>298</Top>
+              <Width>32</Width>
+              <Height>18</Height>
+              <ObjectName>io_7</ObjectName>
+              <BackColor>236, 236, 236</BackColor>
+              <BackFillStyle>Solid</BackFillStyle>
+              <BorderColor>128, 128, 128</BorderColor>
+              <BorderWidth>1</BorderWidth>
+              <ForeColor>0, 0, 0</ForeColor>
+              <HorizontalAlignment>Right</HorizontalAlignment>
+              <UseDesignColorSchema>false</UseDesignColorSchema>
+              <DataFormat>Decimal</DataFormat>
+              <FieldLength>2</FieldLength>
+              <FormatPattern>99</FormatPattern>
+              <Mode>Output</Mode>
+            </AttributeList>
+            <ObjectList>
+              <Hmi.Globalization.MultiLingualFont ID="141" CompositionName="Font">
+                <ObjectList>
+                  <Hmi.Globalization.FontItem ID="142" CompositionName="Items">
+                    <AttributeList>
+                      <Culture>en-US</Culture>
+                      <FontFamily>Tahoma</FontFamily>
+                      <FontSize>15</FontSize>
+                      <FontStyle>Regular</FontStyle>
+                    </AttributeList>
+                  </Hmi.Globalization.FontItem>
+                </ObjectList>
+              </Hmi.Globalization.MultiLingualFont>
+              <MultilingualText ID="143" CompositionName="HelpText">
+                <ObjectList>
+                  <MultilingualTextItem ID="144" CompositionName="Items">
+                    <AttributeList>
+                      <Culture>en-US</Culture>
+                      <Text />
+                    </AttributeList>
+                  </MultilingualTextItem>
+                </ObjectList>
+              </MultilingualText>
+              <Hmi.Screen.Property ID="145" CompositionName="Properties">
+                <AttributeList>
+                  <Name>ProcessValue</Name>
+                </AttributeList>
+                <ObjectList>
+                  <Hmi.Dynamic.TagConnectionDynamic ID="146" CompositionName="Dynamic">
+                    <AttributeList>
+                      <Indirect>false</Indirect>
+                    </AttributeList>
+                    <LinkList>
+                      <Tag TargetID="@OpenLink">
+                        <Name>AlarmUCnt</Name>
+                      </Tag>
+                    </LinkList>
+                  </Hmi.Dynamic.TagConnectionDynamic>
+                </ObjectList>
+              </Hmi.Screen.Property>
+            </ObjectList>
+          </Hmi.Screen.IOField>
+          <Hmi.Screen.TextField ID="147" CompositionName="ScreenItems">
+            <AttributeList>
+              <Left>657</Left>
+              <Top>320</Top>
+              <Width>176</Width>
+              <Height>18</Height>
+              <ObjectName>txt_29</ObjectName>
+              <BackFillStyle>Transparent</BackFillStyle>
+              <BorderWidth>0</BorderWidth>
+              <EdgeStyle>None</EdgeStyle>
+              <FitToLargest>false</FitToLargest>
+              <ForeColor>0, 0, 0</ForeColor>
+              <HorizontalAlignment>Left</HorizontalAlignment>
+              <UseDesignColorSchema>false</UseDesignColorSchema>
+              <VerticalAlignment>Middle</VerticalAlignment>
+            </AttributeList>
+            <ObjectList>
+              <Hmi.Globalization.MultiLingualFont ID="148" CompositionName="Font">
+                <ObjectList>
+                  <Hmi.Globalization.FontItem ID="149" CompositionName="Items">
+                    <AttributeList>
+                      <Culture>en-US</Culture>
+                      <FontFamily>Tahoma</FontFamily>
+                      <FontSize>8</FontSize>
+                      <FontStyle>Regular</FontStyle>
+                    </AttributeList>
+                  </Hmi.Globalization.FontItem>
+                </ObjectList>
+              </Hmi.Globalization.MultiLingualFont>
+              <MultilingualText ID="14A" CompositionName="Text">
+                <ObjectList>
+                  <MultilingualTextItem ID="14B" CompositionName="Items">
+                    <AttributeList>
+                      <Culture>en-US</Culture>
+                      <Text><body><p>Ukrcaj: prvi ID koji nije u Bay 1</p></body></Text>
+                    </AttributeList>
+                  </MultilingualTextItem>
+                </ObjectList>
+              </MultilingualText>
+            </ObjectList>
+          </Hmi.Screen.TextField>
+          <Hmi.Screen.IOField ID="14C" CompositionName="ScreenItems">
+            <AttributeList>
+              <Left>833</Left>
+              <Top>320</Top>
+              <Width>43</Width>
+              <Height>18</Height>
+              <ObjectName>io_8</ObjectName>
+              <BackColor>236, 236, 236</BackColor>
+              <BackFillStyle>Solid</BackFillStyle>
+              <BorderColor>128, 128, 128</BorderColor>
+              <BorderWidth>1</BorderWidth>
+              <ForeColor>0, 0, 0</ForeColor>
+              <HorizontalAlignment>Right</HorizontalAlignment>
+              <UseDesignColorSchema>false</UseDesignColorSchema>
+              <DataFormat>Decimal</DataFormat>
+              <FieldLength>3</FieldLength>
+              <FormatPattern>999</FormatPattern>
+              <Mode>Output</Mode>
+            </AttributeList>
+            <ObjectList>
+              <Hmi.Globalization.MultiLingualFont ID="14D" CompositionName="Font">
+                <ObjectList>
+                  <Hmi.Globalization.FontItem ID="14E" CompositionName="Items">
+                    <AttributeList>
+                      <Culture>en-US</Culture>
+                      <FontFamily>Tahoma</FontFamily>
+                      <FontSize>15</FontSize>
+                      <FontStyle>Regular</FontStyle>
+                    </AttributeList>
+                  </Hmi.Globalization.FontItem>
+                </ObjectList>
+              </Hmi.Globalization.MultiLingualFont>
+              <MultilingualText ID="14F" CompositionName="HelpText">
+                <ObjectList>
+                  <MultilingualTextItem ID="150" CompositionName="Items">
+                    <AttributeList>
+                      <Culture>en-US</Culture>
+                      <Text />
+                    </AttributeList>
+                  </MultilingualTextItem>
+                </ObjectList>
+              </MultilingualText>
+              <Hmi.Screen.Property ID="151" CompositionName="Properties">
+                <AttributeList>
+                  <Name>ProcessValue</Name>
+                </AttributeList>
+                <ObjectList>
+                  <Hmi.Dynamic.TagConnectionDynamic ID="152" CompositionName="Dynamic">
+                    <AttributeList>
+                      <Indirect>false</Indirect>
+                    </AttributeList>
+                    <LinkList>
+                      <Tag TargetID="@OpenLink">
+                        <Name>AlarmLId</Name>
+                      </Tag>
+                    </LinkList>
+                  </Hmi.Dynamic.TagConnectionDynamic>
+                </ObjectList>
+              </Hmi.Screen.Property>
+            </ObjectList>
+          </Hmi.Screen.IOField>
+          <Hmi.Screen.TextField ID="153" CompositionName="ScreenItems">
+            <AttributeList>
+              <Left>885</Left>
+              <Top>320</Top>
+              <Width>48</Width>
+              <Height>18</Height>
+              <ObjectName>txt_30</ObjectName>
+              <BackFillStyle>Transparent</BackFillStyle>
+              <BorderWidth>0</BorderWidth>
+              <EdgeStyle>None</EdgeStyle>
+              <FitToLargest>false</FitToLargest>
+              <ForeColor>0, 0, 0</ForeColor>
+              <HorizontalAlignment>Left</HorizontalAlignment>
+              <UseDesignColorSchema>false</UseDesignColorSchema>
+              <VerticalAlignment>Middle</VerticalAlignment>
+            </AttributeList>
+            <ObjectList>
+              <Hmi.Globalization.MultiLingualFont ID="154" CompositionName="Font">
+                <ObjectList>
+                  <Hmi.Globalization.FontItem ID="155" CompositionName="Items">
+                    <AttributeList>
+                      <Culture>en-US</Culture>
+                      <FontFamily>Tahoma</FontFamily>
+                      <FontSize>8</FontSize>
+                      <FontStyle>Regular</FontStyle>
+                    </AttributeList>
+                  </Hmi.Globalization.FontItem>
+                </ObjectList>
+              </Hmi.Globalization.MultiLingualFont>
+              <MultilingualText ID="156" CompositionName="Text">
+                <ObjectList>
+                  <MultilingualTextItem ID="157" CompositionName="Items">
+                    <AttributeList>
+                      <Culture>en-US</Culture>
+                      <Text><body><p>ukupno</p></body></Text>
+                    </AttributeList>
+                  </MultilingualTextItem>
+                </ObjectList>
+              </MultilingualText>
+            </ObjectList>
+          </Hmi.Screen.TextField>
+          <Hmi.Screen.IOField ID="158" CompositionName="ScreenItems">
+            <AttributeList>
+              <Left>933</Left>
+              <Top>320</Top>
+              <Width>32</Width>
+              <Height>18</Height>
+              <ObjectName>io_9</ObjectName>
+              <BackColor>236, 236, 236</BackColor>
+              <BackFillStyle>Solid</BackFillStyle>
+              <BorderColor>128, 128, 128</BorderColor>
+              <BorderWidth>1</BorderWidth>
+              <ForeColor>0, 0, 0</ForeColor>
+              <HorizontalAlignment>Right</HorizontalAlignment>
+              <UseDesignColorSchema>false</UseDesignColorSchema>
+              <DataFormat>Decimal</DataFormat>
+              <FieldLength>2</FieldLength>
+              <FormatPattern>99</FormatPattern>
+              <Mode>Output</Mode>
+            </AttributeList>
+            <ObjectList>
+              <Hmi.Globalization.MultiLingualFont ID="159" CompositionName="Font">
+                <ObjectList>
+                  <Hmi.Globalization.FontItem ID="15A" CompositionName="Items">
+                    <AttributeList>
+                      <Culture>en-US</Culture>
+                      <FontFamily>Tahoma</FontFamily>
+                      <FontSize>15</FontSize>
+                      <FontStyle>Regular</FontStyle>
+                    </AttributeList>
+                  </Hmi.Globalization.FontItem>
+                </ObjectList>
+              </Hmi.Globalization.MultiLingualFont>
+              <MultilingualText ID="15B" CompositionName="HelpText">
+                <ObjectList>
+                  <MultilingualTextItem ID="15C" CompositionName="Items">
+                    <AttributeList>
+                      <Culture>en-US</Culture>
+                      <Text />
+                    </AttributeList>
+                  </MultilingualTextItem>
+                </ObjectList>
+              </MultilingualText>
+              <Hmi.Screen.Property ID="15D" CompositionName="Properties">
+                <AttributeList>
+                  <Name>ProcessValue</Name>
+                </AttributeList>
+                <ObjectList>
+                  <Hmi.Dynamic.TagConnectionDynamic ID="15E" CompositionName="Dynamic">
+                    <AttributeList>
+                      <Indirect>false</Indirect>
+                    </AttributeList>
+                    <LinkList>
+                      <Tag TargetID="@OpenLink">
+                        <Name>AlarmLCnt</Name>
+                      </Tag>
+                    </LinkList>
+                  </Hmi.Dynamic.TagConnectionDynamic>
+                </ObjectList>
+              </Hmi.Screen.Property>
+            </ObjectList>
+          </Hmi.Screen.IOField>
+          <Hmi.Screen.TextField ID="15F" CompositionName="ScreenItems">
+            <AttributeList>
+              <Left>657</Left>
+              <Top>342</Top>
+              <Width>176</Width>
+              <Height>18</Height>
+              <ObjectName>txt_31</ObjectName>
+              <BackFillStyle>Transparent</BackFillStyle>
+              <BorderWidth>0</BorderWidth>
+              <EdgeStyle>None</EdgeStyle>
+              <FitToLargest>false</FitToLargest>
+              <ForeColor>0, 0, 0</ForeColor>
+              <HorizontalAlignment>Left</HorizontalAlignment>
+              <UseDesignColorSchema>false</UseDesignColorSchema>
+              <VerticalAlignment>Middle</VerticalAlignment>
+            </AttributeList>
+            <ObjectList>
+              <Hmi.Globalization.MultiLingualFont ID="160" CompositionName="Font">
+                <ObjectList>
+                  <Hmi.Globalization.FontItem ID="161" CompositionName="Items">
+                    <AttributeList>
+                      <Culture>en-US</Culture>
+                      <FontFamily>Tahoma</FontFamily>
+                      <FontSize>8</FontSize>
+                      <FontStyle>Regular</FontStyle>
+                    </AttributeList>
+                  </Hmi.Globalization.FontItem>
+                </ObjectList>
+              </Hmi.Globalization.MultiLingualFont>
+              <MultilingualText ID="162" CompositionName="Text">
+                <ObjectList>
+                  <MultilingualTextItem ID="163" CompositionName="Items">
+                    <AttributeList>
+                      <Culture>en-US</Culture>
+                      <Text><body><p>Redoslijed liste napušten</p></body></Text>
+                    </AttributeList>
+                  </MultilingualTextItem>
+                </ObjectList>
+              </MultilingualText>
+            </ObjectList>
+          </Hmi.Screen.TextField>
+          <Hmi.Screen.SymbolicIOField ID="164" CompositionName="ScreenItems">
+            <AttributeList>
+              <Left>833</Left>
+              <Top>342</Top>
+              <Width>53</Width>
+              <Height>18</Height>
+              <ObjectName>sym_18</ObjectName>
+              <BackColor>236, 236, 236</BackColor>
+              <BorderColor>128, 128, 128</BorderColor>
+              <BorderWidth>1</BorderWidth>
+              <ForeColor>0, 0, 0</ForeColor>
+              <Mode>Output</Mode>
+              <UseDesignColorSchema>false</UseDesignColorSchema>
+            </AttributeList>
+            <LinkList>
+              <TextList TargetID="@OpenLink">
+                <Name>TL_YesNo</Name>
+              </TextList>
+            </LinkList>
+            <ObjectList>
+              <Hmi.Globalization.MultiLingualFont ID="165" CompositionName="Font">
+                <ObjectList>
+                  <Hmi.Globalization.FontItem ID="166" CompositionName="Items">
+                    <AttributeList>
+                      <Culture>en-US</Culture>
+                      <FontFamily>Tahoma</FontFamily>
+                      <FontSize>15</FontSize>
+                      <FontStyle>Regular</FontStyle>
+                    </AttributeList>
+                  </Hmi.Globalization.FontItem>
+                </ObjectList>
+              </Hmi.Globalization.MultiLingualFont>
+              <MultilingualText ID="167" CompositionName="HelpText">
+                <ObjectList>
+                  <MultilingualTextItem ID="168" CompositionName="Items">
+                    <AttributeList>
+                      <Culture>en-US</Culture>
+                      <Text />
+                    </AttributeList>
+                  </MultilingualTextItem>
+                </ObjectList>
+              </MultilingualText>
+              <Hmi.Screen.Property ID="169" CompositionName="Properties">
+                <AttributeList>
+                  <Name>ProcessValue</Name>
+                </AttributeList>
+                <ObjectList>
+                  <Hmi.Dynamic.TagConnectionDynamic ID="16A" CompositionName="Dynamic">
+                    <AttributeList>
+                      <Indirect>false</Indirect>
+                    </AttributeList>
+                    <LinkList>
+                      <Tag TargetID="@OpenLink">
+                        <Name>OrderFallback</Name>
+                      </Tag>
+                    </LinkList>
+                  </Hmi.Dynamic.TagConnectionDynamic>
+                </ObjectList>
+              </Hmi.Screen.Property>
+            </ObjectList>
+          </Hmi.Screen.SymbolicIOField>
+          <Hmi.Screen.TextField ID="16B" CompositionName="ScreenItems">
+            <AttributeList>
+              <Left>657</Left>
+              <Top>365</Top>
+              <Width>176</Width>
+              <Height>18</Height>
+              <ObjectName>txt_32</ObjectName>
+              <BackFillStyle>Transparent</BackFillStyle>
+              <BorderWidth>0</BorderWidth>
+              <EdgeStyle>None</EdgeStyle>
+              <FitToLargest>false</FitToLargest>
+              <ForeColor>0, 0, 0</ForeColor>
+              <HorizontalAlignment>Left</HorizontalAlignment>
+              <UseDesignColorSchema>false</UseDesignColorSchema>
+              <VerticalAlignment>Middle</VerticalAlignment>
+            </AttributeList>
+            <ObjectList>
+              <Hmi.Globalization.MultiLingualFont ID="16C" CompositionName="Font">
+                <ObjectList>
+                  <Hmi.Globalization.FontItem ID="16D" CompositionName="Items">
+                    <AttributeList>
+                      <Culture>en-US</Culture>
+                      <FontFamily>Tahoma</FontFamily>
+                      <FontSize>8</FontSize>
+                      <FontStyle>Regular</FontStyle>
+                    </AttributeList>
+                  </Hmi.Globalization.FontItem>
+                </ObjectList>
+              </Hmi.Globalization.MultiLingualFont>
+              <MultilingualText ID="16E" CompositionName="Text">
+                <ObjectList>
+                  <MultilingualTextItem ID="16F" CompositionName="Items">
+                    <AttributeList>
+                      <Culture>en-US</Culture>
+                      <Text><body><p>Korišteni način redoslijeda</p></body></Text>
+                    </AttributeList>
+                  </MultilingualTextItem>
+                </ObjectList>
+              </MultilingualText>
+            </ObjectList>
+          </Hmi.Screen.TextField>
+          <Hmi.Screen.SymbolicIOField ID="170" CompositionName="ScreenItems">
+            <AttributeList>
+              <Left>833</Left>
+              <Top>365</Top>
+              <Width>160</Width>
+              <Height>18</Height>
+              <ObjectName>sym_19</ObjectName>
+              <BackColor>236, 236, 236</BackColor>
+              <BorderColor>128, 128, 128</BorderColor>
+              <BorderWidth>1</BorderWidth>
+              <ForeColor>0, 0, 0</ForeColor>
+              <Mode>Output</Mode>
+              <UseDesignColorSchema>false</UseDesignColorSchema>
+            </AttributeList>
+            <LinkList>
+              <TextList TargetID="@OpenLink">
+                <Name>TL_Order</Name>
+              </TextList>
+            </LinkList>
+            <ObjectList>
+              <Hmi.Globalization.MultiLingualFont ID="171" CompositionName="Font">
+                <ObjectList>
+                  <Hmi.Globalization.FontItem ID="172" CompositionName="Items">
+                    <AttributeList>
+                      <Culture>en-US</Culture>
+                      <FontFamily>Tahoma</FontFamily>
+                      <FontSize>15</FontSize>
+                      <FontStyle>Regular</FontStyle>
+                    </AttributeList>
+                  </Hmi.Globalization.FontItem>
+                </ObjectList>
+              </Hmi.Globalization.MultiLingualFont>
+              <MultilingualText ID="173" CompositionName="HelpText">
+                <ObjectList>
+                  <MultilingualTextItem ID="174" CompositionName="Items">
+                    <AttributeList>
+                      <Culture>en-US</Culture>
+                      <Text />
+                    </AttributeList>
+                  </MultilingualTextItem>
+                </ObjectList>
+              </MultilingualText>
+              <Hmi.Screen.Property ID="175" CompositionName="Properties">
+                <AttributeList>
+                  <Name>ProcessValue</Name>
+                </AttributeList>
+                <ObjectList>
+                  <Hmi.Dynamic.TagConnectionDynamic ID="176" CompositionName="Dynamic">
+                    <AttributeList>
+                      <Indirect>false</Indirect>
+                    </AttributeList>
+                    <LinkList>
+                      <Tag TargetID="@OpenLink">
+                        <Name>OrderModeAct</Name>
+                      </Tag>
+                    </LinkList>
+                  </Hmi.Dynamic.TagConnectionDynamic>
+                </ObjectList>
+              </Hmi.Screen.Property>
+            </ObjectList>
+          </Hmi.Screen.SymbolicIOField>
+        </ObjectList>
+      </Hmi.Screen.ScreenLayer>
+    </ObjectList>
+  </Hmi.Screen.Screen>
+</Document>

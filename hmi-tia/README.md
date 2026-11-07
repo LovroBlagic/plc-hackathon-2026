@@ -1,10 +1,33 @@
 # hmi-tia: generated WinCC RT Advanced HMI for the crane (TIA task 2)
 
-**Method: Openness XML round-trip.**
-1. A human draws a few prototypes once.
-2. `HmiGen.exe --export` exports them.
-3. `gen_hmi.py` clones them according to `layout.json`.
-4. `HmiGen.exe --import` imports the result (Override) and compiles.
+**Method (7 Nov 17:20, HMI builder agent): Openness XML import, with no hand-drawn prototypes.**
+1. `proto_src.py` writes the prototype objects (`proto/`) in the real SimaticML schema. The schema was verified by importing each object type into HMI_RT_1; see "Verified SimaticML schema" below and `lab/r1.log`…`r5.log`.
+2. `gen_hmi.py all --export proto --out out` clones the prototypes according to `layout.json`, producing tags, text lists, template `Tpl` and the screens.
+3. `alarms_screen.py out` writes the empty `Alarms` screen.
+4. `HmiLab.exe --import out --compile` imports everything. Use `--attach` to import into an open GUI TIA.
+   - It imports one file at a time with the full error text and the Override option, and skips the hand-edited `Alarms` screen if it already exists.
+   - It keeps `tia-work\openness.lock` alive with a heartbeat every 2 minutes.
+
+One command, from the repo root:
+```
+python hmi-tia\proto_src.py; python hmi-tia\gen_hmi.py all --export hmi-tia\proto --out hmi-tia\out; python hmi-tia\alarms_screen.py hmi-tia\out
+hmi-tia\HmiLab.exe --project <abs project dir> --lock hmi-builder --import <abs>\hmi-tia\out --compile [--attach]
+```
+
+### Verified SimaticML schema (WinCC RT Advanced, V21)
+| What | XML |
+|---|---|
+| Events | `Hmi.Event.Event[Events]` (Name=Press) > `Hmi.Event.FunctionListEventHandler[EventHandler]` > `Hmi.Event.FunctionListEntry[FunctionListEntries]` (Name=SetBit, Type=SystemFunction) > `Hmi.Event.FunctionListEntryParameter[Parameters]` (Name=Tag, LinkList `<Value TargetID="@OpenLink"><Name>tag</Name></Value>`) |
+| Screen change | ActivateScreen: parameter "Screen name" (Value link to the screen) plus "Object number" (`<Value Type="System.Int32">0</Value>`) |
+| Appearance | `Hmi.Dynamic.RangeAppearanceAnimation[Animations]` > `Hmi.Dynamic.TagElementTrigger[RangeTag]` + `Hmi.Dynamic.Range[RangeValues]` (LowerLimit, UpperLimit, BackColor, ForeColor, FlashingType No/Medium) |
+| Movement | `Hmi.Dynamic.Horizontal/VerticalMovementAnimation[Animations]` (RangeStart, RangeEnd, XPosEnd/YPosEnd, XDelta, YDelta; the start position is the object's Left/Top) > `Hmi.Dynamic.TagElementTrigger[MovementTag]` |
+| Text list | `ListRange` is Decimal, Binary or Bit ("Range" is rejected) |
+| Screen size | Must equal the device size. HMI_RT_1 is 1024×768, and a 1920×1080 screen aborts TIA (NonRecoverableException). `layout.json` therefore uses scale 0.5333 with device_w/h 1024×768 |
+| Not importable | Alarm view (`Hmi.Screen.AlarmView` gives "not supported"); there is no Openness API for Classic discrete alarms. Screen resolution and start screen are not exposed as attributes |
+
+Main view = the existing screen `Screen_1`, which is the device start screen, so no start-screen setting is needed. Nav "GLAVNI PRIKAZ" → Screen_1.
+
+**Old method (superseded):** a human drew the prototypes, `HmiGen.exe --export` exported them, `gen_hmi.py` cloned them, and `HmiGen.exe --import` imported the result.
 
 The HMI touches only DB101 `"HMI_IF"` (CONTRACT §1.3).
 

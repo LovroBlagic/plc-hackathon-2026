@@ -31,6 +31,10 @@ Read this first on the second laptop. `git pull` first; AGENTS.md has the backgr
    - Run `tools/plcsim/crane_sim_test.py` on the same 8 sets.
    - The model must use `--mmode 0`. Compare MSpec, MD107, T, the final yard and the command sequence.
    - Write results to `tools/plcsim/results_v17/` and `tia-src/PLCSIM_RESULTS_v17.md` (new file; don't edit PLCSIM_RESULTS.md).
+   - **Fix the harness first (verifier finding, 17:30).** `tools/plcsim/crane_sim_test.py:201` and `crane_scenarios.py:100,116` compare MD107 (FB1 counts +1 per command) with the model's `M`, which is now the spec-rule M (mode 0), so every v1.7 run would FAIL falsely.
+     - Compare MD107 with `len(mod["commands"])`.
+     - Compare `HMI_IF.M` (spec rule) with `mod["M"]`.
+     - Download with re-initialisation, so that World gets `CfgMMode = 0`. Check that online.
    - Rebuild `tools/plcsim/bin` with `tools/plcsim/build.ps1`. It is gitignored because it contains a copied Siemens DLL.
 2. **Pitch / presentation for the crane** (finale Mon 9 Nov; prep Sun 09–12): update `plans/PITCH_CRANE.md` → `plans/PITCH_CRANE_v17.md` (new file):
    - J numbers from `tia-src/JUDGING.md` / STATUS v1.7 (spec M rule)

@@ -122,5 +122,5 @@ The **AlarmLog** screen shows:
 
 ## Open items to settle with the organizers
 1. **M rule (decided by the team, v1.7).** We follow the spec text: a diagonal move = 2. The given FB1 counts +1 per command (MD107); both are shown, the spec value as the primary M. If the organizers say MD107 is scored, set `World.CfgMMode` = 2 (and CfgAlpha [0, 100, 200, 300]).
-2. **List order.** Must the lists be processed in list order? Spec §2 lists "Odlučivanje o redoslijedu kontejnera za manipulaciju" (deciding the container order) as an FB10 task, which suggests the order is free. Free order is worth about −0.8 % J (1.0626 → 1.0538). Switch with `HMI_IF.CfgOrderMode = 0`.
+2. **List order.** Must the lists be processed in list order? Spec §2 lists "Odlučivanje o redoslijedu kontejnera za manipulaciju" (deciding the container order) as an FB10 task, which suggests the order is free. Free order is worth about −0.8 % J under FB1 counting (1.0626 → 1.0538) and **−4.9 % under the spec M rule (1.1639 → 1.1069)**. Switch with `HMI_IF.CfgOrderMode = 0`.
 3. **Grading view.** Does the jury read DB10/DB11 or the HMI? Both are live now.
