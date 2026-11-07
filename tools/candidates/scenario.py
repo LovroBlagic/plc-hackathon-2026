@@ -15,6 +15,19 @@ Idea (peak is ~88 % of the gap to the LP bound):
     time of day and SoC, and the paid peak is raised only when the scenarios really require it.
 Rules: past data only (own measurements, price tables), no embedded profiles.
 API: make(**kw) -> ctrl(obs) for twin.simulate; config(mode) -> tuned kwargs; v5_config(mode).
+     make_mode(mode) = make(**config(mode)).   python tools/candidates/scenario.py [mode] [dataset]
+
+ST port notes (only needed if the candidate is adopted):
+  * new data: rResF, rResP : ARRAY[0..671] OF REAL (ring buffers, 7 days x 96, index k MOD 672) + xHave BOOL
+    array; scenario s, horizon step i uses index (k + i - 96*s) MOD 672 (always in the past since h <= 96).
+  * per step: write residual (actual - profile forecast BEFORE the EMA update) -> 2 subtractions.
+  * cap: unchanged v5 bisection on the pessimistic trajectory (capsrc 'v5', as in config()).
+  * deferral (only when the DP's first-step import exceeds the paid peak and SoC > floor):
+    bisection over the import level x (6 iterations) x K(=5, +1 for the v5 trajectory in S2) scenarios x 95 steps,
+    each step = the existing F_Feasible inner loop body (compare, 1 mul, 1 MIN, add).
+  * ops/step: DP 27k + v5 cap 1.2k (unchanged) + scenario build 0.5k + deferral <= 6*6*95 = 3.4k
+    => ~32k inner iterations worst case (~1.2x v5); the per-scenario caps (capsrc 'scen') would add
+    K*12*96 = 5.8k more (~1.4x v5).
 """
 import os, sys, math
 import numpy as np
@@ -242,7 +255,10 @@ def v5_config(mode):
 
 
 # tuned configs (filled after tuning; see report)
-CFG = {0: dict(), 1: dict(ksig=0.0, pvf=0.2, hi_dp="exp")}
+CFG = {0: dict(capsrc="v5", ksig=0.75, pvf=0.6, hi_dp="v5", K=5, defer=True, defer_mode="full", defer_chk="scen",
+              defer_soc=80.0),
+       1: dict(capsrc="v5", ksig=0.0, pvf=0.2, hi_dp="exp", K=5, qsel=1, defer=True, defer_mode="full",
+              defer_chk="cov", defer_soc=50.0)}
 
 
 def config(mode):
@@ -252,3 +268,15 @@ def config(mode):
 def make_mode(mode, **over):
     kw = config(mode); kw.update(over)
     return make(**kw)
+
+
+if __name__ == "__main__":
+    import twin
+    mode = int(sys.argv[1]) if len(sys.argv) > 1 else 0
+    data = None
+    if len(sys.argv) > 2:
+        sys.path.insert(0, os.path.join(os.path.dirname(HERE), "datasets"))
+        from loader import load_dataset
+        data = load_dataset(sys.argv[2])
+    r = twin.simulate(make_mode(mode), mode, data=data)
+    print("scenario m%d %s" % (mode, twin.fmt(r)))

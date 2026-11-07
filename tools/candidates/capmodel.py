@@ -131,7 +131,7 @@ def make(H=96, dE=40.0, pen=20.0, tvf=0.9, pvf=0.6, cap_margin=1.02, a_fec=0.5, 
          # ---- capmodel ----
          scen=True, NW=10, NWE=4, smin=4, r_early=1, r_late=0, dl_thr=10, W=4, otau=16.0, ocorr=True,
          ev_hist=True, combine="scen", dpprof="crit", pre_w=0.0, floor_f=0.0, floor_q=0.5, floor_n=20,
-         pvf_scen=1.0, term_w=0.0, term_T="plan", term_r=0, term_min_h=0, qd_f=1.0, pvs="pvf", kpv=2.0, a_pvs=0.1, floor_src="rd", floor_nm=2, dbg=None):
+         pvf_scen=1.0, term_w=0.0, term_T="plan", term_r=0, term_min_h=0, qd_f=1.0, pvs="pvf", kpv=2.0, a_pvs=0.1, floor_src="rd", floor_nm=2, floor_agg="mean", dbg=None):
     fc = Forecaster(a_fec, a_pv, a_sig, cw, ctau, True, True)
     Forecaster.D7 = False
     fc.coldmax = coldmax
@@ -303,7 +303,8 @@ def make(H=96, dE=40.0, pen=20.0, tvf=0.9, pvf=0.6, cap_margin=1.02, a_fec=0.5, 
             T = max(T, min(LIM_IMP, floor_f * float(np.quantile(Rd, floor_q))))
         if floor_f > 0 and floor_src == "prev" and st.get("prevpk"):
             pp = st["prevpk"][-floor_nm:]
-            T = max(T, min(LIM_IMP, floor_f * sum(pp) / len(pp)))
+            base_ = min(pp) if floor_agg == "min" else sum(pp) / len(pp)
+            T = max(T, min(LIM_IMP, floor_f * base_))
         tv = float(np.mean(ci)) * tvf
         V = -Egrid * tv
         if term_w > 0 and len(lib[0]) >= smin and h >= term_min_h and k + h < 35040:
