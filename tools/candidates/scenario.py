@@ -254,7 +254,10 @@ def v5_config(mode):
     return S.st_config(mode)
 
 
-# tuned configs (filled after tuning; see report)
+# Tuned configs. RESULT (full year, twin): no gain vs v5. S1 mean +45 EUR over practice+variants 1..5
+# (+8/+83/-71/+172/+23/+52), S2 mean +16 EUR (+75/+68/-195/+97/-63/+111); suite: syn_peaky S1 +143 / S2 -880,
+# stress_combo S1 +251 / S2 +239. Scenario-derived CAPS (capsrc='scen') were clearly worse in 4-month screens
+# (S1 +500..+1300, S2 +200..+800), so the cap stays the v5 one and only the deferral uses the scenarios.
 CFG = {0: dict(capsrc="v5", ksig=0.75, pvf=0.6, hi_dp="v5", K=5, defer=True, defer_mode="full", defer_chk="scen",
               defer_soc=80.0),
        1: dict(capsrc="v5", ksig=0.0, pvf=0.2, hi_dp="exp", K=5, qsel=1, defer=True, defer_mode="full",
