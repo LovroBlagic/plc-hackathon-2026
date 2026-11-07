@@ -75,7 +75,7 @@ def _min_caps(E0, arrs, lo):
 
 
 def make(K=5, D=7, rs=1.0, rs_pv=1.0, qsel=0, cap_margin=1.02, with_v5=False, capsrc="scen",
-         defer=True, defer_set="covered", defer_min=0.0, defer_k0=672, scen_k0=672, hi_dp="v5", ksig=0.75, pvf=0.6, a_fec=0.5, a_pv=0.3,
+         defer=True, defer_set="covered", defer_min=0.0, defer_k0=672, scen_k0=672, defer_mode="full", defer_soc=0.0, defer_chk="cov", hi_dp="v5", ksig=0.75, pvf=0.6, a_fec=0.5, a_pv=0.3,
          a_sig=0.3, cw=4, ctau=16.0, coldmax=True, dE=40.0, hmax=96, nacts=41, pen=20.0, tvf=0.9,
          neg_curt=True, pvneg=True, dbg=None):
     """K scenarios from the last K days' residuals (ring buffer D>=K days). rs/rs_pv scale FEC/PV residuals.
@@ -202,13 +202,19 @@ def make(K=5, D=7, rs=1.0, rs_pv=1.0, qsel=0, cap_margin=1.02, with_v5=False, ca
         if n[0] - pb > T:
             pb = min(bd, n[0] - T)
         g0 = n[0] - pb
-        if defer and k >= defer_k0 and g0 > Sp + 1e-6 and h > 1 and cov.any():
+        if defer and k >= defer_k0 and o["soc"] > defer_soc and g0 > Sp + 1e-6 and h > 1 and cov.any():
             # lowest import level x in [Sp, g0] that keeps every covered scenario feasible with cap T
-            xs = np.linspace(Sp, g0, 17)
-            pbs = np.minimum(n[0] - xs, bd)
+            xlo = Sp if defer_mode == "full" else max(Sp, min(g0, n[0]))   # 'charge': only cut charging
+            xs = np.linspace(xlo, g0, 17)
+            # SoC floor: deferral may only spend the energy above defer_soc (never less than the DP's pb)
+            pbfl = max(pb, (o["soc"] - defer_soc) / 100 * P["CAP"] * P["ETA_D"] / TS)
+            pbs = np.minimum(np.minimum(n[0] - xs, bd), pbfl)
             E1x = E0 + np.where(pbs < 0, -pbs * TS * P["ETA_C"], -pbs * TS / P["ETA_D"])
-            arr = scen[cov][:, 1:]
-            ok = _feas_grid(E1x[:, None], arr, np.full(len(xs), T)).all(axis=1)
+            if defer_chk == "none":
+                ok = np.ones(len(xs), dtype=bool)
+            else:
+                sel = scen[cov] if defer_chk == "cov" else scen[:K]
+                ok = _feas_grid(E1x[:, None], sel[:, 1:], np.full(len(xs), T)).all(axis=1)
             if ok.any():
                 jx = int(np.flatnonzero(ok)[0])
                 if g0 - xs[jx] > defer_min:

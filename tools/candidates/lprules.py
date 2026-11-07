@@ -42,7 +42,7 @@ from strategies import (Forecaster, guard, bc_max, bd_max, ev_max, LIM_IMP, LIM_
 V5 = {0: dict(realistic=True, cw=4, dE=40.0, hmax=96, coldmax=True, nacts=41, ksig=0.75, hi_in_dp=True, pvf=0.6),
       1: dict(realistic=True, cw=4, dE=40.0, hmax=96, coldmax=True, nacts=41, ksig=0.0, hi_in_dp=False, pvf=0.2)}
 
-NEUTRAL = dict(late_eps=0.0, gl_E=0.0, gl_q0=28, gl_q1=68, gl_rho=0.0, gl_we=0.0, chg_exp=False,
+NEUTRAL = dict(late_eps=0.0, late_tv=False, gl_E=0.0, gl_q0=28, gl_q1=68, gl_rho=0.0, gl_we=0.0, chg_exp=False,
                hb_n=0, hb_f=1.0)
 
 # tuned per-mode defaults (filled in after tuning; see report)
@@ -62,8 +62,8 @@ def make_s2(**kw):
 
 def make(mode=0, H=96, dE=40.0, pen=20.0, tvf=0.9, pvf=None, cap_margin=1.02, a_fec=0.5, a_pv=0.3, a_sig=0.3,
          nacts=41, ksig=None, hi_in_dp=None, cw=4, ctau=16.0, hmax=96, coldmax=True,
-         late_eps=0.0, gl_E=0.0, gl_q0=28, gl_q1=68, gl_rho=0.0, gl_we=0.0, chg_exp=False, hb_n=0, hb_f=1.0,
-         **_ignored):
+         late_eps=0.0, late_tv=False, gl_E=0.0, gl_q0=28, gl_q1=68, gl_rho=0.0, gl_we=0.0, chg_exp=False, hb_n=0,
+         hb_f=1.0, **_ignored):
     v5 = V5[mode]
     pvf = v5["pvf"] if pvf is None else pvf
     ksig = v5["ksig"] if ksig is None else ksig
@@ -181,6 +181,8 @@ def make(mode=0, H=96, dE=40.0, pen=20.0, tvf=0.9, pvf=None, cap_margin=1.02, a_
             T = min(T, ceil_)
         tv = float(np.mean(ci)) * tvf
         cid = ci if late_eps == 0.0 else ci * (1.0 + late_eps * np.arange(h) / 96.0)
+        if late_tv and late_eps != 0.0:      # pure time preference: terminal value scaled consistently
+            tv *= 1.0 + late_eps * h / 96.0
 
         V = -Elev * tv
         for i in range(h - 1, 0, -1):

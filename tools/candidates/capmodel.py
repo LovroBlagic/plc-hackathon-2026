@@ -131,7 +131,7 @@ def make(H=96, dE=40.0, pen=20.0, tvf=0.9, pvf=0.6, cap_margin=1.02, a_fec=0.5, 
          # ---- capmodel ----
          scen=True, NW=10, NWE=4, smin=4, r_early=1, r_late=0, dl_thr=10, W=4, otau=16.0, ocorr=True,
          ev_hist=True, combine="scen", dpprof="crit", pre_w=0.0, floor_f=0.0, floor_q=0.5, floor_n=20,
-         pvf_scen=1.0, term_w=0.0, term_T="plan", term_r=0, term_min_h=0, dbg=None):
+         pvf_scen=1.0, term_w=0.0, term_T="plan", term_r=0, term_min_h=0, qd_f=1.0, pvs="pvf", kpv=2.0, a_pvs=0.1, dbg=None):
     fc = Forecaster(a_fec, a_pv, a_sig, cw, ctau, True, True)
     Forecaster.D7 = False
     fc.coldmax = coldmax
@@ -150,6 +150,7 @@ def make(H=96, dE=40.0, pen=20.0, tvf=0.9, pvf=0.6, cap_margin=1.02, a_fec=0.5, 
     Rd = []                                       # recent daily R_d (all day types), newest last
     cur = dict(day=-1, base=np.zeros(96), ev=np.zeros(96))
     st = dict(month=0, T=0.0, evlast=0.0)
+    pvdev = np.zeros(96)                          # learned PV downside deviation per quarter-hour
 
     def stepcost(n, ci, ce, T, b, nh):
         g = n - b
@@ -165,12 +166,16 @@ def make(H=96, dE=40.0, pen=20.0, tvf=0.9, pvf=0.6, cap_margin=1.02, a_fec=0.5, 
             if cur["day"] >= 0:
                 dt0 = _dt(_wd(cur["day"]))
                 L = lib[dt0]
-                L.insert(0, (cur["base"].copy(), cur["ev"].copy()))
+                Rnew = _req_full(cur["base"] + cur["ev"])
+                L.insert(0, (cur["base"].copy(), cur["ev"].copy(), Rnew))
                 del L[cap_n[dt0]:]
-                Rd.append(_req_full(cur["base"] + cur["ev"]))
+                Rd.append(Rnew)
                 del Rd[:-floor_n]
             cur["day"] = day; cur["base"][:] = 0.0; cur["ev"][:] = 0.0
         cur["base"][q] = o["fec"] - o["fne"]
+        p0_ = fc.pv[q]
+        if p0_ is not None:
+            pvdev[q] += a_pvs * (max(p0_ - o["fne"], 0.0) - pvdev[q])
         fc.update(t, o["fec"], o["fne"], o["vt"])
         evm = [ev_max(e) for e in o["ev"]]
         if realistic and o["mode"] == 1:
@@ -205,7 +210,13 @@ def make(H=96, dE=40.0, pen=20.0, tvf=0.9, pvf=0.6, cap_margin=1.02, a_fec=0.5, 
         st["T"] = max(st["T"], o["mpeak"])
         E0 = (o["soc"] - P["SOC_MIN"]) / 100 * P["CAP"]
         # ---- v5 cap (pessimistic single trajectory) ----
-        npk = n.copy(); npk[1:] += (1 - pvf) * pvh[1:]
+        npk = n.copy()
+        if pvs == "pvf":
+            npk[1:] += (1 - pvf) * pvh[1:]
+        else:
+            qs = (k + np.arange(1, h)) % 96
+            dsig = np.minimum(kpv * pvdev[qs], pvh[1:])
+            npk[1:] += dsig if pvs == "sig" else np.minimum(dsig, (1 - pvf) * pvh[1:])
         for i in range(1, h):
             npk[i] += ksig * fc.sig_at(k + i)
         T5 = _cap_v5(E0, npk, st["T"], cap_margin)
@@ -225,7 +236,7 @@ def make(H=96, dE=40.0, pen=20.0, tvf=0.9, pvf=0.6, cap_margin=1.02, a_fec=0.5, 
                     Ld = lib[_dt(_wd(dd))]
                     seg = min(h - i, 96 - qq0)
                     if Ld:
-                        b_, e_ = Ld[s % len(Ld)]
+                        b_, e_ = Ld[s % len(Ld)][:2]
                         arrb[s, i:i + seg] = b_[qq0:qq0 + seg]
                         arre[s, i:i + seg] = e_[qq0:qq0 + seg]
                     else:
@@ -261,6 +272,13 @@ def make(H=96, dE=40.0, pen=20.0, tvf=0.9, pvf=0.6, cap_margin=1.02, a_fec=0.5, 
                 T = max(T5, Tq)
             elif combine == "v5":
                 T = T5
+            elif combine == "qday":
+                # pessimistic v5 cap, but not above max(learned high-quantile daily requirement of this
+                # day type with a full battery, the requirement of the expected forecast from now)
+                Rs = sorted((x[2] for x in lib[dtoday]), reverse=True)
+                Qd = Rs[min(r, len(Rs) - 1)] * qd_f
+                Tx = _cap_v5(E0, n, st["T"], cap_margin)
+                T = max(st["T"], min(T5, max(Qd, Tx)))
             elif combine == "avg":
                 T = 0.5 * (T5 + Tq)
             if dpprof == "crit":
@@ -296,7 +314,7 @@ def make(H=96, dE=40.0, pen=20.0, tvf=0.9, pvf=0.6, cap_margin=1.02, a_fec=0.5, 
                     kk = ke + i; qq0 = kk % 96
                     Ld = lib[_dt(_wd(kk // 96))] or lib[0]
                     seg = min(96 - i, 96 - qq0)
-                    b_, e_ = Ld[s_ % len(Ld)]
+                    b_, e_ = Ld[s_ % len(Ld)][:2]
                     g[i:i + seg] = b_[qq0:qq0 + seg] + e_[qq0:qq0 + seg]
                     i += seg
                 nd = 0.0
